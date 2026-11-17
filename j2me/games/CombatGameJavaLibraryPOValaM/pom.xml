@@ -1,0 +1,142 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>org.allbinary</groupId>
+  <artifactId>CombatGameJavaLibraryPOMVala</artifactId>
+  <packaging>pom</packaging>
+  <!-- AllBinary Platform Version Start -->
+  <version>1.0.0-SNAPSHOT</version>
+  <!-- AllBinary Platform Version End -->
+
+  <name>CombatGameJavaLibraryPOMVala</name>
+  <url>http://www.allbinary.com/</url>
+    <distributionManagement>
+        <snapshotRepository>
+            <id>nexus-snapshots</id>
+            <name>AllBinary Snapshots Nexus</name>
+            <url>https://nexus-allbinary.rhcloud.com/nexus/content/repositories/snapshots/</url>
+        </snapshotRepository>
+        <repository>
+            <id>nexus-releases</id>
+            <name>AllBinary Releases Nexus</name>
+            <url>https://nexus-allbinary.rhcloud.com/nexus/content/repositories/releases/</url>
+        </repository>
+    </distributionManagement>
+
+    <properties>
+        <buildLabel>${project.version}</buildLabel>
+        <assemblyPluginVersion>2.2-beta-1</assemblyPluginVersion>
+    </properties>
+
+    <modules>
+
+        <!--
+
+        -->
+
+        <module>../../games/TickableJavaLibraryValaM</module>
+
+        <module>../../games/CommonHeadsUpDisplayLibraryValaM</module>
+
+        <module>../../../physics/MovementJavaLibraryValaM</module>
+        <!--        -->
+        <module>../../games/PartsJavaLibraryValaM</module>
+        <module>../../games/PickupGameJavaLibraryValaM</module>
+
+        <module>../../../allbinary_src/licensing/HardCodedLicenseInitInfoJavaLibraryValaM</module>
+        <module>../../../allbinary_src/licensing/FileLicenseInitInfoJavaLibraryValaM</module>
+        <module>../../../allbinary_src/licensing/ClientInfoLicensingJavaLibraryValaM</module>
+
+        <module>../../games/licensing/PartnerJ2MEJavaLibraryValaM</module>
+        <!--<module>../../games/licensing/PartnerHTMLJavaLibraryValaM</module>-->
+        <!--<module>../../games/licensing/PartnerAndroidJavaLibraryValaM</module>-->
+        <module>../../games/licensing/NoGameLicensingJavaLibraryValaM</module>
+        <module>../../games/licensing/GameLicensingOnlyDemoJavaLibraryValaM</module>
+        <!--<module>../../games/licensing/GameLicensingOnlyNormalJavaLibraryValaM</module>-->
+        <module>../../games/licensing/GameLicensingBaseJavaLibraryValaM</module>
+
+        <!--
+        <module>../../games/GameScoresBaseLibraryValaM</module>
+        <module>../../games/GameScoresBaseHTMLLibraryValaM</module>
+        <module>../../games/GameScoresBaseJ2MELibraryValaM</module>
+        -->
+        <module>../../games/GameScoresLocalJavaLibraryValaM</module>
+        <!--<module>../../games/GameScoresRemoteAndLocalJavaLibraryValaM</module>-->
+
+        <module>../../../store/ThirdPartyStoreJavaLibraryValaM</module>
+        <module>../../../store/NoThirdPartyStoreJavaLibraryValaM</module>
+
+        <module>../../media/graphics/layer/CollisionLayerJavaLibraryValaM</module>
+        <module>../../games/CollisionLibraryValaM</module>
+
+        <module>../../games/multiplayer/AllBinaryGameClientBaseNullJavaLibraryValaM</module>
+
+        <module>../../games/PickupLayerJavaLibraryValaM</module>
+
+        <module>../../games/DamageGameJavaLibraryValaM</module>
+        <module>../../games/DropJavaLibraryValaM</module>
+        <module>../../games/WeaponLayerJavaLibraryValaM</module>
+
+        <module>../../games/CombatGameJavaLibraryValaM</module>
+        <module>../../games/LifeJavaLibraryValaM</module>
+
+        <module>../../games/CommonHeadsUpDisplayCombatGameLibraryValaM</module>
+        <module>../../games/LifeOrDeathDataJavaLibraryValaM</module>
+
+        <module>../../games/BasicWeaponPartsJavaLibraryValaM</module>
+        <module>../../games/weapon/WeaponPropertiesJavaLibraryValaM</module>
+
+        <module>../../games/weapon/WeaponMineJavaLibraryValaM</module>
+
+        <!--
+        <module>../../media/graphics/effects/fireworks/FireworksJavaLibraryValaM</module>
+        -->
+
+        <module>../../media/graphics/geography/map/TerrainEventJavaLibraryValaM</module>
+
+<!--
+        <module>../../media/graphics/geography/map/BasicPlatformGeographicMapJavaLibraryValaM</module>
+        -->
+
+        <!--
+        <module>../../media/graphics/geography/map/RaceTrackValaP</module>
+        -->
+
+        <!--
+        XmlRpcJavaLibrary
+        RemoteXmlRpcJavaLibrary
+
+        Since POMs are built before the other libs is it best to handle this differently
+        ../../
+        <module>../../../../workvala/j2me/games/strategy/rts/RTSGameJavaLibraryValaP</module>
+        -->
+
+        <module>../../media/graphics/OtherGraphicsMediaLibraryValaP</module>
+
+        <module>../../input/NoTouchButtonResourceAnimationJavaLibraryValaM</module>
+        <module>../../input/TouchButtonResourceAnimationJavaLibraryValaM</module>
+        <module>../../input/TouchButtonResourceOpenGLESAnimationJavaLibraryValaM</module>
+
+        <module>../../input/TrackingEventJavaLibraryValaM</module>
+        <module>../../../game/behavior/BehaviorLibraryValaP</module>
+
+        <module>../../media/sound/OtherSoundMediaLibraryValaP</module>
+
+        <module>../../../allbinary_src/licensing/ApplicationConfigurationJavaLibraryValaM</module>
+        <module>../../../allbinary_src/licensing/ApplicationConfigurationNoFSJavaLibraryValaM</module>
+        <module>../../input/AllBinaryMagneticFieldSensorJavaLibraryValaM</module>
+        <!--<module>../../android/VirtualKeyboardJavaLibraryValaM</module>-->
+
+    </modules>
+
+    <dependencies>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>3.8.1</version>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+
+</project>
+

@@ -1,0 +1,76 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>org.allbinary</groupId>
+    <artifactId>GameJ2MEOptionalLibraryPOMVala</artifactId>
+    <packaging>pom</packaging>
+    <!-- AllBinary Platform Version Start -->
+    <version>1.0.0-SNAPSHOT</version>
+    <!-- AllBinary Platform Version End -->
+
+    <name>GameJ2MEOptionalLibraryPOMVala</name>
+    <url>http://www.allbinary.com/</url>
+    <distributionManagement>
+        <snapshotRepository>
+            <id>nexus-snapshots</id>
+            <name>AllBinary Snapshots Nexus</name>
+            <url>https://nexus-allbinary.rhcloud.com/nexus/content/repositories/snapshots/</url>
+        </snapshotRepository>
+        <repository>
+            <id>nexus-releases</id>
+            <name>AllBinary Releases Nexus</name>
+            <url>https://nexus-allbinary.rhcloud.com/nexus/content/repositories/releases/</url>
+        </repository>
+    </distributionManagement>
+
+
+
+    <modules>
+        
+        <!--<module>../../ProgressLazyJ2MEJavaLibraryValaM</module>-->
+        <!--
+                <module>../../games/GameScoresBaseHTMLLibraryValaM</module>
+                <module>../../games/GameScoresJ2MEJavaLibraryValaM</module>
+                <module>../../../allbinary_src/licensing/RemoteXmlRpcJavaLibraryValaM</module>
+                <module>../../games/GameScoresLocalLibraryValaM</module>
+                <module>../../games/GameScoresRemoteAndLocalLibraryValaM</module>
+        -->
+<!-- in GameJ2MELibraryPOM <module>../../media/graphics/ImageCacheJ2MEJavaLibraryValaM</module>-->
+        <!--<module>../../media/graphics/ImageCacheLazyJ2MEJavaLibraryValaM</module>-->
+        <!--        <module>../../media/graphics/ImageCacheOpenGLESJavaLibraryValaM</module>-->
+        <module>../../media/graphics/LazyGameResourceNoneJavaLibraryValaM</module>
+
+<!-- in GameJ2MELibraryPOM <module>../../../graphics/opengl/OpenGLNoneJavaLibraryValaM</module>-->
+
+        <!--
+                <module>../../../graphics/opengl/OpenGLESJavaLibraryValaM</module>
+        -->
+
+<!-- in GameJ2MELibraryPOM <module>../../input/JSEGyroSensorJavaLibraryValaM</module>-->
+        <!--        
+                <module>../../ProgressJ2MEJavaLibraryValaM</module>
+        -->
+        <!--        
+                //At some point the GameInput libraries were here
+        -->
+        
+        <!--
+        ../../
+        <module>../../../../workvala/j2me/media/graphics/FormJMEJavaLibraryValaM</module>
+        -->
+        <!--
+        ../../
+        <module>../../../../workvala/j2me/media/graphics/FormJSEJavaLibraryValaM</module>
+        -->
+
+        <!--<module>../../media/sound/J2SEMediaMIDPMinimalJavaLibraryValaM</module>-->
+<!--        <module>../../media/sound/NotDeviceSpecificMIDP2JavaLibraryValaM</module>-->
+        <!--<module>../../media/sound/MediaMIDP2ForHTMLJavaLibraryValaM</module>-->
+
+        <!--
+                <module>../../../../workvala/j2me/ScreenCaptureAndroidJavaLibraryValaM</module>
+        -->
+    </modules>
+
+</project>
+

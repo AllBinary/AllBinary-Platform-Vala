@@ -1,0 +1,59 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>org.allbinary</groupId>
+    <artifactId>AllBinaryPersistenceLibraryPVala</artifactId>
+    <packaging>pom</packaging>
+    <!-- AllBinary Platform Version Start -->
+    <version>1.0.0-SNAPSHOT</version>
+    <!-- AllBinary Platform Version End -->
+
+    <name>AllBinaryPersistenceLibraryPVala</name>
+    <url>http://www.allbinary.com/</url>
+    <distributionManagement>
+        <snapshotRepository>
+            <id>nexus-snapshots</id>
+            <name>AllBinary Snapshots Nexus</name>
+            <url>https://nexus-allbinary.rhcloud.com/nexus/content/repositories/snapshots/</url>
+        </snapshotRepository>
+        <repository>
+            <id>nexus-releases</id>
+            <name>AllBinary Releases Nexus</name>
+            <url>https://nexus-allbinary.rhcloud.com/nexus/content/repositories/releases/</url>
+        </repository>
+    </distributionManagement>
+    
+    <properties>
+        <buildLabel>${project.version}</buildLabel>
+        <assemblyPluginVersion>2.2-beta-1</assemblyPluginVersion>
+    </properties>
+
+    <modules>
+        
+        <!--
+        -->
+        <module>../allbinary_src/cache/AllBinaryCacheLibraryValaM</module>
+        <module>../allbinary_src/PermutationsJavaLibraryValaM</module>
+        <module>../allbinary_src/logic/BasePreloaderFileJavaLibraryValaM</module>
+        <module>../allbinary_src/logic/data/file/FileJavaLibraryValaM</module>
+        <module>../allbinary_src/logic/data/file/FileJ2SEJavaLibraryValaM</module>
+        <!--<module>../allbinary_src/data/DataJavaLibraryValaM</module>-->
+        <!--<module>../allbinary_src/logic/data/file/FileUnamedJavaLibraryValaM</module>-->
+        <!--<module>../allbinary_src/logic/data/file/FileAdvancedJavaLibraryValaM</module>-->
+        <!--<module>../allbinary_src/PreLoaderJavaLibraryValaM</module>-->
+        <!--<module>../allbinary_src/FileInitInfoJavaLibraryValaM</module>-->
+        <!--<module>../allbinary_src/PreLoaderFileJavaLibraryValaM</module>-->
+        <!--<module>../allbinary_src/PreLoaderLicenseJavaLibraryValaM</module>-->
+        <module>../j2me/PCResourceLibraryValaM</module>
+        <module>../j2me/ProgressJ2MEJavaLibraryValaM</module>
+        <module>../allbinary_src/licensing/ClientInfoBaseJavaLibraryValaM</module>
+        <!--<module>../allbinary_src/licensing/RemoteXmlRpcJavaLibraryValaM</module>-->
+        <!--<module>../allbinary_src/licensing/LicenseClientJavaLibraryValaM</module>-->
+
+        <!--
+        <module>../allbinary_src/PreLoaderLicenseJavaLibraryValaM</module>
+        -->
+    </modules>
+
+</project>
+
