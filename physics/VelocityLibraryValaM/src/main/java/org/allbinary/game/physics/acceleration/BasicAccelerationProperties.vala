@@ -13,41 +13,44 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.game.physics.acceleration
 
-using System;
-using System.Linq;
+public class BasicAccelerationProperties : JObject {
+    private int32 forward;
+    private int32 reverse;
 
-namespace org.allbinary.game.physics.acceleration;
+    // Java field initializers run after the base constructor
+    private void initFieldsBasicAccelerationProperties() {
+    this.forward = 0;
+    this.reverse = 0;
+    }
+    
 
-public class BasicAccelerationProperties
-{
-    private int forward = 0;
-    private int reverse = 0;
-    public BasicAccelerationProperties(int forward, int reverse)
-    {
+    public BasicAccelerationProperties(int32 forward, int32 reverse) {
+        base();
+        this.initFieldsBasicAccelerationProperties();
         this.setForward(forward);
         this.setReverse(reverse);
     }
+    
 
-    public virtual void setReverse(int reverse)
-    {
+    public virtual void setReverse(int32 reverse) {
         this.reverse = reverse;
     }
+    
 
-    public virtual int getReverse()
-    {
+    public virtual int32 getReverse() {
         return this.reverse;
     }
+    
 
-    public virtual void setForward(int forward)
-    {
+    public virtual void setForward(int32 forward) {
         this.forward = forward;
     }
+    
 
-    public virtual int getForward()
-    {
+    public virtual int32 getForward() {
         return this.forward;
     }
-
 }
 

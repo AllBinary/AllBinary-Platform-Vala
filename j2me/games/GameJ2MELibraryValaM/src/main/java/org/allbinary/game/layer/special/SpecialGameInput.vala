@@ -13,84 +13,71 @@
  *   
  */
 // Generated Code Do Not Modify
+// package org.allbinary.game.layer.special
+// import javax.microedition.lcdui.Graphics
+// import org.allbinary.game.input.event.GameKeyEvent
+// import org.allbinary.layer.AllBinaryLayerManager
 
-using System;
-using System.Linq;
-using Graphics = javax.microedition.lcdui.Graphics;
-using GameKeyEvent = org.allbinary.game.input.@event.GameKeyEvent;
-using AllBinaryLayerManager = org.allbinary.layer.AllBinaryLayerManager;
+public class SpecialGameInput : JObject, SpecialGameInputInterface, PaintableInterface {
 
-namespace org.allbinary.game.layer.special;
-
-public class SpecialGameInput : SpecialGameInputInterface
-{
-    // throws Exception
-    public virtual void up()
-    {
+    public SpecialGameInput() {
+        base();
     }
+    
 
-    // throws Exception
-    public virtual void down()
-    {
+    public virtual void up() {
     }
+    
 
-    // throws Exception
-    public virtual void right()
-    {
+    public virtual void down() {
     }
+    
 
-    // throws Exception
-    public virtual void left()
-    {
+    public virtual void right() {
     }
+    
 
-    // throws Exception
-    public virtual void strafeLeft()
-    {
+    public virtual void left() {
     }
+    
 
-    // throws Exception
-    public virtual void strafeRight()
-    {
+    public virtual void strafeLeft() {
     }
+    
 
-    // throws Exception
-    public virtual void fire(AllBinaryLayerManager layerManager, GameKeyEvent gameKeyEvent)
-    {
+    public virtual void strafeRight() {
     }
+    
 
-    // throws Exception
-    public virtual void special1(AllBinaryLayerManager layerManager, GameKeyEvent gameKeyEvent)
-    {
+    public virtual void fire(AllBinaryLayerManager layerManager, GameKeyEvent gameKeyEvent) {
     }
+    
 
-    // throws Exception
-    public virtual void special2(AllBinaryLayerManager layerManager, GameKeyEvent gameKeyEvent)
-    {
+    public virtual void special1(AllBinaryLayerManager layerManager, GameKeyEvent gameKeyEvent) {
     }
+    
 
-    // throws Exception
-    public virtual void special3(AllBinaryLayerManager layerManager, GameKeyEvent gameKeyEvent)
-    {
+    public virtual void special2(AllBinaryLayerManager layerManager, GameKeyEvent gameKeyEvent) {
     }
+    
 
-    // throws Exception
-    public virtual void special4(AllBinaryLayerManager layerManager, GameKeyEvent gameKeyEvent)
-    {
+    public virtual void special3(AllBinaryLayerManager layerManager, GameKeyEvent gameKeyEvent) {
     }
+    
 
-    // throws Exception
-    public virtual void special5(AllBinaryLayerManager layerManager, GameKeyEvent gameKeyEvent)
-    {
+    public virtual void special4(AllBinaryLayerManager layerManager, GameKeyEvent gameKeyEvent) {
     }
+    
 
-    public virtual void paint(Graphics graphics)
-    {
+    public virtual void special5(AllBinaryLayerManager layerManager, GameKeyEvent gameKeyEvent) {
     }
+    
 
-    public virtual void paintThreed(Graphics graphics)
-    {
+    public virtual void paint(Graphics graphics) {
     }
+    
 
+    public virtual void paintThreed(Graphics graphics) {
+    }
 }
 

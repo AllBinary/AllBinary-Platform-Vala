@@ -13,41 +13,47 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.graphics.form
+// import javax.microedition.lcdui.Graphics
+// import org.allbinary.canvas.Processor
+// import org.allbinary.graphics.Rectangle
+// import org.allbinary.graphics.color.BasicColor
+// import org.allbinary.graphics.font.MyFontProcessor
+// import org.allbinary.graphics.font.UpdateMyFontInterface
+// import org.allbinary.graphics.font.UpdateMyFontProcessor
+// import org.allbinary.graphics.form.item.ABCustomItem
 
-using System;
-using System.Linq;
-using Graphics = javax.microedition.lcdui.Graphics;
-using Processor = org.allbinary.canvas.Processor;
-using Rectangle = org.allbinary.graphics.Rectangle;
-using BasicColor = org.allbinary.graphics.color.BasicColor;
-using MyFontProcessor = org.allbinary.graphics.font.MyFontProcessor;
-using UpdateMyFontInterface = org.allbinary.graphics.font.UpdateMyFontInterface;
-using UpdateMyFontProcessor = org.allbinary.graphics.font.UpdateMyFontProcessor;
-using ABCustomItem = org.allbinary.graphics.form.item.ABCustomItem;
-
-namespace org.allbinary.graphics.form;
-
-public class ScrollCurrentSelectionForm : ScrollSelectionForm, UpdateMyFontInterface
-{
-    private readonly bool moveForSmallScreen;
-    public readonly MyFontProcessor updateMyFontProcessor;
+public class ScrollCurrentSelectionForm : ScrollSelectionForm, UpdateMyFontInterface {
+    private bool moveForSmallScreen;
+    public MyFontProcessor updateMyFontProcessor;
     public MyFontProcessor myFontProcessor;
-    public Processor processor = Processor.getInstance();
-    private ItemIndexDx preItemIndexDx = ItemIndexDx.getInstance();
-    private int dx = 0;
-    private int dy = 0;
-    private int maxWidth = 0;
-    public ScrollCurrentSelectionForm(string title, ABCustomItem[] items, ItemPaintableFactory formPaintableFactory, int border, int adjustedExtraBorder, bool moveForSmallScreen, BasicColor backgroundBasicColor, BasicColor foregroundBasicColor) : base(title, items, formPaintableFactory, border, adjustedExtraBorder, backgroundBasicColor, foregroundBasicColor)
-    {
-        this.updateMyFontProcessor = new UpdateMyFontProcessor(this);
-        this.myFontProcessor = this.updateMyFontProcessor;
-        // base(title, items, formPaintableFactory, border, adjustedExtraBorder, backgroundBasicColor, foregroundBasicColor) is called from the constructor declaration
+    public Processor processor;
+    private ItemIndexDx preItemIndexDx;
+    private int32 dx;
+    private int32 dy;
+    private int32 maxWidth;
+
+    // Java field initializers run after the base constructor
+    private void initFieldsScrollCurrentSelectionForm() {
+    
+    this.updateMyFontProcessor = new UpdateMyFontProcessor(this);
+    this.myFontProcessor = this.updateMyFontProcessor;
+    this.processor = Processor.getInstance();
+    this.preItemIndexDx = ItemIndexDx.getInstance();
+    this.dx = 0;
+    this.dy = 0;
+    this.maxWidth = 0;
+    }
+    
+
+    public ScrollCurrentSelectionForm(string title, ABCustomItem[] items, ItemPaintableFactory formPaintableFactory, int32 border, int32 adjustedExtraBorder, bool moveForSmallScreen, BasicColor backgroundBasicColor, BasicColor foregroundBasicColor) {
+        base(title, items, formPaintableFactory, border, adjustedExtraBorder, backgroundBasicColor, foregroundBasicColor);
+        this.initFieldsScrollCurrentSelectionForm();
         this.moveForSmallScreen = moveForSmallScreen;
     }
+    
 
-    // throws Exception
-    public override void init(Rectangle rectangle, FormType formType)
-    {
+    public override void init(Rectangle rectangle, FormType formType) {
         base.init(rectangle, formType);
         FormTypeFactory formTypeFactory = FormTypeFactory.getInstance();
         if (formType == formTypeFactory.TEMP_HORIZONTAL_FORM) {
@@ -65,44 +71,44 @@ public class ScrollCurrentSelectionForm : ScrollSelectionForm, UpdateMyFontInter
         }
         this.myFontProcessor = this.updateMyFontProcessor;
     }
+    
 
-    public virtual void updateMeasurement(Graphics graphics)
-    {
+    public virtual void updateMeasurement(Graphics graphics) {
         this.myFontProcessor = MyFontProcessor.getInstance();
     }
+    
 
-    public virtual void processTempHorizontalForm()
-    {
+    public virtual void processTempHorizontalForm() {
         this.dx = this.x - 30 + (this.rectangle.getWidth() >> 1);
         this.dy = this.y;
     }
+    
 
-    public virtual void processHorizontalForm()
-    {
-        int size = this.size();
-        int totalWidth = 0;
+    public virtual void processHorizontalForm() {
+        int32 size = this.size();
+        int32 totalWidth = 0;
         ABCustomItem item = null;
-        for (int index = 0; index < size; index++) {
-            item = this.get(index);
+        for (int32 index = 0; index < size; index++) {
+            item = this.@get(index);
             totalWidth += item.getMinimumWidth() + this.border;
         }
         this.dx = this.x + (this.rectangle.getWidth() >> 1) - (totalWidth >> 1);
         this.dy = this.y + (this.rectangle.getHeight() >> 1);
         if (this.moveForSmallScreen) {
-            int maxTitleHeight = 175;
+            int32 maxTitleHeight = 175;
             if (this.dy < maxTitleHeight) {
                 this.dy = maxTitleHeight;
             }
         }
     }
+    
 
-    public virtual void processVerticalForm()
-    {
-        int totalHeight = 0;
-        int size = this.size();
+    public virtual void processVerticalForm() {
+        int32 totalHeight = 0;
+        int32 size = this.size();
         ABCustomItem item2 = null;
-        for (int index = 0; index < size; index++) {
-            item2 = this.get(index);
+        for (int32 index = 0; index < size; index++) {
+            item2 = this.@get(index);
             if (this.maxWidth < item2.getMinimumWidth()) {
                 this.maxWidth = item2.getMinimumWidth();
             }
@@ -112,7 +118,7 @@ public class ScrollCurrentSelectionForm : ScrollSelectionForm, UpdateMyFontInter
         if (this.size() > 0) {
             this.dy = this.y + ((this.rectangle.getHeight() - totalHeight) / 2);
             if (this.moveForSmallScreen) {
-                int maxTitleHeight = 175;
+                int32 maxTitleHeight = 175;
                 if (this.dy < maxTitleHeight) {
                     this.dy = maxTitleHeight;
                 }
@@ -121,50 +127,50 @@ public class ScrollCurrentSelectionForm : ScrollSelectionForm, UpdateMyFontInter
             this.dy = this.y;
         }
     }
+    
 
-    public virtual int getXTempHorizontalForm(int index, ABCustomItem item, int dx, int dy)
-    {
+    public virtual int32 getXTempHorizontalForm(int32 index, ABCustomItem item, int32 dx, int32 dy) {
         return this.getDiffX(item);
     }
+    
 
-    public virtual int getXHorizontalForm(int index, ABCustomItem item, int dx, int dy)
-    {
+    public virtual int32 getXHorizontalForm(int32 index, ABCustomItem item, int32 dx, int32 dy) {
         return 0;
     }
+    
 
-    public virtual int getXVerticalForm(int index, ABCustomItem item, int dx, int dy)
-    {
+    public virtual int32 getXVerticalForm(int32 index, ABCustomItem item, int32 dx, int32 dy) {
         return this.getDiffX(item) + this.halfBorder;
     }
+    
 
-    public override int getDiffX(ABCustomItem item)
-    {
+    public override int32 getDiffX(ABCustomItem item) {
         return ((this.maxWidth - item.getMinimumWidth()) >> 1);
     }
+    
 
-    public override int getDx()
-    {
+    public override int32 getDx() {
         return this.dx;
     }
+    
 
-    public override int getDy()
-    {
+    public override int32 getDy() {
         return this.dy;
     }
+    
 
-    public override void paint(Graphics graphics)
-    {
-        try {
+    public override void paint(Graphics graphics) {
+        {
             this.processor.process();
-            int delta = 0;
-            int deltaX = this.getDx();
-            int deltaY = this.getDy();
-            int size = this.size();
+            int32 delta = 0;
+            int32 deltaX = this.getDx();
+            int32 deltaY = this.getDy();
+            int32 size = this.size();
             FormTypeFactory formTypeFactory = FormTypeFactory.getInstance();
             ABCustomItem item = null;
-            for (int index = 0; index < size; index++) {
-                item = this.get(index);
-                int diffX = this.preItemIndexDx.getDx(index, item, this.dx, this.dy);
+            for (int32 index = 0; index < size; index++) {
+                item = this.@get(index);
+                int32 diffX = this.preItemIndexDx.getDx(index, item, this.dx, this.dy);
                 if (index == this.getSelectedIndex()) {
                     delta = this.paintItem(graphics, index, item, deltaX + diffX, deltaY);
                     this.paintable.paint(graphics, index, deltaX + diffX, deltaY);
@@ -178,13 +184,10 @@ public class ScrollCurrentSelectionForm : ScrollSelectionForm, UpdateMyFontInter
                 } else if (this.formType == formTypeFactory.VERTICAL_CENTER_FORM) {
                     deltaY = delta;
                 } else {
-                    throw new Exception(formTypeFactory.UNK);
+                    JSystem.fatal(new JException("Exception", formTypeFactory.UNK));
                 }
             }
-        } catch (Exception e) {
-            this.logUtil.put(this.commonStrings.EXCEPTION, this, this.canvasStrings.PAINT, e);
-        }
+        } /* catch (Exception e): a thrown Java exception stops the program */
     }
-
 }
 

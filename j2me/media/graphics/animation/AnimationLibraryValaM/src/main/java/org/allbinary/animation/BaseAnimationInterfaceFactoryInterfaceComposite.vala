@@ -13,40 +13,41 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.animation
+// import org.allbinary.media.ScaleProperties
 
-using System;
-using System.Linq;
-using ScaleProperties = org.allbinary.media.ScaleProperties;
-
-namespace org.allbinary.animation;
-
-public class BaseAnimationInterfaceFactoryInterfaceComposite : AnimationInterfaceFactoryInterface
-{
+public class BaseAnimationInterfaceFactoryInterfaceComposite : JObject, AnimationInterfaceFactoryInterface, BasicAnimationInterfaceFactoryInterface {
     private BasicAnimationInterfaceFactoryInterface[] basicAnimationInterfaceFactoryInterfaceArray;
-    public BaseAnimationInterfaceFactoryInterfaceComposite(BasicAnimationInterfaceFactoryInterface[] basicAnimationInterfaceFactoryInterfaceArray)
-    {
+
+    // Java field initializers run after the base constructor
+    private void initFieldsBaseAnimationInterfaceFactoryInterfaceComposite() {
+    
+    }
+    
+
+    public BaseAnimationInterfaceFactoryInterfaceComposite(BasicAnimationInterfaceFactoryInterface[] basicAnimationInterfaceFactoryInterfaceArray) {
+        base();
+        this.initFieldsBaseAnimationInterfaceFactoryInterfaceComposite();
         this.basicAnimationInterfaceFactoryInterfaceArray = basicAnimationInterfaceFactoryInterfaceArray;
     }
+    
 
-    // throws Exception
-    public virtual Animation getInstance(int instanceId)
-    {
-        return NullAnimationFactory.getFactoryInstance().getInstance(0);
+    public virtual Animation getInstance1(int32 instanceId) {
+        return NullAnimationFactory.getFactoryInstance().getInstance1(0);
     }
+    
 
-    public virtual BasicAnimationInterfaceFactoryInterface[] getBasicAnimationInterfaceFactoryInterfaceArray()
-    {
+    public virtual BasicAnimationInterfaceFactoryInterface[] getBasicAnimationInterfaceFactoryInterfaceArray() {
         return this.basicAnimationInterfaceFactoryInterfaceArray;
     }
+    
 
-    public virtual void setBasicAnimationInterfaceFactoryInterfaceArray(BasicAnimationInterfaceFactoryInterface[] basicAnimationInterfaceFactoryInterfaceArray)
-    {
+    public virtual void setBasicAnimationInterfaceFactoryInterfaceArray(BasicAnimationInterfaceFactoryInterface[] basicAnimationInterfaceFactoryInterfaceArray) {
         this.basicAnimationInterfaceFactoryInterfaceArray = basicAnimationInterfaceFactoryInterfaceArray;
     }
+    
 
-    public virtual void setInitialScale(ScaleProperties scaleProperties)
-    {
+    public virtual void setInitialScale(ScaleProperties scaleProperties) {
     }
-
 }
 

@@ -13,23 +13,18 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.logic.util.cache
 
-using System;
-using System.Linq;
+public class NoCacheableFactory : JObject, CacheableInterfaceFactoryInterface {
+    
 
-namespace org.allbinary.logic.util.cache;
-
-public class NoCacheableFactory : CacheableInterfaceFactoryInterface
-{
-    public NoCacheableFactory()
-    {
+    public NoCacheableFactory() {
+        base();
     }
+    
 
-    // throws Exception
-    public virtual CacheableInterface getInstance(object key)
-    {
-        throw new Exception("This Factory Does Not");
+    public virtual CacheableInterface getInstance1(JObject key) {
+        JSystem.fatal(new JException("Exception", "This Factory Does Not"));
     }
-
 }
 

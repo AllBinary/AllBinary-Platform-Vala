@@ -13,26 +13,27 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.graphics.form
+// import org.allbinary.graphics.form.item.ABCustomItem
 
-using System;
-using System.Linq;
-using ABCustomItem = org.allbinary.graphics.form.item.ABCustomItem;
+public class VerticalItemIndexDx : ItemIndexDx {
+    private ScrollCurrentSelectionForm scrollCurrentSelectionForm;
 
-namespace org.allbinary.graphics.form;
+    // Java field initializers run after the base constructor
+    private void initFieldsVerticalItemIndexDx() {
+    
+    }
+    
 
-public class VerticalItemIndexDx : ItemIndexDx
-{
-    private readonly ScrollCurrentSelectionForm scrollCurrentSelectionForm;
-    public VerticalItemIndexDx(ScrollCurrentSelectionForm scrollCurrentSelectionForm)
-    {
+    public VerticalItemIndexDx(ScrollCurrentSelectionForm scrollCurrentSelectionForm) {
+        base();
+        this.initFieldsVerticalItemIndexDx();
         this.scrollCurrentSelectionForm = scrollCurrentSelectionForm;
     }
+    
 
-    // throws Exception
-    public override int getDx(int index, ABCustomItem item, int dx, int dy)
-    {
+    public override int32 getDx(int32 index, ABCustomItem item, int32 dx, int32 dy) {
         return this.scrollCurrentSelectionForm.getXVerticalForm(index, item, dx, dy);
     }
-
 }
 

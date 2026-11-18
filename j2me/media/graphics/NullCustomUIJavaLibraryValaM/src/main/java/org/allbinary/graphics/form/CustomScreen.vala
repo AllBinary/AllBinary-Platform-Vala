@@ -1,11 +1,10 @@
 // Generated Code Do Not Modify
+// package org.allbinary.graphics.form
 
-using System;
-using System.Linq;
+public class CustomScreen : CustomDisplayable {
 
-namespace org.allbinary.graphics.form;
-
-public class CustomScreen : CustomDisplayable
-{
+    public CustomScreen() {
+        base();
+    }
 }
 

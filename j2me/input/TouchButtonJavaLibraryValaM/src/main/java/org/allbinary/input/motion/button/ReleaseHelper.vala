@@ -13,34 +13,35 @@
  * 
  */
 // Generated Code Do Not Modify
+// package org.allbinary.input.motion.button
+// import org.allbinary.game.input.event.GameKeyEvent
 
-using System;
-using System.Linq;
-using GameKeyEvent = org.allbinary.game.input.@event.GameKeyEvent;
+public class ReleaseHelper : JObject {
+    public TouchButtonRecognizer touchButtonRecognizer;
 
-namespace org.allbinary.input.motion.button;
+    // Java field initializers run after the base constructor
+    private void initFieldsReleaseHelper() {
+    
+    }
+    
 
-public class ReleaseHelper
-{
-    public readonly TouchButtonRecognizer touchButtonRecognizer;
-    public ReleaseHelper(TouchButtonRecognizer touchButtonRecognizer)
-    {
+    public ReleaseHelper(TouchButtonRecognizer touchButtonRecognizer) {
+        base();
+        this.initFieldsReleaseHelper();
         this.touchButtonRecognizer = touchButtonRecognizer;
     }
+    
 
-    // throws Exception
-    public virtual void release(TouchButtonInput touchButtonInput, int deviceId)
-    {
+    public virtual void release(TouchButtonInput touchButtonInput, int32 deviceId) {
         TouchButtonInput nextTouchButtonInput = null;
         GameKeyEvent gameKeyEvent = null;
-        for (int index = this.touchButtonRecognizer.currentlyPressedTouchButtonSingleton.size() - 1; index >= 0; index--) {
-            nextTouchButtonInput = this.touchButtonRecognizer.currentlyPressedTouchButtonSingleton.get(index);
+        for (int32 index = this.touchButtonRecognizer.currentlyPressedTouchButtonSingleton.size() - 1; index >= 0; index--) {
+            nextTouchButtonInput = this.touchButtonRecognizer.currentlyPressedTouchButtonSingleton.@get(index);
             gameKeyEvent = nextTouchButtonInput.getGameKeyEvent();
             this.touchButtonRecognizer.upGameKeyEventHandler.fireEvent(gameKeyEvent);
             this.touchButtonRecognizer.upGameKeyEventHandler.getInstanceForDevice(deviceId).fireEvent(gameKeyEvent);
             this.touchButtonRecognizer.currentlyPressedTouchButtonSingleton.removeAt(index);
         }
     }
-
 }
 

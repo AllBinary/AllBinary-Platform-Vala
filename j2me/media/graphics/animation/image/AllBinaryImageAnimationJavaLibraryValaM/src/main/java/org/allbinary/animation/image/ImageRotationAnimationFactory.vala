@@ -13,45 +13,45 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.animation.image
+// import javax.microedition.lcdui.Image
+// import org.allbinary.animation.Animation
+// import org.allbinary.animation.AnimationBehaviorFactory
+// import org.allbinary.game.configuration.GameConfigurationCentral
+// import org.allbinary.logic.math.PrimitiveIntUtil
+// import org.allbinary.math.AngleFactory
+// import org.allbinary.math.AngleInfo
 
-using System;
-using System.Linq;
-using Image = javax.microedition.lcdui.Image;
-using Animation = org.allbinary.animation.Animation;
-using AnimationBehaviorFactory = org.allbinary.animation.AnimationBehaviorFactory;
-using GameConfigurationCentral = org.allbinary.game.configuration.GameConfigurationCentral;
-using PrimitiveIntUtil = org.allbinary.logic.math.PrimitiveIntUtil;
-using AngleFactory = org.allbinary.math.AngleFactory;
-using AngleInfo = org.allbinary.math.AngleInfo;
+public class ImageRotationAnimationFactory : BaseImageAnimationFactory {
+    public int16 angleIncrement;
 
-namespace org.allbinary.animation.image;
+    // Java field initializers run after the base constructor
+    private void initFieldsImageRotationAnimationFactory() {
+    
+    }
+    
 
-public class ImageRotationAnimationFactory : BaseImageAnimationFactory
-{
-    public readonly short angleIncrement;
-    public ImageRotationAnimationFactory(Image image, int width, int height, int dx, int dy, short angleIncrement, AnimationBehaviorFactory animationBehaviorFactory) : base(image, PrimitiveIntUtil.getArrayInstance(), width, height, 0, 0, animationBehaviorFactory)
-    {
-        // base(image, PrimitiveIntUtil.getArrayInstance(), width, height, 0, 0, animationBehaviorFactory) is called from the constructor declaration
+    public ImageRotationAnimationFactory(Image image, int32 width, int32 height, int32 dx, int32 dy, int16 angleIncrement, AnimationBehaviorFactory animationBehaviorFactory) {
+        base(image, PrimitiveIntUtil.getArrayInstance(), width, height, 0, 0, animationBehaviorFactory);
+        this.initFieldsImageRotationAnimationFactory();
         this.angleIncrement = angleIncrement;
         this.animationFactoryInitializationVisitor.dx = dx;
         this.animationFactoryInitializationVisitor.dy = dy;
     }
+    
 
-    // throws Exception
-    public override Animation getInstance(int instanceId)
-    {
+    public override Animation getInstance1(int32 instanceId) {
         if (this.animationFactoryInitializationVisitor.dx != 0 || this.animationFactoryInitializationVisitor.dy != 0) {
             this.animationFactoryImageScaleUtil.processAdjust(this);
-            return new AdjustedImageBaseRotationAnimation(this.getImage(), AngleInfo.getInstance(this.angleIncrement), AngleFactory.getInstance().TOTAL_ANGLE, this.animationFactoryInitializationVisitor.dx, this.animationFactoryInitializationVisitor.dy, this.animationBehaviorFactory.getOrCreateInstance());
+            return new AdjustedImageBaseRotationAnimation(this.getImage(), AngleInfo.getInstance1(this.angleIncrement), AngleFactory.getInstance().TOTAL_ANGLE, this.animationFactoryInitializationVisitor.dx, this.animationFactoryInitializationVisitor.dy, this.animationBehaviorFactory.getOrCreateInstance());
         } else {
-            return new ImageBaseRotationAnimation(this.getImage(), AngleInfo.getInstance(this.angleIncrement), AngleFactory.getInstance().TOTAL_ANGLE, this.animationBehaviorFactory.getOrCreateInstance());
+            return new ImageBaseRotationAnimation(this.getImage(), AngleInfo.getInstance1(this.angleIncrement), AngleFactory.getInstance().TOTAL_ANGLE, this.animationBehaviorFactory.getOrCreateInstance());
         }
     }
+    
 
-    public virtual short getAngleIncrementP()
-    {
+    public virtual int16 getAngleIncrementP() {
         return this.angleIncrement;
     }
-
 }
 

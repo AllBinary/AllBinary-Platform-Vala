@@ -13,17 +13,12 @@
  *   
  */
 // Generated Code Do Not Modify
+// package org.allbinary.game.midlet
+// import org.allbinary.game.displayable.canvas.GameCanvasRunnableInterface
 
-using System;
-using System.Linq;
-using GameCanvasRunnableInterface = org.allbinary.game.displayable.canvas.GameCanvasRunnableInterface;
+public interface DemoGameMidletJs : JObject {
+    
 
-namespace org.allbinary.game.midlet;
-
-public interface DemoGameMidletJs
-{
-    // throws Exception
-    GameCanvasRunnableInterface createDemoGameCanvasRunnableInterface();
-
+    public abstract GameCanvasRunnableInterface createDemoGameCanvasRunnableInterface();
 }
 

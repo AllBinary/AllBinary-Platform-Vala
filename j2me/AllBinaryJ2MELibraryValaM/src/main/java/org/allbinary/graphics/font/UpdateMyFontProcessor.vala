@@ -13,25 +13,27 @@
  *   
  */
 // Generated Code Do Not Modify
+// package org.allbinary.graphics.font
+// import javax.microedition.lcdui.Graphics
 
-using System;
-using System.Linq;
-using Graphics = javax.microedition.lcdui.Graphics;
+public class UpdateMyFontProcessor : MyFontProcessor {
+    private UpdateMyFontInterface updateMeasurementProcessor;
 
-namespace org.allbinary.graphics.font;
+    // Java field initializers run after the base constructor
+    private void initFieldsUpdateMyFontProcessor() {
+    
+    }
+    
 
-public class UpdateMyFontProcessor : MyFontProcessor
-{
-    private readonly UpdateMyFontInterface updateMeasurementProcessor;
-    public UpdateMyFontProcessor(UpdateMyFontInterface keyValueDrawCharArray)
-    {
+    public UpdateMyFontProcessor(UpdateMyFontInterface keyValueDrawCharArray) {
+        base();
+        this.initFieldsUpdateMyFontProcessor();
         this.updateMeasurementProcessor = keyValueDrawCharArray;
     }
+    
 
-    public override void process(Graphics graphics)
-    {
+    public override void process(Graphics graphics) {
         this.updateMeasurementProcessor.updateMeasurement(graphics);
     }
-
 }
 

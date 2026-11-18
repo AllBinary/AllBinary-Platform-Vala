@@ -13,24 +13,23 @@
  *   
  */
 // Generated Code Do Not Modify
+// package org.allbinary.logic.system.security.crypt.jcehelper
+// import org.allbinary.init.crypt.jcehelper.CryptInterface
 
-using System;
-using System.Linq;
-using CryptInterface = org.allbinary.init.crypt.jcehelper.CryptInterface;
+public class NoCrypt : JObject, CryptInterface {
 
-namespace org.allbinary.logic.system.security.crypt.jcehelper;
+    public NoCrypt() {
+        base();
+    }
+    
 
-public class NoCrypt : CryptInterface
-{
-    public virtual sbyte[] encrypt(sbyte[] array)
-    {
+    public virtual int8[] encrypt(int8[] array) {
         return array;
     }
+    
 
-    public virtual sbyte[] decrypt(sbyte[] array)
-    {
+    public virtual int8[] decrypt(int8[] array) {
         return array;
     }
-
 }
 

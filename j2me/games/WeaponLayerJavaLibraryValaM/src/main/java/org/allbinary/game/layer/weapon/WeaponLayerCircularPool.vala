@@ -13,30 +13,25 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.game.layer.weapon
+// import org.allbinary.game.combat.weapon.WeaponProperties
+// import org.allbinary.game.score.ScoreableInterface
+// import org.allbinary.layer.AllBinaryLayer
+// import org.allbinary.layer.AllBinaryLayerCircularPool
 
-using System;
-using System.Linq;
-using WeaponProperties = org.allbinary.game.combat.weapon.WeaponProperties;
-using ScoreableInterface = org.allbinary.game.score.ScoreableInterface;
-using AllBinaryLayer = org.allbinary.layer.AllBinaryLayer;
-using AllBinaryLayerCircularPool = org.allbinary.layer.AllBinaryLayerCircularPool;
+public class WeaponLayerCircularPool : AllBinaryLayerCircularPool {
+    
 
-namespace org.allbinary.game.layer.weapon;
-
-public class WeaponLayerCircularPool : AllBinaryLayerCircularPool
-{
-    public WeaponLayerCircularPool()
-    {
+    public WeaponLayerCircularPool() {
+        base();
     }
+    
 
-    // throws Exception
-    public virtual WeaponLayer getInstanceWeaponLayer(AllBinaryLayer sourceLayerInterface, int x, int y, int z, int angle, int otherAngle, WeaponProperties weaponProperties, ScoreableInterface scoreable)
-    {
+    public virtual WeaponLayer getInstanceWeaponLayer(AllBinaryLayer sourceLayerInterface, int32 x, int32 y, int32 z, int32 angle, int32 otherAngle, WeaponProperties weaponProperties, ScoreableInterface scoreable) {
         WeaponLayer weaponLayer = ((WeaponLayer) base.getNextInstance());
         weaponLayer.initXYZ(x, y, z);
         weaponLayer.init(sourceLayerInterface, angle, otherAngle, weaponProperties, scoreable);
         return weaponLayer;
     }
-
 }
 

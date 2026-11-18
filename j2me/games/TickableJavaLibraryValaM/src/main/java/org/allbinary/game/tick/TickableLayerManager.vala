@@ -13,20 +13,15 @@
  * 
  */
 // Generated Code Do Not Modify
+// package org.allbinary.game.tick
+// import org.allbinary.layer.LayerManager
+// import org.allbinary.layer.LayerManagerNoDebug
 
-using System;
-using System.Linq;
-using LayerManager = org.allbinary.layer.LayerManager;
-using LayerManagerNoDebug = org.allbinary.layer.LayerManagerNoDebug;
+public class TickableLayerManager : LayerManager {
+    
 
-namespace org.allbinary.game.tick;
-
-public class TickableLayerManager : LayerManager
-{
-    public TickableLayerManager() : base(LayerManagerNoDebug.getInstance())
-    {
-        // base(LayerManagerNoDebug.getInstance()) is called from the constructor declaration
+    public TickableLayerManager() {
+        base(LayerManagerNoDebug.getInstance());
     }
-
 }
 

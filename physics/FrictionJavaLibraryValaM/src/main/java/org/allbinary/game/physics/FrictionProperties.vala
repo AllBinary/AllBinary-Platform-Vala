@@ -13,25 +13,21 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.game.physics
+// import org.allbinary.game.physics.friction.FrictionData
+// import org.allbinary.game.physics.velocity.DragVelocityBehavior
+// import org.allbinary.game.physics.velocity.VelocityProperties
 
-using System;
-using System.Linq;
-using FrictionData = org.allbinary.game.physics.friction.FrictionData;
-using DragVelocityBehavior = org.allbinary.game.physics.velocity.DragVelocityBehavior;
-using VelocityProperties = org.allbinary.game.physics.velocity.VelocityProperties;
+public class FrictionProperties : JObject {
+    
 
-namespace org.allbinary.game.physics;
-
-public class FrictionProperties
-{
-    public FrictionProperties()
-    {
+    public FrictionProperties() {
+        base();
     }
+    
 
-    public virtual void friction(VelocityProperties velocityProperties, int nominator)
-    {
+    public virtual void friction(VelocityProperties velocityProperties, int32 nominator) {
         DragVelocityBehavior.instance.reduce(velocityProperties, nominator, FrictionData.getFrictionDenominator());
     }
-
 }
 

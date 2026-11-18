@@ -13,39 +13,34 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.game.ag.layer.pickup.health
+// import javax.microedition.lcdui.Graphics
+// import org.allbinary.game.health.HealthInterface
+// import org.allbinary.game.health.HealthVisitorInterface
+// import org.allbinary.graphics.PointFactory
+// import org.allbinary.graphics.Rectangle
+// import org.allbinary.layer.AllBinaryLayer
+// import org.allbinary.logic.string.StringUtil
+// import org.allbinary.view.ViewPosition
 
-using System;
-using System.Linq;
-using Graphics = javax.microedition.lcdui.Graphics;
-using HealthInterface = org.allbinary.game.health.HealthInterface;
-using HealthVisitorInterface = org.allbinary.game.health.HealthVisitorInterface;
-using PointFactory = org.allbinary.graphics.PointFactory;
-using Rectangle = org.allbinary.graphics.Rectangle;
-using AllBinaryLayer = org.allbinary.layer.AllBinaryLayer;
-using StringUtil = org.allbinary.logic.@string.StringUtil;
-using ViewPosition = org.allbinary.view.ViewPosition;
+public class HealLayer : AllBinaryLayer, HealthVisitorInterface {
+    
 
-namespace org.allbinary.game.ag.layer.pickup.health;
-
-public class HealLayer : AllBinaryLayer, HealthVisitorInterface
-{
-    public HealLayer() : base(StringUtil.getInstance().EMPTY_STRING, new Rectangle(PointFactory.getInstance().ZERO_ZERO, 0, 0), ViewPosition.getInstanceD())
-    {
-        // base(StringUtil.getInstance().EMPTY_STRING, new Rectangle(PointFactory.getInstance().ZERO_ZERO, 0, 0), ViewPosition.getInstanceD()) is called from the constructor declaration
+    public HealLayer() {
+        base(StringUtil.getInstance().EMPTY_STRING, new Rectangle(PointFactory.getInstance().ZERO_ZERO, 0, 0), ViewPosition.getInstanceD());
     }
+    
 
-    public override void paint(Graphics graphics)
-    {
+    public override void paint(Graphics graphics) {
     }
+    
 
-    public virtual void visit(HealthInterface healthInterface)
-    {
+    public virtual void visit(HealthInterface healthInterface) {
         if (healthInterface.isAlive()) {
             healthInterface.healMax();
         } else {
             this.logUtil.putF("Heal attempt on dead: Does not currently occur", this, "visit");
         }
     }
-
 }
 

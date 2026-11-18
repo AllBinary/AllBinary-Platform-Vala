@@ -13,42 +13,56 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.game.part
+// import org.allbinary.game.layer.pickup.CountedPickedUpLayerInterfaceFactory
+// import org.allbinary.game.layer.pickup.CountedPickedUpLayerInterfaceFactoryPool
+// import org.allbinary.logic.communication.log.LogUtil
+// import org.allbinary.logic.string.StringMaker
+// import org.allbinary.string.CommonStrings
+// import org.allbinary.util.BasicArrayList
+// import org.allbinary.util.BasicArrayListD
+// import org.allbinary.util.BasicArrayListUtil
 
-using System;
-using System.Linq;
-using CountedPickedUpLayerInterfaceFactory = org.allbinary.game.layer.pickup.CountedPickedUpLayerInterfaceFactory;
-using CountedPickedUpLayerInterfaceFactoryPool = org.allbinary.game.layer.pickup.CountedPickedUpLayerInterfaceFactoryPool;
-using LogUtil = org.allbinary.logic.communication.log.LogUtil;
-using StringMaker = org.allbinary.logic.@string.StringMaker;
-using CommonStrings = org.allbinary.@string.CommonStrings;
-using BasicArrayList = org.allbinary.util.BasicArrayList;
-using BasicArrayListD = org.allbinary.util.BasicArrayListD;
-using BasicArrayListUtil = org.allbinary.util.BasicArrayListUtil;
-
-namespace org.allbinary.game.part;
-
-public class MakeCountedPartsSingletonArrayFactory
-{
-    private static readonly MakeCountedPartsSingletonArrayFactory instance = new MakeCountedPartsSingletonArrayFactory();
-    public static MakeCountedPartsSingletonArrayFactory getInstance()
-    {
+public class MakeCountedPartsSingletonArrayFactory : JObject {
+    private static MakeCountedPartsSingletonArrayFactory? instance;
+    private static bool staticSet_instance = false;
+    private static MakeCountedPartsSingletonArrayFactory staticGet_instance() {
+        if (!MakeCountedPartsSingletonArrayFactory.staticSet_instance) {
+            MakeCountedPartsSingletonArrayFactory.staticSet_instance = true;
+            MakeCountedPartsSingletonArrayFactory.instance = new MakeCountedPartsSingletonArrayFactory();
+        }
         return MakeCountedPartsSingletonArrayFactory.instance;
     }
+    public LogUtil logUtil;
+    private BasicArrayList list;
 
-    public readonly LogUtil logUtil = LogUtil.getInstance();
-    private BasicArrayList list = BasicArrayListUtil.getInstance().getImmutableInstance();
-    // throws Exception
-    public virtual PartInterface[] getUpdated(PartInterface[] partInterfaceArray)
-    {
+    // Java field initializers run after the base constructor
+    private void initFieldsMakeCountedPartsSingletonArrayFactory() {
+    this.logUtil = LogUtil.getInstance();
+    this.list = BasicArrayListUtil.getInstance().getImmutableInstance();
+    }
+
+    public MakeCountedPartsSingletonArrayFactory() {
+        base();
+        this.initFieldsMakeCountedPartsSingletonArrayFactory();
+    }
+    
+
+    public static MakeCountedPartsSingletonArrayFactory getInstance() {
+        return MakeCountedPartsSingletonArrayFactory.staticGet_instance();
+    }
+    
+
+    public virtual PartInterface[] getUpdated(PartInterface[] partInterfaceArray) {
         this.list = new BasicArrayListD();
-        for (int index_0 = 0; index_0 < partInterfaceArray.Length; index_0++) {
-            this.list.add(partInterfaceArray[index_0]);
+        for (int32 index = 0; index < partInterfaceArray.length; index++) {
+            this.list.add(partInterfaceArray[index]);
         }
         BasicArrayList countedBasicArrayList = CountedPickedUpLayerInterfaceFactoryPool.getInstance().getList();
         CountedPickedUpLayerInterfaceFactory layerInterfaceFactoryInterface = null;
-        int size = countedBasicArrayList.size();
-        for (int index_1 = 0; index_1 < size; index_1++) {
-            layerInterfaceFactoryInterface = ((CountedPickedUpLayerInterfaceFactory) countedBasicArrayList.objectArray[index_1]);
+        int32 size = countedBasicArrayList.size();
+        for (int32 index = 0; index < size; index++) {
+            layerInterfaceFactoryInterface = ((CountedPickedUpLayerInterfaceFactory) countedBasicArrayList.objectArray[index]);
             this.list.add(new CountedLayerInterfaceFactoryPart(0, layerInterfaceFactoryInterface));
         }
         StringMaker stringBuffer = new StringMaker();
@@ -57,14 +71,13 @@ public class MakeCountedPartsSingletonArrayFactory
         stringBuffer.append(" Counted: ");
         stringBuffer.appendint(countedBasicArrayList.size());
         CommonStrings commonStrings = CommonStrings.getInstance();
-        this.logUtil.putF(stringBuffer.ToString(), this, commonStrings.GET_INSTANCE);
+        this.logUtil.putF(stringBuffer.toString(), this, commonStrings.GET_INSTANCE);
         PartInterface[] newPartInterfaceArray = new PartInterface[this.list.size()];
-        int newSize = newPartInterfaceArray.Length;
-        for (int index_2 = 0; index_2 < newSize; index_2++) {
-            newPartInterfaceArray[index_2] = ((PartInterface) this.list.get(index_2));
+        int32 newSize = newPartInterfaceArray.length;
+        for (int32 index = 0; index < newSize; index++) {
+            newPartInterfaceArray[index] = ((PartInterface) this.list.@get(index));
         }
         return newPartInterfaceArray;
     }
-
 }
 

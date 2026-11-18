@@ -13,23 +13,27 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.graphics.paint
 
-using System;
-using System.Linq;
-
-namespace org.allbinary.graphics.paint;
-
-public class ProcessPaintableSingletonFactory
-{
-    private static readonly ProcessPaintable SINGLETON = new ProcessPaintable();
-    private ProcessPaintableSingletonFactory()
-    {
-    }
-
-    public static ProcessPaintable getInstance()
-    {
+public class ProcessPaintableSingletonFactory : JObject {
+    private static ProcessPaintable? SINGLETON;
+    private static bool staticSet_SINGLETON = false;
+    private static ProcessPaintable staticGet_SINGLETON() {
+        if (!ProcessPaintableSingletonFactory.staticSet_SINGLETON) {
+            ProcessPaintableSingletonFactory.staticSet_SINGLETON = true;
+            ProcessPaintableSingletonFactory.SINGLETON = new ProcessPaintable();
+        }
         return ProcessPaintableSingletonFactory.SINGLETON;
     }
+    
 
+    public ProcessPaintableSingletonFactory() {
+        base();
+    }
+    
+
+    public static ProcessPaintable getInstance() {
+        return ProcessPaintableSingletonFactory.staticGet_SINGLETON();
+    }
 }
 

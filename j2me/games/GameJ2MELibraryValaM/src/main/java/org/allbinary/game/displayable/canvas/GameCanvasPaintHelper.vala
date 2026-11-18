@@ -13,30 +13,32 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.game.displayable.canvas
+// import javax.microedition.lcdui.Graphics
+// import org.allbinary.graphics.paint.ProcessPaintable
 
-using System;
-using System.Linq;
-using Graphics = javax.microedition.lcdui.Graphics;
-using ProcessPaintable = org.allbinary.graphics.paint.ProcessPaintable;
-
-namespace org.allbinary.game.displayable.canvas;
-
-public class GameCanvasPaintHelper : ProcessPaintable
-{
+public class GameCanvasPaintHelper : ProcessPaintable {
     private AllBinaryGameCanvas gameCanvas;
-    public GameCanvasPaintHelper(AllBinaryGameCanvas gameCanvas)
-    {
+
+    // Java field initializers run after the base constructor
+    private void initFieldsGameCanvasPaintHelper() {
+    
+    }
+    
+
+    public GameCanvasPaintHelper(AllBinaryGameCanvas gameCanvas) {
+        base();
+        this.initFieldsGameCanvasPaintHelper();
         this.gameCanvas = gameCanvas;
     }
+    
 
-    public override void process()
-    {
+    public override void process() {
     }
+    
 
-    public override void paint(Graphics graphics)
-    {
+    public override void paint(Graphics graphics) {
         this.gameCanvas.draw(graphics);
     }
-
 }
 

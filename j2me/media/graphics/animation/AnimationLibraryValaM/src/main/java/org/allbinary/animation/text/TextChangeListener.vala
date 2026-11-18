@@ -13,23 +13,30 @@
  *   
  */
 // Generated Code Do Not Modify
+// package org.allbinary.animation.text
 
-using System;
-using System.Linq;
-
-namespace org.allbinary.animation.text;
-
-public class TextChangeListener
-{
-    private static readonly TextChangeListener instance = new TextChangeListener();
-    public static TextChangeListener getInstance()
-    {
+public class TextChangeListener : JObject {
+    private static TextChangeListener? instance;
+    private static bool staticSet_instance = false;
+    private static TextChangeListener staticGet_instance() {
+        if (!TextChangeListener.staticSet_instance) {
+            TextChangeListener.staticSet_instance = true;
+            TextChangeListener.instance = new TextChangeListener();
+        }
         return TextChangeListener.instance;
     }
 
-    public virtual void onMeasure()
-    {
+    public TextChangeListener() {
+        base();
     }
+    
 
+    public static TextChangeListener getInstance() {
+        return TextChangeListener.staticGet_instance();
+    }
+    
+
+    public virtual void onMeasure() {
+    }
 }
 

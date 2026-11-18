@@ -13,57 +13,62 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.input.event
+// import org.allbinary.logic.java.bool.BooleanFactory
+// import org.allbinary.logic.util.event.AllBinaryEventObject
+// import org.allbinary.logic.util.event.EventListenerInterface
+// import org.allbinary.logic.util.event.handler.BasicEventHandler
 
-using System;
-using System.Linq;
-using BooleanFactory = org.allbinary.logic.java.@bool.BooleanFactory;
-using AllBinaryEventObject = org.allbinary.logic.util.@event.AllBinaryEventObject;
-using EventListenerInterface = org.allbinary.logic.util.@event.EventListenerInterface;
-using BasicEventHandler = org.allbinary.logic.util.@event.handler.BasicEventHandler;
-
-namespace org.allbinary.input.@event;
-
-public class VirtualKeyboardEventHandler : BasicEventHandler
-{
-    private static readonly VirtualKeyboardEventHandler gameKeyEventHandler = new VirtualKeyboardEventHandler();
-    private VirtualKeyboardEventHandler()
-    {
-    }
-
-    public readonly VirtualKeyboardEvent SHOW_EVENT = new VirtualKeyboardEvent(BooleanFactory.getInstance().TRUE);
-    public readonly VirtualKeyboardEvent HIDE_EVENT = new VirtualKeyboardEvent(BooleanFactory.getInstance().FALSE);
-    public static VirtualKeyboardEventHandler getInstance()
-    {
+public class VirtualKeyboardEventHandler : BasicEventHandler {
+    private static VirtualKeyboardEventHandler? gameKeyEventHandler;
+    private static bool staticSet_gameKeyEventHandler = false;
+    private static VirtualKeyboardEventHandler staticGet_gameKeyEventHandler() {
+        if (!VirtualKeyboardEventHandler.staticSet_gameKeyEventHandler) {
+            VirtualKeyboardEventHandler.staticSet_gameKeyEventHandler = true;
+            VirtualKeyboardEventHandler.gameKeyEventHandler = new VirtualKeyboardEventHandler();
+        }
         return VirtualKeyboardEventHandler.gameKeyEventHandler;
     }
+    public VirtualKeyboardEvent SHOW_EVENT;
+    public VirtualKeyboardEvent HIDE_EVENT;
 
-    // throws Exception
-    public override void process(AllBinaryEventObject eventObject, EventListenerInterface eventListenerInterface)
-    {
+    // Java field initializers run after the base constructor
+    private void initFieldsVirtualKeyboardEventHandler() {
+    this.SHOW_EVENT = new VirtualKeyboardEvent(BooleanFactory.getInstance().TRUE_);
+    this.HIDE_EVENT = new VirtualKeyboardEvent(BooleanFactory.getInstance().FALSE_);
+    }
+    
+
+    public VirtualKeyboardEventHandler() {
+        base();
+        this.initFieldsVirtualKeyboardEventHandler();
+    }
+    
+
+    public static VirtualKeyboardEventHandler getInstance() {
+        return VirtualKeyboardEventHandler.staticGet_gameKeyEventHandler();
+    }
+    
+
+    public override void process(AllBinaryEventObject eventObject, EventListenerInterface eventListenerInterface) {
         VirtualKeyboardEventListenerInterface virtualKeyboardEventListenerInterface = ((VirtualKeyboardEventListenerInterface) eventListenerInterface);
         virtualKeyboardEventListenerInterface.onVirtualKeyboardEvent(((VirtualKeyboardEvent) eventObject));
     }
+    
 
-    public virtual void open()
-    {
-        try {
-            System.Threading.Thread.Sleep((int) (120));
+    public virtual void open() {
+        {
+            Thread.sleep(120);
             this.fireEvent(this.SHOW_EVENT);
-        } catch (Exception e) {
-            this.logUtil.put(this.commonStrings.EXCEPTION, this, "open", e);
-        }
+        } /* catch (Exception e): a thrown Java exception stops the program */
     }
+    
 
-    // throws Exception
-    public virtual void close()
-    {
-        try {
-            System.Threading.Thread.Sleep((int) (120));
+    public virtual void close() {
+        {
+            Thread.sleep(120);
             this.fireEvent(this.HIDE_EVENT);
-        } catch (Exception e) {
-            this.logUtil.put(this.commonStrings.EXCEPTION, this, this.commonStrings.CLOSE, e);
-        }
+        } /* catch (Exception e): a thrown Java exception stops the program */
     }
-
 }
 

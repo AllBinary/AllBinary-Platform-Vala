@@ -13,36 +13,46 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.game.terrain
+// import org.allbinary.logic.util.event.AllBinaryEventCircularPool
 
-using System;
-using System.Linq;
-using System.Runtime.CompilerServices;
-using AllBinaryEventCircularPool = org.allbinary.logic.util.@event.AllBinaryEventCircularPool;
-
-namespace org.allbinary.game.terrain;
-
-public class TerrainEventCircularStaticPool
-{
-    private static readonly TerrainEventCircularStaticPool instance = new TerrainEventCircularStaticPool();
-    public static TerrainEventCircularStaticPool getInstance()
-    {
+public class TerrainEventCircularStaticPool : JObject {
+    private static TerrainEventCircularStaticPool? instance;
+    private static bool staticSet_instance = false;
+    private static TerrainEventCircularStaticPool staticGet_instance() {
+        if (!TerrainEventCircularStaticPool.staticSet_instance) {
+            TerrainEventCircularStaticPool.staticSet_instance = true;
+            TerrainEventCircularStaticPool.instance = new TerrainEventCircularStaticPool();
+        }
         return TerrainEventCircularStaticPool.instance;
     }
+    private AllBinaryEventCircularPool EVENT_POOL;
 
-    private AllBinaryEventCircularPool EVENT_POOL = new AllBinaryEventCircularPool(20);
-    public virtual void init()
-    {
-        this.EVENT_POOL.initAllBinaryEventCircularPool(new TerrainEventFactory());
+    // Java field initializers run after the base constructor
+    private void initFieldsTerrainEventCircularStaticPool() {
+    this.EVENT_POOL = new AllBinaryEventCircularPool(20);
     }
 
-    // throws Exception
-    [MethodImpl(MethodImplOptions.Synchronized)]
-    public virtual TerrainEvent getNext(BasicTerrainInfo basicTerrainInfo)
-    {
+    public TerrainEventCircularStaticPool() {
+        base();
+        this.initFieldsTerrainEventCircularStaticPool();
+    }
+    
+
+    public static TerrainEventCircularStaticPool getInstance() {
+        return TerrainEventCircularStaticPool.staticGet_instance();
+    }
+    
+
+    public virtual void init() {
+        this.EVENT_POOL.initAllBinaryEventCircularPool(new TerrainEventFactory());
+    }
+    
+
+    public virtual TerrainEvent getNext(BasicTerrainInfo basicTerrainInfo) {
         TerrainEvent trackingEvent = ((TerrainEvent) this.EVENT_POOL.getNextInstance());
         trackingEvent.setBasicTerrainInfoForCircularStaticPool(basicTerrainInfo);
         return trackingEvent;
     }
-
 }
 

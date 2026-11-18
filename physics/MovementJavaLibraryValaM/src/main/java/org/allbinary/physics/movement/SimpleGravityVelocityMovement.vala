@@ -13,30 +13,30 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.physics.movement
+// import org.allbinary.game.layer.AllBinaryGameLayer
+// import org.allbinary.game.physics.acceleration.GravityUtil
+// import org.allbinary.game.physics.velocity.VelocityProperties
+// import org.allbinary.logic.math.BasicDecimal
 
-using System;
-using System.Linq;
-using AllBinaryGameLayer = org.allbinary.game.layer.AllBinaryGameLayer;
-using GravityUtil = org.allbinary.game.physics.acceleration.GravityUtil;
-using VelocityProperties = org.allbinary.game.physics.velocity.VelocityProperties;
-using BasicDecimal = org.allbinary.logic.math.BasicDecimal;
+public class SimpleGravityVelocityMovement : BasicConstantVelocityMovement {
+    private GravityUtil gravityUtil;
 
-namespace org.allbinary.physics.movement;
-
-public class SimpleGravityVelocityMovement : BasicConstantVelocityMovement
-{
-    public SimpleGravityVelocityMovement(BasicDecimal speedBasicDecimal) : base(speedBasicDecimal, new VelocityProperties(((int) speedBasicDecimal.getUnscaled()), ((int) speedBasicDecimal.getUnscaled())))
-    {
-        // base(speedBasicDecimal, new VelocityProperties(((int) speedBasicDecimal.getUnscaled()), ((int) speedBasicDecimal.getUnscaled()))) is called from the constructor declaration
+    // Java field initializers run after the base constructor
+    private void initFieldsSimpleGravityVelocityMovement() {
+    this.gravityUtil = GravityUtil.getInstance();
     }
+    
 
-    private readonly GravityUtil gravityUtil = GravityUtil.getInstance();
-    // throws Exception
-    public override void process(AllBinaryGameLayer layer)
-    {
+    public SimpleGravityVelocityMovement(BasicDecimal speedBasicDecimal) {
+        base(speedBasicDecimal, new VelocityProperties(((int32) (speedBasicDecimal.getUnscaled())), ((int32) (speedBasicDecimal.getUnscaled()))));
+        this.initFieldsSimpleGravityVelocityMovement();
+    }
+    
+
+    public override void process(AllBinaryGameLayer layer) {
         this.gravityUtil.process(this.getVelocityProperties(), this.gravityUtil.GAME_GRAVITY_VELOCITY);
         base.process(layer);
     }
-
 }
 

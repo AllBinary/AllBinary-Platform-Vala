@@ -13,20 +13,18 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.game.layer.pickup
+// import org.allbinary.animation.Animation
 
-using System;
-using System.Linq;
-using Animation = org.allbinary.animation.Animation;
+public class IconLayerFactory : JObject {
 
-namespace org.allbinary.game.layer.pickup;
+    public IconLayerFactory() {
+        base();
+    }
+    
 
-public class IconLayerFactory
-{
-    // throws Exception
-    public static IconLayer getInstance(Animation animationInterface, int width, int height)
-    {
+    public static IconLayer getInstance3(Animation animationInterface, int32 width, int32 height) {
         return new IconLayer(animationInterface, width, height);
     }
-
 }
 

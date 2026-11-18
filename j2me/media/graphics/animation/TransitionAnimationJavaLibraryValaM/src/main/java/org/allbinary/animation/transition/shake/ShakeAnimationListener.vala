@@ -13,34 +13,33 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.animation.transition.shake
 
-using System;
-using System.Linq;
+public class ShakeAnimationListener : JObject {
 
-namespace org.allbinary.animation.transition.shake;
-
-public class ShakeAnimationListener
-{
-    public virtual void onSmallShakeEvent()
-    {
+    public ShakeAnimationListener() {
+        base();
     }
+    
 
-    public virtual void onMediumShakeEvent()
-    {
+    public virtual void onSmallShakeEvent() {
     }
+    
 
-    public virtual void onLargeShakeEvent()
-    {
+    public virtual void onMediumShakeEvent() {
     }
+    
 
-    public virtual void onShakeEvent(ShakeEvent shakeEvent)
-    {
+    public virtual void onLargeShakeEvent() {
     }
+    
 
-    public virtual int getType()
-    {
+    public virtual void onShakeEvent(ShakeEvent shakeEvent) {
+    }
+    
+
+    public virtual int32 getType() {
         return 0;
     }
-
 }
 

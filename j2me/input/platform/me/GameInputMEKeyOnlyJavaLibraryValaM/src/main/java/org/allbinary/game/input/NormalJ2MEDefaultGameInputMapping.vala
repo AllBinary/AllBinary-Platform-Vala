@@ -13,20 +13,16 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.game.input
+// import org.allbinary.game.configuration.persistance.GamePersistanceStrings
+// import org.allbinary.game.input.mapping.InputToGameKeyMapping
+// import org.allbinary.game.input.mapping.PersistentInputMapping
 
-using System;
-using System.Linq;
-using GamePersistanceStrings = org.allbinary.game.configuration.persistance.GamePersistanceStrings;
-using InputToGameKeyMapping = org.allbinary.game.input.mapping.InputToGameKeyMapping;
-using PersistentInputMapping = org.allbinary.game.input.mapping.PersistentInputMapping;
+public class NormalJ2MEDefaultGameInputMapping : PersistentInputMapping {
+    
 
-namespace org.allbinary.game.input;
-
-public class NormalJ2MEDefaultGameInputMapping : PersistentInputMapping
-{
-    public NormalJ2MEDefaultGameInputMapping() : base(GamePersistanceStrings.getInstance().DEFAULT_INPUT_MAPPING_RECORD_ID)
-    {
-        // base(GamePersistanceStrings.getInstance().DEFAULT_INPUT_MAPPING_RECORD_ID) is called from the constructor declaration
+    public NormalJ2MEDefaultGameInputMapping() {
+        base(GamePersistanceStrings.getInstance().DEFAULT_INPUT_MAPPING_RECORD_ID);
         InputToGameKeyMapping inputToGameKeyMapping = this.getInputMapping();
         GameKeyFactory gameKeyFactory = GameKeyFactory.getInstance();
         inputToGameKeyMapping.add(gameKeyFactory.UP, gameKeyFactory.KEY_NUM2);
@@ -53,6 +49,5 @@ public class NormalJ2MEDefaultGameInputMapping : PersistentInputMapping
         inputToGameKeyMapping.add(gameKeyFactory.KEY_NUM0, gameKeyFactory.KEY_NUM0);
         inputToGameKeyMapping.add(gameKeyFactory.KEY_NUM1, gameKeyFactory.FIRE);
     }
-
 }
 

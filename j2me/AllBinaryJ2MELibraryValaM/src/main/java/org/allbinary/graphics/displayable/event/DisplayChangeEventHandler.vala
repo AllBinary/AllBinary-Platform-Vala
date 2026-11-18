@@ -13,33 +13,36 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.graphics.displayable.event
+// import org.allbinary.logic.util.event.AllBinaryEventObject
+// import org.allbinary.logic.util.event.EventListenerInterface
+// import org.allbinary.logic.util.event.handler.BasicEventHandler
 
-using System;
-using System.Linq;
-using AllBinaryEventObject = org.allbinary.logic.util.@event.AllBinaryEventObject;
-using EventListenerInterface = org.allbinary.logic.util.@event.EventListenerInterface;
-using BasicEventHandler = org.allbinary.logic.util.@event.handler.BasicEventHandler;
-
-namespace org.allbinary.graphics.displayable.@event;
-
-public class DisplayChangeEventHandler : BasicEventHandler
-{
-    private static readonly DisplayChangeEventHandler SINGLETON = new DisplayChangeEventHandler();
-    public static DisplayChangeEventHandler getInstance()
-    {
+public class DisplayChangeEventHandler : BasicEventHandler {
+    private static DisplayChangeEventHandler? SINGLETON;
+    private static bool staticSet_SINGLETON = false;
+    private static DisplayChangeEventHandler staticGet_SINGLETON() {
+        if (!DisplayChangeEventHandler.staticSet_SINGLETON) {
+            DisplayChangeEventHandler.staticSet_SINGLETON = true;
+            DisplayChangeEventHandler.SINGLETON = new DisplayChangeEventHandler();
+        }
         return DisplayChangeEventHandler.SINGLETON;
     }
+    
 
-    private DisplayChangeEventHandler()
-    {
+    public static DisplayChangeEventHandler getInstance() {
+        return DisplayChangeEventHandler.staticGet_SINGLETON();
     }
+    
 
-    // throws Exception
-    public override void process(AllBinaryEventObject eventObject, EventListenerInterface eventListenerInterface)
-    {
+    public DisplayChangeEventHandler() {
+        base();
+    }
+    
+
+    public override void process(AllBinaryEventObject eventObject, EventListenerInterface eventListenerInterface) {
         DisplayChangeEventListener displayChangeEventListener = (((DisplayChangeEventListener) eventListenerInterface));
         displayChangeEventListener.onDisplayChangeEvent(((DisplayChangeEvent) eventObject));
     }
-
 }
 

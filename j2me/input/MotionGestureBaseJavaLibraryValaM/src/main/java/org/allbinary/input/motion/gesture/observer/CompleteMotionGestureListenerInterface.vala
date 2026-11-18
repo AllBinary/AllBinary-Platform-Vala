@@ -13,17 +13,12 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.input.motion.gesture.observer
+// import org.allbinary.util.BasicArrayList
 
-using System;
-using System.Linq;
-using BasicArrayList = org.allbinary.util.BasicArrayList;
+public interface CompleteMotionGestureListenerInterface : JObject {
+    
 
-namespace org.allbinary.input.motion.gesture.observer;
-
-public interface CompleteMotionGestureListenerInterface
-{
-    // throws Exception
-    void onMotionGestureCompleted(BasicArrayList list);
-
+    public abstract void onMotionGestureCompleted(BasicArrayList list);
 }
 

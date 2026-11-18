@@ -13,42 +13,58 @@
  *   
  */
 // Generated Code Do Not Modify
+// package org.allbinary.animation
+// import org.allbinary.media.ScaleProperties
 
-using System;
-using System.Linq;
-using ScaleProperties = org.allbinary.media.ScaleProperties;
-
-namespace org.allbinary.animation;
-
-public class NullIndexedAnimationFactory : AnimationInterfaceFactoryInterface, ProceduralAnimationInterfaceFactoryInterface
-{
-    public static readonly IndexedAnimation[] NULL_INDEXED_ANIMATION_ARRAY = new IndexedAnimation[0];
-    private static NullIndexedAnimationFactory NULL_INDEXED_ANIMATION_FACTORY = new NullIndexedAnimationFactory();
-    private readonly Animation NULL_ANIMATION = new NullIndexedAnimationInner();
-    private NullIndexedAnimationFactory()
-    {
+public class NullIndexedAnimationFactory : JObject, AnimationInterfaceFactoryInterface, ProceduralAnimationInterfaceFactoryInterface, BasicAnimationInterfaceFactoryInterface {
+    public static IndexedAnimation[]? NULL_INDEXED_ANIMATION_ARRAY;
+    private static bool staticSet_NULL_INDEXED_ANIMATION_ARRAY = false;
+    public static IndexedAnimation[] staticGet_NULL_INDEXED_ANIMATION_ARRAY() {
+        if (!NullIndexedAnimationFactory.staticSet_NULL_INDEXED_ANIMATION_ARRAY) {
+            NullIndexedAnimationFactory.staticSet_NULL_INDEXED_ANIMATION_ARRAY = true;
+            NullIndexedAnimationFactory.NULL_INDEXED_ANIMATION_ARRAY = new IndexedAnimation[0];
+        }
+        return NullIndexedAnimationFactory.NULL_INDEXED_ANIMATION_ARRAY;
     }
-
-    public static NullIndexedAnimationFactory getFactoryInstance()
-    {
+    private static NullIndexedAnimationFactory? NULL_INDEXED_ANIMATION_FACTORY;
+    private static bool staticSet_NULL_INDEXED_ANIMATION_FACTORY = false;
+    private static NullIndexedAnimationFactory staticGet_NULL_INDEXED_ANIMATION_FACTORY() {
+        if (!NullIndexedAnimationFactory.staticSet_NULL_INDEXED_ANIMATION_FACTORY) {
+            NullIndexedAnimationFactory.staticSet_NULL_INDEXED_ANIMATION_FACTORY = true;
+            NullIndexedAnimationFactory.NULL_INDEXED_ANIMATION_FACTORY = new NullIndexedAnimationFactory();
+        }
         return NullIndexedAnimationFactory.NULL_INDEXED_ANIMATION_FACTORY;
     }
+    private Animation NULL_ANIMATION;
 
-    // throws Exception
-    public virtual Animation getInstance(int instanceId)
-    {
+    // Java field initializers run after the base constructor
+    private void initFieldsNullIndexedAnimationFactory() {
+    this.NULL_ANIMATION = new NullIndexedAnimationInner();
+    }
+    
+
+    public NullIndexedAnimationFactory() {
+        base();
+        this.initFieldsNullIndexedAnimationFactory();
+    }
+    
+
+    public static NullIndexedAnimationFactory getFactoryInstance() {
+        return NullIndexedAnimationFactory.staticGet_NULL_INDEXED_ANIMATION_FACTORY();
+    }
+    
+
+    public virtual Animation getInstance1(int32 instanceId) {
         return this.NULL_ANIMATION;
     }
+    
 
-    // throws Exception
-    public virtual Animation getInstanceAnimation(Animation animationInterface)
-    {
+    public virtual Animation getInstanceAnimation(Animation animationInterface) {
         return this.NULL_ANIMATION;
     }
+    
 
-    public virtual void setInitialScale(ScaleProperties scaleProperties)
-    {
+    public virtual void setInitialScale(ScaleProperties scaleProperties) {
     }
-
 }
 

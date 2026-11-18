@@ -13,25 +13,36 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.input.gyro
 
-using System;
-using System.Linq;
-
-namespace org.allbinary.input.gyro;
-
-public class OrientationData
-{
-    private static readonly OrientationData SINGLETON = new OrientationData();
-    private OrientationData()
-    {
-    }
-
-    public static OrientationData getInstance()
-    {
+public class OrientationData : JObject {
+    private static OrientationData? SINGLETON;
+    private static bool staticSet_SINGLETON = false;
+    private static OrientationData staticGet_SINGLETON() {
+        if (!OrientationData.staticSet_SINGLETON) {
+            OrientationData.staticSet_SINGLETON = true;
+            OrientationData.SINGLETON = new OrientationData();
+        }
         return OrientationData.SINGLETON;
     }
+    public string ORIENTATION_SENSOR_INPUT;
+    public string ORIENTATION_TYPE;
 
-    public readonly string ORIENTATION_SENSOR_INPUT = "Orientation Sensor Input";
-    public readonly string ORIENTATION_TYPE = "Orientation Type";
+    // Java field initializers run after the base constructor
+    private void initFieldsOrientationData() {
+    this.ORIENTATION_SENSOR_INPUT = "Orientation Sensor Input";
+    this.ORIENTATION_TYPE = "Orientation Type";
+    }
+    
+
+    public OrientationData() {
+        base();
+        this.initFieldsOrientationData();
+    }
+    
+
+    public static OrientationData getInstance() {
+        return OrientationData.staticGet_SINGLETON();
+    }
 }
 

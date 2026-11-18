@@ -13,25 +13,24 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.game.input
 
-using System;
-using System.Linq;
+public class GameInputProcessorUtil : JObject {
 
-namespace org.allbinary.game.input;
+    public GameInputProcessorUtil() {
+        base();
+    }
+    
 
-public class GameInputProcessorUtil
-{
-    public static void init(GameInputProcessor[] inputProcessorArray)
-    {
+    public static void init(GameInputProcessor[] inputProcessorArray) {
         GameInputProcessor noInputProcessor = GameInputProcessor.getInstance();
-        int total = InputFactory.getInstance().MAX;
-        for (int index = 0; index < total; index++) {
+        int32 total = InputFactory.getInstance().MAX_;
+        for (int32 index = 0; index < total; index++) {
             GameInputProcessor inputProcessorCanBeNull = inputProcessorArray[index];
             if (inputProcessorCanBeNull == null) {
                 inputProcessorArray[index] = noInputProcessor;
             }
         }
     }
-
 }
 

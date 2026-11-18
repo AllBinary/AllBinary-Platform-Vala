@@ -13,22 +13,18 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.game.input
+// import org.allbinary.game.configuration.persistance.GamePersistanceStrings
+// import org.allbinary.game.input.mapping.InputToGameKeyMapping
+// import org.allbinary.game.input.mapping.PersistentInputMapping
+// import org.allbinary.input.motion.button.BasicTouchInputFactory
+// import org.allbinary.input.motion.gesture.TouchMotionGestureFactory
 
-using System;
-using System.Linq;
-using GamePersistanceStrings = org.allbinary.game.configuration.persistance.GamePersistanceStrings;
-using InputToGameKeyMapping = org.allbinary.game.input.mapping.InputToGameKeyMapping;
-using PersistentInputMapping = org.allbinary.game.input.mapping.PersistentInputMapping;
-using BasicTouchInputFactory = org.allbinary.input.motion.button.BasicTouchInputFactory;
-using TouchMotionGestureFactory = org.allbinary.input.motion.gesture.TouchMotionGestureFactory;
+public class DesktopDefaultGameInputMapping : PersistentInputMapping {
+    
 
-namespace org.allbinary.game.input;
-
-public class DesktopDefaultGameInputMapping : PersistentInputMapping
-{
-    public DesktopDefaultGameInputMapping() : base(GamePersistanceStrings.getInstance().DEFAULT_INPUT_MAPPING_RECORD_ID)
-    {
-        // base(GamePersistanceStrings.getInstance().DEFAULT_INPUT_MAPPING_RECORD_ID) is called from the constructor declaration
+    public DesktopDefaultGameInputMapping() {
+        base(GamePersistanceStrings.getInstance().DEFAULT_INPUT_MAPPING_RECORD_ID);
         PCKeyFactory pcKeyFactory = PCKeyFactory.getInstance();
         InputToGameKeyMapping inputToGameKeyMapping = this.getInputMapping();
         GameKeyFactory gameKeyFactory = GameKeyFactory.getInstance();
@@ -95,6 +91,5 @@ public class DesktopDefaultGameInputMapping : PersistentInputMapping
         inputToGameKeyMapping.add(gameKeyFactory.LEVEL_DOWN, pcKeyFactory.COMMA);
         inputToGameKeyMapping.add(gameKeyFactory.LEVEL_UP, pcKeyFactory.PERIOD);
     }
-
 }
 

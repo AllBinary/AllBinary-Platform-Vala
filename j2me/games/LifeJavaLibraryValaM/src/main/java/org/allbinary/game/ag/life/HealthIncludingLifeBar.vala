@@ -13,34 +13,39 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.game.ag.life
+// import javax.microedition.lcdui.Graphics
+// import org.allbinary.game.health.Health
+// import org.allbinary.game.health.HealthBarAnimation
+// import org.allbinary.game.health.HealthBarTwodAnimation
+// import org.allbinary.game.health.HealthInterface
+// import org.allbinary.game.health.HealthListenerInterface
+// import org.allbinary.graphics.paint.Paintable
+// import org.allbinary.layer.AllBinaryLayer
 
-using System;
-using System.Linq;
-using Graphics = javax.microedition.lcdui.Graphics;
-using Health = org.allbinary.game.health.Health;
-using HealthBarAnimation = org.allbinary.game.health.HealthBarAnimation;
-using HealthBarTwodAnimation = org.allbinary.game.health.HealthBarTwodAnimation;
-using HealthInterface = org.allbinary.game.health.HealthInterface;
-using HealthListenerInterface = org.allbinary.game.health.HealthListenerInterface;
-using Paintable = org.allbinary.graphics.paint.Paintable;
-using AllBinaryLayer = org.allbinary.layer.AllBinaryLayer;
+public class HealthIncludingLifeBar : Paintable, HealthListenerInterface {
+    private HealthBarAnimation animationInterface;
+    private Life life;
+    private HealthInterface healthInterface;
+    public AllBinaryLayer allbinaryLayer;
 
-namespace org.allbinary.game.ag.life;
+    // Java field initializers run after the base constructor
+    private void initFieldsHealthIncludingLifeBar() {
+    
+    
+    
+    
+    }
+    
 
-public class HealthIncludingLifeBar : Paintable, HealthListenerInterface
-{
-    // throws Exception
-    public static HealthIncludingLifeBar createHealthIncludingLifeBar(AllBinaryLayer layerInterface, Life life, Health healthInterface, int location, int direction)
-    {
+    public static HealthIncludingLifeBar createHealthIncludingLifeBar(AllBinaryLayer layerInterface, Life life, Health healthInterface, int32 location, int32 direction) {
         return new HealthIncludingLifeBar(layerInterface, life, healthInterface, new HealthBarTwodAnimation(layerInterface, location), direction);
     }
+    
 
-    private readonly HealthBarAnimation animationInterface;
-    private readonly Life life;
-    private readonly HealthInterface healthInterface;
-    public readonly AllBinaryLayer allbinaryLayer;
-    public HealthIncludingLifeBar(AllBinaryLayer layerInterface, Life life, Health healthInterface, HealthBarAnimation animationInterface, int direction)
-    {
+    public HealthIncludingLifeBar(AllBinaryLayer layerInterface, Life life, Health healthInterface, HealthBarAnimation animationInterface, int32 direction) {
+        base();
+        this.initFieldsHealthIncludingLifeBar();
         this.allbinaryLayer = layerInterface;
         this.animationInterface = animationInterface;
         this.life = life;
@@ -48,21 +53,20 @@ public class HealthIncludingLifeBar : Paintable, HealthListenerInterface
         this.healthInterface.addListener(this);
         this.onHealthChange();
     }
+    
 
-    public virtual void onHealthChange()
-    {
-        this.animationInterface.onHealthChange(((this.healthInterface.getHealth() + (this.healthInterface.getMaxHealth() * this.life.get())) * this.allbinaryLayer.getWidth()) / (this.healthInterface.getMaxHealth() + (this.healthInterface.getMaxHealth() * this.life.getStartLives())));
+    public virtual void onHealthChange() {
+        this.animationInterface.onHealthChange(((this.healthInterface.getHealth() + (this.healthInterface.getMaxHealth() * ((int32) (this.life.@get())))) * this.allbinaryLayer.getWidth()) / (this.healthInterface.getMaxHealth() + (this.healthInterface.getMaxHealth() * ((int32) (this.life.getStartLives())))));
     }
+    
 
-    public override void paint(Graphics graphics)
-    {
+    public override void paint(Graphics graphics) {
         this.animationInterface.paintXY(graphics, 0, 0);
     }
+    
 
-    public override void paintThreed(Graphics graphics)
-    {
+    public override void paintThreed(Graphics graphics) {
         this.animationInterface.paintThreedXYZ(graphics, 0, 0, 0);
     }
-
 }
 

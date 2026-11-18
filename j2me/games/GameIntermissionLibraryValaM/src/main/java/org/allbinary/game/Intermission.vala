@@ -13,45 +13,49 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.game
+// import org.allbinary.time.TimeDelayHelper
 
-using System;
-using System.Linq;
-using TimeDelayHelper = org.allbinary.time.TimeDelayHelper;
+public class Intermission : JObject, IntermissionInterface {
+    private bool enabled;
+    private TimeDelayHelper timeElapsedHelper;
+    private IntermissionEnableListenerInterface intermissionEnableListener;
 
-namespace org.allbinary.game;
-
-public class Intermission : IntermissionInterface
-{
-    private bool enabled = false;
-    private readonly TimeDelayHelper timeElapsedHelper = new TimeDelayHelper(0);
-    private IntermissionEnableListenerInterface intermissionEnableListener = NullIntermissionEnableListener.getInstance();
-    public Intermission()
-    {
+    // Java field initializers run after the base constructor
+    private void initFieldsIntermission() {
+    this.enabled = false;
+    this.timeElapsedHelper = new TimeDelayHelper(0);
+    this.intermissionEnableListener = NullIntermissionEnableListener.getInstance();
     }
+    
 
-    public virtual void setListener(IntermissionEnableListenerInterface enableListener)
-    {
+    public Intermission() {
+        base();
+        this.initFieldsIntermission();
+    }
+    
+
+    public virtual void setListener(IntermissionEnableListenerInterface enableListener) {
         this.intermissionEnableListener = enableListener;
     }
+    
 
-    public virtual TimeDelayHelper getTimeDelayHelper()
-    {
+    public virtual TimeDelayHelper getTimeDelayHelper() {
         return this.timeElapsedHelper;
     }
+    
 
-    public virtual void setEnabled(bool enabled)
-    {
+    public virtual void setEnabled(bool enabled) {
         this.enabled = enabled;
         if (this.isEnabled()) {
             this.getTimeDelayHelper().setStartTimeTNT();
         }
         this.intermissionEnableListener.notifyIntermission(enabled);
     }
+    
 
-    public virtual bool isEnabled()
-    {
+    public virtual bool isEnabled() {
         return this.enabled;
     }
-
 }
 

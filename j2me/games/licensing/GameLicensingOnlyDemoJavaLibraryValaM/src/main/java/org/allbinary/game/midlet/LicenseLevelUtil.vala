@@ -13,24 +13,31 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.game.midlet
 
-using System;
-using System.Linq;
-
-namespace org.allbinary.game.midlet;
-
-public class LicenseLevelUtil
-{
-    private static readonly LicenseLevelUtil instance = new LicenseLevelUtil();
-    public static LicenseLevelUtil getInstance()
-    {
+public class LicenseLevelUtil : JObject {
+    private static LicenseLevelUtil? instance;
+    private static bool staticSet_instance = false;
+    private static LicenseLevelUtil staticGet_instance() {
+        if (!LicenseLevelUtil.staticSet_instance) {
+            LicenseLevelUtil.staticSet_instance = true;
+            LicenseLevelUtil.instance = new LicenseLevelUtil();
+        }
         return LicenseLevelUtil.instance;
     }
 
-    public virtual int getMaxLevel(int maxLevel, int demoLevel)
-    {
+    public LicenseLevelUtil() {
+        base();
+    }
+    
+
+    public static LicenseLevelUtil getInstance() {
+        return LicenseLevelUtil.staticGet_instance();
+    }
+    
+
+    public virtual int32 getMaxLevel(int32 maxLevel, int32 demoLevel) {
         return demoLevel;
     }
-
 }
 

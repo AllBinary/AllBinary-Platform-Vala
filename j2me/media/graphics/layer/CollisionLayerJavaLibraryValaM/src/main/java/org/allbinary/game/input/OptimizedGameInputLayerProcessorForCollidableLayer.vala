@@ -13,38 +13,32 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.game.input
+// import org.allbinary.game.layer.AllBinaryGameLayer
+// import org.allbinary.layer.AllBinaryLayer
+// import org.allbinary.layer.AllBinaryLayerManager
+// import org.allbinary.layer.LayerProcessor
 
-using System;
-using System.Linq;
-using AllBinaryGameLayer = org.allbinary.game.layer.AllBinaryGameLayer;
-using AllBinaryLayer = org.allbinary.layer.AllBinaryLayer;
-using AllBinaryLayerManager = org.allbinary.layer.AllBinaryLayerManager;
-using LayerProcessor = org.allbinary.layer.LayerProcessor;
+public class OptimizedGameInputLayerProcessorForCollidableLayer : LayerProcessor {
+    
 
-namespace org.allbinary.game.input;
-
-public class OptimizedGameInputLayerProcessorForCollidableLayer : LayerProcessor
-{
-    public OptimizedGameInputLayerProcessorForCollidableLayer() : base(new OptimizedGameInputLayerManager())
-    {
-        // base(new OptimizedGameInputLayerManager()) is called from the constructor declaration
+    public OptimizedGameInputLayerProcessorForCollidableLayer() {
+        base(new OptimizedGameInputLayerManager());
     }
+    
 
-    // throws Exception
-    public override void processAt(AllBinaryLayerManager allBinaryLayerManager, AllBinaryLayer layerInterface, int index)
-    {
+    public override void processAt(AllBinaryLayerManager allBinaryLayerManager, AllBinaryLayer layerInterface, int32 index) {
         AllBinaryGameLayer gameInputInterface = ((AllBinaryGameLayer) layerInterface);
         gameInputInterface.processInput(allBinaryLayerManager);
     }
+    
 
-    public override bool isProcessorLayer(AllBinaryLayer layerInterface)
-    {
+    public override bool isProcessorLayer(AllBinaryLayer layerInterface) {
         if (layerInterface.implmentsGameInputInterface()) {
             return true;
         } else {
             return false;
         }
     }
-
 }
 

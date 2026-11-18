@@ -13,29 +13,24 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.game.midlet
+// import org.allbinary.logic.system.security.licensing.ClientInformationFactory
+// import org.allbinary.logic.system.security.licensing.LicenseServerInitFileUtil
 
-using System;
-using System.Linq;
-using ClientInformationFactory = org.allbinary.logic.system.security.licensing.ClientInformationFactory;
-using LicenseServerInitFileUtil = org.allbinary.logic.system.security.licensing.LicenseServerInitFileUtil;
+public class SpecialDemoGameMidlet : DemoGameMidlet {
+    
 
-namespace org.allbinary.game.midlet;
-
-public class SpecialDemoGameMidlet : DemoGameMidlet
-{
-    public SpecialDemoGameMidlet(ClientInformationFactory clientInformationFactory, LicenseLoadingType licenseLoadingType, LicensedDemoSetupFactory demoSetupFactory, LicenseCheckRunnableFactory licenseCheckRunnableFactory) : base(clientInformationFactory)
-    {
-        // base(clientInformationFactory) is called from the constructor declaration
+    public SpecialDemoGameMidlet(ClientInformationFactory clientInformationFactory, LicenseLoadingType licenseLoadingType, LicensedDemoSetupFactory demoSetupFactory, LicenseCheckRunnableFactory licenseCheckRunnableFactory) {
+        base(clientInformationFactory);
     }
+    
 
-    public virtual void initView()
-    {
+    public virtual void initView() {
     }
+    
 
-    public override void preInit()
-    {
+    public override void preInit() {
         new LicenseServerInitFileUtil().init();
     }
-
 }
 

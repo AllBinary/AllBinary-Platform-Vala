@@ -13,16 +13,12 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.game.score
+// import org.allbinary.game.score.displayable.HighScoresCanvas
 
-using System;
-using System.Linq;
-using HighScoresCanvas = org.allbinary.game.score.displayable.HighScoresCanvas;
+public interface HighScoresCanvasInputProcessorFactoryInterface : JObject {
+    
 
-namespace org.allbinary.game.score;
-
-public interface HighScoresCanvasInputProcessorFactoryInterface
-{
-    HighScoresCanvasInputProcessor getInstance(HighScoresCanvas highScoresCanvas);
-
+    public abstract HighScoresCanvasInputProcessor getInstance1(HighScoresCanvas highScoresCanvas);
 }
 

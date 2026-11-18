@@ -13,32 +13,29 @@
  *  
  */
 // Generated Code Do Not Modify
-
-using System;
-using System.Linq;
-using AbPathData = org.allbinary.logic.io.path.AbPathData;
-using StringValidationUtil = org.allbinary.logic.@string.StringValidationUtil;
-
-namespace org.allbinary.logic.io.file;
+// package org.allbinary.logic.io.file
+// import org.allbinary.logic.io.path.AbPathData
+// import org.allbinary.logic.string.StringValidationUtil
 
 //Used to correct user input for paths
-public class FilePathUtil
-{
-    private FilePathUtil()
-    {
-    }
+public class FilePathUtil : JObject {
+    
 
-    public static string adjust(string path)
-    {
+    public FilePathUtil() {
+        base();
+    }
+    
+
+    public static string adjust(string path_parameter) {
+        string path = path_parameter;
         AbPathData abPathData = AbPathData.getInstance();
         StringValidationUtil stringValidationUtil = StringValidationUtil.getInstance();
         FilePathData filePathData = FilePathData.getInstance();
         if (stringValidationUtil.isEmpty(path)) {
             return filePathData.PATH_START;
         }
-        path = path.Replace(abPathData.SEPARATORCHAR, filePathData.SEPARATORCHAR);
+        path = JString.replace(path, abPathData.SEPARATORCHAR, filePathData.SEPARATORCHAR);
         return path;
     }
-
 }
 

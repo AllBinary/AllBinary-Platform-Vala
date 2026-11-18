@@ -13,38 +13,37 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.input.motion.gesture.observer
+// import org.allbinary.game.input.InputFactory
+// import org.allbinary.input.motion.gesture.MotionGestureInput
+// import org.allbinary.input.motion.gesture.TouchMotionGestureFactory
+// import org.allbinary.logic.util.event.AllBinaryEventCircularPool
 
-using System;
-using System.Linq;
-using System.Runtime.CompilerServices;
-using InputFactory = org.allbinary.game.input.InputFactory;
-using MotionGestureInput = org.allbinary.input.motion.gesture.MotionGestureInput;
-using TouchMotionGestureFactory = org.allbinary.input.motion.gesture.TouchMotionGestureFactory;
-using AllBinaryEventCircularPool = org.allbinary.logic.util.@event.AllBinaryEventCircularPool;
+public class MotionEventCircularPool : JObject {
+    private int32 MIN_;
+    private AllBinaryEventCircularPool eventPool;
 
-namespace org.allbinary.input.motion.gesture.observer;
+    // Java field initializers run after the base constructor
+    private void initFieldsMotionEventCircularPool() {
+    this.MIN_ = TouchMotionGestureFactory.getInstance().LAST_MOTION.getId();
+    this.eventPool = new AllBinaryEventCircularPool((InputFactory.getInstance().MAX_ - 1) - this.MIN_);
+    }
+    
 
-public class MotionEventCircularPool
-{
-    public static MotionEventCircularPool createPool(int id)
-    {
+    public static MotionEventCircularPool createPool(int32 id) {
         return new MotionEventCircularPool(id);
     }
+    
 
-    private readonly int MIN = TouchMotionGestureFactory.getInstance().LAST_MOTION.getId();
-    private AllBinaryEventCircularPool eventPool;
-    private MotionEventCircularPool(int id)
-    {
-        this.eventPool = new AllBinaryEventCircularPool((InputFactory.getInstance().MAX - 1) - this.MIN);
+    public MotionEventCircularPool(int32 id) {
+        base();
+        this.initFieldsMotionEventCircularPool();
         this.eventPool.initAllBinaryEventCircularPool(new MotionEventFactory(this.eventPool, id));
     }
+    
 
-    // throws Exception
-    [MethodImpl(MethodImplOptions.Synchronized)]
-    public virtual MotionGestureEvent getInstance(MotionGestureInput motionGestureInput)
-    {
-        return ((MotionGestureEvent) this.eventPool.getInstance(motionGestureInput.getId() - this.MIN));
+    public virtual MotionGestureEvent getInstance1(MotionGestureInput motionGestureInput) {
+        return ((MotionGestureEvent) this.eventPool.getInstance1(JNumber.box(motionGestureInput.getId() - this.MIN_)));
     }
-
 }
 

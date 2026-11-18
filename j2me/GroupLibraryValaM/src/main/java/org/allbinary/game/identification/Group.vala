@@ -13,32 +13,37 @@
  *   
  */
 // Generated Code Do Not Modify
+// package org.allbinary.game.identification
+// import org.allbinary.logic.string.StringMaker
+// import org.allbinary.logic.string.StringUtil
 
-using System;
-using System.Linq;
-using StringMaker = org.allbinary.logic.@string.StringMaker;
-using StringUtil = org.allbinary.logic.@string.StringUtil;
+public class Group : JObject, GroupInterface {
+    private string name;
+    private int16 teamId;
+    private string string;
 
-namespace org.allbinary.game.identification;
+    // Java field initializers run after the base constructor
+    private void initFieldsGroup() {
+    this.name = StringUtil.getInstance().EMPTY_STRING;
+    
+    this.string = StringUtil.getInstance().EMPTY_STRING;
+    }
+    
 
-public class Group : GroupInterface
-{
-    private string name = StringUtil.getInstance().EMPTY_STRING;
-    private readonly short teamId;
-    private string @string = StringUtil.getInstance().EMPTY_STRING;
-    public Group(string teamName, short teamId)
-    {
+    public Group(string teamName, int16 teamId) {
+        base();
+        this.initFieldsGroup();
         this.teamId = teamId;
         this.setName(teamName);
     }
+    
 
-    public virtual string getGroupName()
-    {
+    public virtual string getGroupName() {
         return this.name;
     }
+    
 
-    public virtual void setName(string name)
-    {
+    public virtual void setName(string name) {
         this.name = name;
         GroupCommonFactory groupCommonFactory = GroupCommonFactory.getInstance();
         StringMaker stringBuffer = new StringMaker();
@@ -46,18 +51,17 @@ public class Group : GroupInterface
         stringBuffer.append(this.name);
         stringBuffer.append(groupCommonFactory.ID_LABEL);
         stringBuffer.appendshort(this.teamId);
-        this.@string = stringBuffer.ToString();
+        this.string = stringBuffer.toString();
     }
+    
 
-    public virtual short getGroupId()
-    {
+    public virtual int16 getGroupId() {
         return this.teamId;
     }
+    
 
-    public override string ToString()
-    {
-        return this.@string;
+    public override string toString() {
+        return this.string;
     }
-
 }
 

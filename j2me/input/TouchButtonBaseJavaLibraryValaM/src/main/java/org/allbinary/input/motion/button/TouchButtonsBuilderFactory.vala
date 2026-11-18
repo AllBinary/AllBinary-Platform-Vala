@@ -13,19 +13,26 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.input.motion.button
 
-using System;
-using System.Linq;
-
-namespace org.allbinary.input.motion.button;
-
-public class TouchButtonsBuilderFactory
-{
-    public static readonly TouchButtonsBuilderFactory NO_TOUCH_BUTTON_BUILDER_FACTORY = new TouchButtonsBuilderFactory();
-    public virtual BaseTouchInput getInstance()
-    {
-        return NoButtonsTouchInputFactory.getInstance();
+public class TouchButtonsBuilderFactory : JObject {
+    public static TouchButtonsBuilderFactory? NO_TOUCH_BUTTON_BUILDER_FACTORY;
+    private static bool staticSet_NO_TOUCH_BUTTON_BUILDER_FACTORY = false;
+    public static TouchButtonsBuilderFactory staticGet_NO_TOUCH_BUTTON_BUILDER_FACTORY() {
+        if (!TouchButtonsBuilderFactory.staticSet_NO_TOUCH_BUTTON_BUILDER_FACTORY) {
+            TouchButtonsBuilderFactory.staticSet_NO_TOUCH_BUTTON_BUILDER_FACTORY = true;
+            TouchButtonsBuilderFactory.NO_TOUCH_BUTTON_BUILDER_FACTORY = new TouchButtonsBuilderFactory();
+        }
+        return TouchButtonsBuilderFactory.NO_TOUCH_BUTTON_BUILDER_FACTORY;
     }
 
+    public TouchButtonsBuilderFactory() {
+        base();
+    }
+    
+
+    public virtual BaseTouchInput getInstance() {
+        return NoButtonsTouchInputFactory.getInstance();
+    }
 }
 

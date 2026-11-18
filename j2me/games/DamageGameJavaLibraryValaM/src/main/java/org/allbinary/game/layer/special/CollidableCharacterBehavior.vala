@@ -13,28 +13,23 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.game.layer.special
+// import org.allbinary.game.collision.CollidableInterfaceCompositeInterface
+// import org.allbinary.game.collision.CollisionType
+// import org.allbinary.game.collision.CollisionTypeFactory
+// import org.allbinary.game.layer.CollidableCompositeLayer
+// import org.allbinary.game.layer.pickup.PickedUpLayerInterface
+// import org.allbinary.logic.communication.log.ForcedLogUtil
 
-using System;
-using System.Linq;
-using CollidableInterfaceCompositeInterface = org.allbinary.game.collision.CollidableInterfaceCompositeInterface;
-using CollisionType = org.allbinary.game.collision.CollisionType;
-using CollisionTypeFactory = org.allbinary.game.collision.CollisionTypeFactory;
-using CollidableCompositeLayer = org.allbinary.game.layer.CollidableCompositeLayer;
-using PickedUpLayerInterface = org.allbinary.game.layer.pickup.PickedUpLayerInterface;
-using ForcedLogUtil = org.allbinary.logic.communication.log.ForcedLogUtil;
+public class CollidableCharacterBehavior : CollidableDestroyableDamageableBehavior {
+    
 
-namespace org.allbinary.game.layer.special;
-
-public class CollidableCharacterBehavior : CollidableDestroyableDamageableBehavior
-{
-    public CollidableCharacterBehavior(bool collidable) : base(collidable)
-    {
-        // base(collidable) is called from the constructor declaration
+    public CollidableCharacterBehavior(bool collidable) {
+        base(collidable);
     }
+    
 
-    // throws Exception
-    public override void collide(CollidableCompositeLayer ownerLayer, CollidableCompositeLayer collidableInterfaceCompositeInterface)
-    {
+    public override void collide(CollidableCompositeLayer ownerLayer, CollidableCompositeLayer collidableInterfaceCompositeInterface) {
         CollisionTypeFactory collisionTypeFactory = CollisionTypeFactory.getInstance();
         CollisionType collisionType = collidableInterfaceCompositeInterface.getCollidableInferface().getCollisionTypeWith(ownerLayer);
         if (collisionType == collisionTypeFactory.PICKUP) {
@@ -44,12 +39,10 @@ public class CollidableCharacterBehavior : CollidableDestroyableDamageableBehavi
             base.collide(ownerLayer, collidableInterfaceCompositeInterface);
         }
     }
+    
 
-    // throws Exception
-    public override void collideInterface(CollidableCompositeLayer ownerLayer, CollidableInterfaceCompositeInterface collidableInterfaceCompositeInterface)
-    {
+    public override void collideInterface(CollidableCompositeLayer ownerLayer, CollidableInterfaceCompositeInterface collidableInterfaceCompositeInterface) {
         ForcedLogUtil.log(this.commonStrings.NOT_IMPLEMENTED, this);
     }
-
 }
 

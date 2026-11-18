@@ -13,26 +13,29 @@
  *   
  */
 // Generated Code Do Not Modify
+// package org.allbinary.media.audio
+// import org.allbinary.logic.string.StringUtil
 
-using System;
-using System.Linq;
-using StringUtil = org.allbinary.logic.@string.StringUtil;
-
-namespace org.allbinary.media.audio;
-
-public class NoSound : Sound
-{
-    public static NoSound getInstance()
-    {
+public class NoSound : Sound {
+    private static NoSound? instance;
+    private static bool staticSet_instance = false;
+    private static NoSound staticGet_instance() {
+        if (!NoSound.staticSet_instance) {
+            NoSound.staticSet_instance = true;
+            NoSound.instance = new NoSound();
+        }
         return NoSound.instance;
     }
+    
 
-    private static readonly NoSound instance = new NoSound();
-    private NoSound() : base(StringUtil.getInstance().EMPTY_STRING)
-    {
-        // base(StringUtil.getInstance().EMPTY_STRING) is called from the constructor declaration
+    public static NoSound getInstance() {
+        return NoSound.staticGet_instance();
+    }
+    
+
+    public NoSound() {
+        base(StringUtil.getInstance().EMPTY_STRING);
         this.setPlayerP(NoPlayer.NO_PLAYER);
     }
-
 }
 

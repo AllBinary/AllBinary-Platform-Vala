@@ -13,71 +13,72 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.game.input.motion.action
+// import org.allbinary.game.input.CompleteMotionGestureInputEvent
+// import org.allbinary.game.input.GameKey
+// import org.allbinary.game.input.GameKeyEventSourceInterface
+// import org.allbinary.game.input.event.GameKeyEvent
+// import org.allbinary.game.input.event.GameKeyEventFactory
+// import org.allbinary.game.input.mapping.InputToGameKeyMapping
+// import org.allbinary.input.motion.gesture.MotionGestureInput
+// import org.allbinary.string.CommonStrings
 
-using System;
-using System.Linq;
-using CompleteMotionGestureInputEvent = org.allbinary.game.input.CompleteMotionGestureInputEvent;
-using GameKey = org.allbinary.game.input.GameKey;
-using GameKeyEventSourceInterface = org.allbinary.game.input.GameKeyEventSourceInterface;
-using GameKeyEvent = org.allbinary.game.input.@event.GameKeyEvent;
-using GameKeyEventFactory = org.allbinary.game.input.@event.GameKeyEventFactory;
-using InputToGameKeyMapping = org.allbinary.game.input.mapping.InputToGameKeyMapping;
-using MotionGestureInput = org.allbinary.input.motion.gesture.MotionGestureInput;
-using CommonStrings = org.allbinary.@string.CommonStrings;
-
-namespace org.allbinary.game.input.motion.action;
-
-public class GameKeyCompleteMotionGestureInputEvent : CompleteMotionGestureInputEvent, GameKeyEventSourceInterface
-{
-    private readonly GameKeyEventFactory gameKeyEventFactory = GameKeyEventFactory.getInstance();
-    private readonly int SOURCE_ID;
-    private GameKey gameKey = GameKey.NULL_GAME_KEY;
-    private GameKeyEvent gameKeyEvent = GameKeyEvent.NONE;
+public class GameKeyCompleteMotionGestureInputEvent : CompleteMotionGestureInputEvent, GameKeyEventSourceInterface {
+    private GameKeyEventFactory gameKeyEventFactory;
+    private int32 SOURCE_ID;
+    private GameKey gameKey;
+    private GameKeyEvent gameKeyEvent;
     private InputToGameKeyMapping inputToGameKeyMapping;
-    public GameKeyCompleteMotionGestureInputEvent(string name, MotionGestureInput motionGestureInput, InputToGameKeyMapping inputToGameKeyMapping) : base(name, motionGestureInput)
-    {
-        this.SOURCE_ID = this.gameKeyEventFactory.MOTION_GESTURE_SOURCE_ID;
-        // base(name, motionGestureInput) is called from the constructor declaration
+
+    // Java field initializers run after the base constructor
+    private void initFieldsGameKeyCompleteMotionGestureInputEvent() {
+    this.gameKeyEventFactory = GameKeyEventFactory.getInstance();
+    this.SOURCE_ID = this.gameKeyEventFactory.MOTION_GESTURE_SOURCE_ID;
+    this.gameKey = GameKey.NULL_GAME_KEY;
+    this.gameKeyEvent = GameKeyEvent.NONE;
+    
+    }
+    
+
+    public GameKeyCompleteMotionGestureInputEvent(string name, MotionGestureInput motionGestureInput, InputToGameKeyMapping inputToGameKeyMapping) {
+        base(name, motionGestureInput);
+        this.initFieldsGameKeyCompleteMotionGestureInputEvent();
         this.inputToGameKeyMapping = inputToGameKeyMapping;
         GameKeyCompleteMotionGestureInputEventFactory.getInstance().add(this);
         this.update();
     }
+    
 
-    public virtual int getSourceId()
-    {
+    public virtual int32 getSourceId() {
         return this.SOURCE_ID;
     }
+    
 
-    public virtual void update()
-    {
-        try {
-            this.setGameKey(this.inputToGameKeyMapping.getInstance(this.getMotionGestureInput().getId()));
+    public virtual void update() {
+        {
+            this.setGameKey(this.inputToGameKeyMapping.getInstance1(this.getMotionGestureInput().getId()));
             this.setGameKeyEvent(this.gameKeyEventFactory.getInstanceForInput(this, this.getGameKey()));
-        } catch (Exception e) {
-            CommonStrings commonStrings = CommonStrings.getInstance();
-            this.logUtil.put(commonStrings.EXCEPTION, this, commonStrings.UPDATE, e);
-        }
+        } /* catch (Exception e): a thrown Java exception stops the program */
     }
+    
 
-    public virtual void setGameKeyEvent(GameKeyEvent gameKeyEvent)
-    {
+    public virtual void setGameKeyEvent(GameKeyEvent gameKeyEvent) {
         this.gameKeyEvent = gameKeyEvent;
     }
+    
 
-    public virtual GameKeyEvent getGameKeyEvent()
-    {
+    public virtual GameKeyEvent getGameKeyEvent() {
         return this.gameKeyEvent;
     }
+    
 
-    public virtual void setGameKey(GameKey gameKey)
-    {
+    public virtual void setGameKey(GameKey gameKey) {
         this.gameKey = gameKey;
     }
+    
 
-    public virtual GameKey getGameKey()
-    {
+    public virtual GameKey getGameKey() {
         return this.gameKey;
     }
-
 }
 

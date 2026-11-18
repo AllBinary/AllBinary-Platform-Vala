@@ -13,17 +13,12 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.layer
+// import org.allbinary.util.ABHashtable
 
-using System;
-using System.Linq;
-using org.allbinary.util;
+public interface LayerInterfaceFactoryInterface : JObject {
+    
 
-namespace org.allbinary.layer;
-
-public interface LayerInterfaceFactoryInterface
-{
-    // throws Exception
-    AllBinaryLayer getNextInstance(ABHashtable<object, object> hashtable, int x, int y, int z);
-
+    public abstract AllBinaryLayer getNextInstance(ABHashtable hashtable, int32 x, int32 y, int32 z);
 }
 

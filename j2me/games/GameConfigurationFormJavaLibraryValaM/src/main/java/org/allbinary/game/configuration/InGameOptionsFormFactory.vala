@@ -13,49 +13,60 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.game.configuration
+// import javax.microedition.lcdui.CommandListener
+// import org.allbinary.graphics.color.BasicColor
+// import org.allbinary.graphics.displayable.screen.CommandForm
+// import org.allbinary.init.Init
+// import org.allbinary.logic.NullUtil
+// import org.allbinary.logic.communication.log.LogUtil
+// import org.allbinary.string.CommonStrings
 
-using System;
-using System.Linq;
-using CommandListener = javax.microedition.lcdui.CommandListener;
-using BasicColor = org.allbinary.graphics.color.BasicColor;
-using CommandForm = org.allbinary.graphics.displayable.screen.CommandForm;
-using Init = org.allbinary.init.Init;
-using NullUtil = org.allbinary.logic.NullUtil;
-using LogUtil = org.allbinary.logic.communication.log.LogUtil;
-using CommonStrings = org.allbinary.@string.CommonStrings;
-
-namespace org.allbinary.game.configuration;
-
-public class InGameOptionsFormFactory
-{
-    public readonly LogUtil logUtil = LogUtil.getInstance();
-    private static object instance = NullUtil.getInstance().NULL_OBJECT;
-    public static InGameOptionsFormFactory getInstance()
-    {
-        if (InGameOptionsFormFactory.instance == NullUtil.getInstance().NULL_OBJECT) {
-            InGameOptionsFormFactory.instance = new InGameOptionsFormFactory();
+public class InGameOptionsFormFactory : JObject {
+    private static JObject? instance;
+    private static bool staticSet_instance = false;
+    private static JObject staticGet_instance() {
+        if (!InGameOptionsFormFactory.staticSet_instance) {
+            InGameOptionsFormFactory.staticSet_instance = true;
+            InGameOptionsFormFactory.instance = NullUtil.getInstance().NULL_OBJECT;
         }
-        return ((InGameOptionsFormFactory) InGameOptionsFormFactory.instance);
+        return InGameOptionsFormFactory.instance;
+    }
+    public LogUtil logUtil;
+    private CommandForm SINGLETON;
+
+    // Java field initializers run after the base constructor
+    private void initFieldsInGameOptionsFormFactory() {
+    this.logUtil = LogUtil.getInstance();
+    this.SINGLETON = CommandForm.getNullCommandForm();
     }
 
-    private CommandForm SINGLETON = CommandForm.getNullCommandForm();
-    public virtual void init(CommandListener commandListener, Init initInterface, string title, BasicColor backgrounBasicColor, BasicColor foregroundBasicColor)
-    {
-        try {
+    public InGameOptionsFormFactory() {
+        base();
+        this.initFieldsInGameOptionsFormFactory();
+    }
+    
+
+    public static InGameOptionsFormFactory getInstance() {
+        if (InGameOptionsFormFactory.staticGet_instance() == NullUtil.getInstance().NULL_OBJECT) {
+            InGameOptionsFormFactory.instance = new InGameOptionsFormFactory();
+        }
+        return ((InGameOptionsFormFactory) InGameOptionsFormFactory.staticGet_instance());
+    }
+    
+
+    public virtual void init(CommandListener commandListener, Init initInterface, string title, BasicColor backgrounBasicColor, BasicColor foregroundBasicColor) {
+        {
             if (this.SINGLETON == CommandForm.getNullCommandForm()) {
                 initInterface.init();
                 this.SINGLETON = new InGameOptionsForm(commandListener, title, backgrounBasicColor, foregroundBasicColor);
             }
-        } catch (Exception e) {
-            CommonStrings commonStrings = CommonStrings.getInstance();
-            this.logUtil.put(commonStrings.EXCEPTION, this, commonStrings.INIT, e);
-        }
+        } /* catch (Exception e): a thrown Java exception stops the program */
     }
+    
 
-    public virtual CommandForm get()
-    {
+    public virtual CommandForm @get() {
         return this.SINGLETON;
     }
-
 }
 

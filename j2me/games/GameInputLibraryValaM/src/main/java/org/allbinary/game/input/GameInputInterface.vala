@@ -13,20 +13,16 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.game.input
+// import org.allbinary.layer.AllBinaryLayerManager
+// import org.allbinary.layer.NamedInterface
 
-using System;
-using System.Linq;
-using AllBinaryLayerManager = org.allbinary.layer.AllBinaryLayerManager;
-using NamedInterface = org.allbinary.layer.NamedInterface;
+public interface GameInputInterface : JObject, NamedInterface {
+    
 
-namespace org.allbinary.game.input;
+    public abstract void processInput(AllBinaryLayerManager layerManager);
+    
 
-public interface GameInputInterface : NamedInterface
-{
-    // throws Exception
-    void processInput(AllBinaryLayerManager layerManager);
-
-    void initInputProcessors();
-
+    public abstract void initInputProcessors();
 }
 

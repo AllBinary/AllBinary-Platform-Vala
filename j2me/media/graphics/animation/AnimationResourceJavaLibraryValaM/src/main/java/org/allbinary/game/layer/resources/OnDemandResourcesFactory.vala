@@ -13,23 +13,22 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.game.layer.resources
 
-using System;
-using System.Linq;
+public class OnDemandResourcesFactory : JObject {
 
-namespace org.allbinary.game.layer.resources;
+    public OnDemandResourcesFactory() {
+        base();
+    }
+    
 
-public class OnDemandResourcesFactory
-{
-    public virtual int size()
-    {
+    public virtual int32 size() {
         return 0;
     }
+    
 
-    public virtual OnDemandResources remove(int layerId)
-    {
+    public virtual OnDemandResources remove(int32 layerId) {
         return OnDemandResources.NULL_ON_DEMAND_RESOURCES;
     }
-
 }
 

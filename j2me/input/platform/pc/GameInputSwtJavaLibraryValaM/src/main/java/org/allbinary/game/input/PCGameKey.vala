@@ -13,31 +13,27 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.game.input
+// import org.allbinary.logic.string.StringUtil
 
-using System;
-using System.Linq;
-using StringUtil = org.allbinary.logic.@string.StringUtil;
+public class PCGameKey : Input {
+    
 
-namespace org.allbinary.game.input;
-
-public class PCGameKey : Input
-{
-    public PCGameKey(int keyCode, string name) : base(keyCode, name)
-    {
-        // base(keyCode, name) is called from the constructor declaration
-        int id = this.getId();
+    public PCGameKey(int32 keyCode, string name) {
+        base(keyCode, name);
+        int32 id = this.getId();
         if (id >= 0) {
             InputFactory.getInstance().add(id, this);
         }
     }
+    
 
-    public override string ToString()
-    {
-        return "PCGameKey: " + base.ToString();
+    public override string toString() {
+        return JString.ofString("PCGameKey: ") + JString.ofString(base.toString());
     }
+    
 
-    public static string getString(int keyCode)
-    {
+    public static string getString(int32 keyCode) {
         Input input = InputFactory.getInstance().getInstanceById(keyCode);
         if (input != null) {
             return input.getName();
@@ -45,6 +41,5 @@ public class PCGameKey : Input
             return StringUtil.getInstance().EMPTY_STRING;
         }
     }
-
 }
 

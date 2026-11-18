@@ -13,26 +13,29 @@
  *   
  */
 // Generated Code Do Not Modify
+// package org.allbinary.animation
 
-using System;
-using System.Linq;
+public class IndexedAnimationBehaviorFactory : AnimationBehaviorFactory {
+    public int64 frameDelayTime;
+    public int32 loopTotal;
 
-namespace org.allbinary.animation;
+    // Java field initializers run after the base constructor
+    private void initFieldsIndexedAnimationBehaviorFactory() {
+    
+    
+    }
+    
 
-public class IndexedAnimationBehaviorFactory : AnimationBehaviorFactory
-{
-    public long frameDelayTime;
-    public int loopTotal;
-    public IndexedAnimationBehaviorFactory(int loopTotal, long frameDelayTime)
-    {
+    public IndexedAnimationBehaviorFactory(int32 loopTotal, int64 frameDelayTime) {
+        base();
+        this.initFieldsIndexedAnimationBehaviorFactory();
         this.loopTotal = loopTotal;
         this.frameDelayTime = frameDelayTime;
     }
+    
 
-    public override AnimationBehavior getOrCreateInstance()
-    {
+    public override AnimationBehavior getOrCreateInstance() {
         return new IndexedAnimationBehavior(this.loopTotal, this.frameDelayTime);
     }
-
 }
 

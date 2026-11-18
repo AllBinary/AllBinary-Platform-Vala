@@ -13,18 +13,18 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.input.motion.gesture.observer
+// import org.allbinary.input.motion.gesture.configuration.MotionGestureConfiguration
+// import org.allbinary.input.motion.gesture.configuration.MotionGestureConfigurationFactory
 
-using System;
-using System.Linq;
-using MotionGestureConfiguration = org.allbinary.input.motion.gesture.configuration.MotionGestureConfiguration;
-using MotionGestureConfigurationFactory = org.allbinary.input.motion.gesture.configuration.MotionGestureConfigurationFactory;
+public class MotionGestureReceiveInterfaceFactory : JObject {
 
-namespace org.allbinary.input.motion.gesture.observer;
+    public MotionGestureReceiveInterfaceFactory() {
+        base();
+    }
+    
 
-public class MotionGestureReceiveInterfaceFactory
-{
-    public static CompleteMotionGestureListenerInterface getInstance()
-    {
+    public static CompleteMotionGestureListenerInterface getInstance() {
         MotionGestureConfiguration configuration = MotionGestureConfigurationFactory.getInstance();
         if (!configuration.isExecutingActionsAllowed()) {
             return new NullCompleteMotionGestureReceiver();
@@ -32,6 +32,5 @@ public class MotionGestureReceiveInterfaceFactory
             return new ResolveCompleteMotionGestureListener();
         }
     }
-
 }
 

@@ -13,15 +13,11 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.game.score
 
-using System;
-using System.Linq;
+public interface ScoreableInterfaceCompositeInterface : JObject {
+    
 
-namespace org.allbinary.game.score;
-
-public interface ScoreableInterfaceCompositeInterface
-{
-    Scoreable getScoreableInterface();
-
+    public abstract Scoreable getScoreableInterface();
 }
 

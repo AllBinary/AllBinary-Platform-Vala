@@ -13,18 +13,13 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.game.layer.identification
+// import org.allbinary.game.identification.Group
+// import org.allbinary.graphics.form.item.ABCustomItem
 
-using System;
-using System.Linq;
-using Group = org.allbinary.game.identification.Group;
-using ABCustomItem = org.allbinary.graphics.form.item.ABCustomItem;
+public interface GroupItemArrayFactoryInterface : JObject {
+    
 
-namespace org.allbinary.game.layer.identification;
-
-public interface GroupItemArrayFactoryInterface
-{
-    // throws Exception
-    ABCustomItem[] getInstance(Group groupInterface);
-
+    public abstract ABCustomItem[] getInstance1(Group groupInterface);
 }
 

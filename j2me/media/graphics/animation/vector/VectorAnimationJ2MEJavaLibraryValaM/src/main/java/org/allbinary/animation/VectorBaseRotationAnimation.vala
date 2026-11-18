@@ -13,82 +13,83 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.animation
+// import javax.microedition.lcdui.Graphics
+// import org.allbinary.graphics.color.BasicColor
+// import org.allbinary.logic.NullUtil
+// import org.allbinary.logic.math.PrimitiveIntUtil
+// import org.allbinary.math.AngleInfo
+// import org.allbinary.util.CircularIndexUtil
 
-using System;
-using System.Linq;
-using Graphics = javax.microedition.lcdui.Graphics;
-using BasicColor = org.allbinary.graphics.color.BasicColor;
-using NullUtil = org.allbinary.logic.NullUtil;
-using PrimitiveIntUtil = org.allbinary.logic.math.PrimitiveIntUtil;
-using AngleInfo = org.allbinary.math.AngleInfo;
-using CircularIndexUtil = org.allbinary.util.CircularIndexUtil;
+public class VectorBaseRotationAnimation : RotationAnimation, VectorAnimationInterface, IndexedAnimationInterface, ColorCompositeInterface, SequentialAnimationInterface, BasicColorCompositeSetterInterface, AnimationInterface, SequenceInterface, LocationPaintableInterface {
+    private int32[,,] currentPoints;
 
-namespace org.allbinary.animation;
+    // Java field initializers run after the base constructor
+    private void initFieldsVectorBaseRotationAnimation() {
+    this.currentPoints = NullUtil.getInstance().NULL_INT_ARRAY_ARRAY_ARRAY;
+    }
+    
 
-public class VectorBaseRotationAnimation : RotationAnimation, VectorAnimationInterface
-{
-    private int[][][] currentPoints = NullUtil.getInstance().NULL_INT_ARRAY_ARRAY_ARRAY;
-    public VectorBaseRotationAnimation(AngleInfo angleInfo, int[][][] currentPoints, BasicColor basicColor, AnimationBehavior animationBehavior) : base(angleInfo, CircularIndexUtil.createInstance(360 / angleInfo.getAngleIncrementInfo().getAngleIncrement()), animationBehavior)
-    {
-        // base(angleInfo, CircularIndexUtil.createInstance(360 / angleInfo.getAngleIncrementInfo().getAngleIncrement()), animationBehavior) is called from the constructor declaration
+    public VectorBaseRotationAnimation(AngleInfo angleInfo, int32[,,] currentPoints, BasicColor basicColor, AnimationBehavior animationBehavior) {
+        base(angleInfo, CircularIndexUtil.createInstance(360 / ((int32) (angleInfo.getAngleIncrementInfo().getAngleIncrement()))), animationBehavior);
+        this.initFieldsVectorBaseRotationAnimation();
         this.setPoints(currentPoints);
         this.setBasicColorP(basicColor);
     }
+    
 
-    // throws Exception
-    public override int getAnimationSize()
-    {
+    public override int32 getAnimationSize() {
         return this.getSize();
     }
+    
 
-    public override int getFrame()
-    {
+    public override int32 getFrame() {
         return this.circularIndexUtil.getIndex();
     }
+    
 
-    public override void setFrame(int index)
-    {
+    public override void setFrame(int32 index) {
         this.circularIndexUtil.setIndex(index);
     }
+    
 
-    public override void nextFrame()
-    {
+    public override void nextFrame() {
         this.circularIndexUtil.next();
     }
+    
 
-    public override void previousFrame()
-    {
+    public override void previousFrame() {
         this.circularIndexUtil.previous();
     }
+    
 
-    public override int getSize()
-    {
-        return this.currentPoints.Length;
+    public override int32 getSize() {
+        return this.currentPoints.length[0];
     }
+    
 
-    public override void setSequence(int[] sequence)
-    {
+    public override void setSequence(int32[] sequence) {
     }
+    
 
-    public override int[] getSequence()
-    {
+    public override int32[] getSequence() {
         return PrimitiveIntUtil.getArrayInstance();
     }
+    
 
-    public override void paintXY(Graphics graphics, int x, int y)
-    {
+    public override void paintXY(Graphics graphics, int32 x, int32 y) {
         this.basicSetColorUtil.setBasicColorP(graphics, this.basicColor);
-        try {
-            int nextPointX = 0;
-            int nextPointY = 0;
-            int[] nextPoint = null;
-            int[] point = null;
-            int[][] currentPointsFrame = this.currentPoints[this.circularIndexUtil.getIndex()];
-            int size = currentPointsFrame.Length;
-            int index = size - 2;
+        {
+            int32 nextPointX = 0;
+            int32 nextPointY = 0;
+            int32[] nextPoint = null;
+            int32[] point = null;
+            int32[,] currentPointsFrame = this.currentPoints[this.circularIndexUtil.getIndex()];
+            int32 size = currentPointsFrame.length[0];
+            int32 index = size - 2;
             while (--index >= 0) {
-                nextPoint = currentPointsFrame[index];
-                point = currentPointsFrame[index + 1];
+                nextPoint = JArrays.rowInt32(currentPointsFrame, index);
+                point = JArrays.rowInt32(currentPointsFrame, index + 1);
                 nextPointX = nextPoint[0];
                 nextPointY = nextPoint[1];
                 if (nextPointX != 1000) {
@@ -97,31 +98,28 @@ public class VectorBaseRotationAnimation : RotationAnimation, VectorAnimationInt
                     index--;
                 }
             }
-        } catch (Exception e) {
-            this.logUtil.put(this.commonStrings.EXCEPTION, this, "paintVectors", e);
-        }
+        } /* catch (Exception e): a thrown Java exception stops the program */
     }
+    
 
-    public virtual int[][] getPoints(int frame)
-    {
+    public virtual int32[,] getPoints(int32 frame) {
         return this.currentPoints[frame];
     }
+    
 
-    public virtual void setPoints(int[][][] currentPoints)
-    {
+    public virtual void setPoints(int32[,,] currentPoints) {
         this.currentPoints = currentPoints;
-        this.circularIndexUtil = CircularIndexUtil.createInstance(this.currentPoints.Length);
+        this.circularIndexUtil = CircularIndexUtil.createInstance(this.currentPoints.length[0]);
     }
+    
 
-    public override BasicColor getBasicColorP()
-    {
+    public override BasicColor getBasicColorP() {
         return base.getBasicColorP();
     }
+    
 
-    public override void setBasicColorP(BasicColor basicColor)
-    {
+    public override void setBasicColorP(BasicColor basicColor) {
         base.setBasicColorP(basicColor);
     }
-
 }
 

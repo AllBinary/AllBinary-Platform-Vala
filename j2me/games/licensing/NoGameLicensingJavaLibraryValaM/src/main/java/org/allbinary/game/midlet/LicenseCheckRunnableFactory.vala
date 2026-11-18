@@ -13,20 +13,19 @@
  *   
  */
 // Generated Code Do Not Modify
+// package org.allbinary.game.midlet
+// import org.allbinary.thread.ABRunnable
+// import org.allbinary.thread.NullABRunnable
 
-using System;
-using System.Linq;
-using ABRunnable = org.allbinary.thread.ABRunnable;
-using NullABRunnable = org.allbinary.thread.NullABRunnable;
+public class LicenseCheckRunnableFactory : JObject {
 
-namespace org.allbinary.game.midlet;
+    public LicenseCheckRunnableFactory() {
+        base();
+    }
+    
 
-public class LicenseCheckRunnableFactory
-{
-    public virtual ABRunnable getInstance(SpecialDemoGameMidlet specialDemoGameMidlet)
-    {
+    public virtual ABRunnable getInstance1(SpecialDemoGameMidlet specialDemoGameMidlet) {
         return NullABRunnable.getInstance();
     }
-
 }
 

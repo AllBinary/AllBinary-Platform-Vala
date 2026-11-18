@@ -13,15 +13,11 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.game.ag.ai.scroller
 
-using System;
-using System.Linq;
+public interface TimeFiredInterface : JObject {
+    
 
-namespace org.allbinary.game.ag.ai.scroller;
-
-public interface TimeFiredInterface
-{
-    long getLastFireTime();
-
+    public abstract int64 getLastFireTime();
 }
 

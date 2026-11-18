@@ -13,32 +13,36 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.game.multiplayer.layer
+// import org.allbinary.logic.string.StringUtil
 
-using System;
-using System.Linq;
-using StringUtil = org.allbinary.logic.@string.StringUtil;
-
-namespace org.allbinary.game.multiplayer.layer;
-
-public class MultiplayerBehavior
-{
-    public static readonly MultiplayerBehavior NULL_MULTIPLAYER_BEHAVIOR = new MultiplayerBehavior(StringUtil.getInstance().EMPTY_STRING);
-    public MultiplayerBehavior(string username)
-    {
+public class MultiplayerBehavior : JObject {
+    public static MultiplayerBehavior? NULL_MULTIPLAYER_BEHAVIOR;
+    private static bool staticSet_NULL_MULTIPLAYER_BEHAVIOR = false;
+    public static MultiplayerBehavior staticGet_NULL_MULTIPLAYER_BEHAVIOR() {
+        if (!MultiplayerBehavior.staticSet_NULL_MULTIPLAYER_BEHAVIOR) {
+            MultiplayerBehavior.staticSet_NULL_MULTIPLAYER_BEHAVIOR = true;
+            MultiplayerBehavior.NULL_MULTIPLAYER_BEHAVIOR = new MultiplayerBehavior(StringUtil.getInstance().EMPTY_STRING);
+        }
+        return MultiplayerBehavior.NULL_MULTIPLAYER_BEHAVIOR;
     }
+    
 
-    public virtual void startTick()
-    {
+    public MultiplayerBehavior(string username) {
+        base();
     }
+    
 
-    public virtual void endTick()
-    {
+    public virtual void startTick() {
     }
+    
 
-    public virtual long getApproximateElapsed()
-    {
-        return 0L;
+    public virtual void endTick() {
     }
+    
 
+    public virtual int64 getApproximateElapsed() {
+        return 0;
+    }
 }
 

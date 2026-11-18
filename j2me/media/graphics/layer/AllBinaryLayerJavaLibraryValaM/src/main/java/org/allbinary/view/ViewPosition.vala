@@ -13,60 +13,61 @@
  *   
  */
 // Generated Code Do Not Modify
+// package org.allbinary.view
+// import org.allbinary.layer.AllBinaryLayer
 
-using System;
-using System.Linq;
-using AllBinaryLayer = org.allbinary.layer.AllBinaryLayer;
+public class ViewPosition : ViewPositionBase {
+    private AllBinaryLayer allbinaryLayer;
 
-namespace org.allbinary.view;
+    // Java field initializers run after the base constructor
+    private void initFieldsViewPosition() {
+    this.allbinaryLayer = AllBinaryLayer.NULL_ALLBINARY_LAYER;
+    }
+    
 
-public class ViewPosition : ViewPositionBase
-{
-    public static ViewPosition getInstanceD()
-    {
+    public static ViewPosition getInstanceD() {
         return new ViewPosition(0, 0, 0);
     }
+    
 
-    private AllBinaryLayer allbinaryLayer = AllBinaryLayer.NULL_ALLBINARY_LAYER;
-    public ViewPosition(int x, int y, int z) : base(x, y, z)
-    {
-        // base(x, y, z) is called from the constructor declaration
+    public ViewPosition(int32 x, int32 y, int32 z) {
+        base(x, y, z);
+        this.initFieldsViewPosition();
     }
+    
 
-    public override int getX()
-    {
+    public override int32 getX() {
         return this.allbinaryLayer.getXP();
     }
+    
 
-    public override int getY()
-    {
+    public override int32 getY() {
         return this.allbinaryLayer.getYP();
     }
+    
 
-    public override int getZ()
-    {
+    public override int32 getZ() {
         return this.allbinaryLayer.getZP();
     }
+    
 
-    public override int getX2()
-    {
+    public override int32 getX2() {
         return this.getX() + this.allbinaryLayer.getWidth();
     }
+    
 
-    public override int getY2()
-    {
+    public override int32 getY2() {
         return this.getY() + this.allbinaryLayer.getHeight();
     }
+    
 
-    public override int getZ2()
-    {
-        return ((int) (this.getZ() + this.allbinaryLayer.getDepth()));
+    public override int32 getZ2() {
+        return ((int32) ((((int64) (this.getZ())) + this.allbinaryLayer.getDepth())));
     }
+    
 
-    public override void setAllbinaryLayer(object allbinaryLayer)
-    {
+    public override void setAllbinaryLayer(JObject allbinaryLayer) {
         this.allbinaryLayer = ((AllBinaryLayer) allbinaryLayer);
     }
-
 }
 

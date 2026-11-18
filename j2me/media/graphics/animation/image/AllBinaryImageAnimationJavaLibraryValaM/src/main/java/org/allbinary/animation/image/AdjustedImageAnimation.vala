@@ -13,56 +13,57 @@
  *   
  */
 // Generated Code Do Not Modify
+// package org.allbinary.animation.image
+// import javax.microedition.lcdui.Graphics
+// import javax.microedition.lcdui.Image
+// import org.allbinary.animation.AnimationBehavior
 
-using System;
-using System.Linq;
-using Graphics = javax.microedition.lcdui.Graphics;
-using Image = javax.microedition.lcdui.Image;
-using AnimationBehavior = org.allbinary.animation.AnimationBehavior;
+public class AdjustedImageAnimation : ImageAnimation {
+    private int32 dx;
+    private int32 dy;
 
-namespace org.allbinary.animation.image;
+    // Java field initializers run after the base constructor
+    private void initFieldsAdjustedImageAnimation() {
+    this.dx = 0;
+    this.dy = 0;
+    }
+    
 
-public class AdjustedImageAnimation : ImageAnimation
-{
-    private int dx = 0;
-    private int dy = 0;
-    public AdjustedImageAnimation(Image image, int dx, int dy, AnimationBehavior animationBehavior) : base(image, animationBehavior)
-    {
-        // base(image, animationBehavior) is called from the constructor declaration
+    public AdjustedImageAnimation(Image image, int32 dx, int32 dy, AnimationBehavior animationBehavior) {
+        base(image, animationBehavior);
+        this.initFieldsAdjustedImageAnimation();
         this.init(dx, dy);
     }
+    
 
-    // throws Exception
-    public virtual void init(int dx, int dy)
-    {
+    public virtual void init(int32 dx, int32 dy) {
         this.setDx(dx);
         this.setDy(dy);
     }
+    
 
-    public override void paintXY(Graphics graphics, int x, int y)
-    {
+    public override void paintXY(Graphics graphics, int32 x, int32 y) {
         base.paintXY(graphics, x + this.dx, y + this.dy);
     }
+    
 
-    public override void setDx(int dx)
-    {
+    public override void setDx(int32 dx) {
         this.dx = dx;
     }
+    
 
-    public override int getDx()
-    {
+    public override int32 getDx() {
         return this.dx;
     }
+    
 
-    public override void setDy(int dy)
-    {
+    public override void setDy(int32 dy) {
         this.dy = dy;
     }
+    
 
-    public override int getDy()
-    {
+    public override int32 getDy() {
         return this.dy;
     }
-
 }
 

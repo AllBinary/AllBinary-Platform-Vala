@@ -13,22 +13,18 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.bounds
+// import org.allbinary.graphics.Rectangle
 
-using System;
-using System.Linq;
-using Rectangle = org.allbinary.graphics.Rectangle;
+public class RectangleLayerBounds : LayerBounds {
+    
 
-namespace org.allbinary.bounds;
-
-public class RectangleLayerBounds : LayerBounds
-{
-    public RectangleLayerBounds(Rectangle rectangle) : base(rectangle)
-    {
-        // base(rectangle) is called from the constructor declaration
+    public RectangleLayerBounds(Rectangle rectangle) {
+        base(rectangle);
     }
+    
 
-    public override void visit(BoundsVisitorInterface boundsVisitorInterface)
-    {
+    public override void visit(BoundsVisitorInterface boundsVisitorInterface) {
         if (boundsVisitorInterface.getX() > this.rectangle.getMaxX()) {
             boundsVisitorInterface.maxX();
         }
@@ -42,6 +38,5 @@ public class RectangleLayerBounds : LayerBounds
             boundsVisitorInterface.minY();
         }
     }
-
 }
 

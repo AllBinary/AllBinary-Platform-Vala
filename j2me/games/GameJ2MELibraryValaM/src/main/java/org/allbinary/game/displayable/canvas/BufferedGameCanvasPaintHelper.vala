@@ -13,48 +13,55 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.game.displayable.canvas
+// import javax.microedition.lcdui.Canvas
+// import javax.microedition.lcdui.Graphics
+// import javax.microedition.lcdui.Image
+// import javax.microedition.lcdui.NullCanvas
+// import javax.microedition.lcdui.NullImage
+// import org.allbinary.graphics.Anchor
+// import org.allbinary.graphics.displayable.MyCanvas
+// import org.allbinary.graphics.paint.ProcessPaintable
+// import org.allbinary.util.CircularIndexUtil
 
-using System;
-using System.Linq;
-using Canvas = javax.microedition.lcdui.Canvas;
-using Graphics = javax.microedition.lcdui.Graphics;
-using Image = javax.microedition.lcdui.Image;
-using NullCanvas = javax.microedition.lcdui.NullCanvas;
-using NullImage = javax.microedition.lcdui.NullImage;
-using Anchor = org.allbinary.graphics.Anchor;
-using MyCanvas = org.allbinary.graphics.displayable.MyCanvas;
-using ProcessPaintable = org.allbinary.graphics.paint.ProcessPaintable;
-using CircularIndexUtil = org.allbinary.util.CircularIndexUtil;
+public class BufferedGameCanvasPaintHelper : ProcessPaintable {
+    private const int32 MAX_IMAGES = 4;
+    private Canvas gameCanvas;
+    private Image[] offScreenImage;
+    private Image previousImage;
+    private CircularIndexUtil circularIndexUtil;
+    private CircularIndexUtil drawCircularIndexUtil;
+    private int32 anchor;
 
-namespace org.allbinary.game.displayable.canvas;
-
-public class BufferedGameCanvasPaintHelper : ProcessPaintable
-{
-    private Canvas gameCanvas = NullCanvas.NULL_CANVAS;
-    private const int MAX_IMAGES = 4;
-    private readonly Image[] offScreenImage = new Image[BufferedGameCanvasPaintHelper.MAX_IMAGES];
-    private Image previousImage = NullImage.NULL_IMAGE;
-    private readonly CircularIndexUtil circularIndexUtil = CircularIndexUtil.createInstance(BufferedGameCanvasPaintHelper.MAX_IMAGES);
-    private readonly CircularIndexUtil drawCircularIndexUtil = CircularIndexUtil.createInstanceAt(BufferedGameCanvasPaintHelper.MAX_IMAGES - 1, BufferedGameCanvasPaintHelper.MAX_IMAGES);
-    public BufferedGameCanvasPaintHelper(AllBinaryGameCanvas gameCanvas)
-    {
-        throw new Exception("No Longer Used");
+    // Java field initializers run after the base constructor
+    private void initFieldsBufferedGameCanvasPaintHelper() {
+    this.gameCanvas = NullCanvas.NULL_CANVAS;
+    this.offScreenImage = new Image[BufferedGameCanvasPaintHelper.MAX_IMAGES];
+    this.previousImage = NullImage.NULL_IMAGE;
+    this.circularIndexUtil = CircularIndexUtil.createInstance(BufferedGameCanvasPaintHelper.MAX_IMAGES);
+    this.drawCircularIndexUtil = CircularIndexUtil.createInstanceAt(BufferedGameCanvasPaintHelper.MAX_IMAGES - 1, BufferedGameCanvasPaintHelper.MAX_IMAGES);
+    this.anchor = Anchor.TOP_LEFT;
     }
+    
 
-    public override void process()
-    {
+    public BufferedGameCanvasPaintHelper(AllBinaryGameCanvas gameCanvas) {
+        base();
+        this.initFieldsBufferedGameCanvasPaintHelper();
+        JSystem.fatal(new JException("Exception", "No Longer Used"));
+    }
+    
+
+    public override void process() {
         MyCanvas myCanvas = (((MyCanvas) this.gameCanvas));
         myCanvas.draw(this.offScreenImage[this.circularIndexUtil.getIndex()].getGraphics());
         this.circularIndexUtil.next();
         this.drawCircularIndexUtil.next();
     }
+    
 
-    private int anchor = Anchor.TOP_LEFT;
-    public override void paint(Graphics graphics)
-    {
+    public override void paint(Graphics graphics) {
         this.previousImage = this.offScreenImage[this.drawCircularIndexUtil.getIndex()];
         graphics.drawImage(this.previousImage, 0, 0, this.anchor);
     }
-
 }
 

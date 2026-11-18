@@ -13,13 +13,12 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.animation
 
-using System;
-using System.Linq;
+public class VectorExplosionType : JObject {
 
-namespace org.allbinary.animation;
-
-public class VectorExplosionType
-{
+    public VectorExplosionType() {
+        base();
+    }
 }
 

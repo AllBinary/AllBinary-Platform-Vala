@@ -13,15 +13,10 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.game.part
+// import org.allbinary.animation.AnimationInterfaceCompositeInterface
+// import org.allbinary.graphics.paint.PaintableInterface
 
-using System;
-using System.Linq;
-using AnimationInterfaceCompositeInterface = org.allbinary.animation.AnimationInterfaceCompositeInterface;
-using PaintableInterface = org.allbinary.graphics.paint.PaintableInterface;
-
-namespace org.allbinary.game.part;
-
-public interface PartInterface : PaintableInterface, AnimationInterfaceCompositeInterface
-{
+public interface PartInterface : JObject, PaintableInterface, AnimationInterfaceCompositeInterface {
 }
 

@@ -13,24 +13,20 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.graphics
+// import org.allbinary.logic.util.cache.BaseCircularPool
+// import org.allbinary.util.CircularIndexUtil
 
-using System;
-using System.Linq;
-using BaseCircularPool = org.allbinary.logic.util.cache.BaseCircularPool;
-using CircularIndexUtil = org.allbinary.util.CircularIndexUtil;
+public class GPointCircularPool : BaseCircularPool {
+    
 
-namespace org.allbinary.graphics;
-
-public class GPointCircularPool : BaseCircularPool
-{
-    public GPointCircularPool(int size)
-    {
+    public GPointCircularPool(int32 size) {
+        base();
         this.circularIndexUtil = CircularIndexUtil.createInstance(size);
-        this.OBJECT_ARRAY = new object[size];
-        for (int index = size - 1; index >= 0; index--) {
+        this.OBJECT_ARRAY = new JObject[size];
+        for (int32 index = size - 1; index >= 0; index--) {
             this.OBJECT_ARRAY[index] = CustomGPoint.getInstance3(0, 0);
         }
     }
-
 }
 

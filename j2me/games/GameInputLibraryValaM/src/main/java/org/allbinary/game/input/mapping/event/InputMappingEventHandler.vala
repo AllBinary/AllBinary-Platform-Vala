@@ -13,33 +13,36 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.game.input.mapping.event
+// import org.allbinary.logic.util.event.AllBinaryEventObject
+// import org.allbinary.logic.util.event.EventListenerInterface
+// import org.allbinary.logic.util.event.handler.BasicEventHandler
 
-using System;
-using System.Linq;
-using AllBinaryEventObject = org.allbinary.logic.util.@event.AllBinaryEventObject;
-using EventListenerInterface = org.allbinary.logic.util.@event.EventListenerInterface;
-using BasicEventHandler = org.allbinary.logic.util.@event.handler.BasicEventHandler;
-
-namespace org.allbinary.game.input.mapping.@event;
-
-public class InputMappingEventHandler : BasicEventHandler
-{
-    private static readonly InputMappingEventHandler gameKeyEventHandler = new InputMappingEventHandler();
-    private InputMappingEventHandler()
-    {
-    }
-
-    public static InputMappingEventHandler getInstance()
-    {
+public class InputMappingEventHandler : BasicEventHandler {
+    private static InputMappingEventHandler? gameKeyEventHandler;
+    private static bool staticSet_gameKeyEventHandler = false;
+    private static InputMappingEventHandler staticGet_gameKeyEventHandler() {
+        if (!InputMappingEventHandler.staticSet_gameKeyEventHandler) {
+            InputMappingEventHandler.staticSet_gameKeyEventHandler = true;
+            InputMappingEventHandler.gameKeyEventHandler = new InputMappingEventHandler();
+        }
         return InputMappingEventHandler.gameKeyEventHandler;
     }
+    
 
-    // throws Exception
-    public override void process(AllBinaryEventObject eventObject, EventListenerInterface eventListenerInterface)
-    {
+    public InputMappingEventHandler() {
+        base();
+    }
+    
+
+    public static InputMappingEventHandler getInstance() {
+        return InputMappingEventHandler.staticGet_gameKeyEventHandler();
+    }
+    
+
+    public override void process(AllBinaryEventObject eventObject, EventListenerInterface eventListenerInterface) {
         InputMappingEventListenerInterface inputMappingEventListenerInterface = ((InputMappingEventListenerInterface) eventListenerInterface);
         inputMappingEventListenerInterface.onInputMappingEvent(((InputMappingEvent) eventObject));
     }
-
 }
 

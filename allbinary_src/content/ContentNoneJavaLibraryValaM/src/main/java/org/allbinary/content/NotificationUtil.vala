@@ -13,24 +13,31 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.content
+// import javax.microedition.lcdui.Command
 
-using System;
-using System.Linq;
-using Command = javax.microedition.lcdui.Command;
-
-namespace org.allbinary.content;
-
-public class NotificationUtil
-{
-    private static readonly NotificationUtil SINGLETON = new NotificationUtil();
-    public static NotificationUtil getInstance()
-    {
+public class NotificationUtil : JObject {
+    private static NotificationUtil? SINGLETON;
+    private static bool staticSet_SINGLETON = false;
+    private static NotificationUtil staticGet_SINGLETON() {
+        if (!NotificationUtil.staticSet_SINGLETON) {
+            NotificationUtil.staticSet_SINGLETON = true;
+            NotificationUtil.SINGLETON = new NotificationUtil();
+        }
         return NotificationUtil.SINGLETON;
     }
 
-    public virtual void notify(Command command, string resource, string message)
-    {
+    public NotificationUtil() {
+        base();
     }
+    
 
+    public static NotificationUtil getInstance() {
+        return NotificationUtil.staticGet_SINGLETON();
+    }
+    
+
+    public virtual void notify(Command command, string resource, string message) {
+    }
 }
 

@@ -13,24 +13,26 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.game
 
-using System;
-using System.Linq;
-
-namespace org.allbinary.game;
-
-public class GameType
-{
+public class GameType : JObject {
     private string name;
-    public GameType(string name)
-    {
+
+    // Java field initializers run after the base constructor
+    private void initFieldsGameType() {
+    
+    }
+    
+
+    public GameType(string name) {
+        base();
+        this.initFieldsGameType();
         this.name = name;
     }
+    
 
-    public override string ToString()
-    {
+    public override string toString() {
         return this.name;
     }
-
 }
 

@@ -13,29 +13,36 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.game.ag.ai
+// import org.allbinary.ai.ArtificialIntelligenceInterface
+// import org.allbinary.game.ai.ArtificialIntelligenceInterfaceFactoryInterface
+// import org.allbinary.game.input.GameInput
+// import org.allbinary.layer.AllBinaryLayer
+// import org.allbinary.util.ABHashtable
 
-using System;
-using System.Linq;
-using ArtificialIntelligenceInterface = org.allbinary.ai.ArtificialIntelligenceInterface;
-using ArtificialIntelligenceInterfaceFactoryInterface = org.allbinary.game.ai.ArtificialIntelligenceInterfaceFactoryInterface;
-using GameInput = org.allbinary.game.input.GameInput;
-using AllBinaryLayer = org.allbinary.layer.AllBinaryLayer;
-using org.allbinary.util;
-
-namespace org.allbinary.game.ag.ai;
-
-public class NullAIFactory : ArtificialIntelligenceInterfaceFactoryInterface
-{
-    private static NullAI NULL_AI = new NullAI();
-    public virtual ArtificialIntelligenceInterface getInstance(ABHashtable<object, object> hashtable, AllBinaryLayer ownerLayerInterface, GameInput gameInput)
-    {
+public class NullAIFactory : JObject, ArtificialIntelligenceInterfaceFactoryInterface {
+    private static NullAI? NULL_AI;
+    private static bool staticSet_NULL_AI = false;
+    private static NullAI staticGet_NULL_AI() {
+        if (!NullAIFactory.staticSet_NULL_AI) {
+            NullAIFactory.staticSet_NULL_AI = true;
+            NullAIFactory.NULL_AI = new NullAI();
+        }
         return NullAIFactory.NULL_AI;
     }
 
-    public static ArtificialIntelligenceInterface getInstance()
-    {
-        return NullAIFactory.NULL_AI;
+    public NullAIFactory() {
+        base();
     }
+    
 
+    public virtual ArtificialIntelligenceInterface getInstance3(ABHashtable hashtable, AllBinaryLayer ownerLayerInterface, GameInput gameInput) {
+        return NullAIFactory.staticGet_NULL_AI();
+    }
+    
+
+    public static ArtificialIntelligenceInterface getInstance() {
+        return NullAIFactory.staticGet_NULL_AI();
+    }
 }
 

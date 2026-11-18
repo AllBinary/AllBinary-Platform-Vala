@@ -13,122 +13,125 @@
  *   
  */
 // Generated Code Do Not Modify
+// package org.allbinary.game.input.event
+// import org.allbinary.logic.communication.log.LogUtil
+// import org.allbinary.logic.string.StringMaker
+// import org.allbinary.logic.util.event.EventStrings
+// import org.allbinary.string.CommonStrings
+// import org.allbinary.util.BasicArrayList
+// import org.allbinary.util.BasicArrayListD
 
-using System;
-using System.Linq;
-using LogUtil = org.allbinary.logic.communication.log.LogUtil;
-using StringMaker = org.allbinary.logic.@string.StringMaker;
-using EventStrings = org.allbinary.logic.util.@event.EventStrings;
-using CommonStrings = org.allbinary.@string.CommonStrings;
-using BasicArrayList = org.allbinary.util.BasicArrayList;
-using BasicArrayListD = org.allbinary.util.BasicArrayListD;
-
-namespace org.allbinary.game.input.@event;
-
-public class RawKeyEventHandler
-{
-    public readonly LogUtil logUtil = LogUtil.getInstance();
-    private static readonly RawKeyEventHandler instance = new RawKeyEventHandler();
-    public static RawKeyEventHandler getInstance()
-    {
+public class RawKeyEventHandler : JObject {
+    private static RawKeyEventHandler? instance;
+    private static bool staticSet_instance = false;
+    private static RawKeyEventHandler staticGet_instance() {
+        if (!RawKeyEventHandler.staticSet_instance) {
+            RawKeyEventHandler.staticSet_instance = true;
+            RawKeyEventHandler.instance = new RawKeyEventHandler();
+        }
         return RawKeyEventHandler.instance;
     }
-
+    private const string TOTAL_LISTENERS = "Total Listeners: ";
+    private const string LISTENER_LABEL = " Listener: ";
+    public LogUtil logUtil;
     public BasicArrayList eventListenerInterfaceList;
-    public RawKeyEventHandler()
-    {
+
+    // Java field initializers run after the base constructor
+    private void initFieldsRawKeyEventHandler() {
+    this.logUtil = LogUtil.getInstance();
+    
+    }
+    
+
+    public static RawKeyEventHandler getInstance() {
+        return RawKeyEventHandler.staticGet_instance();
+    }
+    
+
+    public RawKeyEventHandler() {
+        base();
+        this.initFieldsRawKeyEventHandler();
         this.eventListenerInterfaceList = new BasicArrayListD();
     }
+    
 
-    public virtual void removeAllListeners()
-    {
+    public virtual void removeAllListeners() {
         this.eventListenerInterfaceList = new BasicArrayListD();
     }
+    
 
-    public virtual void addListeners(BasicArrayList vector)
-    {
+    public virtual void addListeners(BasicArrayList vector) {
         RawKeyEventListener eventListenerInterface = null;
-        int size = vector.size();
-        for (int index = 0; index < size; index++) {
-            eventListenerInterface = ((RawKeyEventListener) vector.get(index));
+        int32 size = vector.size();
+        for (int32 index = 0; index < size; index++) {
+            eventListenerInterface = ((RawKeyEventListener) vector.@get(index));
             this.addListener(eventListenerInterface);
         }
     }
+    
 
-    public virtual void addListenerSingleThreaded(RawKeyEventListener eventListenerInterface)
-    {
+    public virtual void addListenerSingleThreaded(RawKeyEventListener eventListenerInterface) {
         if (!this.eventListenerInterfaceList.contains(eventListenerInterface)) {
             this.eventListenerInterfaceList.add(eventListenerInterface);
         }
     }
+    
 
-    public virtual void addListener(RawKeyEventListener eventListenerInterface)
-    {
+    public virtual void addListener(RawKeyEventListener eventListenerInterface) {
         if (!this.eventListenerInterfaceList.contains(eventListenerInterface)) {
             this.eventListenerInterfaceList.add(eventListenerInterface);
         }
     }
+    
 
-    public virtual void removeListenerSingleThreaded(RawKeyEventListener eventListenerInterface)
-    {
+    public virtual void removeListenerSingleThreaded(RawKeyEventListener eventListenerInterface) {
         this.eventListenerInterfaceList.remove(eventListenerInterface);
     }
+    
 
-    public virtual void removeListener(RawKeyEventListener eventListenerInterface)
-    {
+    public virtual void removeListener(RawKeyEventListener eventListenerInterface) {
         this.eventListenerInterfaceList.remove(eventListenerInterface);
     }
+    
 
-    // throws Exception
-    public virtual void fireEvent(int keyCode, int deviceId, bool repeated)
-    {
+    public virtual void fireEvent(int32 keyCode, int32 deviceId, bool repeated) {
         RawKeyEventListener eventListenerInterface = null;
-        int index = 0;
+        int32 index = 0;
         while (index < this.eventListenerInterfaceList.size()) {
-            try {
-                eventListenerInterface = ((RawKeyEventListener) this.eventListenerInterfaceList.get(index));
+            {
+                eventListenerInterface = ((RawKeyEventListener) this.eventListenerInterfaceList.@get(index));
                 this.process(keyCode, deviceId, repeated, eventListenerInterface);
-            } catch (Exception e) {
-                CommonStrings commonStrings = CommonStrings.getInstance();
-                this.logUtil.put(commonStrings.EXCEPTION, this, EventStrings.getInstance().FIRE_EVENT, e);
-            }
+            } /* catch (Exception e): a thrown Java exception stops the program */
             index++;
         }
     }
+    
 
-    // throws Exception
-    public virtual void process(int keyCode, int deviceId, bool repeated, RawKeyEventListener eventListenerInterface)
-    {
+    public virtual void process(int32 keyCode, int32 deviceId, bool repeated, RawKeyEventListener eventListenerInterface) {
         eventListenerInterface.onEventRaw(keyCode, deviceId, repeated);
     }
+    
 
-    public virtual BasicArrayList getEventListenerInterfaceListP()
-    {
+    public virtual BasicArrayList getEventListenerInterfaceListP() {
         return this.eventListenerInterfaceList;
     }
+    
 
-    private const string TOTAL_LISTENERS = "Total Listeners: ";
-    private const string LISTENER_LABEL = " Listener: ";
-    public override string ToString()
-    {
+    public override string toString() {
         StringMaker stringBuffer = new StringMaker();
         stringBuffer.append(RawKeyEventHandler.TOTAL_LISTENERS);
         stringBuffer.appendint(this.eventListenerInterfaceList.size());
         RawKeyEventListener eventListenerInterface = null;
-        int index = 0;
+        int32 index = 0;
         while (index < this.eventListenerInterfaceList.size()) {
-            try {
-                eventListenerInterface = ((RawKeyEventListener) this.eventListenerInterfaceList.get(index));
+            {
+                eventListenerInterface = ((RawKeyEventListener) this.eventListenerInterfaceList.@get(index));
                 stringBuffer.append(RawKeyEventHandler.LISTENER_LABEL);
-                stringBuffer.append(eventListenerInterface.ToString());
-            } catch (Exception e) {
-                CommonStrings commonStrings = CommonStrings.getInstance();
-                this.logUtil.put(commonStrings.EXCEPTION, this, commonStrings.TOSTRING, e);
-            }
+                stringBuffer.append(eventListenerInterface.toString());
+            } /* catch (Exception e): a thrown Java exception stops the program */
             index++;
         }
-        return stringBuffer.ToString();
+        return stringBuffer.toString();
     }
-
 }
 

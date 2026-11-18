@@ -13,33 +13,36 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.input.motion.gesture.observer
+// import org.allbinary.logic.util.event.AllBinaryEventObject
+// import org.allbinary.logic.util.event.EventListenerInterface
+// import org.allbinary.logic.util.event.handler.BasicEventHandler
 
-using System;
-using System.Linq;
-using AllBinaryEventObject = org.allbinary.logic.util.@event.AllBinaryEventObject;
-using EventListenerInterface = org.allbinary.logic.util.@event.EventListenerInterface;
-using BasicEventHandler = org.allbinary.logic.util.@event.handler.BasicEventHandler;
-
-namespace org.allbinary.input.motion.gesture.observer;
-
-public class BasicMotionGesturesHandler : BasicEventHandler
-{
-    private static readonly BasicMotionGesturesHandler SINGLETON = new BasicMotionGesturesHandler();
-    public static BasicMotionGesturesHandler getInstance()
-    {
+public class BasicMotionGesturesHandler : BasicEventHandler {
+    private static BasicMotionGesturesHandler? SINGLETON;
+    private static bool staticSet_SINGLETON = false;
+    private static BasicMotionGesturesHandler staticGet_SINGLETON() {
+        if (!BasicMotionGesturesHandler.staticSet_SINGLETON) {
+            BasicMotionGesturesHandler.staticSet_SINGLETON = true;
+            BasicMotionGesturesHandler.SINGLETON = new BasicMotionGesturesHandler();
+        }
         return BasicMotionGesturesHandler.SINGLETON;
     }
+    
 
-    public BasicMotionGesturesHandler()
-    {
+    public static BasicMotionGesturesHandler getInstance() {
+        return BasicMotionGesturesHandler.staticGet_SINGLETON();
     }
+    
 
-    // throws Exception
-    public override void process(AllBinaryEventObject eventObject, EventListenerInterface eventListenerInterface)
-    {
+    public BasicMotionGesturesHandler() {
+        base();
+    }
+    
+
+    public override void process(AllBinaryEventObject eventObject, EventListenerInterface eventListenerInterface) {
         BaseMotionGestureEventListener baseMotionGestureEventListener = ((BaseMotionGestureEventListener) eventListenerInterface);
         baseMotionGestureEventListener.onMotionGestureEvent(((MotionGestureEvent) eventObject));
     }
-
 }
 

@@ -13,35 +13,42 @@
  *   
  */
 // Generated Code Do Not Modify
+// package org.allbinary.graphics.displayable.screen
+// import org.allbinary.graphics.GPoint
 
-using System;
-using System.Linq;
-using GPoint = org.allbinary.graphics.GPoint;
-
-namespace org.allbinary.graphics.displayable.screen;
-
-public class DisplayPointScalar
-{
-    private static readonly DisplayPointScalar instance = new DisplayPointScalar();
-    public static DisplayPointScalar getInstance()
-    {
+public class DisplayPointScalar : JObject {
+    private static DisplayPointScalar? instance;
+    private static bool staticSet_instance = false;
+    private static DisplayPointScalar staticGet_instance() {
+        if (!DisplayPointScalar.staticSet_instance) {
+            DisplayPointScalar.staticSet_instance = true;
+            DisplayPointScalar.instance = new DisplayPointScalar();
+        }
         return DisplayPointScalar.instance;
     }
 
-    public virtual int processX(int value)
-    {
+    public DisplayPointScalar() {
+        base();
+    }
+    
+
+    public static DisplayPointScalar getInstance() {
+        return DisplayPointScalar.staticGet_instance();
+    }
+    
+
+    public virtual int32 processX(int32 value) {
         return value;
     }
+    
 
-    public virtual int processY(int value)
-    {
+    public virtual int32 processY(int32 value) {
         return value;
     }
+    
 
-    public virtual GPoint process(GPoint point)
-    {
+    public virtual GPoint process(GPoint point) {
         return point;
     }
-
 }
 

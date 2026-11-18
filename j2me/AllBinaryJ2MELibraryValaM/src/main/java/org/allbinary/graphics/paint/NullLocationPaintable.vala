@@ -13,19 +13,26 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.graphics.paint
 
-using System;
-using System.Linq;
-
-namespace org.allbinary.graphics.paint;
-
-public class NullLocationPaintable : LocationPaintable
-{
-    private static readonly NullLocationPaintable instanceC = new NullLocationPaintable();
-    public static NullLocationPaintable getInstance()
-    {
+public class NullLocationPaintable : LocationPaintable {
+    private static NullLocationPaintable? instanceC;
+    private static bool staticSet_instanceC = false;
+    private static NullLocationPaintable staticGet_instanceC() {
+        if (!NullLocationPaintable.staticSet_instanceC) {
+            NullLocationPaintable.staticSet_instanceC = true;
+            NullLocationPaintable.instanceC = new NullLocationPaintable();
+        }
         return NullLocationPaintable.instanceC;
     }
 
+    public NullLocationPaintable() {
+        base();
+    }
+    
+
+    public static NullLocationPaintable getInstance() {
+        return NullLocationPaintable.staticGet_instanceC();
+    }
 }
 

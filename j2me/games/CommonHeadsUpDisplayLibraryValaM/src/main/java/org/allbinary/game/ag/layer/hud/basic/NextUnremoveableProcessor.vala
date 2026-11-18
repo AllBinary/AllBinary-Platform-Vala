@@ -13,26 +13,27 @@
  * 
  */
 // Generated Code Do Not Modify
+// package org.allbinary.game.ag.layer.hud.basic
+// import org.allbinary.canvas.Processor
 
-using System;
-using System.Linq;
-using Processor = org.allbinary.canvas.Processor;
+public class NextUnremoveableProcessor : Processor {
+    private PlayerGameNotificationHud updateMeasurementProcessor;
 
-namespace org.allbinary.game.ag.layer.hud.basic;
+    // Java field initializers run after the base constructor
+    private void initFieldsNextUnremoveableProcessor() {
+    
+    }
+    
 
-public class NextUnremoveableProcessor : Processor
-{
-    private readonly PlayerGameNotificationHud updateMeasurementProcessor;
-    public NextUnremoveableProcessor(PlayerGameNotificationHud updateMeasurementProcessor)
-    {
+    public NextUnremoveableProcessor(PlayerGameNotificationHud updateMeasurementProcessor) {
+        base();
+        this.initFieldsNextUnremoveableProcessor();
         this.updateMeasurementProcessor = updateMeasurementProcessor;
     }
+    
 
-    // throws Exception
-    public override void process()
-    {
+    public override void process() {
         this.updateMeasurementProcessor.setNextUnremoveableProcess();
     }
-
 }
 

@@ -13,20 +13,27 @@
  *   
  */
 // Generated Code Do Not Modify
-
-using System;
-using System.Linq;
-
-namespace javax.microedition.lcdui;
+// package javax.microedition.lcdui
 
 //PlatformNullImageJavaLibrary
-public class PostLoadPlatformImage : PlatformImage
-{
-    private static readonly PostLoadPlatformImage instance = new PostLoadPlatformImage();
-    public static PostLoadPlatformImage getInstance()
-    {
+public class PostLoadPlatformImage : PlatformImage {
+    private static PostLoadPlatformImage? instance;
+    private static bool staticSet_instance = false;
+    private static PostLoadPlatformImage staticGet_instance() {
+        if (!PostLoadPlatformImage.staticSet_instance) {
+            PostLoadPlatformImage.staticSet_instance = true;
+            PostLoadPlatformImage.instance = new PostLoadPlatformImage();
+        }
         return PostLoadPlatformImage.instance;
     }
 
+    public PostLoadPlatformImage() {
+        base();
+    }
+    
+
+    public static PostLoadPlatformImage getInstance() {
+        return PostLoadPlatformImage.staticGet_instance();
+    }
 }
 

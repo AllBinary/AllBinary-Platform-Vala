@@ -13,17 +13,12 @@
  *   
  */
 // Generated Code Do Not Modify
+// package org.allbinary.business.advertisement
+// import org.allbinary.logic.system.SoftwareInformation
 
-using System;
-using System.Linq;
-using SoftwareInformation = org.allbinary.logic.system.SoftwareInformation;
+public interface GameAdStateFactoryInterface : JObject {
+    
 
-namespace org.allbinary.business.advertisement;
-
-public interface GameAdStateFactoryInterface
-{
-    // throws Exception
-    GameAdStateBase getInstanceForApp(SoftwareInformation softwareInformation);
-
+    public abstract GameAdStateBase getInstanceForApp(SoftwareInformation softwareInformation);
 }
 

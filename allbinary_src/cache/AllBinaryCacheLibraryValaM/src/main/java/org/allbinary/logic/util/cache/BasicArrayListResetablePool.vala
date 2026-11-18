@@ -13,33 +13,27 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.logic.util.cache
 
-using System;
-using System.Linq;
+public class BasicArrayListResetablePool : AbstractArrayListPool {
+    
 
-namespace org.allbinary.logic.util.cache;
-
-public class BasicArrayListResetablePool : AbstractArrayListPool
-{
-    public BasicArrayListResetablePool(CacheableInterfaceFactoryInterface cacheableInterfaceFactoryInterface) : base(cacheableInterfaceFactoryInterface)
-    {
-        // base(cacheableInterfaceFactoryInterface) is called from the constructor declaration
+    public BasicArrayListResetablePool(CacheableInterfaceFactoryInterface cacheableInterfaceFactoryInterface) {
+        base(cacheableInterfaceFactoryInterface);
     }
+    
 
-    public override void clear()
-    {
+    public override void clear() {
     }
+    
 
-    // throws Exception
-    public override CacheableInterface remove(object key)
-    {
-        int size = this.buffers.size();
+    public override CacheableInterface remove(JObject key) {
+        int32 size = this.buffers.size();
         if (size > 0) {
             return ((CacheableInterface) this.buffers.removeAt(size - 1));
         } else {
-            return this.cacheableInterfaceFactoryInterface.getInstance(key);
+            return this.cacheableInterfaceFactoryInterface.getInstance1(key);
         }
     }
-
 }
 

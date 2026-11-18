@@ -13,25 +13,26 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.bounds
 
-using System;
-using System.Linq;
+public interface BoundsVisitorInterface : JObject {
+    
 
-namespace org.allbinary.bounds;
+    public abstract int32 getX();
+    
 
-public interface BoundsVisitorInterface
-{
-    int getX();
+    public abstract int32 getY();
+    
 
-    int getY();
+    public abstract void maxX();
+    
 
-    void maxX();
+    public abstract void maxY();
+    
 
-    void maxY();
+    public abstract void minX();
+    
 
-    void minX();
-
-    void minY();
-
+    public abstract void minY();
 }
 

@@ -13,15 +13,11 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.graphics
 
-using System;
-using System.Linq;
+public interface IdentifierInterface : JObject {
+    
 
-namespace org.allbinary.graphics;
-
-public interface IdentifierInterface
-{
-    int getId();
-
+    public abstract int32 getId();
 }
 

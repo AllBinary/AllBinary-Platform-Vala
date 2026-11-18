@@ -13,21 +13,18 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.media.audio
+// import javax.microedition.media.Player
 
-using System;
-using System.Linq;
-using Player = javax.microedition.media.Player;
+public interface SoundInterface : JObject {
+    
 
-namespace org.allbinary.media.audio;
+    public abstract string getResource();
+    
 
-public interface SoundInterface
-{
-    string getResource();
+    public abstract Player getPlayerP();
+    
 
-    Player getPlayerP();
-
-    // throws Exception
-    void init();
-
+    public abstract void init();
 }
 

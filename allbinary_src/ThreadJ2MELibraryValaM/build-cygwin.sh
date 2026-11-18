@@ -76,8 +76,22 @@ for attempt in 1 2 3 4 5 6 7 8; do
     while IFS='|' read -r vapi type; do
         case " ${vapis[*]} " in *" $vapi "*) ;; *) continue ;; esac
         if [ "$vapi" != "J2SEForValaLibrary.vapi" ] && grep -q "\b$type\b" "$vapi"; then
+            before="$(cksum < "$vapi")"
             sed -i "/\b$type\b.*;\s*\$/d" "$vapi"
-            changed=true
+            # A class that extends or implements the missing type (MusicThreadPool : ThreadPool) is removed with its block
+            awk -v type="$type" '
+                BEGIN { skipping = 0; held = "" }
+                {
+                    if (skipping) { if ($0 ~ /^}/) { skipping = 0 } next }
+                    if ($0 ~ ("^public (abstract )?(class|interface) [A-Za-z0-9_]+ : (.*[ ,])?" type "[ ,{]")) { skipping = 1; held = ""; next }
+                    if (held != "") { print held; held = "" }
+                    if ($0 ~ /^\[CCode/) { held = $0; next }
+                    print
+                }
+                END { if (held != "") print held }' "$vapi" > "$vapi.tmp" && mv "$vapi.tmp" "$vapi"
+            if [ "$before" != "$(cksum < "$vapi")" ]; then
+                changed=true
+            fi
         fi
     done < <(echo "$output" | sed -n "s/^\([^:]*\.vapi\):.*error: The type name \`\([A-Za-z0-9_]*\)' could not be found.*/\1|\2/p" | sort -u)
     while IFS= read -r header; do
@@ -108,17 +122,41 @@ for attempt in 1 2 3 4 5 6 7 8; do
     # The C header of a dependency still has the class the project replaces (struct _PositionStrings in
     # BaseMathLibraryVala.h and in this project's header): the dependency header's names of it are renamed JDep_...
     while IFS='|' read -r header type; do
-        [ "$header" = "$artifact.h" ] && continue
-        [ -e "$header" ] || continue
+        # When the redefinition is reported in this project's header the dependency header defined it first
+        headers=("$header")
+        if [ "$header" = "$artifact.h" ]; then
+            headers=()
+            for other in ./*.h; do
+                other="${other#./}"
+                [ "$other" = "$artifact.h" ] && continue
+                grep -q "struct _$type {" "$other" && headers+=("$other")
+            done
+        fi
         type="${type%Class}"
         type="${type%Private}"
+        type="${type%Iface}"
         snake="$(echo "$type" | sed -E 's/([a-z0-9])([A-Z])/\1_\2/g' | tr 'A-Z' 'a-z')"
         upper="$(echo "$snake" | tr 'a-z' 'A-Z')"
-        if grep -q -E "\b_?$type" "$header"; then
-            sed -i -E "s/\b(_?)$type/\1JDep_$type/g; s/\b${snake}_/jdep_${snake}_/g; s/\bTYPE_${upper}\b/JDEP_TYPE_${upper}/g; s/\b${upper}_/JDEP_${upper}_/g" "$header"
-            changed=true
-        fi
-    done < <(echo "$output" | sed -n "s/^\.\/\([A-Za-z0-9_]*\.h\):[0-9]*:[0-9]*: error: redefinition of 'struct _\([A-Za-z0-9_]*\)'.*/\1|\2/p" | sort -u)
+        for header in "${headers[@]}"; do
+            [ -e "$header" ] || continue
+            if grep -q -E "\b_?$type" "$header"; then
+                sed -i -E "s/\b(_?)$type/\1JDep_$type/g; s/\b${snake}_/jdep_${snake}_/g; s/\bTYPE_${upper}\b/JDEP_TYPE_${upper}/g; s/\b${upper}_/JDEP_${upper}_/g" "$header"
+                changed=true
+            fi
+        done
+    done < <(echo "$output" | sed -n "s/^\.\/\([A-Za-z0-9_.-]*\.h\):[0-9]*:[0-9]*: error: redefinition of 'struct _\([A-Za-z0-9_]*\)'.*/\1|\2/p" | sort -u)
+    # A dependency header class whose superclass is an optional dependency's (MusicThreadPool : ThreadPool) was left out of
+    # the .vapi above: its C structs are removed from the header too
+    while IFS='|' read -r header line; do
+        [ "$header" = "$artifact.h" ] && continue
+        [ -e "$header" ] || continue
+        start="$(head -n "$line" "$header" | grep -n '^struct _' | tail -1 | cut -d: -f1)"
+        [ -n "$start" ] || continue
+        end="$(tail -n +"$start" "$header" | grep -n '^};' | head -1 | cut -d: -f1)"
+        [ -n "$end" ] || continue
+        sed -i "${start},$((start + end - 1))d" "$header"
+        changed=true
+    done < <(echo "$output" | sed -n "s/^\.\/\([A-Za-z0-9_.-]*\.h\):\([0-9]*\):[0-9]*: error: field 'parent_\(instance\|class\)' has incomplete type.*/\1|\2/p" | sort -t'|' -k1,1 -k2,2nr -u)
     while IFS= read -r type; do
         if ! grep -q "typedef struct _$type $type;" jmissing.h; then
             echo "typedef struct _$type $type;" >> jmissing.h

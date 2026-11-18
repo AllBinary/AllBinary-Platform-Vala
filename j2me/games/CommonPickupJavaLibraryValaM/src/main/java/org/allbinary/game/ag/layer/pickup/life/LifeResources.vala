@@ -13,24 +13,34 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.game.ag.layer.pickup.life
 
-using System;
-using System.Linq;
-
-namespace org.allbinary.game.ag.layer.pickup.life;
-
-public class LifeResources
-{
-    private static readonly LifeResources SINGLETON = new LifeResources();
-    public string RESOURCE = "life_drop_20_by_20.png";
-    private LifeResources()
-    {
-    }
-
-    public static LifeResources getInstance()
-    {
+public class LifeResources : JObject {
+    private static LifeResources? SINGLETON;
+    private static bool staticSet_SINGLETON = false;
+    private static LifeResources staticGet_SINGLETON() {
+        if (!LifeResources.staticSet_SINGLETON) {
+            LifeResources.staticSet_SINGLETON = true;
+            LifeResources.SINGLETON = new LifeResources();
+        }
         return LifeResources.SINGLETON;
     }
+    public string RESOURCE;
 
+    // Java field initializers run after the base constructor
+    private void initFieldsLifeResources() {
+    this.RESOURCE = "life_drop_20_by_20.png";
+    }
+    
+
+    public LifeResources() {
+        base();
+        this.initFieldsLifeResources();
+    }
+    
+
+    public static LifeResources getInstance() {
+        return LifeResources.staticGet_SINGLETON();
+    }
 }
 

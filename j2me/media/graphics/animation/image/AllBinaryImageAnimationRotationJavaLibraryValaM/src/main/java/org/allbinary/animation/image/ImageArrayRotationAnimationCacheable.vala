@@ -13,32 +13,27 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.animation.image
+// import org.allbinary.animation.AnimationBehavior
+// import org.allbinary.logic.NullUtil
+// import org.allbinary.logic.string.StringUtil
+// import org.allbinary.logic.util.cache.CacheableInterface
 
-using System;
-using System.Linq;
-using AnimationBehavior = org.allbinary.animation.AnimationBehavior;
-using NullUtil = org.allbinary.logic.NullUtil;
-using StringUtil = org.allbinary.logic.@string.StringUtil;
-using CacheableInterface = org.allbinary.logic.util.cache.CacheableInterface;
+public class ImageArrayRotationAnimationCacheable : AdjustedImageArrayRotationAnimation, CacheableInterface {
+    
 
-namespace org.allbinary.animation.image;
-
-public class ImageArrayRotationAnimationCacheable : AdjustedImageArrayRotationAnimation, CacheableInterface
-{
-    public ImageArrayRotationAnimationCacheable(object anyType, AnimationBehavior animationBehavior) : base((((ImageArrayRotationAnimationInfo) anyType)).getImageArray(), (((ImageArrayRotationAnimationInfo) anyType)).getAngleInfoP(), (((ImageArrayRotationAnimationInfo) anyType)).getTotalAngle(), (((ImageArrayRotationAnimationInfo) anyType)).getDx(), (((ImageArrayRotationAnimationInfo) anyType)).getDy(), animationBehavior)
-    {
-        // base((((ImageArrayRotationAnimationInfo) anyType)).getImageArray(), (((ImageArrayRotationAnimationInfo) anyType)).getAngleInfoP(), (((ImageArrayRotationAnimationInfo) anyType)).getTotalAngle(), (((ImageArrayRotationAnimationInfo) anyType)).getDx(), (((ImageArrayRotationAnimationInfo) anyType)).getDy(), animationBehavior) is called from the constructor declaration
+    public ImageArrayRotationAnimationCacheable(JObject anyType, AnimationBehavior animationBehavior) {
+        base((((ImageArrayRotationAnimationInfo) anyType)).getImageArray(), (((ImageArrayRotationAnimationInfo) anyType)).getAngleInfoP(), (((ImageArrayRotationAnimationInfo) anyType)).getTotalAngle(), (((ImageArrayRotationAnimationInfo) anyType)).getDx(), (((ImageArrayRotationAnimationInfo) anyType)).getDy(), animationBehavior);
     }
+    
 
-    public virtual object getKey()
-    {
+    public virtual JObject getKey() {
         return NullUtil.getInstance().NULL_OBJECT;
     }
+    
 
-    public override string ToString()
-    {
+    public override string toString() {
         return StringUtil.getInstance().EMPTY_STRING;
     }
-
 }
 

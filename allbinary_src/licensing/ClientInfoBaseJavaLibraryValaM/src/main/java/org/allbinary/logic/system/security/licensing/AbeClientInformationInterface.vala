@@ -13,44 +13,53 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.logic.system.security.licensing
+// import org.allbinary.logic.system.os.GenericOperatingSystem
+// import org.allbinary.util.ABHashtable
+// import org.allbinary.util.BasicArrayList
 
-using System;
-using System.Linq;
-using GenericOperatingSystem = org.allbinary.logic.system.os.GenericOperatingSystem;
-using org.allbinary.util;
-using BasicArrayList = org.allbinary.util.BasicArrayList;
+public interface AbeClientInformationInterface : JObject {
+    
 
-namespace org.allbinary.logic.system.security.licensing;
+    public abstract void init();
+    
 
-public interface AbeClientInformationInterface
-{
-    void init();
+    public abstract GenericOperatingSystem getOperatingSystemInterface();
+    
 
-    GenericOperatingSystem getOperatingSystemInterface();
+    public abstract string getName();
+    
 
-    string getName();
+    public abstract string getSpecialName();
+    
 
-    string getSpecialName();
+    public abstract string getVersion();
+    
 
-    string getVersion();
+    public abstract string getLicenseId();
+    
 
-    string getLicenseId();
+    public abstract BasicArrayList getLicenseServers();
+    
 
-    BasicArrayList getLicenseServers();
+    public abstract string getLicenseServer(int32 index);
+    
 
-    string getLicenseServer(int index);
+    public abstract int32 getNumberOfLicenseServers();
+    
 
-    int getNumberOfLicenseServers();
+    public abstract ABHashtable toHashtable();
+    
 
-    ABHashtable<object, object> toHashtable();
+    public abstract bool isSameId(string alicenseId);
+    
 
-    bool isSameId(string alicenseId);
+    public abstract bool isLargerOrDifferentServerList(BasicArrayList vector);
+    
 
-    bool isLargerOrDifferentServerList(BasicArrayList vector);
+    public abstract bool isHardSale();
+    
 
-    bool isHardSale();
-
-    string toShortString();
-
+    public abstract string toShortString();
 }
 

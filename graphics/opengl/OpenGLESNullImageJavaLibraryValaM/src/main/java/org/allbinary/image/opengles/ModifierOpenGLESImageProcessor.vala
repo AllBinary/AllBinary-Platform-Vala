@@ -13,19 +13,26 @@
  *   
  */
 // Generated Code Do Not Modify
+// package org.allbinary.image.opengles
 
-using System;
-using System.Linq;
-
-namespace org.allbinary.image.opengles;
-
-public class ModifierOpenGLESImageProcessor : OpenGLESImageProcessor
-{
-    private static readonly ModifierOpenGLESImageProcessor instanceC = new ModifierOpenGLESImageProcessor();
-    public static ModifierOpenGLESImageProcessor getInstance()
-    {
+public class ModifierOpenGLESImageProcessor : OpenGLESImageProcessor {
+    private static ModifierOpenGLESImageProcessor? instanceC;
+    private static bool staticSet_instanceC = false;
+    private static ModifierOpenGLESImageProcessor staticGet_instanceC() {
+        if (!ModifierOpenGLESImageProcessor.staticSet_instanceC) {
+            ModifierOpenGLESImageProcessor.staticSet_instanceC = true;
+            ModifierOpenGLESImageProcessor.instanceC = new ModifierOpenGLESImageProcessor();
+        }
         return ModifierOpenGLESImageProcessor.instanceC;
     }
 
+    public ModifierOpenGLESImageProcessor() {
+        base();
+    }
+    
+
+    public static ModifierOpenGLESImageProcessor getInstance() {
+        return ModifierOpenGLESImageProcessor.staticGet_instanceC();
+    }
 }
 

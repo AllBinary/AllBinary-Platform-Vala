@@ -13,26 +13,21 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.game.paint
+// import javax.microedition.lcdui.Graphics
+// import org.allbinary.graphics.color.BasicColor
 
-using System;
-using System.Linq;
-using Graphics = javax.microedition.lcdui.Graphics;
-using BasicColor = org.allbinary.graphics.color.BasicColor;
+public class OverScanColorFillPaintable : ColorFillPaintable {
+    
 
-namespace org.allbinary.game.paint;
-
-public class OverScanColorFillPaintable : ColorFillPaintable
-{
-    public OverScanColorFillPaintable(BasicColor basicColor) : base(basicColor)
-    {
-        // base(basicColor) is called from the constructor declaration
+    public OverScanColorFillPaintable(BasicColor basicColor) {
+        base(basicColor);
     }
+    
 
-    public override void paint(Graphics graphics)
-    {
+    public override void paint(Graphics graphics) {
         graphics.setColor(this.colorP);
         graphics.fillRect(-graphics.getClipX(), -graphics.getClipY(), this.displayInfoSingleton.getLastWidth() + (graphics.getClipX() * 2), this.displayInfoSingleton.getLastHeight() + (graphics.getClipY() * 2));
     }
-
 }
 

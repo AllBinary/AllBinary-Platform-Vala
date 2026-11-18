@@ -13,23 +13,23 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.debug
 
-using System;
-using System.Linq;
+public interface DebugInterface : JObject {
+    
 
-namespace org.allbinary.debug;
+    public abstract void start();
+    
 
-public interface DebugInterface
-{
-    void start();
+    public abstract void stop();
+    
 
-    void stop();
+    public abstract int64 getStartTime();
+    
 
-    long getStartTime();
+    public abstract int64 getMaxTime();
+    
 
-    long getMaxTime();
-
-    bool isRunning();
-
+    public abstract bool isRunning();
 }
 

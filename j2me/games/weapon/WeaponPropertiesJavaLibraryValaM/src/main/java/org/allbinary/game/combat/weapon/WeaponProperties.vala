@@ -13,32 +13,50 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.game.combat.weapon
+// import org.allbinary.logic.communication.log.PreLogUtil
+// import org.allbinary.logic.math.BasicDecimal
+// import org.allbinary.logic.string.StringMaker
+// import org.allbinary.string.CommonSeps
+// import org.allbinary.string.CommonStrings
 
-using System;
-using System.Linq;
-using PreLogUtil = org.allbinary.logic.communication.log.PreLogUtil;
-using BasicDecimal = org.allbinary.logic.math.BasicDecimal;
-using StringMaker = org.allbinary.logic.@string.StringMaker;
-using CommonSeps = org.allbinary.@string.CommonSeps;
-using CommonStrings = org.allbinary.@string.CommonStrings;
-
-namespace org.allbinary.game.combat.weapon;
-
-public class WeaponProperties : SimpleWeaponProperties
-{
-    public static readonly WeaponProperties NULL_WEAPON_PROPERTIES = new WeaponProperties(0L, 0L, 0L, 0, ((short) 0));
-    private long reloadTime = 0L;
-    private long targetingTime = 0L;
-    private BasicDecimal speed = BasicDecimal.ZERO_BIGDECIMAL;
+public class WeaponProperties : SimpleWeaponProperties {
+    public static WeaponProperties? NULL_WEAPON_PROPERTIES;
+    private static bool staticSet_NULL_WEAPON_PROPERTIES = false;
+    public static WeaponProperties staticGet_NULL_WEAPON_PROPERTIES() {
+        if (!WeaponProperties.staticSet_NULL_WEAPON_PROPERTIES) {
+            WeaponProperties.staticSet_NULL_WEAPON_PROPERTIES = true;
+            WeaponProperties.NULL_WEAPON_PROPERTIES = new WeaponProperties((int64) 0, (int64) 0, (int64) 0, 0, ((int16) (0)));
+        }
+        return WeaponProperties.NULL_WEAPON_PROPERTIES;
+    }
     private static bool messageSent = false;
-    private readonly long MAX = 10240L;
-    private readonly short ZERO = 0;
-    public WeaponProperties(long reloadTime, long targetingTime, long speed, int damage, short dissipation)
-    {
-        if (speed < this.MAX && speed != 0L && !WeaponProperties.messageSent) {
+    private const string DAMAGE = "Damage: ";
+    private const string RANGE = "Range: ";
+    private const string RELOAD = "Reload: ";
+    private int64 reloadTime;
+    private int64 targetingTime;
+    private BasicDecimal speed;
+    private int64 MAX_;
+    private int16 ZERO;
+
+    // Java field initializers run after the base constructor
+    private void initFieldsWeaponProperties() {
+    this.reloadTime = 0;
+    this.targetingTime = 0;
+    this.speed = BasicDecimal.ZERO_BIGDECIMAL;
+    this.MAX_ = (int64) 10240;
+    this.ZERO = 0;
+    }
+    
+
+    public WeaponProperties(int64 reloadTime, int64 targetingTime, int64 speed, int32 damage, int16 dissipation) {
+        base();
+        this.initFieldsWeaponProperties();
+        if (speed < this.MAX_ && speed != (int64) 0 && !WeaponProperties.messageSent) {
             string MESSAGE = "Danger Danger Danger: Speed probably to slow if using 1 degree calculations as velocity for a single axis could be below 1024: ";
             CommonStrings commonStrings = CommonStrings.getInstance();
-            PreLogUtil.put(new StringMaker().append(MESSAGE).appendlong(speed).ToString(), this, commonStrings.CONSTRUCTOR);
+            PreLogUtil.put(new StringMaker().append(MESSAGE).appendlong(speed).toString(), this, commonStrings.CONSTRUCTOR);
             WeaponProperties.messageSent = true;
         }
         this.setReloadTime(reloadTime);
@@ -47,74 +65,70 @@ public class WeaponProperties : SimpleWeaponProperties
         this.setDissipation(dissipation);
         this.setSpeed(new BasicDecimal(speed));
         if (dissipation != this.ZERO) {
-            long unscaledDamage = this.speed.getUnscaled() * damage;
-            int scaledDissipation = dissipation * this.speed.getScaledFactorValue();
-            long value = (unscaledDamage / ((long) scaledDissipation));
-            this.setRange(((int) (value * 9L)) / 10);
+            int64 unscaledDamage = this.speed.getUnscaled() * ((int64) (damage));
+            int32 scaledDissipation = ((int32) (dissipation)) * this.speed.getScaledFactorValue();
+            int64 value = (unscaledDamage / ((int64) (scaledDissipation)));
+            this.setRange(((int32) ((value * 9))) / 10);
         }
     }
+    
 
-    private void setReloadTime(long reloadTime)
-    {
+    private void setReloadTime(int64 reloadTime) {
         this.reloadTime = reloadTime;
     }
+    
 
-    public virtual long getReloadTime()
-    {
+    public virtual int64 getReloadTime() {
         return this.reloadTime;
     }
+    
 
-    private void setTargetingTime(long targetingTime)
-    {
+    private void setTargetingTime(int64 targetingTime) {
         this.targetingTime = targetingTime;
     }
+    
 
-    public virtual long getTargetingTime()
-    {
+    public virtual int64 getTargetingTime() {
         return this.targetingTime;
     }
+    
 
-    public virtual BasicDecimal getSpeed()
-    {
+    public virtual BasicDecimal getSpeed() {
         return this.speed;
     }
+    
 
-    public virtual void setSpeed(BasicDecimal speed)
-    {
+    public virtual void setSpeed(BasicDecimal speed) {
         this.speed = speed;
     }
+    
 
-    public virtual int getDamageI(int range)
-    {
-        return this.getDamage() - ((this.getDissipation() * range) / this.speed.getScaled());
+    public virtual int32 getDamageI(int32 range) {
+        return this.getDamage() - ((((int32) (this.getDissipation())) * range) / this.speed.getScaled());
     }
+    
 
-    private const string DAMAGE = "Damage: ";
-    private const string RANGE = "Range: ";
-    private const string RELOAD = "Reload: ";
-    public virtual string[] toStringArray()
-    {
-        int index = 0;
+    public virtual string[] toStringArray() {
+        int32 index = 0;
         string[] stringArray = new string[3];
         StringMaker stringBuffer = new StringMaker();
-        stringArray[index++] = stringBuffer.append(WeaponProperties.DAMAGE).appendint(((int) this.getDamage())).ToString();
-        stringBuffer.delete(0, stringBuffer.length());
-        stringArray[index++] = stringBuffer.append(WeaponProperties.RANGE).appendint(((int) this.getRange())).ToString();
-        stringBuffer.delete(0, stringBuffer.length());
-        stringArray[index++] = stringBuffer.append(WeaponProperties.RELOAD).appendlong(this.getReloadTime()).ToString();
+        stringArray[index++] = stringBuffer.append(WeaponProperties.DAMAGE).appendint(this.getDamage()).toString();
+        stringBuffer.@delete(0, stringBuffer.length());
+        stringArray[index++] = stringBuffer.append(WeaponProperties.RANGE).appendint(this.getRange()).toString();
+        stringBuffer.@delete(0, stringBuffer.length());
+        stringArray[index++] = stringBuffer.append(WeaponProperties.RELOAD).appendlong(this.getReloadTime()).toString();
         return stringArray;
     }
+    
 
-    public override string ToString()
-    {
+    public override string toString() {
         StringMaker stringBuffer = new StringMaker();
-        stringBuffer.append(WeaponProperties.DAMAGE).appendint(((int) this.getDamage()));
+        stringBuffer.append(WeaponProperties.DAMAGE).appendint(this.getDamage());
         stringBuffer.append(CommonSeps.getInstance().SPACE);
-        stringBuffer.append(WeaponProperties.RANGE).appendint(((int) this.getRange()));
+        stringBuffer.append(WeaponProperties.RANGE).appendint(this.getRange());
         stringBuffer.append(CommonSeps.getInstance().SPACE);
         stringBuffer.append(WeaponProperties.RELOAD).appendlong(this.getReloadTime());
-        return stringBuffer.ToString();
+        return stringBuffer.toString();
     }
-
 }
 

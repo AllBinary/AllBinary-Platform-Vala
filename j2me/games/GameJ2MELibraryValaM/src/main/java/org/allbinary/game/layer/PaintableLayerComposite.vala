@@ -13,39 +13,41 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.game.layer
+// import javax.microedition.lcdui.Graphics
+// import org.allbinary.graphics.paint.Paintable
+// import org.allbinary.graphics.paint.PaintableInterface
+// import org.allbinary.layer.Layer
 
-using System;
-using System.Linq;
-using Graphics = javax.microedition.lcdui.Graphics;
-using Paintable = org.allbinary.graphics.paint.Paintable;
-using PaintableInterface = org.allbinary.graphics.paint.PaintableInterface;
-using Layer = org.allbinary.layer.Layer;
+public class PaintableLayerComposite : Paintable {
+    private Layer[] paintableArray;
 
-namespace org.allbinary.game.layer;
+    // Java field initializers run after the base constructor
+    private void initFieldsPaintableLayerComposite() {
+    
+    }
+    
 
-public class PaintableLayerComposite : Paintable
-{
-    private readonly Layer[] paintableArray;
-    public PaintableLayerComposite(Layer[] paintableArray)
-    {
+    public PaintableLayerComposite(Layer[] paintableArray) {
+        base();
+        this.initFieldsPaintableLayerComposite();
         this.paintableArray = paintableArray;
     }
+    
 
-    public override void paint(Graphics graphics)
-    {
-        for (int index = this.paintableArray.Length; --index >= 0; ) {
+    public override void paint(Graphics graphics) {
+        for (int32 index = this.paintableArray.length; --index >= 0; ) {
             this.paintableArray[index].paint(graphics);
         }
     }
+    
 
-    public override void paintThreed(Graphics graphics)
-    {
+    public override void paintThreed(Graphics graphics) {
         PaintableInterface paintableInterface = null;
-        for (int index = this.paintableArray.Length; --index >= 0; ) {
+        for (int32 index = this.paintableArray.length; --index >= 0; ) {
             paintableInterface = ((PaintableInterface) this.paintableArray[index]);
             paintableInterface.paintThreed(graphics);
         }
     }
-
 }
 

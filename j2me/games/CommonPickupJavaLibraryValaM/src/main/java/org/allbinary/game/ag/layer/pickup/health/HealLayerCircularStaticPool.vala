@@ -13,32 +13,27 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.game.ag.layer.pickup.health
+// import org.allbinary.game.health.HealthInterface
+// import org.allbinary.game.health.HealthInterfaceCompositeInterface
+// import org.allbinary.layer.AllBinaryLayer
+// import org.allbinary.layer.AllBinaryLayerCircularPool
+// import org.allbinary.layer.AllBinaryLayerFactoryInterface
 
-using System;
-using System.Linq;
-using HealthInterface = org.allbinary.game.health.HealthInterface;
-using HealthInterfaceCompositeInterface = org.allbinary.game.health.HealthInterfaceCompositeInterface;
-using AllBinaryLayer = org.allbinary.layer.AllBinaryLayer;
-using AllBinaryLayerCircularPool = org.allbinary.layer.AllBinaryLayerCircularPool;
-using AllBinaryLayerFactoryInterface = org.allbinary.layer.AllBinaryLayerFactoryInterface;
+public class HealLayerCircularStaticPool : AllBinaryLayerCircularPool {
+    
 
-namespace org.allbinary.game.ag.layer.pickup.health;
-
-public class HealLayerCircularStaticPool : AllBinaryLayerCircularPool
-{
-    public HealLayerCircularStaticPool(AllBinaryLayerFactoryInterface allbinaryLayerFactoryInterface, int total)
-    {
+    public HealLayerCircularStaticPool(AllBinaryLayerFactoryInterface allbinaryLayerFactoryInterface, int32 total) {
+        base();
         base.initAllBinaryLayerCircularPool(allbinaryLayerFactoryInterface, total);
     }
+    
 
-    // throws Exception
-    public virtual void visit(AllBinaryLayer sourceLayerInterface)
-    {
+    public virtual void visit(AllBinaryLayer sourceLayerInterface) {
         HealLayer healLayer = ((HealLayer) this.getNextInstance());
         HealthInterfaceCompositeInterface healthInterfaceCompositeInterface = ((HealthInterfaceCompositeInterface) sourceLayerInterface);
         HealthInterface healthInterface = healthInterfaceCompositeInterface.getHealthInterface();
         healLayer.visit(healthInterface);
     }
-
 }
 

@@ -13,35 +13,42 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.game.midlet
+// import org.allbinary.graphics.canvas.transition.progress.ProgressCanvas
+// import org.allbinary.graphics.canvas.transition.progress.ProgressCanvasFactory
+// import org.allbinary.graphics.displayable.command.MyCommandsFactory
+// import org.allbinary.logic.communication.log.LogUtil
+// import org.allbinary.string.CommonStrings
+// import org.allbinary.util.ABHashtable
 
-using System;
-using System.Linq;
-using ProgressCanvas = org.allbinary.graphics.canvas.transition.progress.ProgressCanvas;
-using ProgressCanvasFactory = org.allbinary.graphics.canvas.transition.progress.ProgressCanvasFactory;
-using MyCommandsFactory = org.allbinary.graphics.displayable.command.MyCommandsFactory;
-using LogUtil = org.allbinary.logic.communication.log.LogUtil;
-using CommonStrings = org.allbinary.@string.CommonStrings;
-using org.allbinary.util;
+public class CreateGameRunnable : JObject, Runnable {
+    public LogUtil logUtil;
+    public CommonStrings commonStrings;
+    private DemoGameMidlet demoGameMidlet;
+    private ABHashtable hashtable;
+    private DemoGameMidletEvent startGameMidletEvent;
 
-namespace org.allbinary.game.midlet;
+    // Java field initializers run after the base constructor
+    private void initFieldsCreateGameRunnable() {
+    this.logUtil = LogUtil.getInstance();
+    this.commonStrings = CommonStrings.getInstance();
+    
+    
+    
+    }
+    
 
-public class CreateGameRunnable : global::java.lang.Runnable
-{
-    public readonly LogUtil logUtil = LogUtil.getInstance();
-    public readonly CommonStrings commonStrings = CommonStrings.getInstance();
-    private readonly DemoGameMidlet demoGameMidlet;
-    private readonly ABHashtable<object, object> hashtable;
-    private readonly DemoGameMidletEvent startGameMidletEvent;
-    public CreateGameRunnable(DemoGameMidlet demoGameMidlet, ABHashtable<object, object> hashtable)
-    {
+    public CreateGameRunnable(DemoGameMidlet demoGameMidlet, ABHashtable hashtable) {
+        base();
+        this.initFieldsCreateGameRunnable();
         this.demoGameMidlet = demoGameMidlet;
         this.hashtable = hashtable;
         this.startGameMidletEvent = new DemoGameMidletEvent(this, DemoGameMidletStateFactory.getInstance().START_GAME);
     }
+    
 
-    public virtual void run()
-    {
-        try {
+    public virtual void run() {
+        {
             this.logUtil.putF(this.commonStrings.START_RUNNABLE, this, this.commonStrings.RUN);
             ProgressCanvas progressCanvas = ProgressCanvasFactory.getInstance();
             this.demoGameMidlet.commandAction(MyCommandsFactory.getInstance().SET_DISPLAYABLE, progressCanvas);
@@ -51,10 +58,7 @@ public class CreateGameRunnable : global::java.lang.Runnable
             this.demoGameMidlet.startGameCanvasRunnableInterface();
             DemoGameMidletEventHandler.getInstance().fireEvent(this.startGameMidletEvent);
             this.logUtil.putF(this.commonStrings.END_RUNNABLE, this, this.commonStrings.RUN);
-        } catch (Exception e) {
-            this.logUtil.put(this.commonStrings.EXCEPTION, this, this.commonStrings.RUN, e);
-        }
+        } /* catch (Exception e): a thrown Java exception stops the program */
     }
-
 }
 

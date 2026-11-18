@@ -13,27 +13,28 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.graphics.form
+// import javax.microedition.lcdui.Graphics
+// import org.allbinary.graphics.form.item.ABCustomItem
 
-using System;
-using System.Linq;
-using Graphics = javax.microedition.lcdui.Graphics;
-using ABCustomItem = org.allbinary.graphics.form.item.ABCustomItem;
+public class MultipleScrollSelectionFormHorizontalPaintable : ItemIndexPaintable {
+    private MultipleScrollSelectionHorizontalForm multipleScrollSelectionForm;
 
-namespace org.allbinary.graphics.form;
+    // Java field initializers run after the base constructor
+    private void initFieldsMultipleScrollSelectionFormHorizontalPaintable() {
+    
+    }
+    
 
-public class MultipleScrollSelectionFormHorizontalPaintable : ItemIndexPaintable
-{
-    private readonly MultipleScrollSelectionHorizontalForm multipleScrollSelectionForm;
-    public MultipleScrollSelectionFormHorizontalPaintable(MultipleScrollSelectionHorizontalForm multipleScrollSelectionForm)
-    {
+    public MultipleScrollSelectionFormHorizontalPaintable(MultipleScrollSelectionHorizontalForm multipleScrollSelectionForm) {
+        base();
+        this.initFieldsMultipleScrollSelectionFormHorizontalPaintable();
         this.multipleScrollSelectionForm = multipleScrollSelectionForm;
     }
+    
 
-    // throws Exception
-    public override int paint(Graphics graphics, int index, ABCustomItem item, int dx, int dy)
-    {
+    public override int32 paint(Graphics graphics, int32 index, ABCustomItem item, int32 dx, int32 dy) {
         return this.multipleScrollSelectionForm.paintHorizontal(graphics, index, item, dx, dy);
     }
-
 }
 

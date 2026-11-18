@@ -13,27 +13,40 @@
  *   
  */
 // Generated Code Do Not Modify
+// package org.allbinary.graphics.opengles.shader
+// import javax.microedition.khronos.opengles.GL10
+// import org.allbinary.string.CommonStrings
 
-using System;
-using System.Linq;
-using GL10 = javax.microedition.khronos.opengles.GL10;
-using CommonStrings = org.allbinary.@string.CommonStrings;
-
-namespace org.allbinary.graphics.opengles.shader;
-
-public class ShaderInitializer
-{
-    private static readonly ShaderInitializer instance = new ShaderInitializer();
-    public static ShaderInitializer getInstance()
-    {
+public class ShaderInitializer : JObject {
+    private static ShaderInitializer? instance;
+    private static bool staticSet_instance = false;
+    private static ShaderInitializer staticGet_instance() {
+        if (!ShaderInitializer.staticSet_instance) {
+            ShaderInitializer.staticSet_instance = true;
+            ShaderInitializer.instance = new ShaderInitializer();
+        }
         return ShaderInitializer.instance;
     }
+    public CommonStrings commonStrings;
 
-    public readonly CommonStrings commonStrings = CommonStrings.getInstance();
-    public virtual int init(GL10 gl, Shader[] shader, string[] attributeArray)
-    {
-        return -1;
+    // Java field initializers run after the base constructor
+    private void initFieldsShaderInitializer() {
+    this.commonStrings = CommonStrings.getInstance();
     }
 
+    public ShaderInitializer() {
+        base();
+        this.initFieldsShaderInitializer();
+    }
+    
+
+    public static ShaderInitializer getInstance() {
+        return ShaderInitializer.staticGet_instance();
+    }
+    
+
+    public virtual int32 init(GL10 gl, Shader[] shader, string[] attributeArray) {
+        return -1;
+    }
 }
 

@@ -13,29 +13,31 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.input.motion.button
 
-using System;
-using System.Linq;
+public class TouchScreenType : JObject {
+    private string name;
 
-namespace org.allbinary.input.motion.button;
+    // Java field initializers run after the base constructor
+    private void initFieldsTouchScreenType() {
+    
+    }
+    
 
-public class TouchScreenType
-{
-    private readonly string name;
-    public TouchScreenType(string name)
-    {
+    public TouchScreenType(string name) {
+        base();
+        this.initFieldsTouchScreenType();
         this.name = name;
     }
+    
 
-    public virtual string getName()
-    {
+    public virtual string getName() {
         return this.name;
     }
+    
 
-    public override string ToString()
-    {
+    public override string toString() {
         return this.getName();
     }
-
 }
 

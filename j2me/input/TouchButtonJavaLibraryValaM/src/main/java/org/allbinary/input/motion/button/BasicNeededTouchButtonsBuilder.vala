@@ -13,44 +13,46 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.input.motion.button
+// import org.allbinary.animation.Animation
+// import org.allbinary.animation.NullAnimationFactory
+// import org.allbinary.logic.communication.log.LogUtil
+// import org.allbinary.util.BasicArrayList
+// import org.allbinary.util.BasicArrayListD
+// import org.allbinary.util.BasicArrayListUtil
 
-using System;
-using System.Linq;
-using Animation = org.allbinary.animation.Animation;
-using NullAnimationFactory = org.allbinary.animation.NullAnimationFactory;
-using LogUtil = org.allbinary.logic.communication.log.LogUtil;
-using BasicArrayList = org.allbinary.util.BasicArrayList;
-using BasicArrayListD = org.allbinary.util.BasicArrayListD;
-using BasicArrayListUtil = org.allbinary.util.BasicArrayListUtil;
+public class BasicNeededTouchButtonsBuilder : BaseTouchInput {
+    public LogUtil logUtil;
 
-namespace org.allbinary.input.motion.button;
+    // Java field initializers run after the base constructor
+    private void initFieldsBasicNeededTouchButtonsBuilder() {
+    this.logUtil = LogUtil.getInstance();
+    }
 
-public class BasicNeededTouchButtonsBuilder : BaseTouchInput
-{
-    public readonly LogUtil logUtil = LogUtil.getInstance();
-    public override BasicArrayList getList()
-    {
-        try {
+    public BasicNeededTouchButtonsBuilder() {
+        base();
+        this.initFieldsBasicNeededTouchButtonsBuilder();
+    }
+    
+
+    public override BasicArrayList getList() {
+        {
             this.logUtil.putF(this.commonStrings.START, this, this.commonStrings.CONSTRUCTOR);
             BasicArrayList list = new BasicArrayListD();
             TouchButtonLocationHelper touchButtonLocationHelper = new TouchButtonLocationHelper();
             BasicTouchButtonCellPositionFactory basicTouchButtonCellPositionFactory = new BasicTouchButtonCellPositionFactory();
             CommonButtons commonButtons = CommonButtons.getInstance();
-            Animation animationInterface = NullAnimationFactory.getFactoryInstance().getInstance(0);
-            TouchButton UP = new TouchButton(BasicTouchInputFactory.getInstance().UP, animationInterface, animationInterface, commonButtons.NORMAL_BUTTON, basicTouchButtonCellPositionFactory.SECOND_FROM_BOTTOM_LEFT, touchButtonLocationHelper.getColumnsRemainderHalf(), touchButtonLocationHelper.getRowsRemainderHalf());
-            TouchButton DOWN = new TouchButton(BasicTouchInputFactory.getInstance().DOWN, animationInterface, animationInterface, commonButtons.NORMAL_BUTTON, basicTouchButtonCellPositionFactory.BOTTOM_LEFT, touchButtonLocationHelper.getColumnsRemainderHalf(), touchButtonLocationHelper.getRowsRemainderHalf());
-            TouchButton LEFT = new TouchButton(BasicTouchInputFactory.getInstance().LEFT, animationInterface, animationInterface, commonButtons.NORMAL_BUTTON, basicTouchButtonCellPositionFactory.BOTTOM_SECOND_FROM_RIGHT, touchButtonLocationHelper.getColumnsRemainderHalf(), touchButtonLocationHelper.getRowsRemainderHalf());
-            TouchButton RIGHT = new TouchButton(BasicTouchInputFactory.getInstance().RIGHT, animationInterface, animationInterface, commonButtons.NORMAL_BUTTON, basicTouchButtonCellPositionFactory.BOTTOM_RIGHT, touchButtonLocationHelper.getColumnsRemainderHalf(), touchButtonLocationHelper.getRowsRemainderHalf());
+            Animation animationInterface = NullAnimationFactory.getFactoryInstance().getInstance1(0);
+            TouchButton UP = new TouchButton.with7(BasicTouchInputFactory.getInstance().UP, animationInterface, animationInterface, commonButtons.NORMAL_BUTTON, basicTouchButtonCellPositionFactory.SECOND_FROM_BOTTOM_LEFT, touchButtonLocationHelper.getColumnsRemainderHalf(), touchButtonLocationHelper.getRowsRemainderHalf());
+            TouchButton DOWN = new TouchButton.with7(BasicTouchInputFactory.getInstance().DOWN, animationInterface, animationInterface, commonButtons.NORMAL_BUTTON, basicTouchButtonCellPositionFactory.BOTTOM_LEFT, touchButtonLocationHelper.getColumnsRemainderHalf(), touchButtonLocationHelper.getRowsRemainderHalf());
+            TouchButton LEFT = new TouchButton.with7(BasicTouchInputFactory.getInstance().LEFT, animationInterface, animationInterface, commonButtons.NORMAL_BUTTON, basicTouchButtonCellPositionFactory.BOTTOM_SECOND_FROM_RIGHT, touchButtonLocationHelper.getColumnsRemainderHalf(), touchButtonLocationHelper.getRowsRemainderHalf());
+            TouchButton RIGHT = new TouchButton.with7(BasicTouchInputFactory.getInstance().RIGHT, animationInterface, animationInterface, commonButtons.NORMAL_BUTTON, basicTouchButtonCellPositionFactory.BOTTOM_RIGHT, touchButtonLocationHelper.getColumnsRemainderHalf(), touchButtonLocationHelper.getRowsRemainderHalf());
             list.add(UP);
             list.add(DOWN);
             list.add(LEFT);
             list.add(RIGHT);
             return list;
-        } catch (Exception e) {
-            this.logUtil.put(this.commonStrings.EXCEPTION, this, this.commonStrings.GET_LIST, e);
-            return BasicArrayListUtil.getInstance().getImmutableInstance();
-        }
+        } /* catch (Exception e): a thrown Java exception stops the program */
     }
-
 }
 

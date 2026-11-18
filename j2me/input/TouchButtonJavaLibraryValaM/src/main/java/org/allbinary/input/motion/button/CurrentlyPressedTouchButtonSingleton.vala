@@ -13,56 +13,66 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.input.motion.button
+// import org.allbinary.util.BasicArrayList
+// import org.allbinary.util.BasicArrayListD
 
-using System;
-using System.Linq;
-using BasicArrayList = org.allbinary.util.BasicArrayList;
-using BasicArrayListD = org.allbinary.util.BasicArrayListD;
-
-namespace org.allbinary.input.motion.button;
-
-public class CurrentlyPressedTouchButtonSingleton
-{
-    private static readonly CurrentlyPressedTouchButtonSingleton instance = new CurrentlyPressedTouchButtonSingleton();
-    public static CurrentlyPressedTouchButtonSingleton getInstance()
-    {
+public class CurrentlyPressedTouchButtonSingleton : JObject {
+    private static CurrentlyPressedTouchButtonSingleton? instance;
+    private static bool staticSet_instance = false;
+    private static CurrentlyPressedTouchButtonSingleton staticGet_instance() {
+        if (!CurrentlyPressedTouchButtonSingleton.staticSet_instance) {
+            CurrentlyPressedTouchButtonSingleton.staticSet_instance = true;
+            CurrentlyPressedTouchButtonSingleton.instance = new CurrentlyPressedTouchButtonSingleton();
+        }
         return CurrentlyPressedTouchButtonSingleton.instance;
     }
+    public BasicArrayList list;
 
-    public readonly BasicArrayList list = new BasicArrayListD();
-    public CurrentlyPressedTouchButtonSingleton()
-    {
+    // Java field initializers run after the base constructor
+    private void initFieldsCurrentlyPressedTouchButtonSingleton() {
+    this.list = new BasicArrayListD();
     }
+    
 
-    public virtual int size()
-    {
+    public static CurrentlyPressedTouchButtonSingleton getInstance() {
+        return CurrentlyPressedTouchButtonSingleton.staticGet_instance();
+    }
+    
+
+    public CurrentlyPressedTouchButtonSingleton() {
+        base();
+        this.initFieldsCurrentlyPressedTouchButtonSingleton();
+    }
+    
+
+    public virtual int32 size() {
         return this.list.size();
     }
+    
 
-    public virtual TouchButtonInput removeAt(int index)
-    {
+    public virtual TouchButtonInput removeAt(int32 index) {
         return ((TouchButtonInput) this.list.removeAt(index));
     }
+    
 
-    public virtual bool remove(TouchButtonInput touchButtonInput)
-    {
+    public virtual bool remove(TouchButtonInput touchButtonInput) {
         return this.list.remove(touchButtonInput);
     }
+    
 
-    public virtual TouchButtonInput get(int index)
-    {
+    public virtual TouchButtonInput @get(int32 index) {
         return ((TouchButtonInput) this.list.objectArray[index]);
     }
+    
 
-    public virtual bool contains(TouchButtonInput touchButtonInput)
-    {
+    public virtual bool contains(TouchButtonInput touchButtonInput) {
         return this.list.contains(touchButtonInput);
     }
+    
 
-    public virtual void add(TouchButtonInput touchButtonInput)
-    {
+    public virtual void add(TouchButtonInput touchButtonInput) {
         this.list.add(touchButtonInput);
     }
-
 }
 

@@ -13,27 +13,40 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.game.displayable.canvas
+// import org.allbinary.graphics.form.item.CommandTextItemArrayFactory
+// import org.allbinary.graphics.form.item.LimitCommandsVisitor
 
-using System;
-using System.Linq;
-using CommandTextItemArrayFactory = org.allbinary.graphics.form.item.CommandTextItemArrayFactory;
-using LimitCommandsVisitor = org.allbinary.graphics.form.item.LimitCommandsVisitor;
-
-namespace org.allbinary.game.displayable.canvas;
-
-public class GameLimitedCommandTextItemArrayFactory
-{
-    private static readonly GameLimitedCommandTextItemArrayFactory instance = new GameLimitedCommandTextItemArrayFactory();
-    private readonly CommandTextItemArrayFactory commandTextItemArrayFactory = new CommandTextItemArrayFactory(new LimitCommandsVisitor());
-    public static GameLimitedCommandTextItemArrayFactory getInstance()
-    {
+public class GameLimitedCommandTextItemArrayFactory : JObject {
+    private static GameLimitedCommandTextItemArrayFactory? instance;
+    private static bool staticSet_instance = false;
+    private static GameLimitedCommandTextItemArrayFactory staticGet_instance() {
+        if (!GameLimitedCommandTextItemArrayFactory.staticSet_instance) {
+            GameLimitedCommandTextItemArrayFactory.staticSet_instance = true;
+            GameLimitedCommandTextItemArrayFactory.instance = new GameLimitedCommandTextItemArrayFactory();
+        }
         return GameLimitedCommandTextItemArrayFactory.instance;
     }
+    private CommandTextItemArrayFactory commandTextItemArrayFactory;
 
-    public virtual CommandTextItemArrayFactory getCommandTextItemArrayFactory()
-    {
-        return this.commandTextItemArrayFactory;
+    // Java field initializers run after the base constructor
+    private void initFieldsGameLimitedCommandTextItemArrayFactory() {
+    this.commandTextItemArrayFactory = new CommandTextItemArrayFactory(new LimitCommandsVisitor());
     }
 
+    public GameLimitedCommandTextItemArrayFactory() {
+        base();
+        this.initFieldsGameLimitedCommandTextItemArrayFactory();
+    }
+    
+
+    public static GameLimitedCommandTextItemArrayFactory getInstance() {
+        return GameLimitedCommandTextItemArrayFactory.staticGet_instance();
+    }
+    
+
+    public virtual CommandTextItemArrayFactory getCommandTextItemArrayFactory() {
+        return this.commandTextItemArrayFactory;
+    }
 }
 

@@ -13,17 +13,12 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.game.layer.pickup
+// import org.allbinary.layer.AllBinaryLayer
 
-using System;
-using System.Linq;
-using AllBinaryLayer = org.allbinary.layer.AllBinaryLayer;
+public interface PickupProcessorInterface : JObject {
+    
 
-namespace org.allbinary.game.layer.pickup;
-
-public interface PickupProcessorInterface
-{
-    // throws Exception
-    void process(AllBinaryLayer sourceLayerInterface);
-
+    public abstract void process(AllBinaryLayer sourceLayerInterface);
 }
 

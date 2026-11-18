@@ -13,24 +13,41 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.game.configuration.feature
 
-using System;
-using System.Linq;
-
-namespace org.allbinary.game.configuration.feature;
-
-public class MainFeatureFactory
-{
-    private static readonly MainFeatureFactory instance = new MainFeatureFactory();
-    public static MainFeatureFactory getInstance()
-    {
+public class MainFeatureFactory : JObject {
+    private static MainFeatureFactory? instance;
+    private static bool staticSet_instance = false;
+    private static MainFeatureFactory staticGet_instance() {
+        if (!MainFeatureFactory.staticSet_instance) {
+            MainFeatureFactory.staticSet_instance = true;
+            MainFeatureFactory.instance = new MainFeatureFactory();
+        }
         return MainFeatureFactory.instance;
     }
+    public Feature FULL_SCREEN;
+    public Feature TITLE_BAR;
+    public Feature STATIC;
+    public Feature LOAD_ONDEMAND;
+    public Feature LOAD_ALL;
 
-    public readonly Feature FULL_SCREEN = new Feature("Full Screen");
-    public readonly Feature TITLE_BAR = new Feature("Title Bar");
-    public readonly Feature STATIC = new Feature("Static Dependent Feature");
-    public readonly Feature LOAD_ONDEMAND = new Feature("Load OnDemand");
-    public readonly Feature LOAD_ALL = new Feature("Load All");
+    // Java field initializers run after the base constructor
+    private void initFieldsMainFeatureFactory() {
+    this.FULL_SCREEN = new Feature("Full Screen");
+    this.TITLE_BAR = new Feature("Title Bar");
+    this.STATIC = new Feature("Static Dependent Feature");
+    this.LOAD_ONDEMAND = new Feature("Load OnDemand");
+    this.LOAD_ALL = new Feature("Load All");
+    }
+
+    public MainFeatureFactory() {
+        base();
+        this.initFieldsMainFeatureFactory();
+    }
+    
+
+    public static MainFeatureFactory getInstance() {
+        return MainFeatureFactory.staticGet_instance();
+    }
 }
 

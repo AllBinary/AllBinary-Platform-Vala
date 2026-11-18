@@ -13,31 +13,34 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.input.motion.trackball.action
+// import org.allbinary.game.input.PlatformInputMappingFactory
+// import org.allbinary.game.input.motion.action.GameKeyCompleteMotionGestureInputEvent
+// import org.allbinary.input.motion.gesture.TrackballMotionGestureFactory
+// import org.allbinary.logic.NullUtil
 
-using System;
-using System.Linq;
-using PlatformInputMappingFactory = org.allbinary.game.input.PlatformInputMappingFactory;
-using GameKeyCompleteMotionGestureInputEvent = org.allbinary.game.input.motion.action.GameKeyCompleteMotionGestureInputEvent;
-using TrackballMotionGestureFactory = org.allbinary.input.motion.gesture.TrackballMotionGestureFactory;
-using NullUtil = org.allbinary.logic.NullUtil;
+public class DownTrackballInputToGameKeyEventAction : GameKeyCompleteMotionGestureInputEvent {
+    private static JObject? instance;
+    private static bool staticSet_instance = false;
+    private static JObject staticGet_instance() {
+        if (!DownTrackballInputToGameKeyEventAction.staticSet_instance) {
+            DownTrackballInputToGameKeyEventAction.staticSet_instance = true;
+            DownTrackballInputToGameKeyEventAction.instance = NullUtil.getInstance().NULL_OBJECT;
+        }
+        return DownTrackballInputToGameKeyEventAction.instance;
+    }
+    
 
-namespace org.allbinary.input.motion.trackball.action;
-
-public class DownTrackballInputToGameKeyEventAction : GameKeyCompleteMotionGestureInputEvent
-{
-    private static object instance = NullUtil.getInstance().NULL_OBJECT;
-    public static GameKeyCompleteMotionGestureInputEvent getInstance()
-    {
-        if (DownTrackballInputToGameKeyEventAction.instance == NullUtil.getInstance().NULL_OBJECT) {
+    public static GameKeyCompleteMotionGestureInputEvent getInstance() {
+        if (DownTrackballInputToGameKeyEventAction.staticGet_instance() == NullUtil.getInstance().NULL_OBJECT) {
             DownTrackballInputToGameKeyEventAction.instance = new DownTrackballInputToGameKeyEventAction();
         }
-        return ((GameKeyCompleteMotionGestureInputEvent) DownTrackballInputToGameKeyEventAction.instance);
+        return ((GameKeyCompleteMotionGestureInputEvent) DownTrackballInputToGameKeyEventAction.staticGet_instance());
     }
+    
 
-    private DownTrackballInputToGameKeyEventAction() : base("Down Action", TrackballMotionGestureFactory.getInstance().DOWN, PlatformInputMappingFactory.getInstance().getPersistentInputMappingInstance().getInputMapping())
-    {
-        // base("Down Action", TrackballMotionGestureFactory.getInstance().DOWN, PlatformInputMappingFactory.getInstance().getPersistentInputMappingInstance().getInputMapping()) is called from the constructor declaration
+    public DownTrackballInputToGameKeyEventAction() {
+        base("Down Action", TrackballMotionGestureFactory.getInstance().DOWN, PlatformInputMappingFactory.getInstance().getPersistentInputMappingInstance().getInputMapping());
     }
-
 }
 

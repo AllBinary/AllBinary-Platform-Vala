@@ -13,36 +13,36 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.animation
+// import org.allbinary.media.ScaleProperties
 
-using System;
-using System.Linq;
-using ScaleProperties = org.allbinary.media.ScaleProperties;
+public class SingletonAnimationInterfaceFactory : JObject, AnimationInterfaceFactoryInterface, ProceduralAnimationInterfaceFactoryInterface, BasicAnimationInterfaceFactoryInterface {
+    private Animation animationInterface;
 
-namespace org.allbinary.animation;
+    // Java field initializers run after the base constructor
+    private void initFieldsSingletonAnimationInterfaceFactory() {
+    
+    }
+    
 
-public class SingletonAnimationInterfaceFactory : AnimationInterfaceFactoryInterface, ProceduralAnimationInterfaceFactoryInterface
-{
-    private readonly Animation animationInterface;
-    public SingletonAnimationInterfaceFactory(Animation animationInterface)
-    {
+    public SingletonAnimationInterfaceFactory(Animation animationInterface) {
+        base();
+        this.initFieldsSingletonAnimationInterfaceFactory();
         this.animationInterface = animationInterface;
     }
+    
 
-    // throws Exception
-    public virtual Animation getInstance(int instanceId)
-    {
+    public virtual Animation getInstance1(int32 instanceId) {
         return this.animationInterface;
     }
+    
 
-    // throws Exception
-    public virtual Animation getInstanceAnimation(Animation animationInterface)
-    {
+    public virtual Animation getInstanceAnimation(Animation animationInterface) {
         return this.animationInterface;
     }
+    
 
-    public virtual void setInitialScale(ScaleProperties scaleProperties)
-    {
+    public virtual void setInitialScale(ScaleProperties scaleProperties) {
     }
-
 }
 

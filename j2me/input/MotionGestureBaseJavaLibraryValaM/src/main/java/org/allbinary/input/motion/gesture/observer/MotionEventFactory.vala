@@ -13,32 +13,36 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.input.motion.gesture.observer
+// import org.allbinary.game.input.Input
+// import org.allbinary.game.input.InputFactory
+// import org.allbinary.input.motion.gesture.MotionGestureInput
+// import org.allbinary.input.motion.gesture.TouchMotionGestureFactory
+// import org.allbinary.logic.util.event.AllBinaryEventObject
+// import org.allbinary.logic.util.event.AllBinaryEventObjectFactoryInterface
 
-using System;
-using System.Linq;
-using Input = org.allbinary.game.input.Input;
-using InputFactory = org.allbinary.game.input.InputFactory;
-using MotionGestureInput = org.allbinary.input.motion.gesture.MotionGestureInput;
-using TouchMotionGestureFactory = org.allbinary.input.motion.gesture.TouchMotionGestureFactory;
-using AllBinaryEventObject = org.allbinary.logic.util.@event.AllBinaryEventObject;
-using AllBinaryEventObjectFactoryInterface = org.allbinary.logic.util.@event.AllBinaryEventObjectFactoryInterface;
+public class MotionEventFactory : JObject, AllBinaryEventObjectFactoryInterface {
+    private static int32 index = 0;
+    private JObject source;
+    private int32 id;
 
-namespace org.allbinary.input.motion.gesture.observer;
+    // Java field initializers run after the base constructor
+    private void initFieldsMotionEventFactory() {
+    
+    
+    }
+    
 
-public class MotionEventFactory : AllBinaryEventObjectFactoryInterface
-{
-    private static int index = 0;
-    private readonly object source;
-    private readonly int id;
-    public MotionEventFactory(object source, int id)
-    {
+    public MotionEventFactory(JObject source, int32 id) {
+        base();
+        this.initFieldsMotionEventFactory();
         this.source = source;
         this.id = id;
         MotionEventFactory.index = TouchMotionGestureFactory.getInstance().LAST_MOTION.getId();
     }
+    
 
-    public virtual AllBinaryEventObject getInstance()
-    {
+    public virtual AllBinaryEventObject getInstance() {
         InputFactory inputFactory = InputFactory.getInstance();
         Input input = inputFactory.getInstanceById(MotionEventFactory.index++);
         if (input == inputFactory.NO_INPUT) {
@@ -47,6 +51,5 @@ public class MotionEventFactory : AllBinaryEventObjectFactoryInterface
             return new MotionGestureEvent(this.source, this.id, ((MotionGestureInput) input));
         }
     }
-
 }
 

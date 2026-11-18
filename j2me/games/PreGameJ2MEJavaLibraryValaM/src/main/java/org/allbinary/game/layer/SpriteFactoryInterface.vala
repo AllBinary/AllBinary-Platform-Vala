@@ -13,17 +13,13 @@
  *   
  */
 // Generated Code Do Not Modify
+// package org.allbinary.game.layer
+// import javax.microedition.lcdui.Image
+// import javax.microedition.lcdui.game.Sprite
 
-using System;
-using System.Linq;
-using Image = javax.microedition.lcdui.Image;
-using Sprite = javax.microedition.lcdui.game.Sprite;
+public interface SpriteFactoryInterface : JObject {
+    
 
-namespace org.allbinary.game.layer;
-
-public interface SpriteFactoryInterface
-{
-    Sprite createSprite(Image image, int frameWidth, int frameHeight);
-
+    public abstract Sprite createSprite(Image image, int32 frameWidth, int32 frameHeight);
 }
 

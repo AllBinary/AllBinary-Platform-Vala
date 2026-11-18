@@ -13,26 +13,28 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.animation
+// import org.allbinary.logic.util.event.handler.BasicEventHandler
 
-using System;
-using System.Linq;
-using System.Runtime.CompilerServices;
-using BasicEventHandler = org.allbinary.logic.util.@event.handler.BasicEventHandler;
-
-namespace org.allbinary.animation;
-
-public class AnimationEventHandler : BasicEventHandler
-{
-    private static readonly AnimationEventHandler eventHandler = new AnimationEventHandler();
-    private AnimationEventHandler()
-    {
-    }
-
-    [MethodImpl(MethodImplOptions.Synchronized)]
-    public static AnimationEventHandler getInstance()
-    {
+public class AnimationEventHandler : BasicEventHandler {
+    private static AnimationEventHandler? eventHandler;
+    private static bool staticSet_eventHandler = false;
+    private static AnimationEventHandler staticGet_eventHandler() {
+        if (!AnimationEventHandler.staticSet_eventHandler) {
+            AnimationEventHandler.staticSet_eventHandler = true;
+            AnimationEventHandler.eventHandler = new AnimationEventHandler();
+        }
         return AnimationEventHandler.eventHandler;
     }
+    
 
+    public AnimationEventHandler() {
+        base();
+    }
+    
+
+    public static AnimationEventHandler getInstance() {
+        return AnimationEventHandler.staticGet_eventHandler();
+    }
 }
 

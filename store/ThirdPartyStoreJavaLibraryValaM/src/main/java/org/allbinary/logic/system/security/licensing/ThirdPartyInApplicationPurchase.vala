@@ -13,69 +13,68 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.logic.system.security.licensing
+// import org.allbinary.logic.string.StringUtil
 
-using System;
-using System.Linq;
-using StringUtil = org.allbinary.logic.@string.StringUtil;
+public class ThirdPartyInApplicationPurchase : JObject, ThirdPartyInApplicationPurchaseInterface {
 
-namespace org.allbinary.logic.system.security.licensing;
+    public ThirdPartyInApplicationPurchase() {
+        base();
+    }
+    
 
-public class ThirdPartyInApplicationPurchase : ThirdPartyInApplicationPurchaseInterface
-{
-    public virtual bool isPurchased(LockableFeature lockableFeature)
-    {
+    public virtual bool isPurchased(LockableFeature lockableFeature) {
         return false;
     }
+    
 
-    public virtual void onCreate(object anyType, object stateObject)
-    {
+    public virtual void onCreate(JObject anyType, JObject stateObject) {
     }
+    
 
-    public virtual void onDestroy()
-    {
+    public virtual void onDestroy() {
     }
+    
 
-    public virtual void onStart()
-    {
+    public virtual void onStart() {
     }
+    
 
-    public virtual void onActivityResult(int requestCode, int resultCode, object dataObject)
-    {
+    public virtual void onActivityResult(int32 requestCode, int32 resultCode, JObject dataObject) {
     }
+    
 
-    public virtual void onSaveInstanceState(object anyType)
-    {
+    public virtual void onSaveInstanceState(JObject anyType) {
     }
+    
 
-    public virtual void onStop()
-    {
+    public virtual void onStop() {
     }
+    
 
-    public virtual void requestPurchase(LockableFeature lockableFeature)
-    {
+    public virtual void requestPurchase(LockableFeature lockableFeature) {
     }
+    
 
-    public virtual void requestReceipts()
-    {
+    public virtual void requestReceipts() {
     }
+    
 
-    public virtual void add(LockableFeature lockableFeature)
-    {
+    public virtual void add(LockableFeature lockableFeature) {
     }
+    
 
-    public virtual string getUserName()
-    {
+    public virtual string getUserName() {
         return StringUtil.getInstance().EMPTY_STRING;
     }
+    
 
-    public virtual bool isEnabled()
-    {
+    public virtual bool isEnabled() {
         return false;
     }
+    
 
-    public virtual void requestProducts()
-    {
+    public virtual void requestProducts() {
     }
-
 }
 

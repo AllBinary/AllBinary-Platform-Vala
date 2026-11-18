@@ -13,17 +13,13 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.animation.transition.shake
 
-using System;
-using System.Linq;
+public class ShakeEvent : JObject {
+    
 
-namespace org.allbinary.animation.transition.shake;
-
-public class ShakeEvent
-{
-    public ShakeEvent()
-    {
+    public ShakeEvent() {
+        base();
     }
-
 }
 

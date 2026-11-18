@@ -13,18 +13,13 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.game.tick
+// import org.allbinary.layer.AllBinaryLayerManager
+// import org.allbinary.layer.NamedInterface
 
-using System;
-using System.Linq;
-using AllBinaryLayerManager = org.allbinary.layer.AllBinaryLayerManager;
-using NamedInterface = org.allbinary.layer.NamedInterface;
+public interface TickableInterface : JObject, NamedInterface {
+    
 
-namespace org.allbinary.game.tick;
-
-public interface TickableInterface : NamedInterface
-{
-    // throws Exception
-    void processTick(AllBinaryLayerManager allBinaryLayerManager);
-
+    public abstract void processTick(AllBinaryLayerManager allBinaryLayerManager);
 }
 

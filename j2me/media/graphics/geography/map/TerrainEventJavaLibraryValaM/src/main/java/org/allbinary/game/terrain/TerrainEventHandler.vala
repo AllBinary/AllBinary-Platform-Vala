@@ -13,82 +13,88 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.game.terrain
+// import org.allbinary.logic.StdUtil
+// import org.allbinary.logic.util.event.AllBinaryEventObject
+// import org.allbinary.logic.util.event.EventListenerInterface
+// import org.allbinary.logic.util.event.EventStrings
+// import org.allbinary.logic.util.event.handler.BasicEventHandler
+// import org.allbinary.util.ABHashtable
+// import org.allbinary.util.BasicArrayList
+// import org.allbinary.util.BasicArrayListD
 
-using System;
-using System.Linq;
-using StdUtil = org.allbinary.logic.StdUtil;
-using AllBinaryEventObject = org.allbinary.logic.util.@event.AllBinaryEventObject;
-using EventListenerInterface = org.allbinary.logic.util.@event.EventListenerInterface;
-using EventStrings = org.allbinary.logic.util.@event.EventStrings;
-using BasicEventHandler = org.allbinary.logic.util.@event.handler.BasicEventHandler;
-using org.allbinary.util;
-using BasicArrayList = org.allbinary.util.BasicArrayList;
-using BasicArrayListD = org.allbinary.util.BasicArrayListD;
+public class TerrainEventHandler : BasicEventHandler {
+    private static ABHashtable? hashtable;
+    private static bool staticSet_hashtable = false;
+    private static ABHashtable staticGet_hashtable() {
+        if (!TerrainEventHandler.staticSet_hashtable) {
+            TerrainEventHandler.staticSet_hashtable = true;
+            TerrainEventHandler.hashtable = StdUtil.getInstance().NULL_TABLE;
+        }
+        return TerrainEventHandler.hashtable;
+    }
+    private BasicArrayList list;
 
-namespace org.allbinary.game.terrain;
+    // Java field initializers run after the base constructor
+    private void initFieldsTerrainEventHandler() {
+    this.list = new BasicArrayListD();
+    }
+    
 
-public class TerrainEventHandler : BasicEventHandler
-{
-    private static ABHashtable<object, object> hashtable = StdUtil.getInstance().NULL_TABLE;
-    public static void init()
-    {
+    public static void init() {
         TerrainEventHandler.hashtable = StdUtil.getInstance().createHashtable();
     }
+    
 
-    public static TerrainEventHandler getInstance(object anyType)
-    {
-        object eventHandlerCanBeNull = TerrainEventHandler.hashtable.get(anyType);
+    public static TerrainEventHandler getInstance1(JObject anyType) {
+        JObject eventHandlerCanBeNull = TerrainEventHandler.staticGet_hashtable().@get(anyType);
         if (eventHandlerCanBeNull == null) {
             eventHandlerCanBeNull = new TerrainEventHandler();
-            TerrainEventHandler.hashtable.put(anyType, eventHandlerCanBeNull);
+            TerrainEventHandler.staticGet_hashtable().put(anyType, eventHandlerCanBeNull);
         }
         return ((TerrainEventHandler) eventHandlerCanBeNull);
     }
+    
 
-    private readonly BasicArrayList list = new BasicArrayListD();
-    private TerrainEventHandler()
-    {
+    public TerrainEventHandler() {
+        base();
+        this.initFieldsTerrainEventHandler();
     }
+    
 
-    public virtual void addListener(TerrainEventListener terrainEventListener)
-    {
+    public virtual void addListener(TerrainEventListener terrainEventListener) {
         if (!this.list.contains(terrainEventListener)) {
             this.list.add(terrainEventListener);
         }
     }
+    
 
-    public override void removeAllListeners()
-    {
+    public override void removeAllListeners() {
         this.list.clear();
         base.removeAllListeners();
     }
+    
 
-    public override void removeListener(EventListenerInterface eventListenerInterface)
-    {
+    public override void removeListener(EventListenerInterface eventListenerInterface) {
         this.list.remove(eventListenerInterface);
         base.removeListener(eventListenerInterface);
     }
+    
 
-    // throws Exception
-    public override void fireEvent(AllBinaryEventObject eventObject)
-    {
-        for (int index = this.list.size(); --index >= 0; ) {
-            try {
-                TerrainEventListener terrainEventListener = ((TerrainEventListener) this.list.get(index));
+    public override void fireEvent(AllBinaryEventObject eventObject) {
+        for (int32 index = this.list.size(); --index >= 0; ) {
+            {
+                TerrainEventListener terrainEventListener = ((TerrainEventListener) this.list.@get(index));
                 terrainEventListener.onTerrainEvent(((TerrainEvent) eventObject));
-            } catch (Exception e) {
-                this.logUtil.put(this.commonStrings.EXCEPTION, this, EventStrings.getInstance().FIRE_EVENT, e);
-            }
+            } /* catch (Exception e): a thrown Java exception stops the program */
         }
         base.fireEvent(eventObject);
     }
+    
 
-    // throws Exception
-    public override void process(AllBinaryEventObject eventObject, EventListenerInterface eventListenerInterface)
-    {
+    public override void process(AllBinaryEventObject eventObject, EventListenerInterface eventListenerInterface) {
         TerrainEventListenerInterface terrainEventListenerInterface = ((TerrainEventListenerInterface) eventListenerInterface);
         terrainEventListenerInterface.onTerrainEvent(((TerrainEvent) eventObject));
     }
-
 }
 

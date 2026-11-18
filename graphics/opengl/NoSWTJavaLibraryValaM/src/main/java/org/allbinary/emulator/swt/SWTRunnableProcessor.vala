@@ -13,24 +13,31 @@
  *   
  */
 // Generated Code Do Not Modify
+// package org.allbinary.emulator.swt
+// import org.eclipse.swt.widgets.Display
 
-using System;
-using System.Linq;
-using Display = org.eclipse.swt.widgets.Display;
-
-namespace org.allbinary.emulator.swt;
-
-public class SWTRunnableProcessor : SWTProcessor
-{
-    private static readonly SWTRunnableProcessor instanceR = new SWTRunnableProcessor();
-    public static SWTRunnableProcessor getInstance()
-    {
+public class SWTRunnableProcessor : SWTProcessor {
+    private static SWTRunnableProcessor? instanceR;
+    private static bool staticSet_instanceR = false;
+    private static SWTRunnableProcessor staticGet_instanceR() {
+        if (!SWTRunnableProcessor.staticSet_instanceR) {
+            SWTRunnableProcessor.staticSet_instanceR = true;
+            SWTRunnableProcessor.instanceR = new SWTRunnableProcessor();
+        }
         return SWTRunnableProcessor.instanceR;
     }
 
-    public override void process(Display display)
-    {
+    public SWTRunnableProcessor() {
+        base();
     }
+    
 
+    public static SWTRunnableProcessor getInstance() {
+        return SWTRunnableProcessor.staticGet_instanceR();
+    }
+    
+
+    public override void process(Display display) {
+    }
 }
 

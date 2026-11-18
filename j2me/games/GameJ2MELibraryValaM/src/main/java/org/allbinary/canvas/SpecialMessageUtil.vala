@@ -13,31 +13,39 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.canvas
+// import org.allbinary.game.configuration.feature.Features
+// import org.allbinary.graphics.opengles.OpenGLFeatureFactory
+// import org.allbinary.logic.string.StringMaker
+// import org.allbinary.string.CommonSeps
+// import org.allbinary.system.Memory
 
-using System;
-using System.Linq;
-using Features = org.allbinary.game.configuration.feature.Features;
-using OpenGLFeatureFactory = org.allbinary.graphics.opengles.OpenGLFeatureFactory;
-using StringMaker = org.allbinary.logic.@string.StringMaker;
-using CommonSeps = org.allbinary.@string.CommonSeps;
-using Memory = org.allbinary.system.Memory;
-
-namespace org.allbinary.canvas;
-
-public class SpecialMessageUtil
-{
-    private static readonly SpecialMessageUtil SINGLETON = new SpecialMessageUtil();
-    public static SpecialMessageUtil getInstance()
-    {
+public class SpecialMessageUtil : JObject {
+    private static SpecialMessageUtil? SINGLETON;
+    private static bool staticSet_SINGLETON = false;
+    private static SpecialMessageUtil staticGet_SINGLETON() {
+        if (!SpecialMessageUtil.staticSet_SINGLETON) {
+            SpecialMessageUtil.staticSet_SINGLETON = true;
+            SpecialMessageUtil.SINGLETON = new SpecialMessageUtil();
+        }
         return SpecialMessageUtil.SINGLETON;
     }
 
-    public virtual string get()
-    {
+    public SpecialMessageUtil() {
+        base();
+    }
+    
+
+    public static SpecialMessageUtil getInstance() {
+        return SpecialMessageUtil.staticGet_SINGLETON();
+    }
+    
+
+    public virtual string @get() {
         StringMaker stringBuffer = new StringMaker();
         stringBuffer.append(Memory.getInfo());
         stringBuffer.append(CommonSeps.getInstance().SPACE);
-        stringBuffer.append(GameStatisticsFactory.getInstance().ToString());
+        stringBuffer.append(GameStatisticsFactory.getInstance().toString());
         stringBuffer.append(CommonSeps.getInstance().SPACE);
         stringBuffer.append(" Option: ");
         if (Features.getInstance().isDefault(OpenGLFeatureFactory.getInstance().OPENGL_AUTO_SELECT)) {
@@ -45,8 +53,7 @@ public class SpecialMessageUtil
         } else {
             stringBuffer.append(OpenGLFeatureFactory.getInstance().OPENGL_MINIMUM.getName());
         }
-        return stringBuffer.ToString();
+        return stringBuffer.toString();
     }
-
 }
 

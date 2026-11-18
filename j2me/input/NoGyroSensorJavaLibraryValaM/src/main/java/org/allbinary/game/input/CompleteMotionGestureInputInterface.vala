@@ -13,14 +13,9 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.game.input
+// import org.allbinary.layer.NamedInterface
 
-using System;
-using System.Linq;
-using NamedInterface = org.allbinary.layer.NamedInterface;
-
-namespace org.allbinary.game.input;
-
-public interface CompleteMotionGestureInputInterface : NamedInterface
-{
+public interface CompleteMotionGestureInputInterface : JObject, NamedInterface {
 }
 

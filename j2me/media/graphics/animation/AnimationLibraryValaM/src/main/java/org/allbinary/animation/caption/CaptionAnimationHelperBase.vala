@@ -13,34 +13,41 @@
  *   
  */
 // Generated Code Do Not Modify
+// package org.allbinary.animation.caption
+// import javax.microedition.lcdui.Graphics
+// import org.allbinary.animation.Animation
+// import org.allbinary.graphics.color.BasicColor
 
-using System;
-using System.Linq;
-using Graphics = javax.microedition.lcdui.Graphics;
-using Animation = org.allbinary.animation.Animation;
-using BasicColor = org.allbinary.graphics.color.BasicColor;
+public class CaptionAnimationHelperBase : Animation {
+    public static CaptionAnimationHelperBase? INSTANCE;
+    private static bool staticSet_INSTANCE = false;
+    public static CaptionAnimationHelperBase staticGet_INSTANCE() {
+        if (!CaptionAnimationHelperBase.staticSet_INSTANCE) {
+            CaptionAnimationHelperBase.staticSet_INSTANCE = true;
+            CaptionAnimationHelperBase.INSTANCE = new CaptionAnimationHelperBase();
+        }
+        return CaptionAnimationHelperBase.INSTANCE;
+    }
 
-namespace org.allbinary.animation.caption;
+    public CaptionAnimationHelperBase() {
+        base();
+    }
+    
 
-public class CaptionAnimationHelperBase : Animation
-{
-    public static readonly CaptionAnimationHelperBase INSTANCE = new CaptionAnimationHelperBase();
-    public virtual bool isShowing()
-    {
+    public virtual bool isShowing() {
         return false;
     }
+    
 
-    public virtual void tick()
-    {
+    public virtual void tick() {
     }
+    
 
-    public virtual void update(string message, BasicColor basicColor)
-    {
+    public virtual void update(string message, BasicColor basicColor) {
     }
+    
 
-    public override void paintXY(Graphics graphics, int x, int y)
-    {
+    public override void paintXY(Graphics graphics, int32 x, int32 y) {
     }
-
 }
 

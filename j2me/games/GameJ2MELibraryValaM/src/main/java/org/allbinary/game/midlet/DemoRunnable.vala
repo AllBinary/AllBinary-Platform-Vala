@@ -13,34 +13,40 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.game.midlet
+// import org.allbinary.graphics.canvas.transition.progress.ProgressCanvasFactory
+// import org.allbinary.graphics.displayable.command.MyCommandsFactory
+// import org.allbinary.logic.communication.log.LogUtil
+// import org.allbinary.logic.string.StringMaker
+// import org.allbinary.string.CommonLabels
+// import org.allbinary.string.CommonStrings
 
-using System;
-using System.Linq;
-using ProgressCanvasFactory = org.allbinary.graphics.canvas.transition.progress.ProgressCanvasFactory;
-using MyCommandsFactory = org.allbinary.graphics.displayable.command.MyCommandsFactory;
-using LogUtil = org.allbinary.logic.communication.log.LogUtil;
-using StringMaker = org.allbinary.logic.@string.StringMaker;
-using CommonLabels = org.allbinary.@string.CommonLabels;
-using CommonStrings = org.allbinary.@string.CommonStrings;
+public class DemoRunnable : JObject, Runnable {
+    public LogUtil logUtil;
+    public CommonStrings commonStrings;
+    private DemoGameMidlet demoGameMidlet;
+    private DemoGameMidletEvent startDemoGameMidletEvent;
 
-namespace org.allbinary.game.midlet;
+    // Java field initializers run after the base constructor
+    private void initFieldsDemoRunnable() {
+    this.logUtil = LogUtil.getInstance();
+    this.commonStrings = CommonStrings.getInstance();
+    
+    
+    }
+    
 
-public class DemoRunnable : global::java.lang.Runnable
-{
-    public readonly LogUtil logUtil = LogUtil.getInstance();
-    public readonly CommonStrings commonStrings = CommonStrings.getInstance();
-    private readonly DemoGameMidlet demoGameMidlet;
-    private readonly DemoGameMidletEvent startDemoGameMidletEvent;
-    public DemoRunnable(DemoGameMidlet demoGameMidlet)
-    {
+    public DemoRunnable(DemoGameMidlet demoGameMidlet) {
+        base();
+        this.initFieldsDemoRunnable();
         this.demoGameMidlet = demoGameMidlet;
         this.startDemoGameMidletEvent = new DemoGameMidletEvent(this.demoGameMidlet, DemoGameMidletStateFactory.getInstance().START_DEMO);
     }
+    
 
-    public virtual void run()
-    {
-        try {
-            this.logUtil.putF(new StringMaker().append(CommonLabels.getInstance().START_LABEL).append("GameCanvasRunnableInterface").ToString(), this, this.commonStrings.RUN);
+    public virtual void run() {
+        {
+            this.logUtil.putF(new StringMaker().append(CommonLabels.getInstance().START_LABEL).append("GameCanvasRunnableInterface").toString(), this, this.commonStrings.RUN);
             this.demoGameMidlet.commandAction(MyCommandsFactory.getInstance().SET_DISPLAYABLE, ProgressCanvasFactory.getInstance());
             this.demoGameMidlet.setGameCanvasRunnableInterface(this.demoGameMidlet.createDemoGameCanvasRunnableInterface());
             this.demoGameMidlet.demoSetup();
@@ -48,10 +54,7 @@ public class DemoRunnable : global::java.lang.Runnable
             this.demoGameMidlet.startGameCanvasRunnableInterface();
             this.demoGameMidlet.postDemoSetup();
             this.logUtil.putF(this.commonStrings.END_RUNNABLE, this, this.commonStrings.RUN);
-        } catch (Exception e) {
-            this.logUtil.put(this.commonStrings.EXCEPTION, this, this.commonStrings.RUN, e);
-        }
+        } /* catch (Exception e): a thrown Java exception stops the program */
     }
-
 }
 

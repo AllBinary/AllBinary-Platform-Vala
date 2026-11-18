@@ -13,49 +13,54 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.game.input
+// import javax.microedition.lcdui.Graphics
 
-using System;
-using System.Linq;
-using Graphics = javax.microedition.lcdui.Graphics;
+public class TestInputExample : JObject, TestInputInterface, PaintableInterface {
+    private int32 testValue;
 
-namespace org.allbinary.game.input;
-
-public class TestInputExample : TestInputInterface
-{
-    private int testValue = 0;
-    public virtual void up()
-    {
+    // Java field initializers run after the base constructor
+    private void initFieldsTestInputExample() {
+    this.testValue = 0;
     }
 
-    public virtual void down()
-    {
+    public TestInputExample() {
+        base();
+        this.initFieldsTestInputExample();
     }
+    
 
-    public virtual void left()
-    {
+    public virtual void up() {
+    }
+    
+
+    public virtual void down() {
+    }
+    
+
+    public virtual void left() {
         this.testValue++;
     }
+    
 
-    public virtual void right()
-    {
+    public virtual void right() {
         this.testValue--;
     }
+    
 
-    public virtual void strafeLeft()
-    {
+    public virtual void strafeLeft() {
     }
+    
 
-    public virtual void strafeRight()
-    {
+    public virtual void strafeRight() {
     }
+    
 
-    public virtual void paint(Graphics graphics)
-    {
+    public virtual void paint(Graphics graphics) {
     }
+    
 
-    public virtual void paintThreed(Graphics graphics)
-    {
+    public virtual void paintThreed(Graphics graphics) {
     }
-
 }
 

@@ -13,45 +13,45 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.game.configuration.feature
+// import javax.microedition.lcdui.Command
+// import javax.microedition.lcdui.Item
+// import javax.microedition.lcdui.ItemCommandListener
+// import org.allbinary.game.configuration.GameConfigurationGauge
+// import org.allbinary.game.configuration.GameConfigurationUtil
+// import org.allbinary.game.configuration.GameOptionsForm
+// import org.allbinary.logic.communication.log.LogUtil
+// import org.allbinary.logic.string.StringMaker
+// import org.allbinary.midlet.MidletStrings
+// import org.allbinary.string.CommonLabels
+// import org.allbinary.string.CommonStrings
 
-using System;
-using System.Linq;
-using Command = javax.microedition.lcdui.Command;
-using Item = javax.microedition.lcdui.Item;
-using ItemCommandListener = javax.microedition.lcdui.ItemCommandListener;
-using GameConfigurationGauge = org.allbinary.game.configuration.GameConfigurationGauge;
-using GameConfigurationUtil = org.allbinary.game.configuration.GameConfigurationUtil;
-using GameOptionsForm = org.allbinary.game.configuration.GameOptionsForm;
-using LogUtil = org.allbinary.logic.communication.log.LogUtil;
-using StringMaker = org.allbinary.logic.@string.StringMaker;
-using MidletStrings = org.allbinary.midlet.MidletStrings;
-using CommonLabels = org.allbinary.@string.CommonLabels;
-using CommonStrings = org.allbinary.@string.CommonStrings;
-
-namespace org.allbinary.game.configuration.feature;
-
-public class GameFeatureItemCommandListener : ItemCommandListener
-{
-    public readonly LogUtil logUtil = LogUtil.getInstance();
+public class GameFeatureItemCommandListener : JObject, ItemCommandListener {
+    public LogUtil logUtil;
     private GameOptionsForm gameOptionsForm;
-    public GameFeatureItemCommandListener(GameOptionsForm gameOptionsForm)
-    {
+
+    // Java field initializers run after the base constructor
+    private void initFieldsGameFeatureItemCommandListener() {
+    this.logUtil = LogUtil.getInstance();
+    
+    }
+    
+
+    public GameFeatureItemCommandListener(GameOptionsForm gameOptionsForm) {
+        base();
+        this.initFieldsGameFeatureItemCommandListener();
         this.gameOptionsForm = gameOptionsForm;
     }
+    
 
-    public virtual void commandAction(Command command, Item item)
-    {
-        try {
+    public virtual void commandAction(Command command, Item item) {
+        {
             string itemLabel = item.getLabel();
-            this.logUtil.putF(new StringMaker().append(CommonLabels.getInstance().ITEM_LABEL).append(itemLabel).ToString(), this, MidletStrings.getInstance().COMMAND_ACTION);
-            if (item is GameConfigurationGauge) {
+            this.logUtil.putF(new StringMaker().append(CommonLabels.getInstance().ITEM_LABEL).append(itemLabel).toString(), this, MidletStrings.getInstance().COMMAND_ACTION);
+            if ((item is GameConfigurationGauge)) {
                 GameConfigurationUtil.getInstance().change(this.gameOptionsForm, ((GameConfigurationGauge) item));
             }
-        } catch (Exception e) {
-            CommonStrings commonStrings = CommonStrings.getInstance();
-            this.logUtil.put(commonStrings.EXCEPTION, this, MidletStrings.getInstance().COMMAND_ACTION, e);
-        }
+        } /* catch (Exception e): a thrown Java exception stops the program */
     }
-
 }
 

@@ -1,29 +1,36 @@
 // Generated Code Do Not Modify
+// package org.allbinary.graphics.opengles
 
-using System;
-using System.Linq;
-
-namespace org.allbinary.graphics.opengles;
-
-public class OpenGLThreadUtil
-{
-    private static readonly OpenGLThreadUtil instance = new OpenGLThreadUtil();
-    public static OpenGLThreadUtil getInstance()
-    {
+public class OpenGLThreadUtil : JObject {
+    private static OpenGLThreadUtil? instance;
+    private static bool staticSet_instance = false;
+    private static OpenGLThreadUtil staticGet_instance() {
+        if (!OpenGLThreadUtil.staticSet_instance) {
+            OpenGLThreadUtil.staticSet_instance = true;
+            OpenGLThreadUtil.instance = new OpenGLThreadUtil();
+        }
         return OpenGLThreadUtil.instance;
     }
 
-    public virtual void set(object glSurfaceView)
-    {
+    public OpenGLThreadUtil() {
+        base();
     }
+    
 
-    public virtual void onPause()
-    {
+    public static OpenGLThreadUtil getInstance() {
+        return OpenGLThreadUtil.staticGet_instance();
     }
+    
 
-    public virtual void onResume()
-    {
+    public virtual void @set(JObject glSurfaceView) {
     }
+    
 
+    public virtual void onPause() {
+    }
+    
+
+    public virtual void onResume() {
+    }
 }
 

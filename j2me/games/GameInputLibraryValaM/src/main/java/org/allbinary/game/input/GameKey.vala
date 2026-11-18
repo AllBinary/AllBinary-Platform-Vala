@@ -13,26 +13,29 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.game.input
+// import org.allbinary.logic.string.StringMaker
+// import org.allbinary.logic.string.StringUtil
 
-using System;
-using System.Linq;
-using StringMaker = org.allbinary.logic.@string.StringMaker;
-using StringUtil = org.allbinary.logic.@string.StringUtil;
-
-namespace org.allbinary.game.input;
-
-public class GameKey : Input
-{
-    public static readonly GameKey NULL_GAME_KEY = new GameKey(-1, StringUtil.getInstance().NULL_STRING);
-    public GameKey(int key, string name) : base(key, name)
-    {
-        // base(key, name) is called from the constructor declaration
+public class GameKey : Input {
+    public static GameKey? NULL_GAME_KEY;
+    private static bool staticSet_NULL_GAME_KEY = false;
+    public static GameKey staticGet_NULL_GAME_KEY() {
+        if (!GameKey.staticSet_NULL_GAME_KEY) {
+            GameKey.staticSet_NULL_GAME_KEY = true;
+            GameKey.NULL_GAME_KEY = new GameKey(-1, StringUtil.getInstance().NULL_STRING);
+        }
+        return GameKey.NULL_GAME_KEY;
     }
+    
 
-    public override string ToString()
-    {
-        return new StringMaker().append("GameKey ").append(base.ToString()).ToString();
+    public GameKey(int32 key, string name) {
+        base(key, name);
     }
+    
 
+    public override string toString() {
+        return new StringMaker().append("GameKey ").append(base.toString()).toString();
+    }
 }
 

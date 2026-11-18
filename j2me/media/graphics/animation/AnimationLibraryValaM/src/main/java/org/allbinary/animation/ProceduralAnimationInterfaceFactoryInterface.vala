@@ -13,16 +13,11 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.animation
 
-using System;
-using System.Linq;
+public interface ProceduralAnimationInterfaceFactoryInterface : JObject, BasicAnimationInterfaceFactoryInterface {
+    
 
-namespace org.allbinary.animation;
-
-public interface ProceduralAnimationInterfaceFactoryInterface : BasicAnimationInterfaceFactoryInterface
-{
-    // throws Exception
-    Animation getInstanceAnimation(Animation animationInterface);
-
+    public abstract Animation getInstanceAnimation(Animation animationInterface);
 }
 

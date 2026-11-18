@@ -13,25 +13,24 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.game.collision
+// import org.allbinary.game.configuration.feature.Features
+// import org.allbinary.game.configuration.feature.GameFeatureFactory
+// import org.allbinary.layer.AllBinaryLayer
 
-using System;
-using System.Linq;
-using Features = org.allbinary.game.configuration.feature.Features;
-using GameFeatureFactory = org.allbinary.game.configuration.feature.GameFeatureFactory;
-using AllBinaryLayer = org.allbinary.layer.AllBinaryLayer;
+public class CollidableHelperFactory : JObject {
 
-namespace org.allbinary.game.collision;
+    public CollidableHelperFactory() {
+        base();
+    }
+    
 
-public class CollidableHelperFactory
-{
-    public static CollisionHelper getInstance()
-    {
+    public static CollisionHelper getInstance() {
         if (Features.getInstance().isFeature(GameFeatureFactory.getInstance().COLLISIONS_WITH_SOURCE)) {
             return new CollisionHelper(AllBinaryLayer.NULL_ALLBINARY_LAYER);
         } else {
             return new SourceCollisionHelper(AllBinaryLayer.NULL_ALLBINARY_LAYER);
         }
     }
-
 }
 

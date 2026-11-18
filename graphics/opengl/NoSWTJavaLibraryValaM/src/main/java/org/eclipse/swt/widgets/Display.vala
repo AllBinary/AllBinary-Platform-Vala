@@ -13,17 +13,16 @@
  *   
  */
 // Generated Code Do Not Modify
+// package org.eclipse.swt.widgets
 
-using System;
-using System.Linq;
+public class Display : JObject {
 
-namespace org.eclipse.swt.widgets;
-
-public class Display
-{
-    public virtual void sleep()
-    {
+    public Display() {
+        base();
     }
+    
 
+    public virtual void sleep() {
+    }
 }
 

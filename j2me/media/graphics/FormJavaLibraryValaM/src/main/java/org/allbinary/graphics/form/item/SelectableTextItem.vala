@@ -13,35 +13,30 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.graphics.form.item
+// import javax.microedition.lcdui.Graphics
+// import org.allbinary.graphics.color.BasicColor
 
-using System;
-using System.Linq;
-using Graphics = javax.microedition.lcdui.Graphics;
-using BasicColor = org.allbinary.graphics.color.BasicColor;
+public class SelectableTextItem : ABTextItem {
+    
 
-namespace org.allbinary.graphics.form.item;
-
-public class SelectableTextItem : ABTextItem
-{
-    public SelectableTextItem(string label, int layout, string altText, BasicColor backgroundBasicColor, BasicColor foregroundBasicColor) : base(label, layout, altText, backgroundBasicColor, foregroundBasicColor)
-    {
-        // base(label, layout, altText, backgroundBasicColor, foregroundBasicColor) is called from the constructor declaration
+    public SelectableTextItem(string label, int32 layout, string altText, BasicColor backgroundBasicColor, BasicColor foregroundBasicColor) {
+        base(label, layout, altText, backgroundBasicColor, foregroundBasicColor);
     }
+    
 
-    public override bool isFocusable()
-    {
+    public override bool isFocusable() {
         return true;
     }
+    
 
-    public override void paintXY(Graphics graphics, int x, int y)
-    {
+    public override void paintXY(Graphics graphics, int32 x, int32 y) {
         this.myFontProcessor.process(graphics);
         ABStringComponent stringComponent = this.getLabelStringComponent();
         if (stringComponent != null) {
-            graphics.setColor(global::java.lang.JavaNumber.intValue(stringComponent.getForegroundBasicColor()));
+            graphics.setColor(stringComponent.getForegroundBasicColor().intValue());
         }
         graphics.drawString(this.getLabel(), x + 2, y, 0);
     }
-
 }
 

@@ -13,32 +13,33 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.graphics.form.item
+// import javax.microedition.lcdui.Command
+// import org.allbinary.graphics.color.BasicColor
 
-using System;
-using System.Linq;
-using Command = javax.microedition.lcdui.Command;
-using BasicColor = org.allbinary.graphics.color.BasicColor;
+public class CommandTextItem : ABTextItem {
+    private Command command;
 
-namespace org.allbinary.graphics.form.item;
+    // Java field initializers run after the base constructor
+    private void initFieldsCommandTextItem() {
+    
+    }
+    
 
-public class CommandTextItem : ABTextItem
-{
-    private readonly Command command;
-    public CommandTextItem(Command command, int layout, string altText, BasicColor backgroundBasicColor, BasicColor foregroundBasicColor) : base(command.getLabel(), layout, altText, backgroundBasicColor, foregroundBasicColor)
-    {
-        // base(command.getLabel(), layout, altText, backgroundBasicColor, foregroundBasicColor) is called from the constructor declaration
+    public CommandTextItem(Command command, int32 layout, string altText, BasicColor backgroundBasicColor, BasicColor foregroundBasicColor) {
+        base(command.getLabel(), layout, altText, backgroundBasicColor, foregroundBasicColor);
+        this.initFieldsCommandTextItem();
         this.command = command;
     }
+    
 
-    public override bool isFocusable()
-    {
+    public override bool isFocusable() {
         return true;
     }
+    
 
-    public virtual Command getCommand()
-    {
+    public virtual Command getCommand() {
         return this.command;
     }
-
 }
 

@@ -13,29 +13,44 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.game
 
-using System;
-using System.Linq;
-
-namespace org.allbinary.game;
-
-public class GameInfoData
-{
-    private static readonly GameInfoData instance = new GameInfoData();
-    public static GameInfoData getInstance()
-    {
+public class GameInfoData : JObject {
+    private static GameInfoData? instance;
+    private static bool staticSet_instance = false;
+    private static GameInfoData staticGet_instance() {
+        if (!GameInfoData.staticSet_instance) {
+            GameInfoData.staticSet_instance = true;
+            GameInfoData.instance = new GameInfoData();
+        }
         return GameInfoData.instance;
     }
+    public string GAME_TYPE;
+    public string GAME_MODE;
+    public string PLAYER_TYPE;
+    public string HIGHEST_LEVEL;
+    public string CURRENT_LEVEL;
+    public string SOFTWARE_INFORMATION;
 
-    private GameInfoData()
-    {
+    // Java field initializers run after the base constructor
+    private void initFieldsGameInfoData() {
+    this.GAME_TYPE = "GAME_TYPE";
+    this.GAME_MODE = "GAME_MODE";
+    this.PLAYER_TYPE = "PLAYER_TYPE";
+    this.HIGHEST_LEVEL = "HIGHEST_LEVEL";
+    this.CURRENT_LEVEL = "CURRENT_LEVEL";
+    this.SOFTWARE_INFORMATION = "SOFTWARE_INFORMATION";
     }
+    
 
-    public readonly string GAME_TYPE = "GAME_TYPE";
-    public readonly string GAME_MODE = "GAME_MODE";
-    public readonly string PLAYER_TYPE = "PLAYER_TYPE";
-    public readonly string HIGHEST_LEVEL = "HIGHEST_LEVEL";
-    public readonly string CURRENT_LEVEL = "CURRENT_LEVEL";
-    public readonly string SOFTWARE_INFORMATION = "SOFTWARE_INFORMATION";
+    public static GameInfoData getInstance() {
+        return GameInfoData.staticGet_instance();
+    }
+    
+
+    public GameInfoData() {
+        base();
+        this.initFieldsGameInfoData();
+    }
 }
 

@@ -13,24 +13,28 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.game.tracking
+// import org.allbinary.layer.AllBinaryLayerCircularPool
 
-using System;
-using System.Linq;
-using AllBinaryLayerCircularPool = org.allbinary.layer.AllBinaryLayerCircularPool;
-
-namespace org.allbinary.game.tracking;
-
-public class GenericTrackingLayerCircularStaticPool : AllBinaryLayerCircularPool
-{
-    private static GenericTrackingLayerCircularStaticPool SINGLETON = new GenericTrackingLayerCircularStaticPool();
-    private GenericTrackingLayerCircularStaticPool()
-    {
-    }
-
-    public static GenericTrackingLayerCircularStaticPool getInstance()
-    {
+public class GenericTrackingLayerCircularStaticPool : AllBinaryLayerCircularPool {
+    private static GenericTrackingLayerCircularStaticPool? SINGLETON;
+    private static bool staticSet_SINGLETON = false;
+    private static GenericTrackingLayerCircularStaticPool staticGet_SINGLETON() {
+        if (!GenericTrackingLayerCircularStaticPool.staticSet_SINGLETON) {
+            GenericTrackingLayerCircularStaticPool.staticSet_SINGLETON = true;
+            GenericTrackingLayerCircularStaticPool.SINGLETON = new GenericTrackingLayerCircularStaticPool();
+        }
         return GenericTrackingLayerCircularStaticPool.SINGLETON;
     }
+    
 
+    public GenericTrackingLayerCircularStaticPool() {
+        base();
+    }
+    
+
+    public static GenericTrackingLayerCircularStaticPool getInstance() {
+        return GenericTrackingLayerCircularStaticPool.staticGet_SINGLETON();
+    }
 }
 

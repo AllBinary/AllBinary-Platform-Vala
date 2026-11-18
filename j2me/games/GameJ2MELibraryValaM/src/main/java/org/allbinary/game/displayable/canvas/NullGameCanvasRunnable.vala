@@ -13,132 +13,138 @@
  *   
  */
 // Generated Code Do Not Modify
+// package org.allbinary.game.displayable.canvas
+// import javax.microedition.lcdui.CommandListener
+// import javax.microedition.lcdui.Graphics
+// import javax.microedition.lcdui.Item
+// import org.allbinary.game.state.GameState
+// import org.allbinary.game.state.GameStateFactory
+// import org.allbinary.logic.StdUtil
+// import org.allbinary.logic.string.StringUtil
+// import org.allbinary.util.ABHashtable
 
-using System;
-using System.Linq;
-using CommandListener = javax.microedition.lcdui.CommandListener;
-using Graphics = javax.microedition.lcdui.Graphics;
-using Item = javax.microedition.lcdui.Item;
-using GameState = org.allbinary.game.state.GameState;
-using GameStateFactory = org.allbinary.game.state.GameStateFactory;
-using StdUtil = org.allbinary.logic.StdUtil;
-using StringUtil = org.allbinary.logic.@string.StringUtil;
-using org.allbinary.util;
+public class NullGameCanvasRunnable : JObject, GameCanvasRunnableInterface, RunnableInterface, PaintableInterface, ItemStateListener, GameStateCompositeInterface, Runnable {
+    public static NullGameCanvasRunnable? NULL_GAME_CANVAS_RUNNABLE;
+    private static bool staticSet_NULL_GAME_CANVAS_RUNNABLE = false;
+    public static NullGameCanvasRunnable staticGet_NULL_GAME_CANVAS_RUNNABLE() {
+        if (!NullGameCanvasRunnable.staticSet_NULL_GAME_CANVAS_RUNNABLE) {
+            NullGameCanvasRunnable.staticSet_NULL_GAME_CANVAS_RUNNABLE = true;
+            NullGameCanvasRunnable.NULL_GAME_CANVAS_RUNNABLE = new NullGameCanvasRunnable();
+        }
+        return NullGameCanvasRunnable.NULL_GAME_CANVAS_RUNNABLE;
+    }
+    public GameStateFactory gameStateFactory;
 
-namespace org.allbinary.game.displayable.canvas;
+    // Java field initializers run after the base constructor
+    private void initFieldsNullGameCanvasRunnable() {
+    this.gameStateFactory = GameStateFactory.getInstance();
+    }
 
-public class NullGameCanvasRunnable : GameCanvasRunnableInterface
-{
-    public static readonly NullGameCanvasRunnable NULL_GAME_CANVAS_RUNNABLE = new NullGameCanvasRunnable();
-    public readonly GameStateFactory gameStateFactory = GameStateFactory.getInstance();
-    public virtual string getTitle()
-    {
+    public NullGameCanvasRunnable() {
+        base();
+        this.initFieldsNullGameCanvasRunnable();
+    }
+    
+
+    public virtual string getTitle() {
         return StringUtil.getInstance().EMPTY_STRING;
     }
+    
 
-    public virtual bool isInitialized()
-    {
+    public virtual bool isInitialized() {
         return false;
     }
+    
 
-    public virtual bool isPaused()
-    {
+    public virtual bool isPaused() {
         return false;
     }
+    
 
-    public virtual void unPause()
-    {
+    public virtual void unPause() {
     }
+    
 
-    public virtual void pause()
-    {
+    public virtual void pause() {
     }
+    
 
-    public virtual bool isHighScoreSubmitted()
-    {
+    public virtual bool isHighScoreSubmitted() {
         return false;
     }
+    
 
-    // throws Exception
-    public virtual void setHighScoreSubmitted(bool highScoreSubmitted)
-    {
+    public virtual void setHighScoreSubmitted(bool highScoreSubmitted) {
     }
+    
 
-    // throws Exception
-    public virtual void processGameOver()
-    {
+    public virtual void processGameOver() {
     }
+    
 
-    public virtual bool isGameOver()
-    {
+    public virtual bool isGameOver() {
         return false;
     }
+    
 
-    public virtual void initCommands(CommandListener cmdListener)
-    {
+    public virtual void initCommands(CommandListener cmdListener) {
     }
+    
 
-    // throws Exception
-    public virtual ABHashtable<object, object> getCurrentStateHashtable()
-    {
+    public virtual ABHashtable getCurrentStateHashtable() {
         return StdUtil.getInstance().NULL_TABLE;
     }
+    
 
-    // throws Exception
-    public virtual ABHashtable<object, object> getLoadStateHashtable()
-    {
+    public virtual ABHashtable getLoadStateHashtable() {
         return StdUtil.getInstance().NULL_TABLE;
     }
+    
 
-    // throws Exception
-    public virtual void setLoadStateHashtable(ABHashtable<object, object> hashtable)
-    {
+    public virtual void setLoadStateHashtable(ABHashtable hashtable) {
     }
+    
 
-    public virtual int getType()
-    {
+    public virtual int32 getType() {
         return -1;
     }
+    
 
-    // throws Exception
-    public virtual void setGameState(GameState gameState)
-    {
+    public virtual void setGameState(GameState gameState) {
     }
+    
 
-    public virtual GameState getGameState()
-    {
+    public virtual GameState getGameState() {
         return this.gameStateFactory.NO_GAME_STATE;
     }
+    
 
-    public virtual void itemStateChanged(Item item)
-    {
+    public virtual void itemStateChanged(Item item) {
     }
+    
 
-    public virtual void paint(Graphics graphics)
-    {
+    public virtual void paint(Graphics graphics) {
     }
+    
 
-    public virtual void paintThreed(Graphics graphics)
-    {
+    public virtual void paintThreed(Graphics graphics) {
     }
+    
 
-    public virtual bool isRunning()
-    {
+    public virtual bool isRunning() {
         return false;
     }
+    
 
-    public virtual void setRunning(bool isRunning)
-    {
+    public virtual void setRunning(bool isRunning) {
     }
+    
 
-    // throws Exception
-    public virtual void setThread(global::org.allbinary.thread.NullThread thread)
-    {
+    public virtual void setThread(Thread thread) {
     }
+    
 
-    public virtual void run()
-    {
+    public virtual void run() {
     }
-
 }
 

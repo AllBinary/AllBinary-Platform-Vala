@@ -13,31 +13,33 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.animation.transition
 
-using System;
-using System.Linq;
+public class RunAtEndAnimationListener : JObject, AnimationListenerInterface {
+    public Runnable runnable;
 
-namespace org.allbinary.animation.transition;
+    // Java field initializers run after the base constructor
+    private void initFieldsRunAtEndAnimationListener() {
+    
+    }
+    
 
-public class RunAtEndAnimationListener : AnimationListenerInterface
-{
-    public global::java.lang.Runnable runnable;
-    public RunAtEndAnimationListener(global::java.lang.Runnable runnable)
-    {
+    public RunAtEndAnimationListener(Runnable runnable) {
+        base();
+        this.initFieldsRunAtEndAnimationListener();
         this.runnable = runnable;
     }
+    
 
-    public virtual void onPlatformAnimationStart()
-    {
+    public virtual void onPlatformAnimationStart() {
     }
+    
 
-    public virtual void onPlatformAnimationEnd()
-    {
+    public virtual void onPlatformAnimationEnd() {
     }
+    
 
-    public virtual void onPlatformAnimationRepeat()
-    {
+    public virtual void onPlatformAnimationRepeat() {
     }
-
 }
 

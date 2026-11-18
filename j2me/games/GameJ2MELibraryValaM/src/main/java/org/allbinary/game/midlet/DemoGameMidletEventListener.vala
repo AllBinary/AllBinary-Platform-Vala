@@ -13,20 +13,18 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.game.midlet
+// import org.allbinary.logic.util.event.EventListenerInterface
 
-using System;
-using System.Linq;
-using EventListenerInterface = org.allbinary.logic.util.@event.EventListenerInterface;
+public interface DemoGameMidletEventListener : JObject, EventListenerInterface {
+    
 
-namespace org.allbinary.game.midlet;
+    public abstract void onDemoStart();
+    
 
-public interface DemoGameMidletEventListener : EventListenerInterface
-{
-    void onDemoStart();
+    public abstract void onGameStart();
+    
 
-    void onGameStart();
-
-    void onDemoGameMidletEvent(DemoGameMidletEvent demoGameMidletEvent);
-
+    public abstract void onDemoGameMidletEvent(DemoGameMidletEvent demoGameMidletEvent);
 }
 

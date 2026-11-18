@@ -13,31 +13,43 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.game.tick
+// import org.allbinary.layer.AllBinaryLayerManager
 
-using System;
-using System.Linq;
-using AllBinaryLayerManager = org.allbinary.layer.AllBinaryLayerManager;
-
-namespace org.allbinary.game.tick;
-
-public class NullTickable : TickableInterface
-{
-    private static readonly NullTickable SINGLETON = new NullTickable();
-    public static NullTickable getInstance()
-    {
+public class NullTickable : JObject, TickableInterface, NamedInterface {
+    private static NullTickable? SINGLETON;
+    private static bool staticSet_SINGLETON = false;
+    private static NullTickable staticGet_SINGLETON() {
+        if (!NullTickable.staticSet_SINGLETON) {
+            NullTickable.staticSet_SINGLETON = true;
+            NullTickable.SINGLETON = new NullTickable();
+        }
         return NullTickable.SINGLETON;
     }
+    private string NAME;
 
-    // throws Exception
-    public virtual void processTick(AllBinaryLayerManager allBinaryLayerManager)
-    {
+    // Java field initializers run after the base constructor
+    private void initFieldsNullTickable() {
+    this.NAME = "NulLTickable";
     }
 
-    private readonly string NAME = "NulLTickable";
-    public virtual string getName()
-    {
+    public NullTickable() {
+        base();
+        this.initFieldsNullTickable();
+    }
+    
+
+    public static NullTickable getInstance() {
+        return NullTickable.staticGet_SINGLETON();
+    }
+    
+
+    public virtual void processTick(AllBinaryLayerManager allBinaryLayerManager) {
+    }
+    
+
+    public virtual string getName() {
         return this.NAME;
     }
-
 }
 

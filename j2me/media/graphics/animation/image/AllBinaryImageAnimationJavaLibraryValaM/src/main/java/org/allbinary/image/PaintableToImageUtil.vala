@@ -13,26 +13,32 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.image
+// import javax.microedition.lcdui.Graphics
+// import javax.microedition.lcdui.Image
+// import org.allbinary.graphics.paint.PaintableInterface
 
-using System;
-using System.Linq;
-using Graphics = javax.microedition.lcdui.Graphics;
-using Image = javax.microedition.lcdui.Image;
-using PaintableInterface = org.allbinary.graphics.paint.PaintableInterface;
+public class PaintableToImageUtil : JObject {
+    private static PaintableToImageUtil? instance;
+    private static bool staticSet_instance = false;
+    private static PaintableToImageUtil staticGet_instance() {
+        if (!PaintableToImageUtil.staticSet_instance) {
+            PaintableToImageUtil.staticSet_instance = true;
+            PaintableToImageUtil.instance = new PaintableToImageUtil();
+        }
+        return PaintableToImageUtil.instance;
+    }
 
-namespace org.allbinary.image;
+    public PaintableToImageUtil() {
+        base();
+    }
+    
 
-public class PaintableToImageUtil
-{
-    private static readonly PaintableToImageUtil instance = new PaintableToImageUtil();
-    // throws Exception
-    public static Image getImage(PaintableInterface paintableInterface, int width, int height)
-    {
-        Image image = GameFeatureImageCacheFactory.getInstance().get(PaintableToImageUtil.instance.GetType().FullName, width, height);
+    public static Image getImage(PaintableInterface paintableInterface, int32 width, int32 height) {
+        Image image = GameFeatureImageCacheFactory.getInstance().@get(JObject.className(PaintableToImageUtil.staticGet_instance()), width, height);
         Graphics graphics = image.getGraphics();
         paintableInterface.paint(graphics);
         return image;
     }
-
 }
 

@@ -13,49 +13,51 @@
  *   
  */
 // Generated Code Do Not Modify
+// package org.allbinary.animation.text
+// import javax.microedition.lcdui.Graphics
+// import org.allbinary.animation.AnimationBehavior
 
-using System;
-using System.Linq;
-using Graphics = javax.microedition.lcdui.Graphics;
-using AnimationBehavior = org.allbinary.animation.AnimationBehavior;
+public class AdjustCustomTextAnimation : CustomTextAnimation {
+    private int32 dx;
+    private int32 dy;
 
-namespace org.allbinary.animation.text;
+    // Java field initializers run after the base constructor
+    private void initFieldsAdjustCustomTextAnimation() {
+    
+    
+    }
+    
 
-public class AdjustCustomTextAnimation : CustomTextAnimation
-{
-    private int dx;
-    private int dy;
-    public AdjustCustomTextAnimation(string text, int fontSize, int dx, int dy, AnimationBehavior animationBehavior) : base(text, fontSize, animationBehavior)
-    {
-        // base(text, fontSize, animationBehavior) is called from the constructor declaration
+    public AdjustCustomTextAnimation(string text, int32 fontSize, int32 dx, int32 dy, AnimationBehavior animationBehavior) {
+        base(text, fontSize, animationBehavior);
+        this.initFieldsAdjustCustomTextAnimation();
         this.dx = dx;
         this.dy = dy;
     }
+    
 
-    public override int getDx()
-    {
+    public override int32 getDx() {
         return this.dx;
     }
+    
 
-    public override void setDx(int dx)
-    {
+    public override void setDx(int32 dx) {
         this.dx = dx;
     }
+    
 
-    public override int getDy()
-    {
+    public override int32 getDy() {
         return this.dy;
     }
+    
 
-    public override void setDy(int dy)
-    {
+    public override void setDy(int32 dy) {
         this.dy = dy;
     }
+    
 
-    public override void paintXY(Graphics graphics, int x, int y)
-    {
+    public override void paintXY(Graphics graphics, int32 x, int32 y) {
         base.paintXY(graphics, x + this.dx, y + this.dy);
     }
-
 }
 

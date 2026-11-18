@@ -13,15 +13,10 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.graphics.paint
+// import org.allbinary.init.InitInterface
+// import org.allbinary.init.UpdateInterface
 
-using System;
-using System.Linq;
-using InitInterface = org.allbinary.init.InitInterface;
-using UpdateInterface = org.allbinary.init.UpdateInterface;
-
-namespace org.allbinary.graphics.paint;
-
-public interface InitUpdatePaintableInterface : InitInterface, UpdateInterface, PaintableInterface
-{
+public interface InitUpdatePaintableInterface : JObject, InitInterface, UpdateInterface, PaintableInterface {
 }
 

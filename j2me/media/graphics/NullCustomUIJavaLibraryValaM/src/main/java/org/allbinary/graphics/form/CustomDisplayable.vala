@@ -1,15 +1,14 @@
 // Generated Code Do Not Modify
+// package org.allbinary.graphics.form
 
-using System;
-using System.Linq;
+public class CustomDisplayable : JObject {
 
-namespace org.allbinary.graphics.form;
-
-public class CustomDisplayable
-{
-    public virtual void setTitle(string title)
-    {
+    public CustomDisplayable() {
+        base();
     }
+    
 
+    public virtual void setTitle(string title) {
+    }
 }
 

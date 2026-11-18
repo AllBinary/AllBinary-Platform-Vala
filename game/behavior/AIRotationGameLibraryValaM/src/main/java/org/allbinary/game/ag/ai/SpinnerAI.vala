@@ -13,30 +13,32 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.game.ag.ai
+// import javax.microedition.lcdui.Canvas
+// import org.allbinary.game.ai.BasicAI
+// import org.allbinary.game.input.GameInput
+// import org.allbinary.layer.AllBinaryLayer
+// import org.allbinary.layer.AllBinaryLayerManager
 
-using System;
-using System.Linq;
-using Canvas = javax.microedition.lcdui.Canvas;
-using BasicAI = org.allbinary.game.ai.BasicAI;
-using GameInput = org.allbinary.game.input.GameInput;
-using AllBinaryLayer = org.allbinary.layer.AllBinaryLayer;
-using AllBinaryLayerManager = org.allbinary.layer.AllBinaryLayerManager;
+public class SpinnerAI : BasicAI {
+    private bool isEven;
+    private int32[] direction;
 
-namespace org.allbinary.game.ag.ai;
+    // Java field initializers run after the base constructor
+    private void initFieldsSpinnerAI() {
+    this.isEven = false;
+    
+    }
+    
 
-public class SpinnerAI : BasicAI
-{
-    private bool isEven = false;
-    private int[] direction;
-    public SpinnerAI(int[] direction, AllBinaryLayer ownerLayerInterface, GameInput gameInput) : base(ownerLayerInterface, gameInput)
-    {
-        // base(ownerLayerInterface, gameInput) is called from the constructor declaration
+    public SpinnerAI(int32[] direction, AllBinaryLayer ownerLayerInterface, GameInput gameInput) {
+        base(ownerLayerInterface, gameInput);
+        this.initFieldsSpinnerAI();
         this.direction = direction;
     }
+    
 
-    // throws Exception
-    public override void processAI(AllBinaryLayerManager allBinaryLayerManager)
-    {
+    public override void processAI(AllBinaryLayerManager allBinaryLayerManager) {
         if (this.isEven) {
             base.processKeyAI(this.direction[0]);
             this.isEven = false;
@@ -45,6 +47,5 @@ public class SpinnerAI : BasicAI
             this.isEven = true;
         }
     }
-
 }
 

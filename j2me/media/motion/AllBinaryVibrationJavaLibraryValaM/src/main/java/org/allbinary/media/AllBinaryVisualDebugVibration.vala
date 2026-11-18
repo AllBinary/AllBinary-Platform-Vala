@@ -13,53 +13,58 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.media
+// import javax.microedition.lcdui.Font
+// import javax.microedition.lcdui.Graphics
+// import org.allbinary.graphics.Anchor
+// import org.allbinary.graphics.displayable.DisplayInfoSingleton
+// import org.allbinary.graphics.font.MyFontProcessor
+// import org.allbinary.graphics.font.UpdateMyFontInterface
+// import org.allbinary.graphics.font.UpdateMyFontProcessor
+// import org.allbinary.time.TimeDelayHelper
 
-using System;
-using System.Linq;
-using Font = javax.microedition.lcdui.Font;
-using Graphics = javax.microedition.lcdui.Graphics;
-using Anchor = org.allbinary.graphics.Anchor;
-using DisplayInfoSingleton = org.allbinary.graphics.displayable.DisplayInfoSingleton;
-using MyFontProcessor = org.allbinary.graphics.font.MyFontProcessor;
-using UpdateMyFontInterface = org.allbinary.graphics.font.UpdateMyFontInterface;
-using UpdateMyFontProcessor = org.allbinary.graphics.font.UpdateMyFontProcessor;
-using TimeDelayHelper = org.allbinary.time.TimeDelayHelper;
-
-namespace org.allbinary.media;
-
-public class AllBinaryVisualDebugVibration : AllBinaryVibrationME, UpdateMyFontInterface
-{
-    private readonly DisplayInfoSingleton displayInfoSingleton = DisplayInfoSingleton.getInstance();
-    private readonly TimeDelayHelper timeDelayHelper = new TimeDelayHelper(int.MaxValue);
-    private readonly string VIBRATING = "Vibrating";
+public class AllBinaryVisualDebugVibration : AllBinaryVibrationME, UpdateMyFontInterface {
+    private DisplayInfoSingleton displayInfoSingleton;
+    private TimeDelayHelper timeDelayHelper;
+    private string VIBRATING;
     private MyFontProcessor myFontProcessor;
-    private int anchor = Anchor.TOP_LEFT;
-    private int width = 0;
-    public virtual void updateMeasurement(Graphics graphics)
-    {
+    private int32 anchor;
+    private int32 width;
+
+    // Java field initializers run after the base constructor
+    private void initFieldsAllBinaryVisualDebugVibration() {
+    this.displayInfoSingleton = DisplayInfoSingleton.getInstance();
+    this.timeDelayHelper = new TimeDelayHelper(Integer.MAX_VALUE);
+    this.VIBRATING = "Vibrating";
+    this.myFontProcessor = new UpdateMyFontProcessor(this);
+    this.anchor = Anchor.TOP_LEFT;
+    this.width = 0;
+    }
+
+    public AllBinaryVisualDebugVibration() {
+        base();
+        this.initFieldsAllBinaryVisualDebugVibration();
+    }
+    
+
+    public virtual void updateMeasurement(Graphics graphics) {
         Font font = graphics.getFont();
         this.width = font.stringWidth(this.VIBRATING);
         this.myFontProcessor = MyFontProcessor.getInstance();
     }
+    
 
-    public override void vibrate(int duration, int type, int volume)
-    {
+    public override void vibrate(int32 duration, int32 type, int32 volume) {
         this.timeDelayHelper.delay = duration;
     }
+    
 
-    public virtual void paint(Graphics graphics)
-    {
+    public virtual void paint(Graphics graphics) {
         if (this.timeDelayHelper.isTimeTNT()) {
-            this.timeDelayHelper.delay = int.MaxValue;
+            this.timeDelayHelper.delay = Integer.MAX_VALUE;
             this.myFontProcessor.process(graphics);
-            graphics.drawString(this.VIBRATING, this.displayInfoSingleton.getLastHalfWidth() - (width >> 1), 0, this.anchor);
+            graphics.drawString(this.VIBRATING, this.displayInfoSingleton.getLastHalfWidth() - (this.width >> 1), 0, this.anchor);
         }
     }
-
-    public AllBinaryVisualDebugVibration()
-    {
-        this.myFontProcessor = new UpdateMyFontProcessor(this);
-    }
-
 }
 

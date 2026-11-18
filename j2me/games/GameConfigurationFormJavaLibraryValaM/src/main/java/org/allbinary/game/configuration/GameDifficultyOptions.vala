@@ -13,31 +13,34 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.game.configuration
+// import javax.microedition.lcdui.Choice
+// import javax.microedition.lcdui.ChoiceGroup
+// import javax.microedition.lcdui.CommandListener
+// import javax.microedition.lcdui.NullImage
+// import org.allbinary.MIDPUtil
+// import org.allbinary.game.commands.GameCommandsFactory
+// import org.allbinary.game.configuration.persistance.GameDifficultyFactory
+// import org.allbinary.graphics.color.BasicColor
+// import org.allbinary.graphics.displayable.screen.CommandForm
+// import org.allbinary.logic.string.StringMaker
+// import org.allbinary.logic.string.StringUtil
+// import org.allbinary.util.BasicArrayList
 
-using System;
-using System.Linq;
-using Choice = javax.microedition.lcdui.Choice;
-using ChoiceGroup = javax.microedition.lcdui.ChoiceGroup;
-using CommandListener = javax.microedition.lcdui.CommandListener;
-using NullImage = javax.microedition.lcdui.NullImage;
-using MIDPUtil = org.allbinary.MIDPUtil;
-using GameCommandsFactory = org.allbinary.game.commands.GameCommandsFactory;
-using GameDifficultyFactory = org.allbinary.game.configuration.persistance.GameDifficultyFactory;
-using BasicColor = org.allbinary.graphics.color.BasicColor;
-using CommandForm = org.allbinary.graphics.displayable.screen.CommandForm;
-using StringMaker = org.allbinary.logic.@string.StringMaker;
-using StringUtil = org.allbinary.logic.@string.StringUtil;
-using BasicArrayList = org.allbinary.util.BasicArrayList;
+public class GameDifficultyOptions : CommandForm {
+    private MIDPUtil meUtil;
+    private BasicArrayList list;
 
-namespace org.allbinary.game.configuration;
+    // Java field initializers run after the base constructor
+    private void initFieldsGameDifficultyOptions() {
+    this.meUtil = MIDPUtil.getInstance();
+    
+    }
+    
 
-public class GameDifficultyOptions : CommandForm
-{
-    private readonly MIDPUtil meUtil = MIDPUtil.getInstance();
-    private readonly BasicArrayList list;
-    public GameDifficultyOptions(CommandListener commandListener, string title, BasicArrayList list, BasicColor backgrounBasicColor, BasicColor foregroundBasicColor) : base(commandListener, title, backgrounBasicColor, foregroundBasicColor)
-    {
-        // base(commandListener, title, backgrounBasicColor, foregroundBasicColor) is called from the constructor declaration
+    public GameDifficultyOptions(CommandListener commandListener, string title, BasicArrayList list, BasicColor backgrounBasicColor, BasicColor foregroundBasicColor) {
+        base(commandListener, title, backgrounBasicColor, foregroundBasicColor);
+        this.initFieldsGameDifficultyOptions();
         this.logUtil.putF(this.commonStrings.START, this, this.commonStrings.CONSTRUCTOR);
         this.list = list;
         this.update();
@@ -45,84 +48,80 @@ public class GameDifficultyOptions : CommandForm
         GameDifficultyFactory gameDifficultyFactory = GameDifficultyFactory.getInstance();
         this.setSelectedId(gameDifficultyFactory.getLevel());
     }
+    
 
-    public override void open()
-    {
+    public override void open() {
         base.open();
     }
+    
 
-    // throws Exception
-    public override void close()
-    {
+    public override void close() {
         base.close();
         this.save();
     }
+    
 
-    // throws Exception
-    public virtual void save()
-    {
+    public virtual void save() {
         GameDifficultyFactory gameDifficultyFactory = GameDifficultyFactory.getInstance();
         gameDifficultyFactory.setLevel(this.getSelectedId());
     }
+    
 
-    public override void initCommands(CommandListener cmdListener)
-    {
+    public override void initCommands(CommandListener cmdListener) {
         GameCommandsFactory gameCommandsFactory = GameCommandsFactory.getInstance();
         this.removeAllCommands();
         this.addCommand(gameCommandsFactory.CLOSE_AND_SHOW_GAME_CANVAS);
         this.setCommandListener(cmdListener);
     }
+    
 
-    // throws Exception
-    public override void update()
-    {
+    public override void update() {
         this.deleteAll();
         this.add(this.list, "Difficulty", Choice.EXCLUSIVE);
         base.update();
     }
+    
 
-    private void add(BasicArrayList list, string name, int option)
-    {
+    private void add(BasicArrayList list, string name, int32 option) {
         ChoiceGroup choiceGroup = this.getChoiceGroup(list, name, option);
         if (list.size() > 0) {
             choiceGroup.setSelectedIndex(0, true);
         }
         this.meUtil.appendItem(this, choiceGroup);
     }
+    
 
-    private ChoiceGroup getChoiceGroup(BasicArrayList list, string name, int option)
-    {
+    private ChoiceGroup getChoiceGroup(BasicArrayList list, string name, int32 option) {
         string METHOD_NAME = "addChoiceGroup";
         string NAME = "Adding Choice: ";
         ChoiceGroup choiceGroup = new ChoiceGroup(name, option, StringUtil.getInstance().getArrayInstance(), NullImage.NULL_IMAGE_ARRAY);
-        int size = list.size();
-        object anyType = null;
-        for (int index = 0; index < size; index++) {
+        int32 size = list.size();
+        JObject anyType = null;
+        for (int32 index = 0; index < size; index++) {
             anyType = list.objectArray[index];
-            this.logUtil.putF(new StringMaker().append(NAME).append(anyType.ToString()).ToString(), this, METHOD_NAME);
-            choiceGroup.append(anyType.ToString(), NullImage.NULL_IMAGE);
+            this.logUtil.putF(new StringMaker().append(NAME).append(anyType.toString()).toString(), this, METHOD_NAME);
+            choiceGroup.append(anyType.toString(), NullImage.NULL_IMAGE);
         }
         return choiceGroup;
     }
+    
 
-    public virtual void setSelectedId(int id)
-    {
-        ChoiceGroup choiceGroup = ((ChoiceGroup) this.get(0));
+    public virtual void setSelectedId(int32 id) {
+        ChoiceGroup choiceGroup = ((ChoiceGroup) this.@get(0));
         choiceGroup.setSelectedIndex(id, true);
     }
+    
 
-    public virtual int getSelectedId()
-    {
-        ChoiceGroup choiceGroup = ((ChoiceGroup) this.get(0));
+    public virtual int32 getSelectedId() {
+        ChoiceGroup choiceGroup = ((ChoiceGroup) this.@get(0));
         return choiceGroup.getSelectedIndex();
     }
+    
 
-    public virtual int getSelectedText()
-    {
-        ChoiceGroup choiceGroup = ((ChoiceGroup) this.get(0));
-        int value = global::java.lang.JavaNumber.intValue(int.Parse((choiceGroup.getString(choiceGroup.getSelectedIndex())).ToString()));
+    public virtual int32 getSelectedText() {
+        ChoiceGroup choiceGroup = ((ChoiceGroup) this.@get(0));
+        int32 value = (choiceGroup.getString(choiceGroup.getSelectedIndex())).to_string().intValue();
         return value;
     }
-
 }
 

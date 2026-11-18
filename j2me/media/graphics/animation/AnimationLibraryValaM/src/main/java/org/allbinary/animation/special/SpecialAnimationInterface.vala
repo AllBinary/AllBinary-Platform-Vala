@@ -13,18 +13,15 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.animation.special
+// import org.allbinary.animation.IndexedAnimationInterface
 
-using System;
-using System.Linq;
-using IndexedAnimationInterface = org.allbinary.animation.IndexedAnimationInterface;
+public interface SpecialAnimationInterface : JObject, IndexedAnimationInterface {
+    
 
-namespace org.allbinary.animation.special;
+    public abstract void setLastFrame();
+    
 
-public interface SpecialAnimationInterface : IndexedAnimationInterface
-{
-    void setLastFrame();
-
-    bool isComplete();
-
+    public abstract bool isComplete();
 }
 

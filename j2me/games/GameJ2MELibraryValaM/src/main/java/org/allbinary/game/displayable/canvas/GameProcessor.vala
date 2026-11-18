@@ -13,26 +13,27 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.game.displayable.canvas
+// import org.allbinary.canvas.Processor
 
-using System;
-using System.Linq;
-using Processor = org.allbinary.canvas.Processor;
-
-namespace org.allbinary.game.displayable.canvas;
-
-public class GameProcessor : Processor
-{
+public class GameProcessor : Processor {
     private AllBinaryGameCanvas gameCanvas;
-    public GameProcessor(AllBinaryGameCanvas gameCanvas)
-    {
+
+    // Java field initializers run after the base constructor
+    private void initFieldsGameProcessor() {
+    
+    }
+    
+
+    public GameProcessor(AllBinaryGameCanvas gameCanvas) {
+        base();
+        this.initFieldsGameProcessor();
         this.gameCanvas = gameCanvas;
     }
+    
 
-    // throws Exception
-    public override void process()
-    {
+    public override void process() {
         this.gameCanvas.processPlayingGame();
     }
-
 }
 

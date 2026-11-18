@@ -13,43 +13,47 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.game.health
+// import javax.microedition.lcdui.Graphics
+// import org.allbinary.graphics.paint.Paintable
+// import org.allbinary.layer.AllBinaryLayer
 
-using System;
-using System.Linq;
-using Graphics = javax.microedition.lcdui.Graphics;
-using Paintable = org.allbinary.graphics.paint.Paintable;
-using AllBinaryLayer = org.allbinary.layer.AllBinaryLayer;
+public class HealthBar : Paintable, HealthListenerInterface {
+    private HealthBarAnimation animationInterface;
+    private HealthInterface healthInterface;
+    public AllBinaryLayer allbinaryLayer;
 
-namespace org.allbinary.game.health;
+    // Java field initializers run after the base constructor
+    private void initFieldsHealthBar() {
+    
+    
+    
+    }
+    
 
-public class HealthBar : Paintable, HealthListenerInterface
-{
-    private readonly HealthBarAnimation animationInterface;
-    private readonly HealthInterface healthInterface;
-    public readonly AllBinaryLayer allbinaryLayer;
-    public HealthBar(AllBinaryLayer layerInterface, Health healthInterface, HealthBarAnimation animationInterface, int direction)
-    {
+    public HealthBar(AllBinaryLayer layerInterface, Health healthInterface, HealthBarAnimation animationInterface, int32 direction) {
+        base();
+        this.initFieldsHealthBar();
         this.allbinaryLayer = layerInterface;
         this.animationInterface = animationInterface;
         this.healthInterface = healthInterface;
         this.healthInterface.addListener(this);
         this.onHealthChange();
     }
+    
 
-    public virtual void onHealthChange()
-    {
+    public virtual void onHealthChange() {
         this.animationInterface.onHealthChange(this.healthInterface.getHealth() * this.allbinaryLayer.getWidth() / this.healthInterface.getMaxHealth());
     }
+    
 
-    public override void paint(Graphics graphics)
-    {
+    public override void paint(Graphics graphics) {
         this.animationInterface.paintXY(graphics, 0, 0);
     }
+    
 
-    public override void paintThreed(Graphics graphics)
-    {
+    public override void paintThreed(Graphics graphics) {
         this.animationInterface.paintThreedXYZ(graphics, 0, 0, 0);
     }
-
 }
 

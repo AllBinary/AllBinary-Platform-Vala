@@ -13,18 +13,17 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.android.input.motion.button
+// import org.allbinary.init.Init
 
-using System;
-using System.Linq;
-using Init = org.allbinary.init.Init;
+public class TouchButtonAndroidResources : Init {
 
-namespace org.allbinary.android.input.motion.button;
-
-public class TouchButtonAndroidResources : Init
-{
-    public override void init()
-    {
+    public TouchButtonAndroidResources() {
+        base();
     }
+    
 
+    public override void init() {
+    }
 }
 

@@ -13,43 +13,47 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.game.layer
 
-using System;
-using System.Linq;
-
-namespace org.allbinary.game.layer;
-
-public class BasicLayerPlacement
-{
+public class BasicLayerPlacement : JObject {
     private LayerPlacementType layerType;
-    private int width;
-    private int height;
-    public BasicLayerPlacement(LayerPlacementType layerType, int width, int height)
-    {
+    private int32 width;
+    private int32 height;
+
+    // Java field initializers run after the base constructor
+    private void initFieldsBasicLayerPlacement() {
+    
+    
+    
+    }
+    
+
+    public BasicLayerPlacement(LayerPlacementType layerType, int32 width, int32 height) {
+        base();
+        this.initFieldsBasicLayerPlacement();
         this.layerType = layerType;
         this.width = width;
         this.height = height;
     }
+    
 
-    public virtual int getWidth()
-    {
+    public virtual int32 getWidth() {
         return this.width;
     }
+    
 
-    public virtual int getHeight()
-    {
+    public virtual int32 getHeight() {
         return this.height;
     }
+    
 
-    public virtual LayerPlacementType getLayerType()
-    {
+    public virtual LayerPlacementType getLayerType() {
         return this.layerType;
     }
+    
 
-    public virtual void setLayerType(LayerPlacementType layerType)
-    {
+    public virtual void setLayerType(LayerPlacementType layerType) {
         this.layerType = layerType;
     }
-
 }
 

@@ -1,40 +1,51 @@
 // Generated Code Do Not Modify
+// package org.allbinary.game.midlet
+// import org.allbinary.game.state.GameState
+// import org.allbinary.game.state.GameStateFactory
+// import org.allbinary.logic.communication.log.LogUtil
+// import org.allbinary.logic.string.StringMaker
+// import org.allbinary.logic.string.StringUtil
+// import org.allbinary.string.CommonLabels
 
-using System;
-using System.Linq;
-using GameState = org.allbinary.game.state.GameState;
-using GameStateFactory = org.allbinary.game.state.GameStateFactory;
-using LogUtil = org.allbinary.logic.communication.log.LogUtil;
-using StringMaker = org.allbinary.logic.@string.StringMaker;
-using StringUtil = org.allbinary.logic.@string.StringUtil;
-using CommonLabels = org.allbinary.@string.CommonLabels;
-
-namespace org.allbinary.game.midlet;
-
-public class GameMidletStateFactory
-{
-    public readonly LogUtil logUtil = LogUtil.getInstance();
-    private static readonly GameMidletStateFactory INSTANCE = new GameMidletStateFactory();
-    private GameState currentGameState = GameStateFactory.getInstance().NO_GAME_STATE;
-    private GameMidletStateFactory()
-    {
-    }
-
-    public static GameMidletStateFactory getInstance()
-    {
+public class GameMidletStateFactory : JObject {
+    private static GameMidletStateFactory? INSTANCE;
+    private static bool staticSet_INSTANCE = false;
+    private static GameMidletStateFactory staticGet_INSTANCE() {
+        if (!GameMidletStateFactory.staticSet_INSTANCE) {
+            GameMidletStateFactory.staticSet_INSTANCE = true;
+            GameMidletStateFactory.INSTANCE = new GameMidletStateFactory();
+        }
         return GameMidletStateFactory.INSTANCE;
     }
+    public LogUtil logUtil;
+    private GameState currentGameState;
 
-    public virtual GameState getCurrentGameState()
-    {
+    // Java field initializers run after the base constructor
+    private void initFieldsGameMidletStateFactory() {
+    this.logUtil = LogUtil.getInstance();
+    this.currentGameState = GameStateFactory.getInstance().NO_GAME_STATE;
+    }
+    
+
+    public GameMidletStateFactory() {
+        base();
+        this.initFieldsGameMidletStateFactory();
+    }
+    
+
+    public static GameMidletStateFactory getInstance() {
+        return GameMidletStateFactory.staticGet_INSTANCE();
+    }
+    
+
+    public virtual GameState getCurrentGameState() {
         return this.currentGameState;
     }
+    
 
-    public virtual void setCurrentGameState(GameState currentGameState)
-    {
-        this.logUtil.putF(new StringMaker().append(CommonLabels.getInstance().CURRENT).append(" GameState: ").append(StringUtil.getInstance().toString(currentGameState)).ToString(), this, "setCurrentGameState");
+    public virtual void setCurrentGameState(GameState currentGameState) {
+        this.logUtil.putF(new StringMaker().append(CommonLabels.getInstance().CURRENT).append(" GameState: ").append(StringUtil.getInstance().toString1(currentGameState)).toString(), this, "setCurrentGameState");
         this.currentGameState = currentGameState;
     }
-
 }
 

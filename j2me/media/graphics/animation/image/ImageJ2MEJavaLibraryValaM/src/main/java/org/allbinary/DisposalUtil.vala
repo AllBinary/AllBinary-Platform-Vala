@@ -13,32 +13,39 @@
  *   
  */
 // Generated Code Do Not Modify
+// package org.allbinary
+// import javax.microedition.lcdui.Image
+// import org.eclipse.swt.graphics.Resource
 
-using System;
-using System.Linq;
-using Image = javax.microedition.lcdui.Image;
-using Resource = org.eclipse.swt.graphics.Resource;
-
-namespace org.allbinary;
-
-public class DisposalUtil
-{
-    private static readonly DisposalUtil instance = new DisposalUtil();
-    public static DisposalUtil getInstance()
-    {
+public class DisposalUtil : JObject {
+    private static DisposalUtil? instance;
+    private static bool staticSet_instance = false;
+    private static DisposalUtil staticGet_instance() {
+        if (!DisposalUtil.staticSet_instance) {
+            DisposalUtil.staticSet_instance = true;
+            DisposalUtil.instance = new DisposalUtil();
+        }
         return DisposalUtil.instance;
     }
 
-    public virtual void disposeImage(Image image)
-    {
+    public DisposalUtil() {
+        base();
     }
+    
 
-    public virtual void disposeResource(Resource resource)
-    {
+    public static DisposalUtil getInstance() {
+        return DisposalUtil.staticGet_instance();
+    }
+    
+
+    public virtual void disposeImage(Image image) {
+    }
+    
+
+    public virtual void disposeResource(Resource resource) {
         if (!resource.isDisposed()) {
             resource.dispose();
         }
     }
-
 }
 

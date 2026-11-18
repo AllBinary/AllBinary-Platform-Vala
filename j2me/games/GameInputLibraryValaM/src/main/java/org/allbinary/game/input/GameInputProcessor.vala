@@ -13,50 +13,49 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.game.input
+// import org.allbinary.game.input.event.GameKeyEvent
+// import org.allbinary.layer.AllBinaryLayerManager
 
-using System;
-using System.Linq;
-using GameKeyEvent = org.allbinary.game.input.@event.GameKeyEvent;
-using AllBinaryLayerManager = org.allbinary.layer.AllBinaryLayerManager;
-
-namespace org.allbinary.game.input;
-
-public class GameInputProcessor
-{
-    private static readonly GameInputProcessor instance = new GameInputProcessor();
-    public static GameInputProcessor getInstance()
-    {
+public class GameInputProcessor : JObject {
+    private static GameInputProcessor? instance;
+    private static bool staticSet_instance = false;
+    private static GameInputProcessor staticGet_instance() {
+        if (!GameInputProcessor.staticSet_instance) {
+            GameInputProcessor.staticSet_instance = true;
+            GameInputProcessor.instance = new GameInputProcessor();
+        }
         return GameInputProcessor.instance;
     }
+    
 
-    public GameInputProcessor()
-    {
+    public static GameInputProcessor getInstance() {
+        return GameInputProcessor.staticGet_instance();
     }
+    
 
-    // throws Exception
-    public virtual void processEvent(AllBinaryLayerManager allbinaryLayerManager, GameKeyEvent gameKeyEvent)
-    {
+    public GameInputProcessor() {
+        base();
     }
+    
 
-    // throws Exception
-    public virtual void processReleasedEvent(AllBinaryLayerManager allbinaryLayerManager, GameKeyEvent gameKeyEvent)
-    {
+    public virtual void processEvent(AllBinaryLayerManager allbinaryLayerManager, GameKeyEvent gameKeyEvent) {
     }
+    
 
-    // throws Exception
-    public virtual void processAnalog(AllBinaryLayerManager allbinaryLayerManager, GameKeyEvent gameKeyEvent, int analogValue)
-    {
+    public virtual void processReleasedEvent(AllBinaryLayerManager allbinaryLayerManager, GameKeyEvent gameKeyEvent) {
     }
+    
 
-    // throws Exception
-    public virtual void process(AllBinaryLayerManager allbinaryLayerManager, int? keyAsInteger)
-    {
+    public virtual void processAnalog(AllBinaryLayerManager allbinaryLayerManager, GameKeyEvent gameKeyEvent, int32 analogValue) {
     }
+    
 
-    // throws Exception
-    public virtual void processReleased(AllBinaryLayerManager allbinaryLayerManager, int? keyAsInteger)
-    {
+    public virtual void process(AllBinaryLayerManager allbinaryLayerManager, int32? keyAsInteger) {
     }
+    
 
+    public virtual void processReleased(AllBinaryLayerManager allbinaryLayerManager, int32? keyAsInteger) {
+    }
 }
 

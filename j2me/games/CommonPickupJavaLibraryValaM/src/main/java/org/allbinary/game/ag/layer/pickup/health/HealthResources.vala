@@ -13,24 +13,34 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.game.ag.layer.pickup.health
 
-using System;
-using System.Linq;
-
-namespace org.allbinary.game.ag.layer.pickup.health;
-
-public class HealthResources
-{
-    private static readonly HealthResources SINGLETON = new HealthResources();
-    public string RESOURCE = "health_drop_20_by_20.png";
-    private HealthResources()
-    {
-    }
-
-    public static HealthResources getInstance()
-    {
+public class HealthResources : JObject {
+    private static HealthResources? SINGLETON;
+    private static bool staticSet_SINGLETON = false;
+    private static HealthResources staticGet_SINGLETON() {
+        if (!HealthResources.staticSet_SINGLETON) {
+            HealthResources.staticSet_SINGLETON = true;
+            HealthResources.SINGLETON = new HealthResources();
+        }
         return HealthResources.SINGLETON;
     }
+    public string RESOURCE;
 
+    // Java field initializers run after the base constructor
+    private void initFieldsHealthResources() {
+    this.RESOURCE = "health_drop_20_by_20.png";
+    }
+    
+
+    public HealthResources() {
+        base();
+        this.initFieldsHealthResources();
+    }
+    
+
+    public static HealthResources getInstance() {
+        return HealthResources.staticGet_SINGLETON();
+    }
 }
 

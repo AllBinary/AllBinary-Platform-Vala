@@ -13,90 +13,103 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.game.input.event
+// import org.allbinary.logic.NullUtil
+// import org.allbinary.logic.string.StringMaker
+// import org.allbinary.logic.util.event.AllBinaryEventObject
 
-using System;
-using System.Linq;
-using NullUtil = org.allbinary.logic.NullUtil;
-using StringMaker = org.allbinary.logic.@string.StringMaker;
-using AllBinaryEventObject = org.allbinary.logic.util.@event.AllBinaryEventObject;
+public class GameKeyEvent : AllBinaryEventObject {
+    public static GameKeyEvent? NONE;
+    private static bool staticSet_NONE = false;
+    public static GameKeyEvent staticGet_NONE() {
+        if (!GameKeyEvent.staticSet_NONE) {
+            GameKeyEvent.staticSet_NONE = true;
+            GameKeyEvent.NONE = new GameKeyEvent(NullUtil.getInstance().NULL_OBJECT, -1, -1, -1, -1, false);
+        }
+        return GameKeyEvent.NONE;
+    }
+    private int32 sourceId;
+    private bool repeated;
+    private int32 key;
+    private int32 gameActionKey;
+    private int32 originalKey;
 
-namespace org.allbinary.game.input.@event;
+    // Java field initializers run after the base constructor
+    private void initFieldsGameKeyEvent() {
+    
+    this.repeated = false;
+    
+    this.gameActionKey = 0;
+    this.originalKey = 0;
+    }
+    
 
-public class GameKeyEvent : AllBinaryEventObject
-{
-    public static GameKeyEvent createEvent(object anyType, int sourceId, int key)
-    {
+    public static GameKeyEvent createEvent(JObject anyType, int32 sourceId, int32 key) {
         return new GameKeyEvent(anyType, sourceId, 0, 0, key, false);
     }
+    
 
-    public static readonly GameKeyEvent NONE = new GameKeyEvent(NullUtil.getInstance().NULL_OBJECT, -1, -1, -1, -1, false);
-    private readonly int sourceId;
-    private bool repeated = false;
-    private int key;
-    private int gameActionKey = 0;
-    private int originalKey = 0;
-    public GameKeyEvent(object anyType, int sourceId, int originalKey, int gameActionKey, int key, bool repeated) : base(anyType)
-    {
-        // base(anyType) is called from the constructor declaration
+    public GameKeyEvent(JObject anyType, int32 sourceId, int32 originalKey, int32 gameActionKey, int32 key, bool repeated) {
+        base(anyType);
+        this.initFieldsGameKeyEvent();
         this.sourceId = sourceId;
         this.setOriginalKey(originalKey);
         this.key = key;
         this.setGameActionKey(gameActionKey);
         this.setRepeatEvents(repeated);
     }
+    
 
-    public virtual void init(object anyType)
-    {
+    public virtual void init(JObject anyType) {
         this.setSource(anyType);
     }
+    
 
-    private void setRepeatEvents(bool repeated)
-    {
+    private void setRepeatEvents(bool repeated) {
         this.repeated = repeated;
     }
+    
 
-    public virtual bool hasRepeatEvents()
-    {
+    public virtual bool hasRepeatEvents() {
         return this.repeated;
     }
+    
 
-    public virtual int getKey()
-    {
+    public virtual int32 getKey() {
         return this.key;
     }
+    
 
-    public override string ToString()
-    {
+    public override string toString() {
         StringMaker stringBuffer = new StringMaker();
         stringBuffer.append("\nKey: ");
         stringBuffer.appendint(this.getKey());
-        return stringBuffer.ToString();
+        return stringBuffer.toString();
     }
+    
 
-    public virtual int getOriginalKey()
-    {
+    public virtual int32 getOriginalKey() {
         return this.originalKey;
     }
+    
 
-    public virtual void setOriginalKey(int originalKey)
-    {
+    public virtual void setOriginalKey(int32 originalKey) {
         this.originalKey = originalKey;
     }
+    
 
-    public virtual int getGameActionKey()
-    {
+    public virtual int32 getGameActionKey() {
         return this.gameActionKey;
     }
+    
 
-    public virtual void setGameActionKey(int gameActionKey)
-    {
+    public virtual void setGameActionKey(int32 gameActionKey) {
         this.gameActionKey = gameActionKey;
     }
+    
 
-    public virtual int getSourceId()
-    {
+    public virtual int32 getSourceId() {
         return this.sourceId;
     }
-
 }
 

@@ -13,35 +13,38 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.ai
+// import org.allbinary.layer.AllBinaryLayerManager
 
-using System;
-using System.Linq;
-using AllBinaryLayerManager = org.allbinary.layer.AllBinaryLayerManager;
-
-namespace org.allbinary.ai;
-
-public class ArtificialIntelligence : ArtificialIntelligenceInterface
-{
-    public const int AI_ID = 2;
-    private static readonly ArtificialIntelligence instance = new ArtificialIntelligence();
-    public static ArtificialIntelligence getInstance()
-    {
+public class ArtificialIntelligence : JObject, ArtificialIntelligenceInterface, IdentifierInterface {
+    public const int32 AI_ID = 2;
+    private static ArtificialIntelligence? instance;
+    private static bool staticSet_instance = false;
+    private static ArtificialIntelligence staticGet_instance() {
+        if (!ArtificialIntelligence.staticSet_instance) {
+            ArtificialIntelligence.staticSet_instance = true;
+            ArtificialIntelligence.instance = new ArtificialIntelligence();
+        }
         return ArtificialIntelligence.instance;
     }
+    
 
-    public ArtificialIntelligence()
-    {
+    public static ArtificialIntelligence getInstance() {
+        return ArtificialIntelligence.staticGet_instance();
     }
+    
 
-    // throws Exception
-    public virtual void processAI(AllBinaryLayerManager layerManager)
-    {
+    public ArtificialIntelligence() {
+        base();
     }
+    
 
-    public virtual int getId()
-    {
+    public virtual void processAI(AllBinaryLayerManager layerManager) {
+    }
+    
+
+    public virtual int32 getId() {
         return 1;
     }
-
 }
 

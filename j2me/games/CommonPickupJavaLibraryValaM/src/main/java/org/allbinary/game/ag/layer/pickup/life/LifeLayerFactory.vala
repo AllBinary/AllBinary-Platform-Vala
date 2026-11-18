@@ -13,21 +13,19 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.game.ag.layer.pickup.life
+// import org.allbinary.layer.AllBinaryLayer
+// import org.allbinary.layer.AllBinaryLayerFactoryInterface
 
-using System;
-using System.Linq;
-using AllBinaryLayer = org.allbinary.layer.AllBinaryLayer;
-using AllBinaryLayerFactoryInterface = org.allbinary.layer.AllBinaryLayerFactoryInterface;
+public class LifeLayerFactory : JObject, AllBinaryLayerFactoryInterface {
 
-namespace org.allbinary.game.ag.layer.pickup.life;
+    public LifeLayerFactory() {
+        base();
+    }
+    
 
-public class LifeLayerFactory : AllBinaryLayerFactoryInterface
-{
-    // throws Exception
-    public virtual AllBinaryLayer getInstance()
-    {
+    public virtual AllBinaryLayer getInstance() {
         return new LifeLayer();
     }
-
 }
 

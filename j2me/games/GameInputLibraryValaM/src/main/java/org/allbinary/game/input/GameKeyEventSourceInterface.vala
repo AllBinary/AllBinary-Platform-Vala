@@ -13,15 +13,11 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.game.input
 
-using System;
-using System.Linq;
+public interface GameKeyEventSourceInterface : JObject {
+    
 
-namespace org.allbinary.game.input;
-
-public interface GameKeyEventSourceInterface
-{
-    int getSourceId();
-
+    public abstract int32 getSourceId();
 }
 

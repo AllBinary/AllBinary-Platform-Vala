@@ -13,18 +13,17 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.graphics.form
 
-using System;
-using System.Linq;
+public class ScrollSelectionFormNoneFactory : JObject {
 
-namespace org.allbinary.graphics.form;
+    public ScrollSelectionFormNoneFactory() {
+        base();
+    }
+    
 
-public class ScrollSelectionFormNoneFactory
-{
-    public static ScrollSelectionForm getInstance()
-    {
+    public static ScrollSelectionForm getInstance() {
         return ScrollSelectionForm.getNullScrollSelectionFormHorizontal();
     }
-
 }
 

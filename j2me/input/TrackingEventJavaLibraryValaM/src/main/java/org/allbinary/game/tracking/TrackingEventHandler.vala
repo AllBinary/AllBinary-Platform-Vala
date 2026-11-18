@@ -13,33 +13,36 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.game.tracking
+// import org.allbinary.logic.util.event.AllBinaryEventObject
+// import org.allbinary.logic.util.event.EventListenerInterface
+// import org.allbinary.logic.util.event.handler.BasicEventHandler
 
-using System;
-using System.Linq;
-using AllBinaryEventObject = org.allbinary.logic.util.@event.AllBinaryEventObject;
-using EventListenerInterface = org.allbinary.logic.util.@event.EventListenerInterface;
-using BasicEventHandler = org.allbinary.logic.util.@event.handler.BasicEventHandler;
-
-namespace org.allbinary.game.tracking;
-
-public class TrackingEventHandler : BasicEventHandler
-{
-    private static readonly TrackingEventHandler instance = new TrackingEventHandler();
-    public static TrackingEventHandler getInstance()
-    {
+public class TrackingEventHandler : BasicEventHandler {
+    private static TrackingEventHandler? instance;
+    private static bool staticSet_instance = false;
+    private static TrackingEventHandler staticGet_instance() {
+        if (!TrackingEventHandler.staticSet_instance) {
+            TrackingEventHandler.staticSet_instance = true;
+            TrackingEventHandler.instance = new TrackingEventHandler();
+        }
         return TrackingEventHandler.instance;
     }
+    
 
-    private TrackingEventHandler()
-    {
+    public static TrackingEventHandler getInstance() {
+        return TrackingEventHandler.staticGet_instance();
     }
+    
 
-    // throws Exception
-    public override void process(AllBinaryEventObject eventObject, EventListenerInterface eventListenerInterface)
-    {
+    public TrackingEventHandler() {
+        base();
+    }
+    
+
+    public override void process(AllBinaryEventObject eventObject, EventListenerInterface eventListenerInterface) {
         TrackingEventListenerInterface trackingEventListenerInterface = ((TrackingEventListenerInterface) eventListenerInterface);
         trackingEventListenerInterface.onMovement(((TrackingEvent) eventObject));
     }
-
 }
 

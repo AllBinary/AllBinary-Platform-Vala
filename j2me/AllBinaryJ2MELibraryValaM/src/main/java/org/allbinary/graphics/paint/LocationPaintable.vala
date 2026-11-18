@@ -13,24 +13,31 @@
  *   
  */
 // Generated Code Do Not Modify
+// package org.allbinary.graphics.paint
+// import javax.microedition.lcdui.Graphics
 
-using System;
-using System.Linq;
-using Graphics = javax.microedition.lcdui.Graphics;
-
-namespace org.allbinary.graphics.paint;
-
-public class LocationPaintable : LocationPaintableInterface
-{
-    private static readonly LocationPaintable instance = new LocationPaintable();
-    public static LocationPaintable getInstance()
-    {
+public class LocationPaintable : JObject, LocationPaintableInterface {
+    private static LocationPaintable? instance;
+    private static bool staticSet_instance = false;
+    private static LocationPaintable staticGet_instance() {
+        if (!LocationPaintable.staticSet_instance) {
+            LocationPaintable.staticSet_instance = true;
+            LocationPaintable.instance = new LocationPaintable();
+        }
         return LocationPaintable.instance;
     }
 
-    public virtual void paintXY(Graphics graphics, int x, int y)
-    {
+    public LocationPaintable() {
+        base();
     }
+    
 
+    public static LocationPaintable getInstance() {
+        return LocationPaintable.staticGet_instance();
+    }
+    
+
+    public virtual void paintXY(Graphics graphics, int32 x, int32 y) {
+    }
 }
 

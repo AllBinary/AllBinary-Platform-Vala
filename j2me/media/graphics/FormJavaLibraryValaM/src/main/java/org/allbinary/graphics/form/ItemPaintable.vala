@@ -13,18 +13,17 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.graphics.form
+// import javax.microedition.lcdui.Graphics
 
-using System;
-using System.Linq;
-using Graphics = javax.microedition.lcdui.Graphics;
+public class ItemPaintable : JObject {
 
-namespace org.allbinary.graphics.form;
-
-public class ItemPaintable
-{
-    public virtual void paint(Graphics graphics, int currentIndex, int x, int y)
-    {
+    public ItemPaintable() {
+        base();
     }
+    
 
+    public virtual void paint(Graphics graphics, int32 currentIndex, int32 x, int32 y) {
+    }
 }
 

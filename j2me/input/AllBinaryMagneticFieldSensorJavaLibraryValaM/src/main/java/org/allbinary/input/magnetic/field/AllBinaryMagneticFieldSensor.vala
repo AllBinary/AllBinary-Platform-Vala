@@ -13,18 +13,14 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.input.magnetic.field
+// import org.allbinary.input.AllBinarySensor
 
-using System;
-using System.Linq;
-using AllBinarySensor = org.allbinary.input.AllBinarySensor;
+public class AllBinaryMagneticFieldSensor : AllBinarySensor {
+    
 
-namespace org.allbinary.input.magnetic.field;
-
-public class AllBinaryMagneticFieldSensor : AllBinarySensor
-{
-    public AllBinaryMagneticFieldSensor()
-    {
+    public AllBinaryMagneticFieldSensor() {
+        base();
     }
-
 }
 

@@ -13,27 +13,47 @@
  *   
  */
 // Generated Code Do Not Modify
+// package org.allbinary.graphics
 
-using System;
-using System.Linq;
-
-namespace org.allbinary.graphics;
-
-public class GraphicsStrings
-{
-    private static readonly GraphicsStrings instance = new GraphicsStrings();
-    public static GraphicsStrings getInstance()
-    {
+public class GraphicsStrings : JObject {
+    private static GraphicsStrings? instance;
+    private static bool staticSet_instance = false;
+    private static GraphicsStrings staticGet_instance() {
+        if (!GraphicsStrings.staticSet_instance) {
+            GraphicsStrings.staticSet_instance = true;
+            GraphicsStrings.instance = new GraphicsStrings();
+        }
         return GraphicsStrings.instance;
     }
+    public string ANIMATION;
+    public string ANGLE;
+    public string MOVEMENT_ANGLE;
+    public string ROTATION;
+    public string OPACITY;
+    public string HTML;
+    public string WIDTH;
+    public string HEIGHT;
 
-    public readonly string ANIMATION = "animation";
-    public readonly string ANGLE = "angle";
-    public readonly string MOVEMENT_ANGLE = "movement_angle";
-    public readonly string ROTATION = "rotation";
-    public readonly string OPACITY = "opacity";
-    public readonly string HTML = "HTML";
-    public readonly string WIDTH = "width";
-    public readonly string HEIGHT = "height";
+    // Java field initializers run after the base constructor
+    private void initFieldsGraphicsStrings() {
+    this.ANIMATION = "animation";
+    this.ANGLE = "angle";
+    this.MOVEMENT_ANGLE = "movement_angle";
+    this.ROTATION = "rotation";
+    this.OPACITY = "opacity";
+    this.HTML = "HTML";
+    this.WIDTH = "width";
+    this.HEIGHT = "height";
+    }
+
+    public GraphicsStrings() {
+        base();
+        this.initFieldsGraphicsStrings();
+    }
+    
+
+    public static GraphicsStrings getInstance() {
+        return GraphicsStrings.staticGet_instance();
+    }
 }
 

@@ -13,18 +13,22 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.game.ag.vector
 
-using System;
-using System.Linq;
-
-namespace org.allbinary.game.ag.vector;
-
-public class MineVectorData
-{
-    private MineVectorData()
-    {
+public class MineVectorData : JObject {
+    public static int32[,,]? points;
+    private static bool staticSet_points = false;
+    public static int32[,,] staticGet_points() {
+        if (!MineVectorData.staticSet_points) {
+            MineVectorData.staticSet_points = true;
+            MineVectorData.points = new int32[,,] {{{10, 5}, {2, 6}, {1000, 1000}, {2, 2}, {10, 9}, {1000, 1000}, {10, 2}, {2, 9}, {1000, 1000}, {2, 5}, {10, 6}, {1000, 1000}, {7, 9}, {5, 2}, {1000, 1000}, {7, 2}, {5, 9}, {1000, 1000}}};
+        }
+        return MineVectorData.points;
     }
+    
 
-    public static int[][][] points = new int[][][] { new int[][] { new int[] { 10, 5 }, new int[] { 2, 6 }, new int[] { 1000, 1000 }, new int[] { 2, 2 }, new int[] { 10, 9 }, new int[] { 1000, 1000 }, new int[] { 10, 2 }, new int[] { 2, 9 }, new int[] { 1000, 1000 }, new int[] { 2, 5 }, new int[] { 10, 6 }, new int[] { 1000, 1000 }, new int[] { 7, 9 }, new int[] { 5, 2 }, new int[] { 1000, 1000 }, new int[] { 7, 2 }, new int[] { 5, 9 }, new int[] { 1000, 1000 } } };
+    public MineVectorData() {
+        base();
+    }
 }
 

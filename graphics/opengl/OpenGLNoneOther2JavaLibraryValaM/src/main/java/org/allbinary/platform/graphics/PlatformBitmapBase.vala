@@ -13,35 +13,49 @@
  *   
  */
 // Generated Code Do Not Modify
+// package org.allbinary.platform.graphics
+// import javax.microedition.lcdui.Image
+// import javax.microedition.lcdui.NullImage
+// import org.allbinary.graphics.color.BasicColor
+// import org.allbinary.graphics.color.BasicColorFactory
 
-using System;
-using System.Linq;
-using Image = javax.microedition.lcdui.Image;
-using NullImage = javax.microedition.lcdui.NullImage;
-using BasicColor = org.allbinary.graphics.color.BasicColor;
-using BasicColorFactory = org.allbinary.graphics.color.BasicColorFactory;
+public class PlatformBitmapBase : JObject {
+    public static PlatformBitmapBase? NULL_PLATFORM_BITMAP_BASE;
+    private static bool staticSet_NULL_PLATFORM_BITMAP_BASE = false;
+    public static PlatformBitmapBase staticGet_NULL_PLATFORM_BITMAP_BASE() {
+        if (!PlatformBitmapBase.staticSet_NULL_PLATFORM_BITMAP_BASE) {
+            PlatformBitmapBase.staticSet_NULL_PLATFORM_BITMAP_BASE = true;
+            PlatformBitmapBase.NULL_PLATFORM_BITMAP_BASE = new PlatformBitmapBase();
+        }
+        return PlatformBitmapBase.NULL_PLATFORM_BITMAP_BASE;
+    }
+    public int32 alpha;
+    public BasicColor basicColor;
 
-namespace org.allbinary.platform.graphics;
-
-public class PlatformBitmapBase
-{
-    public static readonly PlatformBitmapBase NULL_PLATFORM_BITMAP_BASE = new PlatformBitmapBase();
-    public int alpha = 255;
-    public BasicColor basicColor = BasicColorFactory.getInstance().NULL_COLOR;
-    public virtual int getWidth()
-    {
-        return 0;
+    // Java field initializers run after the base constructor
+    private void initFieldsPlatformBitmapBase() {
+    this.alpha = 255;
+    this.basicColor = BasicColorFactory.getInstance().NULL_COLOR;
     }
 
-    public virtual int getHeight()
-    {
+    public PlatformBitmapBase() {
+        base();
+        this.initFieldsPlatformBitmapBase();
+    }
+    
+
+    public virtual int32 getWidth() {
         return 0;
     }
+    
 
-    public virtual Image getImage()
-    {
+    public virtual int32 getHeight() {
+        return 0;
+    }
+    
+
+    public virtual Image getImage() {
         return NullImage.NULL_IMAGE;
     }
-
 }
 

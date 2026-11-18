@@ -13,25 +13,31 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.media.image
+// import javax.microedition.lcdui.Image
 
-using System;
-using System.Linq;
-using Image = javax.microedition.lcdui.Image;
-
-namespace org.allbinary.media.image;
-
-public class ImageCompleteUtil
-{
-    private static readonly ImageCompleteUtil instance = new ImageCompleteUtil();
-    public static ImageCompleteUtil getInstance()
-    {
+public class ImageCompleteUtil : JObject {
+    private static ImageCompleteUtil? instance;
+    private static bool staticSet_instance = false;
+    private static ImageCompleteUtil staticGet_instance() {
+        if (!ImageCompleteUtil.staticSet_instance) {
+            ImageCompleteUtil.staticSet_instance = true;
+            ImageCompleteUtil.instance = new ImageCompleteUtil();
+        }
         return ImageCompleteUtil.instance;
     }
 
-    // throws Exception
-    public virtual void waitForImage(Image image, string name)
-    {
+    public ImageCompleteUtil() {
+        base();
     }
+    
 
+    public static ImageCompleteUtil getInstance() {
+        return ImageCompleteUtil.staticGet_instance();
+    }
+    
+
+    public virtual void waitForImage(Image image, string name) {
+    }
 }
 

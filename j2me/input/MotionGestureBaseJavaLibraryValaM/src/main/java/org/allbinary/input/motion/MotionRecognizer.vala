@@ -13,28 +13,24 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.input.motion
 
-using System;
-using System.Linq;
+public class MotionRecognizer : JObject {
 
-namespace org.allbinary.input.motion;
-
-public class MotionRecognizer
-{
-    // throws Exception
-    public virtual void processStartMotionEvent(int x, int y, int deviceId, int modifiers)
-    {
+    public MotionRecognizer() {
+        base();
     }
+    
 
-    // throws Exception
-    public virtual void processEndMotionEvent(int x, int y, int deviceId, int modifiers)
-    {
+    public virtual void processStartMotionEvent(int32 x, int32 y, int32 deviceId, int32 modifiers) {
     }
+    
 
-    // throws Exception
-    public virtual void processDraggedMotionEvent(int x, int y, int deviceId, int modifiers)
-    {
+    public virtual void processEndMotionEvent(int32 x, int32 y, int32 deviceId, int32 modifiers) {
     }
+    
 
+    public virtual void processDraggedMotionEvent(int32 x, int32 y, int32 deviceId, int32 modifiers) {
+    }
 }
 

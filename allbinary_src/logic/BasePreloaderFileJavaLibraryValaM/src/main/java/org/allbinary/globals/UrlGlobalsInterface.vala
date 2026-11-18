@@ -13,35 +13,33 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.globals
+// import org.allbinary.logic.string.StringUtil
 
-using System;
-using System.Linq;
-using StringUtil = org.allbinary.logic.@string.StringUtil;
+public class UrlGlobalsInterface : JObject {
 
-namespace org.allbinary.globals;
+    public UrlGlobalsInterface() {
+        base();
+    }
+    
 
-public class UrlGlobalsInterface
-{
-    // throws Exception
-    public virtual string getMainPath()
-    {
+    public virtual string getMainPath() {
         return StringUtil.getInstance().EMPTY_STRING;
     }
+    
 
-    public virtual string getTestHtmlPath()
-    {
+    public virtual string getTestHtmlPath() {
         return StringUtil.getInstance().EMPTY_STRING;
     }
+    
 
-    public virtual string getWebappPath()
-    {
+    public virtual string getWebappPath() {
         return StringUtil.getInstance().EMPTY_STRING;
     }
+    
 
-    public virtual bool isTestingMode()
-    {
+    public virtual bool isTestingMode() {
         return false;
     }
-
 }
 

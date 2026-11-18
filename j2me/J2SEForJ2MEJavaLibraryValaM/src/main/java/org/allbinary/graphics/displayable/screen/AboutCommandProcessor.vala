@@ -13,27 +13,34 @@
  * 
  */
 // Generated Code Do Not Modify
+// package org.allbinary.graphics.displayable.screen
+// import javax.microedition.lcdui.Canvas
+// import javax.microedition.lcdui.Command
+// import javax.microedition.lcdui.CommandListener
 
-using System;
-using System.Linq;
-using Canvas = javax.microedition.lcdui.Canvas;
-using Command = javax.microedition.lcdui.Command;
-using CommandListener = javax.microedition.lcdui.CommandListener;
-
-namespace org.allbinary.graphics.displayable.screen;
-
-public class AboutCommandProcessor
-{
-    private static readonly AboutCommandProcessor instance = new AboutCommandProcessor();
-    public static AboutCommandProcessor getInstance()
-    {
+public class AboutCommandProcessor : JObject {
+    private static AboutCommandProcessor? instance;
+    private static bool staticSet_instance = false;
+    private static AboutCommandProcessor staticGet_instance() {
+        if (!AboutCommandProcessor.staticSet_instance) {
+            AboutCommandProcessor.staticSet_instance = true;
+            AboutCommandProcessor.instance = new AboutCommandProcessor();
+        }
         return AboutCommandProcessor.instance;
     }
 
-    public virtual void process(CommandListener midletCommandListener, Command command, Canvas canvas)
-    {
+    public AboutCommandProcessor() {
+        base();
+    }
+    
+
+    public static AboutCommandProcessor getInstance() {
+        return AboutCommandProcessor.staticGet_instance();
+    }
+    
+
+    public virtual void process(CommandListener midletCommandListener, Command command, Canvas canvas) {
         midletCommandListener.commandAction(command, canvas);
     }
-
 }
 

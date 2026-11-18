@@ -13,47 +13,49 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.layer.event
+// import org.allbinary.logic.util.event.AllBinaryEventObject
 
-using System;
-using System.Linq;
-using AllBinaryEventObject = org.allbinary.logic.util.@event.AllBinaryEventObject;
+public class ScrollMapEvent : AllBinaryEventObject {
+    private int32 dx;
+    private int32 dy;
 
-namespace org.allbinary.layer.@event;
-
-public class ScrollMapEvent : AllBinaryEventObject
-{
-    private int dx = 0;
-    private int dy = 0;
-    public ScrollMapEvent(object anyType) : base(anyType)
-    {
-        // base(anyType) is called from the constructor declaration
+    // Java field initializers run after the base constructor
+    private void initFieldsScrollMapEvent() {
+    this.dx = 0;
+    this.dy = 0;
     }
+    
 
-    public virtual void setDx(int dx)
-    {
+    public ScrollMapEvent(JObject anyType) {
+        base(anyType);
+        this.initFieldsScrollMapEvent();
+    }
+    
+
+    public virtual void setDx(int32 dx) {
         this.dx = dx;
     }
+    
 
-    public virtual int getDx()
-    {
+    public virtual int32 getDx() {
         return this.dx;
     }
+    
 
-    public virtual void setDy(int dy)
-    {
+    public virtual void setDy(int32 dy) {
         this.dy = dy;
     }
+    
 
-    public virtual int getDy()
-    {
+    public virtual int32 getDy() {
         return this.dy;
     }
+    
 
-    public virtual void setDxDy(int dx, int dy)
-    {
+    public virtual void setDxDy(int32 dx, int32 dy) {
         this.dx = dx;
         this.dy = dy;
     }
-
 }
 

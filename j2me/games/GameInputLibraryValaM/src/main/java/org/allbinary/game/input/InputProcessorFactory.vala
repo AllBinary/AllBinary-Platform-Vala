@@ -13,25 +13,38 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.game.input
 
-using System;
-using System.Linq;
-
-namespace org.allbinary.game.input;
-
-public class InputProcessorFactory
-{
-    private static readonly InputProcessorFactory instance = new InputProcessorFactory();
-    public static InputProcessorFactory getInstance()
-    {
+public class InputProcessorFactory : JObject {
+    private static InputProcessorFactory? instance;
+    private static bool staticSet_instance = false;
+    private static InputProcessorFactory staticGet_instance() {
+        if (!InputProcessorFactory.staticSet_instance) {
+            InputProcessorFactory.staticSet_instance = true;
+            InputProcessorFactory.instance = new InputProcessorFactory();
+        }
         return InputProcessorFactory.instance;
     }
+    private InputProcessor inputProcessor;
 
-    private readonly InputProcessor inputProcessor = new InputProcessor();
-    public virtual InputProcessor getInputProcessor()
-    {
-        return this.inputProcessor;
+    // Java field initializers run after the base constructor
+    private void initFieldsInputProcessorFactory() {
+    this.inputProcessor = new InputProcessor();
     }
 
+    public InputProcessorFactory() {
+        base();
+        this.initFieldsInputProcessorFactory();
+    }
+    
+
+    public static InputProcessorFactory getInstance() {
+        return InputProcessorFactory.staticGet_instance();
+    }
+    
+
+    public virtual InputProcessor getInputProcessor() {
+        return this.inputProcessor;
+    }
 }
 

@@ -13,33 +13,36 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.bounds.event
+// import org.allbinary.logic.util.event.AllBinaryEventObject
+// import org.allbinary.logic.util.event.EventListenerInterface
+// import org.allbinary.logic.util.event.handler.BasicEventHandler
 
-using System;
-using System.Linq;
-using AllBinaryEventObject = org.allbinary.logic.util.@event.AllBinaryEventObject;
-using EventListenerInterface = org.allbinary.logic.util.@event.EventListenerInterface;
-using BasicEventHandler = org.allbinary.logic.util.@event.handler.BasicEventHandler;
-
-namespace org.allbinary.bounds.@event;
-
-public class BoundsChangeEventHandler : BasicEventHandler
-{
-    private static BasicEventHandler SINGLETON = new BoundsChangeEventHandler();
-    private BoundsChangeEventHandler()
-    {
-    }
-
-    public static BasicEventHandler getInstance()
-    {
+public class BoundsChangeEventHandler : BasicEventHandler {
+    private static BasicEventHandler? SINGLETON;
+    private static bool staticSet_SINGLETON = false;
+    private static BasicEventHandler staticGet_SINGLETON() {
+        if (!BoundsChangeEventHandler.staticSet_SINGLETON) {
+            BoundsChangeEventHandler.staticSet_SINGLETON = true;
+            BoundsChangeEventHandler.SINGLETON = new BoundsChangeEventHandler();
+        }
         return BoundsChangeEventHandler.SINGLETON;
     }
+    
 
-    // throws Exception
-    public override void process(AllBinaryEventObject eventObject, EventListenerInterface eventListenerInterface)
-    {
+    public BoundsChangeEventHandler() {
+        base();
+    }
+    
+
+    public static BasicEventHandler getInstance() {
+        return BoundsChangeEventHandler.staticGet_SINGLETON();
+    }
+    
+
+    public override void process(AllBinaryEventObject eventObject, EventListenerInterface eventListenerInterface) {
         BoundsChangeEventListener boundsChangeEventListener = ((BoundsChangeEventListener) eventListenerInterface);
         boundsChangeEventListener.onBoundsChangeEvent(((BoundsChangeEvent) eventObject));
     }
-
 }
 

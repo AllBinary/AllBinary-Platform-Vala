@@ -13,34 +13,37 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.game.combat.destroy
+// import org.allbinary.game.layer.CollidableCompositeLayer
 
-using System;
-using System.Linq;
-using CollidableCompositeLayer = org.allbinary.game.layer.CollidableCompositeLayer;
+public class DestroyableSimpleBehavior : DestroyableBaseBehavior {
+    public CollidableCompositeLayer ownerLayer;
+    private bool destroyed;
 
-namespace org.allbinary.game.combat.destroy;
+    // Java field initializers run after the base constructor
+    private void initFieldsDestroyableSimpleBehavior() {
+    
+    this.destroyed = false;
+    }
+    
 
-public class DestroyableSimpleBehavior : DestroyableBaseBehavior
-{
-    public readonly CollidableCompositeLayer ownerLayer;
-    private bool destroyed = false;
-    public DestroyableSimpleBehavior(CollidableCompositeLayer ownerLayer)
-    {
+    public DestroyableSimpleBehavior(CollidableCompositeLayer ownerLayer) {
+        base();
+        this.initFieldsDestroyableSimpleBehavior();
         this.ownerLayer = ownerLayer;
     }
+    
 
-    public override bool isDestroyed()
-    {
+    public override bool isDestroyed() {
         return this.destroyed;
     }
+    
 
-    public override void setDestroyed(bool destroyed)
-    {
+    public override void setDestroyed(bool destroyed) {
         this.destroyed = destroyed;
         if (this.isDestroyed()) {
             DestroyedLayerProcessor.getInstance().add(this.ownerLayer);
         }
     }
-
 }
 

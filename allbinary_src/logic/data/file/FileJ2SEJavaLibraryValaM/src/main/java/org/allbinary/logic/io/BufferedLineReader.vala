@@ -13,49 +13,49 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.logic.io
+// import java.io.BufferedReader
+// import java.io.FileReader
+// import org.allbinary.logic.io.file.AbFile
+// import org.allbinary.logic.io.file.AbFileNativeUtil
 
-using System;
-using System.Linq;
-using BufferedReader = java.io.BufferedReader;
-using FileReader = java.io.FileReader;
-using AbFile = org.allbinary.logic.io.file.AbFile;
-using AbFileNativeUtil = org.allbinary.logic.io.file.AbFileNativeUtil;
+public class BufferedLineReader : JObject {
+    private BufferedReader tmpIn;
 
-namespace org.allbinary.logic.io;
-
-public class BufferedLineReader
-{
-    private readonly BufferedReader tmpIn;
-    public BufferedLineReader(AbFile file)
-    {
-        this.tmpIn = new BufferedReader(new FileReader(AbFileNativeUtil.get(file)));
+    // Java field initializers run after the base constructor
+    private void initFieldsBufferedLineReader() {
+    
     }
+    
 
-    public virtual void readUpToLines(long readAheadIndex)
-    {
+    public BufferedLineReader(AbFile file) {
+        base();
+        this.initFieldsBufferedLineReader();
+        this.tmpIn = new BufferedReader(new FileReader(AbFileNativeUtil.@get(file)));
     }
+    
 
-    // throws Exception
-    public virtual string readLine()
-    {
+    public virtual void readUpToLines(int64 readAheadIndex) {
+    }
+    
+
+    public virtual string readLine() {
         return this.tmpIn.readLine();
     }
+    
 
-    // throws Exception
-    public virtual bool ready()
-    {
+    public virtual bool ready() {
         return this.tmpIn.ready();
     }
+    
 
-    public virtual long getSize()
-    {
-        return 0L;
-    }
-
-    public virtual int getCurrent()
-    {
+    public virtual int64 getSize() {
         return 0;
     }
+    
 
+    public virtual int32 getCurrent() {
+        return 0;
+    }
 }
 

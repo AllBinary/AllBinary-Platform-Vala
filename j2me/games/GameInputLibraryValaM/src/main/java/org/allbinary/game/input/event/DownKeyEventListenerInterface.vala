@@ -13,20 +13,15 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.game.input.event
+// import org.allbinary.logic.util.event.EventListenerInterface
 
-using System;
-using System.Linq;
-using EventListenerInterface = org.allbinary.logic.util.@event.EventListenerInterface;
+public interface DownKeyEventListenerInterface : JObject, EventListenerInterface {
+    
 
-namespace org.allbinary.game.input.@event;
+    public abstract void onDownKeyEvent(GameKeyEvent keyInteger);
+    
 
-public interface DownKeyEventListenerInterface : EventListenerInterface
-{
-    // throws Exception
-    void onDownKeyEvent(GameKeyEvent keyInteger);
-
-    // throws Exception
-    void onDownKey(int? keyInteger);
-
+    public abstract void onDownKey(int32? keyInteger);
 }
 

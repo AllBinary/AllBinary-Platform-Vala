@@ -13,16 +13,12 @@
  *   
  */
 // Generated Code Do Not Modify
+// package org.allbinary.logic.util.cache
+// import java.util.Set
 
-using System;
-using System.Linq;
-using java.util;
+public interface J2SECacheInterface : JObject, AutomaticCacheInterface {
+    
 
-namespace org.allbinary.logic.util.cache;
-
-public interface J2SECacheInterface : AutomaticCacheInterface
-{
-    Set<object> keySet();
-
+    public abstract Set keySet();
 }
 

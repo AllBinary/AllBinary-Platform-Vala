@@ -13,18 +13,17 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.android.input.motion
+// import org.allbinary.layer.AllBinaryLayerManager
 
-using System;
-using System.Linq;
-using AllBinaryLayerManager = org.allbinary.layer.AllBinaryLayerManager;
+public class AnalogControllerVisitor : JObject {
 
-namespace org.allbinary.android.input.motion;
-
-public class AnalogControllerVisitor
-{
-    public virtual void process(AllBinaryLayerManager allbinaryLayerManager, AnalogLocationInputProcessor analogLocationInputProcessor)
-    {
+    public AnalogControllerVisitor() {
+        base();
     }
+    
 
+    public virtual void process(AllBinaryLayerManager allbinaryLayerManager, AnalogLocationInputProcessor analogLocationInputProcessor) {
+    }
 }
 

@@ -13,28 +13,27 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.image
 
-using System;
-using System.Linq;
+public class GameFeatureImageCacheFactory : JObject {
 
-namespace org.allbinary.image;
+    public GameFeatureImageCacheFactory() {
+        base();
+    }
+    
 
-public class GameFeatureImageCacheFactory
-{
-    public static ImageCache getInstance()
-    {
+    public static ImageCache getInstance() {
         return ImageCacheFactory.getInstance();
     }
+    
 
-    public static void init()
-    {
+    public static void init() {
         ImageCacheFactory.init();
     }
+    
 
-    public static void releaseAll()
-    {
+    public static void releaseAll() {
         ImageCacheFactory.getInstance().releaseAll();
     }
-
 }
 

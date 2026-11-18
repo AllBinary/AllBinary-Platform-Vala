@@ -13,106 +13,116 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.game.ag.life
 
-using System;
-using System.Linq;
-
-namespace org.allbinary.game.ag.life;
-
-public class Life : LifeInterface
-{
-    public static Life createLife()
-    {
-        try {
-            return new Life(((short) 0), ((short) 0));
-        } catch (Exception e) {
-            throw new SystemException();
+public class Life : JObject, LifeInterface {
+    public static Life? NO_LIFE;
+    private static bool staticSet_NO_LIFE = false;
+    public static Life staticGet_NO_LIFE() {
+        if (!Life.staticSet_NO_LIFE) {
+            Life.staticSet_NO_LIFE = true;
+            Life.NO_LIFE = Life.createLife();
         }
+        return Life.NO_LIFE;
     }
+    private int16 lives;
+    private int16 startLives;
+    private int16 maxlives;
 
-    public static readonly Life NO_LIFE = Life.createLife();
-    private short lives;
-    private short startLives;
-    private short maxlives;
-    public Life(short lives, short maxlives)
-    {
+    // Java field initializers run after the base constructor
+    private void initFieldsLife() {
+    
+    
+    
+    }
+    
+
+    public static Life createLife() {
+        {
+            return new Life(((int16) (0)), ((int16) (0)));
+        } /* catch (Exception e): a thrown Java exception stops the program */
+    }
+    
+
+    public Life(int16 lives, int16 maxlives) {
+        base();
+        this.initFieldsLife();
         this.maxlives = maxlives;
         if (lives > this.maxlives) {
-            throw new Exception("To Many Lives");
+            JSystem.fatal(new JException("Exception", "To Many Lives"));
         }
         this.lives = lives;
         this.startLives = lives;
     }
+    
 
-    public virtual short get()
-    {
+    public virtual int16 @get() {
         return this.lives;
     }
+    
 
-    public virtual void set(short lives)
-    {
+    public virtual void @set(int16 lives) {
         this.lives = lives;
     }
+    
 
-    public virtual void reset()
-    {
+    public virtual void reset() {
         this.lives = this.startLives;
     }
+    
 
-    public virtual void add(short lives)
-    {
+    public virtual void add(int16 lives) {
         if (!this.reachedLimit()) {
-            if (this.lives + lives <= ((int) this.getMaxlives())) {
-                this.lives = ((short) (this.lives + lives));
+            if (this.lives + lives <= ((int32) (this.getMaxlives()))) {
+                this.lives = ((int16) ((this.lives + lives)));
             } else {
                 this.lives = this.getMaxlives();
             }
         }
     }
+    
 
-    public virtual bool isAlive()
-    {
-        if (((int) this.lives) <= 0) {
+    public virtual bool isAlive() {
+        if (((int32) (this.lives)) <= 0) {
             return false;
         } else {
             return true;
         }
     }
+    
 
-    public virtual short getMaxlives()
-    {
+    public virtual int16 getMaxlives() {
         return this.maxlives;
     }
+    
 
-    private bool reachedLimit()
-    {
-        if (this.lives > this.maxlives || ((int) this.lives) < 0) {
+    private bool reachedLimit() {
+        if (this.lives > this.maxlives || ((int32) (this.lives)) < 0) {
             return true;
         } else {
             return false;
         }
     }
+    
 
-    public virtual void deaths(short lives)
-    {
+    public virtual void deaths(int16 lives) {
         if (!this.reachedLimit()) {
             if (this.lives - lives >= 0) {
-                this.lives = ((short) (this.lives - lives));
+                this.lives = ((int16) ((this.lives - lives)));
             } else {
                 this.lives = 0;
             }
         }
     }
+    
 
-    public virtual short getStartLives()
-    {
+    public virtual int16 getStartLives() {
         return this.startLives;
     }
+    
 
-    public virtual void setStartLives(short startLives)
-    {
+    public virtual void setStartLives(int16 startLives) {
         this.startLives = startLives;
     }
-
 }
 

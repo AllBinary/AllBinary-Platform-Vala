@@ -13,20 +13,17 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.game.configuration.feature
 
-using System;
-using System.Linq;
+public interface GameFeatureControlledInterface : JObject {
+    
 
-namespace org.allbinary.game.configuration.feature;
+    public abstract void init(int32 level);
+    
 
-public interface GameFeatureControlledInterface
-{
-    // throws Exception
-    void init(int level);
+    public abstract bool isFeature();
+    
 
-    bool isFeature();
-
-    bool isLoadingLevel(int level);
-
+    public abstract bool isLoadingLevel(int32 level);
 }
 

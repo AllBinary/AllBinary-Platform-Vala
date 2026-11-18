@@ -13,32 +13,28 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary
 
-using System;
-using System.Linq;
+public class J2MEUtil : JObject {
+    
 
-namespace org.allbinary;
-
-public class J2MEUtil
-{
-    private J2MEUtil()
-    {
+    public J2MEUtil() {
+        base();
     }
+    
 
-    public static bool isJ2ME()
-    {
+    public static bool isJ2ME() {
         return true;
     }
+    
 
-    public static bool isJ2SE()
-    {
+    public static bool isJ2SE() {
         return false;
     }
+    
 
-    public static bool isHTML()
-    {
+    public static bool isHTML() {
         return false;
     }
-
 }
 

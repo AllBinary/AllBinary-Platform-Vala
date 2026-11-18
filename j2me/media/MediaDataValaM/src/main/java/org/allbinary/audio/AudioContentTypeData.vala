@@ -13,24 +13,26 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.audio
 
-using System;
-using System.Linq;
+public class AudioContentTypeData : JObject {
+    private string name;
 
-namespace org.allbinary.audio;
+    // Java field initializers run after the base constructor
+    private void initFieldsAudioContentTypeData() {
+    
+    }
+    
 
-public class AudioContentTypeData
-{
-    private readonly string name;
-    public AudioContentTypeData(string name)
-    {
+    public AudioContentTypeData(string name) {
+        base();
+        this.initFieldsAudioContentTypeData();
         this.name = name;
     }
+    
 
-    public virtual string getName()
-    {
+    public virtual string getName() {
         return this.name;
     }
-
 }
 

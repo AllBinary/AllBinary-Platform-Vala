@@ -13,26 +13,33 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.graphics.font
+// import javax.microedition.lcdui.Font
+// import javax.microedition.lcdui.Graphics
 
-using System;
-using System.Linq;
-using Font = javax.microedition.lcdui.Font;
-using Graphics = javax.microedition.lcdui.Graphics;
-
-namespace org.allbinary.graphics.font;
-
-public class FontDebugFactory
-{
-    private static readonly FontDebugFactory instance = new FontDebugFactory();
-    public static FontDebugFactory getInstance()
-    {
+public class FontDebugFactory : JObject {
+    private static FontDebugFactory? instance;
+    private static bool staticSet_instance = false;
+    private static FontDebugFactory staticGet_instance() {
+        if (!FontDebugFactory.staticSet_instance) {
+            FontDebugFactory.staticSet_instance = true;
+            FontDebugFactory.instance = new FontDebugFactory();
+        }
         return FontDebugFactory.instance;
     }
 
-    public virtual void setFont(Font font, Graphics graphics)
-    {
+    public FontDebugFactory() {
+        base();
+    }
+    
+
+    public static FontDebugFactory getInstance() {
+        return FontDebugFactory.staticGet_instance();
+    }
+    
+
+    public virtual void setFont(Font font, Graphics graphics) {
         graphics.setFont(font);
     }
-
 }
 

@@ -13,24 +13,31 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.game.combat.damage
+// import org.allbinary.graphics.paint.Paintable
 
-using System;
-using System.Linq;
-using Paintable = org.allbinary.graphics.paint.Paintable;
-
-namespace org.allbinary.game.combat.damage;
-
-public class DamageFloaters : Paintable
-{
-    private static readonly DamageFloaters SINGLETON = new DamageFloaters();
-    public static DamageFloaters getInstance()
-    {
+public class DamageFloaters : Paintable {
+    private static DamageFloaters? SINGLETON;
+    private static bool staticSet_SINGLETON = false;
+    private static DamageFloaters staticGet_SINGLETON() {
+        if (!DamageFloaters.staticSet_SINGLETON) {
+            DamageFloaters.staticSet_SINGLETON = true;
+            DamageFloaters.SINGLETON = new DamageFloaters();
+        }
         return DamageFloaters.SINGLETON;
     }
 
-    public virtual void add(int damage)
-    {
+    public DamageFloaters() {
+        base();
     }
+    
 
+    public static DamageFloaters getInstance() {
+        return DamageFloaters.staticGet_SINGLETON();
+    }
+    
+
+    public virtual void add(int32 damage) {
+    }
 }
 

@@ -13,72 +13,75 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.game.ag.layer.hud.basic.life
+// import javax.microedition.lcdui.Graphics
+// import org.allbinary.animation.Animation
+// import org.allbinary.game.ag.life.Life
+// import org.allbinary.game.graphics.hud.BasicHud
+// import org.allbinary.graphics.color.BasicColorFactory
+// import org.allbinary.graphics.displayable.event.DisplayChangeEvent
+// import org.allbinary.graphics.paint.PaintableInterface
 
-using System;
-using System.Linq;
-using Graphics = javax.microedition.lcdui.Graphics;
-using Animation = org.allbinary.animation.Animation;
-using Life = org.allbinary.game.ag.life.Life;
-using BasicHud = org.allbinary.game.graphics.hud.BasicHud;
-using BasicColorFactory = org.allbinary.graphics.color.BasicColorFactory;
-using DisplayChangeEvent = org.allbinary.graphics.displayable.@event.DisplayChangeEvent;
-using PaintableInterface = org.allbinary.graphics.paint.PaintableInterface;
+public class LivesHudWidget : BasicHud, PaintableInterface {
+    private Life lifeInterface;
+    private int32[] xArray;
+    private Animation animationInterface;
 
-namespace org.allbinary.game.ag.layer.hud.basic.life;
+    // Java field initializers run after the base constructor
+    private void initFieldsLivesHudWidget() {
+    
+    
+    
+    }
+    
 
-public class LivesHudWidget : BasicHud, PaintableInterface
-{
-    private readonly Life lifeInterface;
-    private readonly int[] xArray;
-    private readonly Animation animationInterface;
-    public LivesHudWidget(Animation animationInterface, Life lifeInterface, int location, int direction) : base(location, direction, 2, BasicColorFactory.getInstance().WHITE)
-    {
-        // base(location, direction, 2, BasicColorFactory.getInstance().WHITE) is called from the constructor declaration
+    public LivesHudWidget(Animation animationInterface, Life lifeInterface, int32 location, int32 direction) {
+        base(location, direction, 2, BasicColorFactory.getInstance().WHITE);
+        this.initFieldsLivesHudWidget();
         this.lifeInterface = lifeInterface;
-        int size = ((int) this.getLifeInterface().getMaxlives());
-        this.xArray = new int[size];
+        int32 size = ((int32) (this.getLifeInterface().getMaxlives()));
+        this.xArray = new int32[size];
         this.animationInterface = animationInterface;
-        this.updateMaxWidth = this.lifeInterface.getMaxlives() * 16;
+        this.updateMaxWidth = ((int32) (this.lifeInterface.getMaxlives())) * 16;
         this.updateMaxHeight = 16;
     }
+    
 
-    public override void updateMeasurement(Graphics graphics)
-    {
+    public override void updateMeasurement(Graphics graphics) {
         base.updateMeasurement(graphics);
-        int maxLives = ((int) this.getLifeInterface().getMaxlives());
-        for (int index = 0; index < maxLives; index++) {
+        int32 maxLives = ((int32) (this.getLifeInterface().getMaxlives()));
+        for (int32 index = 0; index < maxLives; index++) {
             this.xArray[index] = this.getX() + (index * 16);
         }
     }
+    
 
-    public override void onDisplayChangeEvent(DisplayChangeEvent displayChangeEvent)
-    {
+    public override void onDisplayChangeEvent(DisplayChangeEvent displayChangeEvent) {
         base.onDisplayChangeEvent(displayChangeEvent);
         this.myFontProcessor = this.updateMyFontProcessor;
     }
+    
 
-    public override void setX(int x)
-    {
+    public override void setX(int32 x) {
         base.setX(x);
         this.myFontProcessor = this.updateMyFontProcessor;
     }
+    
 
-    public virtual void paint(Graphics graphics)
-    {
+    public virtual void paint(Graphics graphics) {
         this.myFontProcessor.process(graphics);
-        for (int index = ((int) this.getLifeInterface().get()); --index >= 0; ) {
+        for (int32 index = ((int32) (this.getLifeInterface().@get())); --index >= 0; ) {
             this.animationInterface.paintXY(graphics, this.xArray[index], this.getY());
         }
     }
+    
 
-    public virtual void paintThreed(Graphics graphics)
-    {
+    public virtual void paintThreed(Graphics graphics) {
     }
+    
 
-    public virtual Life getLifeInterface()
-    {
+    public virtual Life getLifeInterface() {
         return this.lifeInterface;
     }
-
 }
 

@@ -13,15 +13,11 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.game
 
-using System;
-using System.Linq;
+public interface IntermissionEnableListenerInterface : JObject {
+    
 
-namespace org.allbinary.game;
-
-public interface IntermissionEnableListenerInterface
-{
-    void notifyIntermission(bool enable);
-
+    public abstract void notifyIntermission(bool enable);
 }
 

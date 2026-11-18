@@ -13,17 +13,14 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.game.layer
 
-using System;
-using System.Linq;
+public interface GameLayerPlacementInterfaceBasicArrayListFactoryInterfaceFactory : JObject {
+    
 
-namespace org.allbinary.game.layer;
+    public abstract LayerPlacementInterfaceBasicArrayListFactoryInterface getInstance1(int32 level);
+    
 
-public interface GameLayerPlacementInterfaceBasicArrayListFactoryInterfaceFactory
-{
-    LayerPlacementInterfaceBasicArrayListFactoryInterface getInstance(int level);
-
-    int size();
-
+    public abstract int32 size();
 }
 

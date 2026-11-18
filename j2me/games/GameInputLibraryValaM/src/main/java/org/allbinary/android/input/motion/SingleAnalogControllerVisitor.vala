@@ -13,28 +13,30 @@
  *   
  */
 // Generated Code Do Not Modify
+// package org.allbinary.android.input.motion
+// import org.allbinary.game.input.analog.AnalogLocationInput
+// import org.allbinary.game.input.analog.AnalogLocationInputFactory
+// import org.allbinary.layer.AllBinaryLayerManager
 
-using System;
-using System.Linq;
-using AnalogLocationInput = org.allbinary.game.input.analog.AnalogLocationInput;
-using AnalogLocationInputFactory = org.allbinary.game.input.analog.AnalogLocationInputFactory;
-using AllBinaryLayerManager = org.allbinary.layer.AllBinaryLayerManager;
+public class SingleAnalogControllerVisitor : AnalogControllerVisitor {
+    private int32 playerInputId;
 
-namespace org.allbinary.android.input.motion;
+    // Java field initializers run after the base constructor
+    private void initFieldsSingleAnalogControllerVisitor() {
+    
+    }
+    
 
-public class SingleAnalogControllerVisitor : AnalogControllerVisitor
-{
-    private readonly int playerInputId;
-    public SingleAnalogControllerVisitor(int playerInputId)
-    {
+    public SingleAnalogControllerVisitor(int32 playerInputId) {
+        base();
+        this.initFieldsSingleAnalogControllerVisitor();
         this.playerInputId = playerInputId;
     }
+    
 
-    public override void process(AllBinaryLayerManager allbinaryLayerManager, AnalogLocationInputProcessor analogLocationInputProcessor)
-    {
+    public override void process(AllBinaryLayerManager allbinaryLayerManager, AnalogLocationInputProcessor analogLocationInputProcessor) {
         AnalogLocationInput analogLocationInput = AnalogLocationInputFactory.getInstance().getInstanceForPlayer(this.playerInputId);
         analogLocationInputProcessor.process(allbinaryLayerManager, analogLocationInput);
     }
-
 }
 

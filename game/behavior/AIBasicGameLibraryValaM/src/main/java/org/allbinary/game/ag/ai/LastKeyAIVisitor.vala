@@ -13,39 +13,39 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.game.ag.ai
+// import org.allbinary.game.ai.BasicAI
+// import org.allbinary.logic.communication.log.LogUtil
+// import org.allbinary.logic.java.bool.BooleanFactory
+// import org.allbinary.logic.util.visitor.Visitor
+// import org.allbinary.string.CommonStrings
 
-using System;
-using System.Linq;
-using BasicAI = org.allbinary.game.ai.BasicAI;
-using LogUtil = org.allbinary.logic.communication.log.LogUtil;
-using BooleanFactory = org.allbinary.logic.java.@bool.BooleanFactory;
-using Visitor = org.allbinary.logic.util.visitor.Visitor;
-using CommonStrings = org.allbinary.@string.CommonStrings;
+public class LastKeyAIVisitor : Visitor {
+    public LogUtil logUtil;
+    private bool TRUE_;
 
-namespace org.allbinary.game.ag.ai;
-
-public class LastKeyAIVisitor : Visitor
-{
-    public readonly LogUtil logUtil = LogUtil.getInstance();
-    private readonly bool? TRUE = BooleanFactory.getInstance().TRUE;
-    public LastKeyAIVisitor()
-    {
+    // Java field initializers run after the base constructor
+    private void initFieldsLastKeyAIVisitor() {
+    this.logUtil = LogUtil.getInstance();
+    this.TRUE_ = BooleanFactory.getInstance().TRUE_;
     }
+    
 
-    public override object visit(object anyType)
-    {
-        try {
+    public LastKeyAIVisitor() {
+        base();
+        this.initFieldsLastKeyAIVisitor();
+    }
+    
+
+    public override JObject visit(JObject anyType) {
+        {
             BasicAI basicAI = ((BasicAI) anyType);
-            int key = basicAI.getLastKey();
+            int32 key = basicAI.getLastKey();
             if (key != -1) {
                 basicAI.processKeyAI(key);
             }
-        } catch (Exception e) {
-            CommonStrings commonStrings = CommonStrings.getInstance();
-            this.logUtil.put(commonStrings.EXCEPTION, this, commonStrings.VISIT, e);
-        }
-        return this.TRUE;
+        } /* catch (Exception e): a thrown Java exception stops the program */
+        return this.TRUE_;
     }
-
 }
 

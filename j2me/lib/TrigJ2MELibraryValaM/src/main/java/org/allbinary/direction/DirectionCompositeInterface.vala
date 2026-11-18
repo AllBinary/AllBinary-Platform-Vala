@@ -13,15 +13,11 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.direction
 
-using System;
-using System.Linq;
+public interface DirectionCompositeInterface : JObject {
+    
 
-namespace org.allbinary.direction;
-
-public interface DirectionCompositeInterface
-{
-    Direction getDirection();
-
+    public abstract Direction getDirection();
 }
 

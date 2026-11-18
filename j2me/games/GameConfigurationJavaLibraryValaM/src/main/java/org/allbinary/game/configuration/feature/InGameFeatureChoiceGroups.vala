@@ -13,43 +13,61 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.game.configuration.feature
+// import org.allbinary.logic.StdUtil
+// import org.allbinary.util.ABHashtable
+// import org.allbinary.util.BasicArrayList
 
-using System;
-using System.Linq;
-using StdUtil = org.allbinary.logic.StdUtil;
-using org.allbinary.util;
-using BasicArrayList = org.allbinary.util.BasicArrayList;
-
-namespace org.allbinary.game.configuration.feature;
-
-public class InGameFeatureChoiceGroups
-{
-    private static InGameFeatureChoiceGroups gameFeatureChoiceGroupsExclusive = new InGameFeatureChoiceGroups();
-    private static InGameFeatureChoiceGroups gameFeatureChoiceGroupsMultiple = new InGameFeatureChoiceGroups();
-    private ABHashtable<object, object> hashtable = StdUtil.getInstance().createHashtable();
-    private InGameFeatureChoiceGroups()
-    {
-    }
-
-    public static InGameFeatureChoiceGroups getExclusiveInstance()
-    {
+public class InGameFeatureChoiceGroups : JObject {
+    private static InGameFeatureChoiceGroups? gameFeatureChoiceGroupsExclusive;
+    private static bool staticSet_gameFeatureChoiceGroupsExclusive = false;
+    private static InGameFeatureChoiceGroups staticGet_gameFeatureChoiceGroupsExclusive() {
+        if (!InGameFeatureChoiceGroups.staticSet_gameFeatureChoiceGroupsExclusive) {
+            InGameFeatureChoiceGroups.staticSet_gameFeatureChoiceGroupsExclusive = true;
+            InGameFeatureChoiceGroups.gameFeatureChoiceGroupsExclusive = new InGameFeatureChoiceGroups();
+        }
         return InGameFeatureChoiceGroups.gameFeatureChoiceGroupsExclusive;
     }
-
-    public static InGameFeatureChoiceGroups getMultipleInstance()
-    {
+    private static InGameFeatureChoiceGroups? gameFeatureChoiceGroupsMultiple;
+    private static bool staticSet_gameFeatureChoiceGroupsMultiple = false;
+    private static InGameFeatureChoiceGroups staticGet_gameFeatureChoiceGroupsMultiple() {
+        if (!InGameFeatureChoiceGroups.staticSet_gameFeatureChoiceGroupsMultiple) {
+            InGameFeatureChoiceGroups.staticSet_gameFeatureChoiceGroupsMultiple = true;
+            InGameFeatureChoiceGroups.gameFeatureChoiceGroupsMultiple = new InGameFeatureChoiceGroups();
+        }
         return InGameFeatureChoiceGroups.gameFeatureChoiceGroupsMultiple;
     }
+    private ABHashtable hashtable;
 
-    public virtual ABHashtable<object, object> get()
-    {
+    // Java field initializers run after the base constructor
+    private void initFieldsInGameFeatureChoiceGroups() {
+    this.hashtable = StdUtil.getInstance().createHashtable();
+    }
+    
+
+    public InGameFeatureChoiceGroups() {
+        base();
+        this.initFieldsInGameFeatureChoiceGroups();
+    }
+    
+
+    public static InGameFeatureChoiceGroups getExclusiveInstance() {
+        return InGameFeatureChoiceGroups.staticGet_gameFeatureChoiceGroupsExclusive();
+    }
+    
+
+    public static InGameFeatureChoiceGroups getMultipleInstance() {
+        return InGameFeatureChoiceGroups.staticGet_gameFeatureChoiceGroupsMultiple();
+    }
+    
+
+    public virtual ABHashtable @get() {
         return this.hashtable;
     }
+    
 
-    public virtual void add(string name, BasicArrayList list)
-    {
-        this.hashtable.put(name, list);
+    public virtual void add(string name, BasicArrayList list) {
+        this.hashtable.put(JString.box(name), list);
     }
-
 }
 

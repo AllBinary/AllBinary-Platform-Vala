@@ -13,16 +13,11 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.view
 
-using System;
-using System.Linq;
+public interface ViewPositionFactoryInterface : JObject {
+    
 
-namespace org.allbinary.view;
-
-public interface ViewPositionFactoryInterface
-{
-    // throws Exception
-    ViewPositionBase getInstance();
-
+    public abstract ViewPositionBase getInstance();
 }
 

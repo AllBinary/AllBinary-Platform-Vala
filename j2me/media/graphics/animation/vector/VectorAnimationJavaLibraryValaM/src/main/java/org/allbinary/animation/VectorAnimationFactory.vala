@@ -13,19 +13,18 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.animation
+// import org.allbinary.graphics.color.BasicColor
 
-using System;
-using System.Linq;
-using BasicColor = org.allbinary.graphics.color.BasicColor;
+public class VectorAnimationFactory : JObject, VectorAnimationFactoryInterface {
 
-namespace org.allbinary.animation;
+    public VectorAnimationFactory() {
+        base();
+    }
+    
 
-public class VectorAnimationFactory : VectorAnimationFactoryInterface
-{
-    public virtual VectorAnimation getInstance(int[][][] points, BasicColor basicColor)
-    {
+    public virtual VectorAnimation getInstance2(int32[,,] points, BasicColor basicColor) {
         return new VectorAnimation(points, basicColor, AnimationBehavior.getInstance());
     }
-
 }
 

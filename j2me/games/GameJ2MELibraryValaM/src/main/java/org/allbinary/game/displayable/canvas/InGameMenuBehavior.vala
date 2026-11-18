@@ -13,54 +13,57 @@
  *   
  */
 // Generated Code Do Not Modify
+// package org.allbinary.game.displayable.canvas
+// import org.allbinary.graphics.displayable.event.DisplayChangeEvent
 
-using System;
-using System.Linq;
-using DisplayChangeEvent = org.allbinary.graphics.displayable.@event.DisplayChangeEvent;
-
-namespace org.allbinary.game.displayable.canvas;
-
-public class InGameMenuBehavior : BaseMenuBehavior
-{
-    private static readonly InGameMenuBehavior instanceC = new InGameMenuBehavior();
-    public static InGameMenuBehavior getInstance()
-    {
+public class InGameMenuBehavior : BaseMenuBehavior {
+    private static InGameMenuBehavior? instanceC;
+    private static bool staticSet_instanceC = false;
+    private static InGameMenuBehavior staticGet_instanceC() {
+        if (!InGameMenuBehavior.staticSet_instanceC) {
+            InGameMenuBehavior.staticSet_instanceC = true;
+            InGameMenuBehavior.instanceC = new InGameMenuBehavior();
+        }
         return InGameMenuBehavior.instanceC;
     }
 
-    // throws Exception
-    public override void onDisplayChangeEvent(AllBinaryGameCanvas allBinaryGameCanvas, DisplayChangeEvent displayChangeEvent)
-    {
+    public InGameMenuBehavior() {
+        base();
+    }
+    
+
+    public static InGameMenuBehavior getInstance() {
+        return InGameMenuBehavior.staticGet_instanceC();
+    }
+    
+
+    public override void onDisplayChangeEvent(AllBinaryGameCanvas allBinaryGameCanvas, DisplayChangeEvent displayChangeEvent) {
         allBinaryGameCanvas.updateMenuFromEvent(displayChangeEvent);
     }
+    
 
-    public override void initSpecialPaint(AllBinaryGameCanvas allBinaryGameCanvas)
-    {
+    public override void initSpecialPaint(AllBinaryGameCanvas allBinaryGameCanvas) {
         allBinaryGameCanvas.setNonBotPaintableP(new GameCanvasNonBotPaintable(allBinaryGameCanvas));
     }
+    
 
-    // throws Exception
-    public override void initMenu(AllBinaryGameCanvas allBinaryGameCanvas)
-    {
+    public override void initMenu(AllBinaryGameCanvas allBinaryGameCanvas) {
         allBinaryGameCanvas.initMenu2();
     }
+    
 
-    // throws Exception
-    public override void updateMenu(AllBinaryGameCanvas allBinaryGameCanvas)
-    {
+    public override void updateMenu(AllBinaryGameCanvas allBinaryGameCanvas) {
         allBinaryGameCanvas.initMenu2();
     }
+    
 
-    // throws Exception
-    public override void popupMenu(AllBinaryGameCanvas allBinaryGameCanvas)
-    {
+    public override void popupMenu(AllBinaryGameCanvas allBinaryGameCanvas) {
         allBinaryGameCanvas.popupMenu2();
     }
+    
 
-    public override void closeMenu(AllBinaryGameCanvas allBinaryGameCanvas)
-    {
+    public override void closeMenu(AllBinaryGameCanvas allBinaryGameCanvas) {
         allBinaryGameCanvas.closeMenu2();
     }
-
 }
 

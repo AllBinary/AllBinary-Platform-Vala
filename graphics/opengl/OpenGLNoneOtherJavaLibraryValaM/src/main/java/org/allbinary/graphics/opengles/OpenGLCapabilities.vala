@@ -13,65 +13,86 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.graphics.opengles
+// import org.allbinary.logic.string.StringUtil
 
-using System;
-using System.Linq;
-using StringUtil = org.allbinary.logic.@string.StringUtil;
-
-namespace org.allbinary.graphics.opengles;
-
-public class OpenGLCapabilities
-{
-    private static readonly OpenGLCapabilities instance = new OpenGLCapabilities();
-    public static OpenGLCapabilities getInstance()
-    {
+public class OpenGLCapabilities : JObject {
+    private static OpenGLCapabilities? instance;
+    private static bool staticSet_instance = false;
+    private static OpenGLCapabilities staticGet_instance() {
+        if (!OpenGLCapabilities.staticSet_instance) {
+            OpenGLCapabilities.staticSet_instance = true;
+            OpenGLCapabilities.instance = new OpenGLCapabilities();
+        }
         return OpenGLCapabilities.instance;
     }
+    public bool CUSTOM_GL_SURFACE_VIEW;
+    public string VERSION_1_0;
+    public string VERSION_1_1;
+    public string VERSION_2_0;
+    public string VERSION_3_0;
+    public string VERSION_3_1;
+    public string VERSION_3_2;
+    public string VERSION_HIGHER_THAN_EXISTS;
+    private string glVersion;
+    public int32 shaderVersion;
+    public string glInstanceVersion;
+    public int32 maxTextureSize;
 
-    public readonly bool CUSTOM_GL_SURFACE_VIEW = true;
-    public readonly string VERSION_1_0 = "1.0";
-    public readonly string VERSION_1_1 = "1.1";
-    public readonly string VERSION_2_0 = "2.0";
-    public readonly string VERSION_3_0 = "3.0";
-    public readonly string VERSION_3_1 = "3.1";
-    public readonly string VERSION_3_2 = "3.2";
-    public readonly string VERSION_HIGHER_THAN_EXISTS = "999.999";
-    private string glVersion = StringUtil.getInstance().EMPTY_STRING;
-    public int shaderVersion = 0;
-    public string glInstanceVersion = StringUtil.getInstance().EMPTY_STRING;
-    public int maxTextureSize = 64;
-    private OpenGLCapabilities()
-    {
+    // Java field initializers run after the base constructor
+    private void initFieldsOpenGLCapabilities() {
+    this.CUSTOM_GL_SURFACE_VIEW = true;
+    this.VERSION_1_0 = "1.0";
+    this.VERSION_1_1 = "1.1";
+    this.VERSION_2_0 = "2.0";
+    this.VERSION_3_0 = "3.0";
+    this.VERSION_3_1 = "3.1";
+    this.VERSION_3_2 = "3.2";
+    this.VERSION_HIGHER_THAN_EXISTS = "999.999";
+    this.glVersion = StringUtil.getInstance().EMPTY_STRING;
+    this.shaderVersion = 0;
+    this.glInstanceVersion = StringUtil.getInstance().EMPTY_STRING;
+    this.maxTextureSize = 64;
     }
+    
 
-    public virtual bool isInitialized()
-    {
+    public static OpenGLCapabilities getInstance() {
+        return OpenGLCapabilities.staticGet_instance();
+    }
+    
+
+    public OpenGLCapabilities() {
+        base();
+        this.initFieldsOpenGLCapabilities();
+    }
+    
+
+    public virtual bool isInitialized() {
         return true;
     }
+    
 
-    public virtual void initCapabilities(object gl)
-    {
+    public virtual void initCapabilities(JObject gl) {
     }
+    
 
-    public virtual bool isGlExtensionDrawTexture()
-    {
+    public virtual bool isGlExtensionDrawTexture() {
         return false;
     }
+    
 
-    public virtual string getGlVersion()
-    {
+    public virtual string getGlVersion() {
         return this.glVersion;
     }
+    
 
-    public virtual bool isVertexBufferObjectSupport()
-    {
+    public virtual bool isVertexBufferObjectSupport() {
         return false;
     }
+    
 
-    public virtual bool isTextureSizeValid(int widthAndHeight)
-    {
+    public virtual bool isTextureSizeValid(int32 widthAndHeight) {
         return true;
     }
-
 }
 

@@ -13,29 +13,31 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.game.layer
 
-using System;
-using System.Linq;
+public class LayerPlacementType : JObject {
+    private int32 type;
 
-namespace org.allbinary.game.layer;
+    // Java field initializers run after the base constructor
+    private void initFieldsLayerPlacementType() {
+    
+    }
+    
 
-public class LayerPlacementType
-{
-    private int type;
-    public LayerPlacementType(int type)
-    {
+    public LayerPlacementType(int32 type) {
+        base();
+        this.initFieldsLayerPlacementType();
         this.type = type;
     }
+    
 
-    public virtual int getType()
-    {
+    public virtual int32 getType() {
         return this.type;
     }
+    
 
-    public virtual void setType(int type)
-    {
+    public virtual void setType(int32 type) {
         this.type = type;
     }
-
 }
 

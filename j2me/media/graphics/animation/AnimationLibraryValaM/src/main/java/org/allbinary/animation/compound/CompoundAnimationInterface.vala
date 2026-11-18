@@ -13,23 +13,22 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.animation.compound
+// import org.allbinary.animation.AnimationInterface
+// import org.allbinary.animation.IndexedAnimation
 
-using System;
-using System.Linq;
-using AnimationInterface = org.allbinary.animation.AnimationInterface;
-using IndexedAnimation = org.allbinary.animation.IndexedAnimation;
+public interface CompoundAnimationInterface : JObject, AnimationInterface {
+    
 
-namespace org.allbinary.animation.compound;
+    public abstract void nextAnimation();
+    
 
-public interface CompoundAnimationInterface : AnimationInterface
-{
-    void nextAnimation();
+    public abstract void previousAnimation();
+    
 
-    void previousAnimation();
+    public abstract void setAnimation(int32 index);
+    
 
-    void setAnimation(int index);
-
-    IndexedAnimation getCurrentAnimation();
-
+    public abstract IndexedAnimation getCurrentAnimation();
 }
 

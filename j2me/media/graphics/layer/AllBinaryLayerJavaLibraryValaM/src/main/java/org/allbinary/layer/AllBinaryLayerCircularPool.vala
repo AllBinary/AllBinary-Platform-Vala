@@ -13,29 +13,24 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.layer
+// import org.allbinary.logic.util.cache.BaseCircularPool
+// import org.allbinary.util.CircularIndexUtil
 
-using System;
-using System.Linq;
-using BaseCircularPool = org.allbinary.logic.util.cache.BaseCircularPool;
-using CircularIndexUtil = org.allbinary.util.CircularIndexUtil;
+public class AllBinaryLayerCircularPool : BaseCircularPool {
+    
 
-namespace org.allbinary.layer;
-
-public class AllBinaryLayerCircularPool : BaseCircularPool
-{
-    public AllBinaryLayerCircularPool()
-    {
+    public AllBinaryLayerCircularPool() {
+        base();
     }
+    
 
-    // throws Exception
-    public virtual void initAllBinaryLayerCircularPool(AllBinaryLayerFactoryInterface allbinaryLayerFactoryInterface, int total)
-    {
+    public virtual void initAllBinaryLayerCircularPool(AllBinaryLayerFactoryInterface allbinaryLayerFactoryInterface, int32 total) {
         this.circularIndexUtil = CircularIndexUtil.createInstance(total);
-        this.OBJECT_ARRAY = new object[total];
-        for (int localIndex = 0; localIndex < total; localIndex++) {
+        this.OBJECT_ARRAY = new JObject[total];
+        for (int32 localIndex = 0; localIndex < total; localIndex++) {
             this.OBJECT_ARRAY[localIndex] = allbinaryLayerFactoryInterface.getInstance();
         }
     }
-
 }
 

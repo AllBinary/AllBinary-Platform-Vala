@@ -13,31 +13,26 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.input.gyro
+// import org.allbinary.input.AllBinarySensorListener
+// import org.allbinary.logic.communication.log.LogUtil
+// import org.allbinary.logic.math.Orientation
 
-using System;
-using System.Linq;
-using AllBinarySensorListener = org.allbinary.input.AllBinarySensorListener;
-using LogUtil = org.allbinary.logic.communication.log.LogUtil;
-using Orientation = org.allbinary.logic.math.Orientation;
+public class NoGyroSensor : AllBinaryOrientationSensor, AllBinarySensorListener {
+    
 
-namespace org.allbinary.input.gyro;
-
-public class NoGyroSensor : AllBinaryOrientationSensor, AllBinarySensorListener
-{
-    public NoGyroSensor()
-    {
+    public NoGyroSensor() {
+        base();
         this.logUtil.putF(this.commonStrings.START, this, this.commonStrings.CONSTRUCTOR);
     }
+    
 
-    // throws Exception
-    public override Orientation getOrientation()
-    {
+    public override Orientation getOrientation() {
         return Orientation.NONE;
     }
+    
 
-    public override void onSensorChange()
-    {
+    public override void onSensorChange() {
     }
-
 }
 

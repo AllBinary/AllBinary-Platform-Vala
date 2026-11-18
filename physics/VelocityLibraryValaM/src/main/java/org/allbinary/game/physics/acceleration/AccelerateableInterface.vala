@@ -13,16 +13,12 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.game.physics.acceleration
+// import org.allbinary.logic.math.BasicDecimal
 
-using System;
-using System.Linq;
-using BasicDecimal = org.allbinary.logic.math.BasicDecimal;
+public interface AccelerateableInterface : JObject {
+    
 
-namespace org.allbinary.game.physics.acceleration;
-
-public interface AccelerateableInterface
-{
-    void accelerate(BasicDecimal accelerate);
-
+    public abstract void accelerate(BasicDecimal accelerate);
 }
 

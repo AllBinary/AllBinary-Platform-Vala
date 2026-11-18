@@ -13,21 +13,19 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.game.layer.pickup
+// import org.allbinary.animation.Animation
+// import org.allbinary.layer.AllBinaryLayer
 
-using System;
-using System.Linq;
-using Animation = org.allbinary.animation.Animation;
-using AllBinaryLayer = org.allbinary.layer.AllBinaryLayer;
+public interface PickedUpLayerInterfaceFactoryInterface : JObject {
+    
 
-namespace org.allbinary.game.layer.pickup;
+    public abstract PickedUpLayerType getPickedUpLayerType();
+    
 
-public interface PickedUpLayerInterfaceFactoryInterface
-{
-    PickedUpLayerType getPickedUpLayerType();
+    public abstract AllBinaryLayer getIconLayer();
+    
 
-    AllBinaryLayer getIconLayer();
-
-    Animation getAnimationInterface();
-
+    public abstract Animation getAnimationInterface();
 }
 

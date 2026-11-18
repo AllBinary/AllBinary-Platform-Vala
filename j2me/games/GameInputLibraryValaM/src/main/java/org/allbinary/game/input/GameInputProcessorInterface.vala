@@ -13,17 +13,12 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.game.input
+// import org.allbinary.util.BasicArrayList
 
-using System;
-using System.Linq;
-using BasicArrayList = org.allbinary.util.BasicArrayList;
+public interface GameInputProcessorInterface : JObject {
+    
 
-namespace org.allbinary.game.input;
-
-public interface GameInputProcessorInterface
-{
-    // throws Exception
-    void onInput(BasicArrayList list);
-
+    public abstract void onInput(BasicArrayList list);
 }
 

@@ -13,24 +13,22 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.logic.util.event.handler
+// import org.allbinary.logic.util.event.AllBinaryEventObject
+// import org.allbinary.logic.util.event.EventListenerInterface
 
-using System;
-using System.Linq;
-using AllBinaryEventObject = org.allbinary.logic.util.@event.AllBinaryEventObject;
-using EventListenerInterface = org.allbinary.logic.util.@event.EventListenerInterface;
+public interface BasicEventHandlerInterface : JObject {
+    
 
-namespace org.allbinary.logic.util.@event.handler;
+    public abstract void addListenerInterface(EventListenerInterface eventListenerInterface);
+    
 
-public interface BasicEventHandlerInterface
-{
-    void addListenerInterface(EventListenerInterface eventListenerInterface);
+    public abstract void fireEvent(AllBinaryEventObject eventObject);
+    
 
-    // throws Exception
-    void fireEvent(AllBinaryEventObject eventObject);
+    public abstract void removeAllListeners();
+    
 
-    void removeAllListeners();
-
-    void removeListener(EventListenerInterface eventListenerInterface);
-
+    public abstract void removeListener(EventListenerInterface eventListenerInterface);
 }
 

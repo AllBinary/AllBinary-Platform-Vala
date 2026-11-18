@@ -13,25 +13,36 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.game.ag.layer.hud.basic
 
-using System;
-using System.Linq;
-
-namespace org.allbinary.game.ag.layer.hud.basic;
-
-public class HudResources
-{
-    private static readonly HudResources instance = new HudResources();
-    public static HudResources getInstance()
-    {
+public class HudResources : JObject {
+    private static HudResources? instance;
+    private static bool staticSet_instance = false;
+    private static HudResources staticGet_instance() {
+        if (!HudResources.staticSet_instance) {
+            HudResources.staticSet_instance = true;
+            HudResources.instance = new HudResources();
+        }
         return HudResources.instance;
     }
+    public string RESOURCE_LIFE;
+    public string RESOURCE_HEALTH;
 
-    private HudResources()
-    {
+    // Java field initializers run after the base constructor
+    private void initFieldsHudResources() {
+    this.RESOURCE_LIFE = "/hud_life_10_by_10.png";
+    this.RESOURCE_HEALTH = "/hud_health_10_by_10.png";
     }
+    
 
-    public readonly string RESOURCE_LIFE = "/hud_life_10_by_10.png";
-    public readonly string RESOURCE_HEALTH = "/hud_health_10_by_10.png";
+    public static HudResources getInstance() {
+        return HudResources.staticGet_instance();
+    }
+    
+
+    public HudResources() {
+        base();
+        this.initFieldsHudResources();
+    }
 }
 

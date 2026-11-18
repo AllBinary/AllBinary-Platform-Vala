@@ -13,17 +13,14 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.init.crypt.jcehelper
 
-using System;
-using System.Linq;
+public interface CryptInterface : JObject {
+    
 
-namespace org.allbinary.init.crypt.jcehelper;
+    public abstract int8[] encrypt(int8[] array);
+    
 
-public interface CryptInterface
-{
-    sbyte[] encrypt(sbyte[] array);
-
-    sbyte[] decrypt(sbyte[] array);
-
+    public abstract int8[] decrypt(int8[] array);
 }
 

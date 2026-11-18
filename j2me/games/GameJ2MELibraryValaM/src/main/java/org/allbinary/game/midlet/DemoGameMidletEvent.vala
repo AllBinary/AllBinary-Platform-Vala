@@ -13,36 +13,37 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.game.midlet
+// import org.allbinary.logic.util.event.AllBinaryEventObject
 
-using System;
-using System.Linq;
-using AllBinaryEventObject = org.allbinary.logic.util.@event.AllBinaryEventObject;
-
-namespace org.allbinary.game.midlet;
-
-public class DemoGameMidletEvent : AllBinaryEventObject
-{
+public class DemoGameMidletEvent : AllBinaryEventObject {
     private DemoGameMidletState demoGameMidletState;
-    public DemoGameMidletEvent(object anyType, DemoGameMidletState demoGameMidletState) : base(anyType)
-    {
-        // base(anyType) is called from the constructor declaration
+
+    // Java field initializers run after the base constructor
+    private void initFieldsDemoGameMidletEvent() {
+    
+    }
+    
+
+    public DemoGameMidletEvent(JObject anyType, DemoGameMidletState demoGameMidletState) {
+        base(anyType);
+        this.initFieldsDemoGameMidletEvent();
         this.demoGameMidletState = demoGameMidletState;
     }
+    
 
-    public virtual void init(object anyType)
-    {
+    public virtual void init(JObject anyType) {
         this.setSource(anyType);
     }
+    
 
-    public virtual void setDemoGameMidletState(DemoGameMidletState demoGameMidletState)
-    {
+    public virtual void setDemoGameMidletState(DemoGameMidletState demoGameMidletState) {
         this.demoGameMidletState = demoGameMidletState;
     }
+    
 
-    public virtual DemoGameMidletState getDemoGameMidletState()
-    {
+    public virtual DemoGameMidletState getDemoGameMidletState() {
         return this.demoGameMidletState;
     }
-
 }
 

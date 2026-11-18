@@ -13,26 +13,27 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.logic.system.security.licensing
+// import org.allbinary.thirdparty.store.LongArrayIdentifierInterface
 
-using System;
-using System.Linq;
-using LongArrayIdentifierInterface = org.allbinary.thirdparty.store.LongArrayIdentifierInterface;
+public class StoreAppClientInformation : AbeClientInformation, LongArrayIdentifierInterface {
+    private int64[] longArrayIdentifier;
 
-namespace org.allbinary.logic.system.security.licensing;
+    // Java field initializers run after the base constructor
+    private void initFieldsStoreAppClientInformation() {
+    
+    }
+    
 
-public class StoreAppClientInformation : AbeClientInformation, LongArrayIdentifierInterface
-{
-    private readonly long[] longArrayIdentifier;
-    public StoreAppClientInformation(string name, string version, string specialName, string shortName, long[] longArrayIdentifier) : base(name, version, specialName, shortName)
-    {
-        // base(name, version, specialName, shortName) is called from the constructor declaration
+    public StoreAppClientInformation(string name, string version, string specialName, string shortName, int64[] longArrayIdentifier) {
+        base(name, version, specialName, shortName);
+        this.initFieldsStoreAppClientInformation();
         this.longArrayIdentifier = longArrayIdentifier;
     }
+    
 
-    public virtual long[] getLongArrayIdentifier()
-    {
+    public virtual int64[] getLongArrayIdentifier() {
         return this.longArrayIdentifier;
     }
-
 }
 

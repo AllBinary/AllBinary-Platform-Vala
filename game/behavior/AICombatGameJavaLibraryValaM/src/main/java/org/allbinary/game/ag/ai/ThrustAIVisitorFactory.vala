@@ -13,19 +13,26 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.game.ag.ai
 
-using System;
-using System.Linq;
-
-namespace org.allbinary.game.ag.ai;
-
-public class ThrustAIVisitorFactory
-{
-    private static readonly ThrustAIVisitor instance = new ThrustAIVisitor();
-    public static ThrustAIVisitor getInstance()
-    {
+public class ThrustAIVisitorFactory : JObject {
+    private static ThrustAIVisitor? instance;
+    private static bool staticSet_instance = false;
+    private static ThrustAIVisitor staticGet_instance() {
+        if (!ThrustAIVisitorFactory.staticSet_instance) {
+            ThrustAIVisitorFactory.staticSet_instance = true;
+            ThrustAIVisitorFactory.instance = new ThrustAIVisitor();
+        }
         return ThrustAIVisitorFactory.instance;
     }
 
+    public ThrustAIVisitorFactory() {
+        base();
+    }
+    
+
+    public static ThrustAIVisitor getInstance() {
+        return ThrustAIVisitorFactory.staticGet_instance();
+    }
 }
 

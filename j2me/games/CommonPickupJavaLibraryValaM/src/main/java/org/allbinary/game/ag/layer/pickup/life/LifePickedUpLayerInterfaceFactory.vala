@@ -13,50 +13,57 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.game.ag.layer.pickup.life
+// import org.allbinary.animation.FeaturedAnimationInterfaceFactoryInterfaceFactory
+// import org.allbinary.game.layer.pickup.CountedPickedUpLayerInterfaceFactory
+// import org.allbinary.game.layer.pickup.IconLayerFactory
+// import org.allbinary.game.layer.pickup.PickedUpLayerInterfaceFactory
+// import org.allbinary.game.layer.pickup.PickedUpLayerInterfaceFactoryInterface
+// import org.allbinary.game.layer.pickup.PickedUpLayerTypeFactory
+// import org.allbinary.game.layer.pickup.PickupProcessorInterface
+// import org.allbinary.layer.AllBinaryLayer
 
-using System;
-using System.Linq;
-using FeaturedAnimationInterfaceFactoryInterfaceFactory = org.allbinary.animation.FeaturedAnimationInterfaceFactoryInterfaceFactory;
-using CountedPickedUpLayerInterfaceFactory = org.allbinary.game.layer.pickup.CountedPickedUpLayerInterfaceFactory;
-using IconLayerFactory = org.allbinary.game.layer.pickup.IconLayerFactory;
-using PickedUpLayerInterfaceFactory = org.allbinary.game.layer.pickup.PickedUpLayerInterfaceFactory;
-using PickedUpLayerInterfaceFactoryInterface = org.allbinary.game.layer.pickup.PickedUpLayerInterfaceFactoryInterface;
-using PickedUpLayerTypeFactory = org.allbinary.game.layer.pickup.PickedUpLayerTypeFactory;
-using PickupProcessorInterface = org.allbinary.game.layer.pickup.PickupProcessorInterface;
-using AllBinaryLayer = org.allbinary.layer.AllBinaryLayer;
-
-namespace org.allbinary.game.ag.layer.pickup.life;
-
-public class LifePickedUpLayerInterfaceFactory : PickedUpLayerInterfaceFactory, PickupProcessorInterface
-{
-    private static PickedUpLayerInterfaceFactoryInterface pickedUpLayerInterfaceFactoryInterface = CountedPickedUpLayerInterfaceFactory.NULL_COUNTED_PICKUP_LAYER_FACTORY;
-    // throws Exception
-    public static void init()
-    {
-        LifePickedUpLayerInterfaceFactory.pickedUpLayerInterfaceFactoryInterface = new LifePickedUpLayerInterfaceFactory();
-    }
-
-    private LifeLayerCircularStaticPool pool = new LifeLayerCircularStaticPool(new LifeLayerFactory(), 1);
-    private LifePickedUpLayerInterfaceFactory() : base(PickedUpLayerTypeFactory.getInstance().LIFE, IconLayerFactory.getInstance(FeaturedAnimationInterfaceFactoryInterfaceFactory.getInstance().get(LifeResources.getInstance().RESOURCE).getInstance(0), 10, 10), FeaturedAnimationInterfaceFactoryInterfaceFactory.getInstance().get(LifeResources.getInstance().RESOURCE).getInstance(0))
-    {
-        // base(PickedUpLayerTypeFactory.getInstance().LIFE, IconLayerFactory.getInstance(FeaturedAnimationInterfaceFactoryInterfaceFactory.getInstance().get(LifeResources.getInstance().RESOURCE).getInstance(0), 10, 10), FeaturedAnimationInterfaceFactoryInterfaceFactory.getInstance().get(LifeResources.getInstance().RESOURCE).getInstance(0)) is called from the constructor declaration
-    }
-
-    public virtual int getTotal()
-    {
-        return 1;
-    }
-
-    public static PickedUpLayerInterfaceFactoryInterface getInstance()
-    {
+public class LifePickedUpLayerInterfaceFactory : PickedUpLayerInterfaceFactory, PickupProcessorInterface {
+    private static PickedUpLayerInterfaceFactoryInterface? pickedUpLayerInterfaceFactoryInterface;
+    private static bool staticSet_pickedUpLayerInterfaceFactoryInterface = false;
+    private static PickedUpLayerInterfaceFactoryInterface staticGet_pickedUpLayerInterfaceFactoryInterface() {
+        if (!LifePickedUpLayerInterfaceFactory.staticSet_pickedUpLayerInterfaceFactoryInterface) {
+            LifePickedUpLayerInterfaceFactory.staticSet_pickedUpLayerInterfaceFactoryInterface = true;
+            LifePickedUpLayerInterfaceFactory.pickedUpLayerInterfaceFactoryInterface = CountedPickedUpLayerInterfaceFactory.NULL_COUNTED_PICKUP_LAYER_FACTORY;
+        }
         return LifePickedUpLayerInterfaceFactory.pickedUpLayerInterfaceFactoryInterface;
     }
+    private LifeLayerCircularStaticPool pool;
 
-    // throws Exception
-    public virtual void process(AllBinaryLayer sourceLayerInterface)
-    {
+    // Java field initializers run after the base constructor
+    private void initFieldsLifePickedUpLayerInterfaceFactory() {
+    this.pool = new LifeLayerCircularStaticPool(new LifeLayerFactory(), 1);
+    }
+    
+
+    public static void init() {
+        LifePickedUpLayerInterfaceFactory.pickedUpLayerInterfaceFactoryInterface = new LifePickedUpLayerInterfaceFactory();
+    }
+    
+
+    public LifePickedUpLayerInterfaceFactory() {
+        base(PickedUpLayerTypeFactory.getInstance().LIFE, IconLayerFactory.getInstance3(FeaturedAnimationInterfaceFactoryInterfaceFactory.getInstance().@get(LifeResources.getInstance().RESOURCE).getInstance1(0), 10, 10), FeaturedAnimationInterfaceFactoryInterfaceFactory.getInstance().@get(LifeResources.getInstance().RESOURCE).getInstance1(0));
+        this.initFieldsLifePickedUpLayerInterfaceFactory();
+    }
+    
+
+    public virtual int32 getTotal() {
+        return 1;
+    }
+    
+
+    public static PickedUpLayerInterfaceFactoryInterface getInstance() {
+        return LifePickedUpLayerInterfaceFactory.staticGet_pickedUpLayerInterfaceFactoryInterface();
+    }
+    
+
+    public virtual void process(AllBinaryLayer sourceLayerInterface) {
         this.pool.visit(sourceLayerInterface);
     }
-
 }
 

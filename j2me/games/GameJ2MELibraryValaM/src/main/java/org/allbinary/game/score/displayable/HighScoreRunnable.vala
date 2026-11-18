@@ -13,32 +13,35 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.game.score.displayable
+// import org.allbinary.J2MEUtil
+// import org.allbinary.logic.ABSystemWrapper
+// import org.allbinary.logic.communication.log.LogUtil
+// import org.allbinary.logic.string.StringMaker
+// import org.allbinary.string.CommonStrings
+// import org.allbinary.thread.ARunnable
 
-using System;
-using System.Linq;
-using J2MEUtil = org.allbinary.J2MEUtil;
-using ABSystemWrapper = org.allbinary.logic.ABSystemWrapper;
-using LogUtil = org.allbinary.logic.communication.log.LogUtil;
-using StringMaker = org.allbinary.logic.@string.StringMaker;
-using CommonStrings = org.allbinary.@string.CommonStrings;
-using ARunnable = org.allbinary.thread.ARunnable;
+public class HighScoreRunnable : ARunnable {
+    public HighScoresCanvas highScoresCanvas;
 
-namespace org.allbinary.game.score.displayable;
+    // Java field initializers run after the base constructor
+    private void initFieldsHighScoreRunnable() {
+    
+    }
+    
 
-public class HighScoreRunnable : ARunnable
-{
-    public readonly HighScoresCanvas highScoresCanvas;
-    public HighScoreRunnable(HighScoresCanvas highScoresCanvas)
-    {
+    public HighScoreRunnable(HighScoresCanvas highScoresCanvas) {
+        base();
+        this.initFieldsHighScoreRunnable();
         this.highScoresCanvas = highScoresCanvas;
     }
+    
 
-    public override void run()
-    {
+    public override void run() {
         CommonStrings commonStrings = CommonStrings.getInstance();
         LogUtil logUtil = LogUtil.getInstance();
         HighScoresCanvas highScoresCanvas = this.highScoresCanvas;
-        try {
+        {
             bool isHTML = J2MEUtil.isHTML();
             if (!isHTML) {
                 while (!highScoresCanvas.hasPainted) {
@@ -47,20 +50,17 @@ public class HighScoreRunnable : ARunnable
             }
             StringMaker stringMaker = new StringMaker();
             ABSystemWrapper systemWrapper = ABSystemWrapper.getInstance();
-            long currentTimeMillis = systemWrapper.currentTimeMillis();
-            logUtil.putF(stringMaker.append("HighScoresCanvas - Request repaint to be sure: ").appendlong(currentTimeMillis).ToString(), this, commonStrings.RUN);
+            int64 currentTimeMillis = systemWrapper.currentTimeMillis();
+            logUtil.putF(stringMaker.append("HighScoresCanvas - Request repaint to be sure: ").appendlong(currentTimeMillis).toString(), this, commonStrings.RUN);
             highScoresCanvas.repaintBehavior.onChangeRepaint(highScoresCanvas);
             if (!isHTML) {
                 while (!highScoresCanvas.hasPainted) {
                 }
             }
-            stringMaker.delete(0, stringMaker.length());
-            logUtil.putF(stringMaker.append("HighScoresCanvas - Now that the canvas has completed repaint go ahead and fetch the scores: ").appendlong(currentTimeMillis).ToString(), this, commonStrings.RUN);
+            stringMaker.@delete(0, stringMaker.length());
+            logUtil.putF(stringMaker.append("HighScoresCanvas - Now that the canvas has completed repaint go ahead and fetch the scores: ").appendlong(currentTimeMillis).toString(), this, commonStrings.RUN);
             highScoresCanvas.executeUpdate();
-        } catch (Exception e) {
-            logUtil.put(commonStrings.EXCEPTION, this, commonStrings.RUN, e);
-        }
+        } /* catch (Exception e): a thrown Java exception stops the program */
     }
-
 }
 

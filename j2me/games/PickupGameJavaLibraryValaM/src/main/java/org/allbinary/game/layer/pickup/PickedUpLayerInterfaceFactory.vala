@@ -13,40 +13,44 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.game.layer.pickup
+// import org.allbinary.animation.Animation
+// import org.allbinary.layer.AllBinaryLayer
 
-using System;
-using System.Linq;
-using Animation = org.allbinary.animation.Animation;
-using AllBinaryLayer = org.allbinary.layer.AllBinaryLayer;
+public class PickedUpLayerInterfaceFactory : PickedUpLayerInterfaceFactoryBase {
+    private PickedUpLayerType pickedUpLayerType;
+    private IconLayer iconLayer;
+    private Animation animationInterface;
 
-namespace org.allbinary.game.layer.pickup;
+    // Java field initializers run after the base constructor
+    private void initFieldsPickedUpLayerInterfaceFactory() {
+    
+    
+    
+    }
+    
 
-public class PickedUpLayerInterfaceFactory : PickedUpLayerInterfaceFactoryBase
-{
-    private readonly PickedUpLayerType pickedUpLayerType;
-    private readonly IconLayer iconLayer;
-    private readonly Animation animationInterface;
-    public PickedUpLayerInterfaceFactory(PickedUpLayerType pickeUpLayerType, IconLayer iconLayer, Animation animationInterface)
-    {
+    public PickedUpLayerInterfaceFactory(PickedUpLayerType pickeUpLayerType, IconLayer iconLayer, Animation animationInterface) {
+        base();
+        this.initFieldsPickedUpLayerInterfaceFactory();
         this.pickedUpLayerType = pickeUpLayerType;
         this.animationInterface = animationInterface;
         this.iconLayer = iconLayer;
     }
+    
 
-    public override AllBinaryLayer getIconLayer()
-    {
+    public override AllBinaryLayer getIconLayer() {
         return this.iconLayer;
     }
+    
 
-    public override Animation getAnimationInterface()
-    {
+    public override Animation getAnimationInterface() {
         return this.animationInterface;
     }
+    
 
-    public override PickedUpLayerType getPickedUpLayerType()
-    {
+    public override PickedUpLayerType getPickedUpLayerType() {
         return this.pickedUpLayerType;
     }
-
 }
 

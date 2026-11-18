@@ -13,15 +13,11 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.thirdparty.store
 
-using System;
-using System.Linq;
+public interface LongArrayIdentifierInterface : JObject {
+    
 
-namespace org.allbinary.thirdparty.store;
-
-public interface LongArrayIdentifierInterface
-{
-    long[] getLongArrayIdentifier();
-
+    public abstract int64[] getLongArrayIdentifier();
 }
 

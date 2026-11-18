@@ -13,34 +13,32 @@
  * 
  */
 // Generated Code Do Not Modify
+// package org.allbinary.layer
 
-using System;
-using System.Linq;
+public class LayerManagerLoggingBase : JObject {
 
-namespace org.allbinary.layer;
-
-public class LayerManagerLoggingBase
-{
-    // throws Exception
-    public virtual void append(AllBinaryLayer layerInterface)
-    {
+    public LayerManagerLoggingBase() {
+        base();
     }
+    
 
-    public virtual void appendAt(AllBinaryLayer layerInterface, int index)
-    {
+    public virtual void append(AllBinaryLayer layerInterface) {
     }
+    
 
-    public virtual void remove(AllBinaryLayer layerInterface)
-    {
+    public virtual void appendAt(AllBinaryLayer layerInterface, int32 index) {
     }
+    
 
-    public virtual void removeResult(LayerManager layerManager, AllBinaryLayer layerInterface, bool result)
-    {
+    public virtual void remove(AllBinaryLayer layerInterface) {
     }
+    
 
-    public virtual void clear()
-    {
+    public virtual void removeResult(LayerManager layerManager, AllBinaryLayer layerInterface, bool result) {
     }
+    
 
+    public virtual void clear() {
+    }
 }
 

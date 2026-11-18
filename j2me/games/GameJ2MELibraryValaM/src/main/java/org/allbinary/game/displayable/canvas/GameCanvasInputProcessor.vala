@@ -13,71 +13,80 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.game.displayable.canvas
+// import javax.microedition.lcdui.Canvas
+// import org.allbinary.game.input.GameKey
+// import org.allbinary.game.input.GameKeyEventSourceInterface
+// import org.allbinary.game.input.GameKeyFactory
+// import org.allbinary.game.input.InputProcessor
+// import org.allbinary.game.input.PlatformInputMappingFactory
+// import org.allbinary.game.input.event.DownGameKeyEventHandler
+// import org.allbinary.game.input.event.DownKeyEventHandler
+// import org.allbinary.game.input.event.GameKeyEvent
+// import org.allbinary.game.input.event.GameKeyEventFactory
+// import org.allbinary.game.input.event.UpGameKeyEventHandler
+// import org.allbinary.game.input.mapping.InputToGameKeyMapping
+// import org.allbinary.logic.communication.log.LogUtil
+// import org.allbinary.logic.math.SmallIntegerSingletonFactory
+// import org.allbinary.logic.string.StringMaker
 
-using System;
-using System.Linq;
-using Canvas = javax.microedition.lcdui.Canvas;
-using GameKey = org.allbinary.game.input.GameKey;
-using GameKeyEventSourceInterface = org.allbinary.game.input.GameKeyEventSourceInterface;
-using GameKeyFactory = org.allbinary.game.input.GameKeyFactory;
-using InputProcessor = org.allbinary.game.input.InputProcessor;
-using PlatformInputMappingFactory = org.allbinary.game.input.PlatformInputMappingFactory;
-using DownGameKeyEventHandler = org.allbinary.game.input.@event.DownGameKeyEventHandler;
-using DownKeyEventHandler = org.allbinary.game.input.@event.DownKeyEventHandler;
-using GameKeyEvent = org.allbinary.game.input.@event.GameKeyEvent;
-using GameKeyEventFactory = org.allbinary.game.input.@event.GameKeyEventFactory;
-using UpGameKeyEventHandler = org.allbinary.game.input.@event.UpGameKeyEventHandler;
-using InputToGameKeyMapping = org.allbinary.game.input.mapping.InputToGameKeyMapping;
-using LogUtil = org.allbinary.logic.communication.log.LogUtil;
-using SmallIntegerSingletonFactory = org.allbinary.logic.math.SmallIntegerSingletonFactory;
-using StringMaker = org.allbinary.logic.@string.StringMaker;
+public class GameCanvasInputProcessor : InputProcessor {
+    public LogUtil logUtil;
+    private AllBinaryGameCanvas allBinaryGameCanvas;
+    private DownGameKeyEventHandler downGameKeyEventHandler;
+    private UpGameKeyEventHandler upGameKeyEventHandler;
+    private DownKeyEventHandler downKeyEventHandler;
+    private SmallIntegerSingletonFactory smallIntegerSingletonFactory;
+    private InputToGameKeyMapping inputToGameKeyMapping;
+    private GameKey NONE;
+    private GameKeyEventFactory gameKeyEventFactory;
 
-namespace org.allbinary.game.displayable.canvas;
+    // Java field initializers run after the base constructor
+    private void initFieldsGameCanvasInputProcessor() {
+    this.logUtil = LogUtil.getInstance();
+    
+    this.downGameKeyEventHandler = DownGameKeyEventHandler.getInstance();
+    this.upGameKeyEventHandler = UpGameKeyEventHandler.getInstance();
+    this.downKeyEventHandler = DownKeyEventHandler.getInstance();
+    this.smallIntegerSingletonFactory = SmallIntegerSingletonFactory.getInstance();
+    this.inputToGameKeyMapping = PlatformInputMappingFactory.getInstance().getPersistentInputMappingInstance().getInputMapping();
+    this.NONE = GameKeyFactory.getInstance().NONE;
+    this.gameKeyEventFactory = GameKeyEventFactory.getInstance();
+    }
+    
 
-public class GameCanvasInputProcessor : InputProcessor
-{
-    public readonly LogUtil logUtil = LogUtil.getInstance();
-    private readonly AllBinaryGameCanvas allBinaryGameCanvas;
-    private readonly DownGameKeyEventHandler downGameKeyEventHandler = DownGameKeyEventHandler.getInstance();
-    private readonly UpGameKeyEventHandler upGameKeyEventHandler = UpGameKeyEventHandler.getInstance();
-    private readonly DownKeyEventHandler downKeyEventHandler = DownKeyEventHandler.getInstance();
-    private readonly SmallIntegerSingletonFactory smallIntegerSingletonFactory = SmallIntegerSingletonFactory.getInstance();
-    private readonly InputToGameKeyMapping inputToGameKeyMapping = PlatformInputMappingFactory.getInstance().getPersistentInputMappingInstance().getInputMapping();
-    public GameCanvasInputProcessor(AllBinaryGameCanvas allBinaryGameCanvas)
-    {
+    public GameCanvasInputProcessor(AllBinaryGameCanvas allBinaryGameCanvas) {
+        base();
+        this.initFieldsGameCanvasInputProcessor();
         this.allBinaryGameCanvas = allBinaryGameCanvas;
         this.inputToGameKeyMapping.init(this.allBinaryGameCanvas);
     }
+    
 
-    private readonly GameKey NONE = GameKeyFactory.getInstance().NONE;
-    private readonly GameKeyEventFactory gameKeyEventFactory = GameKeyEventFactory.getInstance();
-    public override void keyPressedByDevice(int keyCode, int deviceId)
-    {
-        try {
+    public override void keyPressedByDevice(int32 keyCode, int32 deviceId) {
+        {
             GameKey gameKey = this.inputToGameKeyMapping.getInstanceForCanvas(this.allBinaryGameCanvas, keyCode);
             if (gameKey != this.NONE) {
                 GameKeyEvent gameKeyEvent = this.gameKeyEventFactory.getInstanceForInput(this.allBinaryGameCanvas, gameKey);
                 this.downGameKeyEventHandler.fireEvent(gameKeyEvent);
                 this.downGameKeyEventHandler.getInstanceForDevice(deviceId).fireEvent(gameKeyEvent);
             } else {
-                this.logUtil.putF(new StringMaker().append(this.gameInputStrings.NO_KEY).appendint(keyCode).ToString(), this, this.gameInputStrings.ADD_KEY_EVENT);
+                this.logUtil.putF(new StringMaker().append(this.gameInputStrings.NO_KEY).appendint(keyCode).toString(), this, this.gameInputStrings.ADD_KEY_EVENT);
             }
-            int? keyCodeAsInteger = this.smallIntegerSingletonFactory.getAtNoThrow(keyCode);
+            int32? keyCodeAsInteger = this.smallIntegerSingletonFactory.getAtNoThrow(keyCode);
             this.downKeyEventHandler.fireEventI(keyCodeAsInteger);
             this.downKeyEventHandler.getInstanceForDevice(deviceId).fireEventI(keyCodeAsInteger);
-        } catch (Exception e) {
-            this.logUtil.put("Key Event Error", this, this.gameInputStrings.ADD_KEY_EVENT, e);
-        }
+        } /* catch (Exception e): a thrown Java exception stops the program */
     }
+    
 
-    public override void keyReleasedByDevice(Canvas canvas, int keyCode, int deviceId)
-    {
+    public override void keyReleasedByDevice(Canvas canvas, int32 keyCode, int32 deviceId) {
         this.removeGameKeyEvent(canvas, keyCode, deviceId, false);
     }
+    
 
-    private void removeGameKeyEvent(Canvas canvas, int keyCode, int deviceId, bool repeated)
-    {
-        try {
+    private void removeGameKeyEvent(Canvas canvas, int32 keyCode, int32 deviceId, bool repeated) {
+        {
             GameKey gameKey = this.inputToGameKeyMapping.getInstanceForCanvas(canvas, keyCode);
             if (gameKey != this.NONE) {
                 GameKeyEventSourceInterface gameKeyEventSourceInterface = ((GameKeyEventSourceInterface) canvas);
@@ -85,12 +94,9 @@ public class GameCanvasInputProcessor : InputProcessor
                 this.upGameKeyEventHandler.fireEvent(gameKeyEvent);
                 this.upGameKeyEventHandler.getInstanceForDevice(deviceId).fireEvent(gameKeyEvent);
             } else {
-                this.logUtil.putF(new StringMaker().append(this.gameInputStrings.NO_KEY).appendint(keyCode).ToString(), this, this.gameInputStrings.REMOVE_KEY_EVENT);
+                this.logUtil.putF(new StringMaker().append(this.gameInputStrings.NO_KEY).appendint(keyCode).toString(), this, this.gameInputStrings.REMOVE_KEY_EVENT);
             }
-        } catch (Exception e) {
-            this.logUtil.put("Key Event Error", this, this.gameInputStrings.REMOVE_KEY_EVENT, e);
-        }
+        } /* catch (Exception e): a thrown Java exception stops the program */
     }
-
 }
 

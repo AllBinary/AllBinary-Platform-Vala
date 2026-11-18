@@ -13,26 +13,29 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.ag.weapon.media.audio
+// import org.allbinary.media.audio.CompositeSound
+// import org.allbinary.media.audio.Sound
 
-using System;
-using System.Linq;
-using CompositeSound = org.allbinary.media.audio.CompositeSound;
-using Sound = org.allbinary.media.audio.Sound;
-
-namespace org.allbinary.ag.weapon.media.audio;
-
-public class DropWeaponSound : CompositeSound
-{
-    private static Sound soundInterface = new DropWeaponSound();
-    private DropWeaponSound() : base("resource:/wav/mine.wav")
-    {
-        // base("resource:/wav/mine.wav") is called from the constructor declaration
-    }
-
-    public static Sound getInstance()
-    {
+public class DropWeaponSound : CompositeSound {
+    private static Sound? soundInterface;
+    private static bool staticSet_soundInterface = false;
+    private static Sound staticGet_soundInterface() {
+        if (!DropWeaponSound.staticSet_soundInterface) {
+            DropWeaponSound.staticSet_soundInterface = true;
+            DropWeaponSound.soundInterface = new DropWeaponSound();
+        }
         return DropWeaponSound.soundInterface;
     }
+    
 
+    public DropWeaponSound() {
+        base("resource:/wav/mine.wav");
+    }
+    
+
+    public static Sound getInstance() {
+        return DropWeaponSound.staticGet_soundInterface();
+    }
 }
 

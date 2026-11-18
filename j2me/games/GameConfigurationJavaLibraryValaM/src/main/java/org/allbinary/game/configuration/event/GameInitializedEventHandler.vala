@@ -13,33 +13,36 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.game.configuration.event
+// import org.allbinary.logic.util.event.AllBinaryEventObject
+// import org.allbinary.logic.util.event.EventListenerInterface
+// import org.allbinary.logic.util.event.handler.BasicEventHandler
 
-using System;
-using System.Linq;
-using AllBinaryEventObject = org.allbinary.logic.util.@event.AllBinaryEventObject;
-using EventListenerInterface = org.allbinary.logic.util.@event.EventListenerInterface;
-using BasicEventHandler = org.allbinary.logic.util.@event.handler.BasicEventHandler;
-
-namespace org.allbinary.game.configuration.@event;
-
-public class GameInitializedEventHandler : BasicEventHandler
-{
-    private static readonly GameInitializedEventHandler gameKeyEventHandler = new GameInitializedEventHandler();
-    private GameInitializedEventHandler()
-    {
-    }
-
-    public static GameInitializedEventHandler getInstance()
-    {
+public class GameInitializedEventHandler : BasicEventHandler {
+    private static GameInitializedEventHandler? gameKeyEventHandler;
+    private static bool staticSet_gameKeyEventHandler = false;
+    private static GameInitializedEventHandler staticGet_gameKeyEventHandler() {
+        if (!GameInitializedEventHandler.staticSet_gameKeyEventHandler) {
+            GameInitializedEventHandler.staticSet_gameKeyEventHandler = true;
+            GameInitializedEventHandler.gameKeyEventHandler = new GameInitializedEventHandler();
+        }
         return GameInitializedEventHandler.gameKeyEventHandler;
     }
+    
 
-    // throws Exception
-    public override void process(AllBinaryEventObject eventObject, EventListenerInterface eventListenerInterface)
-    {
+    public GameInitializedEventHandler() {
+        base();
+    }
+    
+
+    public static GameInitializedEventHandler getInstance() {
+        return GameInitializedEventHandler.staticGet_gameKeyEventHandler();
+    }
+    
+
+    public override void process(AllBinaryEventObject eventObject, EventListenerInterface eventListenerInterface) {
         GameInitializedListenerInterface gameInitializedListenerInterface = (((GameInitializedListenerInterface) eventListenerInterface));
         gameInitializedListenerInterface.onGameInitialized(((GameInitializedEvent) eventObject));
     }
-
 }
 

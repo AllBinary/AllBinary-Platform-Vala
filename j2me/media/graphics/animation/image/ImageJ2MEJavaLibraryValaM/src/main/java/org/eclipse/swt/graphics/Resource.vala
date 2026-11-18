@@ -1,20 +1,19 @@
 // Generated Code Do Not Modify
+// package org.eclipse.swt.graphics
 
-using System;
-using System.Linq;
+public class Resource : JObject {
 
-namespace org.eclipse.swt.graphics;
-
-public class Resource
-{
-    public virtual void dispose()
-    {
+    public Resource() {
+        base();
     }
+    
 
-    public virtual bool isDisposed()
-    {
+    public virtual void dispose() {
+    }
+    
+
+    public virtual bool isDisposed() {
         return false;
     }
-
 }
 

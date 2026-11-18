@@ -13,27 +13,32 @@
  *   
  */
 // Generated Code Do Not Modify
+// package org.allbinary.logic.system.security.crypt.jcehelper
+// import org.allbinary.logic.NullUtil
 
-using System;
-using System.Linq;
-using NullUtil = org.allbinary.logic.NullUtil;
-
-namespace org.allbinary.logic.system.security.crypt.jcehelper;
-
-public class BaseSecretComposite
-{
-    public static readonly BaseSecretComposite NULL_SECRET_COMPOSITE = new BaseSecretComposite();
-    // throws Exception
-    public virtual sbyte[] encrypt(sbyte[] array)
-    {
-        return NullUtil.getInstance().NULL_BYTE_ARRAY;
+public class BaseSecretComposite : JObject {
+    public static BaseSecretComposite? NULL_SECRET_COMPOSITE;
+    private static bool staticSet_NULL_SECRET_COMPOSITE = false;
+    public static BaseSecretComposite staticGet_NULL_SECRET_COMPOSITE() {
+        if (!BaseSecretComposite.staticSet_NULL_SECRET_COMPOSITE) {
+            BaseSecretComposite.staticSet_NULL_SECRET_COMPOSITE = true;
+            BaseSecretComposite.NULL_SECRET_COMPOSITE = new BaseSecretComposite();
+        }
+        return BaseSecretComposite.NULL_SECRET_COMPOSITE;
     }
 
-    // throws Exception
-    public virtual sbyte[] decrypt(sbyte[] array)
-    {
+    public BaseSecretComposite() {
+        base();
+    }
+    
+
+    public virtual int8[] encrypt(int8[] array) {
         return NullUtil.getInstance().NULL_BYTE_ARRAY;
     }
+    
 
+    public virtual int8[] decrypt(int8[] array) {
+        return NullUtil.getInstance().NULL_BYTE_ARRAY;
+    }
 }
 

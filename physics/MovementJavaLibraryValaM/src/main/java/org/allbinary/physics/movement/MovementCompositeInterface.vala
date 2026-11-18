@@ -13,15 +13,11 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.physics.movement
 
-using System;
-using System.Linq;
+public interface MovementCompositeInterface : JObject {
+    
 
-namespace org.allbinary.physics.movement;
-
-public interface MovementCompositeInterface
-{
-    Movement getMovement();
-
+    public abstract Movement getMovement();
 }
 

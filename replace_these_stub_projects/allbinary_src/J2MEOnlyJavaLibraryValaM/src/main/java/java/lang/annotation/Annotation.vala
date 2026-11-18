@@ -1,13 +1,9 @@
 // Generated Code Do Not Modify
+// package java.lang.annotation
 
-using System;
-using System.Linq;
+public interface Annotation : JObject {
+    
 
-namespace java.lang.annotation;
-
-public interface Annotation
-{
-    Type annotationType();
-
+    public abstract string annotationType();
 }
 

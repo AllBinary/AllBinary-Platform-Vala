@@ -13,25 +13,19 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.layer
 
-using System;
-using System.Linq;
+public class SingleLayerLayerProcessor : LayerProcessor {
+    
 
-namespace org.allbinary.layer;
-
-public class SingleLayerLayerProcessor : LayerProcessor
-{
-    public SingleLayerLayerProcessor() : base(new SingleLayerLayerManager())
-    {
-        // base(new SingleLayerLayerManager()) is called from the constructor declaration
+    public SingleLayerLayerProcessor() {
+        base(new SingleLayerLayerManager());
     }
+    
 
-    // throws Exception
-    public override void process(AllBinaryLayerManager allBinaryLayerManager)
-    {
+    public override void process(AllBinaryLayerManager allBinaryLayerManager) {
         LayerManager layerManager = this.getLayerManager();
         this.processAt(allBinaryLayerManager, ((AllBinaryLayer) layerManager.getLayerAt(0)), 0);
     }
-
 }
 

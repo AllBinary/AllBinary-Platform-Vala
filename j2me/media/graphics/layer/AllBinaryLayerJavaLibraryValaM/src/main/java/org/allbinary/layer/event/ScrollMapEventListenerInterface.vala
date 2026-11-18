@@ -13,17 +13,12 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.layer.event
+// import org.allbinary.logic.util.event.EventListenerInterface
 
-using System;
-using System.Linq;
-using EventListenerInterface = org.allbinary.logic.util.@event.EventListenerInterface;
+public interface ScrollMapEventListenerInterface : JObject, EventListenerInterface {
+    
 
-namespace org.allbinary.layer.@event;
-
-public interface ScrollMapEventListenerInterface : EventListenerInterface
-{
-    // throws Exception
-    void onMoveEvent(ScrollMapEvent layerManagerEvent);
-
+    public abstract void onMoveEvent(ScrollMapEvent layerManagerEvent);
 }
 

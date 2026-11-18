@@ -13,23 +13,28 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.game.input
+// import org.allbinary.init.Init
+// import org.allbinary.logic.communication.log.LogUtil
+// import org.allbinary.logic.math.SmallIntegerSingletonFactory
 
-using System;
-using System.Linq;
-using Init = org.allbinary.init.Init;
-using LogUtil = org.allbinary.logic.communication.log.LogUtil;
-using SmallIntegerSingletonFactory = org.allbinary.logic.math.SmallIntegerSingletonFactory;
+public class KeyFactoryInitializer : Init {
+    public LogUtil logUtil;
 
-namespace org.allbinary.game.input;
+    // Java field initializers run after the base constructor
+    private void initFieldsKeyFactoryInitializer() {
+    this.logUtil = LogUtil.getInstance();
+    }
 
-public class KeyFactoryInitializer : Init
-{
-    public readonly LogUtil logUtil = LogUtil.getInstance();
-    public override void init()
-    {
+    public KeyFactoryInitializer() {
+        base();
+        this.initFieldsKeyFactoryInitializer();
+    }
+    
+
+    public override void init() {
         this.logUtil.putF(this.commonStrings.START, this, this.commonStrings.INIT);
         SmallIntegerSingletonFactory.getInstance().initWithRange(0x2D0, 6);
     }
-
 }
 

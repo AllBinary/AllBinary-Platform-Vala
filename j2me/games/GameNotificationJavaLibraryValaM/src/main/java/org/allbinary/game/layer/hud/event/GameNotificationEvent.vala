@@ -13,60 +13,64 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.game.layer.hud.event
+// import org.allbinary.graphics.color.BasicColor
+// import org.allbinary.graphics.color.BasicColorFactory
+// import org.allbinary.logic.string.StringUtil
+// import org.allbinary.logic.util.event.AllBinaryEventObject
 
-using System;
-using System.Linq;
-using BasicColor = org.allbinary.graphics.color.BasicColor;
-using BasicColorFactory = org.allbinary.graphics.color.BasicColorFactory;
-using StringUtil = org.allbinary.logic.@string.StringUtil;
-using AllBinaryEventObject = org.allbinary.logic.util.@event.AllBinaryEventObject;
+public class GameNotificationEvent : AllBinaryEventObject {
+    private string string;
+    private int32? seconds;
+    private BasicColor basicColor;
+    private bool removeable;
 
-namespace org.allbinary.game.layer.hud.@event;
+    // Java field initializers run after the base constructor
+    private void initFieldsGameNotificationEvent() {
+    this.string = StringUtil.getInstance().EMPTY_STRING;
+    
+    this.basicColor = BasicColorFactory.getInstance().BLACK;
+    
+    }
+    
 
-public class GameNotificationEvent : AllBinaryEventObject
-{
-    private string @string = StringUtil.getInstance().EMPTY_STRING;
-    private readonly int? seconds;
-    private BasicColor basicColor = BasicColorFactory.getInstance().BLACK;
-    private readonly bool? removeable;
-    public GameNotificationEvent(object anyType, string @string, int? seconds, BasicColor basicColor, bool? permanent) : base(anyType)
-    {
-        // base(anyType) is called from the constructor declaration
-        this.setString(@string);
+    public GameNotificationEvent(JObject anyType, string string, int32? seconds, BasicColor basicColor, bool permanent) {
+        base(anyType);
+        this.initFieldsGameNotificationEvent();
+        this.setString(string);
         this.seconds = seconds;
         this.setBasicColorP(basicColor);
         this.removeable = permanent;
     }
+    
 
-    public virtual string getString()
-    {
-        return this.@string;
+    public virtual string getString() {
+        return this.string;
     }
+    
 
-    public virtual int? getSeconds()
-    {
+    public virtual int32? getSeconds() {
         return this.seconds;
     }
+    
 
-    public virtual BasicColor getBasicColorP()
-    {
+    public virtual BasicColor getBasicColorP() {
         return this.basicColor;
     }
+    
 
-    public virtual bool? getPermanent()
-    {
+    public virtual bool getPermanent() {
         return this.removeable;
     }
+    
 
-    public virtual void setString(string @string)
-    {
-        this.@string = @string;
+    public virtual void setString(string string) {
+        this.string = string;
     }
+    
 
-    public virtual void setBasicColorP(BasicColor basicColor)
-    {
+    public virtual void setBasicColorP(BasicColor basicColor) {
         this.basicColor = basicColor;
     }
-
 }
 

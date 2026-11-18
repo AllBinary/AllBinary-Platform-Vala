@@ -13,112 +13,122 @@
  *   
  */
 // Generated Code Do Not Modify
-
-using System;
-using System.Linq;
-using Font = javax.microedition.lcdui.Font;
-using MIDlet = javax.microedition.midlet.MIDlet;
-
-namespace org.allbinary.graphics.threed;
+// package org.allbinary.graphics.threed
+// import javax.microedition.lcdui.Font
+// import javax.microedition.midlet.MIDlet
 
 //SWTWithoutJOGL
-public class SWTJOGLProcessor : global::java.lang.Runnable
-{
-    private static readonly SWTJOGLProcessor instance = new SWTJOGLProcessor();
-    public static SWTJOGLProcessor getInstance()
-    {
+public class SWTJOGLProcessor : JObject, Runnable {
+    private static SWTJOGLProcessor? instance;
+    private static bool staticSet_instance = false;
+    private static SWTJOGLProcessor staticGet_instance() {
+        if (!SWTJOGLProcessor.staticSet_instance) {
+            SWTJOGLProcessor.staticSet_instance = true;
+            SWTJOGLProcessor.instance = new SWTJOGLProcessor();
+        }
         return SWTJOGLProcessor.instance;
     }
+    public GLHolder glHolder;
 
-    public GLHolder glHolder = new GLHolder()
-#if JAVA_ANONYMOUS_CLASS_BODY
-        public virtual void run(object renderer)
-        {
-        }
+    // Java field initializers run after the base constructor
+    private void initFieldsSWTJOGLProcessor() {
+    this.glHolder = new GLHolder() /* Java anonymous class body: implement it as a named subclass
+        
 
-#endif
-;
-    public virtual void init(object display, object comp)
-    {
+        public virtual void run(JObject renderer) {
+        } */;
     }
 
-    public virtual bool isHolderCreated()
-    {
-        return glHolder.isCreated;
+    public SWTJOGLProcessor() {
+        base();
+        this.initFieldsSWTJOGLProcessor();
     }
+    
 
-    public virtual void setRenderer(object renderer)
-    {
+    public static SWTJOGLProcessor getInstance() {
+        return SWTJOGLProcessor.staticGet_instance();
     }
+    
 
-    public virtual bool isJOGL()
-    {
+    public virtual void init(JObject display, JObject comp) {
+    }
+    
+
+    public virtual bool isHolderCreated() {
+        return this.glHolder.isCreated;
+    }
+    
+
+    public virtual void setRenderer(JObject renderer) {
+    }
+    
+
+    public virtual bool isJOGL() {
         return false;
     }
+    
 
-    public virtual void createSurface()
-    {
+    public virtual void createSurface() {
     }
+    
 
-    public virtual void onSurfaceCreated()
-    {
+    public virtual void onSurfaceCreated() {
     }
+    
 
-    public virtual void onSurfaceChangedForEvent(object @event)
-    {
+    public virtual void onSurfaceChangedForEvent(JObject event) {
     }
+    
 
-    public virtual void onSurfaceChanged()
-    {
+    public virtual void onSurfaceChanged() {
     }
+    
 
-    public virtual void onSurfaceChangedWH(int width, int height)
-    {
+    public virtual void onSurfaceChangedWH(int32 width, int32 height) {
     }
+    
 
-    public virtual void addListener()
-    {
+    public virtual void addListener() {
     }
+    
 
-    public virtual void addListeners(MIDlet midlet)
-    {
+    public virtual void addListeners(MIDlet midlet) {
     }
+    
 
-    public virtual void run()
-    {
+    public virtual void run() {
     }
+    
 
-    public virtual void clear()
-    {
+    public virtual void clear() {
     }
+    
 
-    public virtual void setCustom(int width, int height, float ratio)
-    {
+    public virtual void setCustom(int32 width, int32 height, float ratio) {
     }
+    
 
-    public virtual void setRatioProcessor(RatioProcessor ratioProcessor)
-    {
+    public virtual void setRatioProcessor(RatioProcessor ratioProcessor) {
     }
+    
 
-    public virtual int charWidth(Font font, char ch)
-    {
-        throw new SystemException();
+    public virtual int32 charWidth(Font font, uint16 ch) {
+        JSystem.fatal(new JException("RuntimeException", ""));
     }
+    
 
-    public virtual int charsWidth(Font font, char[] ch, int offset, int length)
-    {
-        throw new SystemException();
+    public virtual int32 charsWidth(Font font, uint16[] ch, int32 offset, int32 length) {
+        JSystem.fatal(new JException("RuntimeException", ""));
     }
+    
 
-    public virtual int stringWidth(Font font, string str)
-    {
-        throw new SystemException();
+    public virtual int32 stringWidth(Font font, string str) {
+        JSystem.fatal(new JException("RuntimeException", ""));
     }
+    
 
-    public virtual int substringWidth(Font font, string str, int offset, int len)
-    {
-        throw new SystemException();
+    public virtual int32 substringWidth(Font font, string str, int32 offset, int32 len) {
+        JSystem.fatal(new JException("RuntimeException", ""));
     }
-
 }
 

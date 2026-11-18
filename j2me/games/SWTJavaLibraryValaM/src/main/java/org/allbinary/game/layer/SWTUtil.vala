@@ -13,15 +13,14 @@
  *   
  */
 // Generated Code Do Not Modify
+// package org.allbinary.game.layer
 
-using System;
-using System.Linq;
-
-namespace org.allbinary.game.layer;
-
-public class SWTUtil
-{
+public class SWTUtil : JObject {
     public static bool isSWT = true;
-    public static string SWT = "SWT";
+    public static string? SWT = "SWT";
+
+    public SWTUtil() {
+        base();
+    }
 }
 

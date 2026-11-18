@@ -13,19 +13,15 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.game.displayable.canvas
+// import org.allbinary.game.input.GameKeyEventSourceInterface
 
-using System;
-using System.Linq;
-using GameKeyEventSourceInterface = org.allbinary.game.input.GameKeyEventSourceInterface;
+public interface MenuListener : JObject, GameKeyEventSourceInterface {
+    
 
-namespace org.allbinary.game.displayable.canvas;
+    public abstract void open();
+    
 
-public interface MenuListener : GameKeyEventSourceInterface
-{
-    void open();
-
-    // throws Exception
-    void close();
-
+    public abstract void close();
 }
 

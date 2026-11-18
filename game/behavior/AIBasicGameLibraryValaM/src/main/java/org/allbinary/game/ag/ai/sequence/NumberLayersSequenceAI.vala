@@ -13,28 +13,29 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.game.ag.ai.sequence
+// import org.allbinary.ai.ArtificialIntelligenceInterface
+// import org.allbinary.game.input.GameInput
+// import org.allbinary.layer.AllBinaryLayer
+// import org.allbinary.layer.AllBinaryLayerManager
 
-using System;
-using System.Linq;
-using ArtificialIntelligenceInterface = org.allbinary.ai.ArtificialIntelligenceInterface;
-using GameInput = org.allbinary.game.input.GameInput;
-using AllBinaryLayer = org.allbinary.layer.AllBinaryLayer;
-using AllBinaryLayerManager = org.allbinary.layer.AllBinaryLayerManager;
+public class NumberLayersSequenceAI : SequenceAI {
+    private int32 numberOfLayersLeft;
 
-namespace org.allbinary.game.ag.ai.sequence;
+    // Java field initializers run after the base constructor
+    private void initFieldsNumberLayersSequenceAI() {
+    
+    }
+    
 
-public class NumberLayersSequenceAI : SequenceAI
-{
-    private int numberOfLayersLeft;
-    public NumberLayersSequenceAI(int numberOfEnemiesLeft, ArtificialIntelligenceInterface[] artificialIntelligenceInterface, AllBinaryLayer ownerLayerInterface, GameInput gameInput) : base(artificialIntelligenceInterface, ownerLayerInterface, gameInput)
-    {
-        // base(artificialIntelligenceInterface, ownerLayerInterface, gameInput) is called from the constructor declaration
+    public NumberLayersSequenceAI(int32 numberOfEnemiesLeft, ArtificialIntelligenceInterface[] artificialIntelligenceInterface, AllBinaryLayer ownerLayerInterface, GameInput gameInput) {
+        base(artificialIntelligenceInterface, ownerLayerInterface, gameInput);
+        this.initFieldsNumberLayersSequenceAI();
         this.numberOfLayersLeft = numberOfEnemiesLeft;
     }
+    
 
-    // throws Exception
-    public override void processAI(AllBinaryLayerManager allBinaryLayerManager)
-    {
+    public override void processAI(AllBinaryLayerManager allBinaryLayerManager) {
         if (this.getIndex() == 0) {
             if (allBinaryLayerManager.getSize() < this.numberOfLayersLeft) {
                 this.setIndex(1);
@@ -42,6 +43,5 @@ public class NumberLayersSequenceAI : SequenceAI
         }
         base.processAI(allBinaryLayerManager);
     }
-
 }
 

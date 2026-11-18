@@ -13,19 +13,17 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.animation.transition
 
-using System;
-using System.Linq;
+public interface AnimationListenerInterface : JObject {
+    
 
-namespace org.allbinary.animation.transition;
+    public abstract void onPlatformAnimationStart();
+    
 
-public interface AnimationListenerInterface
-{
-    void onPlatformAnimationStart();
+    public abstract void onPlatformAnimationEnd();
+    
 
-    void onPlatformAnimationEnd();
-
-    void onPlatformAnimationRepeat();
-
+    public abstract void onPlatformAnimationRepeat();
 }
 

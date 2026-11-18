@@ -13,32 +13,27 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.animation.compound
+// import org.allbinary.animation.Animation
+// import org.allbinary.animation.AnimationBehaviorFactory
+// import org.allbinary.animation.AnimationInterfaceFactoryInterface
+// import org.allbinary.logic.communication.log.ForcedLogUtil
 
-using System;
-using System.Linq;
-using Animation = org.allbinary.animation.Animation;
-using AnimationBehaviorFactory = org.allbinary.animation.AnimationBehaviorFactory;
-using AnimationInterfaceFactoryInterface = org.allbinary.animation.AnimationInterfaceFactoryInterface;
-using ForcedLogUtil = org.allbinary.logic.communication.log.ForcedLogUtil;
+public class SimultaneousCompoundIndexedAnimationInterfaceFactory : CompoundAnimationInterfaceFactory {
+    
 
-namespace org.allbinary.animation.compound;
-
-public class SimultaneousCompoundIndexedAnimationInterfaceFactory : CompoundAnimationInterfaceFactory
-{
-    public SimultaneousCompoundIndexedAnimationInterfaceFactory(AnimationInterfaceFactoryInterface[] basicAnimationInterfaceFactoryInterfaceArray, AnimationBehaviorFactory animationBehaviorFactory) : base(basicAnimationInterfaceFactoryInterfaceArray, animationBehaviorFactory)
-    {
-        // base(basicAnimationInterfaceFactoryInterfaceArray, animationBehaviorFactory) is called from the constructor declaration
+    public SimultaneousCompoundIndexedAnimationInterfaceFactory(AnimationInterfaceFactoryInterface[] basicAnimationInterfaceFactoryInterfaceArray, AnimationBehaviorFactory animationBehaviorFactory) {
+        base(basicAnimationInterfaceFactoryInterfaceArray, animationBehaviorFactory);
     }
+    
 
-    public override Animation[] createArray(int size)
-    {
+    public override Animation[] createArray(int32 size) {
         return new Animation[size];
     }
+    
 
-    public override Animation createAnimation(Animation[] animationArray)
-    {
+    public override Animation createAnimation(Animation[] animationArray) {
         return new SimultaneousCompoundIndexedAnimation(animationArray, this.animationBehaviorFactory.getOrCreateInstance());
     }
-
 }
 

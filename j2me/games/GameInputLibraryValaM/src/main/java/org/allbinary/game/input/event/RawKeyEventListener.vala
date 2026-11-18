@@ -13,15 +13,11 @@
  *   
  */
 // Generated Code Do Not Modify
+// package org.allbinary.game.input.event
 
-using System;
-using System.Linq;
+public interface RawKeyEventListener : JObject {
+    
 
-namespace org.allbinary.game.input.@event;
-
-public interface RawKeyEventListener
-{
-    void onEventRaw(int keyCode, int deviceId, bool repeated);
-
+    public abstract void onEventRaw(int32 keyCode, int32 deviceId, bool repeated);
 }
 

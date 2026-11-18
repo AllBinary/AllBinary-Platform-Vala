@@ -13,19 +13,17 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.input.gyro
+// import org.allbinary.canvas.Processor
 
-using System;
-using System.Linq;
-using Processor = org.allbinary.canvas.Processor;
+public class GyroSensorUpdateProcessor : Processor {
 
-namespace org.allbinary.input.gyro;
-
-public class GyroSensorUpdateProcessor : Processor
-{
-    // throws Exception
-    public override void process()
-    {
+    public GyroSensorUpdateProcessor() {
+        base();
     }
+    
 
+    public override void process() {
+    }
 }
 

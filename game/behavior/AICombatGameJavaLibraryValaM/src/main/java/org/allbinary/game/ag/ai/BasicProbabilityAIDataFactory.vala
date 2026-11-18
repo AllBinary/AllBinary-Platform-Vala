@@ -13,37 +13,37 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.game.ag.ai
+// import javax.microedition.lcdui.Canvas
+// import org.allbinary.logic.math.SmallIntegerSingletonFactory
+// import org.allbinary.time.NoTimeDelayHelper
+// import org.allbinary.util.ABHashtable
 
-using System;
-using System.Linq;
-using Canvas = javax.microedition.lcdui.Canvas;
-using SmallIntegerSingletonFactory = org.allbinary.logic.math.SmallIntegerSingletonFactory;
-using NoTimeDelayHelper = org.allbinary.time.NoTimeDelayHelper;
-using org.allbinary.util;
+public class BasicProbabilityAIDataFactory : JObject {
 
-namespace org.allbinary.game.ag.ai;
+    public BasicProbabilityAIDataFactory() {
+        base();
+    }
+    
 
-public class BasicProbabilityAIDataFactory
-{
-    public virtual ABHashtable<object, object> getInstance()
-    {
-        int?[][] likelyhoodIntegerArray = System.Linq.Enumerable.Range(0, Canvas.KEY_NUM9 + 1).Select(_ => new int?[2]).ToArray();
+    public virtual ABHashtable getInstance() {
+        int32?[,] likelyhoodIntegerArray = new int32?[Canvas.KEY_NUM9 + 1, 2];
         SmallIntegerSingletonFactory smallIntegerSingletonFactory = SmallIntegerSingletonFactory.getInstance();
-        likelyhoodIntegerArray[Canvas.UP][0] = smallIntegerSingletonFactory.getAt(0);
-        likelyhoodIntegerArray[Canvas.UP][1] = smallIntegerSingletonFactory.getAt(10);
-        likelyhoodIntegerArray[Canvas.DOWN][0] = smallIntegerSingletonFactory.getAt(10);
-        likelyhoodIntegerArray[Canvas.DOWN][1] = smallIntegerSingletonFactory.getAt(14);
-        likelyhoodIntegerArray[Canvas.LEFT][0] = smallIntegerSingletonFactory.getAt(14);
-        likelyhoodIntegerArray[Canvas.LEFT][1] = smallIntegerSingletonFactory.getAt(18);
-        likelyhoodIntegerArray[Canvas.RIGHT][0] = smallIntegerSingletonFactory.getAt(18);
-        likelyhoodIntegerArray[Canvas.RIGHT][1] = smallIntegerSingletonFactory.getAt(22);
-        likelyhoodIntegerArray[Canvas.KEY_NUM7][0] = smallIntegerSingletonFactory.getAt(22);
-        likelyhoodIntegerArray[Canvas.KEY_NUM7][1] = smallIntegerSingletonFactory.getAt(26);
-        likelyhoodIntegerArray[Canvas.KEY_NUM9][0] = smallIntegerSingletonFactory.getAt(26);
-        likelyhoodIntegerArray[Canvas.KEY_NUM9][1] = smallIntegerSingletonFactory.getAt(30);
-        likelyhoodIntegerArray[Canvas.KEY_NUM1][0] = smallIntegerSingletonFactory.getAt(30);
-        likelyhoodIntegerArray[Canvas.KEY_NUM1][1] = smallIntegerSingletonFactory.getAt(40);
-        int?[] repeatLikelyhoodIntegerArray = new int?[Canvas.KEY_NUM9 + 1];
+        likelyhoodIntegerArray[Canvas.UP, 0] = smallIntegerSingletonFactory.getAt(0);
+        likelyhoodIntegerArray[Canvas.UP, 1] = smallIntegerSingletonFactory.getAt(10);
+        likelyhoodIntegerArray[Canvas.DOWN, 0] = smallIntegerSingletonFactory.getAt(10);
+        likelyhoodIntegerArray[Canvas.DOWN, 1] = smallIntegerSingletonFactory.getAt(14);
+        likelyhoodIntegerArray[Canvas.LEFT, 0] = smallIntegerSingletonFactory.getAt(14);
+        likelyhoodIntegerArray[Canvas.LEFT, 1] = smallIntegerSingletonFactory.getAt(18);
+        likelyhoodIntegerArray[Canvas.RIGHT, 0] = smallIntegerSingletonFactory.getAt(18);
+        likelyhoodIntegerArray[Canvas.RIGHT, 1] = smallIntegerSingletonFactory.getAt(22);
+        likelyhoodIntegerArray[Canvas.KEY_NUM7, 0] = smallIntegerSingletonFactory.getAt(22);
+        likelyhoodIntegerArray[Canvas.KEY_NUM7, 1] = smallIntegerSingletonFactory.getAt(26);
+        likelyhoodIntegerArray[Canvas.KEY_NUM9, 0] = smallIntegerSingletonFactory.getAt(26);
+        likelyhoodIntegerArray[Canvas.KEY_NUM9, 1] = smallIntegerSingletonFactory.getAt(30);
+        likelyhoodIntegerArray[Canvas.KEY_NUM1, 0] = smallIntegerSingletonFactory.getAt(30);
+        likelyhoodIntegerArray[Canvas.KEY_NUM1, 1] = smallIntegerSingletonFactory.getAt(40);
+        int32?[] repeatLikelyhoodIntegerArray = new int32?[Canvas.KEY_NUM9 + 1];
         repeatLikelyhoodIntegerArray[Canvas.UP] = smallIntegerSingletonFactory.getAt(0);
         repeatLikelyhoodIntegerArray[Canvas.DOWN] = smallIntegerSingletonFactory.getAt(0);
         repeatLikelyhoodIntegerArray[Canvas.LEFT] = smallIntegerSingletonFactory.getAt(0);
@@ -54,6 +54,5 @@ public class BasicProbabilityAIDataFactory
         InputProbability inputProbability = new InputProbability(likelyhoodIntegerArray, repeatLikelyhoodIntegerArray, 42, NoTimeDelayHelper.SINGLETON);
         return inputProbability.toHashtable();
     }
-
 }
 

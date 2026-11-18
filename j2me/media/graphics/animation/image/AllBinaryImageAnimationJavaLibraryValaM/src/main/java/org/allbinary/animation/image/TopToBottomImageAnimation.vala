@@ -13,31 +13,35 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.animation.image
+// import javax.microedition.lcdui.Graphics
+// import javax.microedition.lcdui.Image
+// import javax.microedition.lcdui.game.Sprite
+// import org.allbinary.animation.AnimationBehavior
+// import org.allbinary.graphics.Anchor
 
-using System;
-using System.Linq;
-using Graphics = javax.microedition.lcdui.Graphics;
-using Image = javax.microedition.lcdui.Image;
-using Sprite = javax.microedition.lcdui.game.Sprite;
-using AnimationBehavior = org.allbinary.animation.AnimationBehavior;
-using Anchor = org.allbinary.graphics.Anchor;
+public class TopToBottomImageAnimation : ImageSegmentAnimation {
+    private int32 currentHeight;
+    private int32 anchor;
 
-namespace org.allbinary.animation.image;
+    // Java field initializers run after the base constructor
+    private void initFieldsTopToBottomImageAnimation() {
+    
+    this.anchor = Anchor.TOP_LEFT;
+    }
+    
 
-public class TopToBottomImageAnimation : ImageSegmentAnimation
-{
-    private int currentHeight;
-    public TopToBottomImageAnimation(Image image, int[] sequenceArray, AnimationBehavior animationBehavior) : base(image, sequenceArray, animationBehavior)
-    {
-        // base(image, sequenceArray, animationBehavior) is called from the constructor declaration
+    public TopToBottomImageAnimation(Image image, int32[] sequenceArray, AnimationBehavior animationBehavior) {
+        base(image, sequenceArray, animationBehavior);
+        this.initFieldsTopToBottomImageAnimation();
         this.currentHeight = 0;
         if (this.getSequence()[0] == -1) {
             this.setFrame(this.getSize() - 1);
         }
     }
+    
 
-    public override void nextFrame()
-    {
+    public override void nextFrame() {
         if (this.getSequence()[0] == -1) {
             base.previousFrame();
         } else {
@@ -45,9 +49,9 @@ public class TopToBottomImageAnimation : ImageSegmentAnimation
         }
         this.update();
     }
+    
 
-    public override void previousFrame()
-    {
+    public override void previousFrame() {
         if (this.getSequence()[0] == -1) {
             base.nextFrame();
         } else {
@@ -55,23 +59,21 @@ public class TopToBottomImageAnimation : ImageSegmentAnimation
         }
         this.update();
     }
+    
 
-    public override void setFrame(int index)
-    {
+    public override void setFrame(int32 index) {
         base.setFrame(index);
         this.update();
     }
+    
 
-    private void update()
-    {
+    private void update() {
         this.currentHeight = this.getDrawHeight() * this.getFrame() / this.getSize();
     }
+    
 
-    private int anchor = Anchor.TOP_LEFT;
-    public override void paintXY(Graphics graphics, int x, int y)
-    {
+    public override void paintXY(Graphics graphics, int32 x, int32 y) {
         graphics.drawRegion(this.getImage(), this.getStartX(), this.getStartY(), this.getDrawWidth(), this.currentHeight, Sprite.TRANS_NONE, x, y, this.anchor);
     }
-
 }
 

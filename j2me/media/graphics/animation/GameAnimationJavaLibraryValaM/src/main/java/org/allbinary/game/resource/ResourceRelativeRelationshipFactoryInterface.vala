@@ -13,22 +13,17 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.game.resource
+// import org.allbinary.game.configuration.feature.GameFeatureControlledInterface
+// import org.allbinary.graphics.RelativeRelationship
+// import org.allbinary.util.BasicArrayList
 
-using System;
-using System.Linq;
-using GameFeatureControlledInterface = org.allbinary.game.configuration.feature.GameFeatureControlledInterface;
-using RelativeRelationship = org.allbinary.graphics.RelativeRelationship;
-using BasicArrayList = org.allbinary.util.BasicArrayList;
+public interface ResourceRelativeRelationshipFactoryInterface : JObject, GameFeatureControlledInterface {
+    
 
-namespace org.allbinary.game.resource;
+    public abstract BasicArrayList getResourceRelativeRelationshipList(string resource);
+    
 
-public interface ResourceRelativeRelationshipFactoryInterface : GameFeatureControlledInterface
-{
-    // throws Exception
-    BasicArrayList getResourceRelativeRelationshipList(string resource);
-
-    // throws Exception
-    void addResourceRelativeRelationship(string resource, RelativeRelationship relativeRelationship);
-
+    public abstract void addResourceRelativeRelationship(string resource, RelativeRelationship relativeRelationship);
 }
 

@@ -13,19 +13,14 @@
  *   
  */
 // Generated Code Do Not Modify
+// package org.allbinary.android.input.motion.event
+// import org.allbinary.logic.util.event.AllBinaryEventObject
 
-using System;
-using System.Linq;
-using AllBinaryEventObject = org.allbinary.logic.util.@event.AllBinaryEventObject;
+public class AnalogControllerConfigurationEvent : AllBinaryEventObject {
+    
 
-namespace org.allbinary.android.input.motion.@event;
-
-public class AnalogControllerConfigurationEvent : AllBinaryEventObject
-{
-    public AnalogControllerConfigurationEvent(object anyType) : base(anyType)
-    {
-        // base(anyType) is called from the constructor declaration
+    public AnalogControllerConfigurationEvent(JObject anyType) {
+        base(anyType);
     }
-
 }
 

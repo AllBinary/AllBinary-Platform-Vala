@@ -13,26 +13,27 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.midlet
+// import javax.microedition.midlet.MIDlet
+// import org.allbinary.canvas.Processor
 
-using System;
-using System.Linq;
-using MIDlet = javax.microedition.midlet.MIDlet;
-using Processor = org.allbinary.canvas.Processor;
+public class MidletExitProcessor : Processor {
+    private MIDlet midlet;
 
-namespace org.allbinary.midlet;
+    // Java field initializers run after the base constructor
+    private void initFieldsMidletExitProcessor() {
+    
+    }
+    
 
-public class MidletExitProcessor : Processor
-{
-    private readonly MIDlet midlet;
-    public MidletExitProcessor(MIDlet midlet)
-    {
+    public MidletExitProcessor(MIDlet midlet) {
+        base();
+        this.initFieldsMidletExitProcessor();
         this.midlet = midlet;
     }
+    
 
-    // throws Exception
-    public override void process()
-    {
+    public override void process() {
     }
-
 }
 

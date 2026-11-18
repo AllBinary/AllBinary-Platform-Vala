@@ -13,24 +13,26 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.game.collision
 
-using System;
-using System.Linq;
+public class CollisionType : JObject {
+    private string name;
 
-namespace org.allbinary.game.collision;
+    // Java field initializers run after the base constructor
+    private void initFieldsCollisionType() {
+    
+    }
+    
 
-public class CollisionType
-{
-    private readonly string name;
-    public CollisionType(string name)
-    {
+    public CollisionType(string name) {
+        base();
+        this.initFieldsCollisionType();
         this.name = name;
     }
+    
 
-    public override string ToString()
-    {
+    public override string toString() {
         return this.name;
     }
-
 }
 

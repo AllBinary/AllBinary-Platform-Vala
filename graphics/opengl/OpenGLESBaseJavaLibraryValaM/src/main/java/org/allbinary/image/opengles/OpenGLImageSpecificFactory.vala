@@ -13,35 +13,49 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.image.opengles
+// import org.allbinary.logic.communication.log.PreLogUtil
+// import org.allbinary.logic.string.StringMaker
+// import org.allbinary.logic.string.StringUtil
 
-using System;
-using System.Linq;
-using PreLogUtil = org.allbinary.logic.communication.log.PreLogUtil;
-using StringMaker = org.allbinary.logic.@string.StringMaker;
-using StringUtil = org.allbinary.logic.@string.StringUtil;
-
-namespace org.allbinary.image.opengles;
-
-public class OpenGLImageSpecificFactory
-{
-    private static readonly OpenGLImageSpecificFactory instance = new OpenGLImageSpecificFactory();
-    private OpenGLImageFactory imageFactory = OpenGLImageFactory.NULL_OPENGL_IMAGE_FACTORY;
-    public bool updating = false;
-    public static OpenGLImageSpecificFactory getInstance()
-    {
+public class OpenGLImageSpecificFactory : JObject {
+    private static OpenGLImageSpecificFactory? instance;
+    private static bool staticSet_instance = false;
+    private static OpenGLImageSpecificFactory staticGet_instance() {
+        if (!OpenGLImageSpecificFactory.staticSet_instance) {
+            OpenGLImageSpecificFactory.staticSet_instance = true;
+            OpenGLImageSpecificFactory.instance = new OpenGLImageSpecificFactory();
+        }
         return OpenGLImageSpecificFactory.instance;
     }
+    private OpenGLImageFactory imageFactory;
+    public bool updating;
 
-    public virtual void setImageFactory(OpenGLImageFactory imageFactory)
-    {
-        this.imageFactory = imageFactory;
-        PreLogUtil.put(new StringMaker().append("Selected Image Factory: ").append(StringUtil.getInstance().toString(this.imageFactory)).ToString(), this, "setImageFactory");
+    // Java field initializers run after the base constructor
+    private void initFieldsOpenGLImageSpecificFactory() {
+    this.imageFactory = OpenGLImageFactory.NULL_OPENGL_IMAGE_FACTORY;
+    this.updating = false;
     }
 
-    public virtual OpenGLImageFactory getImageFactory()
-    {
+    public OpenGLImageSpecificFactory() {
+        base();
+        this.initFieldsOpenGLImageSpecificFactory();
+    }
+    
+
+    public static OpenGLImageSpecificFactory getInstance() {
+        return OpenGLImageSpecificFactory.staticGet_instance();
+    }
+    
+
+    public virtual void setImageFactory(OpenGLImageFactory imageFactory) {
+        this.imageFactory = imageFactory;
+        PreLogUtil.put(new StringMaker().append("Selected Image Factory: ").append(StringUtil.getInstance().toString1(this.imageFactory)).toString(), this, "setImageFactory");
+    }
+    
+
+    public virtual OpenGLImageFactory getImageFactory() {
         return this.imageFactory;
     }
-
 }
 

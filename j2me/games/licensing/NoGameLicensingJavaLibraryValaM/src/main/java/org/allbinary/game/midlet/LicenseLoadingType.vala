@@ -13,17 +13,13 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.game.midlet
 
-using System;
-using System.Linq;
+public class LicenseLoadingType : JObject {
+    
 
-namespace org.allbinary.game.midlet;
-
-public class LicenseLoadingType
-{
-    public LicenseLoadingType(string name)
-    {
+    public LicenseLoadingType(string name) {
+        base();
     }
-
 }
 

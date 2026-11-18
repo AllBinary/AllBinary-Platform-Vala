@@ -13,23 +13,18 @@
  *   
  */
 // Generated Code Do Not Modify
+// package org.allbinary.logic.util.cache
 
-using System;
-using System.Linq;
+public class AutomaticCacheInterfaceFactory : JObject {
+    
 
-namespace org.allbinary.logic.util.cache;
-
-public class AutomaticCacheInterfaceFactory
-{
-    private AutomaticCacheInterfaceFactory()
-    {
+    public AutomaticCacheInterfaceFactory() {
+        base();
     }
+    
 
-    // throws Exception
-    public static AutomaticCacheInterface getInstance(CacheableInterfaceFactoryInterface cacheableInterfaceFactoryInterface, CacheType cacheType, CachePolicy cachePolicy)
-    {
-        throw new Exception("No such " + cacheType.ToString());
+    public static AutomaticCacheInterface getInstance3(CacheableInterfaceFactoryInterface cacheableInterfaceFactoryInterface, CacheType cacheType, CachePolicy cachePolicy) {
+        JSystem.fatal(new JException("Exception", JString.ofString("No such ") + JString.ofString(cacheType.toString())));
     }
-
 }
 

@@ -13,72 +13,76 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.animation
+// import org.allbinary.graphics.GPoint
+// import org.allbinary.util.BasicArrayList
 
-using System;
-using System.Linq;
-using GPoint = org.allbinary.graphics.GPoint;
-using BasicArrayList = org.allbinary.util.BasicArrayList;
-
-namespace org.allbinary.animation;
-
-public class VectorAnimationUtil
-{
-    private static readonly VectorAnimationUtil instance = new VectorAnimationUtil();
-    public static VectorAnimationUtil getInstance()
-    {
+public class VectorAnimationUtil : JObject {
+    private static VectorAnimationUtil? instance;
+    private static bool staticSet_instance = false;
+    private static VectorAnimationUtil staticGet_instance() {
+        if (!VectorAnimationUtil.staticSet_instance) {
+            VectorAnimationUtil.staticSet_instance = true;
+            VectorAnimationUtil.instance = new VectorAnimationUtil();
+        }
         return VectorAnimationUtil.instance;
     }
+    
 
-    private VectorAnimationUtil()
-    {
+    public static VectorAnimationUtil getInstance() {
+        return VectorAnimationUtil.staticGet_instance();
     }
+    
 
-    public virtual int[][][] toAnimationArrayFromListOfPointListWithPointsPerFrame(BasicArrayList vector, int pointsPerFrame)
-    {
-        int size = vector.size();
-        int[][][] points = System.Linq.Enumerable.Range(0, size).Select(_ => System.Linq.Enumerable.Range(0, pointsPerFrame).Select(_ => new int[2]).ToArray()).ToArray();
+    public VectorAnimationUtil() {
+        base();
+    }
+    
+
+    public virtual int32[,,] toAnimationArrayFromListOfPointListWithPointsPerFrame(BasicArrayList vector, int32 pointsPerFrame) {
+        int32 size = vector.size();
+        int32[,,] points = new int32[size, pointsPerFrame, 2];
         BasicArrayList nextBasicArrayList = null;
-        int[][] framePoints = null;
-        for (int index = 0; index < size; index++) {
+        int32[,] framePoints = null;
+        for (int32 index = 0; index < size; index++) {
             nextBasicArrayList = ((BasicArrayList) vector.objectArray[index]);
             framePoints = this.toFrameArrayFromPointBasicArrayList(nextBasicArrayList);
-            for (int pointIndex = 0; pointIndex < framePoints.Length; pointIndex++) {
-                points[index][pointIndex][0] = framePoints[pointIndex][0];
-                points[index][pointIndex][1] = framePoints[pointIndex][1];
+            for (int32 pointIndex = 0; pointIndex < framePoints.length[0]; pointIndex++) {
+                points[index, pointIndex, 0] = framePoints[pointIndex, 0];
+                points[index, pointIndex, 1] = framePoints[pointIndex, 1];
             }
         }
         return points;
     }
+    
 
-    public virtual int[][][] toAnimationArrayFromListOfPointList(BasicArrayList vector)
-    {
-        int size = vector.size();
-        int[][][] points = System.Linq.Enumerable.Range(0, size).Select(_ => System.Linq.Enumerable.Range(0, 0).Select(_ => new int[0]).ToArray()).ToArray();
+    public virtual int32[,,] toAnimationArrayFromListOfPointList(BasicArrayList vector) {
+        int32 size = vector.size();
+        int32[,,] points = new int32[size, 0, 0];
         BasicArrayList nextBasicArrayList = null;
-        int[][] framePoints = null;
-        for (int index = 0; index < size; index++) {
+        int32[,] framePoints = null;
+        for (int32 index = 0; index < size; index++) {
             nextBasicArrayList = ((BasicArrayList) vector.objectArray[index]);
             framePoints = this.toFrameArrayFromPointBasicArrayList(nextBasicArrayList);
-            points[index] = System.Linq.Enumerable.Range(0, framePoints.Length).Select(_ => new int[2]).ToArray();
-            for (int pointIndex = 0; pointIndex < framePoints.Length; pointIndex++) {
-                points[index][pointIndex][0] = framePoints[pointIndex][0];
-                points[index][pointIndex][1] = framePoints[pointIndex][1];
+            points[index] = new int32[framePoints.length[0], 2];
+            for (int32 pointIndex = 0; pointIndex < framePoints.length[0]; pointIndex++) {
+                points[index, pointIndex, 0] = framePoints[pointIndex, 0];
+                points[index, pointIndex, 1] = framePoints[pointIndex, 1];
             }
         }
         return points;
     }
+    
 
-    public virtual int[][] toFrameArrayFromPointBasicArrayList(BasicArrayList list)
-    {
-        int[][] points = System.Linq.Enumerable.Range(0, list.size()).Select(_ => new int[2]).ToArray();
-        int size = list.size();
-        for (int index = 0; index < size; index++) {
+    public virtual int32[,] toFrameArrayFromPointBasicArrayList(BasicArrayList list) {
+        int32[,] points = new int32[list.size(), 2];
+        int32 size = list.size();
+        for (int32 index = 0; index < size; index++) {
             GPoint nextPoint = ((GPoint) list.objectArray[index]);
-            points[index][0] = nextPoint.getX();
-            points[index][1] = nextPoint.getY();
+            points[index, 0] = nextPoint.getX();
+            points[index, 1] = nextPoint.getY();
         }
         return points;
     }
-
 }
 

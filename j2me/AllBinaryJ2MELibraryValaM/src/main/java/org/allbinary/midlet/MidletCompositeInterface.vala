@@ -13,21 +13,19 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.midlet
+// import javax.microedition.lcdui.Displayable
+// import javax.microedition.midlet.MIDlet
 
-using System;
-using System.Linq;
-using Displayable = javax.microedition.lcdui.Displayable;
-using MIDlet = javax.microedition.midlet.MIDlet;
+public interface MidletCompositeInterface : JObject {
+    
 
-namespace org.allbinary.midlet;
+    public abstract void setMidlet(MIDlet midlet);
+    
 
-public interface MidletCompositeInterface
-{
-    void setMidlet(MIDlet midlet);
+    public abstract AllBinaryMidlet getMidlet();
+    
 
-    AllBinaryMidlet getMidlet();
-
-    Displayable getDisplayable();
-
+    public abstract Displayable getDisplayable();
 }
 

@@ -13,17 +13,14 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.vector
 
-using System;
-using System.Linq;
+public interface VectorInterface : JObject {
+    
 
-namespace org.allbinary.vector;
+    public abstract int32[,] getPoints(int32 frame);
+    
 
-public interface VectorInterface
-{
-    int[][] getPoints(int frame);
-
-    void setPoints(int[][][] currentPoints);
-
+    public abstract void setPoints(int32[,,] currentPoints);
 }
 

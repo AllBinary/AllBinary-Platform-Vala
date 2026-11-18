@@ -13,28 +13,29 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.game.ag.layer.weapon.mine
+// import org.allbinary.layer.AllBinaryLayer
+// import org.allbinary.layer.AllBinaryLayerFactoryInterface
+// import org.allbinary.view.ViewPositionFactoryInterface
 
-using System;
-using System.Linq;
-using AllBinaryLayer = org.allbinary.layer.AllBinaryLayer;
-using AllBinaryLayerFactoryInterface = org.allbinary.layer.AllBinaryLayerFactoryInterface;
-using ViewPositionFactoryInterface = org.allbinary.view.ViewPositionFactoryInterface;
-
-namespace org.allbinary.game.ag.layer.weapon.mine;
-
-public class MineLayerFactory : AllBinaryLayerFactoryInterface
-{
+public class MineLayerFactory : JObject, AllBinaryLayerFactoryInterface {
     private ViewPositionFactoryInterface viewPositionFactoryInterface;
-    public MineLayerFactory(ViewPositionFactoryInterface viewPositionFactoryInterface)
-    {
+
+    // Java field initializers run after the base constructor
+    private void initFieldsMineLayerFactory() {
+    
+    }
+    
+
+    public MineLayerFactory(ViewPositionFactoryInterface viewPositionFactoryInterface) {
+        base();
+        this.initFieldsMineLayerFactory();
         this.viewPositionFactoryInterface = viewPositionFactoryInterface;
     }
+    
 
-    // throws Exception
-    public virtual AllBinaryLayer getInstance()
-    {
+    public virtual AllBinaryLayer getInstance() {
         return new MineLayer(this.viewPositionFactoryInterface.getInstance());
     }
-
 }
 

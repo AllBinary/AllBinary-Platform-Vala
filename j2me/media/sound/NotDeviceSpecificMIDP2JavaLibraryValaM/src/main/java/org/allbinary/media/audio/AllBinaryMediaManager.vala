@@ -13,69 +13,62 @@
  *  
  */
 // Generated Code Do Not Modify
-
-using System;
-using System.Linq;
-using System.Runtime.CompilerServices;
-using InputStream = java.io.InputStream;
-using Manager = javax.microedition.media.Manager;
-using MediaException = javax.microedition.media.MediaException;
-using Player = javax.microedition.media.Player;
-using MIDPUtil = org.allbinary.MIDPUtil;
-using TsUtil = org.allbinary.TsUtil;
-using AudioContentTypeDataFactory = org.allbinary.audio.AudioContentTypeDataFactory;
-using ResourceUtil = org.allbinary.data.resource.ResourceUtil;
-using Features = org.allbinary.game.configuration.feature.Features;
-using GameFeatureFactory = org.allbinary.game.configuration.feature.GameFeatureFactory;
-using ProgressCanvasFactory = org.allbinary.graphics.canvas.transition.progress.ProgressCanvasFactory;
-using LogUtil = org.allbinary.logic.communication.log.LogUtil;
-using CommonStrings = org.allbinary.@string.CommonStrings;
-
-namespace org.allbinary.media.audio;
+// package org.allbinary.media.audio
+// import java.io.InputStream
+// import javax.microedition.media.Manager
+// import javax.microedition.media.MediaException
+// import javax.microedition.media.Player
+// import org.allbinary.MIDPUtil
+// import org.allbinary.TsUtil
+// import org.allbinary.audio.AudioContentTypeDataFactory
+// import org.allbinary.data.resource.ResourceUtil
+// import org.allbinary.game.configuration.feature.Features
+// import org.allbinary.game.configuration.feature.GameFeatureFactory
+// import org.allbinary.graphics.canvas.transition.progress.ProgressCanvasFactory
+// import org.allbinary.logic.communication.log.LogUtil
+// import org.allbinary.string.CommonStrings
 
 //NotDeviceSpecificMIDP2JavaLibrary
-public class AllBinaryMediaManager
-{
+public class AllBinaryMediaManager : JObject {
     private const string THIS = "AllBinaryMediaManagerNoMIPD2";
-    private AllBinaryMediaManager()
-    {
-    }
+    
 
-    public static bool isMuted()
-    {
+    public AllBinaryMediaManager() {
+        base();
+    }
+    
+
+    public static bool isMuted() {
         return false;
     }
+    
 
-    public static void setMuted(bool aMuted)
-    {
+    public static void setMuted(bool aMuted) {
     }
+    
 
-    public static bool update()
-    {
+    public static bool update() {
         return true;
     }
+    
 
-    // throws Exception
-    public static void init(SoundsFactoryInterface soundsFactoryInterface)
-    {
+    public static void init(SoundsFactoryInterface soundsFactoryInterface) {
         LogUtil logUtil = LogUtil.getInstance();
         CommonStrings commonString = CommonStrings.getInstance();
-        logUtil.putF(commonString.START, AllBinaryMediaManager.THIS, commonString.INIT);
+        logUtil.putF(commonString.START, JString.box(AllBinaryMediaManager.THIS), commonString.INIT);
         ProgressCanvasFactory.getInstance().addNormalPortion(50, "Media Manager");
         new Sounds(soundsFactoryInterface).init();
     }
+    
 
-    // throws Exception
-    public static void shutdown(SoundsFactoryInterface soundsFactoryInterface)
-    {
+    public static void shutdown(SoundsFactoryInterface soundsFactoryInterface) {
         new Sounds(soundsFactoryInterface).stopAll();
         new Sounds(soundsFactoryInterface).closeAll();
         TsUtil.getInstance().gc();
     }
+    
 
-    // throws Exception
-    public static Player createPlayer(string resource)
-    {
+    public static Player createPlayer(string resource) {
         if (Features.getInstance().isFeature(GameFeatureFactory.getInstance().SOUND)) {
             if (TsUtil.getInstance().compareTo(resource, Manager.TONE_DEVICE_LOCATOR) == 0) {
                 return Manager.createPlayer(resource);
@@ -87,15 +80,12 @@ public class AllBinaryMediaManager
             return NoPlayer.NO_PLAYER;
         }
     }
+    
 
-    // throws MediaException
-    [MethodImpl(MethodImplOptions.Synchronized)]
-    public static void playTone(int frequency, int time, int volume)
-    {
+    public static void playTone(int32 frequency, int32 time, int32 volume) {
         if (Features.getInstance().isFeature(GameFeatureFactory.getInstance().SOUND)) {
             Manager.playTone(frequency, time, volume);
         }
     }
-
 }
 

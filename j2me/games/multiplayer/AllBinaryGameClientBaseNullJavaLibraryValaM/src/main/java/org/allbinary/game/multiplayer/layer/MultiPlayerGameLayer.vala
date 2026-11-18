@@ -13,40 +13,35 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.game.multiplayer.layer
+// import org.allbinary.game.identification.Group
+// import org.allbinary.game.layer.special.CollidableDestroyableDamageableLayer
+// import org.allbinary.graphics.Rectangle
+// import org.allbinary.view.ViewPositionBase
 
-using System;
-using System.Linq;
-using Group = org.allbinary.game.identification.Group;
-using CollidableDestroyableDamageableLayer = org.allbinary.game.layer.special.CollidableDestroyableDamageableLayer;
-using Rectangle = org.allbinary.graphics.Rectangle;
-using ViewPositionBase = org.allbinary.view.ViewPositionBase;
+public class MultiPlayerGameLayer : CollidableDestroyableDamageableLayer, MultiPlayerGameLayerInterface {
+    
 
-namespace org.allbinary.game.multiplayer.layer;
-
-public class MultiPlayerGameLayer : CollidableDestroyableDamageableLayer, MultiPlayerGameLayerInterface
-{
-    public MultiPlayerGameLayer(RemoteInfo remoteInfo, Group[] groupInterface, string name, Rectangle layerInfo, ViewPositionBase viewPosition) : base(groupInterface, name, layerInfo, viewPosition)
-    {
-        // base(groupInterface, name, layerInfo, viewPosition) is called from the constructor declaration
+    public MultiPlayerGameLayer(RemoteInfo remoteInfo, Group[] groupInterface, string name, Rectangle layerInfo, ViewPositionBase viewPosition) {
+        base(groupInterface, name, layerInfo, viewPosition);
     }
+    
 
-    public virtual MultiplayerBehavior getMultiplayerBehavior()
-    {
+    public virtual MultiplayerBehavior getMultiplayerBehavior() {
         return MultiplayerBehavior.NULL_MULTIPLAYER_BEHAVIOR;
     }
+    
 
-    public virtual void setPingInfo(bool show)
-    {
+    public virtual void setPingInfo(bool show) {
     }
+    
 
-    public virtual void setFiring(short firing)
-    {
+    public virtual void setFiring(int16 firing) {
     }
+    
 
-    public virtual short getFiring()
-    {
+    public virtual int16 getFiring() {
         return 0;
     }
-
 }
 

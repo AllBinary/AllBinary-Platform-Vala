@@ -13,23 +13,27 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.thirdparty.store
 
-using System;
-using System.Linq;
-
-namespace org.allbinary.thirdparty.store;
-
-public class ThirdPartyStoreFactory
-{
-    private static readonly NoThirdPartyStore instance = new NoThirdPartyStore();
-    public static ThirdPartyStore getInstance()
-    {
+public class ThirdPartyStoreFactory : JObject {
+    private static NoThirdPartyStore? instance;
+    private static bool staticSet_instance = false;
+    private static NoThirdPartyStore staticGet_instance() {
+        if (!ThirdPartyStoreFactory.staticSet_instance) {
+            ThirdPartyStoreFactory.staticSet_instance = true;
+            ThirdPartyStoreFactory.instance = new NoThirdPartyStore();
+        }
         return ThirdPartyStoreFactory.instance;
     }
+    
 
-    private ThirdPartyStoreFactory()
-    {
+    public static ThirdPartyStore getInstance() {
+        return ThirdPartyStoreFactory.staticGet_instance();
     }
+    
 
+    public ThirdPartyStoreFactory() {
+        base();
+    }
 }
 

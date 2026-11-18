@@ -13,20 +13,19 @@
  *  
  */
 // Generated Code Do Not Modify
-
-using System;
-using System.Linq;
-using StringUtil = org.allbinary.logic.@string.StringUtil;
-
-namespace org.allbinary.system;
+// package org.allbinary.system
+// import org.allbinary.logic.string.StringUtil
 
 //ActualPlatform
-public class Memory
-{
-    public static string getInfo()
-    {
+public class Memory : JObject {
+
+    public Memory() {
+        base();
+    }
+    
+
+    public static string getInfo() {
         return StringUtil.getInstance().EMPTY_STRING;
     }
-
 }
 

@@ -13,25 +13,24 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.business.advertisement
 
-using System;
-using System.Linq;
+public class AdvertisementProcessorInterface : JObject {
 
-namespace org.allbinary.business.advertisement;
-
-public class AdvertisementProcessorInterface
-{
-    public virtual void process()
-    {
+    public AdvertisementProcessorInterface() {
+        base();
     }
+    
 
-    public virtual void start()
-    {
+    public virtual void process() {
     }
+    
 
-    public virtual void stop()
-    {
+    public virtual void start() {
     }
+    
 
+    public virtual void stop() {
+    }
 }
 

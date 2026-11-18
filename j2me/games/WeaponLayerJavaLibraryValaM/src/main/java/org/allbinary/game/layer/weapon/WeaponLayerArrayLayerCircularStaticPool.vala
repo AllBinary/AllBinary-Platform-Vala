@@ -13,32 +13,50 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.game.layer.weapon
+// import org.allbinary.util.CircularIndexUtil
 
-using System;
-using System.Linq;
-using CircularIndexUtil = org.allbinary.util.CircularIndexUtil;
-
-namespace org.allbinary.game.layer.weapon;
-
-public class WeaponLayerArrayLayerCircularStaticPool
-{
-    private static readonly WeaponLayerArrayLayerCircularStaticPool instance = new WeaponLayerArrayLayerCircularStaticPool();
-    public static WeaponLayerArrayLayerCircularStaticPool getInstance()
-    {
+public class WeaponLayerArrayLayerCircularStaticPool : JObject {
+    private static WeaponLayerArrayLayerCircularStaticPool? instance;
+    private static bool staticSet_instance = false;
+    private static WeaponLayerArrayLayerCircularStaticPool staticGet_instance() {
+        if (!WeaponLayerArrayLayerCircularStaticPool.staticSet_instance) {
+            WeaponLayerArrayLayerCircularStaticPool.staticSet_instance = true;
+            WeaponLayerArrayLayerCircularStaticPool.instance = new WeaponLayerArrayLayerCircularStaticPool();
+        }
         return WeaponLayerArrayLayerCircularStaticPool.instance;
     }
-
-    private readonly int MAX = 5;
+    private int32 MAX_;
     private CircularIndexUtil circularIndexUtil;
-    private WeaponLayer[][] WEAPONLAYER_ARRAY = null;
-    private WeaponLayer[][] TWO_WEAPONLAYER_ARRAY = null;
-    private WeaponLayer[][] THREE_WEAPONLAYER_ARRAY = null;
-    public virtual void init()
-    {
-        WeaponLayer[][] WEAPONLAYER_ARRAY = new WeaponLayer[this.MAX * 2][];
-        WeaponLayer[][] TWO_WEAPONLAYER_ARRAY = new WeaponLayer[this.MAX][];
-        WeaponLayer[][] THREE_WEAPONLAYER_ARRAY = new WeaponLayer[this.MAX][];
-        for (int index = 0; index < this.MAX; index++) {
+    private WeaponLayer[,] WEAPONLAYER_ARRAY;
+    private WeaponLayer[,] TWO_WEAPONLAYER_ARRAY;
+    private WeaponLayer[,] THREE_WEAPONLAYER_ARRAY;
+
+    // Java field initializers run after the base constructor
+    private void initFieldsWeaponLayerArrayLayerCircularStaticPool() {
+    this.MAX_ = 5;
+    this.circularIndexUtil = CircularIndexUtil.createInstance(this.MAX_);
+    this.WEAPONLAYER_ARRAY = null;
+    this.TWO_WEAPONLAYER_ARRAY = null;
+    this.THREE_WEAPONLAYER_ARRAY = null;
+    }
+
+    public WeaponLayerArrayLayerCircularStaticPool() {
+        base();
+        this.initFieldsWeaponLayerArrayLayerCircularStaticPool();
+    }
+    
+
+    public static WeaponLayerArrayLayerCircularStaticPool getInstance() {
+        return WeaponLayerArrayLayerCircularStaticPool.staticGet_instance();
+    }
+    
+
+    public virtual void init() {
+        WeaponLayer[,] WEAPONLAYER_ARRAY = new WeaponLayer[this.MAX_ * 2, 0];
+        WeaponLayer[,] TWO_WEAPONLAYER_ARRAY = new WeaponLayer[this.MAX_, 0];
+        WeaponLayer[,] THREE_WEAPONLAYER_ARRAY = new WeaponLayer[this.MAX_, 0];
+        for (int32 index = 0; index < this.MAX_; index++) {
             WEAPONLAYER_ARRAY[index] = new WeaponLayer[1];
             TWO_WEAPONLAYER_ARRAY[index] = new WeaponLayer[2];
             THREE_WEAPONLAYER_ARRAY[index] = new WeaponLayer[3];
@@ -47,9 +65,9 @@ public class WeaponLayerArrayLayerCircularStaticPool
         this.TWO_WEAPONLAYER_ARRAY = TWO_WEAPONLAYER_ARRAY;
         this.THREE_WEAPONLAYER_ARRAY = THREE_WEAPONLAYER_ARRAY;
     }
+    
 
-    private WeaponLayer[][] getWeaponLayerArrays(int size)
-    {
+    private WeaponLayer[,] getWeaponLayerArrays(int32 size) {
         if (size == 1) {
             return this.WEAPONLAYER_ARRAY;
         } else if (size == 2) {
@@ -57,21 +75,14 @@ public class WeaponLayerArrayLayerCircularStaticPool
         } else if (size == 3) {
             return this.THREE_WEAPONLAYER_ARRAY;
         }
-        throw new SystemException();
+        JSystem.fatal(new JException("RuntimeException", ""));
     }
+    
 
-    // throws Exception
-    public virtual WeaponLayer[] getInstanceArray(int size)
-    {
+    public virtual WeaponLayer[] getInstanceArray(int32 size) {
         WeaponLayer[] weaponLayerArray = this.getWeaponLayerArrays(size)[this.circularIndexUtil.getIndex()];
         this.circularIndexUtil.next();
         return weaponLayerArray;
     }
-
-    public WeaponLayerArrayLayerCircularStaticPool()
-    {
-        this.circularIndexUtil = CircularIndexUtil.createInstance(this.MAX);
-    }
-
 }
 

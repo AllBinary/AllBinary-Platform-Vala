@@ -13,35 +13,30 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.game.ag.layer.pickup.life
+// import javax.microedition.lcdui.Graphics
+// import org.allbinary.game.ag.life.Life
+// import org.allbinary.game.ag.life.LifeVisitorInterface
+// import org.allbinary.graphics.PointFactory
+// import org.allbinary.graphics.Rectangle
+// import org.allbinary.layer.AllBinaryLayer
+// import org.allbinary.logic.string.StringUtil
+// import org.allbinary.view.ViewPosition
 
-using System;
-using System.Linq;
-using Graphics = javax.microedition.lcdui.Graphics;
-using Life = org.allbinary.game.ag.life.Life;
-using LifeVisitorInterface = org.allbinary.game.ag.life.LifeVisitorInterface;
-using PointFactory = org.allbinary.graphics.PointFactory;
-using Rectangle = org.allbinary.graphics.Rectangle;
-using AllBinaryLayer = org.allbinary.layer.AllBinaryLayer;
-using StringUtil = org.allbinary.logic.@string.StringUtil;
-using ViewPosition = org.allbinary.view.ViewPosition;
+public class LifeLayer : AllBinaryLayer, LifeVisitorInterface {
+    
 
-namespace org.allbinary.game.ag.layer.pickup.life;
-
-public class LifeLayer : AllBinaryLayer, LifeVisitorInterface
-{
-    public LifeLayer() : base(StringUtil.getInstance().EMPTY_STRING, new Rectangle(PointFactory.getInstance().ZERO_ZERO, 0, 0), ViewPosition.getInstanceD())
-    {
-        // base(StringUtil.getInstance().EMPTY_STRING, new Rectangle(PointFactory.getInstance().ZERO_ZERO, 0, 0), ViewPosition.getInstanceD()) is called from the constructor declaration
+    public LifeLayer() {
+        base(StringUtil.getInstance().EMPTY_STRING, new Rectangle(PointFactory.getInstance().ZERO_ZERO, 0, 0), ViewPosition.getInstanceD());
     }
+    
 
-    public override void paint(Graphics graphics)
-    {
+    public override void paint(Graphics graphics) {
     }
+    
 
-    public virtual void visit(Life lifeInterface)
-    {
-        lifeInterface.add(((short) 1));
+    public virtual void visit(Life lifeInterface) {
+        lifeInterface.add(((int16) (1)));
     }
-
 }
 

@@ -13,43 +13,48 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.game.score.displayable
+// import javax.microedition.lcdui.CommandListener
+// import javax.microedition.lcdui.Font
+// import javax.microedition.lcdui.Graphics
+// import javax.microedition.lcdui.TextField
+// import org.allbinary.PostGameCommandFactory
+// import org.allbinary.game.GameInfo
+// import org.allbinary.game.score.HighScore
+// import org.allbinary.game.score.HighScoresHelperBaseInterface
+// import org.allbinary.game.score.HighScoresFactoryInterface
+// import org.allbinary.graphics.color.BasicColor
+// import org.allbinary.graphics.color.BasicColorFactory
+// import org.allbinary.graphics.form.item.CustomTextBox
+// import org.allbinary.graphics.paint.NullPaintable
+// import org.allbinary.graphics.paint.Paintable
+// import org.allbinary.graphics.paint.SimpleTextPaintable
+// import org.allbinary.input.event.VirtualKeyboardEventHandler
+// import org.allbinary.logic.system.os.GenericOperatingSystem
+// import org.allbinary.logic.system.os.OperatingSystemFactory
+// import org.allbinary.logic.system.security.licensing.AbeClientInformationInterface
+// import org.allbinary.logic.system.security.licensing.InApplicationPurchaseFactory
 
-using System;
-using System.Linq;
-using CommandListener = javax.microedition.lcdui.CommandListener;
-using Font = javax.microedition.lcdui.Font;
-using Graphics = javax.microedition.lcdui.Graphics;
-using TextField = javax.microedition.lcdui.TextField;
-using PostGameCommandFactory = org.allbinary.PostGameCommandFactory;
-using GameInfo = org.allbinary.game.GameInfo;
-using HighScore = org.allbinary.game.score.HighScore;
-using HighScoresHelperBaseInterface = org.allbinary.game.score.HighScoresHelperBaseInterface;
-using HighScoresFactoryInterface = org.allbinary.game.score.HighScoresFactoryInterface;
-using BasicColor = org.allbinary.graphics.color.BasicColor;
-using BasicColorFactory = org.allbinary.graphics.color.BasicColorFactory;
-using CustomTextBox = org.allbinary.graphics.form.item.CustomTextBox;
-using NullPaintable = org.allbinary.graphics.paint.NullPaintable;
-using Paintable = org.allbinary.graphics.paint.Paintable;
-using SimpleTextPaintable = org.allbinary.graphics.paint.SimpleTextPaintable;
-using VirtualKeyboardEventHandler = org.allbinary.input.@event.VirtualKeyboardEventHandler;
-using GenericOperatingSystem = org.allbinary.logic.system.os.GenericOperatingSystem;
-using OperatingSystemFactory = org.allbinary.logic.system.os.OperatingSystemFactory;
-using AbeClientInformationInterface = org.allbinary.logic.system.security.licensing.AbeClientInformationInterface;
-using InApplicationPurchaseFactory = org.allbinary.logic.system.security.licensing.InApplicationPurchaseFactory;
+public class HighScoreTextBox : CustomTextBox {
+    private VirtualKeyboardEventHandler virtualKeyboardEventHandler;
+    private HighScoreUtil highScoreUtil;
+    private Paintable pleaseWait;
+    private Paintable paintable;
+    public bool submitted;
 
-namespace org.allbinary.game.score.displayable;
+    // Java field initializers run after the base constructor
+    private void initFieldsHighScoreTextBox() {
+    this.virtualKeyboardEventHandler = VirtualKeyboardEventHandler.getInstance();
+    
+    this.pleaseWait = new SimpleTextPaintable(this.commonStrings.PLEASE_WAIT, BasicColorFactory.getInstance().WHITE);
+    this.paintable = NullPaintable.getInstance();
+    this.submitted = false;
+    }
+    
 
-public class HighScoreTextBox : CustomTextBox
-{
-    private readonly VirtualKeyboardEventHandler virtualKeyboardEventHandler = VirtualKeyboardEventHandler.getInstance();
-    private readonly HighScoreUtil highScoreUtil;
-    private readonly Paintable pleaseWait;
-    private Paintable paintable = NullPaintable.getInstance();
-    public bool submitted = false;
-    public HighScoreTextBox(HighScoresFactoryInterface highScoresFactoryInterface, HighScoresHelperBaseInterface highScoresHelper, AbeClientInformationInterface abeClientInformation, GameInfo gameInfo, CommandListener cmdListener, string name, HighScore highScore, BasicColor backgrounBasicColor, BasicColor foregroundBasicColor) : base(cmdListener, "New High Score Enter Name:", name, 12, TextField.ANY, Font.getDefaultFont(), backgrounBasicColor, foregroundBasicColor)
-    {
-        this.pleaseWait = new SimpleTextPaintable(this.commonStrings.PLEASE_WAIT, BasicColorFactory.getInstance().WHITE);
-        // base(cmdListener, "New High Score Enter Name:", name, 12, TextField.ANY, Font.getDefaultFont(), backgrounBasicColor, foregroundBasicColor) is called from the constructor declaration
+    public HighScoreTextBox(HighScoresFactoryInterface highScoresFactoryInterface, HighScoresHelperBaseInterface highScoresHelper, AbeClientInformationInterface abeClientInformation, GameInfo gameInfo, CommandListener cmdListener, string name, HighScore highScore, BasicColor backgrounBasicColor, BasicColor foregroundBasicColor) {
+        base(cmdListener, "New High Score Enter Name:", name, 12, TextField.ANY, Font.getDefaultFont(), backgrounBasicColor, foregroundBasicColor);
+        this.initFieldsHighScoreTextBox();
         this.highScoreUtil = new HighScoreUtil(highScoresFactoryInterface, highScoresHelper, abeClientInformation, gameInfo, cmdListener, name, highScore);
         GenericOperatingSystem operatingSystemInterface = OperatingSystemFactory.getInstance().getOperatingSystemInstance();
         if (operatingSystemInterface.isOverScan()) {
@@ -57,25 +62,24 @@ public class HighScoreTextBox : CustomTextBox
             this.getTextFieldItem().setString(username);
         }
     }
+    
 
-    public override void initCommands(CommandListener cmdListener)
-    {
+    public override void initCommands(CommandListener cmdListener) {
         this.removeAllCommands();
-        PostGameCommandFactory.getInstance().addCommands(this);
+        PostGameCommandFactory.getInstance().addCommands_1_MyCanvas(this);
         this.addCommand(HighScoreUtil.SUBMIT_TEXTBOX_COMMAND);
         this.setCommandListener(cmdListener);
     }
+    
 
-    public override void open()
-    {
+    public override void open() {
         this.virtualKeyboardEventHandler.open();
         this.paintable = NullPaintable.getInstance();
         base.open();
     }
+    
 
-    // throws Exception
-    public override void close()
-    {
+    public override void close() {
         this.virtualKeyboardEventHandler.close();
         this.paintable = this.pleaseWait;
         this.repaintBehavior.onChangeRepaint(this);
@@ -89,30 +93,28 @@ public class HighScoreTextBox : CustomTextBox
         this.paintable = NullPaintable.getInstance();
         this.repaintBehavior.onChangeRepaint(this);
     }
+    
 
-    // throws Exception
-    public override void update()
-    {
+    public override void update() {
         string name = this.getTextFieldItem().getString();
         this.highScoreUtil.update(name);
         base.update();
     }
+    
 
-    public override void paint(Graphics graphics)
-    {
+    public override void paint(Graphics graphics) {
         base.paint(graphics);
         this.paintable.paint(graphics);
     }
+    
 
-    public virtual void saveHighScore()
-    {
+    public virtual void saveHighScore() {
         this.highScoreUtil.saveHighScore();
     }
+    
 
-    public override void submit()
-    {
+    public override void submit() {
         this.highScoreUtil.submit(this);
     }
-
 }
 

@@ -13,54 +13,71 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.input.motion
+// import org.allbinary.graphics.CustomGPoint
+// import org.allbinary.graphics.GPointCircularPool
+// import org.allbinary.input.motion.button.TouchButtonRecognizer
+// import org.allbinary.input.motion.gesture.MotionGestureRecognizer
+// import org.allbinary.logic.communication.log.LogUtil
 
-using System;
-using System.Linq;
-using CustomGPoint = org.allbinary.graphics.CustomGPoint;
-using GPointCircularPool = org.allbinary.graphics.GPointCircularPool;
-using TouchButtonRecognizer = org.allbinary.input.motion.button.TouchButtonRecognizer;
-using MotionGestureRecognizer = org.allbinary.input.motion.gesture.MotionGestureRecognizer;
-using LogUtil = org.allbinary.logic.communication.log.LogUtil;
+public class AllMotionRecognizer : MotionRecognizer {
+    private static int32 index = 0;
+    private static GPointCircularPool? pointCircularPool;
+    private static bool staticSet_pointCircularPool = false;
+    private static GPointCircularPool staticGet_pointCircularPool() {
+        if (!AllMotionRecognizer.staticSet_pointCircularPool) {
+            AllMotionRecognizer.staticSet_pointCircularPool = true;
+            AllMotionRecognizer.pointCircularPool = new GPointCircularPool(40);
+        }
+        return AllMotionRecognizer.pointCircularPool;
+    }
+    public LogUtil logUtil;
+    private MotionGestureRecognizer motionGestureRecognizer;
+    private bool touchButtonProcessing;
+    private TouchButtonRecognizer touchButtonRecognizer;
+    private int32 id;
+    private int32 lastX;
+    private int32 lastY;
 
-namespace org.allbinary.input.motion;
+    // Java field initializers run after the base constructor
+    private void initFieldsAllMotionRecognizer() {
+    this.logUtil = LogUtil.getInstance();
+    
+    this.touchButtonProcessing = false;
+    
+    
+    this.lastX = 0;
+    this.lastY = 0;
+    }
+    
 
-public class AllMotionRecognizer : MotionRecognizer
-{
-    public readonly LogUtil logUtil = LogUtil.getInstance();
-    private readonly MotionGestureRecognizer motionGestureRecognizer;
-    private bool touchButtonProcessing = false;
-    private readonly TouchButtonRecognizer touchButtonRecognizer;
-    private readonly int id;
-    private static int index = 0;
-    private static readonly GPointCircularPool pointCircularPool = new GPointCircularPool(40);
-    public AllMotionRecognizer()
-    {
+    public AllMotionRecognizer() {
+        base();
+        this.initFieldsAllMotionRecognizer();
         this.id = AllMotionRecognizer.index++;
         this.motionGestureRecognizer = new MotionGestureRecognizer(this.id);
         this.touchButtonRecognizer = new TouchButtonRecognizer();
     }
+    
 
-    // throws Exception
-    public override void processStartMotionEvent(int x, int y, int deviceId, int modifiers)
-    {
+    public override void processStartMotionEvent(int32 x, int32 y, int32 deviceId, int32 modifiers) {
         if (this.touchButtonRecognizer.pressTouchButtonInput(x, y, deviceId)) {
             this.touchButtonProcessing = true;
         }
         if (!this.touchButtonProcessing) {
-            CustomGPoint point = ((CustomGPoint) AllMotionRecognizer.pointCircularPool.getNextInstance());
+            CustomGPoint point = ((CustomGPoint) AllMotionRecognizer.staticGet_pointCircularPool().getNextInstance());
             point.setX(x);
             point.setY(y);
             this.motionGestureRecognizer.processPressedMotionEvent(point, deviceId, modifiers);
         }
     }
+    
 
-    // throws Exception
-    public override void processEndMotionEvent(int x, int y, int deviceId, int modifiers)
-    {
+    public override void processEndMotionEvent(int32 x, int32 y, int32 deviceId, int32 modifiers) {
         if (this.touchButtonRecognizer.releaseTouchButtonInput(x, y, deviceId)) {
         }
         if (!this.touchButtonProcessing) {
-            CustomGPoint point = ((CustomGPoint) AllMotionRecognizer.pointCircularPool.getNextInstance());
+            CustomGPoint point = ((CustomGPoint) AllMotionRecognizer.staticGet_pointCircularPool().getNextInstance());
             point.setX(x);
             point.setY(y);
             this.motionGestureRecognizer.processReleasedMotionEvent(point, deviceId, modifiers);
@@ -69,49 +86,43 @@ public class AllMotionRecognizer : MotionRecognizer
             this.touchButtonProcessing = false;
         }
     }
+    
 
-    // throws Exception
-    public override void processDraggedMotionEvent(int x, int y, int deviceId, int modifiers)
-    {
+    public override void processDraggedMotionEvent(int32 x, int32 y, int32 deviceId, int32 modifiers) {
         if (this.touchButtonProcessing) {
             this.touchButtonRecognizer.pressTouchButtonInput(x, y, deviceId);
         }
         if (!this.touchButtonProcessing) {
-            CustomGPoint point = ((CustomGPoint) AllMotionRecognizer.pointCircularPool.getNextInstance());
+            CustomGPoint point = ((CustomGPoint) AllMotionRecognizer.staticGet_pointCircularPool().getNextInstance());
             point.setX(x);
             point.setY(y);
             this.motionGestureRecognizer.processDraggedMotionEvent(point, deviceId, modifiers);
         }
     }
+    
 
-    private int lastX = 0;
-    private int lastY = 0;
-    // throws Exception
-    public virtual void processMovedMotionEvent(int x, int y, int deviceId, int modifiers)
-    {
+    public virtual void processMovedMotionEvent(int32 x, int32 y, int32 deviceId, int32 modifiers) {
         if (x != this.lastX || y != this.lastY) {
             this.lastX = x;
             this.lastY = y;
-            CustomGPoint point = ((CustomGPoint) AllMotionRecognizer.pointCircularPool.getNextInstance());
+            CustomGPoint point = ((CustomGPoint) AllMotionRecognizer.staticGet_pointCircularPool().getNextInstance());
             point.setX(x);
             point.setY(y);
             this.motionGestureRecognizer.processMovedMotionEvent(point, deviceId, modifiers);
         }
     }
+    
 
-    // throws Exception
-    public virtual void processScrolledMotionEvent(int x, int y, int deviceId, int modifiers)
-    {
-        CustomGPoint point = ((CustomGPoint) AllMotionRecognizer.pointCircularPool.getNextInstance());
+    public virtual void processScrolledMotionEvent(int32 x, int32 y, int32 deviceId, int32 modifiers) {
+        CustomGPoint point = ((CustomGPoint) AllMotionRecognizer.staticGet_pointCircularPool().getNextInstance());
         point.setX(x);
         point.setY(y);
         this.motionGestureRecognizer.processScrolledMotionEvent(point, deviceId, modifiers);
     }
+    
 
-    public MotionGestureRecognizer getMotionGestureRecognizer()
-    {
+    public virtual MotionGestureRecognizer getMotionGestureRecognizer() {
         return this.motionGestureRecognizer;
     }
-
 }
 

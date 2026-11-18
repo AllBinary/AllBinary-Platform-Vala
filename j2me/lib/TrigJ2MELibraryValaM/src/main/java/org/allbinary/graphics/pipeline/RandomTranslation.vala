@@ -13,27 +13,25 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.graphics.pipeline
+// import org.allbinary.game.rand.MyRandomFactory
+// import org.allbinary.util.BasicArrayList
 
-using System;
-using System.Linq;
-using MyRandomFactory = org.allbinary.game.rand.MyRandomFactory;
-using BasicArrayList = org.allbinary.util.BasicArrayList;
+public class RandomTranslation : JObject {
 
-namespace org.allbinary.graphics.pipeline;
+    public RandomTranslation() {
+        base();
+    }
+    
 
-public class RandomTranslation
-{
-    // throws Exception
-    public static BasicArrayList getInstance(BasicArrayList vector, int howMuch)
-    {
+    public static BasicArrayList getInstance2(BasicArrayList vector, int32 howMuch) {
         MyRandomFactory myRandomFactory = MyRandomFactory.getInstance();
-        int x = -myRandomFactory.getNextInt(howMuch);
-        int y = myRandomFactory.getNextInt(howMuch);
+        int32 x = -myRandomFactory.getNextInt(howMuch);
+        int32 y = myRandomFactory.getNextInt(howMuch);
         BasicGraphicsPipeline graphicsPipe = new BasicGraphicsPipeline(vector);
         graphicsPipe.createMatrix();
         graphicsPipe.translate(x, y);
         return graphicsPipe.getMatrix();
     }
-
 }
 

@@ -13,18 +13,17 @@
  *   
  */
 // Generated Code Do Not Modify
+// package org.allbinary.game.midlet
 
-using System;
-using System.Linq;
+public class LicensedDemoSetupFactory : JObject {
 
-namespace org.allbinary.game.midlet;
+    public LicensedDemoSetupFactory() {
+        base();
+    }
+    
 
-public class LicensedDemoSetupFactory
-{
-    public virtual DemoSetup getInstance()
-    {
+    public virtual DemoSetup getInstance() {
         return new DemoSetup();
     }
-
 }
 

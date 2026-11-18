@@ -13,33 +13,27 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.game.ag.ai.sequence
+// import org.allbinary.ai.ArtificialIntelligenceInterface
+// import org.allbinary.game.input.GameInput
+// import org.allbinary.layer.AllBinaryLayer
+// import org.allbinary.layer.AllBinaryLayerManager
 
-using System;
-using System.Linq;
-using ArtificialIntelligenceInterface = org.allbinary.ai.ArtificialIntelligenceInterface;
-using GameInput = org.allbinary.game.input.GameInput;
-using AllBinaryLayer = org.allbinary.layer.AllBinaryLayer;
-using AllBinaryLayerManager = org.allbinary.layer.AllBinaryLayerManager;
+public class ComboSequenceAI : SequenceAI {
+    
 
-namespace org.allbinary.game.ag.ai.sequence;
-
-public class ComboSequenceAI : SequenceAI
-{
-    public ComboSequenceAI(ArtificialIntelligenceInterface[] artificialIntelligenceInterface, AllBinaryLayer ownerLayerInterface, GameInput gameInput) : base(artificialIntelligenceInterface, ownerLayerInterface, gameInput)
-    {
-        // base(artificialIntelligenceInterface, ownerLayerInterface, gameInput) is called from the constructor declaration
+    public ComboSequenceAI(ArtificialIntelligenceInterface[] artificialIntelligenceInterface, AllBinaryLayer ownerLayerInterface, GameInput gameInput) {
+        base(artificialIntelligenceInterface, ownerLayerInterface, gameInput);
     }
+    
 
-    // throws Exception
-    public override void processAI(AllBinaryLayerManager allBinaryLayerManager)
-    {
+    public override void processAI(AllBinaryLayerManager allBinaryLayerManager) {
         ArtificialIntelligenceInterface[] artificialIntelligenceInterfaceArray = this.getArtificialIntelligenceInterface();
-        int size = artificialIntelligenceInterfaceArray.Length;
-        for (int index = 0; index < size; index++) {
+        int32 size = artificialIntelligenceInterfaceArray.length;
+        for (int32 index = 0; index < size; index++) {
             this.setIndex(index);
             base.processAI(allBinaryLayerManager);
         }
     }
-
 }
 

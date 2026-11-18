@@ -13,31 +13,34 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.game.resource
 
-using System;
-using System.Linq;
+public class ResourceLoadingLevel : JObject {
+    private string name;
+    private int32 level;
 
-namespace org.allbinary.game.resource;
+    // Java field initializers run after the base constructor
+    private void initFieldsResourceLoadingLevel() {
+    
+    
+    }
+    
 
-public class ResourceLoadingLevel
-{
-    private readonly string name;
-    private readonly int level;
-    public ResourceLoadingLevel(string name, int level)
-    {
+    public ResourceLoadingLevel(string name, int32 level) {
+        base();
+        this.initFieldsResourceLoadingLevel();
         this.name = name;
         this.level = level;
     }
+    
 
-    public virtual int getLevel()
-    {
+    public virtual int32 getLevel() {
         return this.level;
     }
+    
 
-    public virtual string getName()
-    {
+    public virtual string getName() {
         return this.name;
     }
-
 }
 

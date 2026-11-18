@@ -13,20 +13,27 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.game.score
+// import org.allbinary.string.CommonStrings
 
-using System;
-using System.Linq;
-using CommonStrings = org.allbinary.@string.CommonStrings;
-
-namespace org.allbinary.game.score;
-
-public class RemoteErrorHighScoresSingletonFactory
-{
-    private static readonly HighScores SINGLETON = new HighScores(CommonStrings.getInstance().LOADING, "Remote High Scores Did Not Load", CommonStrings.getInstance().PERIODS);
-    public static HighScores getInstance()
-    {
+public class RemoteErrorHighScoresSingletonFactory : JObject {
+    private static HighScores? SINGLETON;
+    private static bool staticSet_SINGLETON = false;
+    private static HighScores staticGet_SINGLETON() {
+        if (!RemoteErrorHighScoresSingletonFactory.staticSet_SINGLETON) {
+            RemoteErrorHighScoresSingletonFactory.staticSet_SINGLETON = true;
+            RemoteErrorHighScoresSingletonFactory.SINGLETON = new HighScores(CommonStrings.getInstance().LOADING, "Remote High Scores Did Not Load", CommonStrings.getInstance().PERIODS);
+        }
         return RemoteErrorHighScoresSingletonFactory.SINGLETON;
     }
 
+    public RemoteErrorHighScoresSingletonFactory() {
+        base();
+    }
+    
+
+    public static HighScores getInstance() {
+        return RemoteErrorHighScoresSingletonFactory.staticGet_SINGLETON();
+    }
 }
 

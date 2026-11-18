@@ -13,23 +13,27 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.graphics.paint
 
-using System;
-using System.Linq;
-
-namespace org.allbinary.graphics.paint;
-
-public class NullPaintable : Paintable
-{
-    private static readonly NullPaintable SINGLETON = new NullPaintable();
-    private NullPaintable()
-    {
-    }
-
-    public static Paintable getInstance()
-    {
+public class NullPaintable : Paintable {
+    private static NullPaintable? SINGLETON;
+    private static bool staticSet_SINGLETON = false;
+    private static NullPaintable staticGet_SINGLETON() {
+        if (!NullPaintable.staticSet_SINGLETON) {
+            NullPaintable.staticSet_SINGLETON = true;
+            NullPaintable.SINGLETON = new NullPaintable();
+        }
         return NullPaintable.SINGLETON;
     }
+    
 
+    public NullPaintable() {
+        base();
+    }
+    
+
+    public static Paintable getInstance() {
+        return NullPaintable.staticGet_SINGLETON();
+    }
 }
 

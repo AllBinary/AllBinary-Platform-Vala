@@ -13,49 +13,53 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.logic.control.validate
+// import org.allbinary.logic.StdUtil
+// import org.allbinary.logic.java.bool.BooleanFactory
+// import org.allbinary.logic.string.StringUtil
+// import org.allbinary.util.BasicArrayList
+// import org.allbinary.util.BasicArrayListUtil
+// import org.allbinary.util.ABHashtable
 
-using System;
-using System.Linq;
-using StdUtil = org.allbinary.logic.StdUtil;
-using BooleanFactory = org.allbinary.logic.java.@bool.BooleanFactory;
-using StringUtil = org.allbinary.logic.@string.StringUtil;
-using BasicArrayList = org.allbinary.util.BasicArrayList;
-using BasicArrayListUtil = org.allbinary.util.BasicArrayListUtil;
-using org.allbinary.util;
-
-namespace org.allbinary.logic.control.validate;
-
-public class ValidatorBase : ValidatorBaseInterface
-{
-    private static readonly ValidatorBase instance = new ValidatorBase();
-    public static ValidatorBase getInstance()
-    {
+public class ValidatorBase : JObject, ValidatorBaseInterface {
+    private static ValidatorBase? instance;
+    private static bool staticSet_instance = false;
+    private static ValidatorBase staticGet_instance() {
+        if (!ValidatorBase.staticSet_instance) {
+            ValidatorBase.staticSet_instance = true;
+            ValidatorBase.instance = new ValidatorBase();
+        }
         return ValidatorBase.instance;
     }
+    
 
-    public ValidatorBase()
-    {
+    public static ValidatorBase getInstance() {
+        return ValidatorBase.staticGet_instance();
     }
+    
 
-    public virtual bool? isValid()
-    {
-        return BooleanFactory.getInstance().TRUE;
+    public ValidatorBase() {
+        base();
     }
+    
 
-    public virtual string validationInfo()
-    {
+    public virtual bool isValid() {
+        return BooleanFactory.getInstance().TRUE_;
+    }
+    
+
+    public virtual string validationInfo() {
         return StringUtil.getInstance().EMPTY_STRING;
     }
+    
 
-    public virtual ABHashtable<object, object> toHashtable()
-    {
+    public virtual ABHashtable toHashtable() {
         return StdUtil.getInstance().NULL_TABLE;
     }
+    
 
-    public virtual BasicArrayList toList()
-    {
+    public virtual BasicArrayList toList() {
         return BasicArrayListUtil.getInstance().getImmutableInstance();
     }
-
 }
 

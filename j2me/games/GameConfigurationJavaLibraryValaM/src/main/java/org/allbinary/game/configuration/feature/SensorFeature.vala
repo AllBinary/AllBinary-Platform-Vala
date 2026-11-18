@@ -13,18 +13,13 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.game.configuration.feature
 
-using System;
-using System.Linq;
+public class SensorFeature : Feature {
+    
 
-namespace org.allbinary.game.configuration.feature;
-
-public class SensorFeature : Feature
-{
-    public SensorFeature(string name) : base(name)
-    {
-        // base(name) is called from the constructor declaration
+    public SensorFeature(string name) {
+        base(name);
     }
-
 }
 

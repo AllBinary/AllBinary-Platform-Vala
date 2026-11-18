@@ -13,24 +13,30 @@
  *   
  */
 // Generated Code Do Not Modify
+// package org.allbinary.game.input.mapping.event
+// import org.allbinary.logic.util.event.AllBinaryEventObject
 
-using System;
-using System.Linq;
-using AllBinaryEventObject = org.allbinary.logic.util.@event.AllBinaryEventObject;
-
-namespace org.allbinary.game.input.mapping.@event;
-
-public class NullInputMappingEventListener : InputMappingEventListenerInterface
-{
-    public static readonly NullInputMappingEventListener NULL_INPUT_MAPPING_EVENT_LISTENER = new NullInputMappingEventListener();
-    // throws Exception
-    public virtual void onInputMappingEvent(InputMappingEvent inputMappingEvent)
-    {
+public class NullInputMappingEventListener : JObject, InputMappingEventListenerInterface, EventListenerInterface {
+    public static NullInputMappingEventListener? NULL_INPUT_MAPPING_EVENT_LISTENER;
+    private static bool staticSet_NULL_INPUT_MAPPING_EVENT_LISTENER = false;
+    public static NullInputMappingEventListener staticGet_NULL_INPUT_MAPPING_EVENT_LISTENER() {
+        if (!NullInputMappingEventListener.staticSet_NULL_INPUT_MAPPING_EVENT_LISTENER) {
+            NullInputMappingEventListener.staticSet_NULL_INPUT_MAPPING_EVENT_LISTENER = true;
+            NullInputMappingEventListener.NULL_INPUT_MAPPING_EVENT_LISTENER = new NullInputMappingEventListener();
+        }
+        return NullInputMappingEventListener.NULL_INPUT_MAPPING_EVENT_LISTENER;
     }
 
-    public virtual void onEvent(AllBinaryEventObject eventObject)
-    {
+    public NullInputMappingEventListener() {
+        base();
     }
+    
 
+    public virtual void onInputMappingEvent(InputMappingEvent inputMappingEvent) {
+    }
+    
+
+    public virtual void onEvent(AllBinaryEventObject eventObject) {
+    }
 }
 

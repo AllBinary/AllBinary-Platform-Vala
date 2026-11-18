@@ -13,41 +13,44 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.game.collision.layer
+// import org.allbinary.game.collision.CollidableBaseBehavior
+// import org.allbinary.game.collision.CollidableInterfaceCompositeInterface
+// import org.allbinary.game.layer.CollidableCompositeLayer
+// import org.allbinary.layer.LayerManager
 
-using System;
-using System.Linq;
-using CollidableBaseBehavior = org.allbinary.game.collision.CollidableBaseBehavior;
-using CollidableInterfaceCompositeInterface = org.allbinary.game.collision.CollidableInterfaceCompositeInterface;
-using CollidableCompositeLayer = org.allbinary.game.layer.CollidableCompositeLayer;
-using LayerManager = org.allbinary.layer.LayerManager;
-
-namespace org.allbinary.game.collision.layer;
-
-public class AllBinaryCollisionManager
-{
-    private static AllBinaryCollisionManager allBinaryCollisionManager = new AllBinaryCollisionManager();
-    private AllBinaryCollisionManager()
-    {
-    }
-
-    public static AllBinaryCollisionManager getInstance()
-    {
+public class AllBinaryCollisionManager : JObject {
+    private static AllBinaryCollisionManager? allBinaryCollisionManager;
+    private static bool staticSet_allBinaryCollisionManager = false;
+    private static AllBinaryCollisionManager staticGet_allBinaryCollisionManager() {
+        if (!AllBinaryCollisionManager.staticSet_allBinaryCollisionManager) {
+            AllBinaryCollisionManager.staticSet_allBinaryCollisionManager = true;
+            AllBinaryCollisionManager.allBinaryCollisionManager = new AllBinaryCollisionManager();
+        }
         return AllBinaryCollisionManager.allBinaryCollisionManager;
     }
+    
 
-    // throws Exception
-    public virtual void process(LayerManager layerManager, CollidableInterfaceCompositeInterface collidableInterfaceCompositeInterface, int startIndex)
-    {
-        int size = layerManager.getSize();
-        for (int index = startIndex + 1; index < size; index++) {
+    public AllBinaryCollisionManager() {
+        base();
+    }
+    
+
+    public static AllBinaryCollisionManager getInstance() {
+        return AllBinaryCollisionManager.staticGet_allBinaryCollisionManager();
+    }
+    
+
+    public virtual void process(LayerManager layerManager, CollidableInterfaceCompositeInterface collidableInterfaceCompositeInterface, int32 startIndex) {
+        int32 size = layerManager.getSize();
+        for (int32 index = startIndex + 1; index < size; index++) {
             CollidableInterfaceCompositeInterface collidableInterfaceCompositeInterface2 = ((CollidableInterfaceCompositeInterface) layerManager.getLayerAt(index));
             this.collide(layerManager, collidableInterfaceCompositeInterface, collidableInterfaceCompositeInterface2);
         }
     }
+    
 
-    // throws Exception
-    private void collide(LayerManager layerManager, CollidableInterfaceCompositeInterface collidableInterfaceCompositeInterface, CollidableInterfaceCompositeInterface collidableInterfaceCompositeInterface2)
-    {
+    private void collide(LayerManager layerManager, CollidableInterfaceCompositeInterface collidableInterfaceCompositeInterface, CollidableInterfaceCompositeInterface collidableInterfaceCompositeInterface2) {
         CollidableBaseBehavior collidableBase2 = collidableInterfaceCompositeInterface2.getCollidableInferface();
         CollidableBaseBehavior collidableBase = collidableInterfaceCompositeInterface.getCollidableInferface();
         if (collidableBase2.isCollidable(((CollidableCompositeLayer) collidableInterfaceCompositeInterface))) {
@@ -57,6 +60,5 @@ public class AllBinaryCollisionManager
             }
         }
     }
-
 }
 

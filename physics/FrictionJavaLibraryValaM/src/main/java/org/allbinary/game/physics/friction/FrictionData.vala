@@ -13,23 +13,19 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.game.physics.friction
 
-using System;
-using System.Linq;
+public class FrictionData : JObject {
+    private const int32 FRICTION_DENOMINATOR = 100;
+    
 
-namespace org.allbinary.game.physics.friction;
-
-public class FrictionData
-{
-    private const int FRICTION_DENOMINATOR = 100;
-    private FrictionData()
-    {
+    public FrictionData() {
+        base();
     }
+    
 
-    public static int getFrictionDenominator()
-    {
+    public static int32 getFrictionDenominator() {
         return FrictionData.FRICTION_DENOMINATOR;
     }
-
 }
 

@@ -1,11 +1,6 @@
 // Generated Code Do Not Modify
+// package javax.microedition.khronos.opengles
 
-using System;
-using System.Linq;
-
-namespace javax.microedition.khronos.opengles;
-
-public interface GL11 : GL10
-{
+public interface GL11 : JObject, GL10 {
 }
 

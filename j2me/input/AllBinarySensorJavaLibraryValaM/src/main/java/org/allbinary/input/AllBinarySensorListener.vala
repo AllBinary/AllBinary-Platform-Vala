@@ -13,15 +13,11 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.input
 
-using System;
-using System.Linq;
+public interface AllBinarySensorListener : JObject {
+    
 
-namespace org.allbinary.input;
-
-public interface AllBinarySensorListener
-{
-    void onSensorChange();
-
+    public abstract void onSensorChange();
 }
 

@@ -13,46 +13,50 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.animation.image
+// import javax.microedition.lcdui.Image
+// import org.allbinary.animation.Animation
+// import org.allbinary.animation.AnimationBehavior
+// import org.allbinary.animation.AnimationBehaviorFactory
+// import org.allbinary.animation.AnimationInterfaceFactoryInterface
+// import org.allbinary.logic.communication.log.ForcedLogUtil
+// import org.allbinary.media.ScaleProperties
 
-using System;
-using System.Linq;
-using Image = javax.microedition.lcdui.Image;
-using Animation = org.allbinary.animation.Animation;
-using AnimationBehavior = org.allbinary.animation.AnimationBehavior;
-using AnimationBehaviorFactory = org.allbinary.animation.AnimationBehaviorFactory;
-using AnimationInterfaceFactoryInterface = org.allbinary.animation.AnimationInterfaceFactoryInterface;
-using ForcedLogUtil = org.allbinary.logic.communication.log.ForcedLogUtil;
-using ScaleProperties = org.allbinary.media.ScaleProperties;
+public class ImageArrayAnimationFactory : JObject, AnimationInterfaceFactoryInterface, BasicAnimationInterfaceFactoryInterface {
+    private int32 dx;
+    private int32 dy;
+    private Image[] imageArray;
+    private AnimationBehaviorFactory animationBehaviorFactory;
 
-namespace org.allbinary.animation.image;
+    // Java field initializers run after the base constructor
+    private void initFieldsImageArrayAnimationFactory() {
+    this.dx = 0;
+    this.dy = 0;
+    
+    
+    }
+    
 
-public class ImageArrayAnimationFactory : AnimationInterfaceFactoryInterface
-{
-    private int dx = 0;
-    private int dy = 0;
-    private readonly Image[] imageArray;
-    private readonly AnimationBehaviorFactory animationBehaviorFactory;
-    public ImageArrayAnimationFactory(Image[] imageArray, int dx, int dy, AnimationBehaviorFactory animationBehaviorFactory)
-    {
+    public ImageArrayAnimationFactory(Image[] imageArray, int32 dx, int32 dy, AnimationBehaviorFactory animationBehaviorFactory) {
+        base();
+        this.initFieldsImageArrayAnimationFactory();
         this.imageArray = imageArray;
         this.animationBehaviorFactory = animationBehaviorFactory;
         this.dx = dx;
         this.dy = dy;
     }
+    
 
-    // throws Exception
-    public virtual Animation getInstance(int instanceId)
-    {
+    public virtual Animation getInstance1(int32 instanceId) {
         if (this.dx != 0 || this.dy != 0) {
             return new AdjustedImageArrayAnimation(this.imageArray, this.dx, this.dy, this.animationBehaviorFactory.getOrCreateInstance());
         } else {
             return new ImageArrayAnimation(this.imageArray, AnimationBehavior.getInstance());
         }
     }
+    
 
-    public virtual void setInitialScale(ScaleProperties scaleProperties)
-    {
+    public virtual void setInitialScale(ScaleProperties scaleProperties) {
     }
-
 }
 

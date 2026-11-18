@@ -5,15 +5,11 @@
  * and open the template in the editor.  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.game
 
-using System;
-using System.Linq;
+public interface ChallengerInterface : JObject {
+    
 
-namespace org.allbinary.game;
-
-public interface ChallengerInterface
-{
-    void setWinner(bool isWinner);
-
+    public abstract void setWinner(bool isWinner);
 }
 

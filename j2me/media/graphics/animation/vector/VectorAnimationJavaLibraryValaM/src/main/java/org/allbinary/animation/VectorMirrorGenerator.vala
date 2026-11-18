@@ -13,71 +13,77 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.animation
+// import org.allbinary.graphics.PointFactory
+// import org.allbinary.graphics.pipeline.BasicGraphicsPipeline
+// import org.allbinary.logic.NullUtil
+// import org.allbinary.logic.communication.log.LogUtil
+// import org.allbinary.string.CommonStrings
+// import org.allbinary.util.BasicArrayList
+// import org.allbinary.util.BasicArrayListS
 
-using System;
-using System.Linq;
-using PointFactory = org.allbinary.graphics.PointFactory;
-using BasicGraphicsPipeline = org.allbinary.graphics.pipeline.BasicGraphicsPipeline;
-using NullUtil = org.allbinary.logic.NullUtil;
-using LogUtil = org.allbinary.logic.communication.log.LogUtil;
-using CommonStrings = org.allbinary.@string.CommonStrings;
-using BasicArrayList = org.allbinary.util.BasicArrayList;
-using BasicArrayListS = org.allbinary.util.BasicArrayListS;
-
-namespace org.allbinary.animation;
-
-public class VectorMirrorGenerator
-{
-    public readonly LogUtil logUtil = LogUtil.getInstance();
-    private static readonly VectorMirrorGenerator instance = new VectorMirrorGenerator();
-    public static VectorMirrorGenerator getInstance()
-    {
+public class VectorMirrorGenerator : JObject {
+    private static VectorMirrorGenerator? instance;
+    private static bool staticSet_instance = false;
+    private static VectorMirrorGenerator staticGet_instance() {
+        if (!VectorMirrorGenerator.staticSet_instance) {
+            VectorMirrorGenerator.staticSet_instance = true;
+            VectorMirrorGenerator.instance = new VectorMirrorGenerator();
+        }
         return VectorMirrorGenerator.instance;
     }
+    public LogUtil logUtil;
+    private VectorAnimationUtil vectorAnimationUtil;
 
-    private readonly VectorAnimationUtil vectorAnimationUtil = VectorAnimationUtil.getInstance();
-    private VectorMirrorGenerator()
-    {
+    // Java field initializers run after the base constructor
+    private void initFieldsVectorMirrorGenerator() {
+    this.logUtil = LogUtil.getInstance();
+    this.vectorAnimationUtil = VectorAnimationUtil.getInstance();
     }
+    
 
-    public virtual int[][][] getInstance(int[][][] points, int width)
-    {
-        try {
+    public static VectorMirrorGenerator getInstance() {
+        return VectorMirrorGenerator.staticGet_instance();
+    }
+    
+
+    public VectorMirrorGenerator() {
+        base();
+        this.initFieldsVectorMirrorGenerator();
+    }
+    
+
+    public virtual int32[,,] getInstance2(int32[,,] points, int32 width) {
+        {
             PointFactory pointFactory = PointFactory.getInstance();
             BasicArrayList pointBasicArrayList = null;
-            int[][] nextPoints = null;
-            int size2 = 0;
-            int size = points.Length;
+            int32[,] nextPoints = null;
+            int32 size2 = 0;
+            int32 size = points.length[0];
             BasicArrayList pointsBasicArrayList = new BasicArrayListS(size);
-            for (int frame = 0; frame < size; frame++) {
+            for (int32 frame = 0; frame < size; frame++) {
                 nextPoints = points[frame];
-                size2 = nextPoints.Length;
+                size2 = nextPoints.length[0];
                 pointBasicArrayList = new BasicArrayListS(size2);
-                for (int index_0 = 0; index_0 < size2; index_0++) {
-                    pointBasicArrayList.add(pointFactory.createXY(nextPoints[index_0][0], nextPoints[index_0][1]));
+                for (int32 index = 0; index < size2; index++) {
+                    pointBasicArrayList.add(pointFactory.createXY(nextPoints[index, 0], nextPoints[index, 1]));
                 }
                 pointsBasicArrayList.add(pointBasicArrayList);
             }
-            for (int index_2 = 0; index_2 < points.Length; index_2++) {
-                pointsBasicArrayList.add(this.getInstance(((BasicArrayList) pointsBasicArrayList.objectArray[index_2]), width));
+            for (int32 index = 0; index < points.length[0]; index++) {
+                pointsBasicArrayList.add(this.getInstance2(((BasicArrayList) pointsBasicArrayList.objectArray[index]), width));
             }
-            int[][][] newPoints = this.vectorAnimationUtil.toAnimationArrayFromListOfPointList(pointsBasicArrayList);
+            int32[,,] newPoints = this.vectorAnimationUtil.toAnimationArrayFromListOfPointList(pointsBasicArrayList);
             return newPoints;
-        } catch (Exception e) {
-            CommonStrings commonStrings = CommonStrings.getInstance();
-            this.logUtil.put(commonStrings.EXCEPTION, this, commonStrings.GET_INSTANCE, e);
-            return NullUtil.getInstance().NULL_INT_ARRAY_ARRAY_ARRAY;
-        }
+        } /* catch (Exception e): a thrown Java exception stops the program */
     }
+    
 
-    // throws Exception
-    public virtual BasicArrayList getInstance(BasicArrayList pointBasicArrayList, int width)
-    {
+    public virtual BasicArrayList getInstance2(BasicArrayList pointBasicArrayList, int32 width) {
         BasicGraphicsPipeline graphicsPipe = new BasicGraphicsPipeline(pointBasicArrayList);
         graphicsPipe.createMatrix();
         graphicsPipe.mirror(width);
         return graphicsPipe.getMatrix();
     }
-
 }
 

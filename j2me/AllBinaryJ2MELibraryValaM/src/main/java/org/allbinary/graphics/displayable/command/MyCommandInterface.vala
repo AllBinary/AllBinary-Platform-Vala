@@ -13,18 +13,15 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.graphics.displayable.command
+// import javax.microedition.lcdui.Command
 
-using System;
-using System.Linq;
-using Command = javax.microedition.lcdui.Command;
+public interface MyCommandInterface : JObject {
+    
 
-namespace org.allbinary.graphics.displayable.command;
+    public abstract void addCommand(Command command);
+    
 
-public interface MyCommandInterface
-{
-    void addCommand(Command command);
-
-    void removeAllCommands();
-
+    public abstract void removeAllCommands();
 }
 

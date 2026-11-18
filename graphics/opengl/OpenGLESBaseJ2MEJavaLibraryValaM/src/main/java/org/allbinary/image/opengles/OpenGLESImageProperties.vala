@@ -13,23 +13,37 @@
  *   
  */
 // Generated Code Do Not Modify
+// package org.allbinary.image.opengles
 
-using System;
-using System.Linq;
+public class OpenGLESImageProperties : JObject {
+    public int32 textureID;
+    public float scaleX;
+    public float scaleY;
+    public float scaleX2;
+    public float scaleY2;
+    public int32 angle;
+    public float redf;
+    public float greenf;
+    public float bluef;
+    public float alphaf;
 
-namespace org.allbinary.image.opengles;
+    // Java field initializers run after the base constructor
+    private void initFieldsOpenGLESImageProperties() {
+    this.textureID = -1;
+    this.scaleX = 1.0f;
+    this.scaleY = 1.0f;
+    this.scaleX2 = 1.0f;
+    this.scaleY2 = 1.0f;
+    this.angle = 0;
+    this.redf = 1.0f;
+    this.greenf = 1.0f;
+    this.bluef = 1.0f;
+    this.alphaf = 0.0;
+    }
 
-public class OpenGLESImageProperties
-{
-    public int textureID = -1;
-    public float scaleX = 1.0f;
-    public float scaleY = 1.0f;
-    public float scaleX2 = 1.0f;
-    public float scaleY2 = 1.0f;
-    public int angle = 0;
-    public float redf = 1.0f;
-    public float greenf = 1.0f;
-    public float bluef = 1.0f;
-    public float alphaf = 0f;
+    public OpenGLESImageProperties() {
+        base();
+        this.initFieldsOpenGLESImageProperties();
+    }
 }
 

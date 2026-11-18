@@ -13,37 +13,47 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.game.layer.pickup
+// import org.allbinary.util.BasicArrayList
+// import org.allbinary.util.BasicArrayListD
 
-using System;
-using System.Linq;
-using BasicArrayList = org.allbinary.util.BasicArrayList;
-using BasicArrayListD = org.allbinary.util.BasicArrayListD;
-
-namespace org.allbinary.game.layer.pickup;
-
-public class CountedPickedUpLayerInterfaceFactoryPool
-{
-    private static CountedPickedUpLayerInterfaceFactoryPool SINGLETON = new CountedPickedUpLayerInterfaceFactoryPool();
-    private BasicArrayList list;
-    private CountedPickedUpLayerInterfaceFactoryPool()
-    {
-        this.list = new BasicArrayListD();
-    }
-
-    public virtual BasicArrayList getList()
-    {
-        return this.list;
-    }
-
-    public static CountedPickedUpLayerInterfaceFactoryPool getInstance()
-    {
+public class CountedPickedUpLayerInterfaceFactoryPool : JObject {
+    private static CountedPickedUpLayerInterfaceFactoryPool? SINGLETON;
+    private static bool staticSet_SINGLETON = false;
+    private static CountedPickedUpLayerInterfaceFactoryPool staticGet_SINGLETON() {
+        if (!CountedPickedUpLayerInterfaceFactoryPool.staticSet_SINGLETON) {
+            CountedPickedUpLayerInterfaceFactoryPool.staticSet_SINGLETON = true;
+            CountedPickedUpLayerInterfaceFactoryPool.SINGLETON = new CountedPickedUpLayerInterfaceFactoryPool();
+        }
         return CountedPickedUpLayerInterfaceFactoryPool.SINGLETON;
     }
+    private BasicArrayList list;
 
-    public static void init()
-    {
+    // Java field initializers run after the base constructor
+    private void initFieldsCountedPickedUpLayerInterfaceFactoryPool() {
+    
+    }
+    
+
+    public CountedPickedUpLayerInterfaceFactoryPool() {
+        base();
+        this.initFieldsCountedPickedUpLayerInterfaceFactoryPool();
+        this.list = new BasicArrayListD();
+    }
+    
+
+    public virtual BasicArrayList getList() {
+        return this.list;
+    }
+    
+
+    public static CountedPickedUpLayerInterfaceFactoryPool getInstance() {
+        return CountedPickedUpLayerInterfaceFactoryPool.staticGet_SINGLETON();
+    }
+    
+
+    public static void init() {
         CountedPickedUpLayerInterfaceFactoryPool.SINGLETON = new CountedPickedUpLayerInterfaceFactoryPool();
     }
-
 }
 

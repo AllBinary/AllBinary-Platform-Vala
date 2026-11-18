@@ -13,26 +13,27 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.game.displayable.canvas
+// import org.allbinary.canvas.Processor
 
-using System;
-using System.Linq;
-using Processor = org.allbinary.canvas.Processor;
-
-namespace org.allbinary.game.displayable.canvas;
-
-public class EndLevelIntermissionProcessor : Processor
-{
+public class EndLevelIntermissionProcessor : Processor {
     private AllBinaryGameCanvas gameCanvas;
-    public EndLevelIntermissionProcessor(AllBinaryGameCanvas gameCanvas)
-    {
+
+    // Java field initializers run after the base constructor
+    private void initFieldsEndLevelIntermissionProcessor() {
+    
+    }
+    
+
+    public EndLevelIntermissionProcessor(AllBinaryGameCanvas gameCanvas) {
+        base();
+        this.initFieldsEndLevelIntermissionProcessor();
         this.gameCanvas = gameCanvas;
     }
+    
 
-    // throws Exception
-    public override void process()
-    {
+    public override void process() {
         this.gameCanvas.processEndLevelIntermissionGameState();
     }
-
 }
 

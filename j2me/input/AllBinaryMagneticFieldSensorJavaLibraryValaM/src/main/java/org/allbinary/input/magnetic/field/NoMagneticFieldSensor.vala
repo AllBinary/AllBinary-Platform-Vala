@@ -13,25 +13,23 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.input.magnetic.field
+// import org.allbinary.input.AllBinarySensorListener
+// import org.allbinary.logic.math.Orientation
 
-using System;
-using System.Linq;
-using AllBinarySensorListener = org.allbinary.input.AllBinarySensorListener;
-using Orientation = org.allbinary.logic.math.Orientation;
+public class NoMagneticFieldSensor : AllBinaryMagneticFieldSensor, AllBinarySensorListener {
 
-namespace org.allbinary.input.magnetic.field;
+    public NoMagneticFieldSensor() {
+        base();
+    }
+    
 
-public class NoMagneticFieldSensor : AllBinaryMagneticFieldSensor, AllBinarySensorListener
-{
-    // throws Exception
-    public virtual Orientation getOrientation()
-    {
+    public virtual Orientation getOrientation() {
         return Orientation.NONE;
     }
+    
 
-    public override void onSensorChange()
-    {
+    public override void onSensorChange() {
     }
-
 }
 

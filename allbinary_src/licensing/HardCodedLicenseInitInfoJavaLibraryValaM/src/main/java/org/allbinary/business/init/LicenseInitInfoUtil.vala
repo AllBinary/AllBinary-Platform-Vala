@@ -13,56 +13,61 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.business.init
 
-using System;
-using System.Linq;
-using System.Runtime.CompilerServices;
-
-namespace org.allbinary.business.init;
-
-public class LicenseInitInfoUtil
-{
-    private static readonly LicenseInitInfoUtil instance = new LicenseInitInfoUtil();
-    public static LicenseInitInfoUtil getInstance()
-    {
+public class LicenseInitInfoUtil : JObject {
+    private static LicenseInitInfoUtil? instance;
+    private static bool staticSet_instance = false;
+    private static LicenseInitInfoUtil staticGet_instance() {
+        if (!LicenseInitInfoUtil.staticSet_instance) {
+            LicenseInitInfoUtil.staticSet_instance = true;
+            LicenseInitInfoUtil.instance = new LicenseInitInfoUtil();
+        }
         return LicenseInitInfoUtil.instance;
     }
+    public string INITFILENAME;
+    public string ABOUT;
+    public string PRIVACY_POLICY;
+    private string OFFICIAL_ALLBINARY_SERVICES_SERVER;
 
-    public readonly string INITFILENAME = "licenseinitdata.dat";
-    public readonly string ABOUT = "about";
-    public readonly string PRIVACY_POLICY = "privacy_policy";
-    private readonly string OFFICIAL_ALLBINARY_SERVICES_SERVER = "https://services.allbinary.com/LicServ/serverssl.php";
-    [MethodImpl(MethodImplOptions.Synchronized)]
-    public virtual void setFilePath(string filePath)
-    {
+    // Java field initializers run after the base constructor
+    private void initFieldsLicenseInitInfoUtil() {
+    this.INITFILENAME = "licenseinitdata.dat";
+    this.ABOUT = "about";
+    this.PRIVACY_POLICY = "privacy_policy";
+    this.OFFICIAL_ALLBINARY_SERVICES_SERVER = "https://services.allbinary.com/LicServ/serverssl.php";
     }
+    
 
-    private LicenseInitInfoUtil()
-    {
+    public static LicenseInitInfoUtil getInstance() {
+        return LicenseInitInfoUtil.staticGet_instance();
     }
+    
 
-    // throws Exception
-    [MethodImpl(MethodImplOptions.Synchronized)]
-    public virtual void write(LicenseInitInfo initData)
-    {
+    public virtual void setFilePath(string filePath) {
     }
+    
 
-    // throws Exception
-    [MethodImpl(MethodImplOptions.Synchronized)]
-    public virtual LicenseInitInfo read()
-    {
+    public LicenseInitInfoUtil() {
+        base();
+        this.initFieldsLicenseInitInfoUtil();
+    }
+    
+
+    public virtual void write(LicenseInitInfo initData) {
+    }
+    
+
+    public virtual LicenseInitInfo read() {
         return this.readAgain(0);
     }
+    
 
-    // throws Exception
-    [MethodImpl(MethodImplOptions.Synchronized)]
-    public virtual LicenseInitInfo readAgain(int initializeCounter)
-    {
+    public virtual LicenseInitInfo readAgain(int32 initializeCounter) {
         LicenseInitInfo licenseInitInfo = new LicenseInitInfo();
         licenseInitInfo.clearServers();
         licenseInitInfo.addServer(this.OFFICIAL_ALLBINARY_SERVICES_SERVER);
         return licenseInitInfo;
     }
-
 }
 

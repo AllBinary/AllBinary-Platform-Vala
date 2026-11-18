@@ -13,31 +13,48 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.game.configuration.feature
 
-using System;
-using System.Linq;
-
-namespace org.allbinary.game.configuration.feature;
-
-public class SensorFeatureFactory
-{
-    private static readonly SensorFeatureFactory instance = new SensorFeatureFactory();
-    public static SensorFeatureFactory getInstance()
-    {
+public class SensorFeatureFactory : JObject {
+    private static SensorFeatureFactory? instance;
+    private static bool staticSet_instance = false;
+    private static SensorFeatureFactory staticGet_instance() {
+        if (!SensorFeatureFactory.staticSet_instance) {
+            SensorFeatureFactory.staticSet_instance = true;
+            SensorFeatureFactory.instance = new SensorFeatureFactory();
+        }
         return SensorFeatureFactory.instance;
     }
+    public SensorFeature NO_ORIENTATION;
+    public SensorFeature ORIENTATION_SENSORS;
+    public SensorFeature SIMULATED_ORIENTATION_SENSORS;
+    public SensorFeature YAW;
+    public SensorFeature YAW_MINUS_RIGHT_PLUS_LEFT;
+    public SensorFeature YAW_MINUS_LEFT_PLUS_RIGHT;
+    public SensorFeature PITCH;
+    public SensorFeature ROLL;
 
-    private SensorFeatureFactory()
-    {
+    // Java field initializers run after the base constructor
+    private void initFieldsSensorFeatureFactory() {
+    this.NO_ORIENTATION = new SensorFeature("No Orientation");
+    this.ORIENTATION_SENSORS = new SensorFeature("Orientation Sensors");
+    this.SIMULATED_ORIENTATION_SENSORS = new SensorFeature("Simulated Orientation Sensors");
+    this.YAW = new SensorFeature("Yaw");
+    this.YAW_MINUS_RIGHT_PLUS_LEFT = new SensorFeature("Yaw -Right +Left");
+    this.YAW_MINUS_LEFT_PLUS_RIGHT = new SensorFeature("Yaw -Left +Right ");
+    this.PITCH = new SensorFeature("Pitch");
+    this.ROLL = new SensorFeature("Roll");
     }
+    
 
-    public readonly SensorFeature NO_ORIENTATION = new SensorFeature("No Orientation");
-    public readonly SensorFeature ORIENTATION_SENSORS = new SensorFeature("Orientation Sensors");
-    public readonly SensorFeature SIMULATED_ORIENTATION_SENSORS = new SensorFeature("Simulated Orientation Sensors");
-    public readonly SensorFeature YAW = new SensorFeature("Yaw");
-    public readonly SensorFeature YAW_MINUS_RIGHT_PLUS_LEFT = new SensorFeature("Yaw -Right +Left");
-    public readonly SensorFeature YAW_MINUS_LEFT_PLUS_RIGHT = new SensorFeature("Yaw -Left +Right ");
-    public readonly SensorFeature PITCH = new SensorFeature("Pitch");
-    public readonly SensorFeature ROLL = new SensorFeature("Roll");
+    public static SensorFeatureFactory getInstance() {
+        return SensorFeatureFactory.staticGet_instance();
+    }
+    
+
+    public SensorFeatureFactory() {
+        base();
+        this.initFieldsSensorFeatureFactory();
+    }
 }
 

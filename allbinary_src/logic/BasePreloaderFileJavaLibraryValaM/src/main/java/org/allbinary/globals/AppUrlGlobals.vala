@@ -13,48 +13,58 @@
  *  
  */
 // Generated Code Do Not Modify
-
-using System;
-using System.Linq;
-using System.Runtime.CompilerServices;
-using StringUtil = org.allbinary.logic.@string.StringUtil;
-
-namespace org.allbinary.globals;
+// package org.allbinary.globals
+// import org.allbinary.logic.string.StringUtil
 
 //implements
-public class AppUrlGlobals : UrlGlobalsInterface
-{
-    public static readonly AppUrlGlobals NULL_APP_URL_GLOBALS = new AppUrlGlobals();
-    private string path = StringUtil.getInstance().EMPTY_STRING;
-    public override bool isTestingMode()
-    {
+public class AppUrlGlobals : UrlGlobalsInterface {
+    public static AppUrlGlobals? NULL_APP_URL_GLOBALS;
+    private static bool staticSet_NULL_APP_URL_GLOBALS = false;
+    public static AppUrlGlobals staticGet_NULL_APP_URL_GLOBALS() {
+        if (!AppUrlGlobals.staticSet_NULL_APP_URL_GLOBALS) {
+            AppUrlGlobals.staticSet_NULL_APP_URL_GLOBALS = true;
+            AppUrlGlobals.NULL_APP_URL_GLOBALS = new AppUrlGlobals();
+        }
+        return AppUrlGlobals.NULL_APP_URL_GLOBALS;
+    }
+    private string path;
+
+    // Java field initializers run after the base constructor
+    private void initFieldsAppUrlGlobals() {
+    this.path = StringUtil.getInstance().EMPTY_STRING;
+    }
+
+    public AppUrlGlobals() {
+        base();
+        this.initFieldsAppUrlGlobals();
+    }
+    
+
+    public override bool isTestingMode() {
         return false;
     }
+    
 
-    public override string getWebappPath()
-    {
+    public override string getWebappPath() {
         return this.path;
     }
+    
 
-    [MethodImpl(MethodImplOptions.Synchronized)]
-    public virtual void setWebappPath(string path)
-    {
+    public virtual void setWebappPath(string path) {
         this.path = path;
-        if (!(this.path.EndsWith("\\") || this.path.EndsWith("/"))) {
-            this.path = this.path + "\\";
+        if (!(this.path.has_suffix("\\") || this.path.has_suffix("/"))) {
+            this.path = JString.ofString(this.path) + JString.ofString("\\");
         }
     }
+    
 
-    public override string getTestHtmlPath()
-    {
+    public override string getTestHtmlPath() {
         return StringUtil.getInstance().EMPTY_STRING;
     }
+    
 
-    // throws Exception
-    public override string getMainPath()
-    {
+    public override string getMainPath() {
         return this.path;
     }
-
 }
 

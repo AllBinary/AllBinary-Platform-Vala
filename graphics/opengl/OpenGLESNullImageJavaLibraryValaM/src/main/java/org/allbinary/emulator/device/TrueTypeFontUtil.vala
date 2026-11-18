@@ -13,58 +13,67 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.emulator.device
+// import javax.microedition.khronos.opengles.GL10
+// import javax.microedition.lcdui.Image
+// import org.allbinary.graphics.color.BasicColor
+// import org.allbinary.image.opengles.OpenGLESImage
 
-using System;
-using System.Linq;
-using GL10 = javax.microedition.khronos.opengles.GL10;
-using Image = javax.microedition.lcdui.Image;
-using BasicColor = org.allbinary.graphics.color.BasicColor;
-using OpenGLESImage = org.allbinary.image.opengles.OpenGLESImage;
-
-namespace org.allbinary.emulator.device;
-
-public class TrueTypeFontUtil : TrueTypeFontUtilBase
-{
-    private static readonly TrueTypeFontUtil instance = new TrueTypeFontUtil();
-    public static TrueTypeFontUtil getInstance()
-    {
+public class TrueTypeFontUtil : TrueTypeFontUtilBase {
+    private static TrueTypeFontUtil? instance;
+    private static bool staticSet_instance = false;
+    private static TrueTypeFontUtil staticGet_instance() {
+        if (!TrueTypeFontUtil.staticSet_instance) {
+            TrueTypeFontUtil.staticSet_instance = true;
+            TrueTypeFontUtil.instance = new TrueTypeFontUtil();
+        }
         return TrueTypeFontUtil.instance;
     }
+    public OpenGLESImage fontImage;
 
-    public OpenGLESImage fontImage = OpenGLESImage.NULL_OPENGL_IMAGE;
-    private TrueTypeFontUtil() : base(1)
-    {
-        // base(1) is called from the constructor declaration
+    // Java field initializers run after the base constructor
+    private void initFieldsTrueTypeFontUtil() {
+    this.fontImage = OpenGLESImage.NULL_OPENGL_IMAGE;
     }
+    
 
-    public override int getAsTextureSize(int textureSize)
-    {
-        throw new SystemException();
+    public static TrueTypeFontUtil getInstance() {
+        return TrueTypeFontUtil.staticGet_instance();
     }
+    
 
-    public override int getCellSize(int cellSize)
-    {
-        throw new SystemException();
+    public TrueTypeFontUtil() {
+        base(1);
+        this.initFieldsTrueTypeFontUtil();
     }
+    
 
-    public virtual Image getFontBitmap(string filename, int fontSize, int cellSize, BasicColor basicColor)
-    {
-        throw new SystemException();
+    public override int32 getAsTextureSize(int32 textureSize) {
+        JSystem.fatal(new JException("RuntimeException", ""));
     }
+    
 
-    public virtual void saveFontAtlasAsFile()
-    {
+    public override int32 getCellSize(int32 cellSize) {
+        JSystem.fatal(new JException("RuntimeException", ""));
     }
+    
 
-    public virtual Image getFontBitmapGL(GL10 gl, string filename, int cellSize, BasicColor basicColor)
-    {
-        throw new SystemException();
+    public virtual Image getFontBitmap(string filename, int32 fontSize, int32 cellSize, BasicColor basicColor) {
+        JSystem.fatal(new JException("RuntimeException", ""));
     }
+    
 
-    public virtual int[] getFontWidths(string filename, int fontSize)
-    {
-        throw new SystemException();
+    public virtual void saveFontAtlasAsFile() {
     }
+    
 
+    public virtual Image getFontBitmapGL(GL10 gl, string filename, int32 cellSize, BasicColor basicColor) {
+        JSystem.fatal(new JException("RuntimeException", ""));
+    }
+    
+
+    public virtual int32[] getFontWidths(string filename, int32 fontSize) {
+        JSystem.fatal(new JException("RuntimeException", ""));
+    }
 }
 

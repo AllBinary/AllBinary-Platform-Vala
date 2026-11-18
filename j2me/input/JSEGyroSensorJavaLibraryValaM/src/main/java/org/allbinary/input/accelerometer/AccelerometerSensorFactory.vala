@@ -13,38 +13,36 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.input.accelerometer
+// import org.allbinary.game.configuration.feature.Features
+// import org.allbinary.game.configuration.feature.SensorFeatureFactory
+// import org.allbinary.input.gyro.AllBinaryOrientationSensor
 
-using System;
-using System.Linq;
-using Features = org.allbinary.game.configuration.feature.Features;
-using SensorFeatureFactory = org.allbinary.game.configuration.feature.SensorFeatureFactory;
-using AllBinaryOrientationSensor = org.allbinary.input.gyro.AllBinaryOrientationSensor;
+public class AccelerometerSensorFactory : JObject {
+    private static AllBinaryOrientationSensor? allBinaryAccelerometerSensor = null;
 
-namespace org.allbinary.input.accelerometer;
+    public AccelerometerSensorFactory() {
+        base();
+    }
+    
 
-public class AccelerometerSensorFactory
-{
-    private static AllBinaryOrientationSensor allBinaryAccelerometerSensor = null;
-    // throws Exception
-    public static void init()
-    {
+    public static void init() {
         Features features = Features.getInstance();
         SensorFeatureFactory sensorFeatureFactory = SensorFeatureFactory.getInstance();
         if (features.isFeature(sensorFeatureFactory.ORIENTATION_SENSORS)) {
-            throw new Exception("No Orientation Sensors");
+            JSystem.fatal(new JException("Exception", "No Orientation Sensors"));
         } else if (features.isFeature(sensorFeatureFactory.SIMULATED_ORIENTATION_SENSORS)) {
-            throw new Exception("No Simulation Sensors");
+            JSystem.fatal(new JException("Exception", "No Simulation Sensors"));
         } else if (features.isFeature(sensorFeatureFactory.NO_ORIENTATION)) {
             AccelerometerSensorFactory.allBinaryAccelerometerSensor = new NoAccelerometerSensor();
         } else {
-            throw new Exception("Not Such SensorFeature");
+            JSystem.fatal(new JException("Exception", "Not Such SensorFeature"));
         }
     }
+    
 
-    public static AllBinaryOrientationSensor getInstance()
-    {
+    public static AllBinaryOrientationSensor getInstance() {
         return AccelerometerSensorFactory.allBinaryAccelerometerSensor;
     }
-
 }
 

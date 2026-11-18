@@ -13,28 +13,29 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.input.motion.gesture.observer
+// import org.allbinary.logic.communication.log.LogUtil
+// import org.allbinary.string.CommonStrings
+// import org.allbinary.util.BasicArrayList
 
-using System;
-using System.Linq;
-using LogUtil = org.allbinary.logic.communication.log.LogUtil;
-using CommonStrings = org.allbinary.@string.CommonStrings;
-using BasicArrayList = org.allbinary.util.BasicArrayList;
+public class NullCompleteMotionGestureReceiver : JObject, CompleteMotionGestureListenerInterface {
+    public LogUtil logUtil;
 
-namespace org.allbinary.input.motion.gesture.observer;
+    // Java field initializers run after the base constructor
+    private void initFieldsNullCompleteMotionGestureReceiver() {
+    this.logUtil = LogUtil.getInstance();
+    }
+    
 
-public class NullCompleteMotionGestureReceiver : CompleteMotionGestureListenerInterface
-{
-    public readonly LogUtil logUtil = LogUtil.getInstance();
-    public NullCompleteMotionGestureReceiver()
-    {
+    public NullCompleteMotionGestureReceiver() {
+        base();
+        this.initFieldsNullCompleteMotionGestureReceiver();
         CommonStrings commonStrings = CommonStrings.getInstance();
         this.logUtil.putF("Null Gesture Reciever", this, commonStrings.CONSTRUCTOR);
     }
+    
 
-    // throws Exception
-    public virtual void onMotionGestureCompleted(BasicArrayList list)
-    {
+    public virtual void onMotionGestureCompleted(BasicArrayList list) {
     }
-
 }
 

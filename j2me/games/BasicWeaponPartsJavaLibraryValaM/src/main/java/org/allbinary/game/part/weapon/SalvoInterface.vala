@@ -13,22 +13,17 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.game.part.weapon
+// import org.allbinary.game.combat.weapon.WeaponProperties
+// import org.allbinary.game.score.ScoreableInterface
+// import org.allbinary.layer.AllBinaryLayerManager
 
-using System;
-using System.Linq;
-using WeaponProperties = org.allbinary.game.combat.weapon.WeaponProperties;
-using ScoreableInterface = org.allbinary.game.score.ScoreableInterface;
-using AllBinaryLayerManager = org.allbinary.layer.AllBinaryLayerManager;
+public interface SalvoInterface : JObject {
+    
 
-namespace org.allbinary.game.part.weapon;
+    public abstract void process(AllBinaryLayerManager allbinaryLayerManager, int16 angle, int16 otherAngle);
+    
 
-public interface SalvoInterface
-{
-    // throws Exception
-    void process(AllBinaryLayerManager allbinaryLayerManager, short angle, short otherAngle);
-
-    // throws Exception
-    void processScore(AllBinaryLayerManager allbinaryLayerManager, short angle, short otherAngle, WeaponProperties weaponProperties, ScoreableInterface scoreableInterface);
-
+    public abstract void processScore(AllBinaryLayerManager allbinaryLayerManager, int16 angle, int16 otherAngle, WeaponProperties weaponProperties, ScoreableInterface scoreableInterface);
 }
 

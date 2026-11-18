@@ -13,51 +13,58 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.game.ag.layer.pickup.points
+// import org.allbinary.animation.FeaturedAnimationInterfaceFactoryInterfaceFactory
+// import org.allbinary.game.configuration.GameConfigurationUtil
+// import org.allbinary.game.layer.pickup.CountedPickedUpLayerInterfaceFactory
+// import org.allbinary.game.layer.pickup.IconLayerFactory
+// import org.allbinary.game.layer.pickup.PickedUpLayerInterfaceFactory
+// import org.allbinary.game.layer.pickup.PickedUpLayerInterfaceFactoryInterface
+// import org.allbinary.game.layer.pickup.PickedUpLayerTypeFactory
+// import org.allbinary.game.layer.pickup.PickupProcessorInterface
+// import org.allbinary.layer.AllBinaryLayer
 
-using System;
-using System.Linq;
-using FeaturedAnimationInterfaceFactoryInterfaceFactory = org.allbinary.animation.FeaturedAnimationInterfaceFactoryInterfaceFactory;
-using GameConfigurationUtil = org.allbinary.game.configuration.GameConfigurationUtil;
-using CountedPickedUpLayerInterfaceFactory = org.allbinary.game.layer.pickup.CountedPickedUpLayerInterfaceFactory;
-using IconLayerFactory = org.allbinary.game.layer.pickup.IconLayerFactory;
-using PickedUpLayerInterfaceFactory = org.allbinary.game.layer.pickup.PickedUpLayerInterfaceFactory;
-using PickedUpLayerInterfaceFactoryInterface = org.allbinary.game.layer.pickup.PickedUpLayerInterfaceFactoryInterface;
-using PickedUpLayerTypeFactory = org.allbinary.game.layer.pickup.PickedUpLayerTypeFactory;
-using PickupProcessorInterface = org.allbinary.game.layer.pickup.PickupProcessorInterface;
-using AllBinaryLayer = org.allbinary.layer.AllBinaryLayer;
-
-namespace org.allbinary.game.ag.layer.pickup.points;
-
-public class Points20kPickedUpLayerInterfaceFactory : PickedUpLayerInterfaceFactory, PickupProcessorInterface
-{
-    private static PickedUpLayerInterfaceFactoryInterface pickedUpLayerInterfaceFactoryInterface = CountedPickedUpLayerInterfaceFactory.NULL_COUNTED_PICKUP_LAYER_FACTORY;
-    // throws Exception
-    public static void init()
-    {
-        Points20kPickedUpLayerInterfaceFactory.pickedUpLayerInterfaceFactoryInterface = new Points20kPickedUpLayerInterfaceFactory();
-    }
-
-    private PointsLayerCircularStaticPool pool = new PointsLayerCircularStaticPool(new PointsLayerFactory(GameConfigurationUtil.getInstance().getCompetitionValue() * 20000), 1);
-    private Points20kPickedUpLayerInterfaceFactory() : base(PickedUpLayerTypeFactory.getInstance().POINTS, IconLayerFactory.getInstance(FeaturedAnimationInterfaceFactoryInterfaceFactory.getInstance().get(PointsResources.getInstance().RESOURCE_2).getInstance(0), 10, 10), FeaturedAnimationInterfaceFactoryInterfaceFactory.getInstance().get(PointsResources.getInstance().RESOURCE_2).getInstance(0))
-    {
-        // base(PickedUpLayerTypeFactory.getInstance().POINTS, IconLayerFactory.getInstance(FeaturedAnimationInterfaceFactoryInterfaceFactory.getInstance().get(PointsResources.getInstance().RESOURCE_2).getInstance(0), 10, 10), FeaturedAnimationInterfaceFactoryInterfaceFactory.getInstance().get(PointsResources.getInstance().RESOURCE_2).getInstance(0)) is called from the constructor declaration
-    }
-
-    public virtual int getTotal()
-    {
-        return 1;
-    }
-
-    public static PickedUpLayerInterfaceFactoryInterface getInstance()
-    {
+public class Points20kPickedUpLayerInterfaceFactory : PickedUpLayerInterfaceFactory, PickupProcessorInterface {
+    private static PickedUpLayerInterfaceFactoryInterface? pickedUpLayerInterfaceFactoryInterface;
+    private static bool staticSet_pickedUpLayerInterfaceFactoryInterface = false;
+    private static PickedUpLayerInterfaceFactoryInterface staticGet_pickedUpLayerInterfaceFactoryInterface() {
+        if (!Points20kPickedUpLayerInterfaceFactory.staticSet_pickedUpLayerInterfaceFactoryInterface) {
+            Points20kPickedUpLayerInterfaceFactory.staticSet_pickedUpLayerInterfaceFactoryInterface = true;
+            Points20kPickedUpLayerInterfaceFactory.pickedUpLayerInterfaceFactoryInterface = CountedPickedUpLayerInterfaceFactory.NULL_COUNTED_PICKUP_LAYER_FACTORY;
+        }
         return Points20kPickedUpLayerInterfaceFactory.pickedUpLayerInterfaceFactoryInterface;
     }
+    private PointsLayerCircularStaticPool pool;
 
-    // throws Exception
-    public virtual void process(AllBinaryLayer sourceLayerInterface)
-    {
+    // Java field initializers run after the base constructor
+    private void initFieldsPoints20kPickedUpLayerInterfaceFactory() {
+    this.pool = new PointsLayerCircularStaticPool(new PointsLayerFactory(GameConfigurationUtil.getInstance().getCompetitionValue() * 20000), 1);
+    }
+    
+
+    public static void init() {
+        Points20kPickedUpLayerInterfaceFactory.pickedUpLayerInterfaceFactoryInterface = new Points20kPickedUpLayerInterfaceFactory();
+    }
+    
+
+    public Points20kPickedUpLayerInterfaceFactory() {
+        base(PickedUpLayerTypeFactory.getInstance().POINTS, IconLayerFactory.getInstance3(FeaturedAnimationInterfaceFactoryInterfaceFactory.getInstance().@get(PointsResources.getInstance().RESOURCE_2).getInstance1(0), 10, 10), FeaturedAnimationInterfaceFactoryInterfaceFactory.getInstance().@get(PointsResources.getInstance().RESOURCE_2).getInstance1(0));
+        this.initFieldsPoints20kPickedUpLayerInterfaceFactory();
+    }
+    
+
+    public virtual int32 getTotal() {
+        return 1;
+    }
+    
+
+    public static PickedUpLayerInterfaceFactoryInterface getInstance() {
+        return Points20kPickedUpLayerInterfaceFactory.staticGet_pickedUpLayerInterfaceFactoryInterface();
+    }
+    
+
+    public virtual void process(AllBinaryLayer sourceLayerInterface) {
         this.pool.visit(sourceLayerInterface);
     }
-
 }
 

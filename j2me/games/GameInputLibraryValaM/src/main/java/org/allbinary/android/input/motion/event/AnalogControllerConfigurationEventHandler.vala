@@ -13,70 +13,76 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.android.input.motion.event
+// import org.allbinary.logic.util.event.AllBinaryEventObject
+// import org.allbinary.logic.util.event.EventListenerInterface
+// import org.allbinary.logic.util.event.EventStrings
+// import org.allbinary.logic.util.event.handler.BasicEventHandler
+// import org.allbinary.util.BasicArrayList
+// import org.allbinary.util.BasicArrayListD
 
-using System;
-using System.Linq;
-using AllBinaryEventObject = org.allbinary.logic.util.@event.AllBinaryEventObject;
-using EventListenerInterface = org.allbinary.logic.util.@event.EventListenerInterface;
-using EventStrings = org.allbinary.logic.util.@event.EventStrings;
-using BasicEventHandler = org.allbinary.logic.util.@event.handler.BasicEventHandler;
-using BasicArrayList = org.allbinary.util.BasicArrayList;
-using BasicArrayListD = org.allbinary.util.BasicArrayListD;
-
-namespace org.allbinary.android.input.motion.@event;
-
-public class AnalogControllerConfigurationEventHandler : BasicEventHandler
-{
-    private static readonly AnalogControllerConfigurationEventHandler instance = new AnalogControllerConfigurationEventHandler();
-    public static AnalogControllerConfigurationEventHandler getInstance()
-    {
+public class AnalogControllerConfigurationEventHandler : BasicEventHandler {
+    private static AnalogControllerConfigurationEventHandler? instance;
+    private static bool staticSet_instance = false;
+    private static AnalogControllerConfigurationEventHandler staticGet_instance() {
+        if (!AnalogControllerConfigurationEventHandler.staticSet_instance) {
+            AnalogControllerConfigurationEventHandler.staticSet_instance = true;
+            AnalogControllerConfigurationEventHandler.instance = new AnalogControllerConfigurationEventHandler();
+        }
         return AnalogControllerConfigurationEventHandler.instance;
     }
+    private BasicArrayList list;
 
-    private readonly BasicArrayList list = new BasicArrayListD();
-    private AnalogControllerConfigurationEventHandler()
-    {
+    // Java field initializers run after the base constructor
+    private void initFieldsAnalogControllerConfigurationEventHandler() {
+    this.list = new BasicArrayListD();
     }
+    
 
-    public virtual void addListener(AnalogControllerConfigurationEventListenerInterface analogControllerConfigurationEventListenerInterface)
-    {
+    public static AnalogControllerConfigurationEventHandler getInstance() {
+        return AnalogControllerConfigurationEventHandler.staticGet_instance();
+    }
+    
+
+    public AnalogControllerConfigurationEventHandler() {
+        base();
+        this.initFieldsAnalogControllerConfigurationEventHandler();
+    }
+    
+
+    public virtual void addListener(AnalogControllerConfigurationEventListenerInterface analogControllerConfigurationEventListenerInterface) {
         if (!this.list.contains(analogControllerConfigurationEventListenerInterface)) {
             this.list.add(analogControllerConfigurationEventListenerInterface);
         }
     }
+    
 
-    public override void removeAllListeners()
-    {
+    public override void removeAllListeners() {
         this.list.clear();
         base.removeAllListeners();
     }
+    
 
-    public override void removeListener(EventListenerInterface eventListenerInterface)
-    {
+    public override void removeListener(EventListenerInterface eventListenerInterface) {
         this.list.remove(eventListenerInterface);
         base.removeListener(eventListenerInterface);
     }
+    
 
-    // throws Exception
-    public override void fireEvent(AllBinaryEventObject eventObject)
-    {
-        for (int index = this.list.size(); --index >= 0; ) {
-            try {
+    public override void fireEvent(AllBinaryEventObject eventObject) {
+        for (int32 index = this.list.size(); --index >= 0; ) {
+            {
                 AnalogControllerConfigurationEventListenerInterface playerGameInput = ((AnalogControllerConfigurationEventListenerInterface) this.list.objectArray[index]);
                 playerGameInput.onAnalogControllerConfigurationEvent(((AnalogControllerConfigurationEvent) eventObject));
-            } catch (Exception e) {
-                this.logUtil.put(this.commonStrings.EXCEPTION, this, EventStrings.getInstance().FIRE_EVENT, e);
-            }
+            } /* catch (Exception e): a thrown Java exception stops the program */
         }
         base.fireEvent(eventObject);
     }
+    
 
-    // throws Exception
-    public override void process(AllBinaryEventObject eventObject, EventListenerInterface eventListenerInterface)
-    {
+    public override void process(AllBinaryEventObject eventObject, EventListenerInterface eventListenerInterface) {
         AnalogControllerConfigurationEventListenerInterface analogControllerConfigurationEventListenerInterface = (((AnalogControllerConfigurationEventListenerInterface) eventListenerInterface));
         analogControllerConfigurationEventListenerInterface.onAnalogControllerConfigurationEvent(((AnalogControllerConfigurationEvent) eventObject));
     }
-
 }
 

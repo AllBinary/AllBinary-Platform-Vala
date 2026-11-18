@@ -13,13 +13,8 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.game.input.event
 
-using System;
-using System.Linq;
-
-namespace org.allbinary.game.input.@event;
-
-public interface GameKeyEventListenerInterface : DownGameKeyEventListenerInterface, UpGameKeyEventListenerInterface, PressGameKeyEventListenerInterface
-{
+public interface GameKeyEventListenerInterface : JObject, DownGameKeyEventListenerInterface, UpGameKeyEventListenerInterface, PressGameKeyEventListenerInterface {
 }
 

@@ -13,22 +13,35 @@
  *   
  */
 // Generated Code Do Not Modify
+// package org.allbinary.platform.opengles
+// import javax.microedition.khronos.opengles.GL10
+// import javax.microedition.lcdui.Image
+// import org.allbinary.string.CommonStrings
 
-using System;
-using System.Linq;
-using GL10 = javax.microedition.khronos.opengles.GL10;
-using Image = javax.microedition.lcdui.Image;
-using CommonStrings = org.allbinary.@string.CommonStrings;
+public class PlatformTextureBaseFactory : JObject {
+    public static PlatformTextureBaseFactory? NULL_PLATFORM_TEXTURE_BASE_FACTORY;
+    private static bool staticSet_NULL_PLATFORM_TEXTURE_BASE_FACTORY = false;
+    public static PlatformTextureBaseFactory staticGet_NULL_PLATFORM_TEXTURE_BASE_FACTORY() {
+        if (!PlatformTextureBaseFactory.staticSet_NULL_PLATFORM_TEXTURE_BASE_FACTORY) {
+            PlatformTextureBaseFactory.staticSet_NULL_PLATFORM_TEXTURE_BASE_FACTORY = true;
+            PlatformTextureBaseFactory.NULL_PLATFORM_TEXTURE_BASE_FACTORY = new PlatformTextureBaseFactory();
+        }
+        return PlatformTextureBaseFactory.NULL_PLATFORM_TEXTURE_BASE_FACTORY;
+    }
+    public CommonStrings commonStrings;
 
-namespace org.allbinary.platform.opengles;
-
-public class PlatformTextureBaseFactory
-{
-    public static readonly PlatformTextureBaseFactory NULL_PLATFORM_TEXTURE_BASE_FACTORY = new PlatformTextureBaseFactory();
-    public readonly CommonStrings commonStrings = CommonStrings.getInstance();
-    public virtual void load(GL10 gl, int target, int level, Image image, int border, bool flip)
-    {
+    // Java field initializers run after the base constructor
+    private void initFieldsPlatformTextureBaseFactory() {
+    this.commonStrings = CommonStrings.getInstance();
     }
 
+    public PlatformTextureBaseFactory() {
+        base();
+        this.initFieldsPlatformTextureBaseFactory();
+    }
+    
+
+    public virtual void load(GL10 gl, int32 target, int32 level, Image image, int32 border, bool flip) {
+    }
 }
 

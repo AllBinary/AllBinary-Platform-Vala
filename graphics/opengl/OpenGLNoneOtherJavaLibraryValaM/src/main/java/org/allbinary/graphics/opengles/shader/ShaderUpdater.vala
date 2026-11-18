@@ -13,29 +13,43 @@
  *   
  */
 // Generated Code Do Not Modify
+// package org.allbinary.graphics.opengles.shader
+// import javax.microedition.khronos.egl.EGLConfig
+// import javax.microedition.khronos.opengles.GL10
+// import org.allbinary.graphics.opengles.renderer.RendererStrings
+// import org.allbinary.string.CommonStrings
 
-using System;
-using System.Linq;
-using EGLConfig = javax.microedition.khronos.egl.EGLConfig;
-using GL10 = javax.microedition.khronos.opengles.GL10;
-using RendererStrings = org.allbinary.graphics.opengles.renderer.RendererStrings;
-using CommonStrings = org.allbinary.@string.CommonStrings;
-
-namespace org.allbinary.graphics.opengles.shader;
-
-public class ShaderUpdater
-{
-    private static readonly ShaderUpdater instance = new ShaderUpdater();
-    public static ShaderUpdater getInstance()
-    {
+public class ShaderUpdater : JObject {
+    private static ShaderUpdater? instance;
+    private static bool staticSet_instance = false;
+    private static ShaderUpdater staticGet_instance() {
+        if (!ShaderUpdater.staticSet_instance) {
+            ShaderUpdater.staticSet_instance = true;
+            ShaderUpdater.instance = new ShaderUpdater();
+        }
         return ShaderUpdater.instance;
     }
+    public CommonStrings commonStrings;
+    public RendererStrings rendererStrings;
 
-    public readonly CommonStrings commonStrings = CommonStrings.getInstance();
-    public readonly RendererStrings rendererStrings = RendererStrings.getInstance();
-    public virtual void onSurfaceCreated(GL10 gl, EGLConfig eglConfig)
-    {
+    // Java field initializers run after the base constructor
+    private void initFieldsShaderUpdater() {
+    this.commonStrings = CommonStrings.getInstance();
+    this.rendererStrings = RendererStrings.getInstance();
     }
 
+    public ShaderUpdater() {
+        base();
+        this.initFieldsShaderUpdater();
+    }
+    
+
+    public static ShaderUpdater getInstance() {
+        return ShaderUpdater.staticGet_instance();
+    }
+    
+
+    public virtual void onSurfaceCreated(GL10 gl, EGLConfig eglConfig) {
+    }
 }
 

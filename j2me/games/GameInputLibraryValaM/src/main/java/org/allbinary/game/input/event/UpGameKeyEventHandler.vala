@@ -13,62 +13,80 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.game.input.event
+// import org.allbinary.game.input.LocalPlayerInputIdFactory
+// import org.allbinary.logic.util.event.EventListenerInterface
 
-using System;
-using System.Linq;
-using LocalPlayerInputIdFactory = org.allbinary.game.input.LocalPlayerInputIdFactory;
-using EventListenerInterface = org.allbinary.logic.util.@event.EventListenerInterface;
-
-namespace org.allbinary.game.input.@event;
-
-public class UpGameKeyEventHandler : UpGameKeyEventHandlerBase
-{
-    private static readonly UpGameKeyEventHandler instance = new UpGameKeyEventHandler();
-    private static readonly UpGameKeyEventHandlerBase[] instanceArray = new UpGameKeyEventHandlerBase[] { new UpGameKeyEventHandlerBase(), new UpGameKeyEventHandlerBase(), new UpGameKeyEventHandlerBase(), new UpGameKeyEventHandlerBase(), new UpGameKeyEventHandlerBase(), new UpGameKeyEventHandlerBase() };
-    public static UpGameKeyEventHandler getInstance()
-    {
+public class UpGameKeyEventHandler : UpGameKeyEventHandlerBase {
+    private static UpGameKeyEventHandler? instance;
+    private static bool staticSet_instance = false;
+    private static UpGameKeyEventHandler staticGet_instance() {
+        if (!UpGameKeyEventHandler.staticSet_instance) {
+            UpGameKeyEventHandler.staticSet_instance = true;
+            UpGameKeyEventHandler.instance = new UpGameKeyEventHandler();
+        }
         return UpGameKeyEventHandler.instance;
     }
-
-    private readonly LocalPlayerInputIdFactory playerInputIdFactory = LocalPlayerInputIdFactory.getInstance();
-    public virtual UpGameKeyEventHandlerBase getInstanceForDevice(int deviceId)
-    {
-        int playerInputId = this.playerInputIdFactory.getPlayerForDevice(deviceId);
-        return UpGameKeyEventHandler.instanceArray[playerInputId];
+    private static UpGameKeyEventHandlerBase[]? instanceArray;
+    private static bool staticSet_instanceArray = false;
+    private static UpGameKeyEventHandlerBase[] staticGet_instanceArray() {
+        if (!UpGameKeyEventHandler.staticSet_instanceArray) {
+            UpGameKeyEventHandler.staticSet_instanceArray = true;
+            UpGameKeyEventHandler.instanceArray = new UpGameKeyEventHandlerBase[] {new UpGameKeyEventHandlerBase(), new UpGameKeyEventHandlerBase(), new UpGameKeyEventHandlerBase(), new UpGameKeyEventHandlerBase(), new UpGameKeyEventHandlerBase(), new UpGameKeyEventHandlerBase()};
+        }
+        return UpGameKeyEventHandler.instanceArray;
     }
+    private LocalPlayerInputIdFactory playerInputIdFactory;
 
-    public virtual UpGameKeyEventHandlerBase getInstanceForPlayer(int playerInputId)
-    {
-        return UpGameKeyEventHandler.instanceArray[playerInputId];
+    // Java field initializers run after the base constructor
+    private void initFieldsUpGameKeyEventHandler() {
+    this.playerInputIdFactory = LocalPlayerInputIdFactory.getInstance();
     }
+    
 
-    private UpGameKeyEventHandler()
-    {
+    public static UpGameKeyEventHandler getInstance() {
+        return UpGameKeyEventHandler.staticGet_instance();
     }
+    
 
-    public override void removeAllListeners()
-    {
+    public virtual UpGameKeyEventHandlerBase getInstanceForDevice(int32 deviceId) {
+        int32 playerInputId = this.playerInputIdFactory.getPlayerForDevice(deviceId);
+        return UpGameKeyEventHandler.staticGet_instanceArray()[playerInputId];
+    }
+    
+
+    public virtual UpGameKeyEventHandlerBase getInstanceForPlayer(int32 playerInputId) {
+        return UpGameKeyEventHandler.staticGet_instanceArray()[playerInputId];
+    }
+    
+
+    public UpGameKeyEventHandler() {
+        base();
+        this.initFieldsUpGameKeyEventHandler();
+    }
+    
+
+    public override void removeAllListeners() {
         base.removeAllListeners();
-        for (int index = UpGameKeyEventHandler.instanceArray.Length - 1; index >= 0; index--) {
-            UpGameKeyEventHandler.instanceArray[index].removeAllListeners();
+        for (int32 index = UpGameKeyEventHandler.staticGet_instanceArray().length - 1; index >= 0; index--) {
+            UpGameKeyEventHandler.staticGet_instanceArray()[index].removeAllListeners();
         }
     }
+    
 
-    public override void removeListenerSingleThreaded(EventListenerInterface eventListenerInterface)
-    {
+    public override void removeListenerSingleThreaded(EventListenerInterface eventListenerInterface) {
         base.removeListenerSingleThreaded(eventListenerInterface);
-        for (int index = UpGameKeyEventHandler.instanceArray.Length - 1; index >= 0; index--) {
-            UpGameKeyEventHandler.instanceArray[index].removeListenerSingleThreaded(eventListenerInterface);
+        for (int32 index = UpGameKeyEventHandler.staticGet_instanceArray().length - 1; index >= 0; index--) {
+            UpGameKeyEventHandler.staticGet_instanceArray()[index].removeListenerSingleThreaded(eventListenerInterface);
         }
     }
+    
 
-    public override void removeListener(EventListenerInterface eventListenerInterface)
-    {
+    public override void removeListener(EventListenerInterface eventListenerInterface) {
         base.removeListener(eventListenerInterface);
-        for (int index = UpGameKeyEventHandler.instanceArray.Length - 1; index >= 0; index--) {
-            UpGameKeyEventHandler.instanceArray[index].removeListener(eventListenerInterface);
+        for (int32 index = UpGameKeyEventHandler.staticGet_instanceArray().length - 1; index >= 0; index--) {
+            UpGameKeyEventHandler.staticGet_instanceArray()[index].removeListener(eventListenerInterface);
         }
     }
-
 }
 

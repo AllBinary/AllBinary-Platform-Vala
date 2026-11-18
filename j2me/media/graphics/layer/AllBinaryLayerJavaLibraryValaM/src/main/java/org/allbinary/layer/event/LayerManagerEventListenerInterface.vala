@@ -13,20 +13,15 @@
  *   
  */
 // Generated Code Do Not Modify
+// package org.allbinary.layer.event
+// import org.allbinary.logic.util.event.EventListenerInterface
 
-using System;
-using System.Linq;
-using EventListenerInterface = org.allbinary.logic.util.@event.EventListenerInterface;
+public interface LayerManagerEventListenerInterface : JObject, EventListenerInterface {
+    
 
-namespace org.allbinary.layer.@event;
+    public abstract void onCreateLayerManagerEvent(LayerManagerEvent layerManagerEvent);
+    
 
-public interface LayerManagerEventListenerInterface : EventListenerInterface
-{
-    // throws Exception
-    void onCreateLayerManagerEvent(LayerManagerEvent layerManagerEvent);
-
-    // throws Exception
-    void onDeleteLayerManagerEvent(LayerManagerEvent layerManagerEvent);
-
+    public abstract void onDeleteLayerManagerEvent(LayerManagerEvent layerManagerEvent);
 }
 

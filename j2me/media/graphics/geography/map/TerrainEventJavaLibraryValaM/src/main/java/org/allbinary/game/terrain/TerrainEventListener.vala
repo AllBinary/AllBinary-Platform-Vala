@@ -1,33 +1,38 @@
 // Generated Code Do Not Modify
+// package org.allbinary.game.terrain
+// import org.allbinary.logic.communication.log.ForcedLogUtil
+// import org.allbinary.logic.util.event.AllBinaryEventObject
+// import org.allbinary.logic.util.event.EventStrings
+// import org.allbinary.util.BasicArrayList
+// import org.allbinary.util.BasicArrayListD
 
-using System;
-using System.Linq;
-using ForcedLogUtil = org.allbinary.logic.communication.log.ForcedLogUtil;
-using AllBinaryEventObject = org.allbinary.logic.util.@event.AllBinaryEventObject;
-using EventStrings = org.allbinary.logic.util.@event.EventStrings;
-using BasicArrayList = org.allbinary.util.BasicArrayList;
-using BasicArrayListD = org.allbinary.util.BasicArrayListD;
+public class TerrainEventListener : JObject, TerrainEventListenerInterface, EventListenerInterface {
+    private BasicArrayList list;
 
-namespace org.allbinary.game.terrain;
-
-public class TerrainEventListener : TerrainEventListenerInterface
-{
-    private readonly BasicArrayList list = new BasicArrayListD();
-    public virtual void onEvent(AllBinaryEventObject eventObject)
-    {
-        ForcedLogUtil.log(EventStrings.getInstance().PERFORMANCE_MESSAGE, this);
+    // Java field initializers run after the base constructor
+    private void initFieldsTerrainEventListener() {
+    this.list = new BasicArrayListD();
     }
 
-    public virtual void onTerrainEvent(TerrainEvent terrainEvent)
-    {
+    public TerrainEventListener() {
+        base();
+        this.initFieldsTerrainEventListener();
+    }
+    
+
+    public virtual void onEvent(AllBinaryEventObject eventObject) {
+        ForcedLogUtil.log(EventStrings.getInstance().PERFORMANCE_MESSAGE, this);
+    }
+    
+
+    public virtual void onTerrainEvent(TerrainEvent terrainEvent) {
         this.list.clear();
         this.list.add(terrainEvent);
     }
+    
 
-    public virtual BasicArrayList getList()
-    {
+    public virtual BasicArrayList getList() {
         return this.list;
     }
-
 }
 

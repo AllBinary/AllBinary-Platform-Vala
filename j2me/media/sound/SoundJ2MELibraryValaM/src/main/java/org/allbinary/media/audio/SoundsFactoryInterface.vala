@@ -13,22 +13,20 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.media.audio
 
-using System;
-using System.Linq;
+public interface SoundsFactoryInterface : JObject {
+    
 
-namespace org.allbinary.media.audio;
+    public abstract void init();
+    
 
-public interface SoundsFactoryInterface
-{
-    void init();
+    public abstract Sound[] getSoundInterfaceArray();
+    
 
-    // throws Exception
-    Sound[] getSoundInterfaceArray();
+    public abstract void setInitialized(bool initialized);
+    
 
-    void setInitialized(bool initialized);
-
-    bool isInitialized();
-
+    public abstract bool isInitialized();
 }
 

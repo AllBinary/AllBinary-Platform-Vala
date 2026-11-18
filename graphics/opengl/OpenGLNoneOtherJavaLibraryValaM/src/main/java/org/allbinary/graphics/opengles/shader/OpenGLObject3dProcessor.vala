@@ -1,22 +1,27 @@
 // Generated Code Do Not Modify
+// package org.allbinary.graphics.opengles.shader
+// import javax.microedition.khronos.opengles.GL10
+// import org.allbinary.string.CommonStrings
 
-using System;
-using System.Linq;
-using GL10 = javax.microedition.khronos.opengles.GL10;
-using CommonStrings = org.allbinary.@string.CommonStrings;
+public class OpenGLObject3dProcessor : JObject {
+    public CommonStrings commonStrings;
 
-namespace org.allbinary.graphics.opengles.shader;
-
-public class OpenGLObject3dProcessor
-{
-    public readonly CommonStrings commonStrings = CommonStrings.getInstance();
-    public virtual void process(GL10 gl, object object3d)
-    {
+    // Java field initializers run after the base constructor
+    private void initFieldsOpenGLObject3dProcessor() {
+    this.commonStrings = CommonStrings.getInstance();
     }
 
-    public virtual void process(GL10 gl, object object3d, int index)
-    {
+    public OpenGLObject3dProcessor() {
+        base();
+        this.initFieldsOpenGLObject3dProcessor();
     }
+    
 
+    public virtual void process_2(GL10 gl, JObject object3d) {
+    }
+    
+
+    public virtual void process_3(GL10 gl, JObject object3d, int32 index) {
+    }
 }
 

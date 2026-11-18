@@ -13,15 +13,11 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.layer
 
-using System;
-using System.Linq;
+public interface PositionInterface : JObject {
+    
 
-namespace org.allbinary.layer;
-
-public interface PositionInterface
-{
-    void setPosition(int x, int y, int z);
-
+    public abstract void setPosition(int32 x, int32 y, int32 z);
 }
 

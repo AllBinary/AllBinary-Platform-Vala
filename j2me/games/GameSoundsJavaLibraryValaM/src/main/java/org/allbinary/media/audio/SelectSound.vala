@@ -13,25 +13,28 @@
  *  
  */
 // Generated Code Do Not Modify
-
-using System;
-using System.Linq;
-
-namespace org.allbinary.media.audio;
+// package org.allbinary.media.audio
 
 //Use 8hz16bitmono for most J2ME
-public class SelectSound : CompositeSound
-{
-    private static Sound soundInterface = new SelectSound();
-    private SelectSound() : base("resource:/wav/select.wav")
-    {
-        // base("resource:/wav/select.wav") is called from the constructor declaration
-    }
-
-    public static Sound getInstance()
-    {
+public class SelectSound : CompositeSound {
+    private static Sound? soundInterface;
+    private static bool staticSet_soundInterface = false;
+    private static Sound staticGet_soundInterface() {
+        if (!SelectSound.staticSet_soundInterface) {
+            SelectSound.staticSet_soundInterface = true;
+            SelectSound.soundInterface = new SelectSound();
+        }
         return SelectSound.soundInterface;
     }
+    
 
+    public SelectSound() {
+        base("resource:/wav/select.wav");
+    }
+    
+
+    public static Sound getInstance() {
+        return SelectSound.staticGet_soundInterface();
+    }
 }
 

@@ -13,44 +13,43 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.game.input
+// import org.allbinary.logic.communication.log.LogUtil
+// import org.allbinary.logic.string.StringMaker
+// import org.allbinary.util.BasicArrayList
+// import org.allbinary.util.BasicArrayListD
 
-using System;
-using System.Linq;
-using System.Runtime.CompilerServices;
-using LogUtil = org.allbinary.logic.communication.log.LogUtil;
-using StringMaker = org.allbinary.logic.@string.StringMaker;
-using BasicArrayList = org.allbinary.util.BasicArrayList;
-using BasicArrayListD = org.allbinary.util.BasicArrayListD;
+public class GameInputProcessorComposite : PlayerGameInput {
+    private string name;
+    private GameInputProcessorInterface gameInputProcessorInterface;
+    private string NAME_LABEL;
 
-namespace org.allbinary.game.input;
+    // Java field initializers run after the base constructor
+    private void initFieldsGameInputProcessorComposite() {
+    
+    
+    this.NAME_LABEL = " GameInputProcessorInterface: ";
+    }
+    
 
-public class GameInputProcessorComposite : PlayerGameInput
-{
-    private readonly string name;
-    private readonly GameInputProcessorInterface gameInputProcessorInterface;
-    public GameInputProcessorComposite(string name, GameInputProcessorInterface gameInputProcessorInterface) : base(new BasicArrayListD(), new BasicArrayListD(), -1)
-    {
-        // base(new BasicArrayListD(), new BasicArrayListD(), -1) is called from the constructor declaration
+    public GameInputProcessorComposite(string name, GameInputProcessorInterface gameInputProcessorInterface) {
+        base(new BasicArrayListD(), new BasicArrayListD(), -1);
+        this.initFieldsGameInputProcessorComposite();
         this.name = name;
         this.gameInputProcessorInterface = gameInputProcessorInterface;
     }
+    
 
-    [MethodImpl(MethodImplOptions.Synchronized)]
-    public override void update()
-    {
-        try {
+    public override void update() {
+        {
             BasicArrayList list = this.getGameKeyEventList();
             this.gameInputProcessorInterface.onInput(list);
-        } catch (Exception e) {
-            this.logUtil.put(this.commonStrings.EXCEPTION, this, this.commonStrings.UPDATE, e);
-        }
+        } /* catch (Exception e): a thrown Java exception stops the program */
     }
+    
 
-    private readonly string NAME_LABEL = " GameInputProcessorInterface: ";
-    public override string ToString()
-    {
-        return new StringMaker().append(base.ToString()).append(this.NAME_LABEL).append(this.name).ToString();
+    public override string toString() {
+        return new StringMaker().append(base.toString()).append(this.NAME_LABEL).append(this.name).toString();
     }
-
 }
 

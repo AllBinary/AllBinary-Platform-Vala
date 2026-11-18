@@ -1,22 +1,16 @@
 // Generated Code Do Not Modify
+// package org.allbinary.animation
 
-using System;
-using System.Linq;
+public class NullIndexedAnimation : IndexedAnimation {
+    
 
-namespace org.allbinary.animation;
-
-public class NullIndexedAnimation : IndexedAnimation
-{
-    public NullIndexedAnimation(AnimationBehavior animationBehavior) : base(animationBehavior)
-    {
-        // base(animationBehavior) is called from the constructor declaration
+    public NullIndexedAnimation(AnimationBehavior animationBehavior) {
+        base(animationBehavior);
     }
+    
 
-    // throws Exception
-    public override int getAnimationSize()
-    {
+    public override int32 getAnimationSize() {
         return 0;
     }
-
 }
 

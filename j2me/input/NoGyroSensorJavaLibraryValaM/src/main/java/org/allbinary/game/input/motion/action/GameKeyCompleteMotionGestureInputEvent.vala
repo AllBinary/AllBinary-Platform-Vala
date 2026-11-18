@@ -13,55 +13,57 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.game.input.motion.action
+// import org.allbinary.game.input.CompleteMotionGestureInputEvent
+// import org.allbinary.game.input.GameKey
+// import org.allbinary.game.input.GameKeyEventSourceInterface
+// import org.allbinary.game.input.event.GameKeyEvent
+// import org.allbinary.game.input.mapping.InputToGameKeyMapping
+// import org.allbinary.input.motion.gesture.MotionGestureInput
 
-using System;
-using System.Linq;
-using CompleteMotionGestureInputEvent = org.allbinary.game.input.CompleteMotionGestureInputEvent;
-using GameKey = org.allbinary.game.input.GameKey;
-using GameKeyEventSourceInterface = org.allbinary.game.input.GameKeyEventSourceInterface;
-using GameKeyEvent = org.allbinary.game.input.@event.GameKeyEvent;
-using InputToGameKeyMapping = org.allbinary.game.input.mapping.InputToGameKeyMapping;
-using MotionGestureInput = org.allbinary.input.motion.gesture.MotionGestureInput;
+public class GameKeyCompleteMotionGestureInputEvent : CompleteMotionGestureInputEvent, GameKeyEventSourceInterface {
+    private GameKey gameKey;
+    private GameKeyEvent gameKeyEvent;
 
-namespace org.allbinary.game.input.motion.action;
-
-public class GameKeyCompleteMotionGestureInputEvent : CompleteMotionGestureInputEvent, GameKeyEventSourceInterface
-{
-    private GameKey gameKey = GameKey.NULL_GAME_KEY;
-    private GameKeyEvent gameKeyEvent = GameKeyEvent.NONE;
-    public GameKeyCompleteMotionGestureInputEvent(string name, MotionGestureInput motionGestureInput, InputToGameKeyMapping inputToGameKeyMapping) : base(name, motionGestureInput)
-    {
-        // base(name, motionGestureInput) is called from the constructor declaration
+    // Java field initializers run after the base constructor
+    private void initFieldsGameKeyCompleteMotionGestureInputEvent() {
+    this.gameKey = GameKey.NULL_GAME_KEY;
+    this.gameKeyEvent = GameKeyEvent.NONE;
     }
+    
 
-    public virtual int getSourceId()
-    {
+    public GameKeyCompleteMotionGestureInputEvent(string name, MotionGestureInput motionGestureInput, InputToGameKeyMapping inputToGameKeyMapping) {
+        base(name, motionGestureInput);
+        this.initFieldsGameKeyCompleteMotionGestureInputEvent();
+    }
+    
+
+    public virtual int32 getSourceId() {
         return 0;
     }
+    
 
-    public virtual void update()
-    {
+    public virtual void update() {
     }
+    
 
-    public virtual void setGameKeyEvent(GameKeyEvent gameKeyEvent)
-    {
+    public virtual void setGameKeyEvent(GameKeyEvent gameKeyEvent) {
         this.gameKeyEvent = gameKeyEvent;
     }
+    
 
-    public virtual GameKeyEvent getGameKeyEvent()
-    {
+    public virtual GameKeyEvent getGameKeyEvent() {
         return this.gameKeyEvent;
     }
+    
 
-    public virtual void setGameKey(GameKey gameKey)
-    {
+    public virtual void setGameKey(GameKey gameKey) {
         this.gameKey = gameKey;
     }
+    
 
-    public virtual GameKey getGameKey()
-    {
+    public virtual GameKey getGameKey() {
         return this.gameKey;
     }
-
 }
 

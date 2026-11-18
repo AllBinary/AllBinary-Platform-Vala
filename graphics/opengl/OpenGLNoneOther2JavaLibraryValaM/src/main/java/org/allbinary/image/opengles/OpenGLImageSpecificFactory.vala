@@ -13,23 +13,36 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.image.opengles
+// import org.allbinary.logic.communication.log.PreLogUtil
+// import org.allbinary.logic.string.StringMaker
+// import org.allbinary.logic.string.StringUtil
 
-using System;
-using System.Linq;
-using PreLogUtil = org.allbinary.logic.communication.log.PreLogUtil;
-using StringMaker = org.allbinary.logic.@string.StringMaker;
-using StringUtil = org.allbinary.logic.@string.StringUtil;
-
-namespace org.allbinary.image.opengles;
-
-public class OpenGLImageSpecificFactory
-{
-    private static readonly OpenGLImageSpecificFactory instance = new OpenGLImageSpecificFactory();
-    public bool updating = false;
-    public static OpenGLImageSpecificFactory getInstance()
-    {
+public class OpenGLImageSpecificFactory : JObject {
+    private static OpenGLImageSpecificFactory? instance;
+    private static bool staticSet_instance = false;
+    private static OpenGLImageSpecificFactory staticGet_instance() {
+        if (!OpenGLImageSpecificFactory.staticSet_instance) {
+            OpenGLImageSpecificFactory.staticSet_instance = true;
+            OpenGLImageSpecificFactory.instance = new OpenGLImageSpecificFactory();
+        }
         return OpenGLImageSpecificFactory.instance;
     }
+    public bool updating;
 
+    // Java field initializers run after the base constructor
+    private void initFieldsOpenGLImageSpecificFactory() {
+    this.updating = false;
+    }
+
+    public OpenGLImageSpecificFactory() {
+        base();
+        this.initFieldsOpenGLImageSpecificFactory();
+    }
+    
+
+    public static OpenGLImageSpecificFactory getInstance() {
+        return OpenGLImageSpecificFactory.staticGet_instance();
+    }
 }
 

@@ -13,37 +13,44 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.logic.system.security.licensing
 
-using System;
-using System.Linq;
+public interface ThirdPartyInApplicationPurchaseInterface : JObject {
+    
 
-namespace org.allbinary.logic.system.security.licensing;
+    public abstract bool isPurchased(LockableFeature lockableFeature);
+    
 
-public interface ThirdPartyInApplicationPurchaseInterface
-{
-    bool isPurchased(LockableFeature lockableFeature);
+    public abstract void onCreate(JObject anyType, JObject stateObject);
+    
 
-    void onCreate(object anyType, object stateObject);
+    public abstract void onDestroy();
+    
 
-    void onDestroy();
+    public abstract void onStart();
+    
 
-    void onStart();
+    public abstract void onActivityResult(int32 requestCode, int32 resultCode, JObject dataObject);
+    
 
-    void onActivityResult(int requestCode, int resultCode, object dataObject);
+    public abstract void onSaveInstanceState(JObject anyType);
+    
 
-    void onSaveInstanceState(object anyType);
+    public abstract void onStop();
+    
 
-    void onStop();
+    public abstract void requestPurchase(LockableFeature lockableFeature);
+    
 
-    void requestPurchase(LockableFeature lockableFeature);
+    public abstract void requestReceipts();
+    
 
-    void requestReceipts();
+    public abstract void add(LockableFeature lockableFeature);
+    
 
-    void add(LockableFeature lockableFeature);
+    public abstract string getUserName();
+    
 
-    string getUserName();
-
-    bool isEnabled();
-
+    public abstract bool isEnabled();
 }
 

@@ -13,34 +13,38 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.game.displayable.canvas
+// import org.allbinary.canvas.Processor
+// import org.allbinary.logic.communication.log.LogUtil
+// import org.allbinary.string.CommonStrings
 
-using System;
-using System.Linq;
-using Processor = org.allbinary.canvas.Processor;
-using LogUtil = org.allbinary.logic.communication.log.LogUtil;
-using CommonStrings = org.allbinary.@string.CommonStrings;
-
-namespace org.allbinary.game.displayable.canvas;
-
-public class StartIntermissionProcessor : Processor
-{
-    public readonly LogUtil logUtil = LogUtil.getInstance();
-    public readonly CommonStrings commonStrings = CommonStrings.getInstance();
+public class StartIntermissionProcessor : Processor {
+    public LogUtil logUtil;
+    public CommonStrings commonStrings;
     private AllBinaryGameCanvas gameCanvas;
-    private readonly long WAIT = 5000L;
-    public StartIntermissionProcessor(AllBinaryGameCanvas gameCanvas)
-    {
+    private int64 WAIT;
+
+    // Java field initializers run after the base constructor
+    private void initFieldsStartIntermissionProcessor() {
+    this.logUtil = LogUtil.getInstance();
+    this.commonStrings = CommonStrings.getInstance();
+    
+    this.WAIT = 5000;
+    }
+    
+
+    public StartIntermissionProcessor(AllBinaryGameCanvas gameCanvas) {
+        base();
+        this.initFieldsStartIntermissionProcessor();
         this.gameCanvas = gameCanvas;
     }
+    
 
-    // throws Exception
-    public override void process()
-    {
+    public override void process() {
         if (this.gameCanvas.getStartIntermissionInterface().getTimeDelayHelper().isElapsedTNT(this.WAIT)) {
             this.logUtil.putF("Intermission End", this, this.commonStrings.PROCESS);
             this.gameCanvas.getStartIntermissionInterface().setEnabled(false);
         }
     }
-
 }
 

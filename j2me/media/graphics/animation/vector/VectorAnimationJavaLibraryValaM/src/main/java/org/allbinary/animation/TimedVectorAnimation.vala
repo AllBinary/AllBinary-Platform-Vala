@@ -13,29 +13,30 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.animation
+// import org.allbinary.graphics.color.BasicColor
+// import org.allbinary.time.GameTickTimeDelayHelperFactory
+// import org.allbinary.time.TimeDelayHelper
 
-using System;
-using System.Linq;
-using BasicColor = org.allbinary.graphics.color.BasicColor;
-using GameTickTimeDelayHelperFactory = org.allbinary.time.GameTickTimeDelayHelperFactory;
-using TimeDelayHelper = org.allbinary.time.TimeDelayHelper;
+public class TimedVectorAnimation : VectorAnimation {
+    private TimeDelayHelper timeElapsedHelper;
 
-namespace org.allbinary.animation;
-
-public class TimedVectorAnimation : VectorAnimation
-{
-    private TimeDelayHelper timeElapsedHelper = new TimeDelayHelper(200);
-    public TimedVectorAnimation(int[][][] currentPoints, BasicColor basicColor, AnimationBehavior animationBehavior) : base(currentPoints, basicColor, animationBehavior)
-    {
-        // base(currentPoints, basicColor, animationBehavior) is called from the constructor declaration
+    // Java field initializers run after the base constructor
+    private void initFieldsTimedVectorAnimation() {
+    this.timeElapsedHelper = new TimeDelayHelper(200);
     }
+    
 
-    public override void nextFrame()
-    {
+    public TimedVectorAnimation(int32[,,] currentPoints, BasicColor basicColor, AnimationBehavior animationBehavior) {
+        base(currentPoints, basicColor, animationBehavior);
+        this.initFieldsTimedVectorAnimation();
+    }
+    
+
+    public override void nextFrame() {
         if (this.timeElapsedHelper.isTime(GameTickTimeDelayHelperFactory.getInstance().startTime)) {
             base.nextFrame();
         }
     }
-
 }
 

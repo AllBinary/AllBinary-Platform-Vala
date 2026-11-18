@@ -13,48 +13,62 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.input.motion.button
+// import javax.microedition.lcdui.Graphics
+// import org.allbinary.animation.Animation
+// import org.allbinary.animation.FeaturedAnimationInterfaceFactoryInterfaceFactory
+// import org.allbinary.graphics.CellPosition
+// import org.allbinary.graphics.GPoint
+// import org.allbinary.graphics.PointFactory
+// import org.allbinary.graphics.Rectangle
+// import org.allbinary.graphics.RectangleFactory
+// import org.allbinary.graphics.paint.Paintable
+// import org.allbinary.logic.communication.log.LogUtil
+// import org.allbinary.logic.string.StringMaker
+// import org.allbinary.logic.string.StringUtil
+// import org.allbinary.string.CommonStrings
 
-using System;
-using System.Linq;
-using Graphics = javax.microedition.lcdui.Graphics;
-using Animation = org.allbinary.animation.Animation;
-using FeaturedAnimationInterfaceFactoryInterfaceFactory = org.allbinary.animation.FeaturedAnimationInterfaceFactoryInterfaceFactory;
-using CellPosition = org.allbinary.graphics.CellPosition;
-using GPoint = org.allbinary.graphics.GPoint;
-using PointFactory = org.allbinary.graphics.PointFactory;
-using Rectangle = org.allbinary.graphics.Rectangle;
-using RectangleFactory = org.allbinary.graphics.RectangleFactory;
-using Paintable = org.allbinary.graphics.paint.Paintable;
-using LogUtil = org.allbinary.logic.communication.log.LogUtil;
-using StringMaker = org.allbinary.logic.@string.StringMaker;
-using StringUtil = org.allbinary.logic.@string.StringUtil;
-using CommonStrings = org.allbinary.@string.CommonStrings;
+public class TouchButton : Paintable {
+    public LogUtil logUtil;
+    public CommonStrings commonStrings;
+    private TouchButtonInput touchButtonInput;
+    private Animation animationInterface;
+    private Animation hintAnimationInterface;
+    public Rectangle rawRectangle;
+    public int32 xBorder;
+    public int32 yBorder;
+    public Rectangle rectangleP;
+    public CellPosition cellPositionP;
+    public int32 animationX;
+    public int32 animationY;
+    public int32 hintAnimationY;
 
-namespace org.allbinary.input.motion.button;
-
-public class TouchButton : Paintable
-{
-    // throws Exception
-    public static TouchButton createButton(TouchButtonInput touchButtonInput, TouchButtonResource touchButtonResource, Rectangle rawRectangle, CellPosition cellPosition, int xBorder, int yBorder)
-    {
-        return new TouchButton(touchButtonInput, FeaturedAnimationInterfaceFactoryInterfaceFactory.getInstance().get(touchButtonResource.RESOURCE).getInstance(0), FeaturedAnimationInterfaceFactoryInterfaceFactory.getInstance().get(touchButtonResource.HINT).getInstance(0), rawRectangle, cellPosition, xBorder, yBorder);
+    // Java field initializers run after the base constructor
+    private void initFieldsTouchButton() {
+    this.logUtil = LogUtil.getInstance();
+    this.commonStrings = CommonStrings.getInstance();
+    
+    
+    
+    
+    
+    
+    this.rectangleP = RectangleFactory.SINGLETON;
+    
+    this.animationX = 0;
+    this.animationY = 0;
+    this.hintAnimationY = 0;
     }
+    
 
-    public readonly LogUtil logUtil = LogUtil.getInstance();
-    public readonly CommonStrings commonStrings = CommonStrings.getInstance();
-    private readonly TouchButtonInput touchButtonInput;
-    private readonly Animation animationInterface;
-    private readonly Animation hintAnimationInterface;
-    public readonly Rectangle rawRectangle;
-    public readonly int xBorder;
-    public readonly int yBorder;
-    public Rectangle rectangleP = RectangleFactory.SINGLETON;
-    public readonly CellPosition cellPositionP;
-    public int animationX = 0;
-    public int animationY = 0;
-    public int hintAnimationY = 0;
-    public TouchButton(TouchButtonInput touchButtonInput, Animation animationInterface, Animation hintAnimationInterface, Rectangle rawRectangle, CellPosition cellPosition, int xBorder, int yBorder)
-    {
+    public static TouchButton createButton(TouchButtonInput touchButtonInput, TouchButtonResource touchButtonResource, Rectangle rawRectangle, CellPosition cellPosition, int32 xBorder, int32 yBorder) {
+        return new TouchButton(touchButtonInput, FeaturedAnimationInterfaceFactoryInterfaceFactory.getInstance().@get(touchButtonResource.RESOURCE).getInstance1(0), FeaturedAnimationInterfaceFactoryInterfaceFactory.getInstance().@get(touchButtonResource.HINT).getInstance1(0), rawRectangle, cellPosition, xBorder, yBorder);
+    }
+    
+
+    public TouchButton(TouchButtonInput touchButtonInput, Animation animationInterface, Animation hintAnimationInterface, Rectangle rawRectangle, CellPosition cellPosition, int32 xBorder, int32 yBorder) {
+        base();
+        this.initFieldsTouchButton();
         this.touchButtonInput = touchButtonInput;
         this.animationInterface = animationInterface;
         this.hintAnimationInterface = hintAnimationInterface;
@@ -63,64 +77,61 @@ public class TouchButton : Paintable
         this.xBorder = xBorder;
         this.yBorder = yBorder;
         this.updateRectangle();
-        this.logUtil.putF(new StringMaker().append("Created: ").append(this.ToString()).ToString(), this, this.commonStrings.CONSTRUCTOR);
+        this.logUtil.putF(new StringMaker().append("Created: ").append(this.toString()).toString(), this, this.commonStrings.CONSTRUCTOR);
     }
+    
 
-    public virtual void paintHint(Graphics graphics)
-    {
+    public virtual void paintHint(Graphics graphics) {
         this.hintAnimationInterface.paintXY(graphics, this.animationX, this.hintAnimationY);
     }
+    
 
-    public override void paint(Graphics graphics)
-    {
+    public override void paint(Graphics graphics) {
         this.animationInterface.paintXY(graphics, this.animationX, this.animationY);
     }
+    
 
-    public virtual void updateRectangle()
-    {
-        try {
+    public virtual void updateRectangle() {
+        {
             PointFactory pointFactory = PointFactory.getInstance();
-            int x = this.rawRectangle.getWidth() * this.cellPositionP.getColumn();
-            int y = this.rawRectangle.getHeight() * this.cellPositionP.getRow();
+            int32 x = this.rawRectangle.getWidth() * this.cellPositionP.getColumn();
+            int32 y = this.rawRectangle.getHeight() * this.cellPositionP.getRow();
             this.rectangleP = new Rectangle(pointFactory.createXY(x + this.xBorder, y + this.yBorder), this.rawRectangle.getWidth(), this.rawRectangle.getHeight());
             GPoint point = this.rectangleP.getPoint();
             this.animationX = point.getX();
             this.animationY = point.getY();
             this.hintAnimationY = this.animationY - 32;
-        } catch (Exception e) {
-            this.logUtil.put(this.commonStrings.EXCEPTION, this, "updateRectangle", e);
-        }
+        } /* catch (Exception e): a thrown Java exception stops the program */
     }
+    
 
-    public virtual CellPosition getCellPosition()
-    {
+    public virtual CellPosition getCellPosition() {
         return this.cellPositionP;
     }
+    
 
-    public virtual Rectangle getRectangle()
-    {
+    public virtual Rectangle getRectangle() {
         return this.rectangleP;
     }
+    
 
-    public virtual TouchButtonInput getTouchButtonInput()
-    {
+    public virtual TouchButtonInput getTouchButtonInput() {
         return this.touchButtonInput;
     }
+    
 
-    public override string ToString()
-    {
+    public override string toString() {
         StringMaker stringBuffer = new StringMaker();
         StringUtil stringUtil = StringUtil.getInstance();
         stringBuffer.append("TouchButton: ");
-        stringBuffer.append(stringUtil.toString(this.getRectangle()));
+        stringBuffer.append(stringUtil.toString1(this.getRectangle()));
         stringBuffer.append(" CellPosition: ");
-        stringBuffer.append(stringUtil.toString(this.cellPositionP));
+        stringBuffer.append(stringUtil.toString1(this.cellPositionP));
         stringBuffer.append(" xBorder: ");
         stringBuffer.appendint(this.xBorder);
         stringBuffer.append(" yBorder: ");
         stringBuffer.appendint(this.yBorder);
-        return stringBuffer.ToString();
+        return stringBuffer.toString();
     }
-
 }
 

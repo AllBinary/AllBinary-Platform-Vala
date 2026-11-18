@@ -13,25 +13,28 @@
  *  
  */
 // Generated Code Do Not Modify
-
-using System;
-using System.Linq;
-
-namespace org.allbinary.media.audio;
+// package org.allbinary.media.audio
 
 //Use 8hz16bitmono for most J2ME
-public class GameYouWinSound : CompositeSound
-{
-    private static Sound soundInterface = new GameYouWinSound();
-    private GameYouWinSound() : base("resource:/wav/youwin.wav")
-    {
-        // base("resource:/wav/youwin.wav") is called from the constructor declaration
-    }
-
-    public static Sound getInstance()
-    {
+public class GameYouWinSound : CompositeSound {
+    private static Sound? soundInterface;
+    private static bool staticSet_soundInterface = false;
+    private static Sound staticGet_soundInterface() {
+        if (!GameYouWinSound.staticSet_soundInterface) {
+            GameYouWinSound.staticSet_soundInterface = true;
+            GameYouWinSound.soundInterface = new GameYouWinSound();
+        }
         return GameYouWinSound.soundInterface;
     }
+    
 
+    public GameYouWinSound() {
+        base("resource:/wav/youwin.wav");
+    }
+    
+
+    public static Sound getInstance() {
+        return GameYouWinSound.staticGet_soundInterface();
+    }
 }
 

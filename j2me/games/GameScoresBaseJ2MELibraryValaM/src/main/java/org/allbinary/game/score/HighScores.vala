@@ -13,87 +13,92 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.game.score
+// import org.allbinary.logic.string.StringMaker
+// import org.allbinary.string.CommonLabels
+// import org.allbinary.string.CommonSeps
+// import org.allbinary.util.BasicArrayList
+// import org.allbinary.util.BasicArrayListD
 
-using System;
-using System.Linq;
-using StringMaker = org.allbinary.logic.@string.StringMaker;
-using CommonLabels = org.allbinary.@string.CommonLabels;
-using CommonSeps = org.allbinary.@string.CommonSeps;
-using BasicArrayList = org.allbinary.util.BasicArrayList;
-using BasicArrayListD = org.allbinary.util.BasicArrayListD;
+public class HighScores : JObject, HighScoresInterface {
+    private BasicArrayList orderedHighScoresList;
+    private string name;
+    private string heading;
+    private string columnOneHeading;
+    private string columnTwoHeading;
 
-namespace org.allbinary.game.score;
+    // Java field initializers run after the base constructor
+    private void initFieldsHighScores() {
+    this.orderedHighScoresList = new BasicArrayListD();
+    
+    
+    this.columnOneHeading = "Name";
+    
+    }
+    
 
-public class HighScores : HighScoresInterface
-{
-    private BasicArrayList orderedHighScoresList = new BasicArrayListD();
-    private readonly string name;
-    private readonly string heading;
-    private readonly string columnOneHeading = "Name";
-    private readonly string columnTwoHeading;
-    public HighScores(string name, string heading, string columnTwoHeading)
-    {
+    public HighScores(string name, string heading, string columnTwoHeading) {
+        base();
+        this.initFieldsHighScores();
         this.name = name;
         this.heading = heading;
         this.columnTwoHeading = columnTwoHeading;
     }
+    
 
-    public virtual void setList(BasicArrayList orderedHighScoresList)
-    {
+    public virtual void setList(BasicArrayList orderedHighScoresList) {
         this.orderedHighScoresList = orderedHighScoresList;
     }
+    
 
-    public virtual BasicArrayList getList()
-    {
+    public virtual BasicArrayList getList() {
         return this.orderedHighScoresList;
     }
+    
 
-    public virtual string getName()
-    {
+    public virtual string getName() {
         return this.name;
     }
+    
 
-    public virtual int getTotal()
-    {
+    public virtual int32 getTotal() {
         return this.getList().size();
     }
+    
 
-    public virtual void addHighScore(HighScore newHighScore)
-    {
+    public virtual void addHighScore(HighScore newHighScore) {
         this.orderedHighScoresList.add(newHighScore);
     }
+    
 
-    public virtual string getHeading()
-    {
+    public virtual string getHeading() {
         return this.heading;
     }
+    
 
-    public virtual string getColumnOneHeading()
-    {
+    public virtual string getColumnOneHeading() {
         return this.columnOneHeading;
     }
+    
 
-    public virtual string getColumnTwoHeading()
-    {
+    public virtual string getColumnTwoHeading() {
         return this.columnTwoHeading;
     }
+    
 
-    // throws Exception
-    public virtual bool isBestScore(HighScore newHighScore)
-    {
+    public virtual bool isBestScore(HighScore newHighScore) {
         return false;
     }
+    
 
-    public override string ToString()
-    {
+    public override string toString() {
         StringMaker stringBuffer = new StringMaker();
         stringBuffer.append("HighScores: ");
         stringBuffer.append(this.heading);
         stringBuffer.append(CommonSeps.getInstance().SPACE);
         stringBuffer.append(CommonLabels.getInstance().TOTAL_LABEL);
         stringBuffer.appendint(this.orderedHighScoresList.size());
-        return stringBuffer.ToString();
+        return stringBuffer.toString();
     }
-
 }
 

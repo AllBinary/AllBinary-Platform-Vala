@@ -13,27 +13,40 @@
  *   
  */
 // Generated Code Do Not Modify
+// package org.allbinary.input.motion
+// import org.allbinary.logic.communication.log.PreLogUtil
+// import org.allbinary.string.CommonStrings
 
-using System;
-using System.Linq;
-using PreLogUtil = org.allbinary.logic.communication.log.PreLogUtil;
-using CommonStrings = org.allbinary.@string.CommonStrings;
-
-namespace org.allbinary.input.motion;
-
-public class CompleteMotionGestureInputToGameMotionGestureInput
-{
-    private static readonly CompleteMotionGestureInputToGameMotionGestureInput instance = new CompleteMotionGestureInputToGameMotionGestureInput();
-    public static CompleteMotionGestureInputToGameMotionGestureInput getInstance()
-    {
+public class CompleteMotionGestureInputToGameMotionGestureInput : JObject {
+    private static CompleteMotionGestureInputToGameMotionGestureInput? instance;
+    private static bool staticSet_instance = false;
+    private static CompleteMotionGestureInputToGameMotionGestureInput staticGet_instance() {
+        if (!CompleteMotionGestureInputToGameMotionGestureInput.staticSet_instance) {
+            CompleteMotionGestureInputToGameMotionGestureInput.staticSet_instance = true;
+            CompleteMotionGestureInputToGameMotionGestureInput.instance = new CompleteMotionGestureInputToGameMotionGestureInput();
+        }
         return CompleteMotionGestureInputToGameMotionGestureInput.instance;
     }
+    public CommonStrings commonStrings;
 
-    public readonly CommonStrings commonStrings = CommonStrings.getInstance();
-    public virtual void init()
-    {
-        PreLogUtil.put("No Touch Button = No Compound Motion Gestures", this, this.commonStrings.INIT);
+    // Java field initializers run after the base constructor
+    private void initFieldsCompleteMotionGestureInputToGameMotionGestureInput() {
+    this.commonStrings = CommonStrings.getInstance();
     }
 
+    public CompleteMotionGestureInputToGameMotionGestureInput() {
+        base();
+        this.initFieldsCompleteMotionGestureInputToGameMotionGestureInput();
+    }
+    
+
+    public static CompleteMotionGestureInputToGameMotionGestureInput getInstance() {
+        return CompleteMotionGestureInputToGameMotionGestureInput.staticGet_instance();
+    }
+    
+
+    public virtual void init() {
+        PreLogUtil.put("No Touch Button = No Compound Motion Gestures", this, this.commonStrings.INIT);
+    }
 }
 

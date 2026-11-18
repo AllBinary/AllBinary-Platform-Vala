@@ -13,20 +13,19 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.logic.util.cache
+// import org.allbinary.logic.string.StringUtil
+// import org.allbinary.util.BasicArrayListD
 
-using System;
-using System.Linq;
-using StringUtil = org.allbinary.logic.@string.StringUtil;
-using BasicArrayListD = org.allbinary.util.BasicArrayListD;
+public class BasicArrayListCacheable : BasicArrayListD, CacheableInterface {
 
-namespace org.allbinary.logic.util.cache;
+    public BasicArrayListCacheable() {
+        base();
+    }
+    
 
-public class BasicArrayListCacheable : BasicArrayListD, CacheableInterface
-{
-    public virtual object getKey()
-    {
+    public virtual JObject getKey() {
         return StringUtil.getInstance().EMPTY_STRING;
     }
-
 }
 

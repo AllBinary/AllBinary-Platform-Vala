@@ -13,15 +13,11 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.game.identification
 
-using System;
-using System.Linq;
+public interface GroupInterfaceCompositeInterface : JObject {
+    
 
-namespace org.allbinary.game.identification;
-
-public interface GroupInterfaceCompositeInterface
-{
-    Group[] getGroupInterface();
-
+    public abstract Group[] getGroupInterface();
 }
 

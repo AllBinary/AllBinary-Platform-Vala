@@ -13,21 +13,20 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.game.displayable.canvas
+// import org.allbinary.game.input.event.DownGameKeyEventHandler
+// import org.allbinary.game.input.event.UpGameKeyEventHandler
 
-using System;
-using System.Linq;
-using DownGameKeyEventHandler = org.allbinary.game.input.@event.DownGameKeyEventHandler;
-using UpGameKeyEventHandler = org.allbinary.game.input.@event.UpGameKeyEventHandler;
+public class GameEventHandlerUtil : JObject {
 
-namespace org.allbinary.game.displayable.canvas;
+    public GameEventHandlerUtil() {
+        base();
+    }
+    
 
-public class GameEventHandlerUtil
-{
-    public static void removeAllListeners()
-    {
+    public static void removeAllListeners() {
         UpGameKeyEventHandler.getInstance().removeAllListeners();
         DownGameKeyEventHandler.getInstance().removeAllListeners();
     }
-
 }
 

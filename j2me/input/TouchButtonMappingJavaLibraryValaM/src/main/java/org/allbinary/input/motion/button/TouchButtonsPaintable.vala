@@ -13,43 +13,48 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.input.motion.button
+// import javax.microedition.lcdui.Graphics
+// import org.allbinary.graphics.color.BasicColor
+// import org.allbinary.graphics.color.BasicColorSetUtil
+// import org.allbinary.graphics.paint.Paintable
+// import org.allbinary.util.BasicArrayList
 
-using System;
-using System.Linq;
-using Graphics = javax.microedition.lcdui.Graphics;
-using BasicColor = org.allbinary.graphics.color.BasicColor;
-using BasicColorSetUtil = org.allbinary.graphics.color.BasicColorSetUtil;
-using Paintable = org.allbinary.graphics.paint.Paintable;
-using BasicArrayList = org.allbinary.util.BasicArrayList;
+public class TouchButtonsPaintable : Paintable {
+    public BasicColor foregroundBasicColor;
+    public int32 foregroundColor;
+    public BasicColorSetUtil basicSetColorUtil;
+    private TouchButtonFactory touchButtonFactory;
 
-namespace org.allbinary.input.motion.button;
+    // Java field initializers run after the base constructor
+    private void initFieldsTouchButtonsPaintable() {
+    
+    
+    this.basicSetColorUtil = BasicColorSetUtil.getInstance();
+    this.touchButtonFactory = TouchButtonFactory.getInstance();
+    }
+    
 
-public class TouchButtonsPaintable : Paintable
-{
-    public readonly BasicColor foregroundBasicColor;
-    public readonly int foregroundColor;
-    public readonly BasicColorSetUtil basicSetColorUtil = BasicColorSetUtil.getInstance();
-    private readonly TouchButtonFactory touchButtonFactory = TouchButtonFactory.getInstance();
-    public TouchButtonsPaintable(BasicColor basicColor)
-    {
+    public TouchButtonsPaintable(BasicColor basicColor) {
+        base();
+        this.initFieldsTouchButtonsPaintable();
         this.foregroundBasicColor = basicColor;
         this.foregroundColor = basicColor.intValue();
     }
+    
 
-    public override void paint(Graphics graphics)
-    {
+    public override void paint(Graphics graphics) {
         BasicArrayList list = this.touchButtonFactory.getList();
         this.basicSetColorUtil.setBasicColorP3(graphics, this.foregroundBasicColor, this.foregroundColor);
         TouchButton touchButton = null;
-        for (int index_0 = list.size(); --index_0 >= 0; ) {
-            touchButton = ((TouchButton) list.objectArray[index_0]);
+        for (int32 index = list.size(); --index >= 0; ) {
+            touchButton = ((TouchButton) list.objectArray[index]);
             touchButton.paint(graphics);
         }
-        for (int index_1 = list.size(); --index_1 >= 0; ) {
-            touchButton = ((TouchButton) list.objectArray[index_1]);
+        for (int32 index = list.size(); --index >= 0; ) {
+            touchButton = ((TouchButton) list.objectArray[index]);
             touchButton.paintHint(graphics);
         }
     }
-
 }
 

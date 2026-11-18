@@ -13,28 +13,41 @@
  *   
  */
 // Generated Code Do Not Modify
+// package org.allbinary.image.opengles
+// import javax.microedition.lcdui.Image
+// import org.allbinary.util.BasicArrayList
+// import org.allbinary.util.BasicArrayListD
 
-using System;
-using System.Linq;
-using Image = javax.microedition.lcdui.Image;
-using BasicArrayList = org.allbinary.util.BasicArrayList;
-using BasicArrayListD = org.allbinary.util.BasicArrayListD;
-
-namespace org.allbinary.image.opengles;
-
-public class OpenGLESImageExclusionUtil
-{
-    private static readonly OpenGLESImageExclusionUtil instance = new OpenGLESImageExclusionUtil();
-    public static OpenGLESImageExclusionUtil getInstance()
-    {
+public class OpenGLESImageExclusionUtil : JObject {
+    private static OpenGLESImageExclusionUtil? instance;
+    private static bool staticSet_instance = false;
+    private static OpenGLESImageExclusionUtil staticGet_instance() {
+        if (!OpenGLESImageExclusionUtil.staticSet_instance) {
+            OpenGLESImageExclusionUtil.staticSet_instance = true;
+            OpenGLESImageExclusionUtil.instance = new OpenGLESImageExclusionUtil();
+        }
         return OpenGLESImageExclusionUtil.instance;
     }
+    public BasicArrayList list;
 
-    public readonly BasicArrayList list = new BasicArrayListD();
-    public virtual bool isCustomScaling(Image image)
-    {
-        return false;
+    // Java field initializers run after the base constructor
+    private void initFieldsOpenGLESImageExclusionUtil() {
+    this.list = new BasicArrayListD();
     }
 
+    public OpenGLESImageExclusionUtil() {
+        base();
+        this.initFieldsOpenGLESImageExclusionUtil();
+    }
+    
+
+    public static OpenGLESImageExclusionUtil getInstance() {
+        return OpenGLESImageExclusionUtil.staticGet_instance();
+    }
+    
+
+    public virtual bool isCustomScaling(Image image) {
+        return false;
+    }
 }
 

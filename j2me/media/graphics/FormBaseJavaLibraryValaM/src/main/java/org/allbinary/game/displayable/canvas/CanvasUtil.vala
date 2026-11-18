@@ -13,22 +13,19 @@
  *   
  */
 // Generated Code Do Not Modify
+// package org.allbinary.game.displayable.canvas
+// import javax.microedition.lcdui.Canvas
+// import org.allbinary.string.CommonPhoneStrings
 
-using System;
-using System.Linq;
-using Canvas = javax.microedition.lcdui.Canvas;
-using CommonPhoneStrings = org.allbinary.@string.CommonPhoneStrings;
+public class CanvasUtil : JObject {
+    
 
-namespace org.allbinary.game.displayable.canvas;
-
-public class CanvasUtil
-{
-    private CanvasUtil()
-    {
+    public CanvasUtil() {
+        base();
     }
+    
 
-    public static string getKeyName(int key)
-    {
+    public static string getKeyName(int32 key) {
         CommonPhoneStrings commonPhoneStrings = CommonPhoneStrings.getInstance();
         if (key == Canvas.UP) {
             return commonPhoneStrings.UP;
@@ -43,6 +40,5 @@ public class CanvasUtil
         }
         return "UNKNOWN KEY";
     }
-
 }
 

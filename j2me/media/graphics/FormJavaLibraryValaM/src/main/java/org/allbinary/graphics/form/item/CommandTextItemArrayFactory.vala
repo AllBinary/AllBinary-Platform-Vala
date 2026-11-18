@@ -13,61 +13,64 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.graphics.form.item
+// import javax.microedition.lcdui.Command
+// import javax.microedition.lcdui.ImageItem
+// import org.allbinary.graphics.color.BasicColor
+// import org.allbinary.graphics.displayable.DisplayInfoSingleton
+// import org.allbinary.graphics.form.ScreenInfo
+// import org.allbinary.logic.VectorUtil
+// import org.allbinary.logic.string.StringUtil
+// import org.allbinary.logic.util.visitor.Visitor
+// import org.allbinary.util.BasicArrayList
+// import org.allbinary.util.BasicArrayListD
 
-using System;
-using System.Linq;
-using Command = javax.microedition.lcdui.Command;
-using ImageItem = javax.microedition.lcdui.ImageItem;
-using BasicColor = org.allbinary.graphics.color.BasicColor;
-using DisplayInfoSingleton = org.allbinary.graphics.displayable.DisplayInfoSingleton;
-using ScreenInfo = org.allbinary.graphics.form.ScreenInfo;
-using VectorUtil = org.allbinary.logic.VectorUtil;
-using StringUtil = org.allbinary.logic.@string.StringUtil;
-using Visitor = org.allbinary.logic.util.visitor.Visitor;
-using BasicArrayList = org.allbinary.util.BasicArrayList;
-using BasicArrayListD = org.allbinary.util.BasicArrayListD;
+public class CommandTextItemArrayFactory : JObject {
+    private BasicArrayList list;
+    private Visitor visitorInterface;
 
-namespace org.allbinary.graphics.form.item;
+    // Java field initializers run after the base constructor
+    private void initFieldsCommandTextItemArrayFactory() {
+    this.list = new BasicArrayListD();
+    
+    }
+    
 
-public class CommandTextItemArrayFactory
-{
-    private readonly BasicArrayList list = new BasicArrayListD();
-    private readonly Visitor visitorInterface;
-    public CommandTextItemArrayFactory(Visitor visitorInterface)
-    {
+    public CommandTextItemArrayFactory(Visitor visitorInterface) {
+        base();
+        this.initFieldsCommandTextItemArrayFactory();
         this.visitorInterface = visitorInterface;
     }
+    
 
-    public ABCustomItem[] getInstance(object vector, BasicColor backgroundBasicColor, BasicColor foregroundBasicColor)
-    {
+    public virtual ABCustomItem[] getInstance3(JObject vector, BasicColor backgroundBasicColor, BasicColor foregroundBasicColor) {
         VectorUtil vectorUtil = VectorUtil.getInstance();
-        int size = vectorUtil.getSize(vector);
+        int32 size = vectorUtil.getSize(vector);
         this.list.clear();
         CommandTextItem textItem = null;
-        int priorityLimit = 7;
+        int32 priorityLimit = 7;
         DisplayInfoSingleton displayInfo = DisplayInfoSingleton.getInstance();
         bool isLargeEnoughDisplayForBigMenu = (displayInfo.isPortrait() && displayInfo.getLastHeight() >= ScreenInfo.getInstance().MEDIUM_WIDTH) || (!displayInfo.isPortrait() && displayInfo.getLastWidth() >= ScreenInfo.getInstance().MEDIUM_WIDTH);
         if (!isLargeEnoughDisplayForBigMenu && size > 3) {
             priorityLimit = 3;
         }
         Command command = null;
-        for (int index_0 = 0; index_0 < size; index_0++) {
-            command = ((Command) vectorUtil.elementAt(vector, index_0));
+        for (int32 index = 0; index < size; index++) {
+            command = ((Command) vectorUtil.elementAt(vector, index));
             if (command.getPriority() < priorityLimit) {
-                bool? aBoolean = ((bool?) this.visitorInterface.visit(command));
-                if (aBoolean.Value) {
-                    textItem = new CommandTextItem(command, global::javax.microedition.lcdui.ImageItem.LAYOUT_DEFAULT, StringUtil.getInstance().EMPTY_STRING, backgroundBasicColor, foregroundBasicColor);
+                bool aBoolean = ((bool) this.visitorInterface.visit(command));
+                if (aBoolean) {
+                    textItem = new CommandTextItem(command, ImageItem.LAYOUT_DEFAULT, StringUtil.getInstance().EMPTY_STRING, backgroundBasicColor, foregroundBasicColor);
                     this.list.add(textItem);
                 }
             }
         }
         ABCustomItem[] textItemArray = new ABCustomItem[this.list.size()];
-        int size2 = textItemArray.Length;
-        for (int index_1 = 0; index_1 < size2; index_1++) {
-            textItemArray[index_1] = ((ABCustomItem) this.list.objectArray[index_1]);
+        int32 size2 = textItemArray.length;
+        for (int32 index = 0; index < size2; index++) {
+            textItemArray[index] = ((ABCustomItem) this.list.objectArray[index]);
         }
         return textItemArray;
     }
-
 }
 

@@ -13,15 +13,11 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.ai
 
-using System;
-using System.Linq;
+public interface ArtificialIntelligenceTransitionInterface : JObject {
+    
 
-namespace org.allbinary.ai;
-
-public interface ArtificialIntelligenceTransitionInterface
-{
-    void transition();
-
+    public abstract void transition();
 }
 

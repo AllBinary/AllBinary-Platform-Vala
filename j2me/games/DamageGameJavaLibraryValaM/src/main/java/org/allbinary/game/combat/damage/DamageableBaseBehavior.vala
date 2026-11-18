@@ -13,35 +13,40 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.game.combat.damage
 
-using System;
-using System.Linq;
-
-namespace org.allbinary.game.combat.damage;
-
-public class DamageableBaseBehavior : DamageableInterface
-{
-    private static readonly DamageableBaseBehavior instance = new DamageableBaseBehavior();
-    public static DamageableBaseBehavior getInstance()
-    {
+public class DamageableBaseBehavior : JObject, DamageableInterface, NamedInterface {
+    private static DamageableBaseBehavior? instance;
+    private static bool staticSet_instance = false;
+    private static DamageableBaseBehavior staticGet_instance() {
+        if (!DamageableBaseBehavior.staticSet_instance) {
+            DamageableBaseBehavior.staticSet_instance = true;
+            DamageableBaseBehavior.instance = new DamageableBaseBehavior();
+        }
         return DamageableBaseBehavior.instance;
     }
 
-    public virtual string getName()
-    {
-        return this.GetType().FullName;
+    public DamageableBaseBehavior() {
+        base();
     }
+    
 
-    // throws Exception
-    public virtual void damage(int damage, int damageType)
-    {
+    public static DamageableBaseBehavior getInstance() {
+        return DamageableBaseBehavior.staticGet_instance();
     }
+    
 
-    // throws Exception
-    public virtual int getDamage(int damageType)
-    {
+    public virtual string getName() {
+        return JObject.className(this);
+    }
+    
+
+    public virtual void damage(int32 damage, int32 damageType) {
+    }
+    
+
+    public virtual int32 getDamage(int32 damageType) {
         return 6000;
     }
-
 }
 

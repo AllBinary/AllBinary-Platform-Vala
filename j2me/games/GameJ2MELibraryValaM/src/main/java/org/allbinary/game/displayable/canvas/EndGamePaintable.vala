@@ -13,26 +13,28 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.game.displayable.canvas
+// import javax.microedition.lcdui.Graphics
+// import org.allbinary.graphics.paint.Paintable
 
-using System;
-using System.Linq;
-using Graphics = javax.microedition.lcdui.Graphics;
-using Paintable = org.allbinary.graphics.paint.Paintable;
-
-namespace org.allbinary.game.displayable.canvas;
-
-public class EndGamePaintable : Paintable
-{
+public class EndGamePaintable : Paintable {
     private AllBinaryGameCanvas gameCanvas;
-    public EndGamePaintable(AllBinaryGameCanvas gameCanvas)
-    {
+
+    // Java field initializers run after the base constructor
+    private void initFieldsEndGamePaintable() {
+    
+    }
+    
+
+    public EndGamePaintable(AllBinaryGameCanvas gameCanvas) {
+        base();
+        this.initFieldsEndGamePaintable();
         this.gameCanvas = gameCanvas;
     }
+    
 
-    public override void paint(Graphics graphics)
-    {
+    public override void paint(Graphics graphics) {
         this.gameCanvas.paintGameOver(graphics);
     }
-
 }
 

@@ -13,137 +13,148 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.midlet
+// import javax.microedition.lcdui.Command
+// import javax.microedition.lcdui.CommandListener
+// import javax.microedition.lcdui.Display
+// import javax.microedition.lcdui.Displayable
+// import javax.microedition.lcdui.NullCanvas
+// import javax.microedition.midlet.MIDlet
+// import javax.microedition.midlet.MIDletStateChangeException
+// import org.allbinary.logic.StdUtil
+// import org.allbinary.logic.communication.log.ForcedLogUtil
+// import org.allbinary.logic.communication.log.LogUtil
+// import org.allbinary.logic.communication.log.PreLogUtil
+// import org.allbinary.logic.string.StringMaker
+// import org.allbinary.logic.string.StringUtil
+// import org.allbinary.logic.util.event.EventStrings
+// import org.allbinary.string.CommonLabels
+// import org.allbinary.string.CommonStrings
+// import org.allbinary.system.Memory
+// import org.allbinary.logic.NullUtil
+// import org.allbinary.util.ABHashtable
 
-using System;
-using System.Linq;
-using Command = javax.microedition.lcdui.Command;
-using CommandListener = javax.microedition.lcdui.CommandListener;
-using Display = javax.microedition.lcdui.Display;
-using Displayable = javax.microedition.lcdui.Displayable;
-using NullCanvas = javax.microedition.lcdui.NullCanvas;
-using MIDlet = javax.microedition.midlet.MIDlet;
-using MIDletStateChangeException = javax.microedition.midlet.MIDletStateChangeException;
-using StdUtil = org.allbinary.logic.StdUtil;
-using ForcedLogUtil = org.allbinary.logic.communication.log.ForcedLogUtil;
-using LogUtil = org.allbinary.logic.communication.log.LogUtil;
-using PreLogUtil = org.allbinary.logic.communication.log.PreLogUtil;
-using StringMaker = org.allbinary.logic.@string.StringMaker;
-using StringUtil = org.allbinary.logic.@string.StringUtil;
-using EventStrings = org.allbinary.logic.util.@event.EventStrings;
-using CommonLabels = org.allbinary.@string.CommonLabels;
-using CommonStrings = org.allbinary.@string.CommonStrings;
-using Memory = org.allbinary.system.Memory;
-using NullUtil = org.allbinary.logic.NullUtil;
-using org.allbinary.util;
+public class AllBinaryMidlet : MIDlet, CommandListener {
+    private static JObject? NULL_ALLBINARY_MIDLET;
+    private static bool staticSet_NULL_ALLBINARY_MIDLET = false;
+    private static JObject staticGet_NULL_ALLBINARY_MIDLET() {
+        if (!AllBinaryMidlet.staticSet_NULL_ALLBINARY_MIDLET) {
+            AllBinaryMidlet.staticSet_NULL_ALLBINARY_MIDLET = true;
+            AllBinaryMidlet.NULL_ALLBINARY_MIDLET = NullUtil.getInstance().NULL_OBJECT;
+        }
+        return AllBinaryMidlet.NULL_ALLBINARY_MIDLET;
+    }
+    public LogUtil logUtil;
+    public CommonStrings commonStrings;
+    private string SET_DISPLAY;
+    private string SETTING_;
+    private string _DISPLAY_;
+    private string SETTING_NO_TITLE;
+    private ABHashtable hashtable;
+    private bool midletDestroyed;
 
-namespace org.allbinary.midlet;
+    // Java field initializers run after the base constructor
+    private void initFieldsAllBinaryMidlet() {
+    this.logUtil = LogUtil.getInstance();
+    this.commonStrings = CommonStrings.getInstance();
+    this.SET_DISPLAY = "setDisplay";
+    this.SETTING_ = "Setting: ";
+    this._DISPLAY_ = " Display: ";
+    this.SETTING_NO_TITLE = "Setting: No Title, Display: ";
+    this.hashtable = StdUtil.getInstance().createHashtable();
+    this.midletDestroyed = false;
+    }
+    
 
-public class AllBinaryMidlet : MIDlet, CommandListener
-{
-    private static object NULL_ALLBINARY_MIDLET = NullUtil.getInstance().NULL_OBJECT;
-    public static AllBinaryMidlet getNullInstance()
-    {
-        if (AllBinaryMidlet.NULL_ALLBINARY_MIDLET == NullUtil.getInstance().NULL_OBJECT) {
+    public static AllBinaryMidlet getNullInstance() {
+        if (AllBinaryMidlet.staticGet_NULL_ALLBINARY_MIDLET() == NullUtil.getInstance().NULL_OBJECT) {
             AllBinaryMidlet.NULL_ALLBINARY_MIDLET = new AllBinaryMidlet();
         }
-        return ((AllBinaryMidlet) AllBinaryMidlet.NULL_ALLBINARY_MIDLET);
+        return ((AllBinaryMidlet) AllBinaryMidlet.staticGet_NULL_ALLBINARY_MIDLET());
     }
+    
 
-    public readonly LogUtil logUtil = LogUtil.getInstance();
-    public readonly CommonStrings commonStrings = CommonStrings.getInstance();
-    private readonly string SET_DISPLAY = "setDisplay";
-    private readonly string SETTING_ = "Setting: ";
-    private readonly string _DISPLAY_ = " Display: ";
-    private readonly string SETTING_NO_TITLE = "Setting: No Title, Display: ";
-    private ABHashtable<object, object> hashtable = StdUtil.getInstance().createHashtable();
-    private bool midletDestroyed = false;
-    public AllBinaryMidlet()
-    {
+    public AllBinaryMidlet() {
+        base();
+        this.initFieldsAllBinaryMidlet();
         this.logUtil.putF(this.commonStrings.CONSTRUCTOR, this, "AllBinaryMidlet::AllBinaryMidlet");
     }
+    
 
-    public virtual void setDisplay(Displayable newDisplay)
-    {
+    public virtual void setDisplay(Displayable newDisplay) {
         string title = StringUtil.getInstance().EMPTY_STRING;
         if (newDisplay != NullCanvas.NULL_CANVAS) {
             title = newDisplay.getTitle();
-            this.logUtil.putF(new StringMaker().append(this.SETTING_).append(title).append(this._DISPLAY_).append(StringUtil.getInstance().toString(newDisplay)).ToString(), this, this.SET_DISPLAY);
+            this.logUtil.putF(new StringMaker().append(this.SETTING_).append(title).append(this._DISPLAY_).append(StringUtil.getInstance().toString1(newDisplay)).toString(), this, this.SET_DISPLAY);
         }
         Display display = this.getDisplay();
         display.setCurrent(newDisplay);
     }
+    
 
-    public virtual Display getDisplay()
-    {
+    public virtual Display getDisplay() {
         return Display.getDisplay(this);
     }
+    
 
-    public virtual Displayable getCurrentDisplayable()
-    {
+    public virtual Displayable getCurrentDisplayable() {
         return Display.getDisplay(this).getCurrent();
     }
+    
 
-    public virtual void setDestroyed(bool destroyed)
-    {
+    public virtual void setDestroyed(bool destroyed) {
         this.midletDestroyed = destroyed;
     }
+    
 
-    public virtual bool isDestroyed()
-    {
+    public virtual bool isDestroyed() {
         return this.midletDestroyed;
     }
+    
 
-    // throws MIDletStateChangeException
-    public override void startApp()
-    {
+    public override void startApp() {
         ForcedLogUtil.log(EventStrings.getInstance().PERFORMANCE_MESSAGE, this);
     }
+    
 
-    public override void pauseApp()
-    {
+    public override void pauseApp() {
         ForcedLogUtil.log(EventStrings.getInstance().PERFORMANCE_MESSAGE, this);
     }
+    
 
-    public virtual void destroyAppInRunnable(bool unconditional, bool isProgress)
-    {
+    public virtual void destroyAppInRunnable(bool unconditional, bool isProgress) {
     }
+    
 
-    public override void destroyApp(bool unconditional)
-    {
+    public override void destroyApp(bool unconditional) {
         string METHOD_NAME = "AllBinaryMidlet::destroyApp";
-        try {
+        {
             this.logUtil.putF(this.commonStrings.START, this, METHOD_NAME);
             PreLogUtil.put(Memory.getInfo(), this, METHOD_NAME);
             this.setDestroyed(true);
-        } catch (Exception e) {
-            this.logUtil.put(this.commonStrings.EXCEPTION, this, METHOD_NAME, e);
-        }
+        } /* catch (Exception e): a thrown Java exception stops the program */
     }
+    
 
-    // throws Exception
-    public virtual void setStartStateHashtable(ABHashtable<object, object> hashtable)
-    {
-        this.logUtil.putF(new StringMaker().append(CommonLabels.getInstance().START_LABEL).append(StringUtil.getInstance().toString(hashtable)).ToString(), this, "setStartStateHashtable");
+    public virtual void setStartStateHashtable(ABHashtable hashtable) {
+        this.logUtil.putF(new StringMaker().append(CommonLabels.getInstance().START_LABEL).append(StringUtil.getInstance().toString1(hashtable)).toString(), this, "setStartStateHashtable");
         this.hashtable = hashtable;
     }
+    
 
-    // throws Exception
-    public virtual ABHashtable<object, object> getStartStateHashtable()
-    {
-        this.logUtil.putF(new StringMaker().append(CommonLabels.getInstance().START_LABEL).append(StringUtil.getInstance().toString(this.hashtable)).ToString(), this, "getStartStateHashtable");
+    public virtual ABHashtable getStartStateHashtable() {
+        this.logUtil.putF(new StringMaker().append(CommonLabels.getInstance().START_LABEL).append(StringUtil.getInstance().toString1(this.hashtable)).toString(), this, "getStartStateHashtable");
         return this.hashtable;
     }
+    
 
-    // throws Exception
-    public virtual ABHashtable<object, object> getCurrentStateHashtable()
-    {
+    public virtual ABHashtable getCurrentStateHashtable() {
         this.logUtil.putF(this.commonStrings.START, this, "getStateHashtable");
         return StdUtil.getInstance().NULL_TABLE;
     }
+    
 
-    public virtual void commandAction(Command command, Displayable displayable)
-    {
+    public override void commandAction(Command command, Displayable displayable) {
     }
-
 }
 

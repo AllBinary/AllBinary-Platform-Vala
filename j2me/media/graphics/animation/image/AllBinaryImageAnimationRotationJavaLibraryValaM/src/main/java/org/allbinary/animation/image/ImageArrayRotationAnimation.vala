@@ -13,46 +13,45 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.animation.image
+// import javax.microedition.lcdui.Image
+// import org.allbinary.animation.AnimationBehavior
+// import org.allbinary.math.AngleInfo
 
-using System;
-using System.Linq;
-using Image = javax.microedition.lcdui.Image;
-using AnimationBehavior = org.allbinary.animation.AnimationBehavior;
-using AngleInfo = org.allbinary.math.AngleInfo;
+public class ImageArrayRotationAnimation : ImageArrayBaseRotationAnimation {
+    private int32 expectedTotalFrames;
 
-namespace org.allbinary.animation.image;
+    // Java field initializers run after the base constructor
+    private void initFieldsImageArrayRotationAnimation() {
+    this.expectedTotalFrames = 0;
+    }
+    
 
-public class ImageArrayRotationAnimation : ImageArrayBaseRotationAnimation
-{
-    // throws Exception
-    public static ImageArrayRotationAnimation createAnimation(object anyType, AnimationBehavior animationBehavior)
-    {
+    public static ImageArrayRotationAnimation createAnimation(JObject anyType, AnimationBehavior animationBehavior) {
         ImageArrayRotationAnimationInfo imageRotationAnimationInfo = ((ImageArrayRotationAnimationInfo) anyType);
         return new ImageArrayRotationAnimation(imageRotationAnimationInfo.getImageArray(), imageRotationAnimationInfo.getAngleInfoP(), imageRotationAnimationInfo.getTotalAngle(), animationBehavior);
     }
+    
 
-    private int expectedTotalFrames = 0;
-    public ImageArrayRotationAnimation(Image[] imageArray, AngleInfo angleInfo, int totalAngle, AnimationBehavior animationBehavior) : base(imageArray, angleInfo, animationBehavior)
-    {
-        // base(imageArray, angleInfo, animationBehavior) is called from the constructor declaration
+    public ImageArrayRotationAnimation(Image[] imageArray, AngleInfo angleInfo, int32 totalAngle, AnimationBehavior animationBehavior) {
+        base(imageArray, angleInfo, animationBehavior);
+        this.initFieldsImageArrayRotationAnimation();
         this.initImageArray(imageArray, angleInfo, totalAngle);
     }
+    
 
-    // throws Exception
-    private void initImageArray(Image[] imageArray, AngleInfo angleInfo, int totalAngle)
-    {
-        this.expectedTotalFrames = totalAngle / this.angleInfo.getAngleIncrementInfo().getAngleIncrement();
+    private void initImageArray(Image[] imageArray, AngleInfo angleInfo, int32 totalAngle) {
+        this.expectedTotalFrames = totalAngle / ((int32) (this.angleInfo.getAngleIncrementInfo().getAngleIncrement()));
         this.angleInfo.adjustAngle(0);
         if (this.expectedTotalFrames != this.getSize()) {
-            throw new Exception("Wrong Number of Frames");
+            JSystem.fatal(new JException("Exception", "Wrong Number of Frames"));
         }
     }
+    
 
-    public override void setImageArray(Image[] imageArray)
-    {
+    public override void setImageArray(Image[] imageArray) {
         base.setImageArray(imageArray);
         this.angleInfo.adjustAngle(0);
     }
-
 }
 

@@ -13,67 +13,83 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.logic.io.file
+// import java.io.FilenameFilter
+// import java.io.IOException
+// import java.net.URI
 
-using System;
-using System.Linq;
-using FilenameFilter = java.io.FilenameFilter;
-//using IOException = java.io.IOException;
-using URI = java.net.URI;
+public interface AbFileInterface : JObject {
+    
 
-namespace org.allbinary.logic.io.file;
+    public abstract bool canRead();
+    
 
-public interface AbFileInterface
-{
-    bool canRead();
+    public abstract bool canWrite();
+    
 
-    bool canWrite();
+    public abstract bool createNewFile();
+    
 
-    // throws IOException
-    bool createNewFile();
+    public abstract bool @delete();
+    
 
-    // throws IOException
-    bool delete();
+    public abstract void deleteOnExit();
+    
 
-    void deleteOnExit();
+    public abstract bool exists();
+    
 
-    bool exists();
+    public abstract string getAbsolutePath();
+    
 
-    string getAbsolutePath();
+    public abstract string getCanonicalPath();
+    
 
-    // throws IOException
-    string getCanonicalPath();
+    public abstract string getParent();
+    
 
-    string getParent();
+    public abstract string getPath();
+    
 
-    string getPath();
+    public abstract bool isAbsolute();
+    
 
-    bool isAbsolute();
+    public abstract bool isDirectory();
+    
 
-    bool isDirectory();
+    public abstract bool isFile();
+    
 
-    bool isFile();
+    public abstract bool isHidden();
+    
 
-    bool isHidden();
+    public abstract int64 lastModified();
+    
 
-    long lastModified();
+    public abstract int64 length();
+    
 
-    long length();
+    public abstract string[] list();
+    
 
-    string[] list();
+    public abstract string[] listWithFilter(FilenameFilter filter);
+    
 
-    string[] listWithFilter(FilenameFilter filter);
+    public abstract bool mkdir();
+    
 
-    bool mkdir();
+    public abstract bool mkdirs();
+    
 
-    bool mkdirs();
+    public abstract bool setLastModified(int64 time);
+    
 
-    bool setLastModified(long time);
+    public abstract bool setReadOnly();
+    
 
-    bool setReadOnly();
+    public abstract string toString();
+    
 
-    string ToString();
-
-    URI toURI();
-
+    public abstract URI toURI();
 }
 

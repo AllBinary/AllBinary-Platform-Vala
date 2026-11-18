@@ -13,23 +13,19 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.game.configuration.feature
+// import javax.microedition.lcdui.Canvas
+// import javax.microedition.lcdui.Graphics
 
-using System;
-using System.Linq;
-using Canvas = javax.microedition.lcdui.Canvas;
-using Graphics = javax.microedition.lcdui.Graphics;
+public class GameFeatureCanvas : Canvas {
+    
 
-namespace org.allbinary.game.configuration.feature;
-
-public class GameFeatureCanvas : Canvas
-{
-    public GameFeatureCanvas()
-    {
+    public GameFeatureCanvas() {
+        base();
     }
+    
 
-    public override void paint(Graphics graphics)
-    {
+    public override void paint(Graphics graphics) {
     }
-
 }
 

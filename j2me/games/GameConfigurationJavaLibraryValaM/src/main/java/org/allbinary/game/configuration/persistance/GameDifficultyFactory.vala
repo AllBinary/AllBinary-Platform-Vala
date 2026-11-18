@@ -13,30 +13,43 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.game.configuration.persistance
 
-using System;
-using System.Linq;
-
-namespace org.allbinary.game.configuration.persistance;
-
-public class GameDifficultyFactory
-{
-    private static readonly GameDifficultyFactory instance = new GameDifficultyFactory();
-    public static GameDifficultyFactory getInstance()
-    {
+public class GameDifficultyFactory : JObject {
+    private static GameDifficultyFactory? instance;
+    private static bool staticSet_instance = false;
+    private static GameDifficultyFactory staticGet_instance() {
+        if (!GameDifficultyFactory.staticSet_instance) {
+            GameDifficultyFactory.staticSet_instance = true;
+            GameDifficultyFactory.instance = new GameDifficultyFactory();
+        }
         return GameDifficultyFactory.instance;
     }
+    private int32 level;
 
-    private int level = 0;
-    public virtual void setLevel(int level)
-    {
+    // Java field initializers run after the base constructor
+    private void initFieldsGameDifficultyFactory() {
+    this.level = 0;
+    }
+
+    public GameDifficultyFactory() {
+        base();
+        this.initFieldsGameDifficultyFactory();
+    }
+    
+
+    public static GameDifficultyFactory getInstance() {
+        return GameDifficultyFactory.staticGet_instance();
+    }
+    
+
+    public virtual void setLevel(int32 level) {
         this.level = level;
     }
+    
 
-    public virtual int getLevel()
-    {
+    public virtual int32 getLevel() {
         return this.level;
     }
-
 }
 

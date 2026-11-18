@@ -13,46 +13,48 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.game.part.weapon
+// import org.allbinary.animation.Animation
+// import org.allbinary.game.combat.weapon.WeaponProperties
+// import org.allbinary.game.layer.weapon.WeaponLayer
+// import org.allbinary.game.layer.weapon.WeaponLayerCircularPool
+// import org.allbinary.game.score.ScoreableInterface
+// import org.allbinary.graphics.RelativeRelationship
+// import org.allbinary.layer.AllBinaryLayer
+// import org.allbinary.layer.AllBinaryLayerManager
+// import org.allbinary.math.AngleFactory
 
-using System;
-using System.Linq;
-using Animation = org.allbinary.animation.Animation;
-using WeaponProperties = org.allbinary.game.combat.weapon.WeaponProperties;
-using WeaponLayer = org.allbinary.game.layer.weapon.WeaponLayer;
-using WeaponLayerCircularPool = org.allbinary.game.layer.weapon.WeaponLayerCircularPool;
-using ScoreableInterface = org.allbinary.game.score.ScoreableInterface;
-using RelativeRelationship = org.allbinary.graphics.RelativeRelationship;
-using AllBinaryLayer = org.allbinary.layer.AllBinaryLayer;
-using AllBinaryLayerManager = org.allbinary.layer.AllBinaryLayerManager;
-using AngleFactory = org.allbinary.math.AngleFactory;
+public class ArcedMultiBeamWeaponPart : BasicWeaponPart {
+    private WeaponLayerCircularPool weaponLayerCircularStaticPool;
+    private int32 total;
+    private int32 TOTAL_ANGLE;
 
-namespace org.allbinary.game.part.weapon;
+    // Java field initializers run after the base constructor
+    private void initFieldsArcedMultiBeamWeaponPart() {
+    
+    
+    this.TOTAL_ANGLE = ((int32) (AngleFactory.getInstance().TOTAL_ANGLE));
+    }
+    
 
-public class ArcedMultiBeamWeaponPart : BasicWeaponPart
-{
-    private readonly WeaponLayerCircularPool weaponLayerCircularStaticPool;
-    private readonly int total;
-    public ArcedMultiBeamWeaponPart(Animation animationInterface, AllBinaryLayer sourceLayerInterface, WeaponLayerCircularPool weaponLayerCircularStaticPool, int total, WeaponProperties weaponProperties, ScoreableInterface scoreableInterface, RelativeRelationship relativeRelationship) : base(animationInterface, sourceLayerInterface, weaponProperties, scoreableInterface, relativeRelationship)
-    {
-        // base(animationInterface, sourceLayerInterface, weaponProperties, scoreableInterface, relativeRelationship) is called from the constructor declaration
+    public ArcedMultiBeamWeaponPart(Animation animationInterface, AllBinaryLayer sourceLayerInterface, WeaponLayerCircularPool weaponLayerCircularStaticPool, int32 total, WeaponProperties weaponProperties, ScoreableInterface scoreableInterface, RelativeRelationship relativeRelationship) {
+        base(animationInterface, sourceLayerInterface, weaponProperties, scoreableInterface, relativeRelationship);
+        this.initFieldsArcedMultiBeamWeaponPart();
         this.total = total;
         this.weaponLayerCircularStaticPool = weaponLayerCircularStaticPool;
     }
+    
 
-    private readonly int TOTAL_ANGLE = ((int) AngleFactory.getInstance().TOTAL_ANGLE);
-    // throws Exception
-    public override void processScore(AllBinaryLayerManager allbinaryLayerManager, short angle, short otherAngle, WeaponProperties weaponProperties, ScoreableInterface scoreableInterface)
-    {
-        short increment = ((short) ((this.total - 1) / this.TOTAL_ANGLE));
-        short minAngle = ((short) (((int) angle) - ((((int) increment) * this.total) >> 1)));
-        int next = 0;
+    public override void processScore(AllBinaryLayerManager allbinaryLayerManager, int16 angle, int16 otherAngle, WeaponProperties weaponProperties, ScoreableInterface scoreableInterface) {
+        int16 increment = ((int16) (((this.total - 1) / this.TOTAL_ANGLE)));
+        int16 minAngle = ((int16) ((((int32) (angle)) - ((((int32) (increment)) * this.total) >> 1))));
+        int32 next = 0;
         WeaponLayer weaponLayer = null;
-        for (int index = 0; index < this.total; index++) {
-            weaponLayer = this.weaponLayerCircularStaticPool.getInstanceWeaponLayer(this.getOwnerLayerInterface(), this.relativeRelationship.getX(), this.relativeRelationship.getY(), 0, (minAngle + increment), ((int) otherAngle), weaponProperties, scoreableInterface);
+        for (int32 index = 0; index < this.total; index++) {
+            weaponLayer = this.weaponLayerCircularStaticPool.getInstanceWeaponLayer(this.getOwnerLayerInterface(), this.relativeRelationship.getX(), this.relativeRelationship.getY(), 0, (minAngle + increment), ((int32) (otherAngle)), weaponProperties, scoreableInterface);
             allbinaryLayerManager.append(weaponLayer);
-            next += ((int) increment);
+            next += ((int32) (increment));
         }
     }
-
 }
 

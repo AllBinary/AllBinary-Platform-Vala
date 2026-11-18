@@ -13,18 +13,17 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.animation.transition.shake
 
-using System;
-using System.Linq;
+public class ShakeAnimationListenerFactory : JObject {
 
-namespace org.allbinary.animation.transition.shake;
+    public ShakeAnimationListenerFactory() {
+        base();
+    }
+    
 
-public class ShakeAnimationListenerFactory
-{
-    public static ShakeAnimationListener getInstance()
-    {
+    public static ShakeAnimationListener getInstance() {
         return new NoShakeAnimationListener();
     }
-
 }
 

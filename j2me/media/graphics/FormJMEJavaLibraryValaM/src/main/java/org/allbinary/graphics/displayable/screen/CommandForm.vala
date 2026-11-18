@@ -13,93 +13,100 @@
  *   
  */
 // Generated Code Do Not Modify
+// package org.allbinary.graphics.displayable.screen
+// import javax.microedition.lcdui.Command
+// import javax.microedition.lcdui.CommandListener
+// import javax.microedition.lcdui.Form
+// import javax.microedition.lcdui.NullCommandListener
+// import org.allbinary.canvas.Processor
+// import org.allbinary.game.displayable.canvas.MenuListener
+// import org.allbinary.graphics.color.BasicColor
+// import org.allbinary.graphics.color.BasicColorFactory
+// import org.allbinary.graphics.displayable.command.MyCommandInterface
+// import org.allbinary.logic.NullUtil
+// import org.allbinary.logic.communication.log.LogUtil
+// import org.allbinary.logic.string.StringUtil
+// import org.allbinary.string.CommonStrings
+// import org.allbinary.logic.StdUtil
+// import org.allbinary.util.ABStack
 
-using System;
-using System.Linq;
-using Command = javax.microedition.lcdui.Command;
-using CommandListener = javax.microedition.lcdui.CommandListener;
-using Form = javax.microedition.lcdui.Form;
-using NullCommandListener = javax.microedition.lcdui.NullCommandListener;
-using Processor = org.allbinary.canvas.Processor;
-using MenuListener = org.allbinary.game.displayable.canvas.MenuListener;
-using BasicColor = org.allbinary.graphics.color.BasicColor;
-using BasicColorFactory = org.allbinary.graphics.color.BasicColorFactory;
-using MyCommandInterface = org.allbinary.graphics.displayable.command.MyCommandInterface;
-using NullUtil = org.allbinary.logic.NullUtil;
-using LogUtil = org.allbinary.logic.communication.log.LogUtil;
-using StringUtil = org.allbinary.logic.@string.StringUtil;
-using CommonStrings = org.allbinary.@string.CommonStrings;
-using StdUtil = org.allbinary.logic.StdUtil;
-using org.allbinary.util;
+public class CommandForm : Form, MyCommandInterface, MenuListener, GameKeyEventSourceInterface {
+    private static JObject? NULL_COMMAND_FORM;
+    private static bool staticSet_NULL_COMMAND_FORM = false;
+    private static JObject staticGet_NULL_COMMAND_FORM() {
+        if (!CommandForm.staticSet_NULL_COMMAND_FORM) {
+            CommandForm.staticSet_NULL_COMMAND_FORM = true;
+            CommandForm.NULL_COMMAND_FORM = NullUtil.getInstance().NULL_OBJECT;
+        }
+        return CommandForm.NULL_COMMAND_FORM;
+    }
+    public LogUtil logUtil;
+    public CommonStrings commonStrings;
+    private Processor repaintProcessor;
+    private ABStack commandStack;
 
-namespace org.allbinary.graphics.displayable.screen;
+    // Java field initializers run after the base constructor
+    private void initFieldsCommandForm() {
+    this.logUtil = LogUtil.getInstance();
+    this.commonStrings = CommonStrings.getInstance();
+    this.repaintProcessor = ScreenRepaintProcessorFactory.getInstance().create(this);
+    
+    }
+    
 
-public class CommandForm : Form, MyCommandInterface, MenuListener
-{
-    private static object NULL_COMMAND_FORM = NullUtil.getInstance().NULL_OBJECT;
-    public static CommandForm getNullCommandForm()
-    {
-        if (CommandForm.NULL_COMMAND_FORM == NullUtil.getInstance().NULL_OBJECT) {
+    public static CommandForm getNullCommandForm() {
+        if (CommandForm.staticGet_NULL_COMMAND_FORM() == NullUtil.getInstance().NULL_OBJECT) {
             CommandForm.NULL_COMMAND_FORM = new CommandForm(NullCommandListener.NULL_COMMAND_LISTENER, StringUtil.getInstance().EMPTY_STRING, BasicColorFactory.getInstance().BLACK, BasicColorFactory.getInstance().WHITE);
         }
-        return ((CommandForm) CommandForm.NULL_COMMAND_FORM);
+        return ((CommandForm) CommandForm.staticGet_NULL_COMMAND_FORM());
     }
+    
 
-    public readonly LogUtil logUtil = LogUtil.getInstance();
-    public readonly CommonStrings commonStrings = CommonStrings.getInstance();
-    private readonly Processor repaintProcessor;
-    private ABStack<object> commandStack;
-    public CommandForm(CommandListener commandListener, string formTitle, BasicColor backgrounBasicColor, BasicColor foregroundBasicColor) : base(formTitle)
-    {
-        this.repaintProcessor = ScreenRepaintProcessorFactory.getInstance().create(this);
-        // base(formTitle) is called from the constructor declaration
+    public CommandForm(CommandListener commandListener, string formTitle, BasicColor backgrounBasicColor, BasicColor foregroundBasicColor) {
+        base(formTitle);
+        this.initFieldsCommandForm();
         this.commandStack = StdUtil.getInstance().createStack();
-        try {
+        {
             this.repaintProcessor.process();
-        } catch (Exception e) {
-            this.logUtil.put(this.commonStrings.EXCEPTION, this, this.commonStrings.CONSTRUCTOR, e);
-        }
+        } /* catch (Exception e): a thrown Java exception stops the program */
     }
+    
 
-    public virtual void initCommands(CommandListener cmdListener)
-    {
+    public virtual void initCommands(CommandListener cmdListener) {
     }
+    
 
-    public virtual void open()
-    {
+    public virtual void open() {
         this.logUtil.putF(this.commonStrings.START, this, "open");
     }
+    
 
-    // throws Exception
-    public virtual void close()
-    {
+    public virtual void close() {
         this.logUtil.putF(this.commonStrings.START, this, this.commonStrings.CLOSE);
     }
+    
 
-    // throws Exception
-    public virtual void update()
-    {
+    public virtual void update() {
         this.repaintProcessor.process();
     }
+    
 
-    public virtual int getSourceId()
-    {
+    public override int32 getSourceId() {
         return 0;
     }
+    
 
-    public override void addCommand(Command command)
-    {
+    public virtual void addCommand(Command command) {
         this.commandStack.push(command);
         base.addCommand(command);
     }
+    
 
-    public virtual void removeAllCommands()
-    {
-        int size = this.commandStack.size();
-        for (int index = 0; index < size; index++) {
+    public virtual void removeAllCommands() {
+        int32 size = this.commandStack.size();
+        for (int32 index = 0; index < size; index++) {
             base.removeCommand(((Command) this.commandStack.pop()));
         }
     }
-
 }
 

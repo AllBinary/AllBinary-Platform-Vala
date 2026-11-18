@@ -13,30 +13,43 @@
  *   
  */
 // Generated Code Do Not Modify
+// package org.allbinary.emulator
 
-using System;
-using System.Linq;
-
-namespace org.allbinary.emulator;
-
-public class InitEmulatorFactory
-{
-    private static readonly InitEmulatorFactory instance = new InitEmulatorFactory();
-    public static InitEmulatorFactory getInstance()
-    {
+public class InitEmulatorFactory : JObject {
+    private static InitEmulatorFactory? instance;
+    private static bool staticSet_instance = false;
+    private static InitEmulatorFactory staticGet_instance() {
+        if (!InitEmulatorFactory.staticSet_instance) {
+            InitEmulatorFactory.staticSet_instance = true;
+            InitEmulatorFactory.instance = new InitEmulatorFactory();
+        }
         return InitEmulatorFactory.instance;
     }
+    private bool initEmulator;
 
-    public virtual void setInitEmulator(bool initEmulator)
-    {
+    // Java field initializers run after the base constructor
+    private void initFieldsInitEmulatorFactory() {
+    this.initEmulator = false;
+    }
+
+    public InitEmulatorFactory() {
+        base();
+        this.initFieldsInitEmulatorFactory();
+    }
+    
+
+    public static InitEmulatorFactory getInstance() {
+        return InitEmulatorFactory.staticGet_instance();
+    }
+    
+
+    public virtual void setInitEmulator(bool initEmulator) {
         this.initEmulator = initEmulator;
     }
+    
 
-    public virtual bool isInitEmulator()
-    {
+    public virtual bool isInitEmulator() {
         return this.initEmulator;
     }
-
-    private bool initEmulator = false;
 }
 

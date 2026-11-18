@@ -13,18 +13,13 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.game.part
+// import org.allbinary.graphics.RelativeRelationship
+// import org.allbinary.layer.AllBinaryLayer
 
-using System;
-using System.Linq;
-using RelativeRelationship = org.allbinary.graphics.RelativeRelationship;
-using AllBinaryLayer = org.allbinary.layer.AllBinaryLayer;
+public interface PartFactoryInterface : JObject {
+    
 
-namespace org.allbinary.game.part;
-
-public interface PartFactoryInterface
-{
-    // throws Exception
-    PartInterface getInstance(AllBinaryLayer sourceLayerInterface, RelativeRelationship relativeRelationship);
-
+    public abstract PartInterface getInstance2(AllBinaryLayer sourceLayerInterface, RelativeRelationship relativeRelationship);
 }
 

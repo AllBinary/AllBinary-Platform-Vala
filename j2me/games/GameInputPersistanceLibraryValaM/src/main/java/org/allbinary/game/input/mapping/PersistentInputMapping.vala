@@ -13,118 +13,125 @@
  *  
  */
 // Generated Code Do Not Modify
-
-using System;
-using System.Linq;
-using java.util;
-using GamePersistanceStrings = org.allbinary.game.configuration.persistance.GamePersistanceStrings;
-using Input = org.allbinary.game.input.Input;
-using InputPersistance = org.allbinary.game.input.InputPersistance;
-using InputMappingEvent = org.allbinary.game.input.mapping.@event.InputMappingEvent;
-using InputMappingEventListenerInterface = org.allbinary.game.input.mapping.@event.InputMappingEventListenerInterface;
-using NullInputMappingEventListener = org.allbinary.game.input.mapping.@event.NullInputMappingEventListener;
-using NullUtil = org.allbinary.logic.NullUtil;
-using LogUtil = org.allbinary.logic.communication.log.LogUtil;
-using PreLogUtil = org.allbinary.logic.communication.log.PreLogUtil;
-using StringMaker = org.allbinary.logic.@string.StringMaker;
-using AbeClientInformationInterface = org.allbinary.logic.system.security.licensing.AbeClientInformationInterface;
-using CommonStrings = org.allbinary.@string.CommonStrings;
-using org.allbinary.util;
-using BasicArrayList = org.allbinary.util.BasicArrayList;
-using EnumerationUtil = org.allbinary.util.EnumerationUtil;
-
-namespace org.allbinary.game.input.mapping;
+// package org.allbinary.game.input.mapping
+// import java.util.Enumeration
+// import org.allbinary.game.configuration.persistance.GamePersistanceStrings
+// import org.allbinary.game.input.Input
+// import org.allbinary.game.input.InputPersistance
+// import org.allbinary.game.input.mapping.event.InputMappingEvent
+// import org.allbinary.game.input.mapping.event.InputMappingEventListenerInterface
+// import org.allbinary.game.input.mapping.event.NullInputMappingEventListener
+// import org.allbinary.logic.NullUtil
+// import org.allbinary.logic.communication.log.LogUtil
+// import org.allbinary.logic.communication.log.PreLogUtil
+// import org.allbinary.logic.string.StringMaker
+// import org.allbinary.logic.system.security.licensing.AbeClientInformationInterface
+// import org.allbinary.string.CommonStrings
+// import org.allbinary.util.ABHashtable
+// import org.allbinary.util.BasicArrayList
+// import org.allbinary.util.EnumerationUtil
 
 //GameInputPersistanceLibrary
-public class PersistentInputMapping
-{
-    public static object instance = NullUtil.getInstance().NULL_OBJECT;
-    public static PersistentInputMapping getNullInstance()
-    {
-        if (PersistentInputMapping.instance == NullUtil.getInstance().NULL_OBJECT) {
+public class PersistentInputMapping : JObject {
+    public static JObject? instance;
+    private static bool staticSet_instance = false;
+    public static JObject staticGet_instance() {
+        if (!PersistentInputMapping.staticSet_instance) {
+            PersistentInputMapping.staticSet_instance = true;
+            PersistentInputMapping.instance = NullUtil.getInstance().NULL_OBJECT;
+        }
+        return PersistentInputMapping.instance;
+    }
+    public LogUtil logUtil;
+    public CommonStrings commonStrings;
+    private EnumerationUtil enumerationUtil;
+    private InputToGameKeyMapping inputMapping;
+    private InputMappingEventListenerInterface inputMappingEventListenerInterface;
+    private InputPersistance inputPersistance;
+    private InputMappingEvent inputMappingEvent;
+
+    // Java field initializers run after the base constructor
+    private void initFieldsPersistentInputMapping() {
+    this.logUtil = LogUtil.getInstance();
+    this.commonStrings = CommonStrings.getInstance();
+    this.enumerationUtil = EnumerationUtil.getInstance();
+    this.inputMapping = new InputToGameKeyMapping();
+    this.inputMappingEventListenerInterface = NullInputMappingEventListener.NULL_INPUT_MAPPING_EVENT_LISTENER;
+    
+    this.inputMappingEvent = new InputMappingEvent(this);
+    }
+    
+
+    public static PersistentInputMapping getNullInstance() {
+        if (PersistentInputMapping.staticGet_instance() == NullUtil.getInstance().NULL_OBJECT) {
             PersistentInputMapping.instance = new PersistentInputMapping(GamePersistanceStrings.getInstance().SAVED_INPUT_CONFIGURATION_RECORD_ID);
         }
-        return ((PersistentInputMapping) PersistentInputMapping.instance);
+        return ((PersistentInputMapping) PersistentInputMapping.staticGet_instance());
     }
+    
 
-    public readonly LogUtil logUtil = LogUtil.getInstance();
-    public readonly CommonStrings commonStrings = CommonStrings.getInstance();
-    private readonly EnumerationUtil enumerationUtil = EnumerationUtil.getInstance();
-    private readonly InputToGameKeyMapping inputMapping = new InputToGameKeyMapping();
-    private InputMappingEventListenerInterface inputMappingEventListenerInterface = NullInputMappingEventListener.NULL_INPUT_MAPPING_EVENT_LISTENER;
-    private readonly InputPersistance inputPersistance;
-    public PersistentInputMapping(string name)
-    {
-        this.inputMappingEvent = new InputMappingEvent(this);
+    public PersistentInputMapping(string name) {
+        base();
+        this.initFieldsPersistentInputMapping();
         this.inputPersistance = new InputPersistance(name);
     }
+    
 
-    public virtual int getTotalMapped()
-    {
+    public virtual int32 getTotalMapped() {
         return this.getInputMapping().getHashtable().size();
     }
+    
 
-    public virtual bool isDefaultNew()
-    {
+    public virtual bool isDefaultNew() {
         return false;
     }
+    
 
-    public virtual InputToGameKeyMapping getDefault()
-    {
+    public virtual InputToGameKeyMapping getDefault() {
         return InputToGameKeyMapping.getNullInstance();
     }
+    
 
-    // throws Exception
-    public virtual void setDefault(AbeClientInformationInterface abeClientInformation)
-    {
+    public virtual void setDefault(AbeClientInformationInterface abeClientInformation) {
         this.getInputMapping().removeAll();
         this.getInputMapping().addMapping(this.getDefault());
         this.save(abeClientInformation);
     }
+    
 
-    // throws Exception
-    public virtual void update(AbeClientInformationInterface abeClientInformation)
-    {
+    public virtual void update(AbeClientInformationInterface abeClientInformation) {
         this.inputPersistance.deleteAll(abeClientInformation);
         this.save(abeClientInformation);
     }
+    
 
-    private InputMappingEvent inputMappingEvent;
-    // throws Exception
-    public virtual void save(AbeClientInformationInterface abeClientInformation)
-    {
+    public virtual void save(AbeClientInformationInterface abeClientInformation) {
         this.inputPersistance.save(abeClientInformation, this.getInputMapping().getHashtable());
         this.inputMappingEvent.setInputToGameKeyMapping(this.getInputMapping());
         if (this.getInputMappingEventListenerInterface() != null) {
             this.getInputMappingEventListenerInterface().onInputMappingEvent(this.inputMappingEvent);
         }
     }
+    
 
-    // throws Exception
-    public virtual void init(AbeClientInformationInterface abeClientInformation)
-    {
+    public virtual void init(AbeClientInformationInterface abeClientInformation) {
         this.logUtil.putF(this.commonStrings.START, this, this.commonStrings.INIT);
-        try {
+        {
             this.inputPersistance.loadAll(abeClientInformation);
-        } catch (Exception e) {
-            PreLogUtil.putOE(this.commonStrings.EXCEPTION, this, this.commonStrings.INIT, e);
-            this.inputPersistance.deleteRecoreStore(abeClientInformation);
-            this.setDefault(abeClientInformation);
-            this.inputPersistance.loadAll(abeClientInformation);
-        }
+        } /* catch (Exception e): a thrown Java exception stops the program */
         BasicArrayList list = this.inputPersistance.getList();
-        int totalMappedTo = 0;
-        int size = list.size();
-        ABHashtable<object, object> hashtable = null;
-        Enumeration<object> enumeration = null;
+        int32 totalMappedTo = 0;
+        int32 size = list.size();
+        ABHashtable hashtable = null;
+        Enumeration enumeration = null;
         Input mappedToInput = null;
         Input gameActionInput = null;
-        for (int index = 0; index < size; index++) {
-            hashtable = ((ABHashtable<object, object>) list.objectArray[index]);
+        for (int32 index = 0; index < size; index++) {
+            hashtable = ((ABHashtable) list.objectArray[index]);
             enumeration = hashtable.keys();
             while (this.enumerationUtil.hasMoreElements(enumeration)) {
                 mappedToInput = ((Input) this.enumerationUtil.nextElement(enumeration));
-                gameActionInput = ((Input) hashtable.get(mappedToInput));
+                gameActionInput = ((Input) hashtable.@get(mappedToInput));
                 totalMappedTo++;
                 this.getInputMapping().add(gameActionInput, mappedToInput);
             }
@@ -134,35 +141,32 @@ public class PersistentInputMapping
         stringBuffer.appendint(this.getTotalMapped());
         stringBuffer.append(" to: ");
         stringBuffer.appendint(totalMappedTo);
-        this.logUtil.putF(stringBuffer.ToString(), this, this.commonStrings.INIT);
+        this.logUtil.putF(stringBuffer.toString(), this, this.commonStrings.INIT);
     }
+    
 
-    public virtual void setInputMappingEventListenerInterface(InputMappingEventListenerInterface inputMappingEventListenerInterface)
-    {
+    public virtual void setInputMappingEventListenerInterface(InputMappingEventListenerInterface inputMappingEventListenerInterface) {
         this.inputMappingEventListenerInterface = inputMappingEventListenerInterface;
     }
+    
 
-    private InputMappingEventListenerInterface getInputMappingEventListenerInterface()
-    {
+    private InputMappingEventListenerInterface getInputMappingEventListenerInterface() {
         return this.inputMappingEventListenerInterface;
     }
+    
 
-    public virtual InputToGameKeyMapping getInputMapping()
-    {
+    public virtual InputToGameKeyMapping getInputMapping() {
         return this.inputMapping;
     }
+    
 
-    // throws Exception
-    public virtual bool isDelete(Input input)
-    {
-        throw new Exception(this.commonStrings.NOT_IMPLEMENTED);
+    public virtual bool isDelete(Input input) {
+        JSystem.fatal(new JException("Exception", this.commonStrings.NOT_IMPLEMENTED));
     }
+    
 
-    // throws Exception
-    public virtual bool isSystemInput(Input input)
-    {
-        throw new Exception(this.commonStrings.NOT_IMPLEMENTED);
+    public virtual bool isSystemInput(Input input) {
+        JSystem.fatal(new JException("Exception", this.commonStrings.NOT_IMPLEMENTED));
     }
-
 }
 

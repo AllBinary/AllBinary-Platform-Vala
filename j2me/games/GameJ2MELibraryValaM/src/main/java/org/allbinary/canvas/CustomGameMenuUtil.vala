@@ -13,20 +13,20 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.canvas
+// import org.allbinary.AppletUtil
+// import org.allbinary.J2MEUtil
+// import org.allbinary.game.commands.GameCommandsFactory
+// import org.allbinary.graphics.displayable.MyCanvas
 
-using System;
-using System.Linq;
-using AppletUtil = org.allbinary.AppletUtil;
-using J2MEUtil = org.allbinary.J2MEUtil;
-using GameCommandsFactory = org.allbinary.game.commands.GameCommandsFactory;
-using MyCanvas = org.allbinary.graphics.displayable.MyCanvas;
+public class CustomGameMenuUtil : JObject {
 
-namespace org.allbinary.canvas;
+    public CustomGameMenuUtil() {
+        base();
+    }
+    
 
-public class CustomGameMenuUtil
-{
-    public static void add(MyCanvas canvas)
-    {
+    public static void add(MyCanvas canvas) {
         GameCommandsFactory gameCommandsFactory = GameCommandsFactory.getInstance();
         if (AppletUtil.isAppletLoader(canvas)) {
         } else if (J2MEUtil.isHTML()) {
@@ -34,6 +34,5 @@ public class CustomGameMenuUtil
             canvas.addCommand(gameCommandsFactory.EXIT_COMMAND);
         }
     }
-
 }
 

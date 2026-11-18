@@ -13,70 +13,75 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.animation.vector
+// import javax.microedition.lcdui.Graphics
+// import org.allbinary.animation.Animation
+// import org.allbinary.graphics.color.BasicColor
+// import org.allbinary.graphics.color.ColorCompositeInterface
 
-using System;
-using System.Linq;
-using Graphics = javax.microedition.lcdui.Graphics;
-using Animation = org.allbinary.animation.Animation;
-using BasicColor = org.allbinary.graphics.color.BasicColor;
-using ColorCompositeInterface = org.allbinary.graphics.color.ColorCompositeInterface;
+public class RectangleAdjustedAnimation : Animation, ColorCompositeInterface, BasicColorCompositeSetterInterface {
+    private int32 width;
+    private int32 height;
+    private int32 offsetX;
+    private int32 offsetY;
 
-namespace org.allbinary.animation.vector;
+    // Java field initializers run after the base constructor
+    private void initFieldsRectangleAdjustedAnimation() {
+    
+    
+    
+    
+    }
+    
 
-public class RectangleAdjustedAnimation : Animation, ColorCompositeInterface
-{
-    private int width;
-    private int height;
-    private int offsetX;
-    private int offsetY;
-    public RectangleAdjustedAnimation(int width, int height, int offsetX, int offsetY, BasicColor basicColor)
-    {
+    public RectangleAdjustedAnimation(int32 width, int32 height, int32 offsetX, int32 offsetY, BasicColor basicColor) {
+        base();
+        this.initFieldsRectangleAdjustedAnimation();
         this.width = width;
         this.height = height;
         this.offsetX = offsetX;
         this.offsetY = offsetY;
         this.setBasicColorP(basicColor);
     }
+    
 
-    public override void nextFrame()
-    {
+    public override void nextFrame() {
     }
+    
 
-    public override void paintXY(Graphics graphics, int x, int y)
-    {
+    public override void paintXY(Graphics graphics, int32 x, int32 y) {
         this.basicSetColorUtil.setBasicColorP3(graphics, this.getBasicColorP(), this.getColor());
         graphics.drawRect(x + this.offsetX, y + this.offsetY, this.width, this.height);
     }
+    
 
-    public virtual void setWidth(int width)
-    {
+    public virtual void setWidth(int32 width) {
         this.width = width;
     }
+    
 
-    public virtual void setHeight(int height)
-    {
+    public virtual void setHeight(int32 height) {
         this.height = height;
     }
+    
 
-    public virtual void setOffsetX(int offsetX)
-    {
+    public virtual void setOffsetX(int32 offsetX) {
         this.offsetX = offsetX;
     }
+    
 
-    public virtual void setOffsetY(int offsetY)
-    {
+    public virtual void setOffsetY(int32 offsetY) {
         this.offsetY = offsetY;
     }
+    
 
-    public override BasicColor getBasicColorP()
-    {
+    public override BasicColor getBasicColorP() {
         return base.getBasicColorP();
     }
+    
 
-    public override void setBasicColorP(BasicColor basicColor)
-    {
+    public override void setBasicColorP(BasicColor basicColor) {
         base.setBasicColorP(basicColor);
     }
-
 }
 

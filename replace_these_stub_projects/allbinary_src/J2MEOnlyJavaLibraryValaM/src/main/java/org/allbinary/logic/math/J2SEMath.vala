@@ -13,34 +13,41 @@
  *   
  */
 // Generated Code Do Not Modify
+// package org.allbinary.logic.math
 
-using System;
-using System.Linq;
-
-namespace org.allbinary.logic.math;
-
-public class J2SEMath
-{
-    private static readonly J2SEMath instance = new J2SEMath();
-    public static J2SEMath getInstance()
-    {
+public class J2SEMath : JObject {
+    private static J2SEMath? instance;
+    private static bool staticSet_instance = false;
+    private static J2SEMath staticGet_instance() {
+        if (!J2SEMath.staticSet_instance) {
+            J2SEMath.staticSet_instance = true;
+            J2SEMath.instance = new J2SEMath();
+        }
         return J2SEMath.instance;
     }
 
-    public virtual int round(float value)
-    {
-        return ((int) value);
+    public J2SEMath() {
+        base();
     }
+    
 
-    public virtual float abs(float value)
-    {
-        return ((value < 0f) ? -value : value);
+    public static J2SEMath getInstance() {
+        return J2SEMath.staticGet_instance();
     }
+    
 
-    public virtual double absdouble(double value)
-    {
+    public virtual int32 round(float value) {
+        return ((int32) JMath.toInt32(value));
+    }
+    
+
+    public virtual float abs(float value) {
+        return ((value < 0.0f) ? -value : value);
+    }
+    
+
+    public virtual double absdouble(double value) {
         return ((value < 0.0) ? -value : value);
     }
-
 }
 

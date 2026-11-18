@@ -13,45 +13,44 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.graphics.form.item.validation
+// import org.allbinary.game.input.TextNotificationUtil
+// import org.allbinary.logic.communication.log.LogUtil
+// import org.allbinary.logic.java.bool.BooleanFactory
+// import org.allbinary.logic.string.StringValidationUtil
+// import org.allbinary.logic.util.visitor.Visitor
+// import org.allbinary.string.CommonStrings
 
-using System;
-using System.Linq;
-using TextNotificationUtil = org.allbinary.game.input.TextNotificationUtil;
-using LogUtil = org.allbinary.logic.communication.log.LogUtil;
-using BooleanFactory = org.allbinary.logic.java.@bool.BooleanFactory;
-using StringValidationUtil = org.allbinary.logic.@string.StringValidationUtil;
-using Visitor = org.allbinary.logic.util.visitor.Visitor;
-using CommonStrings = org.allbinary.@string.CommonStrings;
+public class TextItemNumberVisitor : Visitor {
+    public LogUtil logUtil;
 
-namespace org.allbinary.graphics.form.item.validation;
-
-public class TextItemNumberVisitor : Visitor
-{
-    public readonly LogUtil logUtil = LogUtil.getInstance();
-    public TextItemNumberVisitor()
-    {
+    // Java field initializers run after the base constructor
+    private void initFieldsTextItemNumberVisitor() {
+    this.logUtil = LogUtil.getInstance();
     }
+    
 
-    public override object visit(object anyType)
-    {
-        string value = ((string) anyType);
-        if (value.Length < 2) {
+    public TextItemNumberVisitor() {
+        base();
+        this.initFieldsTextItemNumberVisitor();
+    }
+    
+
+    public override JObject visit(JObject anyType) {
+        string value = JString.unbox(anyType);
+        if (JString.length(value) < 2) {
             StringValidationUtil stringValidationUtil = StringValidationUtil.getInstance();
             if (stringValidationUtil.isNumber(value)) {
-                return BooleanFactory.getInstance().TRUE;
+                return BooleanFactory.getInstance().TRUE_;
             } else {
-                try {
+                {
                     TextNotificationUtil.getInstance().fireError("Numbers Only");
-                } catch (Exception e) {
-                    CommonStrings commonStrings = CommonStrings.getInstance();
-                    this.logUtil.put(commonStrings.EXCEPTION, this, commonStrings.VISIT, e);
-                }
-                return BooleanFactory.getInstance().FALSE;
+                } /* catch (Exception e): a thrown Java exception stops the program */
+                return BooleanFactory.getInstance().FALSE_;
             }
         } else {
-            return BooleanFactory.getInstance().FALSE;
+            return BooleanFactory.getInstance().FALSE_;
         }
     }
-
 }
 

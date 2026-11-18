@@ -13,40 +13,43 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.game.configuration
+// import javax.microedition.lcdui.Choice
+// import javax.microedition.lcdui.ChoiceGroup
+// import javax.microedition.lcdui.CommandListener
+// import javax.microedition.lcdui.Item
+// import javax.microedition.lcdui.NullImage
+// import javax.microedition.lcdui.StringItem
+// import org.allbinary.MIDPUtil
+// import org.allbinary.game.commands.GameCommandsFactory
+// import org.allbinary.game.configuration.persistance.GamePersistanceSingleton
+// import org.allbinary.graphics.color.BasicColor
+// import org.allbinary.graphics.displayable.screen.CommandForm
+// import org.allbinary.logic.string.StringMaker
+// import org.allbinary.logic.string.StringUtil
+// import org.allbinary.util.BasicArrayList
 
-using System;
-using System.Linq;
-using Choice = javax.microedition.lcdui.Choice;
-using ChoiceGroup = javax.microedition.lcdui.ChoiceGroup;
-using CommandListener = javax.microedition.lcdui.CommandListener;
-using Item = javax.microedition.lcdui.Item;
-using NullImage = javax.microedition.lcdui.NullImage;
-using StringItem = javax.microedition.lcdui.StringItem;
-using MIDPUtil = org.allbinary.MIDPUtil;
-using GameCommandsFactory = org.allbinary.game.commands.GameCommandsFactory;
-using GamePersistanceSingleton = org.allbinary.game.configuration.persistance.GamePersistanceSingleton;
-using BasicColor = org.allbinary.graphics.color.BasicColor;
-using CommandForm = org.allbinary.graphics.displayable.screen.CommandForm;
-using StringMaker = org.allbinary.logic.@string.StringMaker;
-using StringUtil = org.allbinary.logic.@string.StringUtil;
-using BasicArrayList = org.allbinary.util.BasicArrayList;
+public class LoadGameForm : CommandForm {
+    private MIDPUtil meUtil;
+    private bool areChoices;
 
-namespace org.allbinary.game.configuration;
+    // Java field initializers run after the base constructor
+    private void initFieldsLoadGameForm() {
+    this.meUtil = MIDPUtil.getInstance();
+    this.areChoices = false;
+    }
+    
 
-public class LoadGameForm : CommandForm
-{
-    private readonly MIDPUtil meUtil = MIDPUtil.getInstance();
-    private bool areChoices = false;
-    public LoadGameForm(CommandListener commandListener, string title, BasicColor backgrounBasicColor, BasicColor foregroundBasicColor) : base(commandListener, title, backgrounBasicColor, foregroundBasicColor)
-    {
-        // base(commandListener, title, backgrounBasicColor, foregroundBasicColor) is called from the constructor declaration
+    public LoadGameForm(CommandListener commandListener, string title, BasicColor backgrounBasicColor, BasicColor foregroundBasicColor) {
+        base(commandListener, title, backgrounBasicColor, foregroundBasicColor);
+        this.initFieldsLoadGameForm();
         this.logUtil.putF(this.commonStrings.START, this, this.commonStrings.CONSTRUCTOR);
         this.update();
         this.initCommands(commandListener);
     }
+    
 
-    public override void initCommands(CommandListener cmdListener)
-    {
+    public override void initCommands(CommandListener cmdListener) {
         GameCommandsFactory gameCommandsFactory = GameCommandsFactory.getInstance();
         this.removeAllCommands();
         this.addCommand(gameCommandsFactory.LOAD_FILE);
@@ -54,10 +57,9 @@ public class LoadGameForm : CommandForm
         this.addCommand(gameCommandsFactory.CLOSE_AND_SHOW_GAME_CANVAS);
         this.setCommandListener(cmdListener);
     }
+    
 
-    // throws Exception
-    public override void update()
-    {
+    public override void update() {
         BasicArrayList list = GamePersistanceSingleton.getInstance().getIds();
         this.deleteAll();
         if (list.size() > 0) {
@@ -69,50 +71,49 @@ public class LoadGameForm : CommandForm
         }
         base.update();
     }
+    
 
-    private void add(BasicArrayList list, string name, int option)
-    {
+    private void add(BasicArrayList list, string name, int32 option) {
         ChoiceGroup choiceGroup = this.getChoiceGroup(list, name, option);
         if (list.size() > 0) {
             choiceGroup.setSelectedIndex(0, true);
         }
         this.meUtil.appendItem(this, choiceGroup);
     }
+    
 
-    private ChoiceGroup getChoiceGroup(BasicArrayList list, string name, int option)
-    {
+    private ChoiceGroup getChoiceGroup(BasicArrayList list, string name, int32 option) {
         string METHOD_NAME = "getChoiceGroup";
         string ADDING_CHOICE = "Adding Choice: ";
         ChoiceGroup choiceGroup = new ChoiceGroup(name, option, StringUtil.getInstance().getArrayInstance(), NullImage.NULL_IMAGE_ARRAY);
-        int size = list.size();
-        for (int index = 0; index < size; index++) {
-            object anyType = list.objectArray[index];
-            this.logUtil.putF(new StringMaker().append(ADDING_CHOICE).append(anyType.ToString()).ToString(), this, METHOD_NAME);
-            choiceGroup.append(anyType.ToString(), NullImage.NULL_IMAGE);
+        int32 size = list.size();
+        for (int32 index = 0; index < size; index++) {
+            JObject anyType = list.objectArray[index];
+            this.logUtil.putF(new StringMaker().append(ADDING_CHOICE).append(anyType.toString()).toString(), this, METHOD_NAME);
+            choiceGroup.append(anyType.toString(), NullImage.NULL_IMAGE);
         }
         return choiceGroup;
     }
+    
 
-    public virtual int getSelectedId()
-    {
+    public virtual int32 getSelectedId() {
         if (this.areChoices) {
-            ChoiceGroup choiceGroup = ((ChoiceGroup) this.get(0));
+            ChoiceGroup choiceGroup = ((ChoiceGroup) this.@get(0));
             return choiceGroup.getSelectedIndex();
         } else {
             return -1;
         }
     }
+    
 
-    public virtual int getSelectedText()
-    {
+    public virtual int32 getSelectedText() {
         if (this.areChoices) {
-            ChoiceGroup choiceGroup = ((ChoiceGroup) this.get(0));
-            int value = global::java.lang.JavaNumber.intValue(int.Parse((choiceGroup.getString(choiceGroup.getSelectedIndex())).ToString()));
+            ChoiceGroup choiceGroup = ((ChoiceGroup) this.@get(0));
+            int32 value = (choiceGroup.getString(choiceGroup.getSelectedIndex())).to_string().intValue();
             return value;
         } else {
             return -1;
         }
     }
-
 }
 

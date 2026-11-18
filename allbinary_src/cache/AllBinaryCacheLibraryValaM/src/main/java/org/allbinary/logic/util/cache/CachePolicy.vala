@@ -13,48 +13,52 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.logic.util.cache
 
-using System;
-using System.Linq;
+public class CachePolicy : JObject {
+    private string name;
+    private int64 maxTime;
+    private int64 maxSize;
 
-namespace org.allbinary.logic.util.cache;
+    // Java field initializers run after the base constructor
+    private void initFieldsCachePolicy() {
+    
+    this.maxTime = 0;
+    this.maxSize = 0;
+    }
+    
 
-public class CachePolicy
-{
-    private readonly string name;
-    private long maxTime = 0L;
-    private long maxSize = 0L;
-    public CachePolicy(string name, long maxTime, long maxSize)
-    {
+    public CachePolicy(string name, int64 maxTime, int64 maxSize) {
+        base();
+        this.initFieldsCachePolicy();
         this.name = name;
         this.setMaxTime(maxTime);
         this.setMaxSize(maxSize);
     }
+    
 
-    public virtual long getMaxTime()
-    {
+    public virtual int64 getMaxTime() {
         return this.maxTime;
     }
+    
 
-    public virtual void setMaxTime(long maxTime)
-    {
+    public virtual void setMaxTime(int64 maxTime) {
         this.maxTime = maxTime;
     }
+    
 
-    public virtual long getMaxSize()
-    {
+    public virtual int64 getMaxSize() {
         return this.maxSize;
     }
+    
 
-    public virtual void setMaxSize(long maxSize)
-    {
+    public virtual void setMaxSize(int64 maxSize) {
         this.maxSize = maxSize;
     }
+    
 
-    public virtual string getName()
-    {
+    public virtual string getName() {
         return this.name;
     }
-
 }
 

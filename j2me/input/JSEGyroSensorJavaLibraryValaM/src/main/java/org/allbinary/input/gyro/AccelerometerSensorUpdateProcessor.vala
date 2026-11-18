@@ -13,23 +13,22 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.input.gyro
+// import org.allbinary.canvas.Processor
+// import org.allbinary.game.configuration.feature.Features
+// import org.allbinary.game.configuration.feature.SensorFeatureFactory
+// import org.allbinary.game.input.motion.action.NoCompleteMotionGestureInputEventListener
+// import org.allbinary.game.input.motion.action.SingleKeyPressGameKeyFromMotionGestureEventListener
+// import org.allbinary.input.accelerometer.AccelerometerSensorFactory
 
-using System;
-using System.Linq;
-using Processor = org.allbinary.canvas.Processor;
-using Features = org.allbinary.game.configuration.feature.Features;
-using SensorFeatureFactory = org.allbinary.game.configuration.feature.SensorFeatureFactory;
-using NoCompleteMotionGestureInputEventListener = org.allbinary.game.input.motion.action.NoCompleteMotionGestureInputEventListener;
-using SingleKeyPressGameKeyFromMotionGestureEventListener = org.allbinary.game.input.motion.action.SingleKeyPressGameKeyFromMotionGestureEventListener;
-using AccelerometerSensorFactory = org.allbinary.input.accelerometer.AccelerometerSensorFactory;
+public class AccelerometerSensorUpdateProcessor : Processor {
 
-namespace org.allbinary.input.gyro;
+    public AccelerometerSensorUpdateProcessor() {
+        base();
+    }
+    
 
-public class AccelerometerSensorUpdateProcessor : Processor
-{
-    // throws Exception
-    public override void process()
-    {
+    public override void process() {
         SensorFeatureFactory sensorFeatureFactory = SensorFeatureFactory.getInstance();
         if (Features.getInstance().isFeature(sensorFeatureFactory.ORIENTATION_SENSORS)) {
             AccelerometerSensorFactory.getInstance().setCompleteMotionGestureInputEventListener(new SingleKeyPressGameKeyFromMotionGestureEventListener());
@@ -38,9 +37,8 @@ public class AccelerometerSensorUpdateProcessor : Processor
         } else if (Features.getInstance().isFeature(sensorFeatureFactory.NO_ORIENTATION)) {
             AccelerometerSensorFactory.getInstance().setCompleteMotionGestureInputEventListener(NoCompleteMotionGestureInputEventListener.getInstance());
         } else {
-            throw new Exception("Sensor Feature Not Set");
+            JSystem.fatal(new JException("Exception", "Sensor Feature Not Set"));
         }
     }
-
 }
 

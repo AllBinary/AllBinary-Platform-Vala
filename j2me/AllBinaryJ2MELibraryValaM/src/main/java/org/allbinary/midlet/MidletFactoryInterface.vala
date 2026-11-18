@@ -13,19 +13,18 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.midlet
+// import javax.microedition.midlet.MIDlet
 
-using System;
-using System.Linq;
-using MIDlet = javax.microedition.midlet.MIDlet;
+public class MidletFactoryInterface : JObject {
 
-namespace org.allbinary.midlet;
+    public MidletFactoryInterface() {
+        base();
+    }
+    
 
-public class MidletFactoryInterface
-{
-    public virtual MIDlet getInstance()
-    {
+    public virtual MIDlet getInstance() {
         return AllBinaryMidlet.getNullInstance();
     }
-
 }
 

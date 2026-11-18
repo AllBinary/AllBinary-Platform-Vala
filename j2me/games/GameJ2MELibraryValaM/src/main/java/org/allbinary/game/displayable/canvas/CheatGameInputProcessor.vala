@@ -13,77 +13,84 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.game.displayable.canvas
+// import org.allbinary.game.input.GameKeyFactory
+// import org.allbinary.game.input.PlayerGameInput
+// import org.allbinary.game.input.event.GameKeyEvent
+// import org.allbinary.game.input.event.GameKeyEventUtil
+// import org.allbinary.game.layer.AllBinaryGameLayerManager
+// import org.allbinary.game.layer.special.SpecialGameInputFactory
+// import org.allbinary.game.layer.special.SpecialGameInputInterface
+// import org.allbinary.logic.string.StringMaker
+// import org.allbinary.util.BasicArrayList
+// import org.allbinary.util.BasicArrayListD
 
-using System;
-using System.Linq;
-using System.Runtime.CompilerServices;
-using GameKeyFactory = org.allbinary.game.input.GameKeyFactory;
-using PlayerGameInput = org.allbinary.game.input.PlayerGameInput;
-using GameKeyEvent = org.allbinary.game.input.@event.GameKeyEvent;
-using GameKeyEventUtil = org.allbinary.game.input.@event.GameKeyEventUtil;
-using AllBinaryGameLayerManager = org.allbinary.game.layer.AllBinaryGameLayerManager;
-using SpecialGameInputFactory = org.allbinary.game.layer.special.SpecialGameInputFactory;
-using SpecialGameInputInterface = org.allbinary.game.layer.special.SpecialGameInputInterface;
-using StringMaker = org.allbinary.logic.@string.StringMaker;
-using BasicArrayList = org.allbinary.util.BasicArrayList;
-using BasicArrayListD = org.allbinary.util.BasicArrayListD;
+public class CheatGameInputProcessor : PlayerGameInput {
+    public static SpecialGameInputInterface? inputProcessor;
+    private static bool staticSet_inputProcessor = false;
+    public static SpecialGameInputInterface staticGet_inputProcessor() {
+        if (!CheatGameInputProcessor.staticSet_inputProcessor) {
+            CheatGameInputProcessor.staticSet_inputProcessor = true;
+            CheatGameInputProcessor.inputProcessor = SpecialGameInputFactory.NO_SPECIAL_GAME_INPUT;
+        }
+        return CheatGameInputProcessor.inputProcessor;
+    }
+    private string PROCESS_GAME;
+    private AllBinaryGameCanvas gameCanvas;
+    private GameKeyFactory gameKeyFactory;
 
-namespace org.allbinary.game.displayable.canvas;
+    // Java field initializers run after the base constructor
+    private void initFieldsCheatGameInputProcessor() {
+    this.PROCESS_GAME = "processGame";
+    
+    this.gameKeyFactory = GameKeyFactory.getInstance();
+    }
+    
 
-public class CheatGameInputProcessor : PlayerGameInput
-{
-    private readonly string PROCESS_GAME = "processGame";
-    private readonly AllBinaryGameCanvas gameCanvas;
-    public static SpecialGameInputInterface inputProcessor = SpecialGameInputFactory.NO_SPECIAL_GAME_INPUT;
-    public CheatGameInputProcessor(AllBinaryGameCanvas gameCanvas) : base(new BasicArrayListD(), new BasicArrayListD(), -1)
-    {
-        // base(new BasicArrayListD(), new BasicArrayListD(), -1) is called from the constructor declaration
+    public CheatGameInputProcessor(AllBinaryGameCanvas gameCanvas) {
+        base(new BasicArrayListD(), new BasicArrayListD(), -1);
+        this.initFieldsCheatGameInputProcessor();
         this.gameCanvas = gameCanvas;
     }
+    
 
-    private readonly GameKeyFactory gameKeyFactory = GameKeyFactory.getInstance();
-    [MethodImpl(MethodImplOptions.Synchronized)]
-    public override void update()
-    {
-        try {
+    public override void update() {
+        {
             AllBinaryGameLayerManager gameLayerManager = this.gameCanvas.getLayerManager();
             BasicArrayList list = this.getGameKeyEventList();
-            int size = list.size();
-            for (int index = 0; index < size; index++) {
-                object anyType = list.objectArray[index];
-                int key = GameKeyEventUtil.getKey(anyType);
+            int32 size = list.size();
+            for (int32 index = 0; index < size; index++) {
+                JObject anyType = list.objectArray[index];
+                int32 key = GameKeyEventUtil.getKey(anyType);
                 if (key == this.gameKeyFactory.LEVEL_DOWN.getId()) {
-                    CheatGameInputProcessor.inputProcessor.strafeLeft();
+                    CheatGameInputProcessor.staticGet_inputProcessor().strafeLeft();
                     break;
                 } else if (key == this.gameKeyFactory.LEVEL_UP.getId()) {
-                    CheatGameInputProcessor.inputProcessor.strafeRight();
+                    CheatGameInputProcessor.staticGet_inputProcessor().strafeRight();
                     break;
                 }
                 if (key == this.gameKeyFactory.LEFT.getId()) {
-                    CheatGameInputProcessor.inputProcessor.left();
+                    CheatGameInputProcessor.staticGet_inputProcessor().left();
                     break;
                 } else if (key == this.gameKeyFactory.RIGHT.getId()) {
-                    CheatGameInputProcessor.inputProcessor.right();
+                    CheatGameInputProcessor.staticGet_inputProcessor().right();
                     break;
                 } else if (key == this.gameKeyFactory.UP.getId()) {
-                    CheatGameInputProcessor.inputProcessor.up();
+                    CheatGameInputProcessor.staticGet_inputProcessor().up();
                     break;
                 } else if (key == this.gameKeyFactory.DOWN.getId()) {
-                    CheatGameInputProcessor.inputProcessor.down();
+                    CheatGameInputProcessor.staticGet_inputProcessor().down();
                     break;
                 } else if (key == this.gameKeyFactory.KEY_NUM1.getId()) {
-                    CheatGameInputProcessor.inputProcessor.special1(gameLayerManager, GameKeyEvent.NONE);
+                    CheatGameInputProcessor.staticGet_inputProcessor().special1(gameLayerManager, GameKeyEvent.NONE);
                     break;
                 } else if (key == this.gameKeyFactory.KEY_NUM3.getId()) {
-                    CheatGameInputProcessor.inputProcessor.special2(gameLayerManager, GameKeyEvent.NONE);
+                    CheatGameInputProcessor.staticGet_inputProcessor().special2(gameLayerManager, GameKeyEvent.NONE);
                     break;
                 }
             }
             list.clear();
-        } catch (Exception e) {
-            this.logUtil.put(this.commonStrings.EXCEPTION, this, this.commonStrings.UPDATE, e);
-        }
+        } /* catch (Exception e): a thrown Java exception stops the program */
     }
-
 }
 

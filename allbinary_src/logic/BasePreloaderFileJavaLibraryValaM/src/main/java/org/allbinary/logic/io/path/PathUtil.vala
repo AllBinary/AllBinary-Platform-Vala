@@ -13,65 +13,74 @@
  *  
  */
 // Generated Code Do Not Modify
-
-using System;
-using System.Linq;
-using FilePathData = org.allbinary.logic.io.file.FilePathData;
-using StringUtil = org.allbinary.logic.@string.StringUtil;
-using StringValidationUtil = org.allbinary.logic.@string.StringValidationUtil;
-
-namespace org.allbinary.logic.io.path;
+// package org.allbinary.logic.io.path
+// import org.allbinary.logic.io.file.FilePathData
+// import org.allbinary.logic.string.StringUtil
+// import org.allbinary.logic.string.StringValidationUtil
 
 //Used to correct user input for paths
-public class PathUtil
-{
-    private static readonly PathUtil instance = new PathUtil();
-    public static PathUtil getInstance()
-    {
+public class PathUtil : JObject {
+    private static PathUtil? instance;
+    private static bool staticSet_instance = false;
+    private static PathUtil staticGet_instance() {
+        if (!PathUtil.staticSet_instance) {
+            PathUtil.staticSet_instance = true;
+            PathUtil.instance = new PathUtil();
+        }
         return PathUtil.instance;
     }
+    private AbPathData abPathData;
+    private FilePathData filePathData;
 
-    private readonly AbPathData abPathData = AbPathData.getInstance();
-    private readonly FilePathData filePathData = FilePathData.getInstance();
-    private PathUtil()
-    {
+    // Java field initializers run after the base constructor
+    private void initFieldsPathUtil() {
+    this.abPathData = AbPathData.getInstance();
+    this.filePathData = FilePathData.getInstance();
     }
+    
 
-    public virtual string getExtensionWithAbFilePath(AbFilePath abFilePath)
-    {
-        return this.abPathData.getExtension(abFilePath.ToString());
+    public static PathUtil getInstance() {
+        return PathUtil.staticGet_instance();
     }
+    
 
-    public virtual string getExtensionWithAbPath(AbPath abPath)
-    {
-        return this.abPathData.getExtension(abPath.ToString());
+    public PathUtil() {
+        base();
+        this.initFieldsPathUtil();
     }
+    
 
-    // throws Exception
-    public virtual string getWithoutExtensionWithAbFilePath(AbFilePath abFilePath)
-    {
-        return this.getWithoutExtension(abFilePath.ToString());
+    public virtual string getExtensionWithAbFilePath(AbFilePath abFilePath) {
+        return this.abPathData.getExtension(abFilePath.toString());
     }
+    
 
-    // throws Exception
-    public virtual string getWithoutExtensionWithAbPath(AbPath abPath)
-    {
-        return this.getWithoutExtension(abPath.ToString());
+    public virtual string getExtensionWithAbPath(AbPath abPath) {
+        return this.abPathData.getExtension(abPath.toString());
     }
+    
 
-    // throws Exception
-    public virtual string getWithoutExtension(string filePath)
-    {
-        int indexOfFileExtensionDelmiter = this.abPathData.getExtensionIndex(filePath);
+    public virtual string getWithoutExtensionWithAbFilePath(AbFilePath abFilePath) {
+        return this.getWithoutExtension(abFilePath.toString());
+    }
+    
+
+    public virtual string getWithoutExtensionWithAbPath(AbPath abPath) {
+        return this.getWithoutExtension(abPath.toString());
+    }
+    
+
+    public virtual string getWithoutExtension(string filePath) {
+        int32 indexOfFileExtensionDelmiter = this.abPathData.getExtensionIndex(filePath);
         string pathWithoutExtension = filePath;
         if (indexOfFileExtensionDelmiter >= 0) {
-            pathWithoutExtension = filePath.Substring(0, (indexOfFileExtensionDelmiter) - (0));
+            pathWithoutExtension = JString.substring(filePath, 0, indexOfFileExtensionDelmiter);
         }
         return pathWithoutExtension;
     }
+    
 
-    public virtual bool isValid(string path)
-    {
+    public virtual bool isValid(string path) {
         if (this.isValidStart(path)) {
             if (this.isValidEnd(path)) {
                 return true;
@@ -79,74 +88,75 @@ public class PathUtil
         }
         return false;
     }
+    
 
-    private bool isValidStart(string path)
-    {
-        if (path[0] == this.abPathData.SEPARATORCHAR || path[0] == '.') {
+    private bool isValidStart(string path) {
+        if (JString.charAt(path, 0) == this.abPathData.SEPARATORCHAR || JString.charAt(path, 0) == ((uint16) '.')) {
             return true;
         } else {
             return false;
         }
     }
+    
 
-    private bool isValidEnd(string path)
-    {
+    private bool isValidEnd(string path) {
         StringValidationUtil stringValidationUtil = StringValidationUtil.getInstance();
         if (stringValidationUtil.isEmpty(path)) {
             return false;
         }
-        if (path[path.Length - 1] == this.abPathData.SEPARATORCHAR) {
+        if (JString.charAt(path, JString.length(path) - 1) == this.abPathData.SEPARATORCHAR) {
             return true;
         } else {
             return false;
         }
     }
+    
 
-    public virtual string adjustStart(string path)
-    {
+    public virtual string adjustStart(string path_parameter) {
+        string path = path_parameter;
         if (!this.isValidStart(path)) {
-            path = this.abPathData.SEPARATOR + path;
+            path = JString.ofString(this.abPathData.SEPARATOR) + JString.ofString(path);
         }
         return path;
     }
+    
 
-    public virtual string adjustEnd(string path)
-    {
+    public virtual string adjustEnd(string path_parameter) {
+        string path = path_parameter;
         if (!this.isValidEnd(path)) {
-            path = path + this.abPathData.SEPARATOR;
+            path = JString.ofString(path) + JString.ofString(this.abPathData.SEPARATOR);
         }
         return path;
     }
+    
 
-    public virtual string adjust(string path)
-    {
+    public virtual string adjust(string path_parameter) {
+        string path = path_parameter;
         StringValidationUtil stringValidationUtil = StringValidationUtil.getInstance();
         if (stringValidationUtil.isEmpty(path)) {
             return this.abPathData.SEPARATOR;
         }
-        if (path.IndexOf("\\") >= 0) {
-            path = path.Replace('\\', this.abPathData.SEPARATORCHAR);
+        if (JString.indexOf(path, "\\") >= 0) {
+            path = JString.replace(path, ((uint16) '\\'), this.abPathData.SEPARATORCHAR);
         }
         return path;
     }
+    
 
-    // throws Exception
-    public virtual AbPath removeNameFromPath(string path)
-    {
-        int endIndex = path.LastIndexOf(this.abPathData.SEPARATOR);
+    public virtual AbPath removeNameFromPath(string path) {
+        int32 endIndex = JString.lastIndexOf(path, this.abPathData.SEPARATOR);
         if (endIndex < 0) {
-            endIndex = path.LastIndexOf(this.filePathData.SEPARATORCHAR);
+            endIndex = JString.lastIndexOfChar(path, this.filePathData.SEPARATORCHAR);
         }
         if (endIndex < 0) {
             return AbPath.createAbPath();
         }
-        if (path.Length == endIndex + 1) {
-            return this.removeNameFromPath(path.Substring(0, (endIndex - 1) - (0)));
+        if (JString.length(path) == endIndex + 1) {
+            return this.removeNameFromPath(JString.substring(path, 0, endIndex - 1));
         } else {
-            string pathWithoutName = path.Substring(0, (endIndex) - (0));
+            string pathWithoutName = JString.substring(path, 0, endIndex);
             return new AbPath(pathWithoutName, StringUtil.getInstance().EMPTY_STRING);
         }
     }
-
 }
 

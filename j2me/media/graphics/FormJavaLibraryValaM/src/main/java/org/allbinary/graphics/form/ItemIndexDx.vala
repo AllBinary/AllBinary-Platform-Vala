@@ -13,26 +13,32 @@
  *   
  */
 // Generated Code Do Not Modify
+// package org.allbinary.graphics.form
+// import org.allbinary.graphics.form.item.ABCustomItem
 
-using System;
-using System.Linq;
-using ABCustomItem = org.allbinary.graphics.form.item.ABCustomItem;
-
-namespace org.allbinary.graphics.form;
-
-public class ItemIndexDx
-{
-    private static readonly ItemIndexDx instance = new ItemIndexDx();
-    public static ItemIndexDx getInstance()
-    {
+public class ItemIndexDx : JObject {
+    private static ItemIndexDx? instance;
+    private static bool staticSet_instance = false;
+    private static ItemIndexDx staticGet_instance() {
+        if (!ItemIndexDx.staticSet_instance) {
+            ItemIndexDx.staticSet_instance = true;
+            ItemIndexDx.instance = new ItemIndexDx();
+        }
         return ItemIndexDx.instance;
     }
 
-    // throws Exception
-    public virtual int getDx(int index, ABCustomItem item, int dx, int dy)
-    {
+    public ItemIndexDx() {
+        base();
+    }
+    
+
+    public static ItemIndexDx getInstance() {
+        return ItemIndexDx.staticGet_instance();
+    }
+    
+
+    public virtual int32 getDx(int32 index, ABCustomItem item, int32 dx, int32 dy) {
         return 0;
     }
-
 }
 

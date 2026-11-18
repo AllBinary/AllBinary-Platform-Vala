@@ -1,47 +1,58 @@
 // Generated Code Do Not Modify
+// package org.allbinary.game.layer.drop
+// import org.allbinary.layer.AllBinaryLayerFactoryInterface
+// import org.allbinary.util.BasicArrayList
+// import org.allbinary.util.BasicArrayListD
+// import org.allbinary.util.BasicArrayListUtil
 
-using System;
-using System.Linq;
-using AllBinaryLayerFactoryInterface = org.allbinary.layer.AllBinaryLayerFactoryInterface;
-using BasicArrayList = org.allbinary.util.BasicArrayList;
-using BasicArrayListD = org.allbinary.util.BasicArrayListD;
-using BasicArrayListUtil = org.allbinary.util.BasicArrayListUtil;
-
-namespace org.allbinary.game.layer.drop;
-
-public class PlacedLayerFactory
-{
-    private static readonly PlacedLayerFactory instance = new PlacedLayerFactory();
-    private readonly BasicArrayList list = new BasicArrayListD();
-    private PlacedLayerFactory()
-    {
-    }
-
-    public virtual void clear()
-    {
-        this.list.clear();
-    }
-
-    public static PlacedLayerFactory getInstance()
-    {
+public class PlacedLayerFactory : JObject {
+    private static PlacedLayerFactory? instance;
+    private static bool staticSet_instance = false;
+    private static PlacedLayerFactory staticGet_instance() {
+        if (!PlacedLayerFactory.staticSet_instance) {
+            PlacedLayerFactory.staticSet_instance = true;
+            PlacedLayerFactory.instance = new PlacedLayerFactory();
+        }
         return PlacedLayerFactory.instance;
     }
+    private BasicArrayList list;
+    private BasicArrayListUtil basicArrayListUtil;
 
-    public virtual int getSize()
-    {
+    // Java field initializers run after the base constructor
+    private void initFieldsPlacedLayerFactory() {
+    this.list = new BasicArrayListD();
+    this.basicArrayListUtil = BasicArrayListUtil.getInstance();
+    }
+    
+
+    public PlacedLayerFactory() {
+        base();
+        this.initFieldsPlacedLayerFactory();
+    }
+    
+
+    public virtual void clear() {
+        this.list.clear();
+    }
+    
+
+    public static PlacedLayerFactory getInstance() {
+        return PlacedLayerFactory.staticGet_instance();
+    }
+    
+
+    public virtual int32 getSize() {
         return this.list.size();
     }
+    
 
-    private readonly BasicArrayListUtil basicArrayListUtil = BasicArrayListUtil.getInstance();
-    public virtual AllBinaryLayerFactoryInterface getRandomInstance()
-    {
+    public virtual AllBinaryLayerFactoryInterface getRandomInstance() {
         return ((AllBinaryLayerFactoryInterface) this.basicArrayListUtil.getRandom(this.list));
     }
+    
 
-    public virtual void add(AllBinaryLayerFactoryInterface layerInterfaceFactoryInterface)
-    {
+    public virtual void add(AllBinaryLayerFactoryInterface layerInterfaceFactoryInterface) {
         this.list.add(layerInterfaceFactoryInterface);
     }
-
 }
 

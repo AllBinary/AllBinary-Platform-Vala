@@ -13,20 +13,33 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.logic.system.security.licensing
 
-using System;
-using System.Linq;
-
-namespace org.allbinary.logic.system.security.licensing;
-
-public class LicenseStrings
-{
-    private static readonly LicenseStrings instance = new LicenseStrings();
-    public readonly string LOCKED = "Demo Locked Feature";
-    public static LicenseStrings getInstance()
-    {
+public class LicenseStrings : JObject {
+    private static LicenseStrings? instance;
+    private static bool staticSet_instance = false;
+    private static LicenseStrings staticGet_instance() {
+        if (!LicenseStrings.staticSet_instance) {
+            LicenseStrings.staticSet_instance = true;
+            LicenseStrings.instance = new LicenseStrings();
+        }
         return LicenseStrings.instance;
     }
+    public string LOCKED;
 
+    // Java field initializers run after the base constructor
+    private void initFieldsLicenseStrings() {
+    this.LOCKED = "Demo Locked Feature";
+    }
+
+    public LicenseStrings() {
+        base();
+        this.initFieldsLicenseStrings();
+    }
+    
+
+    public static LicenseStrings getInstance() {
+        return LicenseStrings.staticGet_instance();
+    }
 }
 

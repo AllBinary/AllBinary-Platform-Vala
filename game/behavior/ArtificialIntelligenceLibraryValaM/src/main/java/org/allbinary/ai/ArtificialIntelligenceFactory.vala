@@ -13,19 +13,17 @@
  *   
  */
 // Generated Code Do Not Modify
+// package org.allbinary.ai
 
-using System;
-using System.Linq;
+public class ArtificialIntelligenceFactory : JObject, ArtificialIntelligenceFactoryInterface {
 
-namespace org.allbinary.ai;
-
-public class ArtificialIntelligenceFactory : ArtificialIntelligenceFactoryInterface
-{
-    // throws Exception
-    public virtual ArtificialIntelligence getInstance(object anyType)
-    {
-        throw new SystemException();
+    public ArtificialIntelligenceFactory() {
+        base();
     }
+    
 
+    public virtual ArtificialIntelligence getInstance1(JObject anyType) {
+        JSystem.fatal(new JException("RuntimeException", ""));
+    }
 }
 

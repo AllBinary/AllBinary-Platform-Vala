@@ -13,26 +13,21 @@
  * 
  */
 // Generated Code Do Not Modify
+// package org.allbinary.animation
+// import javax.microedition.lcdui.Graphics
+// import org.allbinary.math.AngleFactory
+// import org.allbinary.math.AngleInfo
+// import org.allbinary.util.CircularIndexUtil
 
-using System;
-using System.Linq;
-using Graphics = javax.microedition.lcdui.Graphics;
-using AngleFactory = org.allbinary.math.AngleFactory;
-using AngleInfo = org.allbinary.math.AngleInfo;
-using CircularIndexUtil = org.allbinary.util.CircularIndexUtil;
+public class NullRotationAnimation2 : NullRotationAnimation {
+    
 
-namespace org.allbinary.animation;
-
-public class NullRotationAnimation2 : NullRotationAnimation
-{
-    public NullRotationAnimation2() : base(AngleInfo.getInstance(AngleFactory.getInstance().QUARTER_TOTAL_ANGLE), CircularIndexUtil.createInstance(4), new IndexedAnimationBehavior(1, 250))
-    {
-        // base(AngleInfo.getInstance(AngleFactory.getInstance().QUARTER_TOTAL_ANGLE), CircularIndexUtil.createInstance(4), new IndexedAnimationBehavior(1, 250)) is called from the constructor declaration
+    public NullRotationAnimation2() {
+        base(AngleInfo.getInstance1(AngleFactory.getInstance().QUARTER_TOTAL_ANGLE), CircularIndexUtil.createInstance(4), new IndexedAnimationBehavior(1, 250));
     }
+    
 
-    public override void paintXY(Graphics graphics, int x, int y)
-    {
+    public override void paintXY(Graphics graphics, int32 x, int32 y) {
     }
-
 }
 

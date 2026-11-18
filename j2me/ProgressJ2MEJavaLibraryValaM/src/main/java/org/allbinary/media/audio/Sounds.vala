@@ -13,70 +13,74 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.media.audio
+// import javax.microedition.media.Player
+// import org.allbinary.graphics.canvas.transition.progress.ProgressCanvas
+// import org.allbinary.graphics.canvas.transition.progress.ProgressCanvasFactory
+// import org.allbinary.logic.communication.log.LogUtil
+// import org.allbinary.logic.math.SmallIntegerSingletonFactory
+// import org.allbinary.logic.string.StringMaker
+// import org.allbinary.string.CommonLabels
+// import org.allbinary.string.CommonStrings
 
-using System;
-using System.Linq;
-using Player = javax.microedition.media.Player;
-using ProgressCanvas = org.allbinary.graphics.canvas.transition.progress.ProgressCanvas;
-using ProgressCanvasFactory = org.allbinary.graphics.canvas.transition.progress.ProgressCanvasFactory;
-using LogUtil = org.allbinary.logic.communication.log.LogUtil;
-using SmallIntegerSingletonFactory = org.allbinary.logic.math.SmallIntegerSingletonFactory;
-using StringMaker = org.allbinary.logic.@string.StringMaker;
-using CommonLabels = org.allbinary.@string.CommonLabels;
-using CommonStrings = org.allbinary.@string.CommonStrings;
+public class Sounds : JObject {
+    public LogUtil logUtil;
+    private CommonStrings commonStrings;
+    private SoundStrings soundStrings;
+    private SoundsFactoryInterface soundsFactoryInterface;
 
-namespace org.allbinary.media.audio;
+    // Java field initializers run after the base constructor
+    private void initFieldsSounds() {
+    this.logUtil = LogUtil.getInstance();
+    this.commonStrings = CommonStrings.getInstance();
+    this.soundStrings = SoundStrings.getInstance();
+    
+    }
+    
 
-public class Sounds
-{
-    public readonly LogUtil logUtil = LogUtil.getInstance();
-    private readonly CommonStrings commonStrings = CommonStrings.getInstance();
-    private readonly SoundStrings soundStrings = SoundStrings.getInstance();
-    private readonly SoundsFactoryInterface soundsFactoryInterface;
-    public Sounds(SoundsFactoryInterface soundsFactoryInterface)
-    {
+    public Sounds(SoundsFactoryInterface soundsFactoryInterface) {
+        base();
+        this.initFieldsSounds();
         this.soundsFactoryInterface = soundsFactoryInterface;
     }
+    
 
-    // throws Exception
-    public virtual void init()
-    {
+    public virtual void init() {
         this.logUtil.putF(this.commonStrings.START, this, this.commonStrings.INIT);
         CommonLabels commonLabels = CommonLabels.getInstance();
         ProgressCanvas progressCanvas = ProgressCanvasFactory.getInstance();
         this.soundsFactoryInterface.init();
         Sound[] soundInterfaceArray = this.soundsFactoryInterface.getSoundInterfaceArray();
         SmallIntegerSingletonFactory smallIntegerSingletonFactory = SmallIntegerSingletonFactory.getInstance();
-        int? indexInteger = null;
+        int32? indexInteger = null;
         string indexString = null;
         StringMaker stringBuffer = new StringMaker();
-        for (int i = 0; i < soundInterfaceArray.Length; i++) {
+        for (int32 i = 0; i < soundInterfaceArray.length; i++) {
             Sound soundInterface = soundInterfaceArray[i];
             if (soundInterface != null) {
                 indexInteger = smallIntegerSingletonFactory.getAt(i);
-                indexString = indexInteger.ToString();
-                stringBuffer.delete(0, stringBuffer.length());
+                indexString = indexInteger.to_string();
+                stringBuffer.@delete(0, stringBuffer.length());
                 stringBuffer.append(commonLabels.INDEX_LABEL);
                 stringBuffer.append(indexString);
                 stringBuffer.append(this.soundStrings.SOUND);
-                stringBuffer.append(soundInterface.GetType().FullName);
-                this.logUtil.putF(stringBuffer.ToString(), this, this.commonStrings.INIT);
+                stringBuffer.append(JObject.className(soundInterface));
+                this.logUtil.putF(stringBuffer.toString(), this, this.commonStrings.INIT);
                 soundInterface.init();
-                progressCanvas.addNormalPortion(100, new StringMaker().append(this.soundStrings.INIT_SOUND).append(indexString).ToString());
+                progressCanvas.addNormalPortion(100, new StringMaker().append(this.soundStrings.INIT_SOUND).append(indexString).toString());
             }
         }
         this.soundsFactoryInterface.setInitialized(true);
         this.logUtil.putF(this.commonStrings.END, this, this.commonStrings.INIT);
     }
+    
 
-    // throws Exception
-    public virtual void stopAll()
-    {
+    public virtual void stopAll() {
         this.logUtil.putF(this.commonStrings.START, this, this.soundStrings.STOP_ALL);
         Sound[] soundInterfaceArray = this.soundsFactoryInterface.getSoundInterfaceArray();
         ProgressCanvas progressCanvas = ProgressCanvasFactory.getInstance();
         Player player = null;
-        for (int index = 0; index < soundInterfaceArray.Length; index++) {
+        for (int32 index = 0; index < soundInterfaceArray.length; index++) {
             if (soundInterfaceArray[index] != null) {
                 player = soundInterfaceArray[index].getPlayerP();
                 if (player != null) {
@@ -86,15 +90,14 @@ public class Sounds
             }
         }
     }
+    
 
-    // throws Exception
-    public virtual void closeAll()
-    {
+    public virtual void closeAll() {
         this.logUtil.putF(this.commonStrings.START, this, this.soundStrings.CLOSE_ALL);
         Sound[] soundInterfaceArray = this.soundsFactoryInterface.getSoundInterfaceArray();
         ProgressCanvas progressCanvas = ProgressCanvasFactory.getInstance();
         Player player = null;
-        for (int index = 0; index < soundInterfaceArray.Length; index++) {
+        for (int32 index = 0; index < soundInterfaceArray.length; index++) {
             if (soundInterfaceArray[index] != null) {
                 player = soundInterfaceArray[index].getPlayerP();
                 if (player != null) {
@@ -104,6 +107,5 @@ public class Sounds
             }
         }
     }
-
 }
 

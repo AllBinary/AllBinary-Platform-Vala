@@ -13,18 +13,17 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.graphics.paint
 
-using System;
-using System.Linq;
+public class PaintableFactory : JObject {
 
-namespace org.allbinary.graphics.paint;
+    public PaintableFactory() {
+        base();
+    }
+    
 
-public class PaintableFactory
-{
-    public virtual Paintable getInstance()
-    {
+    public virtual Paintable getInstance() {
         return NullPaintable.getInstance();
     }
-
 }
 

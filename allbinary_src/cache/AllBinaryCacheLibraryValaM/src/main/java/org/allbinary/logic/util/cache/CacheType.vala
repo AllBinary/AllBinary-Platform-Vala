@@ -13,42 +13,45 @@
  *   
  */
 // Generated Code Do Not Modify
+// package org.allbinary.logic.util.cache
+// import org.allbinary.logic.string.StringMaker
 
-using System;
-using System.Linq;
-using StringMaker = org.allbinary.logic.@string.StringMaker;
+public class CacheType : JObject {
+    private string vendor;
+    private string type;
 
-namespace org.allbinary.logic.util.cache;
+    // Java field initializers run after the base constructor
+    private void initFieldsCacheType() {
+    
+    
+    }
+    
 
-public class CacheType
-{
-    private readonly string vendor;
-    private readonly string type;
-    public CacheType(string vendor, string type)
-    {
+    public CacheType(string vendor, string type) {
+        base();
+        this.initFieldsCacheType();
         this.vendor = vendor;
         this.type = type;
     }
+    
 
-    public virtual string getVendor()
-    {
+    public virtual string getVendor() {
         return this.vendor;
     }
+    
 
-    public virtual string getType()
-    {
+    public virtual string getType() {
         return this.type;
     }
+    
 
-    public override string ToString()
-    {
+    public override string toString() {
         StringMaker stringBuffer = new StringMaker();
         stringBuffer.append("CacheType: Vendor: ");
         stringBuffer.append(this.getVendor());
         stringBuffer.append(" Type: ");
         stringBuffer.append(this.getType());
-        return stringBuffer.ToString();
+        return stringBuffer.toString();
     }
-
 }
 

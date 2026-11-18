@@ -13,32 +13,27 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.game.ag.layer.pickup.life
+// import org.allbinary.game.ag.life.Life
+// import org.allbinary.game.ag.life.LifeInterfaceCompositeInterface
+// import org.allbinary.layer.AllBinaryLayer
+// import org.allbinary.layer.AllBinaryLayerCircularPool
+// import org.allbinary.layer.AllBinaryLayerFactoryInterface
 
-using System;
-using System.Linq;
-using Life = org.allbinary.game.ag.life.Life;
-using LifeInterfaceCompositeInterface = org.allbinary.game.ag.life.LifeInterfaceCompositeInterface;
-using AllBinaryLayer = org.allbinary.layer.AllBinaryLayer;
-using AllBinaryLayerCircularPool = org.allbinary.layer.AllBinaryLayerCircularPool;
-using AllBinaryLayerFactoryInterface = org.allbinary.layer.AllBinaryLayerFactoryInterface;
+public class LifeLayerCircularStaticPool : AllBinaryLayerCircularPool {
+    
 
-namespace org.allbinary.game.ag.layer.pickup.life;
-
-public class LifeLayerCircularStaticPool : AllBinaryLayerCircularPool
-{
-    public LifeLayerCircularStaticPool(AllBinaryLayerFactoryInterface allbinaryLayerFactoryInterface, int total)
-    {
+    public LifeLayerCircularStaticPool(AllBinaryLayerFactoryInterface allbinaryLayerFactoryInterface, int32 total) {
+        base();
         base.initAllBinaryLayerCircularPool(allbinaryLayerFactoryInterface, total);
     }
+    
 
-    // throws Exception
-    public virtual void visit(AllBinaryLayer sourceLayerInterface)
-    {
+    public virtual void visit(AllBinaryLayer sourceLayerInterface) {
         LifeLayer lifeLayer = ((LifeLayer) this.getNextInstance());
         LifeInterfaceCompositeInterface lifeInterfaceCompositeInterface = ((LifeInterfaceCompositeInterface) sourceLayerInterface);
         Life lifeInterface = lifeInterfaceCompositeInterface.getLifeInterface();
         lifeLayer.visit(lifeInterface);
     }
-
 }
 

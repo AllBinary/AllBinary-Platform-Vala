@@ -13,30 +13,26 @@
  *  
  */
 // Generated Code Do Not Modify
-
-using System;
-using System.Linq;
-
-namespace org.allbinary.input;
+// package org.allbinary.input
 
 //TouchJ2MENone
-public class TouchJ2ME
-{
-    public TouchJ2ME()
-    {
-    }
+public class TouchJ2ME : JObject {
+    
 
-    public virtual void pointerDragged(int x, int y)
-    {
+    public TouchJ2ME() {
+        base();
     }
+    
 
-    public virtual void pointerPressed(int x, int y)
-    {
+    public virtual void pointerDragged(int32 x, int32 y) {
     }
+    
 
-    public virtual void pointerReleased(int x, int y)
-    {
+    public virtual void pointerPressed(int32 x, int32 y) {
     }
+    
 
+    public virtual void pointerReleased(int32 x, int32 y) {
+    }
 }
 

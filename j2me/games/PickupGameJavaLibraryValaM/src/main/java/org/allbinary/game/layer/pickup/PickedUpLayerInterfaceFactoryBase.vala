@@ -13,31 +13,38 @@
  *   
  */
 // Generated Code Do Not Modify
+// package org.allbinary.game.layer.pickup
+// import org.allbinary.animation.Animation
+// import org.allbinary.layer.AllBinaryLayer
 
-using System;
-using System.Linq;
-using Animation = org.allbinary.animation.Animation;
-using AllBinaryLayer = org.allbinary.layer.AllBinaryLayer;
-
-namespace org.allbinary.game.layer.pickup;
-
-public class PickedUpLayerInterfaceFactoryBase : PickedUpLayerInterfaceFactoryInterface
-{
-    public static readonly PickedUpLayerInterfaceFactoryBase NULL_PICKED_UP_LAYER_FACTORY_BASE = new PickedUpLayerInterfaceFactoryBase();
-    public virtual AllBinaryLayer getIconLayer()
-    {
-        throw new SystemException();
+public class PickedUpLayerInterfaceFactoryBase : JObject, PickedUpLayerInterfaceFactoryInterface {
+    public static PickedUpLayerInterfaceFactoryBase? NULL_PICKED_UP_LAYER_FACTORY_BASE;
+    private static bool staticSet_NULL_PICKED_UP_LAYER_FACTORY_BASE = false;
+    public static PickedUpLayerInterfaceFactoryBase staticGet_NULL_PICKED_UP_LAYER_FACTORY_BASE() {
+        if (!PickedUpLayerInterfaceFactoryBase.staticSet_NULL_PICKED_UP_LAYER_FACTORY_BASE) {
+            PickedUpLayerInterfaceFactoryBase.staticSet_NULL_PICKED_UP_LAYER_FACTORY_BASE = true;
+            PickedUpLayerInterfaceFactoryBase.NULL_PICKED_UP_LAYER_FACTORY_BASE = new PickedUpLayerInterfaceFactoryBase();
+        }
+        return PickedUpLayerInterfaceFactoryBase.NULL_PICKED_UP_LAYER_FACTORY_BASE;
     }
 
-    public virtual Animation getAnimationInterface()
-    {
-        throw new SystemException();
+    public PickedUpLayerInterfaceFactoryBase() {
+        base();
     }
+    
 
-    public virtual PickedUpLayerType getPickedUpLayerType()
-    {
-        throw new SystemException();
+    public virtual AllBinaryLayer getIconLayer() {
+        JSystem.fatal(new JException("RuntimeException", ""));
     }
+    
 
+    public virtual Animation getAnimationInterface() {
+        JSystem.fatal(new JException("RuntimeException", ""));
+    }
+    
+
+    public virtual PickedUpLayerType getPickedUpLayerType() {
+        JSystem.fatal(new JException("RuntimeException", ""));
+    }
 }
 

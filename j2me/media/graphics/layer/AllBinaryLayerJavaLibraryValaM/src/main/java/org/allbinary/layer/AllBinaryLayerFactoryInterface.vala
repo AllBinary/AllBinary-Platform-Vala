@@ -13,16 +13,11 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.layer
 
-using System;
-using System.Linq;
+public interface AllBinaryLayerFactoryInterface : JObject {
+    
 
-namespace org.allbinary.layer;
-
-public interface AllBinaryLayerFactoryInterface
-{
-    // throws Exception
-    AllBinaryLayer getInstance();
-
+    public abstract AllBinaryLayer getInstance();
 }
 

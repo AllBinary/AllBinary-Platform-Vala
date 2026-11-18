@@ -13,18 +13,13 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.game.layer.drop
+// import org.allbinary.game.layer.pickup.PickedUpLayerInterface
+// import org.allbinary.layer.LayerInterface
 
-using System;
-using System.Linq;
-using PickedUpLayerInterface = org.allbinary.game.layer.pickup.PickedUpLayerInterface;
-using LayerInterface = org.allbinary.layer.LayerInterface;
+public interface DropLayerInterface : JObject, LayerInterface {
+    
 
-namespace org.allbinary.game.layer.drop;
-
-public interface DropLayerInterface : LayerInterface
-{
-    // throws Exception
-    PickedUpLayerInterface getDroppedLayer();
-
+    public abstract PickedUpLayerInterface getDroppedLayer();
 }
 

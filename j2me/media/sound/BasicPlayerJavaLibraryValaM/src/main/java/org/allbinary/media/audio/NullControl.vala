@@ -13,14 +13,13 @@
  *   
  */
 // Generated Code Do Not Modify
+// package org.allbinary.media.audio
+// import javax.microedition.media.Control
 
-using System;
-using System.Linq;
-using Control = javax.microedition.media.Control;
+public class NullControl : JObject, Control {
 
-namespace org.allbinary.media.audio;
-
-public class NullControl : Control
-{
+    public NullControl() {
+        base();
+    }
 }
 

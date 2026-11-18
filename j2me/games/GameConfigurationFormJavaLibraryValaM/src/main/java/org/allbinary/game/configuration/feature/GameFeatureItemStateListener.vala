@@ -13,31 +13,43 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.game.configuration.feature
+// import javax.microedition.lcdui.ChoiceGroup
+// import javax.microedition.lcdui.Item
+// import javax.microedition.lcdui.ItemStateListener
+// import org.allbinary.game.configuration.GameConfigurationGauge
+// import org.allbinary.game.configuration.GameConfigurationUtil
+// import org.allbinary.game.configuration.GameOptionsForm
+// import org.allbinary.logic.communication.log.LogUtil
+// import org.allbinary.logic.string.StringMaker
+// import org.allbinary.string.CommonLabels
+// import org.allbinary.string.CommonStrings
+// import org.allbinary.util.BasicArrayList
+// import org.allbinary.util.BasicArrayListD
 
-using System;
-using System.Linq;
-using ChoiceGroup = javax.microedition.lcdui.ChoiceGroup;
-using Item = javax.microedition.lcdui.Item;
-using ItemStateListener = javax.microedition.lcdui.ItemStateListener;
-using GameConfigurationGauge = org.allbinary.game.configuration.GameConfigurationGauge;
-using GameConfigurationUtil = org.allbinary.game.configuration.GameConfigurationUtil;
-using GameOptionsForm = org.allbinary.game.configuration.GameOptionsForm;
-using LogUtil = org.allbinary.logic.communication.log.LogUtil;
-using StringMaker = org.allbinary.logic.@string.StringMaker;
-using CommonLabels = org.allbinary.@string.CommonLabels;
-using CommonStrings = org.allbinary.@string.CommonStrings;
-using BasicArrayList = org.allbinary.util.BasicArrayList;
-using BasicArrayListD = org.allbinary.util.BasicArrayListD;
-
-namespace org.allbinary.game.configuration.feature;
-
-public class GameFeatureItemStateListener : ItemStateListener
-{
-    public readonly LogUtil logUtil = LogUtil.getInstance();
-    private static BasicArrayList toggleList = new BasicArrayListD();
+public class GameFeatureItemStateListener : JObject, ItemStateListener {
+    private static BasicArrayList? toggleList;
+    private static bool staticSet_toggleList = false;
+    private static BasicArrayList staticGet_toggleList() {
+        if (!GameFeatureItemStateListener.staticSet_toggleList) {
+            GameFeatureItemStateListener.staticSet_toggleList = true;
+            GameFeatureItemStateListener.toggleList = new BasicArrayListD();
+        }
+        return GameFeatureItemStateListener.toggleList;
+    }
+    public LogUtil logUtil;
     private GameOptionsForm gameOptionsForm;
-    public GameFeatureItemStateListener(GameOptionsForm gameOptionsForm)
-    {
+
+    // Java field initializers run after the base constructor
+    private void initFieldsGameFeatureItemStateListener() {
+    this.logUtil = LogUtil.getInstance();
+    
+    }
+    
+
+    public GameFeatureItemStateListener(GameOptionsForm gameOptionsForm) {
+        base();
+        this.initFieldsGameFeatureItemStateListener();
         this.gameOptionsForm = gameOptionsForm;
         GameFeatureFactory gameFeatureFactory = GameFeatureFactory.getInstance();
         GameFeatureItemStateListener.add(gameFeatureFactory.ARTIFICIAL_INTELLEGENCE_PROCESSOR);
@@ -49,22 +61,22 @@ public class GameFeatureItemStateListener : ItemStateListener
         GameFeatureItemStateListener.add(gameFeatureFactory.SOUND);
         GameFeatureItemStateListener.add(gameFeatureFactory.TICKABLE_LAYER_PROCESSOR);
     }
+    
 
-    public static void add(GameFeature gameFeature)
-    {
-        if (!GameFeatureItemStateListener.toggleList.contains(gameFeature)) {
-            GameFeatureItemStateListener.toggleList.add(gameFeature);
+    public static void add(GameFeature gameFeature) {
+        if (!GameFeatureItemStateListener.staticGet_toggleList().contains(gameFeature)) {
+            GameFeatureItemStateListener.staticGet_toggleList().add(gameFeature);
         }
     }
+    
 
-    public virtual void itemStateChanged(Item item)
-    {
-        try {
+    public virtual void itemStateChanged(Item item) {
+        {
             string itemLabel = item.getLabel();
-            this.logUtil.putF(new StringMaker().append(CommonLabels.getInstance().ITEM_LABEL).append(itemLabel).ToString(), this, "itemStateChanged");
-            if (item is GameConfigurationGauge) {
+            this.logUtil.putF(new StringMaker().append(CommonLabels.getInstance().ITEM_LABEL).append(itemLabel).toString(), this, "itemStateChanged");
+            if ((item is GameConfigurationGauge)) {
                 GameConfigurationUtil.getInstance().change(this.gameOptionsForm, ((GameConfigurationGauge) item));
-            } else if (item is ChoiceGroup) {
+            } else if ((item is ChoiceGroup)) {
                 GameFeatureUtil gameFeatureUtil = GameFeatureUtil.getInstance();
                 if (gameFeatureUtil.isExclusive(itemLabel)) {
                     gameFeatureUtil.updateExclusiveForChoiceGroup(((ChoiceGroup) item));
@@ -72,11 +84,7 @@ public class GameFeatureItemStateListener : ItemStateListener
                     gameFeatureUtil.updateMultiple(((ChoiceGroup) item));
                 }
             }
-        } catch (Exception e) {
-            CommonStrings commonStrings = CommonStrings.getInstance();
-            this.logUtil.put(commonStrings.EXCEPTION, this, "itemStateChanged", e);
-        }
+        } /* catch (Exception e): a thrown Java exception stops the program */
     }
-
 }
 

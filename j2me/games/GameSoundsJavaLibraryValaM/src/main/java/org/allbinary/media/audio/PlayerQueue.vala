@@ -13,44 +13,47 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.media.audio
+// import org.allbinary.logic.communication.log.PreLogUtil
+// import org.allbinary.logic.string.StringMaker
+// import org.allbinary.logic.string.StringUtil
+// import org.allbinary.string.CommonStrings
+// import org.allbinary.util.BasicArrayList
+// import org.allbinary.util.BasicArrayListD
 
-using System;
-using System.Linq;
-using PreLogUtil = org.allbinary.logic.communication.log.PreLogUtil;
-using StringMaker = org.allbinary.logic.@string.StringMaker;
-using StringUtil = org.allbinary.logic.@string.StringUtil;
-using CommonStrings = org.allbinary.@string.CommonStrings;
-using BasicArrayList = org.allbinary.util.BasicArrayList;
-using BasicArrayListD = org.allbinary.util.BasicArrayListD;
-
-namespace org.allbinary.media.audio;
-
-public class PlayerQueue
-{
-    private readonly CommonStrings commonStrings = CommonStrings.getInstance();
-    private readonly BasicArrayList list = new BasicArrayListD();
-    private int max;
+public class PlayerQueue : JObject {
     private const string TOTAL = "Sounds In Queue: ";
-    public PlayerQueue(int max)
-    {
+    private CommonStrings commonStrings;
+    private BasicArrayList list;
+    private int32 max;
+
+    // Java field initializers run after the base constructor
+    private void initFieldsPlayerQueue() {
+    this.commonStrings = CommonStrings.getInstance();
+    this.list = new BasicArrayListD();
+    
+    }
+    
+
+    public PlayerQueue(int32 max) {
+        base();
+        this.initFieldsPlayerQueue();
         this.max = max;
     }
+    
 
-    public virtual void add(Sound sound)
-    {
-        try {
+    public virtual void add(Sound sound) {
+        {
             if (!this.list.contains(sound)) {
                 this.list.add(sound);
             }
-        } catch (Exception e) {
-            PreLogUtil.put(this.commonStrings.EXCEPTION, this, this.commonStrings.ADD);
-        }
+        } /* catch (Exception e): a thrown Java exception stops the program */
     }
+    
 
-    public virtual bool process()
-    {
+    public virtual bool process() {
         Sound sound = NoSound.getInstance();
-        try {
+        {
             bool played = false;
             if (this.list.size() > 0) {
                 sound = ((Sound) this.list.removeAt(0));
@@ -63,25 +66,17 @@ public class PlayerQueue
                 played = true;
             }
             return played;
-        } catch (Exception e) {
-            string resource = StringUtil.getInstance().EMPTY_STRING;
-            if (sound != null) {
-                resource = sound.getResource();
-            }
-            PreLogUtil.put(new StringMaker().append(this.commonStrings.EXCEPTION_LABEL).append(resource).ToString(), this, this.commonStrings.PROCESS);
-            return false;
-        }
+        } /* catch (Exception e): a thrown Java exception stops the program */
     }
+    
 
-    public virtual void clear()
-    {
+    public virtual void clear() {
         this.list.clear();
     }
+    
 
-    public override string ToString()
-    {
-        return new StringMaker().append(PlayerQueue.TOTAL).appendint(this.list.size()).ToString();
+    public override string toString() {
+        return new StringMaker().append(PlayerQueue.TOTAL).appendint(this.list.size()).toString();
     }
-
 }
 

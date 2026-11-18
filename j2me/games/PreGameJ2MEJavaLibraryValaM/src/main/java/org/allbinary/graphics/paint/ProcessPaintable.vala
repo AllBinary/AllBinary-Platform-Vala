@@ -13,17 +13,16 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.graphics.paint
 
-using System;
-using System.Linq;
+public class ProcessPaintable : Paintable {
 
-namespace org.allbinary.graphics.paint;
-
-public class ProcessPaintable : Paintable
-{
-    public virtual void process()
-    {
+    public ProcessPaintable() {
+        base();
     }
+    
 
+    public virtual void process() {
+    }
 }
 

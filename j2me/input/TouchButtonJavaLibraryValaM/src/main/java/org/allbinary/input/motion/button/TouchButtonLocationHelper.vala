@@ -13,66 +13,74 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.input.motion.button
+// import org.allbinary.graphics.displayable.DisplayInfoSingleton
+// import org.allbinary.logic.string.StringMaker
 
-using System;
-using System.Linq;
-using DisplayInfoSingleton = org.allbinary.graphics.displayable.DisplayInfoSingleton;
-using StringMaker = org.allbinary.logic.@string.StringMaker;
+public class TouchButtonLocationHelper : JObject {
+    private int32 totalColumns;
+    private int32 totalRows;
+    private int32 columnsRemainder;
+    private int32 rowsRemainder;
+    private int32 columnsRemainderHalf;
+    private int32 rowsRemainderHalf;
 
-namespace org.allbinary.input.motion.button;
+    // Java field initializers run after the base constructor
+    private void initFieldsTouchButtonLocationHelper() {
+    
+    
+    
+    
+    
+    
+    }
+    
 
-public class TouchButtonLocationHelper
-{
-    private readonly int totalColumns;
-    private readonly int totalRows;
-    private int columnsRemainder;
-    private int rowsRemainder;
-    private int columnsRemainderHalf;
-    private int rowsRemainderHalf;
-    public TouchButtonLocationHelper()
-    {
-        int buttonSize = CommonButtons.getInstance().STANDARD_BUTTON_SIZE;
+    public TouchButtonLocationHelper() {
+        base();
+        this.initFieldsTouchButtonLocationHelper();
+        int32 buttonSize = CommonButtons.getInstance().STANDARD_BUTTON_SIZE;
         DisplayInfoSingleton displayInfo = DisplayInfoSingleton.getInstance();
-        this.totalColumns = global::java.lang.JavaMath.round(((float) displayInfo.getLastWidth()) / ((float) buttonSize));
-        this.totalRows = global::java.lang.JavaMath.round(((float) displayInfo.getLastHeight()) / ((float) buttonSize));
+        this.totalColumns = ((int32) Math.roundf(((float) (displayInfo.getLastWidth())) / ((float) (buttonSize))));
+        this.totalRows = ((int32) Math.roundf(((float) (displayInfo.getLastHeight())) / ((float) (buttonSize))));
         this.columnsRemainder = displayInfo.getLastWidth() % buttonSize;
         this.columnsRemainderHalf = (this.columnsRemainder >> 1);
         this.rowsRemainder = displayInfo.getLastHeight() % buttonSize;
         this.rowsRemainderHalf = (this.rowsRemainder >> 1);
     }
+    
 
-    public virtual int getTotalColumns()
-    {
+    public virtual int32 getTotalColumns() {
         return this.totalColumns;
     }
+    
 
-    public virtual int getTotalRows()
-    {
+    public virtual int32 getTotalRows() {
         return this.totalRows;
     }
+    
 
-    public virtual int getColumnsRemainder()
-    {
+    public virtual int32 getColumnsRemainder() {
         return this.columnsRemainder;
     }
+    
 
-    public virtual int getRowsRemainder()
-    {
+    public virtual int32 getRowsRemainder() {
         return this.rowsRemainder;
     }
+    
 
-    public virtual int getColumnsRemainderHalf()
-    {
+    public virtual int32 getColumnsRemainderHalf() {
         return this.columnsRemainderHalf;
     }
+    
 
-    public virtual int getRowsRemainderHalf()
-    {
+    public virtual int32 getRowsRemainderHalf() {
         return this.rowsRemainderHalf;
     }
+    
 
-    public override string ToString()
-    {
+    public override string toString() {
         StringMaker stringBuffer = new StringMaker();
         stringBuffer.append("totalColumns: ");
         stringBuffer.appendint(this.totalColumns);
@@ -86,8 +94,7 @@ public class TouchButtonLocationHelper
         stringBuffer.appendint(this.columnsRemainderHalf);
         stringBuffer.append(" rowsRemainderHalf: ");
         stringBuffer.appendint(this.rowsRemainderHalf);
-        return stringBuffer.ToString();
+        return stringBuffer.toString();
     }
-
 }
 

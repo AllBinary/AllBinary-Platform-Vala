@@ -13,61 +13,88 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.game.configuration
+// import javax.microedition.lcdui.TextField
+// import org.allbinary.logic.StdUtil
+// import org.allbinary.logic.string.StringUtil
+// import org.allbinary.util.ABHashtable
 
-using System;
-using System.Linq;
-using TextField = javax.microedition.lcdui.TextField;
-using StdUtil = org.allbinary.logic.StdUtil;
-using StringUtil = org.allbinary.logic.@string.StringUtil;
-using org.allbinary.util;
-
-namespace org.allbinary.game.configuration;
-
-public class GameConfigurationTextInput
-{
-    private static ABHashtable<object, object> hashtable = StdUtil.getInstance().createHashtable();
-    public static GameConfigurationTextInput SIMULATOR_IP = new GameConfigurationTextInput("IP: ", "192.168.1.3");
-    public static GameConfigurationTextInput SIMULATOR_PORT = new GameConfigurationTextInput("Port: ", "8010");
-    private string label = StringUtil.getInstance().EMPTY_STRING;
-    private string text = StringUtil.getInstance().EMPTY_STRING;
-    public GameConfigurationTextInput(string label, string text)
-    {
-        this.setText(text);
-        this.setLabel(label);
-        GameConfigurationTextInput.hashtable.put(this.getLabel(), this);
-    }
-
-    public static void update(TextField textField)
-    {
-        object anyType = ((object) textField.getLabel());
-        GameConfigurationTextInput gameConfigurationTextInput = ((GameConfigurationTextInput) GameConfigurationTextInput.hashtable.get(anyType));
-        gameConfigurationTextInput.setText(textField.getString());
-    }
-
-    public virtual void setText(string text)
-    {
-        this.text = text;
-    }
-
-    public virtual string getText()
-    {
-        return this.text;
-    }
-
-    public virtual void setLabel(string label)
-    {
-        this.label = label;
-    }
-
-    public virtual string getLabel()
-    {
-        return this.label;
-    }
-
-    public static ABHashtable<object, object> getHashtable()
-    {
+public class GameConfigurationTextInput : JObject {
+    private static ABHashtable? hashtable;
+    private static bool staticSet_hashtable = false;
+    private static ABHashtable staticGet_hashtable() {
+        if (!GameConfigurationTextInput.staticSet_hashtable) {
+            GameConfigurationTextInput.staticSet_hashtable = true;
+            GameConfigurationTextInput.hashtable = StdUtil.getInstance().createHashtable();
+        }
         return GameConfigurationTextInput.hashtable;
     }
+    public static GameConfigurationTextInput? SIMULATOR_IP;
+    private static bool staticSet_SIMULATOR_IP = false;
+    public static GameConfigurationTextInput staticGet_SIMULATOR_IP() {
+        if (!GameConfigurationTextInput.staticSet_SIMULATOR_IP) {
+            GameConfigurationTextInput.staticSet_SIMULATOR_IP = true;
+            GameConfigurationTextInput.SIMULATOR_IP = new GameConfigurationTextInput("IP: ", "192.168.1.3");
+        }
+        return GameConfigurationTextInput.SIMULATOR_IP;
+    }
+    public static GameConfigurationTextInput? SIMULATOR_PORT;
+    private static bool staticSet_SIMULATOR_PORT = false;
+    public static GameConfigurationTextInput staticGet_SIMULATOR_PORT() {
+        if (!GameConfigurationTextInput.staticSet_SIMULATOR_PORT) {
+            GameConfigurationTextInput.staticSet_SIMULATOR_PORT = true;
+            GameConfigurationTextInput.SIMULATOR_PORT = new GameConfigurationTextInput("Port: ", "8010");
+        }
+        return GameConfigurationTextInput.SIMULATOR_PORT;
+    }
+    private string label;
+    private string text;
 
+    // Java field initializers run after the base constructor
+    private void initFieldsGameConfigurationTextInput() {
+    this.label = StringUtil.getInstance().EMPTY_STRING;
+    this.text = StringUtil.getInstance().EMPTY_STRING;
+    }
+    
+
+    public GameConfigurationTextInput(string label, string text) {
+        base();
+        this.initFieldsGameConfigurationTextInput();
+        this.setText(text);
+        this.setLabel(label);
+        GameConfigurationTextInput.staticGet_hashtable().put(this.getLabel(), this);
+    }
+    
+
+    public static void update(TextField textField) {
+        JObject anyType = ((JObject) textField.getLabel());
+        GameConfigurationTextInput gameConfigurationTextInput = ((GameConfigurationTextInput) GameConfigurationTextInput.staticGet_hashtable().@get(anyType));
+        gameConfigurationTextInput.setText(textField.getString());
+    }
+    
+
+    public virtual void setText(string text) {
+        this.text = text;
+    }
+    
+
+    public virtual string getText() {
+        return this.text;
+    }
+    
+
+    public virtual void setLabel(string label) {
+        this.label = label;
+    }
+    
+
+    public virtual string getLabel() {
+        return this.label;
+    }
+    
+
+    public static ABHashtable getHashtable() {
+        return GameConfigurationTextInput.staticGet_hashtable();
+    }
 }
 

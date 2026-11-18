@@ -13,17 +13,14 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.logic.util.event.handler
 
-using System;
-using System.Linq;
+public interface BasicCompositeEventHandlerInterface : JObject {
+    
 
-namespace org.allbinary.logic.util.@event.handler;
+    public abstract BasicEventHandlerInterface getEventHandler();
+    
 
-public interface BasicCompositeEventHandlerInterface
-{
-    BasicEventHandlerInterface getEventHandler();
-
-    void setEventHandler(BasicEventHandlerInterface basicEventHandlerInterface);
-
+    public abstract void setEventHandler(BasicEventHandlerInterface basicEventHandlerInterface);
 }
 

@@ -13,25 +13,27 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.graphics.paint
+// import javax.microedition.lcdui.Graphics
 
-using System;
-using System.Linq;
-using Graphics = javax.microedition.lcdui.Graphics;
+public class StringLocationPaintable : LocationPaintable {
+    private string value;
 
-namespace org.allbinary.graphics.paint;
+    // Java field initializers run after the base constructor
+    private void initFieldsStringLocationPaintable() {
+    
+    }
+    
 
-public class StringLocationPaintable : LocationPaintable
-{
-    private readonly string value;
-    public StringLocationPaintable(string value)
-    {
+    public StringLocationPaintable(string value) {
+        base();
+        this.initFieldsStringLocationPaintable();
         this.value = value;
     }
+    
 
-    public override void paintXY(Graphics graphics, int x, int y)
-    {
+    public override void paintXY(Graphics graphics, int32 x, int32 y) {
         graphics.drawString(this.value, x, y, 0);
     }
-
 }
 

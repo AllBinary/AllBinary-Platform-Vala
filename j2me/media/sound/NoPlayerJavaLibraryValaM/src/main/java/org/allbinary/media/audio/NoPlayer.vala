@@ -13,39 +13,43 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.media.audio
+// import javax.microedition.media.Control
+// import org.allbinary.logic.string.StringUtil
 
-using System;
-using System.Linq;
-using Control = javax.microedition.media.Control;
-using StringUtil = org.allbinary.logic.@string.StringUtil;
-
-namespace org.allbinary.media.audio;
-
-public class NoPlayer : BasicPlayer
-{
-    public static readonly NoPlayer NO_PLAYER = new NoPlayer();
-    public NoPlayer()
-    {
+public class NoPlayer : BasicPlayer {
+    public static NoPlayer? NO_PLAYER;
+    private static bool staticSet_NO_PLAYER = false;
+    public static NoPlayer staticGet_NO_PLAYER() {
+        if (!NoPlayer.staticSet_NO_PLAYER) {
+            NoPlayer.staticSet_NO_PLAYER = true;
+            NoPlayer.NO_PLAYER = new NoPlayer();
+        }
+        return NoPlayer.NO_PLAYER;
     }
+    
 
-    public override void close()
-    {
+    public NoPlayer() {
+        base();
     }
+    
 
-    public override string getContentType()
-    {
+    public override void close() {
+    }
+    
+
+    public override string getContentType() {
         return StringUtil.getInstance().NULL_STRING;
     }
+    
 
-    public override Control getControl(string controlType)
-    {
+    public override Control getControl(string controlType) {
         return new NullControl();
     }
+    
 
-    public override Control[] getControls()
-    {
+    public override Control[] getControls() {
         return new Control[0];
     }
-
 }
 

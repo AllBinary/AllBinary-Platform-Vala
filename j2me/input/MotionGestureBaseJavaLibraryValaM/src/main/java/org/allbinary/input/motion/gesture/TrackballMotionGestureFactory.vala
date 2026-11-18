@@ -13,37 +13,50 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.input.motion.gesture
+// import org.allbinary.game.input.InputFactory
+// import org.allbinary.logic.NullUtil
 
-using System;
-using System.Linq;
-using InputFactory = org.allbinary.game.input.InputFactory;
-using NullUtil = org.allbinary.logic.NullUtil;
+public class TrackballMotionGestureFactory : JObject {
+    private static JObject? instance;
+    private static bool staticSet_instance = false;
+    private static JObject staticGet_instance() {
+        if (!TrackballMotionGestureFactory.staticSet_instance) {
+            TrackballMotionGestureFactory.staticSet_instance = true;
+            TrackballMotionGestureFactory.instance = NullUtil.getInstance().NULL_OBJECT;
+        }
+        return TrackballMotionGestureFactory.instance;
+    }
+    public MotionGestureInput LEFT;
+    public MotionGestureInput RIGHT;
+    public MotionGestureInput UP;
+    public MotionGestureInput DOWN;
 
-namespace org.allbinary.input.motion.gesture;
+    // Java field initializers run after the base constructor
+    private void initFieldsTrackballMotionGestureFactory() {
+    
+    
+    
+    
+    }
+    
 
-public class TrackballMotionGestureFactory
-{
-    private static object instance = NullUtil.getInstance().NULL_OBJECT;
-    public static TrackballMotionGestureFactory getInstance()
-    {
-        if (TrackballMotionGestureFactory.instance == NullUtil.getInstance().NULL_OBJECT) {
+    public static TrackballMotionGestureFactory getInstance() {
+        if (TrackballMotionGestureFactory.staticGet_instance() == NullUtil.getInstance().NULL_OBJECT) {
             TrackballMotionGestureFactory.instance = new TrackballMotionGestureFactory();
         }
-        return ((TrackballMotionGestureFactory) TrackballMotionGestureFactory.instance);
+        return ((TrackballMotionGestureFactory) TrackballMotionGestureFactory.staticGet_instance());
     }
+    
 
-    public readonly MotionGestureInput LEFT;
-    public readonly MotionGestureInput RIGHT;
-    public readonly MotionGestureInput UP;
-    public readonly MotionGestureInput DOWN;
-    private TrackballMotionGestureFactory()
-    {
-        int MAX = InputFactory.getInstance().MAX;
-        this.LEFT = new MotionGestureInput(MAX - 26, "L Trackball");
-        this.RIGHT = new MotionGestureInput(MAX - 27, "R Trackball");
-        this.UP = new MotionGestureInput(MAX - 28, "Up Trackball");
-        this.DOWN = new MotionGestureInput(MAX - 29, "D Trackball");
+    public TrackballMotionGestureFactory() {
+        base();
+        this.initFieldsTrackballMotionGestureFactory();
+        int32 MAX_ = InputFactory.getInstance().MAX_;
+        this.LEFT = new MotionGestureInput(MAX_ - 26, "L Trackball");
+        this.RIGHT = new MotionGestureInput(MAX_ - 27, "R Trackball");
+        this.UP = new MotionGestureInput(MAX_ - 28, "Up Trackball");
+        this.DOWN = new MotionGestureInput(MAX_ - 29, "D Trackball");
     }
-
 }
 

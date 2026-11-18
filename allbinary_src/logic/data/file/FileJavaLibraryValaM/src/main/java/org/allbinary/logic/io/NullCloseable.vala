@@ -13,21 +13,27 @@
  *   
  */
 // Generated Code Do Not Modify
+// package org.allbinary.logic.io
+// import java.io.Closeable
+// import java.io.IOException
 
-using System;
-using System.Linq;
-using Closeable = java.io.Closeable;
-//using IOException = java.io.IOException;
-
-namespace org.allbinary.logic.io;
-
-public class NullCloseable : Closeable
-{
-    public static readonly NullCloseable NULL_CLOSEABLE = new NullCloseable();
-    // throws IOException
-    public virtual void close()
-    {
+public class NullCloseable : JObject, Closeable {
+    public static NullCloseable? NULL_CLOSEABLE;
+    private static bool staticSet_NULL_CLOSEABLE = false;
+    public static NullCloseable staticGet_NULL_CLOSEABLE() {
+        if (!NullCloseable.staticSet_NULL_CLOSEABLE) {
+            NullCloseable.staticSet_NULL_CLOSEABLE = true;
+            NullCloseable.NULL_CLOSEABLE = new NullCloseable();
+        }
+        return NullCloseable.NULL_CLOSEABLE;
     }
 
+    public NullCloseable() {
+        base();
+    }
+    
+
+    public virtual void close() {
+    }
 }
 

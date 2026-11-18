@@ -13,69 +13,74 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.game.ag.layer.hud.basic.time
+// import javax.microedition.lcdui.Font
+// import javax.microedition.lcdui.Graphics
+// import org.allbinary.game.graphics.hud.BasicHud
+// import org.allbinary.graphics.color.BasicColor
+// import org.allbinary.graphics.font.MyFontProcessor
+// import org.allbinary.logic.math.PrimitiveLongSingleton
 
-using System;
-using System.Linq;
-using Font = javax.microedition.lcdui.Font;
-using Graphics = javax.microedition.lcdui.Graphics;
-using BasicHud = org.allbinary.game.graphics.hud.BasicHud;
-using BasicColor = org.allbinary.graphics.color.BasicColor;
-using MyFontProcessor = org.allbinary.graphics.font.MyFontProcessor;
-using PrimitiveLongSingleton = org.allbinary.logic.math.PrimitiveLongSingleton;
+public class TimeHudWidget : BasicHud {
+    private string TIME_STRING;
+    private uint16[] TIME_CHAR_ARRAY;
+    private int32 offset;
+    private uint16[] string;
+    private int32 totalDigits;
+    private HudTimer timer;
 
-namespace org.allbinary.game.ag.layer.hud.basic.time;
+    // Java field initializers run after the base constructor
+    private void initFieldsTimeHudWidget() {
+    this.TIME_STRING = "Time ";
+    this.TIME_CHAR_ARRAY = new uint16[] {((uint16) 'T'), ((uint16) 'i'), ((uint16) 'm'), ((uint16) 'e'), ((uint16) ' ')};
+    this.offset = 0;
+    this.string = PrimitiveLongSingleton.getInstance().ZERO;
+    this.totalDigits = 1;
+    
+    }
+    
 
-public class TimeHudWidget : BasicHud
-{
-    // throws Exception
-    public static TimeHudWidget getInstance(int location, int direction, BasicColor basicColor, HudTimer timer)
-    {
+    public static TimeHudWidget getInstance4(int32 location, int32 direction, BasicColor basicColor, HudTimer timer) {
         return new TimeHudWidget(location, direction, 2, basicColor, timer);
     }
+    
 
-    private readonly string TIME_STRING = "Time ";
-    private readonly char[] TIME_CHAR_ARRAY = new char[] { 'T', 'i', 'm', 'e', ' ' };
-    private int offset = 0;
-    private char[] @string = PrimitiveLongSingleton.getInstance().ZERO;
-    private int totalDigits = 1;
-    private readonly HudTimer timer;
-    public TimeHudWidget(int location, int direction, int bufferZone, BasicColor basicColor, HudTimer timer) : base(location, direction, bufferZone, basicColor)
-    {
-        // base(location, direction, bufferZone, basicColor) is called from the constructor declaration
+    public TimeHudWidget(int32 location, int32 direction, int32 bufferZone, BasicColor basicColor, HudTimer timer) {
+        base(location, direction, bufferZone, basicColor);
+        this.initFieldsTimeHudWidget();
         this.timer = timer;
-        this.set();
+        this.@set();
         this.updateMaxHeight = 14;
     }
+    
 
-    public override void updateMeasurement(Graphics graphics)
-    {
+    public override void updateMeasurement(Graphics graphics) {
         Font font = graphics.getFont();
         this.updateMaxWidth = font.getSize() * 5;
         this.offset = font.stringWidth(this.TIME_STRING) + MyFontProcessor.defaultStringWidth(font, 3);
         base.updateMeasurement(graphics);
     }
+    
 
-    public virtual void update()
-    {
+    public virtual void update() {
         this.timer.update();
-        this.set();
+        this.@set();
     }
+    
 
-    private void set()
-    {
-        this.@string = this.timer.getTimeChars();
+    private void @set() {
+        this.string = this.timer.getTimeChars();
         this.totalDigits = this.timer.getCurrentTotalDigits();
     }
+    
 
-    public virtual HudTimer getTimer()
-    {
+    public virtual HudTimer getTimer() {
         return this.timer;
     }
+    
 
-    public virtual void paint(Graphics graphics)
-    {
-        base.paintDX(graphics, this.TIME_CHAR_ARRAY, 0, this.TIME_CHAR_ARRAY.Length, this.@string, 0, this.totalDigits, this.offset);
+    public virtual void paint(Graphics graphics) {
+        base.paintDX(graphics, this.TIME_CHAR_ARRAY, 0, this.TIME_CHAR_ARRAY.length, this.string, 0, this.totalDigits, this.offset);
     }
-
 }
 

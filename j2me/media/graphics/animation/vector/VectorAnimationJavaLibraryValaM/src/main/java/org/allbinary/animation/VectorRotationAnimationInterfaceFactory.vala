@@ -13,47 +13,50 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.animation
+// import org.allbinary.graphics.color.BasicColor
+// import org.allbinary.graphics.color.BasicColorFactory
+// import org.allbinary.logic.NullUtil
+// import org.allbinary.media.ScaleProperties
 
-using System;
-using System.Linq;
-using BasicColor = org.allbinary.graphics.color.BasicColor;
-using BasicColorFactory = org.allbinary.graphics.color.BasicColorFactory;
-using NullUtil = org.allbinary.logic.NullUtil;
-using ScaleProperties = org.allbinary.media.ScaleProperties;
+public class VectorRotationAnimationInterfaceFactory : JObject, AnimationInterfaceFactoryInterface, BasicAnimationInterfaceFactoryInterface {
+    private int32[,,] currentPoints;
+    private BasicColor basicColor;
+    public AnimationBehaviorFactory animationBehaviorFactory;
 
-namespace org.allbinary.animation;
+    // Java field initializers run after the base constructor
+    private void initFieldsVectorRotationAnimationInterfaceFactory() {
+    this.currentPoints = NullUtil.getInstance().NULL_INT_ARRAY_ARRAY_ARRAY;
+    this.basicColor = BasicColorFactory.getInstance().WHITE;
+    
+    }
+    
 
-public class VectorRotationAnimationInterfaceFactory : AnimationInterfaceFactoryInterface
-{
-    private int[][][] currentPoints = NullUtil.getInstance().NULL_INT_ARRAY_ARRAY_ARRAY;
-    private BasicColor basicColor = BasicColorFactory.getInstance().WHITE;
-    public readonly AnimationBehaviorFactory animationBehaviorFactory;
-    public VectorRotationAnimationInterfaceFactory(int[][][] currentPoints, BasicColor basicColor, AnimationBehaviorFactory animationBehaviorFactory)
-    {
+    public VectorRotationAnimationInterfaceFactory(int32[,,] currentPoints, BasicColor basicColor, AnimationBehaviorFactory animationBehaviorFactory) {
+        base();
+        this.initFieldsVectorRotationAnimationInterfaceFactory();
         this.currentPoints = currentPoints;
         this.setBasicColorP(basicColor);
         this.animationBehaviorFactory = animationBehaviorFactory;
     }
+    
 
-    // throws Exception
-    public virtual Animation getInstance(int instanceId)
-    {
+    public virtual Animation getInstance1(int32 instanceId) {
         return new VectorRotationAnimation(this.currentPoints, this.getBasicColorP(), this.animationBehaviorFactory.getOrCreateInstance());
     }
+    
 
-    public virtual void setBasicColorP(BasicColor basicColor)
-    {
+    public virtual void setBasicColorP(BasicColor basicColor) {
         this.basicColor = basicColor;
     }
+    
 
-    public virtual BasicColor getBasicColorP()
-    {
+    public virtual BasicColor getBasicColorP() {
         return this.basicColor;
     }
+    
 
-    public virtual void setInitialScale(ScaleProperties scaleProperties)
-    {
+    public virtual void setInitialScale(ScaleProperties scaleProperties) {
     }
-
 }
 

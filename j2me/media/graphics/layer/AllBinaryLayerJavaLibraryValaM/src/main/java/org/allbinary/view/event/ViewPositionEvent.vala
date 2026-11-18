@@ -13,19 +13,14 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.view.event
+// import org.allbinary.logic.util.event.AllBinaryEventObject
 
-using System;
-using System.Linq;
-using AllBinaryEventObject = org.allbinary.logic.util.@event.AllBinaryEventObject;
+public class ViewPositionEvent : AllBinaryEventObject {
+    
 
-namespace org.allbinary.view.@event;
-
-public class ViewPositionEvent : AllBinaryEventObject
-{
-    public ViewPositionEvent(object anyType) : base(anyType)
-    {
-        // base(anyType) is called from the constructor declaration
+    public ViewPositionEvent(JObject anyType) {
+        base(anyType);
     }
-
 }
 

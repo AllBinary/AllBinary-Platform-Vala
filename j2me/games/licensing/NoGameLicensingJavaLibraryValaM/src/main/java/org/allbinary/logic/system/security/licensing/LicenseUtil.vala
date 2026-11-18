@@ -13,41 +13,45 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.logic.system.security.licensing
+// import javax.microedition.lcdui.CommandListener
 
-using System;
-using System.Linq;
-using System.Runtime.CompilerServices;
-using CommandListener = javax.microedition.lcdui.CommandListener;
-
-namespace org.allbinary.logic.system.security.licensing;
-
-public class LicenseUtil
-{
-    private static readonly LicenseUtil instance = new LicenseUtil();
-    public static LicenseUtil getInstance()
-    {
+public class LicenseUtil : JObject {
+    private static LicenseUtil? instance;
+    private static bool staticSet_instance = false;
+    private static LicenseUtil staticGet_instance() {
+        if (!LicenseUtil.staticSet_instance) {
+            LicenseUtil.staticSet_instance = true;
+            LicenseUtil.instance = new LicenseUtil();
+        }
         return LicenseUtil.instance;
     }
 
-    public virtual void init()
-    {
+    public LicenseUtil() {
+        base();
     }
+    
 
-    [MethodImpl(MethodImplOptions.Synchronized)]
-    public virtual bool isRunning()
-    {
+    public static LicenseUtil getInstance() {
+        return LicenseUtil.staticGet_instance();
+    }
+    
+
+    public virtual void init() {
+    }
+    
+
+    public virtual bool isRunning() {
         return false;
     }
+    
 
-    [MethodImpl(MethodImplOptions.Synchronized)]
-    public virtual void setRunning(bool running)
-    {
+    public virtual void setRunning(bool running) {
     }
+    
 
-    public virtual bool shouldWait(CommandListener commandListener)
-    {
+    public virtual bool shouldWait(CommandListener commandListener) {
         return this.isRunning();
     }
-
 }
 

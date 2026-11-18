@@ -13,80 +13,83 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.physics.movement
+// import org.allbinary.game.layer.AllBinaryGameLayer
+// import org.allbinary.game.physics.velocity.BasicVelocityProperties
+// import org.allbinary.game.physics.velocity.VelocityInterfaceCompositeInterface
+// import org.allbinary.layer.AllBinaryLayer
+// import org.allbinary.logic.math.BasicDecimal
+// import org.allbinary.logic.math.vector.AxisMathVectorUtil
+// import org.allbinary.math.AngleFactory
 
-using System;
-using System.Linq;
-using AllBinaryGameLayer = org.allbinary.game.layer.AllBinaryGameLayer;
-using BasicVelocityProperties = org.allbinary.game.physics.velocity.BasicVelocityProperties;
-using VelocityInterfaceCompositeInterface = org.allbinary.game.physics.velocity.VelocityInterfaceCompositeInterface;
-using AllBinaryLayer = org.allbinary.layer.AllBinaryLayer;
-using BasicDecimal = org.allbinary.logic.math.BasicDecimal;
-using AxisMathVectorUtil = org.allbinary.logic.math.vector.AxisMathVectorUtil;
-using AngleFactory = org.allbinary.math.AngleFactory;
-
-namespace org.allbinary.physics.movement;
-
-public class NoZBasicConstantVelocityMovement : Movement, VelocityInterfaceCompositeInterface
-{
+public class NoZBasicConstantVelocityMovement : Movement, VelocityInterfaceCompositeInterface {
     private BasicVelocityProperties velocityProperties;
-    private BasicDecimal speedBasicDecimal = BasicDecimal.ZERO_BIGDECIMAL;
-    private readonly AxisMathVectorUtil axisMathVectorUtil = AxisMathVectorUtil.getInstance();
-    public NoZBasicConstantVelocityMovement(BasicDecimal basicDecimal, BasicVelocityProperties velocityProperties)
-    {
+    private BasicDecimal speedBasicDecimal;
+    private AxisMathVectorUtil axisMathVectorUtil;
+
+    // Java field initializers run after the base constructor
+    private void initFieldsNoZBasicConstantVelocityMovement() {
+    
+    this.speedBasicDecimal = BasicDecimal.ZERO_BIGDECIMAL;
+    this.axisMathVectorUtil = AxisMathVectorUtil.getInstance();
+    }
+    
+
+    public NoZBasicConstantVelocityMovement(BasicDecimal basicDecimal, BasicVelocityProperties velocityProperties) {
+        base();
+        this.initFieldsNoZBasicConstantVelocityMovement();
         this.setSpeedBasicDecimal(basicDecimal);
         this.velocityProperties = velocityProperties;
     }
+    
 
-    public override void init(BasicDecimal speedBasicDecimal, int angle, int otherAngle)
-    {
+    public override void init(BasicDecimal speedBasicDecimal, int32 angle, int32 otherAngle) {
         this.speedBasicDecimal = speedBasicDecimal;
         AngleFactory angleFactory = AngleFactory.getInstance();
         this.velocityProperties.setVelocityWithBigDecimal(speedBasicDecimal, angleFactory.getAt(angle), angleFactory.getAt(otherAngle));
     }
+    
 
-    public virtual void moveOutsideRadius(AllBinaryLayer layer, long radius, int angle, int otherAngle)
-    {
-        int scaleFactorValue = this.speedBasicDecimal.getScaledFactorValue();
-        int xVector = ((int) (this.axisMathVectorUtil.calculateX(radius, angle) / scaleFactorValue));
-        int yVector = ((int) (this.axisMathVectorUtil.calculateY(radius, angle) / scaleFactorValue));
+    public virtual void moveOutsideRadius(AllBinaryLayer layer, int64 radius, int32 angle, int32 otherAngle) {
+        int32 scaleFactorValue = this.speedBasicDecimal.getScaledFactorValue();
+        int32 xVector = ((int32) ((this.axisMathVectorUtil.calculateX(radius, angle) / ((int64) (scaleFactorValue)))));
+        int32 yVector = ((int32) ((this.axisMathVectorUtil.calculateY(radius, angle) / ((int64) (scaleFactorValue)))));
         layer.moveDXYZ(xVector, yVector, 0);
     }
+    
 
-    // throws Exception
-    public override void process(AllBinaryGameLayer layer)
-    {
+    public override void process(AllBinaryGameLayer layer) {
         layer.moveDXYZ(this.velocityProperties.getVelocityXBasicDecimalP().getScaled(), this.velocityProperties.getVelocityYBasicDecimalP().getScaled(), 0);
     }
+    
 
-    public override string ToString()
-    {
-        return this.velocityProperties.ToString();
+    public override string toString() {
+        return this.velocityProperties.toString();
     }
+    
 
-    public override void stop()
-    {
+    public override void stop() {
         this.velocityProperties.zero();
     }
+    
 
-    public virtual BasicVelocityProperties getVelocityProperties()
-    {
+    public virtual BasicVelocityProperties getVelocityProperties() {
         return this.velocityProperties;
     }
+    
 
-    public virtual void setVelocityProperties(BasicVelocityProperties velocityProperties)
-    {
+    public virtual void setVelocityProperties(BasicVelocityProperties velocityProperties) {
         this.velocityProperties = velocityProperties;
     }
+    
 
-    public virtual void setSpeedBasicDecimal(BasicDecimal speedBasicDecimal)
-    {
+    public virtual void setSpeedBasicDecimal(BasicDecimal speedBasicDecimal) {
         this.speedBasicDecimal = speedBasicDecimal;
     }
+    
 
-    public virtual BasicDecimal getSpeedBasicDecimal()
-    {
+    public virtual BasicDecimal getSpeedBasicDecimal() {
         return this.speedBasicDecimal;
     }
-
 }
 

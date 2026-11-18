@@ -13,17 +13,12 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.input.event
+// import org.allbinary.logic.util.event.EventListenerInterface
 
-using System;
-using System.Linq;
-using EventListenerInterface = org.allbinary.logic.util.@event.EventListenerInterface;
+public interface VirtualKeyboardEventListenerInterface : JObject, EventListenerInterface {
+    
 
-namespace org.allbinary.input.@event;
-
-public interface VirtualKeyboardEventListenerInterface : EventListenerInterface
-{
-    // throws Exception
-    void onVirtualKeyboardEvent(VirtualKeyboardEvent virtualKeyboardEvent);
-
+    public abstract void onVirtualKeyboardEvent(VirtualKeyboardEvent virtualKeyboardEvent);
 }
 

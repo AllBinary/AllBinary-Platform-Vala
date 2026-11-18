@@ -13,32 +13,31 @@
  *   
  */
 // Generated Code Do Not Modify
+// package org.allbinary.graphics.displayable
 
-using System;
-using System.Linq;
+public class BaseScalable : JObject, ScalableListener {
 
-namespace org.allbinary.graphics.displayable;
-
-public class BaseScalable : ScalableListener
-{
-    public virtual float getRatio(float ratio)
-    {
-        return 1f;
+    public BaseScalable() {
+        base();
     }
+    
 
-    public virtual int getLeft(int xOffset)
-    {
+    public virtual float getRatio(float ratio) {
+        return 1.0f;
+    }
+    
+
+    public virtual int32 getLeft(int32 xOffset) {
         return -1;
     }
+    
 
-    public virtual int getTop(int yOffset)
-    {
+    public virtual int32 getTop(int32 yOffset) {
         return -1;
     }
+    
 
-    public virtual void scale(float ratio)
-    {
+    public virtual void scale(float ratio) {
     }
-
 }
 

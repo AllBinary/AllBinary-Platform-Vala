@@ -13,34 +13,47 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.input.motion.button
+// import org.allbinary.graphics.PointFactory
+// import org.allbinary.graphics.Rectangle
+// import org.allbinary.graphics.displayable.DisplayInfoSingleton
 
-using System;
-using System.Linq;
-using PointFactory = org.allbinary.graphics.PointFactory;
-using Rectangle = org.allbinary.graphics.Rectangle;
-using DisplayInfoSingleton = org.allbinary.graphics.displayable.DisplayInfoSingleton;
-
-namespace org.allbinary.input.motion.button;
-
-public class CommonButtons
-{
-    private static readonly CommonButtons instance = new CommonButtons();
-    public static CommonButtons getInstance()
-    {
+public class CommonButtons : JObject {
+    private static CommonButtons? instance;
+    private static bool staticSet_instance = false;
+    private static CommonButtons staticGet_instance() {
+        if (!CommonButtons.staticSet_instance) {
+            CommonButtons.staticSet_instance = true;
+            CommonButtons.instance = new CommonButtons();
+        }
         return CommonButtons.instance;
     }
+    public int32 STANDARD_BUTTON_SIZE;
+    public Rectangle NORMAL_BUTTON;
+    public Rectangle LARGE_BUTTON;
 
-    public readonly int STANDARD_BUTTON_SIZE;
-    public readonly Rectangle NORMAL_BUTTON;
-    public readonly Rectangle LARGE_BUTTON;
-    private CommonButtons()
-    {
+    // Java field initializers run after the base constructor
+    private void initFieldsCommonButtons() {
+    
+    
+    
+    }
+    
+
+    public static CommonButtons getInstance() {
+        return CommonButtons.staticGet_instance();
+    }
+    
+
+    public CommonButtons() {
+        base();
+        this.initFieldsCommonButtons();
         DisplayInfoSingleton displayInfo = DisplayInfoSingleton.getInstance();
-        int commonButtonSize = 128;
+        int32 commonButtonSize = 128;
         while (commonButtonSize > 64) {
-            int totalColumns = displayInfo.getLastWidth() / commonButtonSize;
-            int totalRows = displayInfo.getLastHeight() / commonButtonSize;
-            int max = totalColumns;
+            int32 totalColumns = displayInfo.getLastWidth() / commonButtonSize;
+            int32 totalRows = displayInfo.getLastHeight() / commonButtonSize;
+            int32 max = totalColumns;
             if (totalRows > max) {
                 max = totalRows;
             }
@@ -53,6 +66,5 @@ public class CommonButtons
         this.NORMAL_BUTTON = new Rectangle(PointFactory.getInstance().ZERO_ZERO, this.STANDARD_BUTTON_SIZE, this.STANDARD_BUTTON_SIZE);
         this.LARGE_BUTTON = new Rectangle(PointFactory.getInstance().ZERO_ZERO, this.STANDARD_BUTTON_SIZE << 1, this.STANDARD_BUTTON_SIZE << 1);
     }
-
 }
 

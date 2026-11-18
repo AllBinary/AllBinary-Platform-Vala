@@ -13,27 +13,25 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.image
+// import javax.microedition.lcdui.Image
+// import org.allbinary.animation.IndexedAnimation
 
-using System;
-using System.Linq;
-using Image = javax.microedition.lcdui.Image;
-using IndexedAnimation = org.allbinary.animation.IndexedAnimation;
+public class IndexedAnimationToImageArrayUtil : JObject {
 
-namespace org.allbinary.image;
+    public IndexedAnimationToImageArrayUtil() {
+        base();
+    }
+    
 
-public class IndexedAnimationToImageArrayUtil
-{
-    // throws Exception
-    public static Image[] getInstance(int width, int height, IndexedAnimation sequentialAnimationInterface)
-    {
-        int size = sequentialAnimationInterface.getAnimationSize();
+    public static Image[] getInstance3(int32 width, int32 height, IndexedAnimation sequentialAnimationInterface) {
+        int32 size = sequentialAnimationInterface.getAnimationSize();
         Image[] imageArray = new Image[size];
-        for (int index = 0; index < size; index++) {
+        for (int32 index = 0; index < size; index++) {
             sequentialAnimationInterface.setFrame(index);
             imageArray[index] = AnimationFrameToImageUtil.getInstance().getInstanceWH(width, height, sequentialAnimationInterface);
         }
         return imageArray;
     }
-
 }
 

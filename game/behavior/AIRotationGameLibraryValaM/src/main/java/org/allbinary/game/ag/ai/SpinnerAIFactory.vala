@@ -13,25 +13,24 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.game.ag.ai
+// import javax.microedition.lcdui.Canvas
+// import org.allbinary.ai.ArtificialIntelligenceInterface
+// import org.allbinary.game.ai.ArtificialIntelligenceInterfaceFactoryInterface
+// import org.allbinary.game.input.GameInput
+// import org.allbinary.layer.AllBinaryLayer
+// import org.allbinary.util.ABHashtable
 
-using System;
-using System.Linq;
-using Canvas = javax.microedition.lcdui.Canvas;
-using ArtificialIntelligenceInterface = org.allbinary.ai.ArtificialIntelligenceInterface;
-using ArtificialIntelligenceInterfaceFactoryInterface = org.allbinary.game.ai.ArtificialIntelligenceInterfaceFactoryInterface;
-using GameInput = org.allbinary.game.input.GameInput;
-using AllBinaryLayer = org.allbinary.layer.AllBinaryLayer;
-using org.allbinary.util;
+public class SpinnerAIFactory : JObject, ArtificialIntelligenceInterfaceFactoryInterface {
 
-namespace org.allbinary.game.ag.ai;
+    public SpinnerAIFactory() {
+        base();
+    }
+    
 
-public class SpinnerAIFactory : ArtificialIntelligenceInterfaceFactoryInterface
-{
-    public virtual ArtificialIntelligenceInterface getInstance(ABHashtable<object, object> hashtable, AllBinaryLayer ownerLayerInterface, GameInput gameInput)
-    {
-        int[] direction = new int[] { Canvas.LEFT };
+    public virtual ArtificialIntelligenceInterface getInstance3(ABHashtable hashtable, AllBinaryLayer ownerLayerInterface, GameInput gameInput) {
+        int32[] direction = new int32[] {Canvas.LEFT};
         return new SpinnerAI(direction, ownerLayerInterface, gameInput);
     }
-
 }
 

@@ -13,16 +13,11 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.layer
 
-using System;
-using System.Linq;
+public interface BasicLayerProcessorInterface : JObject {
+    
 
-namespace org.allbinary.layer;
-
-public interface BasicLayerProcessorInterface
-{
-    // throws Exception
-    void process(AllBinaryLayerManager allBinaryLayerManager);
-
+    public abstract void process(AllBinaryLayerManager allBinaryLayerManager);
 }
 

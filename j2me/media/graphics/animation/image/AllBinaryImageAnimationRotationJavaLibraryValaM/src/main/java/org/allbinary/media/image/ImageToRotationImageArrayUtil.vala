@@ -13,37 +13,40 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.media.image
+// import javax.microedition.lcdui.Image
 
-using System;
-using System.Linq;
-using Image = javax.microedition.lcdui.Image;
-
-namespace org.allbinary.media.image;
-
-public class ImageToRotationImageArrayUtil
-{
-    private static readonly ImageToRotationImageArrayUtil instance = new ImageToRotationImageArrayUtil();
-    public static ImageToRotationImageArrayUtil getInstance()
-    {
+public class ImageToRotationImageArrayUtil : JObject {
+    private static ImageToRotationImageArrayUtil? instance;
+    private static bool staticSet_instance = false;
+    private static ImageToRotationImageArrayUtil staticGet_instance() {
+        if (!ImageToRotationImageArrayUtil.staticSet_instance) {
+            ImageToRotationImageArrayUtil.staticSet_instance = true;
+            ImageToRotationImageArrayUtil.instance = new ImageToRotationImageArrayUtil();
+        }
         return ImageToRotationImageArrayUtil.instance;
     }
+    
 
-    private ImageToRotationImageArrayUtil()
-    {
+    public static ImageToRotationImageArrayUtil getInstance() {
+        return ImageToRotationImageArrayUtil.staticGet_instance();
     }
+    
 
-    // throws Exception
-    public virtual Image[] generate(Image image, int angleIncrement, int totalAngle)
-    {
+    public ImageToRotationImageArrayUtil() {
+        base();
+    }
+    
+
+    public virtual Image[] generate(Image image, int32 angleIncrement, int32 totalAngle) {
         ImageRotationUtil imageRotationUtil = ImageRotationUtil.getInstance();
-        int totalFrames = totalAngle / angleIncrement;
+        int32 totalFrames = totalAngle / angleIncrement;
         Image[] imageArray = new Image[totalFrames];
         imageArray[0] = image;
-        for (int index = 1; index < totalFrames; index++) {
+        for (int32 index = 1; index < totalFrames; index++) {
             imageArray[index] = imageRotationUtil.createRotatedImage(image, index * angleIncrement);
         }
         return imageArray;
     }
-
 }
 

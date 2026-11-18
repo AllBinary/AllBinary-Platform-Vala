@@ -13,24 +13,26 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.graphics.form
 
-using System;
-using System.Linq;
+public class FormType : JObject {
+    public string name;
 
-namespace org.allbinary.graphics.form;
+    // Java field initializers run after the base constructor
+    private void initFieldsFormType() {
+    
+    }
+    
 
-public class FormType
-{
-    public readonly string name;
-    public FormType(string name)
-    {
+    public FormType(string name) {
+        base();
+        this.initFieldsFormType();
         this.name = name;
     }
+    
 
-    public override string ToString()
-    {
+    public override string toString() {
         return this.name;
     }
-
 }
 

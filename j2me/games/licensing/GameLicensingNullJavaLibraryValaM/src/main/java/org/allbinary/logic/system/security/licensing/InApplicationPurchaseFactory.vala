@@ -13,75 +13,79 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.logic.system.security.licensing
+// import org.allbinary.logic.string.StringUtil
 
-using System;
-using System.Linq;
-using StringUtil = org.allbinary.logic.@string.StringUtil;
-
-namespace org.allbinary.logic.system.security.licensing;
-
-public class InApplicationPurchaseFactory
-{
-    private static readonly InApplicationPurchaseFactory instance = new InApplicationPurchaseFactory();
-    public static InApplicationPurchaseFactory getInstance()
-    {
+public class InApplicationPurchaseFactory : JObject {
+    private static InApplicationPurchaseFactory? instance;
+    private static bool staticSet_instance = false;
+    private static InApplicationPurchaseFactory staticGet_instance() {
+        if (!InApplicationPurchaseFactory.staticSet_instance) {
+            InApplicationPurchaseFactory.staticSet_instance = true;
+            InApplicationPurchaseFactory.instance = new InApplicationPurchaseFactory();
+        }
         return InApplicationPurchaseFactory.instance;
     }
+    
 
-    private InApplicationPurchaseFactory()
-    {
+    public static InApplicationPurchaseFactory getInstance() {
+        return InApplicationPurchaseFactory.staticGet_instance();
     }
+    
 
-    public virtual void init(object anyType, object stateObject)
-    {
+    public InApplicationPurchaseFactory() {
+        base();
     }
+    
 
-    public virtual void onCreate(object anyType, object stateObject)
-    {
+    public virtual void init(JObject anyType, JObject stateObject) {
     }
+    
 
-    public virtual void onStart()
-    {
+    public virtual void onCreate(JObject anyType, JObject stateObject) {
     }
+    
 
-    public virtual void onResult(int requestCode, int resultCode, object data)
-    {
+    public virtual void onStart() {
     }
+    
 
-    public virtual void onSaveState(object anyType)
-    {
+    public virtual void onResult(int32 requestCode, int32 resultCode, JObject data) {
     }
+    
 
-    public virtual void onStop()
-    {
+    public virtual void onSaveState(JObject anyType) {
     }
+    
 
-    public virtual void onDestroy()
-    {
+    public virtual void onStop() {
     }
+    
 
-    public virtual void purchase(LockableFeature lockableFeature)
-    {
+    public virtual void onDestroy() {
     }
+    
 
-    public virtual bool isPurchased(LockableFeature lockableFeature)
-    {
+    public virtual void purchase(LockableFeature lockableFeature) {
+    }
+    
+
+    public virtual bool isPurchased(LockableFeature lockableFeature) {
         return false;
     }
+    
 
-    public virtual void add(LockableFeature lockableFeature)
-    {
+    public virtual void add(LockableFeature lockableFeature) {
     }
+    
 
-    public virtual string getUserName()
-    {
+    public virtual string getUserName() {
         return StringUtil.getInstance().EMPTY_STRING;
     }
+    
 
-    public virtual bool isEnabled()
-    {
+    public virtual bool isEnabled() {
         return false;
     }
-
 }
 

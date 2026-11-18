@@ -1,15 +1,10 @@
 // Generated Code Do Not Modify
+// package org.allbinary.image.opengles
+// import javax.microedition.khronos.opengles.GL
 
-using System;
-using System.Linq;
-using GL = javax.microedition.khronos.opengles.GL;
+public interface OpenGLSurfaceChangedInterface : JObject {
+    
 
-namespace org.allbinary.image.opengles;
-
-public interface OpenGLSurfaceChangedInterface
-{
-    // throws Exception
-    void set(GL gl);
-
+    public abstract void @set(GL gl);
 }
 

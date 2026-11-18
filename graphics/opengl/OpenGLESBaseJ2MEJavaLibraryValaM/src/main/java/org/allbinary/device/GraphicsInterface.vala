@@ -13,17 +13,13 @@
  *   
  */
 // Generated Code Do Not Modify
+// package org.allbinary.device
+// import javax.microedition.lcdui.Font
+// import org.allbinary.graphics.font.FontDebugBase
 
-using System;
-using System.Linq;
-using Font = javax.microedition.lcdui.Font;
-using FontDebugBase = org.allbinary.graphics.font.FontDebugBase;
+public interface GraphicsInterface : JObject {
+    
 
-namespace org.allbinary.device;
-
-public interface GraphicsInterface
-{
-    void setFontDebug(Font font, FontDebugBase fontDebug);
-
+    public abstract void setFontDebug(Font font, FontDebugBase fontDebug);
 }
 

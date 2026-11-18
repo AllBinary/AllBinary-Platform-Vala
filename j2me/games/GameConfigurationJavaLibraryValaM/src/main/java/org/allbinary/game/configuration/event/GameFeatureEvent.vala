@@ -13,31 +13,32 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.game.configuration.event
+// import org.allbinary.logic.util.event.AllBinaryEventObject
 
-using System;
-using System.Linq;
-using AllBinaryEventObject = org.allbinary.logic.util.@event.AllBinaryEventObject;
+public class GameFeatureEvent : AllBinaryEventObject {
+    private string whatChanged;
 
-namespace org.allbinary.game.configuration.@event;
+    // Java field initializers run after the base constructor
+    private void initFieldsGameFeatureEvent() {
+    
+    }
+    
 
-public class GameFeatureEvent : AllBinaryEventObject
-{
-    private readonly string whatChanged;
-    public GameFeatureEvent(object anyType, string whatChanged) : base(anyType)
-    {
-        // base(anyType) is called from the constructor declaration
+    public GameFeatureEvent(JObject anyType, string whatChanged) {
+        base(anyType);
+        this.initFieldsGameFeatureEvent();
         this.whatChanged = whatChanged;
     }
+    
 
-    public virtual string getWhatChanged()
-    {
+    public virtual string getWhatChanged() {
         return this.whatChanged;
     }
+    
 
-    public virtual object getGameOption()
-    {
+    public virtual JObject getGameOption() {
         return this.getSource();
     }
-
 }
 

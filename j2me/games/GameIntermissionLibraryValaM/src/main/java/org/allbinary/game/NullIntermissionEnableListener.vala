@@ -13,27 +13,31 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.game
 
-using System;
-using System.Linq;
-
-namespace org.allbinary.game;
-
-public class NullIntermissionEnableListener : IntermissionEnableListenerInterface
-{
-    private static readonly IntermissionEnableListenerInterface SINGLETON = new NullIntermissionEnableListener();
-    public static IntermissionEnableListenerInterface getInstance()
-    {
+public class NullIntermissionEnableListener : JObject, IntermissionEnableListenerInterface {
+    private static IntermissionEnableListenerInterface? SINGLETON;
+    private static bool staticSet_SINGLETON = false;
+    private static IntermissionEnableListenerInterface staticGet_SINGLETON() {
+        if (!NullIntermissionEnableListener.staticSet_SINGLETON) {
+            NullIntermissionEnableListener.staticSet_SINGLETON = true;
+            NullIntermissionEnableListener.SINGLETON = new NullIntermissionEnableListener();
+        }
         return NullIntermissionEnableListener.SINGLETON;
     }
+    
 
-    private NullIntermissionEnableListener()
-    {
+    public static IntermissionEnableListenerInterface getInstance() {
+        return NullIntermissionEnableListener.staticGet_SINGLETON();
     }
+    
 
-    public virtual void notifyIntermission(bool enable)
-    {
+    public NullIntermissionEnableListener() {
+        base();
     }
+    
 
+    public virtual void notifyIntermission(bool enable) {
+    }
 }
 

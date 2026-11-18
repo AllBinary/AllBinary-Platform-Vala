@@ -13,19 +13,14 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.input.event
+// import org.allbinary.logic.util.event.AllBinaryEventObject
 
-using System;
-using System.Linq;
-using AllBinaryEventObject = org.allbinary.logic.util.@event.AllBinaryEventObject;
+public class VirtualKeyboardEvent : AllBinaryEventObject {
+    
 
-namespace org.allbinary.input.@event;
-
-public class VirtualKeyboardEvent : AllBinaryEventObject
-{
-    public VirtualKeyboardEvent(object anyType) : base(anyType)
-    {
-        // base(anyType) is called from the constructor declaration
+    public VirtualKeyboardEvent(JObject anyType) {
+        base(anyType);
     }
-
 }
 

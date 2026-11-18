@@ -13,27 +13,23 @@
  *   
  */
 // Generated Code Do Not Modify
+// package org.allbinary.emulator.device
 
-using System;
-using System.Linq;
+public class TrueTypeFontUtilBase : JObject {
+    
 
-namespace org.allbinary.emulator.device;
-
-public class TrueTypeFontUtilBase
-{
-    public TrueTypeFontUtilBase(int scale)
-    {
+    public TrueTypeFontUtilBase(int32 scale) {
+        base();
     }
+    
 
-    public virtual int getAsTextureSize(int textureSize)
-    {
+    public virtual int32 getAsTextureSize(int32 textureSize) {
         return -1;
     }
+    
 
-    public virtual int getCellSize(int cellSize)
-    {
+    public virtual int32 getCellSize(int32 cellSize) {
         return -1;
     }
-
 }
 

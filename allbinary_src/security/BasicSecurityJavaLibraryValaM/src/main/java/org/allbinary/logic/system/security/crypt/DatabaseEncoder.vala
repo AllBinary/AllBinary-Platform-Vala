@@ -13,65 +13,53 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.logic.system.security.crypt
+// import org.allbinary.logic.NullUtil
+// import org.allbinary.logic.communication.log.PreLogUtil
+// import org.allbinary.logic.string.StringMaker
+// import org.allbinary.logic.string.StringUtil
+// import org.allbinary.logic.string.tokens.Tokenizer
+// import org.allbinary.string.CommonSeps
+// import org.allbinary.string.CommonStrings
+// import org.allbinary.util.BasicArrayList
+// import org.allbinary.util.BasicArrayListD
 
-using System;
-using System.Linq;
-using NullUtil = org.allbinary.logic.NullUtil;
-using PreLogUtil = org.allbinary.logic.communication.log.PreLogUtil;
-using StringMaker = org.allbinary.logic.@string.StringMaker;
-using StringUtil = org.allbinary.logic.@string.StringUtil;
-using Tokenizer = org.allbinary.logic.@string.tokens.Tokenizer;
-using CommonSeps = org.allbinary.@string.CommonSeps;
-using CommonStrings = org.allbinary.@string.CommonStrings;
-using BasicArrayList = org.allbinary.util.BasicArrayList;
-using BasicArrayListD = org.allbinary.util.BasicArrayListD;
+public class DatabaseEncoder : JObject {
+    
 
-namespace org.allbinary.logic.system.security.crypt;
-
-public class DatabaseEncoder
-{
-    private DatabaseEncoder()
-    {
+    public DatabaseEncoder() {
+        base();
     }
+    
 
-    public static string encode(sbyte[] value)
-    {
-        try {
-            sbyte[] array = value;
+    public static string encode(int8[] value) {
+        {
+            int8[] array = value;
             StringMaker stringBuffer = new StringMaker();
-            for (int index = 0; index < array.Length; index++) {
-                stringBuffer.append(array[index].ToString());
-                if (index < array.Length - 1) {
+            for (int32 index = 0; index < array.length; index++) {
+                stringBuffer.append(array[index].to_string());
+                if (index < array.length - 1) {
                     stringBuffer.append(CommonSeps.getInstance().SPACE);
                 }
             }
-            return stringBuffer.ToString();
-        } catch (Exception e) {
-            CommonStrings commonStrings = CommonStrings.getInstance();
-            PreLogUtil.putOE(commonStrings.EXCEPTION, "DatabaseEncoder", "decode", e);
-            return StringUtil.getInstance().EMPTY_STRING;
-        }
+            return stringBuffer.toString();
+        } /* catch (Exception e): a thrown Java exception stops the program */
     }
+    
 
-    public static sbyte[] decode(string value)
-    {
-        try {
+    public static int8[] decode(string value) {
+        {
             Tokenizer tokenizer = new Tokenizer(CommonSeps.getInstance().SPACE);
             BasicArrayList vector = tokenizer.getTokensFromString(value, new BasicArrayListD());
-            int size = vector.size();
-            sbyte[] decode = new sbyte[size];
+            int32 size = vector.size();
+            int8[] decode = new int8[size];
             string byteOfData = null;
-            for (int index = 0; index < size; index++) {
-                byteOfData = ((string) vector.objectArray[index]);
-                decode[index] = sbyte.Parse(byteOfData);
+            for (int32 index = 0; index < size; index++) {
+                byteOfData = JString.unbox(vector.objectArray[index]);
+                decode[index] = Byte.parseByte(byteOfData);
             }
             return decode;
-        } catch (Exception e) {
-            CommonStrings commonStrings = CommonStrings.getInstance();
-            PreLogUtil.putSE(commonStrings.EXCEPTION, "DatabaseEncoder", "decode", e);
-            return NullUtil.getInstance().NULL_BYTE_ARRAY;
-        }
+        } /* catch (Exception e): a thrown Java exception stops the program */
     }
-
 }
 

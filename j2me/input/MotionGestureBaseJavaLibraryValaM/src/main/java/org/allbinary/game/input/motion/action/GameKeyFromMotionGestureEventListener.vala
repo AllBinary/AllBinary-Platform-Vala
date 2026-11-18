@@ -13,34 +13,41 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.game.input.motion.action
+// import org.allbinary.game.input.CompleteMotionGestureInputEvent
+// import org.allbinary.game.input.CompleteMotionGestureInputEventListener
+// import org.allbinary.game.input.event.DownGameKeyEventHandler
+// import org.allbinary.game.input.event.GameKeyEvent
+// import org.allbinary.game.input.event.UpGameKeyEventHandler
+// import org.allbinary.logic.communication.log.ForcedLogUtil
+// import org.allbinary.logic.communication.log.LogUtil
+// import org.allbinary.logic.util.event.AllBinaryEventObject
+// import org.allbinary.logic.util.event.EventStrings
+// import org.allbinary.string.CommonStrings
 
-using System;
-using System.Linq;
-using CompleteMotionGestureInputEvent = org.allbinary.game.input.CompleteMotionGestureInputEvent;
-using CompleteMotionGestureInputEventListener = org.allbinary.game.input.CompleteMotionGestureInputEventListener;
-using DownGameKeyEventHandler = org.allbinary.game.input.@event.DownGameKeyEventHandler;
-using GameKeyEvent = org.allbinary.game.input.@event.GameKeyEvent;
-using UpGameKeyEventHandler = org.allbinary.game.input.@event.UpGameKeyEventHandler;
-using ForcedLogUtil = org.allbinary.logic.communication.log.ForcedLogUtil;
-using LogUtil = org.allbinary.logic.communication.log.LogUtil;
-using AllBinaryEventObject = org.allbinary.logic.util.@event.AllBinaryEventObject;
-using EventStrings = org.allbinary.logic.util.@event.EventStrings;
-using CommonStrings = org.allbinary.@string.CommonStrings;
+public class GameKeyFromMotionGestureEventListener : CompleteMotionGestureInputEventListener {
+    public LogUtil logUtil;
+    private GameKeyEvent previousGameKeyEvent;
 
-namespace org.allbinary.game.input.motion.action;
-
-public class GameKeyFromMotionGestureEventListener : CompleteMotionGestureInputEventListener
-{
-    public readonly LogUtil logUtil = LogUtil.getInstance();
-    private GameKeyEvent previousGameKeyEvent = GameKeyEvent.NONE;
-    public override void onEvent(AllBinaryEventObject eventObject)
-    {
-        ForcedLogUtil.log(EventStrings.getInstance().PERFORMANCE_MESSAGE, this);
+    // Java field initializers run after the base constructor
+    private void initFieldsGameKeyFromMotionGestureEventListener() {
+    this.logUtil = LogUtil.getInstance();
+    this.previousGameKeyEvent = GameKeyEvent.NONE;
     }
 
-    public override void onCompleteMotionGestureInputEvent(CompleteMotionGestureInputEvent completeMotionGestureInputEvent)
-    {
-        try {
+    public GameKeyFromMotionGestureEventListener() {
+        base();
+        this.initFieldsGameKeyFromMotionGestureEventListener();
+    }
+    
+
+    public override void onEvent(AllBinaryEventObject eventObject) {
+        ForcedLogUtil.log(EventStrings.getInstance().PERFORMANCE_MESSAGE, this);
+    }
+    
+
+    public override void onCompleteMotionGestureInputEvent(CompleteMotionGestureInputEvent completeMotionGestureInputEvent) {
+        {
             GameKeyCompleteMotionGestureInputEvent gameKeyCompleteMotionGestureInputEvent = ((GameKeyCompleteMotionGestureInputEvent) completeMotionGestureInputEvent);
             GameKeyEvent gameKeyEvent = gameKeyCompleteMotionGestureInputEvent.getGameKeyEvent();
             if (gameKeyEvent != this.previousGameKeyEvent) {
@@ -52,11 +59,7 @@ public class GameKeyFromMotionGestureEventListener : CompleteMotionGestureInputE
                     DownGameKeyEventHandler.getInstance().fireEvent(gameKeyEvent);
                 }
             }
-        } catch (Exception e) {
-            CommonStrings commonStrings = CommonStrings.getInstance();
-            this.logUtil.put(commonStrings.EXCEPTION, this, "onCompleteMotionGestureInputEvent", e);
-        }
+        } /* catch (Exception e): a thrown Java exception stops the program */
     }
-
 }
 

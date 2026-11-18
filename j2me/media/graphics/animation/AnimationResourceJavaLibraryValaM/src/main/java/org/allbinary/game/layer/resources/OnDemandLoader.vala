@@ -13,37 +13,41 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.game.layer.resources
+// import org.allbinary.animation.resource.BaseResourceAnimationInterfaceFactoryInterfaceFactory
+// import org.allbinary.game.configuration.feature.Features
+// import org.allbinary.game.configuration.feature.MainFeatureFactory
+// import org.allbinary.game.layer.GameLayerPlacementInterfaceBasicArrayListFactoryInterfaceFactory
+// import org.allbinary.game.layer.LayerPlacementInterfaceBasicArrayListFactoryInterface
+// import org.allbinary.game.resource.ResourceLoadingLevelFactory
+// import org.allbinary.image.ImageCache
+// import org.allbinary.logic.communication.log.PreLogUtil
+// import org.allbinary.logic.string.StringMaker
+// import org.allbinary.string.CommonStrings
 
-using System;
-using System.Linq;
-using BaseResourceAnimationInterfaceFactoryInterfaceFactory = org.allbinary.animation.resource.BaseResourceAnimationInterfaceFactoryInterfaceFactory;
-using Features = org.allbinary.game.configuration.feature.Features;
-using MainFeatureFactory = org.allbinary.game.configuration.feature.MainFeatureFactory;
-using GameLayerPlacementInterfaceBasicArrayListFactoryInterfaceFactory = org.allbinary.game.layer.GameLayerPlacementInterfaceBasicArrayListFactoryInterfaceFactory;
-using LayerPlacementInterfaceBasicArrayListFactoryInterface = org.allbinary.game.layer.LayerPlacementInterfaceBasicArrayListFactoryInterface;
-using ResourceLoadingLevelFactory = org.allbinary.game.resource.ResourceLoadingLevelFactory;
-using ImageCache = org.allbinary.image.ImageCache;
-using PreLogUtil = org.allbinary.logic.communication.log.PreLogUtil;
-using StringMaker = org.allbinary.logic.@string.StringMaker;
-using CommonStrings = org.allbinary.@string.CommonStrings;
+public class OnDemandLoader : JObject {
+    private OnDemandResourcesFactory onDemandResourcesFactory;
+    private GameLayerPlacementInterfaceBasicArrayListFactoryInterfaceFactory gameLayerPlacementInterfaceBasicArrayListFactoryInterfaceFactory;
+    private BaseResourceAnimationInterfaceFactoryInterfaceFactory resourceAnimationInterfaceFactoryInterfaceFactory;
 
-namespace org.allbinary.game.layer.resources;
+    // Java field initializers run after the base constructor
+    private void initFieldsOnDemandLoader() {
+    
+    
+    
+    }
+    
 
-public class OnDemandLoader
-{
-    private readonly OnDemandResourcesFactory onDemandResourcesFactory;
-    private readonly GameLayerPlacementInterfaceBasicArrayListFactoryInterfaceFactory gameLayerPlacementInterfaceBasicArrayListFactoryInterfaceFactory;
-    private readonly BaseResourceAnimationInterfaceFactoryInterfaceFactory resourceAnimationInterfaceFactoryInterfaceFactory;
-    public OnDemandLoader(OnDemandResourcesFactory onDemandResourcesFactory, GameLayerPlacementInterfaceBasicArrayListFactoryInterfaceFactory gameLayerPlacementInterfaceBasicArrayListFactoryInterfaceFactory, BaseResourceAnimationInterfaceFactoryInterfaceFactory resourceAnimationInterfaceFactoryInterfaceFactory)
-    {
+    public OnDemandLoader(OnDemandResourcesFactory onDemandResourcesFactory, GameLayerPlacementInterfaceBasicArrayListFactoryInterfaceFactory gameLayerPlacementInterfaceBasicArrayListFactoryInterfaceFactory, BaseResourceAnimationInterfaceFactoryInterfaceFactory resourceAnimationInterfaceFactoryInterfaceFactory) {
+        base();
+        this.initFieldsOnDemandLoader();
         this.onDemandResourcesFactory = onDemandResourcesFactory;
         this.gameLayerPlacementInterfaceBasicArrayListFactoryInterfaceFactory = gameLayerPlacementInterfaceBasicArrayListFactoryInterfaceFactory;
         this.resourceAnimationInterfaceFactoryInterfaceFactory = resourceAnimationInterfaceFactoryInterfaceFactory;
     }
+    
 
-    // throws Exception
-    public virtual void init(ImageCache imageCache, int level, string loadingString)
-    {
+    public virtual void init(ImageCache imageCache, int32 level, string loadingString) {
         ResourceLoadingLevelFactory resourceLoadingLevelFactory = ResourceLoadingLevelFactory.getInstance();
         if (Features.getInstance().isFeature(MainFeatureFactory.getInstance().LOAD_ALL)) {
             if (this.resourceAnimationInterfaceFactoryInterfaceFactory.isInitialized()) {
@@ -51,41 +55,38 @@ public class OnDemandLoader
             }
             this.initAll(imageCache, loadingString);
         } else if (level != resourceLoadingLevelFactory.LOAD_ALL.getLevel()) {
-            LayerPlacementInterfaceBasicArrayListFactoryInterface layerPlacementInterfaceBasicArrayListFactoryInterface = this.gameLayerPlacementInterfaceBasicArrayListFactoryInterfaceFactory.getInstance(level);
+            LayerPlacementInterfaceBasicArrayListFactoryInterface layerPlacementInterfaceBasicArrayListFactoryInterface = this.gameLayerPlacementInterfaceBasicArrayListFactoryInterfaceFactory.getInstance1(level);
             this.initLevel(layerPlacementInterfaceBasicArrayListFactoryInterface, imageCache, level, loadingString);
         }
     }
+    
 
-    // throws Exception
-    private void initAll(ImageCache imageCache, string loadingString)
-    {
-        int index = 0;
-        int portion = 120;
+    private void initAll(ImageCache imageCache, string loadingString) {
+        int32 index = 0;
+        int32 portion = 120;
         OnDemandResources onDemandResources = null;
-        for (int onDemandIndex = this.onDemandResourcesFactory.size(); --onDemandIndex >= 0; ) {
+        for (int32 onDemandIndex = this.onDemandResourcesFactory.size(); --onDemandIndex >= 0; ) {
             onDemandResources = this.onDemandResourcesFactory.remove(onDemandIndex);
             if (onDemandResources != OnDemandResources.NULL_ON_DEMAND_RESOURCES) {
                 index = onDemandResources.initAt(imageCache, this.resourceAnimationInterfaceFactoryInterfaceFactory, portion, loadingString, index);
             }
         }
     }
+    
 
-    // throws Exception
-    private void initLevel(LayerPlacementInterfaceBasicArrayListFactoryInterface layerPlacementInterfaceBasicArrayListFactoryInterface, ImageCache imageCache, int level, string loadingString)
-    {
+    private void initLevel(LayerPlacementInterfaceBasicArrayListFactoryInterface layerPlacementInterfaceBasicArrayListFactoryInterface, ImageCache imageCache, int32 level, string loadingString) {
         CommonStrings commonStrings = CommonStrings.getInstance();
-        int portion = 120;
-        int index = 0;
-        int[] onDemandArray = layerPlacementInterfaceBasicArrayListFactoryInterface.getOnDemandResources();
-        PreLogUtil.put(new StringMaker().append(commonStrings.START).appendint(onDemandArray.Length).ToString(), this, "initLevel");
+        int32 portion = 120;
+        int32 index = 0;
+        int32[] onDemandArray = layerPlacementInterfaceBasicArrayListFactoryInterface.getOnDemandResources();
+        PreLogUtil.put(new StringMaker().append(commonStrings.START).appendint(onDemandArray.length).toString(), this, "initLevel");
         OnDemandResources onDemandResources = null;
-        for (int onDemandIndex = onDemandArray.Length; --onDemandIndex >= 0; ) {
+        for (int32 onDemandIndex = onDemandArray.length; --onDemandIndex >= 0; ) {
             onDemandResources = this.onDemandResourcesFactory.remove(onDemandArray[onDemandIndex]);
             if (onDemandResources != OnDemandResources.NULL_ON_DEMAND_RESOURCES) {
                 index = onDemandResources.initAt(imageCache, this.resourceAnimationInterfaceFactoryInterfaceFactory, portion, loadingString, index);
             }
         }
     }
-
 }
 

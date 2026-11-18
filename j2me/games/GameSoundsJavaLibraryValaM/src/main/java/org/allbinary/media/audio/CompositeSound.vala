@@ -13,24 +13,18 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.media.audio
 
-using System;
-using System.Linq;
+public class CompositeSound : Sound {
+    
 
-namespace org.allbinary.media.audio;
-
-public class CompositeSound : Sound
-{
-    public CompositeSound(string resource) : base(resource)
-    {
-        // base(resource) is called from the constructor declaration
+    public CompositeSound(string resource) {
+        base(resource);
     }
+    
 
-    // throws Exception
-    public override void init()
-    {
+    public override void init() {
         this.setPlayerP(new PlayerComposite(AllBinaryMediaManager.createPlayer(this.getResource()), 570));
     }
-
 }
 

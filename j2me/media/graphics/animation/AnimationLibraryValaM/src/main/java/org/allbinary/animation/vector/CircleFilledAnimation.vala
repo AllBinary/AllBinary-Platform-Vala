@@ -13,47 +13,49 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.animation.vector
+// import javax.microedition.lcdui.Graphics
+// import org.allbinary.animation.Animation
+// import org.allbinary.graphics.color.BasicColor
+// import org.allbinary.graphics.color.ColorCompositeInterface
 
-using System;
-using System.Linq;
-using Graphics = javax.microedition.lcdui.Graphics;
-using Animation = org.allbinary.animation.Animation;
-using BasicColor = org.allbinary.graphics.color.BasicColor;
-using ColorCompositeInterface = org.allbinary.graphics.color.ColorCompositeInterface;
+public class CircleFilledAnimation : Animation, ColorCompositeInterface, BasicColorCompositeSetterInterface {
+    private int32 width;
+    private int32 height;
 
-namespace org.allbinary.animation.vector;
+    // Java field initializers run after the base constructor
+    private void initFieldsCircleFilledAnimation() {
+    
+    
+    }
+    
 
-public class CircleFilledAnimation : Animation, ColorCompositeInterface
-{
-    private int width;
-    private int height;
-    public CircleFilledAnimation(int width, int height, BasicColor basicColor) : base()
-    {
-        // base() is called from the constructor declaration
+    public CircleFilledAnimation(int32 width, int32 height, BasicColor basicColor) {
+        base();
+        this.initFieldsCircleFilledAnimation();
         this.width = width;
         this.height = height;
         this.setBasicColorP(basicColor);
     }
+    
 
-    public override void nextFrame()
-    {
+    public override void nextFrame() {
     }
+    
 
-    public override void paintXY(Graphics graphics, int x, int y)
-    {
+    public override void paintXY(Graphics graphics, int32 x, int32 y) {
         this.basicSetColorUtil.setBasicColorP3(graphics, this.getBasicColorP(), this.getColor());
         graphics.fillRect(x, y, this.width, this.height);
     }
+    
 
-    public override BasicColor getBasicColorP()
-    {
+    public override BasicColor getBasicColorP() {
         return base.getBasicColorP();
     }
+    
 
-    public override void setBasicColorP(BasicColor basicColor)
-    {
+    public override void setBasicColorP(BasicColor basicColor) {
         base.setBasicColorP(basicColor);
     }
-
 }
 

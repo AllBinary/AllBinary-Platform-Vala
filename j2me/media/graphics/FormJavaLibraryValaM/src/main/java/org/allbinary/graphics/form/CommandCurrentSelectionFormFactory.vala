@@ -13,22 +13,21 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.graphics.form
+// import org.allbinary.game.configuration.feature.Features
+// import org.allbinary.game.configuration.feature.TouchFeatureFactory
+// import org.allbinary.graphics.Rectangle
+// import org.allbinary.graphics.color.BasicColor
+// import org.allbinary.graphics.form.item.ABCustomItem
 
-using System;
-using System.Linq;
-using Features = org.allbinary.game.configuration.feature.Features;
-using TouchFeatureFactory = org.allbinary.game.configuration.feature.TouchFeatureFactory;
-using Rectangle = org.allbinary.graphics.Rectangle;
-using BasicColor = org.allbinary.graphics.color.BasicColor;
-using ABCustomItem = org.allbinary.graphics.form.item.ABCustomItem;
+public class CommandCurrentSelectionFormFactory : JObject {
 
-namespace org.allbinary.graphics.form;
+    public CommandCurrentSelectionFormFactory() {
+        base();
+    }
+    
 
-public class CommandCurrentSelectionFormFactory
-{
-    // throws Exception
-    public static ScrollSelectionForm getInstance(string title, ABCustomItem[] items, Rectangle rectangle, FormType formType, int border, bool moveForSmallScreen, BasicColor backgroundBasicColor, BasicColor foregroundBasicColor)
-    {
+    public static ScrollSelectionForm getInstance8(string title, ABCustomItem[] items, Rectangle rectangle, FormType formType, int32 border, bool moveForSmallScreen, BasicColor backgroundBasicColor, BasicColor foregroundBasicColor) {
         if (Features.getInstance().isFeature(TouchFeatureFactory.getInstance().TOUCH_ENABLED)) {
             ScrollSelectionForm scrollSelectionForm = new CommandCurrentSelectionForm(title, items, border, moveForSmallScreen, backgroundBasicColor, foregroundBasicColor);
             scrollSelectionForm.init(rectangle, formType);
@@ -37,6 +36,5 @@ public class CommandCurrentSelectionFormFactory
             return ScrollSelectionFormNoneFactory.getInstance();
         }
     }
-
 }
 

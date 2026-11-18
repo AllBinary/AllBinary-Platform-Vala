@@ -13,21 +13,16 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.layer.relationship
+// import org.allbinary.graphics.PointFactory
+// import org.allbinary.layer.AllBinaryLayer
+// import org.allbinary.util.BasicArrayListUtil
 
-using System;
-using System.Linq;
-using PointFactory = org.allbinary.graphics.PointFactory;
-using AllBinaryLayer = org.allbinary.layer.AllBinaryLayer;
-using BasicArrayListUtil = org.allbinary.util.BasicArrayListUtil;
+public class MiddleRelativeLayerRelationship : RelativeLayerRelationship {
+    
 
-namespace org.allbinary.layer.relationship;
-
-public class MiddleRelativeLayerRelationship : RelativeLayerRelationship
-{
-    public MiddleRelativeLayerRelationship(AllBinaryLayer layer) : base(layer, PointFactory.getInstance().createXY(layer.getHalfWidth(), layer.getHalfHeight()), BasicArrayListUtil.getInstance().getImmutableInstance())
-    {
-        // base(layer, PointFactory.getInstance().createXY(layer.getHalfWidth(), layer.getHalfHeight()), BasicArrayListUtil.getInstance().getImmutableInstance()) is called from the constructor declaration
+    public MiddleRelativeLayerRelationship(AllBinaryLayer layer) {
+        base(layer, PointFactory.getInstance().createXY(layer.getHalfWidth(), layer.getHalfHeight()), BasicArrayListUtil.getInstance().getImmutableInstance());
     }
-
 }
 

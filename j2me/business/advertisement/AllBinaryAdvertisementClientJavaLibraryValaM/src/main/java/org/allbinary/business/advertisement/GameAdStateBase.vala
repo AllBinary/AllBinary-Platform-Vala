@@ -13,124 +13,125 @@
  *   
  */
 // Generated Code Do Not Modify
+// package org.allbinary.business.advertisement
+// import org.allbinary.game.GameType
+// import org.allbinary.game.state.GameState
+// import org.allbinary.logic.communication.log.ForcedLogUtil
+// import org.allbinary.logic.util.event.AllBinaryEventObject
+// import org.allbinary.logic.util.event.EventStrings
 
-using System;
-using System.Linq;
-using GameType = org.allbinary.game.GameType;
-using GameState = org.allbinary.game.state.GameState;
-using ForcedLogUtil = org.allbinary.logic.communication.log.ForcedLogUtil;
-using AllBinaryEventObject = org.allbinary.logic.util.@event.AllBinaryEventObject;
-using EventStrings = org.allbinary.logic.util.@event.EventStrings;
+public class GameAdStateBase : JObject {
+    public AdConfiguration adConfigurationP;
+    public Advertisements advertisementsP;
+    public bool okayToShowAdsP;
 
-namespace org.allbinary.business.advertisement;
+    // Java field initializers run after the base constructor
+    private void initFieldsGameAdStateBase() {
+    
+    this.advertisementsP = new Advertisements();
+    this.okayToShowAdsP = false;
+    }
+    
 
-public class GameAdStateBase
-{
-    public readonly AdConfiguration adConfigurationP;
-    public readonly Advertisements advertisementsP = new Advertisements();
-    public bool okayToShowAdsP = false;
-    public GameAdStateBase(AdConfiguration adConfiguration)
-    {
+    public GameAdStateBase(AdConfiguration adConfiguration) {
+        base();
+        this.initFieldsGameAdStateBase();
         this.adConfigurationP = adConfiguration;
     }
+    
 
-    public virtual void initViewArray(object[] viewArray)
-    {
+    public virtual void initViewArray(JObject[] viewArray) {
     }
+    
 
-    public virtual void onStart(object anyType)
-    {
+    public virtual void onStart(JObject anyType) {
         this.init();
     }
+    
 
-    public virtual void init()
-    {
+    public virtual void init() {
     }
+    
 
-    public virtual bool isShowingAtLocation(int location)
-    {
+    public virtual bool isShowingAtLocation(int32 location) {
         return false;
     }
+    
 
-    public virtual bool isShowingAt()
-    {
+    public virtual bool isShowingAt() {
         return false;
     }
+    
 
-    public virtual void show()
-    {
+    public virtual void show() {
     }
+    
 
-    public virtual void hide()
-    {
+    public virtual void hide() {
     }
+    
 
-    public virtual void onEvent(AllBinaryEventObject eventObject)
-    {
+    public virtual void onEvent(AllBinaryEventObject eventObject) {
         ForcedLogUtil.log(EventStrings.getInstance().PERFORMANCE_MESSAGE, this);
     }
+    
 
-    public virtual void processAdState(GameState gameState, GameType gameType)
-    {
+    public virtual void processAdState(GameState gameState, GameType gameType) {
     }
+    
 
-    public virtual void processPageAdState()
-    {
+    public virtual void processPageAdState() {
     }
+    
 
-    // throws Exception
-    public virtual void playingAdState()
-    {
+    public virtual void playingAdState() {
     }
+    
 
-    // throws Exception
-    public virtual void playingAdStateWH(int width, int height)
-    {
+    public virtual void playingAdStateWH(int32 width, int32 height) {
     }
+    
 
-    // throws Exception
-    public virtual void notPlayingAdState()
-    {
+    public virtual void notPlayingAdState() {
     }
+    
 
-    public virtual void setGameIsReady(bool gameIsReady)
-    {
+    public virtual void setGameIsReady(bool gameIsReady) {
     }
+    
 
-    public virtual bool isGameIsReady()
-    {
+    public virtual bool isGameIsReady() {
         return false;
     }
+    
 
-    public virtual Advertisements getAdvertisements()
-    {
+    public virtual Advertisements getAdvertisements() {
         return this.advertisementsP;
     }
+    
 
-    public virtual AdConfiguration getAdConfiguration()
-    {
+    public virtual AdConfiguration getAdConfiguration() {
         return this.adConfigurationP;
     }
+    
 
-    public virtual bool isOkayToShowPageAd()
-    {
+    public virtual bool isOkayToShowPageAd() {
         return false;
     }
+    
 
-    public virtual void setOkayToShowAds(bool okayToShowAds)
-    {
+    public virtual void setOkayToShowAds(bool okayToShowAds) {
         this.okayToShowAdsP = okayToShowAds;
     }
+    
 
-    public virtual bool isOkayToShowAds()
-    {
+    public virtual bool isOkayToShowAds() {
         return this.okayToShowAdsP;
     }
+    
 
-    public virtual bool isEnabled()
-    {
+    public virtual bool isEnabled() {
         return false;
     }
-
 }
 

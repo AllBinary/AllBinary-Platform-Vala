@@ -13,93 +13,97 @@
  *   
  */
 // Generated Code Do Not Modify
+// package org.allbinary.animation.text
+// import javax.microedition.lcdui.Font
+// import javax.microedition.lcdui.Graphics
+// import org.allbinary.animation.AnimationBehavior
+// import org.allbinary.animation.IndexedAnimation
+// import org.allbinary.game.input.event.RawKeyEventListener
+// import org.allbinary.graphics.color.BasicColor
+// import org.allbinary.graphics.font.UpdateMyFontInterface
+// import org.allbinary.graphics.form.item.CustomTextBox
+// import org.allbinary.logic.string.StringUtil
 
-using System;
-using System.Linq;
-using Font = javax.microedition.lcdui.Font;
-using Graphics = javax.microedition.lcdui.Graphics;
-using AnimationBehavior = org.allbinary.animation.AnimationBehavior;
-using IndexedAnimation = org.allbinary.animation.IndexedAnimation;
-using RawKeyEventListener = org.allbinary.game.input.@event.RawKeyEventListener;
-using BasicColor = org.allbinary.graphics.color.BasicColor;
-using UpdateMyFontInterface = org.allbinary.graphics.font.UpdateMyFontInterface;
-using CustomTextBox = org.allbinary.graphics.form.item.CustomTextBox;
-using StringUtil = org.allbinary.logic.@string.StringUtil;
+public class CustomTextBoxIndexedAnimation : IndexedAnimation, RawKeyEventListener, UpdateMyFontInterface, TextInterface {
+    private CustomTextBox customTextBox;
+    private string lastText;
+    public bool hasChanged;
+    private TextChangeListener textChangeListener;
 
-namespace org.allbinary.animation.text;
+    // Java field initializers run after the base constructor
+    private void initFieldsCustomTextBoxIndexedAnimation() {
+    
+    this.lastText = StringUtil.getInstance().INIT_STRING;
+    this.hasChanged = true;
+    this.textChangeListener = TextChangeListener.getInstance();
+    }
+    
 
-public class CustomTextBoxIndexedAnimation : IndexedAnimation, RawKeyEventListener, UpdateMyFontInterface, TextInterface
-{
-    private readonly CustomTextBox customTextBox;
-    private string lastText = StringUtil.getInstance().INIT_STRING;
-    public bool hasChanged = true;
-    private TextChangeListener textChangeListener = TextChangeListener.getInstance();
-    public CustomTextBoxIndexedAnimation(CustomTextBox customTextBox) : base(AnimationBehavior.getInstance())
-    {
-        // base(AnimationBehavior.getInstance()) is called from the constructor declaration
+    public CustomTextBoxIndexedAnimation(CustomTextBox customTextBox) {
+        base(AnimationBehavior.getInstance());
+        this.initFieldsCustomTextBoxIndexedAnimation();
         this.customTextBox = customTextBox;
     }
+    
 
-    public override void setBasicColorP(BasicColor basicColor)
-    {
+    public override void setBasicColorP(BasicColor basicColor) {
         this.customTextBox.getTextFieldItem().setForegroundBasicColorP(basicColor);
     }
+    
 
-    public override void setBackgroundBasicColorP(BasicColor basicColor)
-    {
+    public override void setBackgroundBasicColorP(BasicColor basicColor) {
         this.customTextBox.getTextFieldItem().setBackgroundBasicColorP(basicColor);
     }
+    
 
-    public virtual void setTextWithOnMeasure(string text, TextChangeListener textChangeListener)
-    {
+    public virtual void setTextWithOnMeasure(string text, TextChangeListener textChangeListener) {
         this.setText(text);
         this.textChangeListener = textChangeListener;
     }
+    
 
-    public virtual void updateMeasurement(Graphics graphics)
-    {
-        Font font = graphics.getFont();
+    public virtual void updateMeasurement(Graphics graphics) {
+        graphics.getFont();
         this.textChangeListener.onMeasure();
         this.textChangeListener = TextChangeListener.getInstance();
     }
+    
 
-    public virtual void setText(string text)
-    {
+    public virtual void setText(string text) {
         if (this.lastText != text) {
             this.hasChanged = true;
             this.lastText = text;
             this.customTextBox.getTextFieldItem().setString(text);
         }
     }
+    
 
-    public virtual string getText()
-    {
+    public virtual string getText() {
         return this.customTextBox.getTextFieldItem().getString();
     }
+    
 
-    public virtual void onEventRaw(int keyCode, int deviceId, bool repeated)
-    {
+    public virtual void onEventRaw(int32 keyCode, int32 deviceId, bool repeated) {
         this.customTextBox.onEventRaw(keyCode, deviceId, repeated);
     }
+    
 
-    public virtual int getFontHeight()
-    {
+    public virtual int32 getFontHeight() {
         return this.customTextBox.getTextFieldItem().getFontHeight();
     }
+    
 
-    public override void paintXY(Graphics graphics, int x, int y)
-    {
+    public override void paintXY(Graphics graphics, int32 x, int32 y) {
         this.customTextBox.paintXY(graphics, x, y);
     }
+    
 
-    public override void paintThreedXYZ(Graphics graphics, int x, int y, int z)
-    {
+    public override void paintThreedXYZ(Graphics graphics, int32 x, int32 y, int32 z) {
     }
+    
 
-    public override int getWidth()
-    {
+    public override int32 getWidth() {
         return base.getWidth();
     }
-
 }
 

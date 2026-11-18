@@ -13,23 +13,22 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.logic.java
+// import org.allbinary.logic.string.StringMaker
 
-using System;
-using System.Linq;
-using StringMaker = org.allbinary.logic.@string.StringMaker;
+public class PrimitiveArrayToString : JObject {
 
-namespace org.allbinary.logic.java;
+    public PrimitiveArrayToString() {
+        base();
+    }
+    
 
-public class PrimitiveArrayToString
-{
-    public static string toString(float[] floats)
-    {
+    public static string toString1(float[] floats) {
         StringMaker stringBuffer = new StringMaker();
-        for (int index = 0; index < floats.Length; index++) {
+        for (int32 index = 0; index < floats.length; index++) {
             stringBuffer.appendfloat(floats[index]);
         }
-        return stringBuffer.ToString();
+        return stringBuffer.toString();
     }
-
 }
 

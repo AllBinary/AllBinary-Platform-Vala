@@ -13,36 +13,37 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.animation.image
+// import javax.microedition.lcdui.Graphics
+// import javax.microedition.lcdui.Image
+// import org.allbinary.animation.AnimationBehavior
 
-using System;
-using System.Linq;
-using Graphics = javax.microedition.lcdui.Graphics;
-using Image = javax.microedition.lcdui.Image;
-using AnimationBehavior = org.allbinary.animation.AnimationBehavior;
+public class AdjustedLeftToRightImageAnimation : LeftToRightImageAnimation {
+    private int32 dx;
+    private int32 dy;
 
-namespace org.allbinary.animation.image;
+    // Java field initializers run after the base constructor
+    private void initFieldsAdjustedLeftToRightImageAnimation() {
+    this.dx = 0;
+    this.dy = 0;
+    }
+    
 
-public class AdjustedLeftToRightImageAnimation : LeftToRightImageAnimation
-{
-    private int dx = 0;
-    private int dy = 0;
-    public AdjustedLeftToRightImageAnimation(Image image, int[] sequenceArray, int dx, int dy, AnimationBehavior animationBehavior) : base(image, sequenceArray, animationBehavior)
-    {
-        // base(image, sequenceArray, animationBehavior) is called from the constructor declaration
+    public AdjustedLeftToRightImageAnimation(Image image, int32[] sequenceArray, int32 dx, int32 dy, AnimationBehavior animationBehavior) {
+        base(image, sequenceArray, animationBehavior);
+        this.initFieldsAdjustedLeftToRightImageAnimation();
         this.init(dx, dy);
     }
+    
 
-    // throws Exception
-    public virtual void init(int dx, int dy)
-    {
+    public virtual void init(int32 dx, int32 dy) {
         this.dx = dx;
         this.dy = dy;
     }
+    
 
-    public override void paintXY(Graphics graphics, int x, int y)
-    {
+    public override void paintXY(Graphics graphics, int32 x, int32 y) {
         base.paintXY(graphics, x + this.dx, y + this.dy);
     }
-
 }
 

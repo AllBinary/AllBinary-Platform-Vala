@@ -13,23 +13,18 @@
  *   
  */
 // Generated Code Do Not Modify
+// package org.allbinary.logic.util.cache
 
-using System;
-using System.Linq;
+public class PoolInterfaceFactory : JObject {
+    
 
-namespace org.allbinary.logic.util.cache;
-
-public class PoolInterfaceFactory
-{
-    private PoolInterfaceFactory()
-    {
+    public PoolInterfaceFactory() {
+        base();
     }
+    
 
-    // throws Exception
-    public static PoolInterface getInstance(CacheableInterfaceFactoryInterface cacheableInterfaceFactoryInterface, PoolType poolType, CachePolicy cachePolicy)
-    {
-        throw new Exception("No Such PoolType: " + poolType.ToString());
+    public static PoolInterface getInstance3(CacheableInterfaceFactoryInterface cacheableInterfaceFactoryInterface, PoolType poolType, CachePolicy cachePolicy) {
+        JSystem.fatal(new JException("Exception", JString.ofString("No Such PoolType: ") + JString.ofString(poolType.toString())));
     }
-
 }
 

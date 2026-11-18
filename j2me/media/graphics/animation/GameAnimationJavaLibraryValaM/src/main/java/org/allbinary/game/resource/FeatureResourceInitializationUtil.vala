@@ -13,33 +13,45 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.game.resource
+// import org.allbinary.animation.FeaturedAnimationInterfaceFactoryInterfaceFactory
+// import org.allbinary.logic.communication.log.LogUtil
+// import org.allbinary.string.CommonStrings
 
-using System;
-using System.Linq;
-using FeaturedAnimationInterfaceFactoryInterfaceFactory = org.allbinary.animation.FeaturedAnimationInterfaceFactoryInterfaceFactory;
-using LogUtil = org.allbinary.logic.communication.log.LogUtil;
-using CommonStrings = org.allbinary.@string.CommonStrings;
-
-namespace org.allbinary.game.resource;
-
-public class FeatureResourceInitializationUtil
-{
-    public readonly LogUtil logUtil = LogUtil.getInstance();
-    private static readonly FeatureResourceInitializationUtil instance = new FeatureResourceInitializationUtil();
-    public static FeatureResourceInitializationUtil getInstance()
-    {
+public class FeatureResourceInitializationUtil : JObject {
+    private static FeatureResourceInitializationUtil? instance;
+    private static bool staticSet_instance = false;
+    private static FeatureResourceInitializationUtil staticGet_instance() {
+        if (!FeatureResourceInitializationUtil.staticSet_instance) {
+            FeatureResourceInitializationUtil.staticSet_instance = true;
+            FeatureResourceInitializationUtil.instance = new FeatureResourceInitializationUtil();
+        }
         return FeatureResourceInitializationUtil.instance;
     }
+    public LogUtil logUtil;
 
-    // throws Exception
-    public virtual void init(int level)
-    {
+    // Java field initializers run after the base constructor
+    private void initFieldsFeatureResourceInitializationUtil() {
+    this.logUtil = LogUtil.getInstance();
+    }
+
+    public FeatureResourceInitializationUtil() {
+        base();
+        this.initFieldsFeatureResourceInitializationUtil();
+    }
+    
+
+    public static FeatureResourceInitializationUtil getInstance() {
+        return FeatureResourceInitializationUtil.staticGet_instance();
+    }
+    
+
+    public virtual void init(int32 level) {
         CommonStrings commonStrings = CommonStrings.getInstance();
         this.logUtil.putF(commonStrings.START, this, commonStrings.INIT);
         FeaturedResourceFactory featuredResourceFactory = FeaturedAnimationInterfaceFactoryInterfaceFactory.getInstance();
         featuredResourceFactory.init(level);
         FeaturedResourceRelativeRelationshipFactory.getInstance().init(level);
     }
-
 }
 

@@ -13,17 +13,12 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.game.input.mapping.event
+// import org.allbinary.logic.util.event.EventListenerInterface
 
-using System;
-using System.Linq;
-using EventListenerInterface = org.allbinary.logic.util.@event.EventListenerInterface;
+public interface InputMappingEventListenerInterface : JObject, EventListenerInterface {
+    
 
-namespace org.allbinary.game.input.mapping.@event;
-
-public interface InputMappingEventListenerInterface : EventListenerInterface
-{
-    // throws Exception
-    void onInputMappingEvent(InputMappingEvent inputMappingEvent);
-
+    public abstract void onInputMappingEvent(InputMappingEvent inputMappingEvent);
 }
 

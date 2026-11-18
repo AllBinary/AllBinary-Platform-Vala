@@ -13,26 +13,33 @@
  *   
  */
 // Generated Code Do Not Modify
+// package org.allbinary
+// import org.allbinary.game.configuration.feature.MultiPlayerGameFeatureFactory
+// import org.allbinary.graphics.displayable.MyCanvas
 
-using System;
-using System.Linq;
-using MultiPlayerGameFeatureFactory = org.allbinary.game.configuration.feature.MultiPlayerGameFeatureFactory;
-using MyCanvas = org.allbinary.graphics.displayable.MyCanvas;
-
-namespace org.allbinary;
-
-public class PostGameCommandFactory
-{
-    private static readonly PostGameCommandFactory instance = new PostGameCommandFactory();
-    public static PostGameCommandFactory getInstance()
-    {
+public class PostGameCommandFactory : JObject {
+    private static PostGameCommandFactory? instance;
+    private static bool staticSet_instance = false;
+    private static PostGameCommandFactory staticGet_instance() {
+        if (!PostGameCommandFactory.staticSet_instance) {
+            PostGameCommandFactory.staticSet_instance = true;
+            PostGameCommandFactory.instance = new PostGameCommandFactory();
+        }
         return PostGameCommandFactory.instance;
     }
 
-    public virtual void addCommands(MyCanvas canvas)
-    {
+    public PostGameCommandFactory() {
+        base();
+    }
+    
+
+    public static PostGameCommandFactory getInstance() {
+        return PostGameCommandFactory.staticGet_instance();
+    }
+    
+
+    public virtual void addCommands(MyCanvas canvas) {
         MultiPlayerGameFeatureFactory.getInstance().addCommands(canvas);
     }
-
 }
 

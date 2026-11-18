@@ -13,21 +13,35 @@
  *   
  */
 // Generated Code Do Not Modify
+// package org.allbinary.game.gd.resource
 
-using System;
-using System.Linq;
-
-namespace org.allbinary.game.gd.resource;
-
-public class GDResources
-{
-    private static readonly GDResources instance = new GDResources();
-    public static GDResources getInstance()
-    {
+public class GDResources : JObject {
+    private static GDResources? instance;
+    private static bool staticSet_instance = false;
+    private static GDResources staticGet_instance() {
+        if (!GDResources.staticSet_instance) {
+            GDResources.staticSet_instance = true;
+            GDResources.instance = new GDResources();
+        }
         return GDResources.instance;
     }
+    public string[] resourceStringArray;
+    public int32 currentLayoutRequiredTotal;
 
-    public readonly string[] resourceStringArray = new string[] {  };
-    public int currentLayoutRequiredTotal = 0;
+    // Java field initializers run after the base constructor
+    private void initFieldsGDResources() {
+    this.resourceStringArray = new string[] {};
+    this.currentLayoutRequiredTotal = 0;
+    }
+
+    public GDResources() {
+        base();
+        this.initFieldsGDResources();
+    }
+    
+
+    public static GDResources getInstance() {
+        return GDResources.staticGet_instance();
+    }
 }
 

@@ -13,19 +13,17 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.logic.util.cache
 
-using System;
-using System.Linq;
+public class BasicArrayListCacheableInterfaceFactory : JObject, CacheableInterfaceFactoryInterface {
 
-namespace org.allbinary.logic.util.cache;
+    public BasicArrayListCacheableInterfaceFactory() {
+        base();
+    }
+    
 
-public class BasicArrayListCacheableInterfaceFactory : CacheableInterfaceFactoryInterface
-{
-    // throws Exception
-    public virtual CacheableInterface getInstance(object key)
-    {
+    public virtual CacheableInterface getInstance1(JObject key) {
         return new BasicArrayListCacheable();
     }
-
 }
 

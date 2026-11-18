@@ -13,71 +13,76 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.graphics
+// import org.allbinary.logic.string.StringMaker
+// import org.allbinary.string.CommonLabels
+// import org.allbinary.string.CommonSeps
 
-using System;
-using System.Linq;
-using StringMaker = org.allbinary.logic.@string.StringMaker;
-using CommonLabels = org.allbinary.@string.CommonLabels;
-using CommonSeps = org.allbinary.@string.CommonSeps;
-
-namespace org.allbinary.graphics;
-
-public class Rectangle
-{
+public class Rectangle : JObject {
     private GPoint point;
-    private int width;
-    private int height;
-    public Rectangle(GPoint point, int width, int height)
-    {
+    private int32 width;
+    private int32 height;
+
+    // Java field initializers run after the base constructor
+    private void initFieldsRectangle() {
+    
+    
+    
+    }
+    
+
+    public Rectangle(GPoint point, int32 width, int32 height) {
+        base();
+        this.initFieldsRectangle();
         this.point = point;
         this.width = width;
         this.height = height;
     }
+    
 
-    public virtual GPoint getPoint()
-    {
+    public virtual GPoint getPoint() {
         return this.point;
     }
+    
 
-    public virtual void setPoint(GPoint point)
-    {
+    public virtual void setPoint(GPoint point) {
         this.point = point;
     }
+    
 
-    public virtual int getMaxX()
-    {
+    public virtual int32 getMaxX() {
         return this.point.getX() + this.width;
     }
+    
 
-    public virtual int getMaxY()
-    {
+    public virtual int32 getMaxY() {
         return this.point.getY() + this.height;
     }
+    
 
-    public virtual int getWidth()
-    {
+    public virtual int32 getWidth() {
         return this.width;
     }
+    
 
-    public virtual void setWidth(int width)
-    {
+    public virtual void setWidth(int32 width) {
         this.width = width;
     }
+    
 
-    public virtual int getHeight()
-    {
+    public virtual int32 getHeight() {
         return this.height;
     }
+    
 
-    public virtual void setHeight(int height)
-    {
+    public virtual void setHeight(int32 height) {
         this.height = height;
     }
+    
 
-    public override string ToString()
-    {
+    public override string toString() {
         StringMaker stringBuffer = new StringMaker();
-        stringBuffer.append(this.getPoint().ToString());
+        stringBuffer.append(this.getPoint().toString());
         stringBuffer.append(CommonSeps.getInstance().SPACE);
         stringBuffer.append(CommonLabels.getInstance().WIDTH_LABEL);
         stringBuffer.appendint(this.getWidth());
@@ -88,8 +93,7 @@ public class Rectangle
         stringBuffer.appendint(this.getMaxX());
         stringBuffer.append(" MaxY: ");
         stringBuffer.appendint(this.getMaxY());
-        return stringBuffer.ToString();
+        return stringBuffer.toString();
     }
-
 }
 

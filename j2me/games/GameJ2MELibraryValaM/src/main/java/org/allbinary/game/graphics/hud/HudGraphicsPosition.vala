@@ -13,44 +13,55 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.game.graphics.hud
+// import org.allbinary.graphics.GPoint
+// import org.allbinary.graphics.PointFactory
 
-using System;
-using System.Linq;
-using GPoint = org.allbinary.graphics.GPoint;
-using PointFactory = org.allbinary.graphics.PointFactory;
+public class HudGraphicsPosition : JObject {
+    public static HudGraphicsPosition? NULL_HUD_GRAPHICS_POSITION;
+    private static bool staticSet_NULL_HUD_GRAPHICS_POSITION = false;
+    public static HudGraphicsPosition staticGet_NULL_HUD_GRAPHICS_POSITION() {
+        if (!HudGraphicsPosition.staticSet_NULL_HUD_GRAPHICS_POSITION) {
+            HudGraphicsPosition.staticSet_NULL_HUD_GRAPHICS_POSITION = true;
+            HudGraphicsPosition.NULL_HUD_GRAPHICS_POSITION = new HudGraphicsPosition(PointFactory.getInstance().ZERO_ZERO, 9);
+        }
+        return HudGraphicsPosition.NULL_HUD_GRAPHICS_POSITION;
+    }
+    private int32 anchor;
+    private GPoint point;
 
-namespace org.allbinary.game.graphics.hud;
+    // Java field initializers run after the base constructor
+    private void initFieldsHudGraphicsPosition() {
+    this.anchor = 0;
+    this.point = PointFactory.getInstance().ZERO_ZERO;
+    }
+    
 
-public class HudGraphicsPosition
-{
-    public static readonly HudGraphicsPosition NULL_HUD_GRAPHICS_POSITION = new HudGraphicsPosition(PointFactory.getInstance().ZERO_ZERO, 9);
-    private int anchor = 0;
-    private GPoint point = PointFactory.getInstance().ZERO_ZERO;
-    public HudGraphicsPosition(GPoint point, int anchor)
-    {
+    public HudGraphicsPosition(GPoint point, int32 anchor) {
+        base();
+        this.initFieldsHudGraphicsPosition();
         this.setAnchor(anchor);
         this.setPoint(point);
     }
+    
 
-    public virtual int getAnchor()
-    {
+    public virtual int32 getAnchor() {
         return this.anchor;
     }
+    
 
-    private void setAnchor(int anchor)
-    {
+    private void setAnchor(int32 anchor) {
         this.anchor = anchor;
     }
+    
 
-    public virtual GPoint getPoint()
-    {
+    public virtual GPoint getPoint() {
         return this.point;
     }
+    
 
-    public virtual void setPoint(GPoint point)
-    {
+    public virtual void setPoint(GPoint point) {
         this.point = point;
     }
-
 }
 

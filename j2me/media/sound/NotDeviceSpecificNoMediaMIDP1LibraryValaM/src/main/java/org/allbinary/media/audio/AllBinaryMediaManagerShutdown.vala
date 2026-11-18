@@ -13,25 +13,31 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.media.audio
+// import org.allbinary.logic.communication.log.LogUtil
+// import org.allbinary.string.CommonStrings
 
-using System;
-using System.Linq;
-using LogUtil = org.allbinary.logic.communication.log.LogUtil;
-using CommonStrings = org.allbinary.@string.CommonStrings;
-
-namespace org.allbinary.media.audio;
-
-public class AllBinaryMediaManagerShutdown
-{
-    private static readonly AllBinaryMediaManagerShutdown instance = new AllBinaryMediaManagerShutdown();
-    // throws Exception
-    public static void shutdown(SoundsFactoryInterface soundsFactoryInterface)
-    {
-        LogUtil logUtil = LogUtil.getInstance();
-        CommonStrings commonStrings = CommonStrings.getInstance();
-        logUtil.putF(commonStrings.START, instance, "shutdown");
-        AllBinaryMediaManager.shutdown(soundsFactoryInterface);
+public class AllBinaryMediaManagerShutdown : JObject {
+    private static AllBinaryMediaManagerShutdown? instance;
+    private static bool staticSet_instance = false;
+    private static AllBinaryMediaManagerShutdown staticGet_instance() {
+        if (!AllBinaryMediaManagerShutdown.staticSet_instance) {
+            AllBinaryMediaManagerShutdown.staticSet_instance = true;
+            AllBinaryMediaManagerShutdown.instance = new AllBinaryMediaManagerShutdown();
+        }
+        return AllBinaryMediaManagerShutdown.instance;
     }
 
+    public AllBinaryMediaManagerShutdown() {
+        base();
+    }
+    
+
+    public static void shutdown(SoundsFactoryInterface soundsFactoryInterface) {
+        LogUtil logUtil = LogUtil.getInstance();
+        CommonStrings commonStrings = CommonStrings.getInstance();
+        logUtil.putF(commonStrings.START, AllBinaryMediaManagerShutdown.staticGet_instance(), "shutdown");
+        AllBinaryMediaManager.shutdown(soundsFactoryInterface);
+    }
 }
 

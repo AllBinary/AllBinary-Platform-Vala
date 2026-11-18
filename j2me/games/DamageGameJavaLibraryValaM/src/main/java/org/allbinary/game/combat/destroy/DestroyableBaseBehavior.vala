@@ -13,35 +13,41 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.game.combat.destroy
+// import org.allbinary.string.CommonStrings
 
-using System;
-using System.Linq;
-using CommonStrings = org.allbinary.@string.CommonStrings;
-
-namespace org.allbinary.game.combat.destroy;
-
-public class DestroyableBaseBehavior : DestroyableInterface
-{
-    private static readonly DestroyableBaseBehavior instance = new DestroyableBaseBehavior();
-    public static DestroyableBaseBehavior getInstance()
-    {
+public class DestroyableBaseBehavior : JObject, DestroyableInterface, NamedInterface {
+    private static DestroyableBaseBehavior? instance;
+    private static bool staticSet_instance = false;
+    private static DestroyableBaseBehavior staticGet_instance() {
+        if (!DestroyableBaseBehavior.staticSet_instance) {
+            DestroyableBaseBehavior.staticSet_instance = true;
+            DestroyableBaseBehavior.instance = new DestroyableBaseBehavior();
+        }
         return DestroyableBaseBehavior.instance;
     }
 
-    public virtual string getName()
-    {
-        return this.GetType().FullName;
+    public DestroyableBaseBehavior() {
+        base();
     }
+    
 
-    // throws Exception
-    public virtual bool isDestroyed()
-    {
-        throw new Exception(CommonStrings.getInstance().NOT_IMPLEMENTED);
+    public static DestroyableBaseBehavior getInstance() {
+        return DestroyableBaseBehavior.staticGet_instance();
     }
+    
 
-    public virtual void setDestroyed(bool destroyed)
-    {
+    public virtual string getName() {
+        return JObject.className(this);
     }
+    
 
+    public virtual bool isDestroyed() {
+        JSystem.fatal(new JException("Exception", CommonStrings.getInstance().NOT_IMPLEMENTED));
+    }
+    
+
+    public virtual void setDestroyed(bool destroyed) {
+    }
 }
 

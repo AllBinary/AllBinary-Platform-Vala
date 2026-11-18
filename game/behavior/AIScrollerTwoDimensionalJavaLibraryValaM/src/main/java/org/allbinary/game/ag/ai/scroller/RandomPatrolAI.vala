@@ -13,35 +13,36 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.game.ag.ai.scroller
+// import javax.microedition.lcdui.Canvas
+// import org.allbinary.game.input.GameInput
+// import org.allbinary.game.rand.MyRandomFactory
+// import org.allbinary.layer.AllBinaryLayer
+// import org.allbinary.layer.AllBinaryLayerManager
+// import org.allbinary.util.ABHashtable
 
-using System;
-using System.Linq;
-using Canvas = javax.microedition.lcdui.Canvas;
-using GameInput = org.allbinary.game.input.GameInput;
-using MyRandomFactory = org.allbinary.game.rand.MyRandomFactory;
-using AllBinaryLayer = org.allbinary.layer.AllBinaryLayer;
-using AllBinaryLayerManager = org.allbinary.layer.AllBinaryLayerManager;
-using org.allbinary.util;
+public class RandomPatrolAI : BasePatrolAI {
+    private bool changedDirection;
 
-namespace org.allbinary.game.ag.ai.scroller;
+    // Java field initializers run after the base constructor
+    private void initFieldsRandomPatrolAI() {
+    this.changedDirection = true;
+    }
+    
 
-public class RandomPatrolAI : BasePatrolAI
-{
-    private bool changedDirection = true;
-    public RandomPatrolAI(ABHashtable<object, object> hashtable, AllBinaryLayer ownerLayerInterface, GameInput gameInput) : base(hashtable, ownerLayerInterface, gameInput)
-    {
-        // base(hashtable, ownerLayerInterface, gameInput) is called from the constructor declaration
+    public RandomPatrolAI(ABHashtable hashtable, AllBinaryLayer ownerLayerInterface, GameInput gameInput) {
+        base(hashtable, ownerLayerInterface, gameInput);
+        this.initFieldsRandomPatrolAI();
         this.updateRandomDistance();
     }
+    
 
-    private void updateRandomDistance()
-    {
-        this.currentDistance = MyRandomFactory.getInstance().getAbsoluteNextInt(global::java.lang.JavaNumber.intValue(this.maxDistance));
+    private void updateRandomDistance() {
+        this.currentDistance = MyRandomFactory.getInstance().getAbsoluteNextInt(this.maxDistance.intValue());
     }
+    
 
-    // throws Exception
-    public override void processAI(AllBinaryLayerManager allBinaryLayerManager)
-    {
+    public override void processAI(AllBinaryLayerManager allBinaryLayerManager) {
         base.update();
         base.processKeyAI(this.keyDirection);
         if (this.changedDirection) {
@@ -50,12 +51,11 @@ public class RandomPatrolAI : BasePatrolAI
             this.changedDirection = false;
         }
     }
+    
 
-    public override void nextDirection()
-    {
+    public override void nextDirection() {
         base.nextDirection();
         this.changedDirection = true;
     }
-
 }
 

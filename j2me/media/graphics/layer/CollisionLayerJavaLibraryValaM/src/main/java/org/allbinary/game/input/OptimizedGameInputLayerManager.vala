@@ -13,20 +13,15 @@
  * 
  */
 // Generated Code Do Not Modify
+// package org.allbinary.game.input
+// import org.allbinary.layer.LayerManager
+// import org.allbinary.layer.LayerManagerNoDebug
 
-using System;
-using System.Linq;
-using LayerManager = org.allbinary.layer.LayerManager;
-using LayerManagerNoDebug = org.allbinary.layer.LayerManagerNoDebug;
+public class OptimizedGameInputLayerManager : LayerManager {
+    
 
-namespace org.allbinary.game.input;
-
-public class OptimizedGameInputLayerManager : LayerManager
-{
-    public OptimizedGameInputLayerManager() : base(LayerManagerNoDebug.getInstance())
-    {
-        // base(LayerManagerNoDebug.getInstance()) is called from the constructor declaration
+    public OptimizedGameInputLayerManager() {
+        base(LayerManagerNoDebug.getInstance());
     }
-
 }
 

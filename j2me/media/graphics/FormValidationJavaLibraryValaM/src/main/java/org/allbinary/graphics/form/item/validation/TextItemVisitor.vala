@@ -13,29 +13,25 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.graphics.form.item.validation
+// import org.allbinary.logic.java.bool.BooleanFactory
+// import org.allbinary.logic.util.visitor.Visitor
 
-using System;
-using System.Linq;
-using BooleanFactory = org.allbinary.logic.java.@bool.BooleanFactory;
-using Visitor = org.allbinary.logic.util.visitor.Visitor;
+public class TextItemVisitor : Visitor {
+    
 
-namespace org.allbinary.graphics.form.item.validation;
-
-public class TextItemVisitor : Visitor
-{
-    public TextItemVisitor()
-    {
+    public TextItemVisitor() {
+        base();
     }
+    
 
-    public override object visit(object anyType)
-    {
-        string value = ((string) anyType);
-        if (value.Length < 2) {
-            return BooleanFactory.getInstance().TRUE;
+    public override JObject visit(JObject anyType) {
+        string value = JString.unbox(anyType);
+        if (JString.length(value) < 2) {
+            return BooleanFactory.getInstance().TRUE_;
         } else {
-            return BooleanFactory.getInstance().FALSE;
+            return BooleanFactory.getInstance().FALSE_;
         }
     }
-
 }
 

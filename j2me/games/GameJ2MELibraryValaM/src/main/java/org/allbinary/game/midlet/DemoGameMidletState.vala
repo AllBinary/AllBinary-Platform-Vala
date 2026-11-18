@@ -13,17 +13,13 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.game.midlet
 
-using System;
-using System.Linq;
+public class DemoGameMidletState : JObject {
+    
 
-namespace org.allbinary.game.midlet;
-
-public class DemoGameMidletState
-{
-    public DemoGameMidletState()
-    {
+    public DemoGameMidletState() {
+        base();
     }
-
 }
 

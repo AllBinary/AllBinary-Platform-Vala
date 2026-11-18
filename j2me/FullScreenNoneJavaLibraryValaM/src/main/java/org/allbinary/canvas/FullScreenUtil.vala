@@ -13,38 +13,45 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.canvas
+// import javax.microedition.lcdui.Canvas
+// import javax.microedition.lcdui.CommandListener
+// import org.allbinary.game.configuration.feature.Features
+// import org.allbinary.game.configuration.feature.MainFeatureFactory
 
-using System;
-using System.Linq;
-using Canvas = javax.microedition.lcdui.Canvas;
-using CommandListener = javax.microedition.lcdui.CommandListener;
-using Features = org.allbinary.game.configuration.feature.Features;
-using MainFeatureFactory = org.allbinary.game.configuration.feature.MainFeatureFactory;
-
-namespace org.allbinary.canvas;
-
-public class FullScreenUtil
-{
-    private static readonly FullScreenUtil instance = new FullScreenUtil();
-    public static FullScreenUtil getInstance()
-    {
+public class FullScreenUtil : JObject {
+    private static FullScreenUtil? instance;
+    private static bool staticSet_instance = false;
+    private static FullScreenUtil staticGet_instance() {
+        if (!FullScreenUtil.staticSet_instance) {
+            FullScreenUtil.staticSet_instance = true;
+            FullScreenUtil.instance = new FullScreenUtil();
+        }
         return FullScreenUtil.instance;
     }
 
-    // throws Exception
-    public void initOnRun(Canvas fullScreenInterface, CommandListener commandListener)
-    {
+    public FullScreenUtil() {
+        base();
+    }
+    
+
+    public static FullScreenUtil getInstance() {
+        return FullScreenUtil.staticGet_instance();
+    }
+    
+
+    public virtual void initOnRun(Canvas fullScreenInterface, CommandListener commandListener) {
         if (commandListener != null) {
             this.init(fullScreenInterface);
         }
     }
+    
 
-    public void init(Canvas fullScreenInterface)
-    {
+    public virtual void init(Canvas fullScreenInterface) {
     }
+    
 
-    public bool isScreenChange(bool isFullScreen)
-    {
+    public virtual bool isScreenChange(bool isFullScreen) {
         MainFeatureFactory mainFeatureFactory = MainFeatureFactory.getInstance();
         Features features = Features.getInstance();
         if (features.isFeature(mainFeatureFactory.FULL_SCREEN) != isFullScreen) {
@@ -52,11 +59,10 @@ public class FullScreenUtil
         }
         return false;
     }
+    
 
-    public bool isScreenChangeCanvas(Canvas fullScreenInterface)
-    {
+    public virtual bool isScreenChangeCanvas(Canvas fullScreenInterface) {
         return this.isScreenChange(false);
     }
-
 }
 

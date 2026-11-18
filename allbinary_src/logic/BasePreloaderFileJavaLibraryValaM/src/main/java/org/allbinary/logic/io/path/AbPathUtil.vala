@@ -13,20 +13,33 @@
  *   
  */
 // Generated Code Do Not Modify
+// package org.allbinary.logic.io.path
 
-using System;
-using System.Linq;
-
-namespace org.allbinary.logic.io.path;
-
-public class AbPathUtil
-{
-    private static readonly AbPathUtil instance = new AbPathUtil();
-    public static AbPathUtil getInstance()
-    {
+public class AbPathUtil : JObject {
+    private static AbPathUtil? instance;
+    private static bool staticSet_instance = false;
+    private static AbPathUtil staticGet_instance() {
+        if (!AbPathUtil.staticSet_instance) {
+            AbPathUtil.staticSet_instance = true;
+            AbPathUtil.instance = new AbPathUtil();
+        }
         return AbPathUtil.instance;
     }
+    public AbPath NO_ABPATH;
 
-    public readonly AbPath NO_ABPATH = AbPath.createAbPath();
+    // Java field initializers run after the base constructor
+    private void initFieldsAbPathUtil() {
+    this.NO_ABPATH = AbPath.createAbPath();
+    }
+
+    public AbPathUtil() {
+        base();
+        this.initFieldsAbPathUtil();
+    }
+    
+
+    public static AbPathUtil getInstance() {
+        return AbPathUtil.staticGet_instance();
+    }
 }
 

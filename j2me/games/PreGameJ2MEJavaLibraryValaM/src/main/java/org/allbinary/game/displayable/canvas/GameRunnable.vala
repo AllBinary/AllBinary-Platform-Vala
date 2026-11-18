@@ -13,33 +13,35 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.game.displayable.canvas
+// import org.allbinary.graphics.displayable.DisplayInfoSingleton
 
-using System;
-using System.Linq;
-using DisplayInfoSingleton = org.allbinary.graphics.displayable.DisplayInfoSingleton;
+public class GameRunnable : JObject, Runnable {
+    public int32 WAIT;
+    public int32 FAST;
+    public int64 waitInMillis;
 
-namespace org.allbinary.game.displayable.canvas;
-
-public class GameRunnable : global::java.lang.Runnable
-{
-    public readonly int WAIT = 240;
-    public readonly int FAST = 60;
-    public long waitInMillis;
-    public GameRunnable()
-    {
-        this.waitInMillis = ((long) this.WAIT);
+    // Java field initializers run after the base constructor
+    private void initFieldsGameRunnable() {
+    this.WAIT = 240;
+    this.FAST = 60;
+    this.waitInMillis = ((int64) (this.WAIT));
     }
+    
 
-    public virtual void run()
-    {
+    public GameRunnable() {
+        base();
+        this.initFieldsGameRunnable();
+    }
+    
+
+    public virtual void run() {
         DisplayInfoSingleton.getInstance().process();
     }
+    
 
-    // throws Exception
-    public virtual void processLoopSleep()
-    {
-        System.Threading.Thread.Sleep((int) (this.waitInMillis));
+    public virtual void processLoopSleep() {
+        Thread.sleep(this.waitInMillis);
     }
-
 }
 

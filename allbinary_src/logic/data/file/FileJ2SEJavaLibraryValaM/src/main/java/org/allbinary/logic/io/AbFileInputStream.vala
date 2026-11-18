@@ -13,35 +13,28 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.logic.io
+// import java.io.File
+// import java.io.FileInputStream
+// import java.io.FileNotFoundException
+// import org.allbinary.logic.io.file.AbFile
+// import org.allbinary.logic.io.file.AbFileNativeUtil
 
-using System;
-using System.Linq;
-using File = java.io.File;
-using FileInputStream = java.io.FileInputStream;
-//using FileNotFoundException = java.io.FileNotFoundException;
-using AbFile = org.allbinary.logic.io.file.AbFile;
-using AbFileNativeUtil = org.allbinary.logic.io.file.AbFileNativeUtil;
+public class AbFileInputStream : FileInputStream {
+    
 
-namespace org.allbinary.logic.io;
-
-public class AbFileInputStream : FileInputStream
-{
-    public AbFileInputStream(string name) : base(name)
-    {
-        // base(name) is called from the constructor declaration
+    public AbFileInputStream(string name) {
+        base(name);
     }
+    
 
-    // throws FileNotFoundException
-    public static AbFileInputStream createFromAbFile(AbFile file)
-    {
-        return new AbFileInputStream(AbFileNativeUtil.get(file).getPath());
+    public static AbFileInputStream createFromAbFile(AbFile file) {
+        return new AbFileInputStream(AbFileNativeUtil.@get(file).getPath());
     }
+    
 
-    // throws FileNotFoundException
-    public static AbFileInputStream createFromFile(File file)
-    {
+    public static AbFileInputStream createFromFile(File file) {
         return new AbFileInputStream(file.getPath());
     }
-
 }
 

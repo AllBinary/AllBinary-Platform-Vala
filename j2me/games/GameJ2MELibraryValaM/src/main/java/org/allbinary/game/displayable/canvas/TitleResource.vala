@@ -13,14 +13,13 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.game.displayable.canvas
 
-using System;
-using System.Linq;
-
-namespace org.allbinary.game.displayable.canvas;
-
-public class TitleResource
-{
+public class TitleResource : JObject {
     public const string RESOURCE_TITLE = "/title_sprite_100_by_100.png";
+
+    public TitleResource() {
+        base();
+    }
 }
 

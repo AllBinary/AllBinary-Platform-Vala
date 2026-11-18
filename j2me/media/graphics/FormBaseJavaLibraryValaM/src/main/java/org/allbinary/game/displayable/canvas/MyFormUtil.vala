@@ -13,43 +13,59 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.game.displayable.canvas
+// import javax.microedition.lcdui.Font
+// import javax.microedition.lcdui.Graphics
+// import org.allbinary.game.configuration.feature.Features
+// import org.allbinary.graphics.PointFactory
+// import org.allbinary.graphics.Rectangle
+// import org.allbinary.graphics.RectangleFactory
+// import org.allbinary.graphics.displayable.DisplayInfoSingleton
+// import org.allbinary.graphics.font.MyFontProcessor
+// import org.allbinary.graphics.opengles.OpenGLFeatureFactory
+// import org.allbinary.graphics.threed.SWTJOGLProcessor
+// import org.allbinary.logic.communication.log.LogUtil
+// import org.allbinary.string.CommonStrings
 
-using System;
-using System.Linq;
-using Font = javax.microedition.lcdui.Font;
-using Graphics = javax.microedition.lcdui.Graphics;
-using Features = org.allbinary.game.configuration.feature.Features;
-using PointFactory = org.allbinary.graphics.PointFactory;
-using Rectangle = org.allbinary.graphics.Rectangle;
-using RectangleFactory = org.allbinary.graphics.RectangleFactory;
-using DisplayInfoSingleton = org.allbinary.graphics.displayable.DisplayInfoSingleton;
-using MyFontProcessor = org.allbinary.graphics.font.MyFontProcessor;
-using OpenGLFeatureFactory = org.allbinary.graphics.opengles.OpenGLFeatureFactory;
-using SWTJOGLProcessor = org.allbinary.graphics.threed.SWTJOGLProcessor;
-using LogUtil = org.allbinary.logic.communication.log.LogUtil;
-using CommonStrings = org.allbinary.@string.CommonStrings;
-
-namespace org.allbinary.game.displayable.canvas;
-
-public class MyFormUtil
-{
-    private static readonly MyFormUtil instance = new MyFormUtil();
-    public static MyFormUtil getInstance()
-    {
+public class MyFormUtil : JObject {
+    private static MyFormUtil? instance;
+    private static bool staticSet_instance = false;
+    private static MyFormUtil staticGet_instance() {
+        if (!MyFormUtil.staticSet_instance) {
+            MyFormUtil.staticSet_instance = true;
+            MyFormUtil.instance = new MyFormUtil();
+        }
         return MyFormUtil.instance;
     }
+    public LogUtil logUtil;
+    private CommonStrings commonStrings;
+    private Rectangle popupMenuRectangle;
 
-    public readonly LogUtil logUtil = LogUtil.getInstance();
-    private readonly CommonStrings commonStrings = CommonStrings.getInstance();
-    private Rectangle popupMenuRectangle = RectangleFactory.SINGLETON;
-    public virtual void updateMeasurement(Graphics graphics)
-    {
+    // Java field initializers run after the base constructor
+    private void initFieldsMyFormUtil() {
+    this.logUtil = LogUtil.getInstance();
+    this.commonStrings = CommonStrings.getInstance();
+    this.popupMenuRectangle = RectangleFactory.SINGLETON;
+    }
+
+    public MyFormUtil() {
+        base();
+        this.initFieldsMyFormUtil();
+    }
+    
+
+    public static MyFormUtil getInstance() {
+        return MyFormUtil.staticGet_instance();
+    }
+    
+
+    public virtual void updateMeasurement(Graphics graphics) {
         Font font = graphics.getFont();
         DisplayInfoSingleton displayInfo = DisplayInfoSingleton.getInstance();
         Features features = Features.getInstance();
         bool isOpenGL = features.isDefault(OpenGLFeatureFactory.getInstance().OPENGL);
-        int TOTAL_CHAR_WIDTH = (SWTJOGLProcessor.getInstance().isJOGL() && isOpenGL ? 2 : 3);
-        int width = MyFontProcessor.defaultStringWidth(font, TOTAL_CHAR_WIDTH);
+        int32 TOTAL_CHAR_WIDTH = (SWTJOGLProcessor.getInstance().isJOGL() && isOpenGL ? 2 : 3);
+        int32 width = MyFontProcessor.defaultStringWidth(font, TOTAL_CHAR_WIDTH);
         PointFactory pointFactory = PointFactory.getInstance();
         if (displayInfo.getLastHeight() < 320) {
             this.popupMenuRectangle = new Rectangle(pointFactory.createXY(0, 25), width, (font.getHeight() * 4) + 2);
@@ -57,11 +73,10 @@ public class MyFormUtil
             this.popupMenuRectangle = new Rectangle(pointFactory.createXY(0, displayInfo.getLastHalfHeight() - 70), width, (font.getHeight() * 5));
         }
     }
+    
 
-    public virtual Rectangle getPopupMenuRectangle()
-    {
+    public virtual Rectangle getPopupMenuRectangle() {
         return this.popupMenuRectangle;
     }
-
 }
 

@@ -13,36 +13,30 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.input.motion.button
+// import org.allbinary.game.configuration.feature.Features
+// import org.allbinary.graphics.opengles.OpenGLFeatureFactory
+// import org.allbinary.image.opengles.OpenGLImageCacheFactory
 
-using System;
-using System.Linq;
-using Features = org.allbinary.game.configuration.feature.Features;
-using OpenGLFeatureFactory = org.allbinary.graphics.opengles.OpenGLFeatureFactory;
-using OpenGLImageCacheFactory = org.allbinary.image.opengles.OpenGLImageCacheFactory;
+public class TouchButtonResourceOpenGLESAnimationInterfaceFactoryInterfaceFactory : TouchButtonResourceAnimationInterfaceFactoryInterfaceFactory {
+    
 
-namespace org.allbinary.input.motion.button;
-
-public class TouchButtonResourceOpenGLESAnimationInterfaceFactoryInterfaceFactory : TouchButtonResourceAnimationInterfaceFactoryInterfaceFactory
-{
-    public TouchButtonResourceOpenGLESAnimationInterfaceFactoryInterfaceFactory() : base("OpenGL TouchButton Animations")
-    {
-        // base("OpenGL TouchButton Animations") is called from the constructor declaration
+    public TouchButtonResourceOpenGLESAnimationInterfaceFactoryInterfaceFactory() {
+        base("OpenGL TouchButton Animations");
     }
+    
 
-    // throws Exception
-    public override void init(int level)
-    {
+    public override void init(int32 level) {
         base.initImageCache(OpenGLImageCacheFactory.getInstance(), level);
     }
+    
 
-    public override bool isFeature()
-    {
+    public override bool isFeature() {
         if (Features.getInstance().isDefault(OpenGLFeatureFactory.getInstance().OPENGL)) {
             return true;
         } else {
             return false;
         }
     }
-
 }
 

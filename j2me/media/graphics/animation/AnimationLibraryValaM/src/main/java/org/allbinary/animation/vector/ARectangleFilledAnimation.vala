@@ -1,29 +1,31 @@
 // Generated Code Do Not Modify
+// package org.allbinary.animation.vector
+// import javax.microedition.lcdui.Graphics
+// import org.allbinary.graphics.color.BasicColorFactory
 
-using System;
-using System.Linq;
-using Graphics = javax.microedition.lcdui.Graphics;
-using BasicColorFactory = org.allbinary.graphics.color.BasicColorFactory;
+public class ARectangleFilledAnimation : RectangleFilledAnimation {
+    public int32 x;
+    public int32 y;
 
-namespace org.allbinary.animation.vector;
-
-public class ARectangleFilledAnimation : RectangleFilledAnimation
-{
-    public int x = 0;
-    public int y = 0;
-    public ARectangleFilledAnimation() : base(0, 0, BasicColorFactory.getInstance().BLACK)
-    {
-        // base(0, 0, BasicColorFactory.getInstance().BLACK) is called from the constructor declaration
+    // Java field initializers run after the base constructor
+    private void initFieldsARectangleFilledAnimation() {
+    this.x = 0;
+    this.y = 0;
     }
+    
 
-    public override void nextFrame()
-    {
+    public ARectangleFilledAnimation() {
+        base(0, 0, BasicColorFactory.getInstance().BLACK);
+        this.initFieldsARectangleFilledAnimation();
     }
+    
 
-    public override void paintXY(Graphics graphics, int unusedX, int unusedY)
-    {
+    public override void nextFrame() {
+    }
+    
+
+    public override void paintXY(Graphics graphics, int32 unusedX, int32 unusedY) {
         base.paintXY(graphics, this.x, this.y);
     }
-
 }
 

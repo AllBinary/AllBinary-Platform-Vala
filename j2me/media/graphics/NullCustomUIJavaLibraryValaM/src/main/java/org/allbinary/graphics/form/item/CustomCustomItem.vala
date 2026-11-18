@@ -1,29 +1,29 @@
 // Generated Code Do Not Modify
+// package org.allbinary.graphics.form.item
+// import javax.microedition.lcdui.Graphics
+// import org.allbinary.graphics.color.BasicColor
+// import org.allbinary.graphics.font.MyFontProcessor
+// import org.allbinary.graphics.font.UpdateMyFontInterface
+// import org.allbinary.graphics.font.UpdateMyFontProcessor
 
-using System;
-using System.Linq;
-using Graphics = javax.microedition.lcdui.Graphics;
-using BasicColor = org.allbinary.graphics.color.BasicColor;
-using MyFontProcessor = org.allbinary.graphics.font.MyFontProcessor;
-using UpdateMyFontInterface = org.allbinary.graphics.font.UpdateMyFontInterface;
-using UpdateMyFontProcessor = org.allbinary.graphics.font.UpdateMyFontProcessor;
-
-namespace org.allbinary.graphics.form.item;
-
-public class CustomCustomItem : ABCustomItem, UpdateMyFontInterface
-{
-    public readonly MyFontProcessor updateMyFontProcessor;
+public class CustomCustomItem : ABCustomItem, UpdateMyFontInterface {
+    public MyFontProcessor updateMyFontProcessor;
     public MyFontProcessor myFontProcessor;
-    public CustomCustomItem(string label, BasicColor backgroundBasicColor, BasicColor foregroundBasicColor) : base(label, backgroundBasicColor, foregroundBasicColor)
-    {
-        this.updateMyFontProcessor = new UpdateMyFontProcessor(this);
-        this.myFontProcessor = this.updateMyFontProcessor;
-        // base(label, backgroundBasicColor, foregroundBasicColor) is called from the constructor declaration
-    }
 
-    public virtual void updateMeasurement(Graphics graphics)
-    {
+    // Java field initializers run after the base constructor
+    private void initFieldsCustomCustomItem() {
+    this.updateMyFontProcessor = new UpdateMyFontProcessor(this);
+    this.myFontProcessor = this.updateMyFontProcessor;
     }
+    
 
+    public CustomCustomItem(string label, BasicColor backgroundBasicColor, BasicColor foregroundBasicColor) {
+        base(label, backgroundBasicColor, foregroundBasicColor);
+        this.initFieldsCustomCustomItem();
+    }
+    
+
+    public virtual void updateMeasurement(Graphics graphics) {
+    }
 }
 

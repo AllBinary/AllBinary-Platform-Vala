@@ -13,15 +13,11 @@
  *   
  */
 // Generated Code Do Not Modify
+// package org.allbinary.game.displayable.canvas
 
-using System;
-using System.Linq;
+public interface DemoPaintableInterface : JObject {
+    
 
-namespace org.allbinary.game.displayable.canvas;
-
-public interface DemoPaintableInterface
-{
-    void showGamePaintable();
-
+    public abstract void showGamePaintable();
 }
 

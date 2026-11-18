@@ -13,45 +13,53 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.game.layer.pickup
+// import org.allbinary.animation.Animation
+// import org.allbinary.animation.NullAnimationFactory
+// import org.allbinary.layer.AllBinaryLayer
+// import org.allbinary.string.CommonStrings
+// import org.allbinary.util.ABHashtable
+// import org.allbinary.util.BasicArrayList
 
-using System;
-using System.Linq;
-using Animation = org.allbinary.animation.Animation;
-using NullAnimationFactory = org.allbinary.animation.NullAnimationFactory;
-using AllBinaryLayer = org.allbinary.layer.AllBinaryLayer;
-using CommonStrings = org.allbinary.@string.CommonStrings;
-using org.allbinary.util;
-using BasicArrayList = org.allbinary.util.BasicArrayList;
+public class CountedPickedUpLayerInterfaceFactory : PickedUpLayerInterfaceFactory, CountedPickedUpLayerInterfaceFactoryInterface, PickedUpLayerInterfaceFactoryInterface, LayerInterfaceFactoryInterface {
+    public static CountedPickedUpLayerInterfaceFactory? NULL_COUNTED_PICKUP_LAYER_FACTORY;
+    private static bool staticSet_NULL_COUNTED_PICKUP_LAYER_FACTORY = false;
+    public static CountedPickedUpLayerInterfaceFactory staticGet_NULL_COUNTED_PICKUP_LAYER_FACTORY() {
+        if (!CountedPickedUpLayerInterfaceFactory.staticSet_NULL_COUNTED_PICKUP_LAYER_FACTORY) {
+            CountedPickedUpLayerInterfaceFactory.staticSet_NULL_COUNTED_PICKUP_LAYER_FACTORY = true;
+            CountedPickedUpLayerInterfaceFactory.NULL_COUNTED_PICKUP_LAYER_FACTORY = new CountedPickedUpLayerInterfaceFactory(PickedUpLayerTypeFactory.getInstance().NONE, IconLayer.NULL_ICON_LAYER, NullAnimationFactory.getFactoryInstance().getInstance1(0));
+        }
+        return CountedPickedUpLayerInterfaceFactory.NULL_COUNTED_PICKUP_LAYER_FACTORY;
+    }
+    private int32 id;
 
-namespace org.allbinary.game.layer.pickup;
+    // Java field initializers run after the base constructor
+    private void initFieldsCountedPickedUpLayerInterfaceFactory() {
+    
+    }
+    
 
-public class CountedPickedUpLayerInterfaceFactory : PickedUpLayerInterfaceFactory, CountedPickedUpLayerInterfaceFactoryInterface
-{
-    public static readonly CountedPickedUpLayerInterfaceFactory NULL_COUNTED_PICKUP_LAYER_FACTORY = new CountedPickedUpLayerInterfaceFactory(PickedUpLayerTypeFactory.getInstance().NONE, IconLayer.NULL_ICON_LAYER, NullAnimationFactory.getFactoryInstance().getInstance(0));
-    private readonly int id;
-    public CountedPickedUpLayerInterfaceFactory(PickedUpLayerType pickeUpLayerType, IconLayer iconLayer, Animation animationInterface) : base(pickeUpLayerType, iconLayer, animationInterface)
-    {
-        // base(pickeUpLayerType, iconLayer, animationInterface) is called from the constructor declaration
+    public CountedPickedUpLayerInterfaceFactory(PickedUpLayerType pickeUpLayerType, IconLayer iconLayer, Animation animationInterface) {
+        base(pickeUpLayerType, iconLayer, animationInterface);
+        this.initFieldsCountedPickedUpLayerInterfaceFactory();
         BasicArrayList list = CountedPickedUpLayerInterfaceFactoryPool.getInstance().getList();
         this.id = list.size();
         list.add(this);
     }
+    
 
-    // throws Exception
-    public virtual AllBinaryLayer getNextInstance(ABHashtable<object, object> hashtable, int x, int y, int z)
-    {
-        throw new Exception(CommonStrings.getInstance().NOT_IMPLEMENTED);
+    public virtual AllBinaryLayer getNextInstance(ABHashtable hashtable, int32 x, int32 y, int32 z) {
+        JSystem.fatal(new JException("Exception", CommonStrings.getInstance().NOT_IMPLEMENTED));
     }
+    
 
-    public virtual int getTotal()
-    {
+    public virtual int32 getTotal() {
         return -1;
     }
+    
 
-    public virtual int getId()
-    {
+    public virtual int32 getId() {
         return this.id;
     }
-
 }
 

@@ -13,20 +13,16 @@
  *   
  */
 // Generated Code Do Not Modify
+// package org.allbinary.media.audio
+// import javax.microedition.media.MediaException
+// import javax.microedition.media.TimeBase
 
-using System;
-using System.Linq;
-using MediaException = javax.microedition.media.MediaException;
-using TimeBase = javax.microedition.media.TimeBase;
+public interface TimeBaseInterface : JObject {
+    
 
-namespace org.allbinary.media.audio;
+    public abstract TimeBase getTimeBase();
+    
 
-public interface TimeBaseInterface
-{
-    TimeBase getTimeBase();
-
-    // throws MediaException
-    void setTimeBase(TimeBase timeBase);
-
+    public abstract void setTimeBase(TimeBase timeBase);
 }
 

@@ -13,71 +13,70 @@
  *  
  */
 // Generated Code Do Not Modify
-
-using System;
-using System.Linq;
-using Graphics = javax.microedition.lcdui.Graphics;
-using Image = javax.microedition.lcdui.Image;
-using AnimationBehavior = org.allbinary.animation.AnimationBehavior;
-using AngleInfo = org.allbinary.math.AngleInfo;
-
-namespace org.allbinary.animation.image;
+// package org.allbinary.animation.image
+// import javax.microedition.lcdui.Graphics
+// import javax.microedition.lcdui.Image
+// import org.allbinary.animation.AnimationBehavior
+// import org.allbinary.math.AngleInfo
 
 //TWB - Adjustments should be done in the resource creation and not at the animation level
-public class AdjustedImageArrayRotationAnimation : ImageArrayRotationAnimation
-{
-    // throws Exception
-    public static AdjustedImageArrayRotationAnimation createAdjustedImageArrayRotationAnimationInfo(object anyType, AnimationBehavior animationBehavior)
-    {
+public class AdjustedImageArrayRotationAnimation : ImageArrayRotationAnimation {
+    private int32 dx;
+    private int32 dy;
+
+    // Java field initializers run after the base constructor
+    private void initFieldsAdjustedImageArrayRotationAnimation() {
+    this.dx = 0;
+    this.dy = 0;
+    }
+    
+
+    public static AdjustedImageArrayRotationAnimation createAdjustedImageArrayRotationAnimationInfo(JObject anyType, AnimationBehavior animationBehavior) {
         ImageArrayRotationAnimationInfo imageRotationAnimationInfo = ((ImageArrayRotationAnimationInfo) anyType);
         return new AdjustedImageArrayRotationAnimation(imageRotationAnimationInfo.getImageArray(), imageRotationAnimationInfo.getAngleInfoP(), imageRotationAnimationInfo.getTotalAngle(), imageRotationAnimationInfo.getDx(), imageRotationAnimationInfo.getDy(), animationBehavior);
     }
+    
 
-    // throws Exception
-    public static AdjustedImageArrayRotationAnimation createAnimation(Image[] imageArray, AngleInfo angleInfo, int totalAngle, AnimationBehavior animationBehavior)
-    {
+    public static AdjustedImageArrayRotationAnimation createAnimation(Image[] imageArray, AngleInfo angleInfo, int32 totalAngle, AnimationBehavior animationBehavior) {
         return new AdjustedImageArrayRotationAnimation(imageArray, angleInfo, totalAngle, -(imageArray[0].getWidth() >> 2), -(imageArray[0].getHeight() >> 2), animationBehavior);
     }
+    
 
-    private int dx = 0;
-    private int dy = 0;
-    public AdjustedImageArrayRotationAnimation(Image[] imageArray, AngleInfo angleInfo, int totalAngle, int dx, int dy, AnimationBehavior animationBehavior) : base(imageArray, angleInfo, totalAngle, animationBehavior)
-    {
-        // base(imageArray, angleInfo, totalAngle, animationBehavior) is called from the constructor declaration
+    public AdjustedImageArrayRotationAnimation(Image[] imageArray, AngleInfo angleInfo, int32 totalAngle, int32 dx, int32 dy, AnimationBehavior animationBehavior) {
+        base(imageArray, angleInfo, totalAngle, animationBehavior);
+        this.initFieldsAdjustedImageArrayRotationAnimation();
         this.init(dx, dy);
     }
+    
 
-    // throws Exception
-    public virtual void init(int dx, int dy)
-    {
+    public virtual void init(int32 dx, int32 dy) {
         this.setDx(dx);
         this.setDy(dy);
     }
+    
 
-    public override void paintXY(Graphics graphics, int x, int y)
-    {
+    public override void paintXY(Graphics graphics, int32 x, int32 y) {
         base.paintXY(graphics, x + this.dx, y + this.dy);
     }
+    
 
-    public override void setDx(int dx)
-    {
+    public override void setDx(int32 dx) {
         this.dx = dx;
     }
+    
 
-    public override int getDx()
-    {
+    public override int32 getDx() {
         return this.dx;
     }
+    
 
-    public override void setDy(int dy)
-    {
+    public override void setDy(int32 dy) {
         this.dy = dy;
     }
+    
 
-    public override int getDy()
-    {
+    public override int32 getDy() {
         return this.dy;
     }
-
 }
 

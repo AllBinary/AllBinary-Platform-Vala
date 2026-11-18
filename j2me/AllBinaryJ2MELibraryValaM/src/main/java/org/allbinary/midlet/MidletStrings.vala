@@ -13,20 +13,33 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.midlet
 
-using System;
-using System.Linq;
-
-namespace org.allbinary.midlet;
-
-public class MidletStrings
-{
-    private static readonly MidletStrings instance = new MidletStrings();
-    public static MidletStrings getInstance()
-    {
+public class MidletStrings : JObject {
+    private static MidletStrings? instance;
+    private static bool staticSet_instance = false;
+    private static MidletStrings staticGet_instance() {
+        if (!MidletStrings.staticSet_instance) {
+            MidletStrings.staticSet_instance = true;
+            MidletStrings.instance = new MidletStrings();
+        }
         return MidletStrings.instance;
     }
+    public string COMMAND_ACTION;
 
-    public readonly string COMMAND_ACTION = "commandAction";
+    // Java field initializers run after the base constructor
+    private void initFieldsMidletStrings() {
+    this.COMMAND_ACTION = "commandAction";
+    }
+
+    public MidletStrings() {
+        base();
+        this.initFieldsMidletStrings();
+    }
+    
+
+    public static MidletStrings getInstance() {
+        return MidletStrings.staticGet_instance();
+    }
 }
 

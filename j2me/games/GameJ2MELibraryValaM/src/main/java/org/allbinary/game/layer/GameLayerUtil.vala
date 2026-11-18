@@ -13,36 +13,32 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.game.layer
+// import org.allbinary.graphics.displayable.DisplayInfoSingleton
+// import org.allbinary.layer.AllBinaryLayer
+// import org.allbinary.view.ViewPositionBase
 
-using System;
-using System.Linq;
-using DisplayInfoSingleton = org.allbinary.graphics.displayable.DisplayInfoSingleton;
-using AllBinaryLayer = org.allbinary.layer.AllBinaryLayer;
-using ViewPositionBase = org.allbinary.view.ViewPositionBase;
+public class GameLayerUtil : JObject {
+    
 
-namespace org.allbinary.game.layer;
-
-public class GameLayerUtil
-{
-    private GameLayerUtil()
-    {
+    public GameLayerUtil() {
+        base();
     }
+    
 
-    public static bool isOnScreen(AllBinaryLayer layer)
-    {
+    public static bool isOnScreen(AllBinaryLayer layer) {
         DisplayInfoSingleton displayInfo = DisplayInfoSingleton.getInstance();
         ViewPositionBase viewPosition = layer.getViewPosition();
         return GameLayerUtil.isInside(viewPosition.getX(), viewPosition.getY(), viewPosition.getX2(), viewPosition.getY2(), 0, 0, displayInfo.getLastWidth(), displayInfo.getLastHeight());
     }
+    
 
-    public static bool isInside(int rectX1, int rectY1, int rectX2, int rectY2, int rect2X1, int rect2Y1, int rect2X2, int rect2Y2)
-    {
+    public static bool isInside(int32 rectX1, int32 rectY1, int32 rectX2, int32 rectY2, int32 rect2X1, int32 rect2Y1, int32 rect2X2, int32 rect2Y2) {
         if (rectX1 > rect2X1 && rectX2 < rect2X2 && rectY1 > rect2Y1 && rectY2 < rect2Y2) {
             return true;
         } else {
             return false;
         }
     }
-
 }
 

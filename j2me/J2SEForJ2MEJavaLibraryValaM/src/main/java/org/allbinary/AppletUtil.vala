@@ -13,29 +13,25 @@
  *  
  */
 // Generated Code Do Not Modify
-
-using System;
-using System.Linq;
-
-namespace org.allbinary;
+// package org.allbinary
 
 //import org.allbinary.logic.communication.log.PreLogUtil;
-public class AppletUtil
-{
-    private AppletUtil()
-    {
-    }
-
+public class AppletUtil : JObject {
     private static bool applet = false;
-    public static void setApplet()
-    {
+    
+
+    public AppletUtil() {
+        base();
+    }
+    
+
+    public static void setApplet() {
         AppletUtil.applet = true;
     }
+    
 
-    public static bool isAppletLoader(object anyType)
-    {
+    public static bool isAppletLoader(JObject anyType) {
         return AppletUtil.applet;
     }
-
 }
 

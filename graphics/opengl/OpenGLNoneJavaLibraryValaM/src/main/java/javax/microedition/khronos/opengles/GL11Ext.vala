@@ -1,73 +1,89 @@
 // Generated Code Do Not Modify
+// package javax.microedition.khronos.opengles
+// import java.nio.Buffer
+// import java.nio.FloatBuffer
+// import java.nio.IntBuffer
+// import java.nio.ShortBuffer
 
-using System;
-using System.Linq;
-using Buffer = java.nio.Buffer;
-using FloatBuffer = java.nio.FloatBuffer;
-using IntBuffer = java.nio.IntBuffer;
-using ShortBuffer = java.nio.ShortBuffer;
+public interface GL11Ext : JObject, GL {
+    public const int32 GL_MATRIX_INDEX_ARRAY_BUFFER_BINDING_OES = 35742;
+    public const int32 GL_MATRIX_INDEX_ARRAY_OES = 34884;
+    public const int32 GL_MATRIX_INDEX_ARRAY_POINTER_OES = 34889;
+    public const int32 GL_MATRIX_INDEX_ARRAY_SIZE_OES = 34886;
+    public const int32 GL_MATRIX_INDEX_ARRAY_STRIDE_OES = 34888;
+    public const int32 GL_MATRIX_INDEX_ARRAY_TYPE_OES = 34887;
+    public const int32 GL_MATRIX_PALETTE_OES = 34880;
+    public const int32 GL_MAX_PALETTE_MATRICES_OES = 34882;
+    public const int32 GL_MAX_VERTEX_UNITS_OES = 34468;
+    public const int32 GL_TEXTURE_CROP_RECT_OES = 35741;
+    public const int32 GL_WEIGHT_ARRAY_BUFFER_BINDING_OES = 34974;
+    public const int32 GL_WEIGHT_ARRAY_OES = 34477;
+    public const int32 GL_WEIGHT_ARRAY_POINTER_OES = 34476;
+    public const int32 GL_WEIGHT_ARRAY_SIZE_OES = 34475;
+    public const int32 GL_WEIGHT_ARRAY_STRIDE_OES = 34474;
+    public const int32 GL_WEIGHT_ARRAY_TYPE_OES = 34473;
+    
 
-namespace javax.microedition.khronos.opengles;
+    public abstract void glTexParameterfv(int32 target, int32 pname, float[] param, int32 offset);
+    
 
-public interface GL11Ext : GL
-{
-    public const int GL_MATRIX_INDEX_ARRAY_BUFFER_BINDING_OES = 35742;
-    public const int GL_MATRIX_INDEX_ARRAY_OES = 34884;
-    public const int GL_MATRIX_INDEX_ARRAY_POINTER_OES = 34889;
-    public const int GL_MATRIX_INDEX_ARRAY_SIZE_OES = 34886;
-    public const int GL_MATRIX_INDEX_ARRAY_STRIDE_OES = 34888;
-    public const int GL_MATRIX_INDEX_ARRAY_TYPE_OES = 34887;
-    public const int GL_MATRIX_PALETTE_OES = 34880;
-    public const int GL_MAX_PALETTE_MATRICES_OES = 34882;
-    public const int GL_MAX_VERTEX_UNITS_OES = 34468;
-    public const int GL_TEXTURE_CROP_RECT_OES = 35741;
-    public const int GL_WEIGHT_ARRAY_BUFFER_BINDING_OES = 34974;
-    public const int GL_WEIGHT_ARRAY_OES = 34477;
-    public const int GL_WEIGHT_ARRAY_POINTER_OES = 34476;
-    public const int GL_WEIGHT_ARRAY_SIZE_OES = 34475;
-    public const int GL_WEIGHT_ARRAY_STRIDE_OES = 34474;
-    public const int GL_WEIGHT_ARRAY_TYPE_OES = 34473;
-    void glTexParameterfv(int target, int pname, float[] param, int offset);
+    public abstract void glCurrentPaletteMatrixOES(int32 matrixpaletteindex);
+    
 
-    void glCurrentPaletteMatrixOES(int matrixpaletteindex);
+    public abstract void glDrawTexfOES(float x, float y, float z, float width, float height);
+    
 
-    void glDrawTexfOES(float x, float y, float z, float width, float height);
+    public abstract void glDrawTexfvOES_2(float[] coords, int32 offset);
+    
 
-    void glDrawTexfvOES(float[] coords, int offset);
+    public abstract void glDrawTexfvOES_1(FloatBuffer coords);
+    
 
-    void glDrawTexfvOES(FloatBuffer coords);
+    public abstract void glDrawTexiOES(int32 x, int32 y, int32 z, int32 width, int32 height);
+    
 
-    void glDrawTexiOES(int x, int y, int z, int width, int height);
+    public abstract void glDrawTexivOES_2(int32[] coords, int32 offset);
+    
 
-    void glDrawTexivOES(int[] coords, int offset);
+    public abstract void glDrawTexivOES_1(IntBuffer coords);
+    
 
-    void glDrawTexivOES(IntBuffer coords);
+    public abstract void glDrawTexsOES(int16 x, int16 y, int16 z, int16 width, int16 height);
+    
 
-    void glDrawTexsOES(short x, short y, short z, short width, short height);
+    public abstract void glDrawTexsvOES_2(int16[] coords, int32 offset);
+    
 
-    void glDrawTexsvOES(short[] coords, int offset);
+    public abstract void glDrawTexsvOES_1(ShortBuffer coords);
+    
 
-    void glDrawTexsvOES(ShortBuffer coords);
+    public abstract void glDrawTexxOES(int32 x, int32 y, int32 z, int32 width, int32 height);
+    
 
-    void glDrawTexxOES(int x, int y, int z, int width, int height);
+    public abstract void glDrawTexxvOES_2(int32[] coords, int32 offset);
+    
 
-    void glDrawTexxvOES(int[] coords, int offset);
+    public abstract void glDrawTexxvOES_1(IntBuffer coords);
+    
 
-    void glDrawTexxvOES(IntBuffer coords);
+    public abstract void glEnable(int32 cap);
+    
 
-    void glEnable(int cap);
+    public abstract void glEnableClientState(int32 array);
+    
 
-    void glEnableClientState(int array);
+    public abstract void glLoadPaletteFromModelViewMatrixOES();
+    
 
-    void glLoadPaletteFromModelViewMatrixOES();
+    public abstract void glMatrixIndexPointerOES_4_intintintBuffer(int32 size, int32 type, int32 stride, Buffer pointer);
+    
 
-    void glMatrixIndexPointerOES(int size, int type, int stride, Buffer pointer);
+    public abstract void glMatrixIndexPointerOES_4_intintintint(int32 size, int32 type, int32 stride, int32 offset);
+    
 
-    void glMatrixIndexPointerOES(int size, int type, int stride, int offset);
+    public abstract void glWeightPointerOES_4_intintintBuffer(int32 size, int32 type, int32 stride, Buffer pointer);
+    
 
-    void glWeightPointerOES(int size, int type, int stride, Buffer pointer);
-
-    void glWeightPointerOES(int size, int type, int stride, int offset);
-
+    public abstract void glWeightPointerOES_4_intintintint(int32 size, int32 type, int32 stride, int32 offset);
 }
 

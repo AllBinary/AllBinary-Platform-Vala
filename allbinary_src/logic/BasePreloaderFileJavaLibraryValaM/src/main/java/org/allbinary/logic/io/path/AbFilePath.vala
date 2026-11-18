@@ -13,24 +13,19 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.logic.io.path
+// import org.allbinary.logic.string.StringUtil
 
-using System;
-using System.Linq;
-using StringUtil = org.allbinary.logic.@string.StringUtil;
+public class AbFilePath : AbPath {
+    
 
-namespace org.allbinary.logic.io.path;
-
-public class AbFilePath : AbPath
-{
-    public AbFilePath(string aPath) : base(StringUtil.getInstance().EMPTY_STRING, StringUtil.getInstance().EMPTY_STRING)
-    {
-        // base(StringUtil.getInstance().EMPTY_STRING, StringUtil.getInstance().EMPTY_STRING) is called from the constructor declaration
+    public AbFilePath(string aPath) {
+        base(StringUtil.getInstance().EMPTY_STRING, StringUtil.getInstance().EMPTY_STRING);
         AbPathData pathData = AbPathData.getInstance();
         PathUtil abPathUtil = PathUtil.getInstance();
         this.schema = this.getSchema(aPath);
         this.setName(pathData.getNameFromPath(aPath));
-        this.setPath(abPathUtil.adjust(this.getPathFromPath(abPathUtil.removeNameFromPath(aPath).ToString())));
+        this.setPath(abPathUtil.adjust(this.getPathFromPath(abPathUtil.removeNameFromPath(aPath).toString())));
     }
-
 }
 

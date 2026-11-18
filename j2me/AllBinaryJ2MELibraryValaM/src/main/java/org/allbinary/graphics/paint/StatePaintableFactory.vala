@@ -13,19 +13,26 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.graphics.paint
 
-using System;
-using System.Linq;
-
-namespace org.allbinary.graphics.paint;
-
-public class StatePaintableFactory
-{
-    private static readonly StatePaintable instance = new StatePaintable();
-    public static StatePaintable getInstance()
-    {
+public class StatePaintableFactory : JObject {
+    private static StatePaintable? instance;
+    private static bool staticSet_instance = false;
+    private static StatePaintable staticGet_instance() {
+        if (!StatePaintableFactory.staticSet_instance) {
+            StatePaintableFactory.staticSet_instance = true;
+            StatePaintableFactory.instance = new StatePaintable();
+        }
         return StatePaintableFactory.instance;
     }
 
+    public StatePaintableFactory() {
+        base();
+    }
+    
+
+    public static StatePaintable getInstance() {
+        return StatePaintableFactory.staticGet_instance();
+    }
 }
 

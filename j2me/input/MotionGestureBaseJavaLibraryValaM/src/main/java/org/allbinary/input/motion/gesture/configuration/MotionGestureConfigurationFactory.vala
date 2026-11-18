@@ -13,23 +13,27 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.input.motion.gesture.configuration
 
-using System;
-using System.Linq;
-
-namespace org.allbinary.input.motion.gesture.configuration;
-
-public class MotionGestureConfigurationFactory
-{
-    private static MotionGestureConfiguration config = new MotionGestureConfiguration();
-    public MotionGestureConfigurationFactory()
-    {
-    }
-
-    public static MotionGestureConfiguration getInstance()
-    {
+public class MotionGestureConfigurationFactory : JObject {
+    private static MotionGestureConfiguration? config;
+    private static bool staticSet_config = false;
+    private static MotionGestureConfiguration staticGet_config() {
+        if (!MotionGestureConfigurationFactory.staticSet_config) {
+            MotionGestureConfigurationFactory.staticSet_config = true;
+            MotionGestureConfigurationFactory.config = new MotionGestureConfiguration();
+        }
         return MotionGestureConfigurationFactory.config;
     }
+    
 
+    public MotionGestureConfigurationFactory() {
+        base();
+    }
+    
+
+    public static MotionGestureConfiguration getInstance() {
+        return MotionGestureConfigurationFactory.staticGet_config();
+    }
 }
 

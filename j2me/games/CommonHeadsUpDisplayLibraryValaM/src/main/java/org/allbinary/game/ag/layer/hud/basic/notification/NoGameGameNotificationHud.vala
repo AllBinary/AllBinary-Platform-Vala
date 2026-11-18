@@ -13,22 +13,17 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.game.ag.layer.hud.basic.notification
+// import org.allbinary.game.graphics.hud.BasicHudFactory
+// import org.allbinary.graphics.color.BasicColorFactory
 
-using System;
-using System.Linq;
-using BasicHudFactory = org.allbinary.game.graphics.hud.BasicHudFactory;
-using BasicColorFactory = org.allbinary.graphics.color.BasicColorFactory;
+public class NoGameGameNotificationHud : GameNotificationHud {
+    
 
-namespace org.allbinary.game.ag.layer.hud.basic.notification;
-
-public class NoGameGameNotificationHud : GameNotificationHud
-{
-    public NoGameGameNotificationHud() : base(BasicHudFactory.getInstance().TOPCENTER, BasicHudFactory.getInstance().HORIZONTAL, 2, BasicColorFactory.getInstance().RED)
-    {
-        // base(BasicHudFactory.getInstance().TOPCENTER, BasicHudFactory.getInstance().HORIZONTAL, 2, BasicColorFactory.getInstance().RED) is called from the constructor declaration
+    public NoGameGameNotificationHud() {
+        base(BasicHudFactory.getInstance().TOPCENTER, BasicHudFactory.getInstance().HORIZONTAL, 2, BasicColorFactory.getInstance().RED);
         this.updateMaxWidth = 40;
         this.updateMaxHeight = 14;
     }
-
 }
 

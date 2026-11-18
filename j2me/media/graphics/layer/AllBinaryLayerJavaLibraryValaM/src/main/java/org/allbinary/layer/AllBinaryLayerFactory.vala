@@ -13,27 +13,29 @@
  *   
  */
 // Generated Code Do Not Modify
+// package org.allbinary.layer
+// import org.allbinary.graphics.Rectangle
+// import org.allbinary.logic.string.StringUtil
+// import org.allbinary.view.ViewPosition
 
-using System;
-using System.Linq;
-using Rectangle = org.allbinary.graphics.Rectangle;
-using StringUtil = org.allbinary.logic.@string.StringUtil;
-using ViewPosition = org.allbinary.view.ViewPosition;
+public class AllBinaryLayerFactory : JObject, AllBinaryLayerFactoryInterface {
+    private Rectangle rectangle;
 
-namespace org.allbinary.layer;
+    // Java field initializers run after the base constructor
+    private void initFieldsAllBinaryLayerFactory() {
+    
+    }
+    
 
-public class AllBinaryLayerFactory : AllBinaryLayerFactoryInterface
-{
-    private readonly Rectangle rectangle;
-    public AllBinaryLayerFactory(Rectangle rectangle)
-    {
+    public AllBinaryLayerFactory(Rectangle rectangle) {
+        base();
+        this.initFieldsAllBinaryLayerFactory();
         this.rectangle = rectangle;
     }
+    
 
-    public virtual AllBinaryLayer getInstance()
-    {
+    public virtual AllBinaryLayer getInstance() {
         return new AllBinaryLayer(StringUtil.getInstance().EMPTY_STRING, this.rectangle, ViewPosition.getInstanceD());
     }
-
 }
 

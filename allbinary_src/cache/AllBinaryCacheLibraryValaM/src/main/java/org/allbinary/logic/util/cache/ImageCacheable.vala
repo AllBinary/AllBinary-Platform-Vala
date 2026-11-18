@@ -13,29 +13,31 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.logic.util.cache
+// import org.allbinary.logic.string.StringUtil
 
-using System;
-using System.Linq;
-using StringUtil = org.allbinary.logic.@string.StringUtil;
+public class ImageCacheable : JObject {
+    private string name;
 
-namespace org.allbinary.logic.util.cache;
-
-public class ImageCacheable
-{
-    private string name = StringUtil.getInstance().EMPTY_STRING;
-    public ImageCacheable(string name, object anyType)
-    {
+    // Java field initializers run after the base constructor
+    private void initFieldsImageCacheable() {
+    this.name = StringUtil.getInstance().EMPTY_STRING;
     }
+    
 
-    public virtual object getKey()
-    {
+    public ImageCacheable(string name, JObject anyType) {
+        base();
+        this.initFieldsImageCacheable();
+    }
+    
+
+    public virtual JObject getKey() {
         return this.name;
     }
+    
 
-    public override string ToString()
-    {
+    public override string toString() {
         return this.name;
     }
-
 }
 

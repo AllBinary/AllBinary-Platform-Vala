@@ -13,33 +13,34 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.game.init
+// import javax.microedition.lcdui.CommandListener
+// import org.allbinary.game.resource.ResourceInitialization
+// import org.allbinary.game.resource.ResourceLoadingLevelFactory
+// import org.allbinary.graphics.PointFactory
+// import org.allbinary.graphics.canvas.transition.progress.ProgressCanvas
+// import org.allbinary.graphics.canvas.transition.progress.ProgressCanvasFactory
+// import org.allbinary.logic.math.SmallIntegerSingletonFactory
+// import org.allbinary.logic.system.security.licensing.AbeClientInformationInterface
+// import org.allbinary.math.AngleFactory
+// import org.allbinary.string.CommonStrings
 
-using System;
-using System.Linq;
-using CommandListener = javax.microedition.lcdui.CommandListener;
-using ResourceInitialization = org.allbinary.game.resource.ResourceInitialization;
-using ResourceLoadingLevelFactory = org.allbinary.game.resource.ResourceLoadingLevelFactory;
-using PointFactory = org.allbinary.graphics.PointFactory;
-using ProgressCanvas = org.allbinary.graphics.canvas.transition.progress.ProgressCanvas;
-using ProgressCanvasFactory = org.allbinary.graphics.canvas.transition.progress.ProgressCanvasFactory;
-using SmallIntegerSingletonFactory = org.allbinary.logic.math.SmallIntegerSingletonFactory;
-using AbeClientInformationInterface = org.allbinary.logic.system.security.licensing.AbeClientInformationInterface;
-using AngleFactory = org.allbinary.math.AngleFactory;
-using CommonStrings = org.allbinary.@string.CommonStrings;
+public class CommonGameInitialization : BaseGameInitialization {
+    public CommonStrings commonStrings;
 
-namespace org.allbinary.game.init;
-
-public class CommonGameInitialization : BaseGameInitialization
-{
-    public readonly CommonStrings commonStrings = CommonStrings.getInstance();
-    public CommonGameInitialization(ResourceInitialization[] resourceInitializationArray, int portion) : base(resourceInitializationArray, portion)
-    {
-        // base(resourceInitializationArray, portion) is called from the constructor declaration
+    // Java field initializers run after the base constructor
+    private void initFieldsCommonGameInitialization() {
+    this.commonStrings = CommonStrings.getInstance();
     }
+    
 
-    // throws Exception
-    public override void init(AbeClientInformationInterface abeClientInformation, CommandListener commandListener, int level)
-    {
+    public CommonGameInitialization(ResourceInitialization[] resourceInitializationArray, int32 portion) {
+        base(resourceInitializationArray, portion);
+        this.initFieldsCommonGameInitialization();
+    }
+    
+
+    public override void init(AbeClientInformationInterface abeClientInformation, CommandListener commandListener, int32 level) {
         base.init(abeClientInformation, commandListener, level);
         ResourceLoadingLevelFactory resourceLoadingLevelFactory = ResourceLoadingLevelFactory.getInstance();
         if (!this.isGameInitialized() && level == resourceLoadingLevelFactory.LOAD_ALL.getLevel()) {
@@ -56,12 +57,10 @@ public class CommonGameInitialization : BaseGameInitialization
         }
         base.resourceInitialization(level);
     }
+    
 
-    // throws Exception
-    public virtual void initGame()
-    {
-        throw new Exception(this.commonStrings.NOT_IMPLEMENTED);
+    public virtual void initGame() {
+        JSystem.fatal(new JException("Exception", this.commonStrings.NOT_IMPLEMENTED));
     }
-
 }
 

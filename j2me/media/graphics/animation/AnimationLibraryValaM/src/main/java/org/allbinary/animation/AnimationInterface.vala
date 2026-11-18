@@ -13,20 +13,16 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.animation
+// import javax.microedition.lcdui.Graphics
+// import org.allbinary.graphics.paint.LocationPaintableInterface
 
-using System;
-using System.Linq;
-using Graphics = javax.microedition.lcdui.Graphics;
-using LocationPaintableInterface = org.allbinary.graphics.paint.LocationPaintableInterface;
+public interface AnimationInterface : JObject, LocationPaintableInterface {
+    
 
-namespace org.allbinary.animation;
+    public abstract void nextFrame();
+    
 
-public interface AnimationInterface : LocationPaintableInterface
-{
-    // throws Exception
-    void nextFrame();
-
-    void paintThreedXYZ(Graphics graphics, int x, int y, int z);
-
+    public abstract void paintThreedXYZ(Graphics graphics, int32 x, int32 y, int32 z);
 }
 

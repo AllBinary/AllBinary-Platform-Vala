@@ -13,15 +13,11 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.layer
 
-using System;
-using System.Linq;
+public interface NamedInterface : JObject {
+    
 
-namespace org.allbinary.layer;
-
-public interface NamedInterface
-{
-    string getName();
-
+    public abstract string getName();
 }
 

@@ -13,19 +13,26 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.game.ag.ai
 
-using System;
-using System.Linq;
-
-namespace org.allbinary.game.ag.ai;
-
-public class LastKeyAIVisitorFactory
-{
-    private static readonly LastKeyAIVisitor instance = new LastKeyAIVisitor();
-    public static LastKeyAIVisitor getInstance()
-    {
+public class LastKeyAIVisitorFactory : JObject {
+    private static LastKeyAIVisitor? instance;
+    private static bool staticSet_instance = false;
+    private static LastKeyAIVisitor staticGet_instance() {
+        if (!LastKeyAIVisitorFactory.staticSet_instance) {
+            LastKeyAIVisitorFactory.staticSet_instance = true;
+            LastKeyAIVisitorFactory.instance = new LastKeyAIVisitor();
+        }
         return LastKeyAIVisitorFactory.instance;
     }
 
+    public LastKeyAIVisitorFactory() {
+        base();
+    }
+    
+
+    public static LastKeyAIVisitor getInstance() {
+        return LastKeyAIVisitorFactory.staticGet_instance();
+    }
 }
 

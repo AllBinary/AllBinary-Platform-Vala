@@ -13,33 +13,48 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.game.input
+// import org.allbinary.game.input.mapping.InputToGameKeyMapping
+// import org.allbinary.input.motion.button.BasicTouchInputFactory
+// import org.allbinary.logic.NullUtil
+// import org.allbinary.logic.communication.log.LogUtil
+// import org.allbinary.string.CommonStrings
 
-using System;
-using System.Linq;
-using InputToGameKeyMapping = org.allbinary.game.input.mapping.InputToGameKeyMapping;
-using BasicTouchInputFactory = org.allbinary.input.motion.button.BasicTouchInputFactory;
-using NullUtil = org.allbinary.logic.NullUtil;
-using LogUtil = org.allbinary.logic.communication.log.LogUtil;
-using CommonStrings = org.allbinary.@string.CommonStrings;
-
-namespace org.allbinary.game.input;
-
-public class PlatformFormInputMappingFactory
-{
-    private static object instance = NullUtil.getInstance().NULL_OBJECT;
-    public static PlatformFormInputMappingFactory getInstance()
-    {
-        if (PlatformFormInputMappingFactory.instance == NullUtil.getInstance().NULL_OBJECT) {
-            PlatformFormInputMappingFactory.instance = new PlatformFormInputMappingFactory();
+public class PlatformFormInputMappingFactory : JObject {
+    private static JObject? instance;
+    private static bool staticSet_instance = false;
+    private static JObject staticGet_instance() {
+        if (!PlatformFormInputMappingFactory.staticSet_instance) {
+            PlatformFormInputMappingFactory.staticSet_instance = true;
+            PlatformFormInputMappingFactory.instance = NullUtil.getInstance().NULL_OBJECT;
         }
-        return ((PlatformFormInputMappingFactory) PlatformFormInputMappingFactory.instance);
+        return PlatformFormInputMappingFactory.instance;
+    }
+    public LogUtil logUtil;
+    private InputToGameKeyMapping inputToGameKeyMapping;
+
+    // Java field initializers run after the base constructor
+    private void initFieldsPlatformFormInputMappingFactory() {
+    this.logUtil = LogUtil.getInstance();
+    this.inputToGameKeyMapping = InputToGameKeyMapping.getNullInstance();
     }
 
-    public readonly LogUtil logUtil = LogUtil.getInstance();
-    private InputToGameKeyMapping inputToGameKeyMapping = InputToGameKeyMapping.getNullInstance();
-    public virtual InputToGameKeyMapping getOrCreate()
-    {
-        try {
+    public PlatformFormInputMappingFactory() {
+        base();
+        this.initFieldsPlatformFormInputMappingFactory();
+    }
+    
+
+    public static PlatformFormInputMappingFactory getInstance() {
+        if (PlatformFormInputMappingFactory.staticGet_instance() == NullUtil.getInstance().NULL_OBJECT) {
+            PlatformFormInputMappingFactory.instance = new PlatformFormInputMappingFactory();
+        }
+        return ((PlatformFormInputMappingFactory) PlatformFormInputMappingFactory.staticGet_instance());
+    }
+    
+
+    public virtual InputToGameKeyMapping getOrCreate() {
+        {
             if (this.inputToGameKeyMapping == InputToGameKeyMapping.getNullInstance()) {
                 PCKeyFactory pcKeyFactory = PCKeyFactory.getInstance();
                 InputToGameKeyMapping inputToGameKeyMapping = new InputToGameKeyMapping();
@@ -56,12 +71,8 @@ public class PlatformFormInputMappingFactory
                 inputToGameKeyMapping.add(gameKeyFactory.DOWN, basicTouchInputFactory.DOWN);
                 this.inputToGameKeyMapping = inputToGameKeyMapping;
             }
-        } catch (Exception e) {
-            CommonStrings commonStrings = CommonStrings.getInstance();
-            this.logUtil.put(commonStrings.EXCEPTION, this, commonStrings.GET_INSTANCE, e);
-        }
+        } /* catch (Exception e): a thrown Java exception stops the program */
         return this.inputToGameKeyMapping;
     }
-
 }
 

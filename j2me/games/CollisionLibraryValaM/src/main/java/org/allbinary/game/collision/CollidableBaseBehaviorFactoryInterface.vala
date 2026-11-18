@@ -13,15 +13,11 @@
  *   
  */
 // Generated Code Do Not Modify
+// package org.allbinary.game.collision
 
-using System;
-using System.Linq;
+public interface CollidableBaseBehaviorFactoryInterface : JObject {
+    
 
-namespace org.allbinary.game.collision;
-
-public interface CollidableBaseBehaviorFactoryInterface
-{
-    CollidableBaseBehavior createBehavior();
-
+    public abstract CollidableBaseBehavior createBehavior();
 }
 

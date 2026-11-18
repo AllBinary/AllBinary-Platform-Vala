@@ -13,27 +13,23 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary
 
-using System;
-using System.Linq;
+public class AndroidUtil : JObject {
+    
 
-namespace org.allbinary;
-
-public class AndroidUtil
-{
-    private AndroidUtil()
-    {
+    public AndroidUtil() {
+        base();
     }
+    
 
-    public static bool isMemoryRestrictive()
-    {
+    public static bool isMemoryRestrictive() {
         return true;
     }
+    
 
-    public static bool isAndroid()
-    {
+    public static bool isAndroid() {
         return false;
     }
-
 }
 

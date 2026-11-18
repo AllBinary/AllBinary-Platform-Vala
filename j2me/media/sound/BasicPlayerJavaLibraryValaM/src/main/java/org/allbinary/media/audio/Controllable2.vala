@@ -13,15 +13,11 @@
  *   
  */
 // Generated Code Do Not Modify
+// package org.allbinary.media.audio
 
-using System;
-using System.Linq;
+public interface Controllable2 : JObject {
+    
 
-namespace org.allbinary.media.audio;
-
-public interface Controllable2
-{
-    void setVolume(int leftVolume, int rightVolume);
-
+    public abstract void setVolume(int32 leftVolume, int32 rightVolume);
 }
 

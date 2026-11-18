@@ -13,34 +13,29 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.game.ag.ai
+// import org.allbinary.game.ai.BasicAI
+// import org.allbinary.game.input.GameInput
+// import org.allbinary.graphics.displayable.DisplayInfoSingleton
+// import org.allbinary.layer.AllBinaryLayer
+// import org.allbinary.layer.AllBinaryLayerManager
 
-using System;
-using System.Linq;
-using BasicAI = org.allbinary.game.ai.BasicAI;
-using GameInput = org.allbinary.game.input.GameInput;
-using DisplayInfoSingleton = org.allbinary.graphics.displayable.DisplayInfoSingleton;
-using AllBinaryLayer = org.allbinary.layer.AllBinaryLayer;
-using AllBinaryLayerManager = org.allbinary.layer.AllBinaryLayerManager;
+public class ScrollOverXImmediateYStopAI : BasicAI {
+    
 
-namespace org.allbinary.game.ag.ai;
-
-public class ScrollOverXImmediateYStopAI : BasicAI
-{
-    public ScrollOverXImmediateYStopAI(AllBinaryLayer ownerLayerInterface, GameInput gameInput) : base(ownerLayerInterface, gameInput)
-    {
-        // base(ownerLayerInterface, gameInput) is called from the constructor declaration
+    public ScrollOverXImmediateYStopAI(AllBinaryLayer ownerLayerInterface, GameInput gameInput) {
+        base(ownerLayerInterface, gameInput);
     }
+    
 
-    // throws Exception
-    public override void processAI(AllBinaryLayerManager allBinaryLayerManager)
-    {
+    public override void processAI(AllBinaryLayerManager allBinaryLayerManager) {
         AllBinaryLayer ownerLayerInterface = this.getOwnerLayerInterface();
-        int x = ownerLayerInterface.getXP();
-        int y = ownerLayerInterface.getYP();
-        int x2 = ownerLayerInterface.getX2();
-        int y2 = ownerLayerInterface.getY2();
-        int width = ownerLayerInterface.getWidth();
-        int height = ownerLayerInterface.getHeight();
+        int32 x = ownerLayerInterface.getXP();
+        int32 y = ownerLayerInterface.getYP();
+        int32 x2 = ownerLayerInterface.getX2();
+        int32 y2 = ownerLayerInterface.getY2();
+        int32 width = ownerLayerInterface.getWidth();
+        int32 height = ownerLayerInterface.getHeight();
         DisplayInfoSingleton displayInfo = DisplayInfoSingleton.getInstance();
         if (x2 > displayInfo.getLastWidth()) {
             ownerLayerInterface.setPosition(0, y, ownerLayerInterface.getZP());
@@ -55,6 +50,5 @@ public class ScrollOverXImmediateYStopAI : BasicAI
             ownerLayerInterface.setPosition(x, 0, ownerLayerInterface.getZP());
         }
     }
-
 }
 

@@ -13,22 +13,33 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.game.paint.help
+// import org.allbinary.logic.NullUtil
+// import org.allbinary.logic.string.StringUtil
 
-using System;
-using System.Linq;
-using NullUtil = org.allbinary.logic.NullUtil;
-using StringUtil = org.allbinary.logic.@string.StringUtil;
+public class UpdateMyFontProperties : JObject {
+    public string[] actionStringArray;
+    public int32[] keymappingBeginWidthArray;
+    public int32[] actionStringDeltaXArray;
+    public int32[,] inputDeltaXArray;
+    public string[,] sepArray;
+    public int32[,] sepWidthArray;
+    public int32 charHeight;
 
-namespace org.allbinary.game.paint.help;
+    // Java field initializers run after the base constructor
+    private void initFieldsUpdateMyFontProperties() {
+    this.actionStringArray = StringUtil.getInstance().getArrayInstance();
+    this.keymappingBeginWidthArray = NullUtil.getInstance().NULL_INT_ARRAY;
+    this.actionStringDeltaXArray = NullUtil.getInstance().NULL_INT_ARRAY;
+    this.inputDeltaXArray = NullUtil.getInstance().NULL_INT_ARRAY_ARRAY;
+    this.sepArray = StringUtil.getInstance().ONE_EMPTY_STRING_ARRAY_OF_ARRAYS;
+    this.sepWidthArray = NullUtil.getInstance().NULL_INT_ARRAY_ARRAY;
+    this.charHeight = 0;
+    }
 
-public class UpdateMyFontProperties
-{
-    public string[] actionStringArray = StringUtil.getInstance().getArrayInstance();
-    public int[] keymappingBeginWidthArray = NullUtil.getInstance().NULL_INT_ARRAY;
-    public int[] actionStringDeltaXArray = NullUtil.getInstance().NULL_INT_ARRAY;
-    public int[][] inputDeltaXArray = NullUtil.getInstance().NULL_INT_ARRAY_ARRAY;
-    public string[][] sepArray = StringUtil.getInstance().ONE_EMPTY_STRING_ARRAY_OF_ARRAYS;
-    public int[][] sepWidthArray = NullUtil.getInstance().NULL_INT_ARRAY_ARRAY;
-    public int charHeight = 0;
+    public UpdateMyFontProperties() {
+        base();
+        this.initFieldsUpdateMyFontProperties();
+    }
 }
 

@@ -13,31 +13,38 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.game.configuration
 
-using System;
-using System.Linq;
-
-namespace org.allbinary.game.configuration;
-
-public class GameSpeed
-{
-    private static readonly GameSpeed instance = new GameSpeed();
-    public int getSpeed()
-    {
-        GameConfiguration speedGameConfiguration = GameConfigurationCentral.getInstance().SPEED;
-        return (global::java.lang.JavaNumber.intValue(speedGameConfiguration.getMaxValue()) - global::java.lang.JavaNumber.intValue(speedGameConfiguration.getValue()) + 1);
-    }
-
-    public int getDelay()
-    {
-        GameConfiguration speedGameConfiguration = GameConfigurationCentral.getInstance().SPEED;
-        return 19 * (global::java.lang.JavaNumber.intValue(speedGameConfiguration.getMaxValue()) - global::java.lang.JavaNumber.intValue(speedGameConfiguration.getValue()));
-    }
-
-    public static GameSpeed getInstance()
-    {
+public class GameSpeed : JObject {
+    private static GameSpeed? instance;
+    private static bool staticSet_instance = false;
+    private static GameSpeed staticGet_instance() {
+        if (!GameSpeed.staticSet_instance) {
+            GameSpeed.staticSet_instance = true;
+            GameSpeed.instance = new GameSpeed();
+        }
         return GameSpeed.instance;
     }
 
+    public GameSpeed() {
+        base();
+    }
+    
+
+    public virtual int32 getSpeed() {
+        GameConfiguration speedGameConfiguration = GameConfigurationCentral.getInstance().SPEED;
+        return (speedGameConfiguration.getMaxValue().intValue() - speedGameConfiguration.getValue().intValue() + 1);
+    }
+    
+
+    public virtual int32 getDelay() {
+        GameConfiguration speedGameConfiguration = GameConfigurationCentral.getInstance().SPEED;
+        return 19 * (speedGameConfiguration.getMaxValue().intValue() - speedGameConfiguration.getValue().intValue());
+    }
+    
+
+    public static GameSpeed getInstance() {
+        return GameSpeed.staticGet_instance();
+    }
 }
 

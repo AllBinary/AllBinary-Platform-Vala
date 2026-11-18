@@ -13,35 +13,40 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.logic.io.file
 
-using System;
-using System.Linq;
-
-namespace org.allbinary.logic.io.file;
-
-public class FileFactory
-{
-    private static readonly FileFactory instance = new FileFactory();
-    public static FileFactory getInstance()
-    {
+public class FileFactory : JObject {
+    private static FileFactory? instance;
+    private static bool staticSet_instance = false;
+    private static FileFactory staticGet_instance() {
+        if (!FileFactory.staticSet_instance) {
+            FileFactory.staticSet_instance = true;
+            FileFactory.instance = new FileFactory();
+        }
         return FileFactory.instance;
     }
 
-    // throws Exception
-    public virtual AbFile getInstance(string filePath)
-    {
+    public FileFactory() {
+        base();
+    }
+    
+
+    public static FileFactory getInstance() {
+        return FileFactory.staticGet_instance();
+    }
+    
+
+    public virtual AbFile getInstance1(string filePath) {
         return AbFile.createAbFileFromRawPath(filePath);
     }
+    
 
-    // throws Exception
-    public virtual AbFile getInstance(AbFile file, string childFilePath)
-    {
+    public virtual AbFile getInstance2(AbFile file, string childFilePath) {
         return AbFile.createAbFileWithChild(file, childFilePath);
     }
+    
 
-    // throws Exception
-    public virtual bool isFile(string path)
-    {
+    public virtual bool isFile(string path) {
         AbFile file = AbFile.createAbFile(path);
         if (file.exists()) {
             return true;
@@ -49,6 +54,5 @@ public class FileFactory
             return false;
         }
     }
-
 }
 

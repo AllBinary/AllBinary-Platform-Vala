@@ -13,59 +13,67 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.input
+// import org.allbinary.android.input.motion.AnalogLocationInputProcessor
+// import org.allbinary.game.input.GameInputProcessor
+// import org.allbinary.game.input.GameKeyEventSourceInterface
+// import org.allbinary.game.input.GameKeyFactory
+// import org.allbinary.game.input.analog.AnalogLocationInput
+// import org.allbinary.game.input.event.GameKeyEvent
+// import org.allbinary.game.input.event.GameKeyEventFactory
+// import org.allbinary.graphics.CustomGPoint
+// import org.allbinary.layer.AllBinaryLayerManager
+// import org.allbinary.logic.communication.log.LogUtil
+// import org.allbinary.string.CommonStrings
 
-using System;
-using System.Linq;
-using AnalogLocationInputProcessor = org.allbinary.android.input.motion.AnalogLocationInputProcessor;
-using GameInputProcessor = org.allbinary.game.input.GameInputProcessor;
-using GameKeyEventSourceInterface = org.allbinary.game.input.GameKeyEventSourceInterface;
-using GameKeyFactory = org.allbinary.game.input.GameKeyFactory;
-using AnalogLocationInput = org.allbinary.game.input.analog.AnalogLocationInput;
-using GameKeyEvent = org.allbinary.game.input.@event.GameKeyEvent;
-using GameKeyEventFactory = org.allbinary.game.input.@event.GameKeyEventFactory;
-using CustomGPoint = org.allbinary.graphics.CustomGPoint;
-using AllBinaryLayerManager = org.allbinary.layer.AllBinaryLayerManager;
-using LogUtil = org.allbinary.logic.communication.log.LogUtil;
-using CommonStrings = org.allbinary.@string.CommonStrings;
+public class DirectionalAnalogLocationInputProcessor : AnalogLocationInputProcessor, GameKeyEventSourceInterface {
+    public LogUtil logUtil;
+    private GameInputProcessor[] inputProcessorArray;
+    private GameKeyFactory gameKeyFactory;
+    private GameKeyEvent leftGameKeyEvent;
+    private GameKeyEvent rightGameKeyEvent;
+    private GameKeyEvent upGameKeyEvent;
+    private GameKeyEvent downGameKeyEvent;
+    private GameKeyEvent leftTriggerGameKeyEvent;
+    private GameKeyEvent rightTriggerGameKeyEvent;
 
-namespace org.allbinary.input;
+    // Java field initializers run after the base constructor
+    private void initFieldsDirectionalAnalogLocationInputProcessor() {
+    this.logUtil = LogUtil.getInstance();
+    
+    this.gameKeyFactory = GameKeyFactory.getInstance();
+    this.leftGameKeyEvent = GameKeyEvent.NONE;
+    this.rightGameKeyEvent = GameKeyEvent.NONE;
+    this.upGameKeyEvent = GameKeyEvent.NONE;
+    this.downGameKeyEvent = GameKeyEvent.NONE;
+    this.leftTriggerGameKeyEvent = GameKeyEvent.NONE;
+    this.rightTriggerGameKeyEvent = GameKeyEvent.NONE;
+    }
+    
 
-public class DirectionalAnalogLocationInputProcessor : AnalogLocationInputProcessor, GameKeyEventSourceInterface
-{
-    public readonly LogUtil logUtil = LogUtil.getInstance();
-    private readonly GameInputProcessor[] inputProcessorArray;
-    private readonly GameKeyFactory gameKeyFactory = GameKeyFactory.getInstance();
-    private GameKeyEvent leftGameKeyEvent = GameKeyEvent.NONE;
-    private GameKeyEvent rightGameKeyEvent = GameKeyEvent.NONE;
-    private GameKeyEvent upGameKeyEvent = GameKeyEvent.NONE;
-    private GameKeyEvent downGameKeyEvent = GameKeyEvent.NONE;
-    private GameKeyEvent leftTriggerGameKeyEvent = GameKeyEvent.NONE;
-    private GameKeyEvent rightTriggerGameKeyEvent = GameKeyEvent.NONE;
-    public DirectionalAnalogLocationInputProcessor(GameInputProcessor[] inputProcessorArray)
-    {
+    public DirectionalAnalogLocationInputProcessor(GameInputProcessor[] inputProcessorArray) {
+        base();
+        this.initFieldsDirectionalAnalogLocationInputProcessor();
         this.inputProcessorArray = inputProcessorArray;
-        try {
+        {
             this.leftGameKeyEvent = GameKeyEventFactory.getInstance().getInstanceForInput(this, this.gameKeyFactory.LEFT);
             this.rightGameKeyEvent = GameKeyEventFactory.getInstance().getInstanceForInput(this, this.gameKeyFactory.RIGHT);
             this.upGameKeyEvent = GameKeyEventFactory.getInstance().getInstanceForInput(this, this.gameKeyFactory.UP);
             this.downGameKeyEvent = GameKeyEventFactory.getInstance().getInstanceForInput(this, this.gameKeyFactory.DOWN);
             this.leftTriggerGameKeyEvent = GameKeyEventFactory.getInstance().getInstanceForInput(this, this.gameKeyFactory.KEY_NUM0);
             this.rightTriggerGameKeyEvent = GameKeyEventFactory.getInstance().getInstanceForInput(this, this.gameKeyFactory.KEY_NUM5);
-        } catch (Exception e) {
-            CommonStrings commonStrings = CommonStrings.getInstance();
-            this.logUtil.put(commonStrings.EXCEPTION, this, commonStrings.CONSTRUCTOR, e);
-        }
+        } /* catch (Exception e): a thrown Java exception stops the program */
     }
+    
 
-    public override void process(AllBinaryLayerManager allbinaryLayerManager, AnalogLocationInput analogLocationInput)
-    {
-        try {
+    public override void process(AllBinaryLayerManager allbinaryLayerManager, AnalogLocationInput analogLocationInput) {
+        {
             CustomGPoint customGPoint = null;
             customGPoint = analogLocationInput.getCustomGPoint();
-            int x = customGPoint.getX();
-            int y = customGPoint.getY();
-            int leftTrigger = analogLocationInput.getLeftTrigger();
-            int rightTrigger = analogLocationInput.getRightTrigger();
+            int32 x = customGPoint.getX();
+            int32 y = customGPoint.getY();
+            int32 leftTrigger = analogLocationInput.getLeftTrigger();
+            int32 rightTrigger = analogLocationInput.getRightTrigger();
             if (x < 0) {
                 this.inputProcessorArray[this.leftGameKeyEvent.getKey()].processAnalog(allbinaryLayerManager, this.leftGameKeyEvent, x);
             } else if (x > 0) {
@@ -82,16 +90,12 @@ public class DirectionalAnalogLocationInputProcessor : AnalogLocationInputProces
             if (rightTrigger > 0) {
                 this.inputProcessorArray[this.rightTriggerGameKeyEvent.getKey()].processAnalog(allbinaryLayerManager, this.rightTriggerGameKeyEvent, rightTrigger);
             }
-        } catch (Exception e) {
-            CommonStrings commonStrings = CommonStrings.getInstance();
-            this.logUtil.put("Unable to process analog input", this, commonStrings.PROCESS, e);
-        }
+        } /* catch (Exception e): a thrown Java exception stops the program */
     }
+    
 
-    public virtual int getSourceId()
-    {
+    public virtual int32 getSourceId() {
         return 0;
     }
-
 }
 

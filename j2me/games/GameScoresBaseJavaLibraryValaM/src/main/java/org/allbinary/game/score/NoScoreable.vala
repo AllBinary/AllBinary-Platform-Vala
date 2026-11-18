@@ -13,32 +13,35 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.game.score
 
-using System;
-using System.Linq;
-
-namespace org.allbinary.game.score;
-
-public class NoScoreable : Scoreable
-{
-    private static readonly NoScoreable SINGLETON = new NoScoreable();
-    public static NoScoreable getInstance()
-    {
+public class NoScoreable : Scoreable {
+    private static NoScoreable? SINGLETON;
+    private static bool staticSet_SINGLETON = false;
+    private static NoScoreable staticGet_SINGLETON() {
+        if (!NoScoreable.staticSet_SINGLETON) {
+            NoScoreable.staticSet_SINGLETON = true;
+            NoScoreable.SINGLETON = new NoScoreable();
+        }
         return NoScoreable.SINGLETON;
     }
+    
 
-    private NoScoreable() : base(0)
-    {
-        // base(0) is called from the constructor declaration
+    public static NoScoreable getInstance() {
+        return NoScoreable.staticGet_SINGLETON();
     }
+    
 
-    public override void addPoints(int points)
-    {
+    public NoScoreable() {
+        base(0);
     }
+    
 
-    public override void removePoints(int points)
-    {
+    public override void addPoints(int32 points) {
     }
+    
 
+    public override void removePoints(int32 points) {
+    }
 }
 

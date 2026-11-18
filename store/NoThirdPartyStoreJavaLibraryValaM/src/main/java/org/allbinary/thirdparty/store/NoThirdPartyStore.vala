@@ -13,25 +13,20 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.thirdparty.store
+// import org.allbinary.logic.string.StringUtil
+// import org.allbinary.logic.system.security.licensing.AbeClientInformationInterface
 
-using System;
-using System.Linq;
-using StringUtil = org.allbinary.logic.@string.StringUtil;
-using AbeClientInformationInterface = org.allbinary.logic.system.security.licensing.AbeClientInformationInterface;
+public class NoThirdPartyStore : ThirdPartyStore {
+    
 
-namespace org.allbinary.thirdparty.store;
-
-public class NoThirdPartyStore : ThirdPartyStore
-{
-    public NoThirdPartyStore() : base(StringUtil.getInstance().EMPTY_STRING)
-    {
-        // base(StringUtil.getInstance().EMPTY_STRING) is called from the constructor declaration
+    public NoThirdPartyStore() {
+        base(StringUtil.getInstance().EMPTY_STRING);
     }
+    
 
-    public override void authorize(AbeClientInformationInterface clientInformationInterface)
-    {
+    public override void authorize(AbeClientInformationInterface clientInformationInterface) {
         this.setAuthorized(true);
     }
-
 }
 

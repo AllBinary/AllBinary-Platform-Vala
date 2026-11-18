@@ -13,17 +13,13 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.game.midlet
+// import org.allbinary.logic.util.event.AllBinaryEventObject
+// import org.allbinary.logic.util.event.EventListenerInterface
 
-using System;
-using System.Linq;
-using AllBinaryEventObject = org.allbinary.logic.util.@event.AllBinaryEventObject;
-using EventListenerInterface = org.allbinary.logic.util.@event.EventListenerInterface;
+public interface GameMidletEventListener : JObject, EventListenerInterface {
+    
 
-namespace org.allbinary.game.midlet;
-
-public interface GameMidletEventListener : EventListenerInterface
-{
-    void onGameEnd(AllBinaryEventObject eventObject);
-
+    public abstract void onGameEnd(AllBinaryEventObject eventObject);
 }
 

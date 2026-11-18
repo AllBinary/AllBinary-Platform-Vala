@@ -13,20 +13,20 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.graphics.opengles
+// import org.allbinary.game.configuration.feature.Features
+// import org.allbinary.game.configuration.feature.GameFeatureChoiceGroups
+// import org.allbinary.util.BasicArrayList
+// import org.allbinary.util.BasicArrayListD
 
-using System;
-using System.Linq;
-using Features = org.allbinary.game.configuration.feature.Features;
-using GameFeatureChoiceGroups = org.allbinary.game.configuration.feature.GameFeatureChoiceGroups;
-using BasicArrayList = org.allbinary.util.BasicArrayList;
-using BasicArrayListD = org.allbinary.util.BasicArrayListD;
+public class OpenGLOptions : JObject {
 
-namespace org.allbinary.graphics.opengles;
+    public OpenGLOptions() {
+        base();
+    }
+    
 
-public class OpenGLOptions
-{
-    public virtual void init()
-    {
+    public virtual void init() {
         OpenGLFeatureFactory openGLFeatureFactory = OpenGLFeatureFactory.getInstance();
         if (Features.getInstance().isFeature(openGLFeatureFactory.OPENGL_OPTIONS)) {
             BasicArrayList openGLMultipleList = new BasicArrayListD();
@@ -42,6 +42,5 @@ public class OpenGLOptions
             GameFeatureChoiceGroups.getExclusiveInstance().add("OpenGL Image Color RGBA", openGLImageColorMultipleList);
         }
     }
-
 }
 

@@ -13,40 +13,46 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.game.configuration
+// import javax.microedition.lcdui.CommandListener
+// import org.allbinary.graphics.color.BasicColor
+// import org.allbinary.graphics.displayable.screen.CommandForm
+// import org.allbinary.logic.communication.log.LogUtil
+// import org.allbinary.string.CommonStrings
 
-using System;
-using System.Linq;
-using CommandListener = javax.microedition.lcdui.CommandListener;
-using BasicColor = org.allbinary.graphics.color.BasicColor;
-using CommandForm = org.allbinary.graphics.displayable.screen.CommandForm;
-using LogUtil = org.allbinary.logic.communication.log.LogUtil;
-using CommonStrings = org.allbinary.@string.CommonStrings;
-
-namespace org.allbinary.game.configuration;
-
-public class GameOptionsFormFactory
-{
-    public readonly LogUtil logUtil = LogUtil.getInstance();
-    private static readonly GameOptionsFormFactory instance = new GameOptionsFormFactory();
-    private GameOptionsFormFactory()
-    {
-    }
-
-    public static GameOptionsFormFactory getInstance()
-    {
+public class GameOptionsFormFactory : JObject {
+    private static GameOptionsFormFactory? instance;
+    private static bool staticSet_instance = false;
+    private static GameOptionsFormFactory staticGet_instance() {
+        if (!GameOptionsFormFactory.staticSet_instance) {
+            GameOptionsFormFactory.staticSet_instance = true;
+            GameOptionsFormFactory.instance = new GameOptionsFormFactory();
+        }
         return GameOptionsFormFactory.instance;
     }
+    public LogUtil logUtil;
 
-    public virtual CommandForm init(CommandListener commandListener, string title, BasicColor backgrounBasicColor, BasicColor foregroundBasicColor)
-    {
-        try {
-            return new GameOptionsForm(commandListener, title, backgrounBasicColor, foregroundBasicColor);
-        } catch (Exception e) {
-            CommonStrings commonStrings = CommonStrings.getInstance();
-            this.logUtil.put(commonStrings.EXCEPTION, this, commonStrings.INIT, e);
-            return CommandForm.getNullCommandForm();
-        }
+    // Java field initializers run after the base constructor
+    private void initFieldsGameOptionsFormFactory() {
+    this.logUtil = LogUtil.getInstance();
     }
+    
 
+    public GameOptionsFormFactory() {
+        base();
+        this.initFieldsGameOptionsFormFactory();
+    }
+    
+
+    public static GameOptionsFormFactory getInstance() {
+        return GameOptionsFormFactory.staticGet_instance();
+    }
+    
+
+    public virtual CommandForm init(CommandListener commandListener, string title, BasicColor backgrounBasicColor, BasicColor foregroundBasicColor) {
+        {
+            return new GameOptionsForm(commandListener, title, backgrounBasicColor, foregroundBasicColor);
+        } /* catch (Exception e): a thrown Java exception stops the program */
+    }
 }
 

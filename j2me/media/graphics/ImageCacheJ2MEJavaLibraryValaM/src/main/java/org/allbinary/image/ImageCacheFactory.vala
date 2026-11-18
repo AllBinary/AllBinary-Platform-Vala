@@ -13,23 +13,30 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.image
 
-using System;
-using System.Linq;
-
-namespace org.allbinary.image;
-
-public class ImageCacheFactory
-{
-    private static readonly ImageCache IMAGE_CACHE = new ImageCache();
-    public static ImageCache getInstance()
-    {
+public class ImageCacheFactory : JObject {
+    private static ImageCache? IMAGE_CACHE;
+    private static bool staticSet_IMAGE_CACHE = false;
+    private static ImageCache staticGet_IMAGE_CACHE() {
+        if (!ImageCacheFactory.staticSet_IMAGE_CACHE) {
+            ImageCacheFactory.staticSet_IMAGE_CACHE = true;
+            ImageCacheFactory.IMAGE_CACHE = new ImageCache();
+        }
         return ImageCacheFactory.IMAGE_CACHE;
     }
 
-    public static void init()
-    {
+    public ImageCacheFactory() {
+        base();
     }
+    
 
+    public static ImageCache getInstance() {
+        return ImageCacheFactory.staticGet_IMAGE_CACHE();
+    }
+    
+
+    public static void init() {
+    }
 }
 

@@ -13,14 +13,13 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.game.resource
+// import org.allbinary.init.Init
 
-using System;
-using System.Linq;
-using Init = org.allbinary.init.Init;
+public class ResourceInitialization : Init {
 
-namespace org.allbinary.game.resource;
-
-public class ResourceInitialization : Init
-{
+    public ResourceInitialization() {
+        base();
+    }
 }
 

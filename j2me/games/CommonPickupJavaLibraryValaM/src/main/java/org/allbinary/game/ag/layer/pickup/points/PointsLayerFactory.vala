@@ -13,27 +13,28 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.game.ag.layer.pickup.points
+// import org.allbinary.layer.AllBinaryLayer
+// import org.allbinary.layer.AllBinaryLayerFactoryInterface
 
-using System;
-using System.Linq;
-using AllBinaryLayer = org.allbinary.layer.AllBinaryLayer;
-using AllBinaryLayerFactoryInterface = org.allbinary.layer.AllBinaryLayerFactoryInterface;
+public class PointsLayerFactory : JObject, AllBinaryLayerFactoryInterface {
+    private int32 points;
 
-namespace org.allbinary.game.ag.layer.pickup.points;
+    // Java field initializers run after the base constructor
+    private void initFieldsPointsLayerFactory() {
+    
+    }
+    
 
-public class PointsLayerFactory : AllBinaryLayerFactoryInterface
-{
-    private readonly int points;
-    public PointsLayerFactory(int points)
-    {
+    public PointsLayerFactory(int32 points) {
+        base();
+        this.initFieldsPointsLayerFactory();
         this.points = points;
     }
+    
 
-    // throws Exception
-    public virtual AllBinaryLayer getInstance()
-    {
+    public virtual AllBinaryLayer getInstance() {
         return new PointsLayer(this.points);
     }
-
 }
 

@@ -13,25 +13,32 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.input.motion.button
 
-using System;
-using System.Linq;
-
-namespace org.allbinary.input.motion.button;
-
-public class TouchScreenTypeFactory
-{
-    private static readonly TouchScreenTypeFactory instance = new TouchScreenTypeFactory();
-    public static TouchScreenTypeFactory getInstance()
-    {
+public class TouchScreenTypeFactory : JObject {
+    private static TouchScreenTypeFactory? instance;
+    private static bool staticSet_instance = false;
+    private static TouchScreenTypeFactory staticGet_instance() {
+        if (!TouchScreenTypeFactory.staticSet_instance) {
+            TouchScreenTypeFactory.staticSet_instance = true;
+            TouchScreenTypeFactory.instance = new TouchScreenTypeFactory();
+        }
         return TouchScreenTypeFactory.instance;
     }
 
-    public virtual void TouchScreenTypeFactory_Method()
-    {
+    public TouchScreenTypeFactory() {
+        base();
+    }
+    
+
+    public static TouchScreenTypeFactory getInstance() {
+        return TouchScreenTypeFactory.staticGet_instance();
+    }
+    
+
+    public virtual void TouchScreenTypeFactory() {
         TouchScreenFactory touchScreenFactory = TouchScreenFactory.getInstance();
         touchScreenFactory.setTouch(true);
     }
-
 }
 

@@ -13,46 +13,47 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.logic.io
+// import java.io.IOException
+// import java.io.Writer
 
-using System;
-using System.Linq;
-//using IOException = java.io.IOException;
-using Writer = java.io.Writer;
-
-namespace org.allbinary.logic.io;
-
-public class NullWriter : Writer
-{
-    public static readonly NullWriter NULL_WRITER = new NullWriter();
-    // throws IOException
-    public override void write(int c)
-    {
+public class NullWriter : Writer {
+    public static NullWriter? NULL_WRITER;
+    private static bool staticSet_NULL_WRITER = false;
+    public static NullWriter staticGet_NULL_WRITER() {
+        if (!NullWriter.staticSet_NULL_WRITER) {
+            NullWriter.staticSet_NULL_WRITER = true;
+            NullWriter.NULL_WRITER = new NullWriter();
+        }
+        return NullWriter.NULL_WRITER;
     }
 
-    // throws IOException
-    public override void write(char[] cbuf, int off, int len)
-    {
+    public NullWriter() {
+        base();
     }
+    
 
-    // throws IOException
-    public override void write(string str)
-    {
+    public override void write_1_int(int32 c) {
     }
+    
 
-    // throws IOException
-    public override void write(string str, int off, int len)
-    {
+    public override void write_3_charAintint(uint16[] cbuf, int32 off, int32 len) {
     }
+    
 
-    // throws IOException
-    public override void flush()
-    {
+    public override void write_1_String(string str) {
     }
+    
 
-    // throws IOException
-    public override void close()
-    {
+    public override void write_3_Stringintint(string str, int32 off, int32 len) {
     }
+    
 
+    public override void flush() {
+    }
+    
+
+    public override void close() {
+    }
 }
 

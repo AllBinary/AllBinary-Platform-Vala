@@ -13,17 +13,16 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.media
 
-using System;
-using System.Linq;
+public class AllBinaryVibrationME : JObject {
 
-namespace org.allbinary.media;
-
-public class AllBinaryVibrationME
-{
-    public virtual void vibrate(int duration, int type, int volume)
-    {
+    public AllBinaryVibrationME() {
+        base();
     }
+    
 
+    public virtual void vibrate(int32 duration, int32 type, int32 volume) {
+    }
 }
 

@@ -13,19 +13,18 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.logic.io.file
+// import java.io.File
 
-using System;
-using System.Linq;
-using File = java.io.File;
+public class AbFileNativeUtil : JObject {
 
-namespace org.allbinary.logic.io.file;
+    public AbFileNativeUtil() {
+        base();
+    }
+    
 
-public class AbFileNativeUtil
-{
-    public static File get(AbFile file)
-    {
+    public static File @get(AbFile file) {
         return file.getFile();
     }
-
 }
 

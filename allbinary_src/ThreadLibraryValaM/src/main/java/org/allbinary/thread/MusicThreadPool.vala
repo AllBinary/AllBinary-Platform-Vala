@@ -41,18 +41,18 @@ public class MusicThreadPool : ThreadPool {
     
 
     public override void runTask(Runnable task) {
-        this.logUtil.putF(new StringMaker().append(StringUtil.getInstance().toString1(task)).appendlong(((int64) (JSystem.currentTimeMillis()))).toString(), this, this.threadPoolStrings.ADD_TASK);
+        this.logUtil.putF(new StringMaker().append(StringUtil.getInstance().toString1(task)).appendlong(JSystem.currentTimeMillis()).toString(), this, this.threadPoolStrings.ADD_TASK);
         base.runTask(task);
     }
     
 
     public override void startTask(Runnable task) {
-        this.logUtil.putF(new StringMaker().append(this.threadPoolStrings.START_TASK).append(StringUtil.getInstance().toString1(task)).appendlong(((int64) (JSystem.currentTimeMillis()))).toString(), this, this.commonStrings.RUN);
+        this.logUtil.putF(new StringMaker().append(this.threadPoolStrings.START_TASK).append(StringUtil.getInstance().toString1(task)).appendlong(JSystem.currentTimeMillis()).toString(), this, this.commonStrings.RUN);
     }
     
 
     public override void completedTask(Runnable task) {
-        this.logUtil.putF(new StringMaker().append(this.threadPoolStrings.COMPLETE_TASK).append(StringUtil.getInstance().toString1(task)).appendlong(((int64) (JSystem.currentTimeMillis()))).toString(), this, this.commonStrings.RUN);
+        this.logUtil.putF(new StringMaker().append(this.threadPoolStrings.COMPLETE_TASK).append(StringUtil.getInstance().toString1(task)).appendlong(JSystem.currentTimeMillis()).toString(), this, this.commonStrings.RUN);
     }
 }
 

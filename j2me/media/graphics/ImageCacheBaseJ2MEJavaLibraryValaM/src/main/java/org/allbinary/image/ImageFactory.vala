@@ -13,48 +13,51 @@
  *   
  */
 // Generated Code Do Not Modify
-
-using System;
-using System.Linq;
-using InputStream = java.io.InputStream;
-using Image = javax.microedition.lcdui.Image;
-using MIDPUtil = org.allbinary.MIDPUtil;
-
-namespace org.allbinary.image;
+// package org.allbinary.image
+// import java.io.InputStream
+// import javax.microedition.lcdui.Image
+// import org.allbinary.MIDPUtil
 
 //ImageCacheBaseJavaLibrary - J2ME
-public class ImageFactory
-{
-    private static readonly ImageFactory instance = new ImageFactory();
-    public static ImageFactory getInstance()
-    {
+public class ImageFactory : JObject {
+    private static ImageFactory? instance;
+    private static bool staticSet_instance = false;
+    private static ImageFactory staticGet_instance() {
+        if (!ImageFactory.staticSet_instance) {
+            ImageFactory.staticSet_instance = true;
+            ImageFactory.instance = new ImageFactory();
+        }
         return ImageFactory.instance;
     }
 
-    // throws Exception
-    public virtual Image createImageUrl(string url)
-    {
+    public ImageFactory() {
+        base();
+    }
+    
+
+    public static ImageFactory getInstance() {
+        return ImageFactory.staticGet_instance();
+    }
+    
+
+    public virtual Image createImageUrl(string url) {
         return Image.createImage(url);
     }
+    
 
-    // throws Exception
-    public virtual Image createImage(string caller, int width, int height)
-    {
+    public virtual Image createImage(string caller, int32 width, int32 height) {
         return MIDPUtil.getInstance().createImageWH(width, height);
     }
+    
 
-    // throws Exception
-    public virtual Image createImageFromInputStream(object key, InputStream inputStream)
-    {
+    public virtual Image createImageFromInputStream_2(JObject key, InputStream inputStream) {
         Image image = MIDPUtil.getInstance().createImageFromInputStream(inputStream);
         return image;
     }
+    
 
-    // throws Exception
-    public virtual Image createImageFromInputStream(InputStream inputStream)
-    {
+    public virtual Image createImageFromInputStream_1(InputStream inputStream) {
         return MIDPUtil.getInstance().createImageFromInputStream(inputStream);
     }
-
 }
 

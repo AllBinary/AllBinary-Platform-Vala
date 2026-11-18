@@ -13,14 +13,21 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.animation.transition.shake
 
-using System;
-using System.Linq;
+public class NoShakeAnimationListener : ShakeAnimationListener {
+    public static ShakeAnimationListener? NO_SHAKE_ANIMATION_LISTENER;
+    private static bool staticSet_NO_SHAKE_ANIMATION_LISTENER = false;
+    public static ShakeAnimationListener staticGet_NO_SHAKE_ANIMATION_LISTENER() {
+        if (!NoShakeAnimationListener.staticSet_NO_SHAKE_ANIMATION_LISTENER) {
+            NoShakeAnimationListener.staticSet_NO_SHAKE_ANIMATION_LISTENER = true;
+            NoShakeAnimationListener.NO_SHAKE_ANIMATION_LISTENER = new NoShakeAnimationListener();
+        }
+        return NoShakeAnimationListener.NO_SHAKE_ANIMATION_LISTENER;
+    }
 
-namespace org.allbinary.animation.transition.shake;
-
-public class NoShakeAnimationListener : ShakeAnimationListener
-{
-    public static readonly ShakeAnimationListener NO_SHAKE_ANIMATION_LISTENER = new NoShakeAnimationListener();
+    public NoShakeAnimationListener() {
+        base();
+    }
 }
 

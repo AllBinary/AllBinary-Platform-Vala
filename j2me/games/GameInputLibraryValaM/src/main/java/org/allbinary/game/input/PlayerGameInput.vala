@@ -13,78 +13,73 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.game.input
+// import org.allbinary.game.input.event.GameKeyEvent
+// import org.allbinary.game.input.event.GameKeyEventListenerInterface
+// import org.allbinary.logic.communication.log.ForcedLogUtil
+// import org.allbinary.logic.communication.log.PreLogUtil
+// import org.allbinary.logic.string.StringMaker
+// import org.allbinary.logic.util.event.AllBinaryEventObject
+// import org.allbinary.logic.util.event.EventStrings
+// import org.allbinary.string.CommonLabels
+// import org.allbinary.util.BasicArrayList
 
-using System;
-using System.Linq;
-using System.Runtime.CompilerServices;
-using GameKeyEvent = org.allbinary.game.input.@event.GameKeyEvent;
-using GameKeyEventListenerInterface = org.allbinary.game.input.@event.GameKeyEventListenerInterface;
-using ForcedLogUtil = org.allbinary.logic.communication.log.ForcedLogUtil;
-using PreLogUtil = org.allbinary.logic.communication.log.PreLogUtil;
-using StringMaker = org.allbinary.logic.@string.StringMaker;
-using AllBinaryEventObject = org.allbinary.logic.util.@event.AllBinaryEventObject;
-using EventStrings = org.allbinary.logic.util.@event.EventStrings;
-using CommonLabels = org.allbinary.@string.CommonLabels;
-using BasicArrayList = org.allbinary.util.BasicArrayList;
+public class PlayerGameInput : GameInput, GameKeyEventListenerInterface, DownGameKeyEventListenerInterface, UpGameKeyEventListenerInterface, PressGameKeyEventListenerInterface, EventListenerInterface {
+    public GameInputStrings gameInputStrings;
+    private int32 playerInputId;
 
-namespace org.allbinary.game.input;
+    // Java field initializers run after the base constructor
+    private void initFieldsPlayerGameInput() {
+    this.gameInputStrings = GameInputStrings.getInstance();
+    
+    }
+    
 
-public class PlayerGameInput : GameInput, GameKeyEventListenerInterface
-{
-    public readonly GameInputStrings gameInputStrings = GameInputStrings.getInstance();
-    private readonly int playerInputId;
-    public PlayerGameInput(BasicArrayList gameKeyEventList, BasicArrayList removalGameKeyEventList, int playerInputId) : base(gameKeyEventList, removalGameKeyEventList)
-    {
-        // base(gameKeyEventList, removalGameKeyEventList) is called from the constructor declaration
+    public PlayerGameInput(BasicArrayList gameKeyEventList, BasicArrayList removalGameKeyEventList, int32 playerInputId) {
+        base(gameKeyEventList, removalGameKeyEventList);
+        this.initFieldsPlayerGameInput();
         this.playerInputId = playerInputId;
     }
+    
 
-    [MethodImpl(MethodImplOptions.Synchronized)]
-    public virtual void onPressGameKeyEvent(GameKeyEvent gameKeyEvent)
-    {
+    public virtual void onPressGameKeyEvent(GameKeyEvent gameKeyEvent) {
         this.add(gameKeyEvent);
         this.addForRemoval(gameKeyEvent);
     }
+    
 
-    [MethodImpl(MethodImplOptions.Synchronized)]
-    public virtual void onDownGameKeyEvent(GameKeyEvent gameKeyEvent)
-    {
+    public virtual void onDownGameKeyEvent(GameKeyEvent gameKeyEvent) {
         this.add(gameKeyEvent);
     }
+    
 
-    [MethodImpl(MethodImplOptions.Synchronized)]
-    public virtual void onDownKeyEvent(GameKeyEvent gameKeyEvent)
-    {
+    public virtual void onDownKeyEvent(GameKeyEvent gameKeyEvent) {
         this.add(gameKeyEvent);
         this.addForRemoval(gameKeyEvent);
     }
+    
 
-    [MethodImpl(MethodImplOptions.Synchronized)]
-    public virtual void onDownKey(int? gameKeyEvent)
-    {
-        PreLogUtil.put(new StringMaker().append(CommonLabels.getInstance().START_LABEL).append(gameKeyEvent.ToString()).ToString(), this, this.gameInputStrings.ON_DOWN_GAME_KEY);
+    public virtual void onDownKey(int32? gameKeyEvent) {
+        PreLogUtil.put(new StringMaker().append(CommonLabels.getInstance().START_LABEL).append(gameKeyEvent.to_string()).toString(), this, this.gameInputStrings.ON_DOWN_GAME_KEY);
     }
+    
 
-    [MethodImpl(MethodImplOptions.Synchronized)]
-    public virtual void onUpGameKeyEvent(GameKeyEvent gameKeyEvent)
-    {
+    public virtual void onUpGameKeyEvent(GameKeyEvent gameKeyEvent) {
         this.addForRemoval(gameKeyEvent);
     }
+    
 
-    [MethodImpl(MethodImplOptions.Synchronized)]
-    public virtual void onUpKeyEvent(int? gameKeyEvent)
-    {
+    public virtual void onUpKeyEvent(int32? gameKeyEvent) {
     }
+    
 
-    public virtual void onEvent(AllBinaryEventObject eventObject)
-    {
+    public virtual void onEvent(AllBinaryEventObject eventObject) {
         ForcedLogUtil.log(EventStrings.getInstance().PERFORMANCE_MESSAGE, this);
     }
+    
 
-    public virtual int getPlayerInputId()
-    {
+    public virtual int32 getPlayerInputId() {
         return this.playerInputId;
     }
-
 }
 

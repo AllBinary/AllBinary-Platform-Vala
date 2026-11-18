@@ -13,27 +13,34 @@
  *  
  */
 // Generated Code Do Not Modify
-
-using System;
-using System.Linq;
-using ImageCache = org.allbinary.image.ImageCache;
-
-namespace org.allbinary.image.opengles;
+// package org.allbinary.image.opengles
+// import org.allbinary.image.ImageCache
 
 //OpenGLNoneOtherJavaLibrary
-public class OpenGLImageCacheFactory
-{
-    private static ImageCache IMAGE_CACHE = ImageCache.NULL_IMAGE_CACHE;
-    public static ImageCache getInstance()
-    {
+public class OpenGLImageCacheFactory : JObject {
+    private static ImageCache? IMAGE_CACHE;
+    private static bool staticSet_IMAGE_CACHE = false;
+    private static ImageCache staticGet_IMAGE_CACHE() {
+        if (!OpenGLImageCacheFactory.staticSet_IMAGE_CACHE) {
+            OpenGLImageCacheFactory.staticSet_IMAGE_CACHE = true;
+            OpenGLImageCacheFactory.IMAGE_CACHE = ImageCache.NULL_IMAGE_CACHE;
+        }
         return OpenGLImageCacheFactory.IMAGE_CACHE;
     }
 
-    public static void init()
-    {
-        if (OpenGLImageCacheFactory.IMAGE_CACHE == null) {
+    public OpenGLImageCacheFactory() {
+        base();
+    }
+    
+
+    public static ImageCache getInstance() {
+        return OpenGLImageCacheFactory.staticGet_IMAGE_CACHE();
+    }
+    
+
+    public static void init() {
+        if (OpenGLImageCacheFactory.staticGet_IMAGE_CACHE() == null) {
         }
     }
-
 }
 

@@ -13,23 +13,23 @@
  *   
  */
 // Generated Code Do Not Modify
+// package org.allbinary.animation.text
 
-using System;
-using System.Linq;
+public interface TextInterface : JObject {
+    
 
-namespace org.allbinary.animation.text;
+    public abstract void setTextWithOnMeasure(string text, TextChangeListener textChangeListener);
+    
 
-public interface TextInterface
-{
-    void setTextWithOnMeasure(string text, TextChangeListener textChangeListener);
+    public abstract string getText();
+    
 
-    string getText();
+    public abstract void setText(string text);
+    
 
-    void setText(string text);
+    public abstract int32 getFontHeight();
+    
 
-    int getFontHeight();
-
-    int getWidth();
-
+    public abstract int32 getWidth();
 }
 

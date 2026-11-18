@@ -1,25 +1,29 @@
 // Generated Code Do Not Modify
+// package org.allbinary.game.configuration.feature
 
-using System;
-using System.Linq;
-
-namespace org.allbinary.game.configuration.feature;
-
-public class MultiPlayerGameFeatureFactory
-{
-    private static readonly MultiPlayerGameFeatureFactory instance = new MultiPlayerGameFeatureFactory();
-    public static MultiPlayerGameFeatureFactory getInstance()
-    {
+public class MultiPlayerGameFeatureFactory : JObject {
+    private static MultiPlayerGameFeatureFactory? instance;
+    private static bool staticSet_instance = false;
+    private static MultiPlayerGameFeatureFactory staticGet_instance() {
+        if (!MultiPlayerGameFeatureFactory.staticSet_instance) {
+            MultiPlayerGameFeatureFactory.staticSet_instance = true;
+            MultiPlayerGameFeatureFactory.instance = new MultiPlayerGameFeatureFactory();
+        }
         return MultiPlayerGameFeatureFactory.instance;
     }
+    
 
-    private MultiPlayerGameFeatureFactory()
-    {
+    public static MultiPlayerGameFeatureFactory getInstance() {
+        return MultiPlayerGameFeatureFactory.staticGet_instance();
     }
+    
 
-    public virtual void addCommands(object anyType)
-    {
+    public MultiPlayerGameFeatureFactory() {
+        base();
     }
+    
 
+    public virtual void addCommands(JObject anyType) {
+    }
 }
 

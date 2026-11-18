@@ -13,38 +13,39 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.game.ag.ai.sequence
+// import org.allbinary.ai.ArtificialIntelligence
+// import org.allbinary.ai.ArtificialIntelligenceInterface
+// import org.allbinary.ai.ArtificialIntelligenceTransitionInterface
+// import org.allbinary.game.ag.ai.ArrayAI
+// import org.allbinary.game.input.GameInput
+// import org.allbinary.layer.AllBinaryLayer
+// import org.allbinary.layer.AllBinaryLayerManager
+// import org.allbinary.logic.string.StringMaker
+// import org.allbinary.logic.string.StringUtil
 
-using System;
-using System.Linq;
-using ArtificialIntelligence = org.allbinary.ai.ArtificialIntelligence;
-using ArtificialIntelligenceInterface = org.allbinary.ai.ArtificialIntelligenceInterface;
-using ArtificialIntelligenceTransitionInterface = org.allbinary.ai.ArtificialIntelligenceTransitionInterface;
-using ArrayAI = org.allbinary.game.ag.ai.ArrayAI;
-using GameInput = org.allbinary.game.input.GameInput;
-using AllBinaryLayer = org.allbinary.layer.AllBinaryLayer;
-using AllBinaryLayerManager = org.allbinary.layer.AllBinaryLayerManager;
-using StringMaker = org.allbinary.logic.@string.StringMaker;
-using StringUtil = org.allbinary.logic.@string.StringUtil;
-
-namespace org.allbinary.game.ag.ai.sequence;
-
-public class SequenceAI : ArrayAI
-{
+public class SequenceAI : ArrayAI {
     private const string SEQUENCE_AI = "Sequence AI";
-    private int index = 0;
-    public SequenceAI(ArtificialIntelligenceInterface[] artificialIntelligenceInterfaceArray, AllBinaryLayer ownerLayerInterface, GameInput gameInput) : base(artificialIntelligenceInterfaceArray, ownerLayerInterface, gameInput)
-    {
-        // base(artificialIntelligenceInterfaceArray, ownerLayerInterface, gameInput) is called from the constructor declaration
-    }
+    private int32 index;
 
-    // throws Exception
-    public override void processAI(AllBinaryLayerManager allBinaryLayerManager)
-    {
+    // Java field initializers run after the base constructor
+    private void initFieldsSequenceAI() {
+    this.index = 0;
+    }
+    
+
+    public SequenceAI(ArtificialIntelligenceInterface[] artificialIntelligenceInterfaceArray, AllBinaryLayer ownerLayerInterface, GameInput gameInput) {
+        base(artificialIntelligenceInterfaceArray, ownerLayerInterface, gameInput);
+        this.initFieldsSequenceAI();
+    }
+    
+
+    public override void processAI(AllBinaryLayerManager allBinaryLayerManager) {
         this.getArtificialIntelligenceInterface()[this.index].processAI(allBinaryLayerManager);
     }
+    
 
-    public virtual void next()
-    {
+    public virtual void next() {
         this.index++;
         ArtificialIntelligenceInterface artificialIntelligenceInterface = this.getSelectedArtificialIntelligenceInterface();
         if (artificialIntelligenceInterface.getId() == ArtificialIntelligence.AI_ID) {
@@ -52,35 +53,34 @@ public class SequenceAI : ArrayAI
             artificialIntelligenceTransitionInterface.transition();
         }
     }
+    
 
-    public virtual int getIndex()
-    {
+    public virtual int32 getIndex() {
         return this.index;
     }
+    
 
-    public virtual void setIndex(int index)
-    {
+    public virtual void setIndex(int32 index) {
         this.index = index;
     }
+    
 
-    public virtual ArtificialIntelligenceInterface getSelectedArtificialIntelligenceInterface()
-    {
+    public virtual ArtificialIntelligenceInterface getSelectedArtificialIntelligenceInterface() {
         return this.getArtificialIntelligenceInterface()[this.index];
     }
+    
 
-    public override string getName()
-    {
+    public override string getName() {
         return SequenceAI.SEQUENCE_AI;
     }
+    
 
-    public override string ToString()
-    {
+    public override string toString() {
         StringMaker stringBuffer = new StringMaker();
-        stringBuffer.append(base.ToString());
+        stringBuffer.append(base.toString());
         stringBuffer.append(" Selected AI: ");
-        stringBuffer.append(StringUtil.getInstance().toString(this.getSelectedArtificialIntelligenceInterface()));
-        return stringBuffer.ToString();
+        stringBuffer.append(StringUtil.getInstance().toString1(this.getSelectedArtificialIntelligenceInterface()));
+        return stringBuffer.toString();
     }
-
 }
 

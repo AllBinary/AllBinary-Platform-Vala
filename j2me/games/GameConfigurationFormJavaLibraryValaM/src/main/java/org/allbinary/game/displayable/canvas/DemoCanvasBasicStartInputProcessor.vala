@@ -13,40 +13,34 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.game.displayable.canvas
+// import javax.microedition.lcdui.NullCanvas
+// import org.allbinary.canvas.RunnableCanvas
+// import org.allbinary.game.commands.GameCommandsFactory
+// import org.allbinary.game.input.GameInputStrings
+// import org.allbinary.game.input.event.GameKeyEvent
+// import org.allbinary.logic.string.StringMaker
+// import org.allbinary.logic.string.StringUtil
+// import org.allbinary.util.BasicArrayList
 
-using System;
-using System.Linq;
-using NullCanvas = javax.microedition.lcdui.NullCanvas;
-using RunnableCanvas = org.allbinary.canvas.RunnableCanvas;
-using GameCommandsFactory = org.allbinary.game.commands.GameCommandsFactory;
-using GameInputStrings = org.allbinary.game.input.GameInputStrings;
-using GameKeyEvent = org.allbinary.game.input.@event.GameKeyEvent;
-using StringMaker = org.allbinary.logic.@string.StringMaker;
-using StringUtil = org.allbinary.logic.@string.StringUtil;
-using BasicArrayList = org.allbinary.util.BasicArrayList;
+public class DemoCanvasBasicStartInputProcessor : BasicMenuInputProcessor {
+    
 
-namespace org.allbinary.game.displayable.canvas;
-
-public class DemoCanvasBasicStartInputProcessor : BasicMenuInputProcessor
-{
-    public DemoCanvasBasicStartInputProcessor(BasicArrayList gameKeyEventList, RunnableCanvas gameCanvas) : base(gameKeyEventList, -1, gameCanvas)
-    {
-        // base(gameKeyEventList, -1, gameCanvas) is called from the constructor declaration
+    public DemoCanvasBasicStartInputProcessor(BasicArrayList gameKeyEventList, RunnableCanvas gameCanvas) {
+        base(gameKeyEventList, -1, gameCanvas);
     }
+    
 
-    // throws Exception
-    public override int processInputList()
-    {
+    public override int32 processInputList() {
         BasicArrayList list = this.getGameKeyEventList();
-        int size = list.size();
+        int32 size = list.size();
         GameKeyEvent gameKeyEvent = null;
-        for (int index = 0; index < size; index++) {
+        for (int32 index = 0; index < size; index++) {
             gameKeyEvent = ((GameKeyEvent) list.objectArray[index]);
-            this.logUtil.putF(new StringMaker().append("Start GameKey: ").append(StringUtil.getInstance().toString(gameKeyEvent)).ToString(), this, GameInputStrings.getInstance().PROCESS_INPUT);
+            this.logUtil.putF(new StringMaker().append("Start GameKey: ").append(StringUtil.getInstance().toString1(gameKeyEvent)).toString(), this, GameInputStrings.getInstance().PROCESS_INPUT);
         }
         this.getCanvas().getCustomCommandListener().commandAction(GameCommandsFactory.getInstance().START_COMMAND, NullCanvas.NULL_CANVAS);
         return size;
     }
-
 }
 

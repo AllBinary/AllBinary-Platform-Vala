@@ -13,48 +13,52 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.animation.vector
+// import javax.microedition.lcdui.Graphics
+// import org.allbinary.animation.Animation
+// import org.allbinary.graphics.color.BasicColor
+// import org.allbinary.graphics.color.ColorCompositeInterface
+// import org.allbinary.math.AngleFactory
 
-using System;
-using System.Linq;
-using Graphics = javax.microedition.lcdui.Graphics;
-using Animation = org.allbinary.animation.Animation;
-using BasicColor = org.allbinary.graphics.color.BasicColor;
-using ColorCompositeInterface = org.allbinary.graphics.color.ColorCompositeInterface;
-using AngleFactory = org.allbinary.math.AngleFactory;
+public class CircleAnimation : Animation, ColorCompositeInterface, BasicColorCompositeSetterInterface {
+    public int32 TOTAL_ANGLE;
+    public int32 width;
+    public int32 height;
 
-namespace org.allbinary.animation.vector;
+    // Java field initializers run after the base constructor
+    private void initFieldsCircleAnimation() {
+    this.TOTAL_ANGLE = ((int32) (AngleFactory.getInstance().TOTAL_ANGLE));
+    
+    
+    }
+    
 
-public class CircleAnimation : Animation, ColorCompositeInterface
-{
-    public readonly int TOTAL_ANGLE = ((int) AngleFactory.getInstance().TOTAL_ANGLE);
-    public int width;
-    public int height;
-    public CircleAnimation(int width, int height, BasicColor basicColor)
-    {
+    public CircleAnimation(int32 width, int32 height, BasicColor basicColor) {
+        base();
+        this.initFieldsCircleAnimation();
         this.width = width;
         this.height = height;
         this.setBasicColorP(basicColor);
     }
+    
 
-    public override void nextFrame()
-    {
+    public override void nextFrame() {
     }
+    
 
-    public override void paintXY(Graphics graphics, int x, int y)
-    {
+    public override void paintXY(Graphics graphics, int32 x, int32 y) {
         this.basicSetColorUtil.setBasicColorP3(graphics, this.getBasicColorP(), this.getColor());
         graphics.drawArc(x, y, this.width, this.height, 0, this.TOTAL_ANGLE);
     }
+    
 
-    public override BasicColor getBasicColorP()
-    {
+    public override BasicColor getBasicColorP() {
         return base.getBasicColorP();
     }
+    
 
-    public override void setBasicColorP(BasicColor basicColor)
-    {
+    public override void setBasicColorP(BasicColor basicColor) {
         base.setBasicColorP(basicColor);
     }
-
 }
 

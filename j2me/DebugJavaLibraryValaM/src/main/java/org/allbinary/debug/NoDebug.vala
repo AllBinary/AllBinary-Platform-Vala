@@ -13,42 +13,49 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.debug
 
-using System;
-using System.Linq;
-
-namespace org.allbinary.debug;
-
-public class NoDebug : DebugInterface
-{
-    private static DebugInterface SINGLETON = new NoDebug();
-    public static DebugInterface getInstance()
-    {
+public class NoDebug : JObject, DebugInterface {
+    private static DebugInterface? SINGLETON;
+    private static bool staticSet_SINGLETON = false;
+    private static DebugInterface staticGet_SINGLETON() {
+        if (!NoDebug.staticSet_SINGLETON) {
+            NoDebug.staticSet_SINGLETON = true;
+            NoDebug.SINGLETON = new NoDebug();
+        }
         return NoDebug.SINGLETON;
     }
 
-    public virtual void start()
-    {
+    public NoDebug() {
+        base();
     }
+    
 
-    public virtual void stop()
-    {
+    public static DebugInterface getInstance() {
+        return NoDebug.staticGet_SINGLETON();
     }
+    
 
-    public virtual long getMaxTime()
-    {
-        return 10000L;
+    public virtual void start() {
     }
+    
 
-    public virtual long getStartTime()
-    {
-        return 0L;
+    public virtual void stop() {
     }
+    
 
-    public virtual bool isRunning()
-    {
+    public virtual int64 getMaxTime() {
+        return 10000;
+    }
+    
+
+    public virtual int64 getStartTime() {
+        return 0;
+    }
+    
+
+    public virtual bool isRunning() {
         return false;
     }
-
 }
 

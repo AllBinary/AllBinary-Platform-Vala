@@ -13,32 +13,30 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.game.ag.ai.tactical
+// import org.allbinary.ai.ArtificialIntelligenceInterface
+// import org.allbinary.game.ai.ArtificialIntelligenceInterfaceFactoryInterface
+// import org.allbinary.game.ai.BasicAI
+// import org.allbinary.game.ag.ai.InputProbability
+// import org.allbinary.game.input.GameInput
+// import org.allbinary.layer.AllBinaryLayer
+// import org.allbinary.logic.util.visitor.Visitor
+// import org.allbinary.util.ABHashtable
 
-using System;
-using System.Linq;
-using ArtificialIntelligenceInterface = org.allbinary.ai.ArtificialIntelligenceInterface;
-using ArtificialIntelligenceInterfaceFactoryInterface = org.allbinary.game.ai.ArtificialIntelligenceInterfaceFactoryInterface;
-using BasicAI = org.allbinary.game.ai.BasicAI;
-using InputProbability = org.allbinary.game.ag.ai.InputProbability;
-using GameInput = org.allbinary.game.input.GameInput;
-using AllBinaryLayer = org.allbinary.layer.AllBinaryLayer;
-using Visitor = org.allbinary.logic.util.visitor.Visitor;
-using org.allbinary.util;
+public class BasicRandomAIFactory : JObject, ArtificialIntelligenceInterfaceFactoryInterface {
 
-namespace org.allbinary.game.ag.ai.tactical;
+    public BasicRandomAIFactory() {
+        base();
+    }
+    
 
-public class BasicRandomAIFactory : ArtificialIntelligenceInterfaceFactoryInterface
-{
-    // throws Exception
-    public virtual ArtificialIntelligenceInterface getInstance(ABHashtable<object, object> hashtable, AllBinaryLayer ownerLayerInterface, GameInput gameInput)
-    {
-        Visitor visitor = ((Visitor) hashtable.get(((object) BasicAI.AI_VISITOR)));
+    public virtual ArtificialIntelligenceInterface getInstance3(ABHashtable hashtable, AllBinaryLayer ownerLayerInterface, GameInput gameInput) {
+        Visitor visitor = ((Visitor) hashtable.@get(((JObject) BasicAI.AI_VISITOR)));
         if (visitor == null) {
-            throw new Exception("No Visitor Provided");
+            JSystem.fatal(new JException("Exception", "No Visitor Provided"));
         }
-        InputProbability inputProbability = ((InputProbability) hashtable.get(((object) InputProbability.INPUT_PROBABILITY)));
+        InputProbability inputProbability = ((InputProbability) hashtable.@get(((JObject) InputProbability.INPUT_PROBABILITY)));
         return new BasicRandomAI(ownerLayerInterface, gameInput, inputProbability, visitor);
     }
-
 }
 

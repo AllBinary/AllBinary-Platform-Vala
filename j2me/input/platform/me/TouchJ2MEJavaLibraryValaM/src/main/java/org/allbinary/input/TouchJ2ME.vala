@@ -13,59 +13,54 @@
  *  
  */
 // Generated Code Do Not Modify
-
-using System;
-using System.Linq;
-using AllMotionRecognizer = org.allbinary.input.motion.AllMotionRecognizer;
-using BasicMotionGesturesHandler = org.allbinary.input.motion.gesture.observer.BasicMotionGesturesHandler;
-using GameMotionGestureListener = org.allbinary.input.motion.gesture.observer.GameMotionGestureListener;
-using MotionGestureReceiveInterfaceFactory = org.allbinary.input.motion.gesture.observer.MotionGestureReceiveInterfaceFactory;
-using LogUtil = org.allbinary.logic.communication.log.LogUtil;
-using CommonStrings = org.allbinary.@string.CommonStrings;
-
-namespace org.allbinary.input;
+// package org.allbinary.input
+// import org.allbinary.input.motion.AllMotionRecognizer
+// import org.allbinary.input.motion.gesture.observer.BasicMotionGesturesHandler
+// import org.allbinary.input.motion.gesture.observer.GameMotionGestureListener
+// import org.allbinary.input.motion.gesture.observer.MotionGestureReceiveInterfaceFactory
+// import org.allbinary.logic.communication.log.LogUtil
+// import org.allbinary.string.CommonStrings
 
 //TouchJ2ME
-public class TouchJ2ME
-{
-    public readonly LogUtil logUtil = LogUtil.getInstance();
-    private readonly int DEVICE_ID = 0;
-    private AllMotionRecognizer motionRecognizer = new AllMotionRecognizer();
-    public TouchJ2ME()
-    {
+public class TouchJ2ME : JObject {
+    public LogUtil logUtil;
+    private int32 DEVICE_ID;
+    private AllMotionRecognizer motionRecognizer;
+
+    // Java field initializers run after the base constructor
+    private void initFieldsTouchJ2ME() {
+    this.logUtil = LogUtil.getInstance();
+    this.DEVICE_ID = 0;
+    this.motionRecognizer = new AllMotionRecognizer();
+    }
+    
+
+    public TouchJ2ME() {
+        base();
+        this.initFieldsTouchJ2ME();
         BasicMotionGesturesHandler motionGesturesHandler = this.motionRecognizer.getMotionGestureRecognizer().getMotionGesturesHandler();
         motionGesturesHandler.addListenerInterface(new GameMotionGestureListener(MotionGestureReceiveInterfaceFactory.getInstance()));
     }
+    
 
-    public virtual void pointerDragged(int x, int y)
-    {
-        try {
-            this.motionRecognizer.processDraggedMotionEvent(x, y, DEVICE_ID, 0);
-        } catch (Exception e) {
-            CommonStrings commonStrings = CommonStrings.getInstance();
-            this.logUtil.put(commonStrings.EXCEPTION, this, "pointerDragged", e);
-        }
+    public virtual void pointerDragged(int32 x, int32 y) {
+        {
+            this.motionRecognizer.processDraggedMotionEvent(x, y, this.DEVICE_ID, 0);
+        } /* catch (Exception e): a thrown Java exception stops the program */
     }
+    
 
-    public virtual void pointerPressed(int x, int y)
-    {
-        try {
-            this.motionRecognizer.processStartMotionEvent(x, y, DEVICE_ID, 0);
-        } catch (Exception e) {
-            CommonStrings commonStrings = CommonStrings.getInstance();
-            this.logUtil.put(commonStrings.EXCEPTION, this, "pointerPressed", e);
-        }
+    public virtual void pointerPressed(int32 x, int32 y) {
+        {
+            this.motionRecognizer.processStartMotionEvent(x, y, this.DEVICE_ID, 0);
+        } /* catch (Exception e): a thrown Java exception stops the program */
     }
+    
 
-    public virtual void pointerReleased(int x, int y)
-    {
-        try {
-            this.motionRecognizer.processEndMotionEvent(x, y, DEVICE_ID, 0);
-        } catch (Exception e) {
-            CommonStrings commonStrings = CommonStrings.getInstance();
-            this.logUtil.put(commonStrings.EXCEPTION, this, "pointerReleased", e);
-        }
+    public virtual void pointerReleased(int32 x, int32 y) {
+        {
+            this.motionRecognizer.processEndMotionEvent(x, y, this.DEVICE_ID, 0);
+        } /* catch (Exception e): a thrown Java exception stops the program */
     }
-
 }
 

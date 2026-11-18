@@ -13,17 +13,14 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.game
 
-using System;
-using System.Linq;
+public interface IntermissionCompositeInterface : JObject {
+    
 
-namespace org.allbinary.game;
+    public abstract IntermissionInterface getStartIntermissionInterface();
+    
 
-public interface IntermissionCompositeInterface
-{
-    IntermissionInterface getStartIntermissionInterface();
-
-    IntermissionInterface getEndLevelIntermissionInterface();
-
+    public abstract IntermissionInterface getEndLevelIntermissionInterface();
 }
 

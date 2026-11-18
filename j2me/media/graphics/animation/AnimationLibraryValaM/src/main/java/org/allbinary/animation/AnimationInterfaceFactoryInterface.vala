@@ -13,19 +13,15 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.animation
+// import org.allbinary.media.ScaleProperties
 
-using System;
-using System.Linq;
-using ScaleProperties = org.allbinary.media.ScaleProperties;
+public interface AnimationInterfaceFactoryInterface : JObject, BasicAnimationInterfaceFactoryInterface {
+    
 
-namespace org.allbinary.animation;
+    public abstract Animation getInstance1(int32 instanceId);
+    
 
-public interface AnimationInterfaceFactoryInterface : BasicAnimationInterfaceFactoryInterface
-{
-    // throws Exception
-    Animation getInstance(int instanceId);
-
-    void setInitialScale(ScaleProperties scaleProperties);
-
+    public abstract void setInitialScale(ScaleProperties scaleProperties);
 }
 

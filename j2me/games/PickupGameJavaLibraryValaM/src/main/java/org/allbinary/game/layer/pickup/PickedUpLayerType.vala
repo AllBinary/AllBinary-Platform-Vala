@@ -13,24 +13,26 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.game.layer.pickup
 
-using System;
-using System.Linq;
-
-namespace org.allbinary.game.layer.pickup;
-
-public class PickedUpLayerType
-{
+public class PickedUpLayerType : JObject {
     private string name;
-    public PickedUpLayerType(string name)
-    {
+
+    // Java field initializers run after the base constructor
+    private void initFieldsPickedUpLayerType() {
+    
+    }
+    
+
+    public PickedUpLayerType(string name) {
+        base();
+        this.initFieldsPickedUpLayerType();
         this.name = name;
     }
+    
 
-    public override string ToString()
-    {
+    public override string toString() {
         return this.name;
     }
-
 }
 

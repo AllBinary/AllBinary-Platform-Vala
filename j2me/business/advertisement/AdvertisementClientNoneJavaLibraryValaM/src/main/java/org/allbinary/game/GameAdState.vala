@@ -13,35 +13,29 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.game
+// import org.allbinary.business.advertisement.GameAdStateBase
+// import org.allbinary.business.advertisement.AdConfiguration
+// import org.allbinary.input.event.VirtualKeyboardEvent
+// import org.allbinary.input.event.VirtualKeyboardEventHandler
+// import org.allbinary.input.event.VirtualKeyboardEventListenerInterface
+// import org.allbinary.logic.util.event.AllBinaryEventObject
 
-using System;
-using System.Linq;
-using GameAdStateBase = org.allbinary.business.advertisement.GameAdStateBase;
-using AdConfiguration = org.allbinary.business.advertisement.AdConfiguration;
-using VirtualKeyboardEvent = org.allbinary.input.@event.VirtualKeyboardEvent;
-using VirtualKeyboardEventHandler = org.allbinary.input.@event.VirtualKeyboardEventHandler;
-using VirtualKeyboardEventListenerInterface = org.allbinary.input.@event.VirtualKeyboardEventListenerInterface;
-using AllBinaryEventObject = org.allbinary.logic.util.@event.AllBinaryEventObject;
+public class GameAdState : GameAdStateBase, VirtualKeyboardEventListenerInterface, EventListenerInterface {
+    
 
-namespace org.allbinary.game;
-
-public class GameAdState : GameAdStateBase, VirtualKeyboardEventListenerInterface
-{
-    public GameAdState(AdConfiguration adConfiguration) : base(adConfiguration)
-    {
-        // base(adConfiguration) is called from the constructor declaration
+    public GameAdState(AdConfiguration adConfiguration) {
+        base(adConfiguration);
         VirtualKeyboardEventHandler.getInstance().addListenerInterface(this);
     }
+    
 
-    // throws Exception
-    public virtual void onVirtualKeyboardEvent(VirtualKeyboardEvent virtualKeyboardEvent)
-    {
+    public virtual void onVirtualKeyboardEvent(VirtualKeyboardEvent virtualKeyboardEvent) {
     }
+    
 
-    public override void onEvent(AllBinaryEventObject eventObject)
-    {
+    public override void onEvent(AllBinaryEventObject eventObject) {
         base.onEvent(eventObject);
     }
-
 }
 

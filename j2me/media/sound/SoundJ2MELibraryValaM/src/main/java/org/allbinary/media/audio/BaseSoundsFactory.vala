@@ -13,34 +13,38 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.media.audio
 
-using System;
-using System.Linq;
+public class BaseSoundsFactory : JObject, SoundsFactoryInterface {
+    private bool initialized;
 
-namespace org.allbinary.media.audio;
-
-public class BaseSoundsFactory : SoundsFactoryInterface
-{
-    private bool initialized = false;
-    public virtual void init()
-    {
+    // Java field initializers run after the base constructor
+    private void initFieldsBaseSoundsFactory() {
+    this.initialized = false;
     }
 
-    // throws Exception
-    public virtual Sound[] getSoundInterfaceArray()
-    {
+    public BaseSoundsFactory() {
+        base();
+        this.initFieldsBaseSoundsFactory();
+    }
+    
+
+    public virtual void init() {
+    }
+    
+
+    public virtual Sound[] getSoundInterfaceArray() {
         return new Sound[0];
     }
+    
 
-    public virtual void setInitialized(bool initialized)
-    {
+    public virtual void setInitialized(bool initialized) {
         this.initialized = initialized;
     }
+    
 
-    public virtual bool isInitialized()
-    {
+    public virtual bool isInitialized() {
         return this.initialized;
     }
-
 }
 

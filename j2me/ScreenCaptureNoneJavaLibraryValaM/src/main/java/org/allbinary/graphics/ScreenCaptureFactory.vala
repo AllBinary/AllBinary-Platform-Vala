@@ -13,19 +13,26 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.graphics
 
-using System;
-using System.Linq;
-
-namespace org.allbinary.graphics;
-
-public class ScreenCaptureFactory
-{
-    private static readonly ScreenCapture instance = ScreenCaptureNoneFactory.getInstance();
-    public static ScreenCapture getInstance()
-    {
+public class ScreenCaptureFactory : JObject {
+    private static ScreenCapture? instance;
+    private static bool staticSet_instance = false;
+    private static ScreenCapture staticGet_instance() {
+        if (!ScreenCaptureFactory.staticSet_instance) {
+            ScreenCaptureFactory.staticSet_instance = true;
+            ScreenCaptureFactory.instance = ScreenCaptureNoneFactory.getInstance();
+        }
         return ScreenCaptureFactory.instance;
     }
 
+    public ScreenCaptureFactory() {
+        base();
+    }
+    
+
+    public static ScreenCapture getInstance() {
+        return ScreenCaptureFactory.staticGet_instance();
+    }
 }
 

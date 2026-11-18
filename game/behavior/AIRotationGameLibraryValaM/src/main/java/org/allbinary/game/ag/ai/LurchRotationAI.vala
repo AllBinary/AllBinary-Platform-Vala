@@ -13,50 +13,51 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.game.ag.ai
+// import org.allbinary.animation.IndexedAnimation
+// import org.allbinary.animation.RotationAnimationInterface
+// import org.allbinary.animation.RotationAnimationInterfaceCompositeInterface
+// import org.allbinary.game.ag.ai.tactical.LurchAI
+// import org.allbinary.game.input.GameInput
+// import org.allbinary.layer.AllBinaryLayer
+// import org.allbinary.math.AngleIncrementInfo
 
-using System;
-using System.Linq;
-using IndexedAnimation = org.allbinary.animation.IndexedAnimation;
-using RotationAnimationInterface = org.allbinary.animation.RotationAnimationInterface;
-using RotationAnimationInterfaceCompositeInterface = org.allbinary.animation.RotationAnimationInterfaceCompositeInterface;
-using LurchAI = org.allbinary.game.ag.ai.tactical.LurchAI;
-using GameInput = org.allbinary.game.input.GameInput;
-using AllBinaryLayer = org.allbinary.layer.AllBinaryLayer;
-using AngleIncrementInfo = org.allbinary.math.AngleIncrementInfo;
-
-namespace org.allbinary.game.ag.ai;
-
-public class LurchRotationAI : LurchAI
-{
+public class LurchRotationAI : LurchAI {
     private IndexedAnimation rotationAnimationInterface;
-    public LurchRotationAI(AllBinaryLayer ownerLayerInterface, GameInput gameInput) : base(ownerLayerInterface, gameInput)
-    {
-        // base(ownerLayerInterface, gameInput) is called from the constructor declaration
+
+    // Java field initializers run after the base constructor
+    private void initFieldsLurchRotationAI() {
+    
+    }
+    
+
+    public LurchRotationAI(AllBinaryLayer ownerLayerInterface, GameInput gameInput) {
+        base(ownerLayerInterface, gameInput);
+        this.initFieldsLurchRotationAI();
         RotationAnimationInterfaceCompositeInterface rotationAnimationInterfaceCompositeInterface = ((RotationAnimationInterfaceCompositeInterface) this.getOwnerLayerInterface());
         this.rotationAnimationInterface = rotationAnimationInterfaceCompositeInterface.getRotationAnimationInterface();
         this.update();
     }
+    
 
-    public override void reverse()
-    {
+    public override void reverse() {
         base.reverse();
         this.update();
     }
+    
 
-    private void update()
-    {
+    private void update() {
         if (this.currentRelativeAngle == 0) {
             RotationAnimationInterface rotationAnimationInterface = ((RotationAnimationInterface) this.rotationAnimationInterface);
             AngleIncrementInfo angleIncrementInfo = rotationAnimationInterface.getAngleInfoP().getAngleIncrementInfo();
             RotationAnimationInterfaceCompositeInterface rotationAnimationInterfaceCompositeInterface = ((RotationAnimationInterfaceCompositeInterface) this.getOwnerLayerInterface());
-            rotationAnimationInterfaceCompositeInterface.setFrame(global::java.lang.JavaNumber.intValue(angleIncrementInfo.RIGHT_FRAME));
+            rotationAnimationInterfaceCompositeInterface.setFrame(angleIncrementInfo.RIGHT_FRAME.intValue());
         } else if (this.currentRelativeAngle == 180) {
             RotationAnimationInterface rotationAnimationInterface = ((RotationAnimationInterface) this.rotationAnimationInterface);
             AngleIncrementInfo angleIncrementInfo = rotationAnimationInterface.getAngleInfoP().getAngleIncrementInfo();
             RotationAnimationInterfaceCompositeInterface rotationAnimationInterfaceCompositeInterface = ((RotationAnimationInterfaceCompositeInterface) this.getOwnerLayerInterface());
-            rotationAnimationInterfaceCompositeInterface.setFrame(global::java.lang.JavaNumber.intValue(angleIncrementInfo.LEFT_FRAME));
+            rotationAnimationInterfaceCompositeInterface.setFrame(angleIncrementInfo.LEFT_FRAME.intValue());
         }
     }
-
 }
 

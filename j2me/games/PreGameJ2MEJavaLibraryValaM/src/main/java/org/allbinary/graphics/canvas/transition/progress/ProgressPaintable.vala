@@ -13,26 +13,28 @@
  * 
  */
 // Generated Code Do Not Modify
+// package org.allbinary.graphics.canvas.transition.progress
+// import javax.microedition.lcdui.Graphics
+// import org.allbinary.graphics.paint.Paintable
 
-using System;
-using System.Linq;
-using Graphics = javax.microedition.lcdui.Graphics;
-using Paintable = org.allbinary.graphics.paint.Paintable;
+public class ProgressPaintable : Paintable {
+    private ProgressCanvas progressCanvas;
 
-namespace org.allbinary.graphics.canvas.transition.progress;
+    // Java field initializers run after the base constructor
+    private void initFieldsProgressPaintable() {
+    
+    }
+    
 
-public class ProgressPaintable : Paintable
-{
-    private readonly ProgressCanvas progressCanvas;
-    public ProgressPaintable(ProgressCanvas progressCanvas)
-    {
+    public ProgressPaintable(ProgressCanvas progressCanvas) {
+        base();
+        this.initFieldsProgressPaintable();
         this.progressCanvas = progressCanvas;
     }
+    
 
-    public override void paint(Graphics graphics)
-    {
+    public override void paint(Graphics graphics) {
         this.progressCanvas.paint2(graphics);
     }
-
 }
 

@@ -13,29 +13,51 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.game
 
-using System;
-using System.Linq;
-
-namespace org.allbinary.game;
-
-public class GameStrings
-{
-    private static readonly GameStrings instance = new GameStrings();
-    public static GameStrings getInstance()
-    {
+public class GameStrings : JObject {
+    private static GameStrings? instance;
+    private static bool staticSet_instance = false;
+    private static GameStrings staticGet_instance() {
+        if (!GameStrings.staticSet_instance) {
+            GameStrings.staticSet_instance = true;
+            GameStrings.instance = new GameStrings();
+        }
         return GameStrings.instance;
     }
+    public string PROCESS_TICK;
+    public string ON_GAME_INITIALIZED;
+    public string UPDATESURFACE;
+    public string ON_SET_DISPLAYABLE;
+    public string UNPAUSE;
+    public string TOGGLE_MENU;
+    public string SET_GAME_OVER;
+    public string GAME_STATE;
+    public string SET_GAME_STATE;
+    public string STOP_GAME_CANVAS_RUNNABLE_INTERFACE;
 
-    public readonly string PROCESS_TICK = "processTick";
-    public readonly string ON_GAME_INITIALIZED = "onGameInitialized";
-    public readonly string UPDATESURFACE = "updateSurface";
-    public readonly string ON_SET_DISPLAYABLE = "onSetDisplayable";
-    public readonly string UNPAUSE = "unPause";
-    public readonly string TOGGLE_MENU = "toggleMenu";
-    public readonly string SET_GAME_OVER = "setGameOver";
-    public readonly string GAME_STATE = "Game State: ";
-    public readonly string SET_GAME_STATE = "setGameState";
-    public readonly string STOP_GAME_CANVAS_RUNNABLE_INTERFACE = "stopGameCanvasRunnableInterface";
+    // Java field initializers run after the base constructor
+    private void initFieldsGameStrings() {
+    this.PROCESS_TICK = "processTick";
+    this.ON_GAME_INITIALIZED = "onGameInitialized";
+    this.UPDATESURFACE = "updateSurface";
+    this.ON_SET_DISPLAYABLE = "onSetDisplayable";
+    this.UNPAUSE = "unPause";
+    this.TOGGLE_MENU = "toggleMenu";
+    this.SET_GAME_OVER = "setGameOver";
+    this.GAME_STATE = "Game State: ";
+    this.SET_GAME_STATE = "setGameState";
+    this.STOP_GAME_CANVAS_RUNNABLE_INTERFACE = "stopGameCanvasRunnableInterface";
+    }
+
+    public GameStrings() {
+        base();
+        this.initFieldsGameStrings();
+    }
+    
+
+    public static GameStrings getInstance() {
+        return GameStrings.staticGet_instance();
+    }
 }
 

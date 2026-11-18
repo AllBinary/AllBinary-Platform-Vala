@@ -13,70 +13,83 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.graphics.draw
+// import javax.microedition.lcdui.Font
+// import javax.microedition.lcdui.Graphics
+// import org.allbinary.AndroidUtil
+// import org.allbinary.J2MEUtil
+// import org.allbinary.graphics.Anchor
+// import org.allbinary.graphics.opengles.OpenGLFeatureUtil
+// import org.allbinary.logic.NullUtil
+// import org.allbinary.logic.communication.log.PreLogUtil
+// import org.allbinary.logic.string.StringMaker
+// import org.allbinary.logic.string.StringUtil
 
-using System;
-using System.Linq;
-using Font = javax.microedition.lcdui.Font;
-using Graphics = javax.microedition.lcdui.Graphics;
-using AndroidUtil = org.allbinary.AndroidUtil;
-using J2MEUtil = org.allbinary.J2MEUtil;
-using Anchor = org.allbinary.graphics.Anchor;
-using OpenGLFeatureUtil = org.allbinary.graphics.opengles.OpenGLFeatureUtil;
-using NullUtil = org.allbinary.logic.NullUtil;
-using PreLogUtil = org.allbinary.logic.communication.log.PreLogUtil;
-using StringMaker = org.allbinary.logic.@string.StringMaker;
-using StringUtil = org.allbinary.logic.@string.StringUtil;
-
-namespace org.allbinary.graphics.draw;
-
-public class DrawStringUtil
-{
-    private static readonly DrawStringUtil instance = new DrawStringUtil();
-    public static DrawStringUtil getInstance()
-    {
+public class DrawStringUtil : JObject {
+    private static DrawStringUtil? instance;
+    private static bool staticSet_instance = false;
+    private static DrawStringUtil staticGet_instance() {
+        if (!DrawStringUtil.staticSet_instance) {
+            DrawStringUtil.staticSet_instance = true;
+            DrawStringUtil.instance = new DrawStringUtil();
+        }
         return DrawStringUtil.instance;
     }
+    private string EMPTY_STRING;
+    private int32 anchor;
 
-    private readonly string EMPTY_STRING = StringUtil.getInstance().EMPTY_STRING;
-    private int anchor = Anchor.TOP_LEFT;
-    public virtual void drawCenterString(Graphics graphics, string @string, int offset, int length, int x, int y)
-    {
-        int width = (graphics.getFont().substringWidth(@string, offset, length) >> 1);
-        try {
-            graphics.drawSubstring(@string, offset, length, x - width, y, this.anchor);
-        } catch (Exception e) {
-            PreLogUtil.put(new StringMaker().append("Exception: stringLength: ").appendint(@string.Length).append(" offset: ").appendint(offset).append(" currentLength: ").appendint(length).ToString(), this, "drawCenterString");
-        }
+    // Java field initializers run after the base constructor
+    private void initFieldsDrawStringUtil() {
+    this.EMPTY_STRING = StringUtil.getInstance().EMPTY_STRING;
+    this.anchor = Anchor.TOP_LEFT;
     }
 
-    public virtual void drawCenterStrings(Graphics graphics, string[] stringArray, int maxWidth, int charHeight, int x, int y)
-    {
-        int extraLines = 0;
-        for (int index = 0; index < stringArray.Length; index++) {
-            string @string = stringArray[index];
-            if (@string != this.EMPTY_STRING) {
-                int width = graphics.getFont().stringWidth(@string);
-                int minTotalLines = 1;
+    public DrawStringUtil() {
+        base();
+        this.initFieldsDrawStringUtil();
+    }
+    
+
+    public static DrawStringUtil getInstance() {
+        return DrawStringUtil.staticGet_instance();
+    }
+    
+
+    public virtual void drawCenterString(Graphics graphics, string string, int32 offset, int32 length, int32 x, int32 y) {
+        int32 width = (graphics.getFont().substringWidth(string, offset, length) >> 1);
+        {
+            graphics.drawSubstring(string, offset, length, x - width, y, this.anchor);
+        } /* catch (Exception e): a thrown Java exception stops the program */
+    }
+    
+
+    public virtual void drawCenterStrings(Graphics graphics, string[] stringArray, int32 maxWidth, int32 charHeight, int32 x, int32 y) {
+        int32 extraLines = 0;
+        for (int32 index = 0; index < stringArray.length; index++) {
+            string string = stringArray[index];
+            if (string != this.EMPTY_STRING) {
+                int32 width = graphics.getFont().stringWidth(string);
+                int32 minTotalLines = 1;
                 if (width > maxWidth) {
                     minTotalLines = (width / maxWidth) + 1;
                 }
-                int linePortion = @string.Length / minTotalLines;
-                int offset = 0;
-                int currentLength = linePortion;
-                int size = @string.Length;
+                int32 linePortion = JString.length(string) / minTotalLines;
+                int32 offset = 0;
+                int32 currentLength = linePortion;
+                int32 size = JString.length(string);
                 while (offset < size) {
                     if (offset + currentLength > size) {
                         currentLength = size - offset;
                     }
                     if (offset + currentLength != size) {
-                        while (currentLength > 0 && stringArray[index].charAt(offset + currentLength) != ' ') {
+                        while (currentLength > 0 && stringArray[index].charAt(offset + currentLength) != ((uint16) ' ')) {
                             currentLength--;
                         }
                         if (currentLength <= 4) {
                             currentLength = linePortion;
                         }
                     }
-                    this.drawCenterString(graphics, @string, offset, currentLength, x, y + ((index + extraLines++) * charHeight));
+                    this.drawCenterString(graphics, string, offset, currentLength, x, y + ((index + extraLines++) * charHeight));
                     offset = offset + currentLength;
                     currentLength = linePortion;
                 }
@@ -84,6 +97,5 @@ public class DrawStringUtil
             }
         }
     }
-
 }
 

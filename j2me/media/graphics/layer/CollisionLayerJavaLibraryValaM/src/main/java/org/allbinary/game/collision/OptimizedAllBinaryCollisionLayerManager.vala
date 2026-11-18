@@ -13,20 +13,15 @@
  * 
  */
 // Generated Code Do Not Modify
+// package org.allbinary.game.collision
+// import org.allbinary.layer.LayerManager
+// import org.allbinary.layer.LayerManagerNoDebug
 
-using System;
-using System.Linq;
-using LayerManager = org.allbinary.layer.LayerManager;
-using LayerManagerNoDebug = org.allbinary.layer.LayerManagerNoDebug;
+public class OptimizedAllBinaryCollisionLayerManager : LayerManager {
+    
 
-namespace org.allbinary.game.collision;
-
-public class OptimizedAllBinaryCollisionLayerManager : LayerManager
-{
-    public OptimizedAllBinaryCollisionLayerManager() : base(LayerManagerNoDebug.getInstance())
-    {
-        // base(LayerManagerNoDebug.getInstance()) is called from the constructor declaration
+    public OptimizedAllBinaryCollisionLayerManager() {
+        base(LayerManagerNoDebug.getInstance());
     }
-
 }
 

@@ -13,15 +13,11 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.game.multiplayer.layer
 
-using System;
-using System.Linq;
+public interface MultiPlayerGameLayerInterface : JObject {
+    
 
-namespace org.allbinary.game.multiplayer.layer;
-
-public interface MultiPlayerGameLayerInterface
-{
-    MultiplayerBehavior getMultiplayerBehavior();
-
+    public abstract MultiplayerBehavior getMultiplayerBehavior();
 }
 

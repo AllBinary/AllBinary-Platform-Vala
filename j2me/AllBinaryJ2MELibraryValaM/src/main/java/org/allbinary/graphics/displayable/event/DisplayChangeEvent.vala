@@ -13,19 +13,14 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.graphics.displayable.event
+// import org.allbinary.logic.util.event.AllBinaryEventObject
 
-using System;
-using System.Linq;
-using AllBinaryEventObject = org.allbinary.logic.util.@event.AllBinaryEventObject;
+public class DisplayChangeEvent : AllBinaryEventObject {
+    
 
-namespace org.allbinary.graphics.displayable.@event;
-
-public class DisplayChangeEvent : AllBinaryEventObject
-{
-    public DisplayChangeEvent(object anyType) : base(anyType)
-    {
-        // base(anyType) is called from the constructor declaration
+    public DisplayChangeEvent(JObject anyType) {
+        base(anyType);
     }
-
 }
 

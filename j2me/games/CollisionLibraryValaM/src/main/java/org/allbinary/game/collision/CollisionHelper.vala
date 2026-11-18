@@ -13,36 +13,38 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.game.collision
+// import org.allbinary.game.layer.CollidableCompositeLayer
+// import org.allbinary.layer.AllBinaryLayer
 
-using System;
-using System.Linq;
-using CollidableCompositeLayer = org.allbinary.game.layer.CollidableCompositeLayer;
-using AllBinaryLayer = org.allbinary.layer.AllBinaryLayer;
-
-namespace org.allbinary.game.collision;
-
-public class CollisionHelper
-{
+public class CollisionHelper : JObject {
     public AllBinaryLayer sourceLayerInterface;
-    public CollisionHelper(AllBinaryLayer sourceLayerInterface)
-    {
+
+    // Java field initializers run after the base constructor
+    private void initFieldsCollisionHelper() {
+    
+    }
+    
+
+    public CollisionHelper(AllBinaryLayer sourceLayerInterface) {
+        base();
+        this.initFieldsCollisionHelper();
         this.sourceLayerInterface = sourceLayerInterface;
     }
+    
 
-    public virtual bool isCollidable(CollidableCompositeLayer layerInterface)
-    {
+    public virtual bool isCollidable(CollidableCompositeLayer layerInterface) {
         return true;
     }
+    
 
-    public virtual AllBinaryLayer getOwnerLayerInterface()
-    {
+    public virtual AllBinaryLayer getOwnerLayerInterface() {
         return this.sourceLayerInterface;
     }
+    
 
-    public virtual void setOwnerLayerInterface(AllBinaryLayer sourceLayerInterface)
-    {
+    public virtual void setOwnerLayerInterface(AllBinaryLayer sourceLayerInterface) {
         this.sourceLayerInterface = sourceLayerInterface;
     }
-
 }
 

@@ -13,42 +13,52 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.input.motion.button
+// import org.allbinary.util.BasicArrayList
+// import org.allbinary.util.BasicArrayListUtil
 
-using System;
-using System.Linq;
-using System.Runtime.CompilerServices;
-using BasicArrayList = org.allbinary.util.BasicArrayList;
-using BasicArrayListUtil = org.allbinary.util.BasicArrayListUtil;
-
-namespace org.allbinary.input.motion.button;
-
-public class TouchButtonFactory
-{
-    private static readonly TouchButtonFactory SINGLETON = new TouchButtonFactory();
-    public static TouchButtonFactory getInstance()
-    {
+public class TouchButtonFactory : JObject {
+    private static TouchButtonFactory? SINGLETON;
+    private static bool staticSet_SINGLETON = false;
+    private static TouchButtonFactory staticGet_SINGLETON() {
+        if (!TouchButtonFactory.staticSet_SINGLETON) {
+            TouchButtonFactory.staticSet_SINGLETON = true;
+            TouchButtonFactory.SINGLETON = new TouchButtonFactory();
+        }
         return TouchButtonFactory.SINGLETON;
     }
-
-    private BasicArrayList LIST = BasicArrayListUtil.getInstance().getImmutableInstance();
+    private BasicArrayList LIST;
     private BasicArrayList list;
     private BasicArrayList savedList;
-    private TouchButtonFactory()
-    {
-        this.list = this.LIST;
-        this.savedList = this.LIST;
-    }
+    private bool saved;
 
-    public virtual void defaultList()
-    {
+    // Java field initializers run after the base constructor
+    private void initFieldsTouchButtonFactory() {
+    this.LIST = BasicArrayListUtil.getInstance().getImmutableInstance();
+    this.list = this.LIST;
+    this.savedList = this.LIST;
+    this.saved = false;
+    }
+    
+
+    public static TouchButtonFactory getInstance() {
+        return TouchButtonFactory.staticGet_SINGLETON();
+    }
+    
+
+    public TouchButtonFactory() {
+        base();
+        this.initFieldsTouchButtonFactory();
+    }
+    
+
+    public virtual void defaultList() {
         this.list = this.LIST;
         this.toggle(false, this.LIST);
     }
+    
 
-    private bool saved = false;
-    [MethodImpl(MethodImplOptions.Synchronized)]
-    public virtual void toggle(bool save, BasicArrayList list)
-    {
+    public virtual void toggle(bool save, BasicArrayList list) {
         if (list != BasicArrayListUtil.getInstance().getImmutableInstance()) {
             this.savedList = list;
             if (!this.saved) {
@@ -68,20 +78,18 @@ public class TouchButtonFactory
             }
         }
     }
+    
 
-    // throws Exception
-    public virtual void setList(BasicArrayList list)
-    {
+    public virtual void setList(BasicArrayList list) {
         if (list == null) {
-            throw new Exception("Null List");
+            JSystem.fatal(new JException("Exception", "Null List"));
         }
         this.list = list;
     }
+    
 
-    public virtual BasicArrayList getList()
-    {
+    public virtual BasicArrayList getList() {
         return this.list;
     }
-
 }
 

@@ -13,63 +13,66 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.game.score
+// import javax.microedition.lcdui.Canvas
+// import javax.microedition.lcdui.Font
+// import javax.microedition.lcdui.Graphics
+// import org.allbinary.game.input.event.GameKeyEventHandler
+// import org.allbinary.game.input.event.GameKeyEventUtil
+// import org.allbinary.game.score.displayable.HighScoresCanvas
+// import org.allbinary.graphics.Anchor
+// import org.allbinary.graphics.displayable.DisplayInfoSingleton
+// import org.allbinary.graphics.font.MyFontProcessor
+// import org.allbinary.graphics.font.UpdateMyFontInterface
+// import org.allbinary.graphics.font.UpdateMyFontProcessor
+// import org.allbinary.util.BasicArrayList
 
-using System;
-using System.Linq;
-using System.Runtime.CompilerServices;
-using Canvas = javax.microedition.lcdui.Canvas;
-using Font = javax.microedition.lcdui.Font;
-using Graphics = javax.microedition.lcdui.Graphics;
-using GameKeyEventHandler = org.allbinary.game.input.@event.GameKeyEventHandler;
-using GameKeyEventUtil = org.allbinary.game.input.@event.GameKeyEventUtil;
-using HighScoresCanvas = org.allbinary.game.score.displayable.HighScoresCanvas;
-using Anchor = org.allbinary.graphics.Anchor;
-using DisplayInfoSingleton = org.allbinary.graphics.displayable.DisplayInfoSingleton;
-using MyFontProcessor = org.allbinary.graphics.font.MyFontProcessor;
-using UpdateMyFontInterface = org.allbinary.graphics.font.UpdateMyFontInterface;
-using UpdateMyFontProcessor = org.allbinary.graphics.font.UpdateMyFontProcessor;
-using BasicArrayList = org.allbinary.util.BasicArrayList;
-
-namespace org.allbinary.game.score;
-
-public class HighScoresCanvasLevelChangeInputProcessor : HighScoresCanvasInputProcessor, UpdateMyFontInterface
-{
-    private readonly DisplayInfoSingleton displayInfoSingleton = DisplayInfoSingleton.getInstance();
-    private readonly string INSTRUCTIONS = "(Right = Next Track, Left = Previous Track)";
+public class HighScoresCanvasLevelChangeInputProcessor : HighScoresCanvasInputProcessor, UpdateMyFontInterface {
+    private DisplayInfoSingleton displayInfoSingleton;
+    private string INSTRUCTIONS;
     private MyFontProcessor myFontProcessor;
-    private int anchor = Anchor.TOP_LEFT;
-    private int fontHeight = 0;
-    public HighScoresCanvasLevelChangeInputProcessor(HighScoresCanvas highScoresCanvas) : base(highScoresCanvas)
-    {
-        this.myFontProcessor = new UpdateMyFontProcessor(this);
-        // base(highScoresCanvas) is called from the constructor declaration
-    }
+    private int32 anchor;
+    private int32 fontHeight;
 
-    public virtual void updateMeasurement(Graphics graphics)
-    {
+    // Java field initializers run after the base constructor
+    private void initFieldsHighScoresCanvasLevelChangeInputProcessor() {
+    this.displayInfoSingleton = DisplayInfoSingleton.getInstance();
+    this.INSTRUCTIONS = "(Right = Next Track, Left = Previous Track)";
+    this.myFontProcessor = new UpdateMyFontProcessor(this);
+    this.anchor = Anchor.TOP_LEFT;
+    this.fontHeight = 0;
+    }
+    
+
+    public HighScoresCanvasLevelChangeInputProcessor(HighScoresCanvas highScoresCanvas) {
+        base(highScoresCanvas);
+        this.initFieldsHighScoresCanvasLevelChangeInputProcessor();
+    }
+    
+
+    public virtual void updateMeasurement(Graphics graphics) {
         Font font = graphics.getFont();
         this.fontHeight = font.getHeight();
         this.myFontProcessor = MyFontProcessor.getInstance();
     }
+    
 
-    public override void open()
-    {
+    public override void open() {
         GameKeyEventHandler.getInstance().addListener(this);
     }
+    
 
-    public override void close()
-    {
+    public override void close() {
         GameKeyEventHandler.getInstance().removeListener(this);
     }
+    
 
-    [MethodImpl(MethodImplOptions.Synchronized)]
-    public override void update()
-    {
+    public override void update() {
         BasicArrayList list = this.getGameKeyEventList();
-        int size = list.size();
-        for (int index = 0; index < size; index++) {
-            object anyType = list.objectArray[index];
-            int key = GameKeyEventUtil.getKey(anyType);
+        int32 size = list.size();
+        for (int32 index = 0; index < size; index++) {
+            JObject anyType = list.objectArray[index];
+            int32 key = GameKeyEventUtil.getKey(anyType);
             if (key == Canvas.RIGHT) {
                 this.getHighScoresCanvas().getGameInfo().nextGameLevel();
             } else if (key == Canvas.LEFT) {
@@ -79,14 +82,13 @@ public class HighScoresCanvasLevelChangeInputProcessor : HighScoresCanvasInputPr
         }
         list.clear();
     }
+    
 
-    public override void paint(Graphics graphics)
-    {
+    public override void paint(Graphics graphics) {
         this.myFontProcessor.process(graphics);
-        int width = this.displayInfoSingleton.getLastWidth();
-        int topScoresWidth = (graphics.getFont().stringWidth(this.INSTRUCTIONS) >> 1);
+        int32 width = this.displayInfoSingleton.getLastWidth();
+        int32 topScoresWidth = (graphics.getFont().stringWidth(this.INSTRUCTIONS) >> 1);
         graphics.drawString(this.INSTRUCTIONS, (width >> 1) - topScoresWidth, this.fontHeight * 2, this.anchor);
     }
-
 }
 

@@ -1,16 +1,15 @@
 // Generated Code Do Not Modify
+// package org.allbinary.device
 
-using System;
-using System.Linq;
+public class OpenGLESGraphicsFactory : JObject {
 
-namespace org.allbinary.device;
+    public OpenGLESGraphicsFactory() {
+        base();
+    }
+    
 
-public class OpenGLESGraphicsFactory
-{
-    public virtual OpenGLESGraphics getOpenGLESGraphicsInstance()
-    {
+    public virtual OpenGLESGraphics getOpenGLESGraphicsInstance() {
         return OpenGLESNullGraphicsFactory.getInstance();
     }
-
 }
 

@@ -13,22 +13,18 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.game.tracking
+// import javax.microedition.lcdui.Graphics
 
-using System;
-using System.Linq;
-using Graphics = javax.microedition.lcdui.Graphics;
+public class Tracking : JObject {
+    
 
-namespace org.allbinary.game.tracking;
-
-public class Tracking
-{
-    public Tracking()
-    {
+    public Tracking() {
+        base();
     }
+    
 
-    public virtual void paint(Graphics graphics)
-    {
+    public virtual void paint(Graphics graphics) {
     }
-
 }
 

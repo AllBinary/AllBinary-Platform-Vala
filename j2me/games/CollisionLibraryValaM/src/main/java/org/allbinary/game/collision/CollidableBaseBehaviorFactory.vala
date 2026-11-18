@@ -13,18 +13,17 @@
  *   
  */
 // Generated Code Do Not Modify
+// package org.allbinary.game.collision
 
-using System;
-using System.Linq;
+public class CollidableBaseBehaviorFactory : JObject, CollidableBaseBehaviorFactoryInterface {
 
-namespace org.allbinary.game.collision;
-
-public class CollidableBaseBehaviorFactory : CollidableBaseBehaviorFactoryInterface
-{
-    public virtual CollidableBaseBehavior createBehavior()
-    {
-        throw new SystemException();
+    public CollidableBaseBehaviorFactory() {
+        base();
     }
+    
 
+    public virtual CollidableBaseBehavior createBehavior() {
+        JSystem.fatal(new JException("RuntimeException", ""));
+    }
 }
 

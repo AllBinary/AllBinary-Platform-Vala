@@ -13,16 +13,12 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.graphics.paint
+// import javax.microedition.lcdui.Graphics
 
-using System;
-using System.Linq;
-using Graphics = javax.microedition.lcdui.Graphics;
+public interface LocationPaintableInterface : JObject {
+    
 
-namespace org.allbinary.graphics.paint;
-
-public interface LocationPaintableInterface
-{
-    void paintXY(Graphics graphics, int x, int y);
-
+    public abstract void paintXY(Graphics graphics, int32 x, int32 y);
 }
 

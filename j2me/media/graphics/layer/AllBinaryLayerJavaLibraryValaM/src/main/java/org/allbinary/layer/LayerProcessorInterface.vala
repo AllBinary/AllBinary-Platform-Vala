@@ -13,21 +13,17 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.layer
 
-using System;
-using System.Linq;
+public interface LayerProcessorInterface : JObject, BasicLayerProcessorInterface {
+    
 
-namespace org.allbinary.layer;
+    public abstract LayerManager getLayerManager();
+    
 
-public interface LayerProcessorInterface : BasicLayerProcessorInterface
-{
-    LayerManager getLayerManager();
+    public abstract void processAt(AllBinaryLayerManager allBinaryLayerManager, AllBinaryLayer layerInterface, int32 index);
+    
 
-    // throws Exception
-    void processAt(AllBinaryLayerManager allBinaryLayerManager, AllBinaryLayer layerInterface, int index);
-
-    // throws Exception
-    bool isProcessorLayer(AllBinaryLayer layerInterface);
-
+    public abstract bool isProcessorLayer(AllBinaryLayer layerInterface);
 }
 

@@ -13,19 +13,18 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.game.input
+// import org.allbinary.game.input.mapping.InputToGameKeyMapping
 
-using System;
-using System.Linq;
-using InputToGameKeyMapping = org.allbinary.game.input.mapping.InputToGameKeyMapping;
+public class LaptopGameInputMapping : PCGameInputMapping {
 
-namespace org.allbinary.game.input;
+    public LaptopGameInputMapping() {
+        base();
+    }
+    
 
-public class LaptopGameInputMapping : PCGameInputMapping
-{
-    public override InputToGameKeyMapping getDefault()
-    {
+    public override InputToGameKeyMapping getDefault() {
         return new LaptopDefaultGameInputMapping().getInputMapping();
     }
-
 }
 

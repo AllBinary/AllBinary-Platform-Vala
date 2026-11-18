@@ -1,16 +1,11 @@
 // Generated Code Do Not Modify
+// package org.apache.xmlrpc
 
-using System;
-using System.Linq;
+public class XmlRpcException : Exception {
+    
 
-namespace org.apache.xmlrpc;
-
-public class XmlRpcException : Exception
-{
-    public XmlRpcException(int code, string message) : base(message)
-    {
-        // base(message) is called from the constructor declaration
+    public XmlRpcException(int32 code, string message) {
+        base(message);
     }
-
 }
 

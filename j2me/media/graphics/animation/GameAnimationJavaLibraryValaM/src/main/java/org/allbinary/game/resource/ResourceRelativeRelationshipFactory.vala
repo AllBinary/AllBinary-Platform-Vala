@@ -13,69 +13,73 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.game.resource
+// import org.allbinary.graphics.RelativeRelationship
+// import org.allbinary.logic.StdUtil
+// import org.allbinary.util.ABHashtable
+// import org.allbinary.util.BasicArrayList
+// import org.allbinary.util.BasicArrayListD
+// import org.allbinary.util.BasicArrayListUtil
 
-using System;
-using System.Linq;
-using RelativeRelationship = org.allbinary.graphics.RelativeRelationship;
-using StdUtil = org.allbinary.logic.StdUtil;
-using org.allbinary.util;
-using BasicArrayList = org.allbinary.util.BasicArrayList;
-using BasicArrayListD = org.allbinary.util.BasicArrayListD;
-using BasicArrayListUtil = org.allbinary.util.BasicArrayListUtil;
+public class ResourceRelativeRelationshipFactory : JObject, ResourceRelativeRelationshipFactoryInterface, GameFeatureControlledInterface {
+    private BasicArrayListUtil basicArrayListUtil;
+    private ABHashtable hashtable;
+    private bool initialized;
 
-namespace org.allbinary.game.resource;
-
-public class ResourceRelativeRelationshipFactory : ResourceRelativeRelationshipFactoryInterface
-{
-    private readonly BasicArrayListUtil basicArrayListUtil = BasicArrayListUtil.getInstance();
-    private readonly ABHashtable<object, object> hashtable = StdUtil.getInstance().createHashtable();
-    private bool initialized = false;
-    // throws Exception
-    public virtual void init(int level)
-    {
-        this.setInitialized(true);
+    // Java field initializers run after the base constructor
+    private void initFieldsResourceRelativeRelationshipFactory() {
+    this.basicArrayListUtil = BasicArrayListUtil.getInstance();
+    this.hashtable = StdUtil.getInstance().createHashtable();
+    this.initialized = false;
     }
 
-    // throws Exception
-    public virtual BasicArrayList getResourceRelativeRelationshipList(string resource)
-    {
-        object listCanBeNull = this.hashtable.get(resource);
+    public ResourceRelativeRelationshipFactory() {
+        base();
+        this.initFieldsResourceRelativeRelationshipFactory();
+    }
+    
+
+    public virtual void init(int32 level) {
+        this.setInitialized(true);
+    }
+    
+
+    public virtual BasicArrayList getResourceRelativeRelationshipList(string resource) {
+        JObject listCanBeNull = this.hashtable.@get(resource);
         if (listCanBeNull == null) {
             return this.basicArrayListUtil.getImmutableInstance();
         }
         return ((BasicArrayList) listCanBeNull);
     }
+    
 
-    // throws Exception
-    public virtual void addResourceRelativeRelationship(string resource, RelativeRelationship hardPoint)
-    {
+    public virtual void addResourceRelativeRelationship(string resource, RelativeRelationship hardPoint) {
         BasicArrayList list = this.getResourceRelativeRelationshipList(resource);
         if (list == this.basicArrayListUtil.getImmutableInstance()) {
             list = new BasicArrayListD();
         }
         list.add(hardPoint);
-        this.hashtable.put(resource, list);
+        this.hashtable.put(JString.box(resource), list);
     }
+    
 
-    public virtual bool isLoadingLevel(int level)
-    {
+    public virtual bool isLoadingLevel(int32 level) {
         return false;
     }
+    
 
-    public virtual bool isFeature()
-    {
+    public virtual bool isFeature() {
         return false;
     }
+    
 
-    public virtual void setInitialized(bool initialized)
-    {
+    public virtual void setInitialized(bool initialized) {
         this.initialized = initialized;
     }
+    
 
-    public virtual bool isInitialized()
-    {
+    public virtual bool isInitialized() {
         return this.initialized;
     }
-
 }
 

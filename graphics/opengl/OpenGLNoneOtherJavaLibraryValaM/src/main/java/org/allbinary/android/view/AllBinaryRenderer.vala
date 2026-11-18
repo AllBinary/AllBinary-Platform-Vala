@@ -13,27 +13,34 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.android.view
 
-using System;
-using System.Linq;
-
-namespace org.allbinary.android.view;
-
-public class AllBinaryRenderer
-{
-    private static readonly AllBinaryRenderer instance = new AllBinaryRenderer();
-    public static AllBinaryRenderer getInstance()
-    {
+public class AllBinaryRenderer : JObject {
+    private static AllBinaryRenderer? instance;
+    private static bool staticSet_instance = false;
+    private static AllBinaryRenderer staticGet_instance() {
+        if (!AllBinaryRenderer.staticSet_instance) {
+            AllBinaryRenderer.staticSet_instance = true;
+            AllBinaryRenderer.instance = new AllBinaryRenderer();
+        }
         return AllBinaryRenderer.instance;
     }
 
-    public virtual void setRunnable(global::java.lang.Runnable runnable)
-    {
+    public AllBinaryRenderer() {
+        base();
     }
+    
 
-    public virtual void clearRunnable()
-    {
+    public static AllBinaryRenderer getInstance() {
+        return AllBinaryRenderer.staticGet_instance();
     }
+    
 
+    public virtual void setRunnable(Runnable runnable) {
+    }
+    
+
+    public virtual void clearRunnable() {
+    }
 }
 

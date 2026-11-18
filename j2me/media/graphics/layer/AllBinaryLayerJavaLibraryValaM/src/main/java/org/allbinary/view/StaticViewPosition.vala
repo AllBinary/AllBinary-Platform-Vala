@@ -13,33 +13,28 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.view
 
-using System;
-using System.Linq;
+public class StaticViewPosition : ViewPosition {
+    
 
-namespace org.allbinary.view;
-
-public class StaticViewPosition : ViewPosition
-{
-    public StaticViewPosition(int x, int y, int z) : base(x, y, z)
-    {
-        // base(x, y, z) is called from the constructor declaration
+    public StaticViewPosition(int32 x, int32 y, int32 z) {
+        base(x, y, z);
     }
+    
 
-    public override int getX()
-    {
+    public override int32 getX() {
         return this.getRawX();
     }
+    
 
-    public override int getY()
-    {
+    public override int32 getY() {
         return this.getRawY();
     }
+    
 
-    public override int getZ()
-    {
+    public override int32 getZ() {
         return this.getRawZ();
     }
-
 }
 

@@ -13,31 +13,34 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.input.motion.touch.action
+// import org.allbinary.game.input.PlatformInputMappingFactory
+// import org.allbinary.game.input.motion.action.GameKeyCompleteMotionGestureInputEvent
+// import org.allbinary.input.motion.gesture.TouchMotionGestureFactory
+// import org.allbinary.logic.NullUtil
 
-using System;
-using System.Linq;
-using PlatformInputMappingFactory = org.allbinary.game.input.PlatformInputMappingFactory;
-using GameKeyCompleteMotionGestureInputEvent = org.allbinary.game.input.motion.action.GameKeyCompleteMotionGestureInputEvent;
-using TouchMotionGestureFactory = org.allbinary.input.motion.gesture.TouchMotionGestureFactory;
-using NullUtil = org.allbinary.logic.NullUtil;
+public class DiagonalDownRightTouchInputToGameKeyEventAction : GameKeyCompleteMotionGestureInputEvent {
+    private static JObject? instance;
+    private static bool staticSet_instance = false;
+    private static JObject staticGet_instance() {
+        if (!DiagonalDownRightTouchInputToGameKeyEventAction.staticSet_instance) {
+            DiagonalDownRightTouchInputToGameKeyEventAction.staticSet_instance = true;
+            DiagonalDownRightTouchInputToGameKeyEventAction.instance = NullUtil.getInstance().NULL_OBJECT;
+        }
+        return DiagonalDownRightTouchInputToGameKeyEventAction.instance;
+    }
+    
 
-namespace org.allbinary.input.motion.touch.action;
-
-public class DiagonalDownRightTouchInputToGameKeyEventAction : GameKeyCompleteMotionGestureInputEvent
-{
-    private static object instance = NullUtil.getInstance().NULL_OBJECT;
-    public static GameKeyCompleteMotionGestureInputEvent getInstance()
-    {
-        if (DiagonalDownRightTouchInputToGameKeyEventAction.instance == NullUtil.getInstance().NULL_OBJECT) {
+    public static GameKeyCompleteMotionGestureInputEvent getInstance() {
+        if (DiagonalDownRightTouchInputToGameKeyEventAction.staticGet_instance() == NullUtil.getInstance().NULL_OBJECT) {
             DiagonalDownRightTouchInputToGameKeyEventAction.instance = new DiagonalDownRightTouchInputToGameKeyEventAction();
         }
-        return ((GameKeyCompleteMotionGestureInputEvent) DiagonalDownRightTouchInputToGameKeyEventAction.instance);
+        return ((GameKeyCompleteMotionGestureInputEvent) DiagonalDownRightTouchInputToGameKeyEventAction.staticGet_instance());
     }
+    
 
-    private DiagonalDownRightTouchInputToGameKeyEventAction() : base("Diagonal Down Right Action", TouchMotionGestureFactory.getInstance().DIAGONAL_DOWN_RIGHT, PlatformInputMappingFactory.getInstance().getPersistentInputMappingInstance().getInputMapping())
-    {
-        // base("Diagonal Down Right Action", TouchMotionGestureFactory.getInstance().DIAGONAL_DOWN_RIGHT, PlatformInputMappingFactory.getInstance().getPersistentInputMappingInstance().getInputMapping()) is called from the constructor declaration
+    public DiagonalDownRightTouchInputToGameKeyEventAction() {
+        base("Diagonal Down Right Action", TouchMotionGestureFactory.getInstance().DIAGONAL_DOWN_RIGHT, PlatformInputMappingFactory.getInstance().getPersistentInputMappingInstance().getInputMapping());
     }
-
 }
 

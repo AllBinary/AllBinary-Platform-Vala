@@ -13,30 +13,25 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.game.ag.layer.pickup.points
+// import org.allbinary.game.score.ScoreableInterface
+// import org.allbinary.layer.AllBinaryLayer
+// import org.allbinary.layer.AllBinaryLayerCircularPool
+// import org.allbinary.layer.AllBinaryLayerFactoryInterface
 
-using System;
-using System.Linq;
-using ScoreableInterface = org.allbinary.game.score.ScoreableInterface;
-using AllBinaryLayer = org.allbinary.layer.AllBinaryLayer;
-using AllBinaryLayerCircularPool = org.allbinary.layer.AllBinaryLayerCircularPool;
-using AllBinaryLayerFactoryInterface = org.allbinary.layer.AllBinaryLayerFactoryInterface;
+public class PointsLayerCircularStaticPool : AllBinaryLayerCircularPool {
+    
 
-namespace org.allbinary.game.ag.layer.pickup.points;
-
-public class PointsLayerCircularStaticPool : AllBinaryLayerCircularPool
-{
-    public PointsLayerCircularStaticPool(AllBinaryLayerFactoryInterface allbinaryLayerFactoryInterface, int total)
-    {
+    public PointsLayerCircularStaticPool(AllBinaryLayerFactoryInterface allbinaryLayerFactoryInterface, int32 total) {
+        base();
         base.initAllBinaryLayerCircularPool(allbinaryLayerFactoryInterface, total);
     }
+    
 
-    // throws Exception
-    public virtual void visit(AllBinaryLayer sourceLayerInterface)
-    {
+    public virtual void visit(AllBinaryLayer sourceLayerInterface) {
         PointsLayer pointsLayer = ((PointsLayer) this.getNextInstance());
         ScoreableInterface scoreableInterface = ((ScoreableInterface) sourceLayerInterface);
         pointsLayer.visit(scoreableInterface);
     }
-
 }
 

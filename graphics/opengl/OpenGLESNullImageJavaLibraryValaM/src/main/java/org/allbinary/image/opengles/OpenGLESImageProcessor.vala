@@ -13,36 +13,43 @@
  *   
  */
 // Generated Code Do Not Modify
+// package org.allbinary.image.opengles
+// import javax.microedition.khronos.opengles.GL10
 
-using System;
-using System.Linq;
-using GL10 = javax.microedition.khronos.opengles.GL10;
-
-namespace org.allbinary.image.opengles;
-
-public class OpenGLESImageProcessor
-{
-    private static readonly OpenGLESImageProcessor instance = new OpenGLESImageProcessor();
-    public static OpenGLESImageProcessor getInstance()
-    {
+public class OpenGLESImageProcessor : JObject {
+    private static OpenGLESImageProcessor? instance;
+    private static bool staticSet_instance = false;
+    private static OpenGLESImageProcessor staticGet_instance() {
+        if (!OpenGLESImageProcessor.staticSet_instance) {
+            OpenGLESImageProcessor.staticSet_instance = true;
+            OpenGLESImageProcessor.instance = new OpenGLESImageProcessor();
+        }
         return OpenGLESImageProcessor.instance;
     }
 
-    public virtual void translate(GL10 gl, float translateX, float translateY)
-    {
+    public OpenGLESImageProcessor() {
+        base();
     }
+    
 
-    public virtual void rotate(GL10 gl, float angle)
-    {
+    public static OpenGLESImageProcessor getInstance() {
+        return OpenGLESImageProcessor.staticGet_instance();
     }
+    
 
-    public virtual void scale(GL10 gl, float scaleX, float scaleY)
-    {
+    public virtual void translate(GL10 gl, float translateX, float translateY) {
     }
+    
 
-    public virtual void colorMask(GL10 gl, float red, float green, float blue, float alpha)
-    {
+    public virtual void rotate(GL10 gl, float angle) {
     }
+    
 
+    public virtual void scale(GL10 gl, float scaleX, float scaleY) {
+    }
+    
+
+    public virtual void colorMask(GL10 gl, float red, float green, float blue, float alpha) {
+    }
 }
 

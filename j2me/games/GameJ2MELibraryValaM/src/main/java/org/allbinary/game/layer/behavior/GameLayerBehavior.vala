@@ -13,13 +13,12 @@
  *   
  */
 // Generated Code Do Not Modify
+// package org.allbinary.game.layer.behavior
 
-using System;
-using System.Linq;
+public class GameLayerBehavior : JObject {
 
-namespace org.allbinary.game.layer.behavior;
-
-public class GameLayerBehavior
-{
+    public GameLayerBehavior() {
+        base();
+    }
 }
 

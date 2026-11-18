@@ -13,86 +13,96 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.game.configuration.feature
+// import org.allbinary.game.configuration.event.GameFeatureEvent
+// import org.allbinary.game.configuration.event.GameFeatureEventHandler
+// import org.allbinary.logic.NullUtil
+// import org.allbinary.logic.communication.log.LogUtil
+// import org.allbinary.logic.communication.log.PreLogUtil
+// import org.allbinary.logic.string.StringMaker
+// import org.allbinary.logic.system.os.GenericOperatingSystem
+// import org.allbinary.logic.system.os.OperatingSystemFactory
+// import org.allbinary.string.CommonLabels
+// import org.allbinary.string.CommonStrings
+// import org.allbinary.util.BasicArrayList
+// import org.allbinary.util.BasicArrayListD
 
-using System;
-using System.Linq;
-using GameFeatureEvent = org.allbinary.game.configuration.@event.GameFeatureEvent;
-using GameFeatureEventHandler = org.allbinary.game.configuration.@event.GameFeatureEventHandler;
-using NullUtil = org.allbinary.logic.NullUtil;
-using LogUtil = org.allbinary.logic.communication.log.LogUtil;
-using PreLogUtil = org.allbinary.logic.communication.log.PreLogUtil;
-using StringMaker = org.allbinary.logic.@string.StringMaker;
-using GenericOperatingSystem = org.allbinary.logic.system.os.GenericOperatingSystem;
-using OperatingSystemFactory = org.allbinary.logic.system.os.OperatingSystemFactory;
-using CommonLabels = org.allbinary.@string.CommonLabels;
-using CommonStrings = org.allbinary.@string.CommonStrings;
-using BasicArrayList = org.allbinary.util.BasicArrayList;
-using BasicArrayListD = org.allbinary.util.BasicArrayListD;
+public class Features : JObject {
+    private static JObject? SINGLETON;
+    private static bool staticSet_SINGLETON = false;
+    private static JObject staticGet_SINGLETON() {
+        if (!Features.staticSet_SINGLETON) {
+            Features.staticSet_SINGLETON = true;
+            Features.SINGLETON = NullUtil.getInstance().NULL_OBJECT;
+        }
+        return Features.SINGLETON;
+    }
+    public LogUtil logUtil;
+    private CommonStrings commonStrings;
+    private BasicArrayList list;
+    private BasicArrayList defaultList;
 
-namespace org.allbinary.game.configuration.feature;
+    // Java field initializers run after the base constructor
+    private void initFieldsFeatures() {
+    this.logUtil = LogUtil.getInstance();
+    this.commonStrings = CommonStrings.getInstance();
+    
+    
+    }
+    
 
-public class Features
-{
-    private static object SINGLETON = NullUtil.getInstance().NULL_OBJECT;
-    public static Features getInstance()
-    {
-        if (Features.SINGLETON == NullUtil.getInstance().NULL_OBJECT) {
+    public static Features getInstance() {
+        if (Features.staticGet_SINGLETON() == NullUtil.getInstance().NULL_OBJECT) {
             Features.SINGLETON = new Features();
         }
-        return ((Features) Features.SINGLETON);
+        return ((Features) Features.staticGet_SINGLETON());
     }
+    
 
-    public readonly LogUtil logUtil = LogUtil.getInstance();
-    private readonly CommonStrings commonStrings = CommonStrings.getInstance();
-    private readonly BasicArrayList list;
-    private readonly BasicArrayList defaultList;
-    private Features()
-    {
+    public Features() {
+        base();
+        this.initFieldsFeatures();
         this.list = new BasicArrayListD();
         this.defaultList = new BasicArrayListD();
         this.init();
     }
+    
 
-    // throws Exception
-    public virtual void addDefault(Feature gameFeature)
-    {
+    public virtual void addDefault(Feature gameFeature) {
         this.add(gameFeature);
         if (!this.defaultList.contains(gameFeature)) {
             this.defaultList.add(gameFeature);
         }
     }
+    
 
-    // throws Exception
-    public virtual void add(Feature gameFeature)
-    {
+    public virtual void add(Feature gameFeature) {
         if (!this.list.contains(gameFeature)) {
-            this.logUtil.putF(new StringMaker().append(CommonLabels.getInstance().START_LABEL).append(gameFeature.ToString()).ToString(), this, this.commonStrings.ADD);
+            this.logUtil.putF(new StringMaker().append(CommonLabels.getInstance().START_LABEL).append(gameFeature.toString()).toString(), this, this.commonStrings.ADD);
             this.list.add(gameFeature);
-            GameFeatureEventHandler.getInstance().fireEvent(new GameFeatureEvent(gameFeature, gameFeature.ToString()));
+            GameFeatureEventHandler.getInstance().fireEvent(new GameFeatureEvent(gameFeature, gameFeature.toString()));
         }
     }
+    
 
-    // throws Exception
-    public virtual void removeDefault(Feature gameFeature)
-    {
-        this.logUtil.putF(new StringMaker().append(CommonLabels.getInstance().START_LABEL).append(gameFeature.ToString()).ToString(), this, "removeDefault");
+    public virtual void removeDefault(Feature gameFeature) {
+        this.logUtil.putF(new StringMaker().append(CommonLabels.getInstance().START_LABEL).append(gameFeature.toString()).toString(), this, "removeDefault");
         this.remove(gameFeature);
         this.defaultList.remove(gameFeature);
     }
+    
 
-    // throws Exception
-    public virtual void remove(Feature gameFeature)
-    {
+    public virtual void remove(Feature gameFeature) {
         if (this.list.contains(gameFeature)) {
             this.logUtil.putF(this.commonStrings.START, this, this.commonStrings.REMOVE);
             this.list.remove(gameFeature);
-            GameFeatureEventHandler.getInstance().fireEvent(new GameFeatureEvent(gameFeature, gameFeature.ToString()));
+            GameFeatureEventHandler.getInstance().fireEvent(new GameFeatureEvent(gameFeature, gameFeature.toString()));
         }
     }
+    
 
-    private void init()
-    {
-        try {
+    private void init() {
+        {
             GameFeatureFactory gameFeatureFactory = GameFeatureFactory.getInstance();
             InputFeatureFactory inputFeatureFactory = InputFeatureFactory.getInstance();
             SensorFeatureFactory sensorFeatureFactory = SensorFeatureFactory.getInstance();
@@ -116,30 +126,26 @@ public class Features
             this.addDefault(touchFeatureFactory.TOUCH_ENABLED);
             this.addDefault(MainFeatureFactory.getInstance().FULL_SCREEN);
             this.addDefault(MainFeatureFactory.getInstance().LOAD_ONDEMAND);
-        } catch (Exception e) {
-            PreLogUtil.putOE(this.commonStrings.EXCEPTION, this, this.commonStrings.INIT, e);
-        }
+        } /* catch (Exception e): a thrown Java exception stops the program */
     }
+    
 
-    public virtual bool isDefault(Feature gameFeature)
-    {
+    public virtual bool isDefault(Feature gameFeature) {
         return this.defaultList.contains(gameFeature);
     }
+    
 
-    public virtual bool isFeature(Feature gameFeature)
-    {
+    public virtual bool isFeature(Feature gameFeature) {
         return this.list.contains(gameFeature);
     }
+    
 
-    // throws Exception
-    public virtual void toggle(Feature gameFeature)
-    {
+    public virtual void toggle(Feature gameFeature) {
         if (this.isFeature(gameFeature)) {
             this.remove(gameFeature);
         } else {
             this.add(gameFeature);
         }
     }
-
 }
 

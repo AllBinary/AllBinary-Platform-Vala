@@ -13,29 +13,35 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.media.audio
 
-using System;
-using System.Linq;
+public class EarlySoundsFactory : BaseSoundsFactory {
+    private static EarlySoundsFactory? instance;
+    private static bool staticSet_instance = false;
+    private static EarlySoundsFactory staticGet_instance() {
+        if (!EarlySoundsFactory.staticSet_instance) {
+            EarlySoundsFactory.staticSet_instance = true;
+            EarlySoundsFactory.instance = new EarlySoundsFactory();
+        }
+        return EarlySoundsFactory.instance;
+    }
 
-namespace org.allbinary.media.audio;
+    public EarlySoundsFactory() {
+        base();
+    }
+    
 
-public class EarlySoundsFactory : BaseSoundsFactory
-{
-    private static readonly EarlySoundsFactory instance = new EarlySoundsFactory();
-    // throws Exception
-    public override Sound[] getSoundInterfaceArray()
-    {
+    public override Sound[] getSoundInterfaceArray() {
         Sound[] soundInterfaceArray = new Sound[2];
-        int index = 0;
+        int32 index = 0;
         soundInterfaceArray[index++] = SelectSound.getInstance();
         soundInterfaceArray[index++] = ErrorSound.getInstance();
         return soundInterfaceArray;
     }
+    
 
-    public static EarlySoundsFactory getInstance()
-    {
-        return EarlySoundsFactory.instance;
+    public static EarlySoundsFactory getInstance() {
+        return EarlySoundsFactory.staticGet_instance();
     }
-
 }
 

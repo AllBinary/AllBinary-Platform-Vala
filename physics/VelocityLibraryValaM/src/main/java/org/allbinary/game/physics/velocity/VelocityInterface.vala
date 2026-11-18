@@ -13,29 +13,32 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.game.physics.velocity
 
-using System;
-using System.Linq;
+public interface VelocityInterface : JObject, BasicVelocityInterface {
+    
 
-namespace org.allbinary.game.physics.velocity;
+    public abstract int32 getMaxForwardVelocity();
+    
 
-public interface VelocityInterface : BasicVelocityInterface
-{
-    int getMaxForwardVelocity();
+    public abstract int32 getMaxReverseVelocity();
+    
 
-    int getMaxReverseVelocity();
+    public abstract void limitMaxXYForwardVelocity();
+    
 
-    void limitMaxXYForwardVelocity();
+    public abstract void limitMaxXYReverseVelocity();
+    
 
-    void limitMaxXYReverseVelocity();
+    public abstract void limitXYToForwardAndReverseMaxVelocity();
+    
 
-    void limitXYToForwardAndReverseMaxVelocity();
+    public abstract void limitMaxXYVelocity(int32 maxVelocity);
+    
 
-    void limitMaxXYVelocity(int maxVelocity);
+    public abstract void setMaxForwardVelocity(int32 maxForwardVelocity);
+    
 
-    void setMaxForwardVelocity(int maxForwardVelocity);
-
-    void setMaxReverseVelocity(int maxReverseVelocity);
-
+    public abstract void setMaxReverseVelocity(int32 maxReverseVelocity);
 }
 

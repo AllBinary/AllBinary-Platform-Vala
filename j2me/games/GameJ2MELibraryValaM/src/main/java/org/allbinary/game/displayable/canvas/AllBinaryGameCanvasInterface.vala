@@ -13,17 +13,13 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.game.displayable.canvas
+// import org.allbinary.game.layer.AllBinaryGameLayerManager
+// import org.allbinary.graphics.displayable.DisplayableInterface
 
-using System;
-using System.Linq;
-using AllBinaryGameLayerManager = org.allbinary.game.layer.AllBinaryGameLayerManager;
-using DisplayableInterface = org.allbinary.graphics.displayable.DisplayableInterface;
+public interface AllBinaryGameCanvasInterface : JObject, DisplayableInterface {
+    
 
-namespace org.allbinary.game.displayable.canvas;
-
-public interface AllBinaryGameCanvasInterface : DisplayableInterface
-{
-    AllBinaryGameLayerManager getLayerManager();
-
+    public abstract AllBinaryGameLayerManager getLayerManager();
 }
 

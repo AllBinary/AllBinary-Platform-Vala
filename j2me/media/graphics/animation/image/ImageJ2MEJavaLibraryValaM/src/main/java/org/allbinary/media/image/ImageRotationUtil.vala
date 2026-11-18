@@ -13,32 +13,41 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.media.image
+// import javax.microedition.lcdui.Image
+// import org.allbinary.graphics.Anchor
 
-using System;
-using System.Linq;
-using Image = javax.microedition.lcdui.Image;
-using Anchor = org.allbinary.graphics.Anchor;
-
-namespace org.allbinary.media.image;
-
-public class ImageRotationUtil
-{
-    private static readonly ImageRotationUtil instance = new ImageRotationUtil();
-    public static ImageRotationUtil getInstance()
-    {
+public class ImageRotationUtil : JObject {
+    private static ImageRotationUtil? instance;
+    private static bool staticSet_instance = false;
+    private static ImageRotationUtil staticGet_instance() {
+        if (!ImageRotationUtil.staticSet_instance) {
+            ImageRotationUtil.staticSet_instance = true;
+            ImageRotationUtil.instance = new ImageRotationUtil();
+        }
         return ImageRotationUtil.instance;
     }
+    private int32 anchor;
 
-    private ImageRotationUtil()
-    {
+    // Java field initializers run after the base constructor
+    private void initFieldsImageRotationUtil() {
+    this.anchor = Anchor.TOP_LEFT;
     }
+    
 
-    private int anchor = Anchor.TOP_LEFT;
-    // throws Exception
-    public virtual Image createRotatedImage(Image originalImage, int rotationInDegrees)
-    {
+    public static ImageRotationUtil getInstance() {
+        return ImageRotationUtil.staticGet_instance();
+    }
+    
+
+    public ImageRotationUtil() {
+        base();
+        this.initFieldsImageRotationUtil();
+    }
+    
+
+    public virtual Image createRotatedImage(Image originalImage, int32 rotationInDegrees) {
         return originalImage;
     }
-
 }
 

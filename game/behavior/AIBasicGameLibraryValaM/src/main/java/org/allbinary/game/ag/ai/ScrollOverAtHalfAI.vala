@@ -13,32 +13,27 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.game.ag.ai
+// import org.allbinary.game.ai.BasicAI
+// import org.allbinary.game.input.GameInput
+// import org.allbinary.graphics.displayable.DisplayInfoSingleton
+// import org.allbinary.layer.AllBinaryLayer
+// import org.allbinary.layer.AllBinaryLayerManager
 
-using System;
-using System.Linq;
-using BasicAI = org.allbinary.game.ai.BasicAI;
-using GameInput = org.allbinary.game.input.GameInput;
-using DisplayInfoSingleton = org.allbinary.graphics.displayable.DisplayInfoSingleton;
-using AllBinaryLayer = org.allbinary.layer.AllBinaryLayer;
-using AllBinaryLayerManager = org.allbinary.layer.AllBinaryLayerManager;
+public class ScrollOverAtHalfAI : BasicAI {
+    
 
-namespace org.allbinary.game.ag.ai;
-
-public class ScrollOverAtHalfAI : BasicAI
-{
-    public ScrollOverAtHalfAI(AllBinaryLayer ownerLayerInterface, GameInput gameInput) : base(ownerLayerInterface, gameInput)
-    {
-        // base(ownerLayerInterface, gameInput) is called from the constructor declaration
+    public ScrollOverAtHalfAI(AllBinaryLayer ownerLayerInterface, GameInput gameInput) {
+        base(ownerLayerInterface, gameInput);
     }
+    
 
-    // throws Exception
-    public override void processAI(AllBinaryLayerManager allBinaryLayerManager)
-    {
+    public override void processAI(AllBinaryLayerManager allBinaryLayerManager) {
         AllBinaryLayer ownerLayerInterface = this.getOwnerLayerInterface();
-        int x = ownerLayerInterface.getXP();
-        int y = ownerLayerInterface.getYP();
-        int halfWidth = ownerLayerInterface.getHalfWidth();
-        int halfHeight = ownerLayerInterface.getHalfHeight();
+        int32 x = ownerLayerInterface.getXP();
+        int32 y = ownerLayerInterface.getYP();
+        int32 halfWidth = ownerLayerInterface.getHalfWidth();
+        int32 halfHeight = ownerLayerInterface.getHalfHeight();
         DisplayInfoSingleton displayInfo = DisplayInfoSingleton.getInstance();
         if (x > displayInfo.getLastWidth() - halfWidth) {
             ownerLayerInterface.setPosition(halfWidth + 1, y, ownerLayerInterface.getZP());
@@ -53,6 +48,5 @@ public class ScrollOverAtHalfAI : BasicAI
             ownerLayerInterface.setPosition(x, displayInfo.getLastHeight() - halfHeight, ownerLayerInterface.getZP());
         }
     }
-
 }
 

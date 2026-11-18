@@ -13,39 +13,42 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.game.paint
+// import javax.microedition.lcdui.Graphics
+// import org.allbinary.graphics.paint.Paintable
 
-using System;
-using System.Linq;
-using Graphics = javax.microedition.lcdui.Graphics;
-using Paintable = org.allbinary.graphics.paint.Paintable;
+public class MainGameDemoStatePaintable : Paintable {
+    private Paintable ownershipPaintableInterface;
+    private Paintable menuPaintableInterface;
 
-namespace org.allbinary.game.paint;
+    // Java field initializers run after the base constructor
+    private void initFieldsMainGameDemoStatePaintable() {
+    
+    
+    }
+    
 
-public class MainGameDemoStatePaintable : Paintable
-{
-    private readonly Paintable ownershipPaintableInterface;
-    private readonly Paintable menuPaintableInterface;
-    public MainGameDemoStatePaintable(Paintable ownershipPaintableInterface, Paintable menuPaintableInterface)
-    {
+    public MainGameDemoStatePaintable(Paintable ownershipPaintableInterface, Paintable menuPaintableInterface) {
+        base();
+        this.initFieldsMainGameDemoStatePaintable();
         this.ownershipPaintableInterface = ownershipPaintableInterface;
         this.menuPaintableInterface = menuPaintableInterface;
     }
+    
 
-    public override void paint(Graphics graphics)
-    {
+    public override void paint(Graphics graphics) {
         this.menuPaintableInterface.paint(graphics);
         this.ownershipPaintableInterface.paint(graphics);
     }
+    
 
-    public virtual Paintable getOwnershipPaintableInterface()
-    {
+    public virtual Paintable getOwnershipPaintableInterface() {
         return this.ownershipPaintableInterface;
     }
+    
 
-    public virtual Paintable getMenuPaintableInterface()
-    {
+    public virtual Paintable getMenuPaintableInterface() {
         return this.menuPaintableInterface;
     }
-
 }
 

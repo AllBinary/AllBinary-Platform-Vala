@@ -13,38 +13,32 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.game.collision
+// import org.allbinary.game.layer.CollidableCompositeLayer
 
-using System;
-using System.Linq;
-using CollidableCompositeLayer = org.allbinary.game.layer.CollidableCompositeLayer;
+public class CollidableNeverCollideBehavior : CollidableBaseBehavior {
+    
 
-namespace org.allbinary.game.collision;
-
-public class CollidableNeverCollideBehavior : CollidableBaseBehavior
-{
-    public CollidableNeverCollideBehavior(bool isCollidable) : base(isCollidable)
-    {
-        // base(isCollidable) is called from the constructor declaration
+    public CollidableNeverCollideBehavior(bool isCollidable) {
+        base(isCollidable);
     }
+    
 
-    public override bool isCollision(CollidableCompositeLayer ownerLayer, CollidableCompositeLayer allbinaryCollidableLayer)
-    {
+    public override bool isCollision(CollidableCompositeLayer ownerLayer, CollidableCompositeLayer allbinaryCollidableLayer) {
         return false;
     }
+    
 
-    // throws Exception
-    public override void collide(CollidableCompositeLayer ownerLayer, CollidableCompositeLayer allbinaryCollidableLayer)
-    {
+    public override void collide(CollidableCompositeLayer ownerLayer, CollidableCompositeLayer allbinaryCollidableLayer) {
     }
+    
 
-    public override void collideInterface(CollidableCompositeLayer ownerLayer, CollidableInterfaceCompositeInterface collidableInterfaceCompositeInterface)
-    {
+    public override void collideInterface(CollidableCompositeLayer ownerLayer, CollidableInterfaceCompositeInterface collidableInterfaceCompositeInterface) {
     }
+    
 
-    public override bool isCollisionInterface(CollidableCompositeLayer ownerLayer, CollidableInterfaceCompositeInterface collidableInterfaceCompositeInterface)
-    {
+    public override bool isCollisionInterface(CollidableCompositeLayer ownerLayer, CollidableInterfaceCompositeInterface collidableInterfaceCompositeInterface) {
         return false;
     }
-
 }
 

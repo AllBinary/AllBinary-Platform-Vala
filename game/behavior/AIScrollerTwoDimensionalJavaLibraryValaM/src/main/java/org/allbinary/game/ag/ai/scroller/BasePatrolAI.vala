@@ -13,63 +13,101 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.game.ag.ai.scroller
+// import javax.microedition.lcdui.Canvas
+// import org.allbinary.game.ai.BasicAI
+// import org.allbinary.game.input.GameInput
+// import org.allbinary.game.physics.velocity.BasicVelocityProperties
+// import org.allbinary.game.physics.velocity.VelocityInterfaceCompositeInterface
+// import org.allbinary.layer.AllBinaryLayer
+// import org.allbinary.logic.math.MathUtil
+// import org.allbinary.logic.math.SmallIntegerSingletonFactory
+// import org.allbinary.util.ABHashtable
 
-using System;
-using System.Linq;
-using Canvas = javax.microedition.lcdui.Canvas;
-using BasicAI = org.allbinary.game.ai.BasicAI;
-using GameInput = org.allbinary.game.input.GameInput;
-using BasicVelocityProperties = org.allbinary.game.physics.velocity.BasicVelocityProperties;
-using VelocityInterfaceCompositeInterface = org.allbinary.game.physics.velocity.VelocityInterfaceCompositeInterface;
-using AllBinaryLayer = org.allbinary.layer.AllBinaryLayer;
-using MathUtil = org.allbinary.logic.math.MathUtil;
-using SmallIntegerSingletonFactory = org.allbinary.logic.math.SmallIntegerSingletonFactory;
-using org.allbinary.util;
-
-namespace org.allbinary.game.ag.ai.scroller;
-
-public class BasePatrolAI : BasicAI
-{
-    public static readonly int? MAX_DISTANCE = SmallIntegerSingletonFactory.getInstance().getAt(2);
-    public static readonly int? DIRECTION_ARRAY = SmallIntegerSingletonFactory.getInstance().getAt(3);
-    public static readonly int? FIRING_DISTANCE = SmallIntegerSingletonFactory.getInstance().getAt(4);
-    public static int? SPEED = SmallIntegerSingletonFactory.getInstance().getAt(5);
-    public int? maxDistance;
-    public int currentDistance;
-    public int xTotalDistance = 0;
-    public int lastKeyDirection = Canvas.RIGHT;
-    public int keyDirection = Canvas.RIGHT;
-    public BasePatrolAI(ABHashtable<object, object> hashtable, AllBinaryLayer ownerLayerInterface, GameInput gameInput) : base(ownerLayerInterface, gameInput)
-    {
-        // base(ownerLayerInterface, gameInput) is called from the constructor declaration
-        this.maxDistance = ((int?) hashtable.get(BasePatrolAI.MAX_DISTANCE));
-        this.currentDistance = ((int) this.maxDistance);
+public class BasePatrolAI : BasicAI {
+    public static int32?? MAX_DISTANCE;
+    private static bool staticSet_MAX_DISTANCE = false;
+    public static int32? staticGet_MAX_DISTANCE() {
+        if (!BasePatrolAI.staticSet_MAX_DISTANCE) {
+            BasePatrolAI.staticSet_MAX_DISTANCE = true;
+            BasePatrolAI.MAX_DISTANCE = SmallIntegerSingletonFactory.getInstance().getAt(2);
+        }
+        return BasePatrolAI.MAX_DISTANCE;
     }
+    public static int32?? DIRECTION_ARRAY;
+    private static bool staticSet_DIRECTION_ARRAY = false;
+    public static int32? staticGet_DIRECTION_ARRAY() {
+        if (!BasePatrolAI.staticSet_DIRECTION_ARRAY) {
+            BasePatrolAI.staticSet_DIRECTION_ARRAY = true;
+            BasePatrolAI.DIRECTION_ARRAY = SmallIntegerSingletonFactory.getInstance().getAt(3);
+        }
+        return BasePatrolAI.DIRECTION_ARRAY;
+    }
+    public static int32?? FIRING_DISTANCE;
+    private static bool staticSet_FIRING_DISTANCE = false;
+    public static int32? staticGet_FIRING_DISTANCE() {
+        if (!BasePatrolAI.staticSet_FIRING_DISTANCE) {
+            BasePatrolAI.staticSet_FIRING_DISTANCE = true;
+            BasePatrolAI.FIRING_DISTANCE = SmallIntegerSingletonFactory.getInstance().getAt(4);
+        }
+        return BasePatrolAI.FIRING_DISTANCE;
+    }
+    public static int32?? SPEED;
+    private static bool staticSet_SPEED = false;
+    public static int32? staticGet_SPEED() {
+        if (!BasePatrolAI.staticSet_SPEED) {
+            BasePatrolAI.staticSet_SPEED = true;
+            BasePatrolAI.SPEED = SmallIntegerSingletonFactory.getInstance().getAt(5);
+        }
+        return BasePatrolAI.SPEED;
+    }
+    public int32? maxDistance;
+    public int32 currentDistance;
+    public int32 xTotalDistance;
+    public int32 lastKeyDirection;
+    public int32 keyDirection;
 
-    public virtual void update()
-    {
+    // Java field initializers run after the base constructor
+    private void initFieldsBasePatrolAI() {
+    
+    
+    this.xTotalDistance = 0;
+    this.lastKeyDirection = Canvas.RIGHT;
+    this.keyDirection = Canvas.RIGHT;
+    }
+    
+
+    public BasePatrolAI(ABHashtable hashtable, AllBinaryLayer ownerLayerInterface, GameInput gameInput) {
+        base(ownerLayerInterface, gameInput);
+        this.initFieldsBasePatrolAI();
+        this.maxDistance = JNumber.unboxInt(hashtable.@get(BasePatrolAI.staticGet_MAX_DISTANCE()));
+        this.currentDistance = ((int32) this.maxDistance);
+    }
+    
+
+    public virtual void update() {
         this.updateTotalDistance();
         this.changeDirectionIfReachedPacingAreaMax();
     }
+    
 
-    private void updateTotalDistance()
-    {
+    private void updateTotalDistance() {
         VelocityInterfaceCompositeInterface velocityInterfaceCompositeInterface = ((VelocityInterfaceCompositeInterface) this.getOwnerLayerInterface());
         BasicVelocityProperties velocityProperties = velocityInterfaceCompositeInterface.getVelocityProperties();
         this.xTotalDistance += velocityProperties.getVelocityXBasicDecimalP().getScaled();
     }
+    
 
-    private void changeDirectionIfReachedPacingAreaMax()
-    {
+    private void changeDirectionIfReachedPacingAreaMax() {
         MathUtil mathUtil = MathUtil.getInstance();
-        int totalDistance = mathUtil.abs(this.xTotalDistance);
+        int32 totalDistance = mathUtil.abs(this.xTotalDistance);
         if (totalDistance > this.currentDistance) {
             this.nextDirection();
         }
     }
+    
 
-    public virtual void nextDirection()
-    {
+    public virtual void nextDirection() {
         if (this.lastKeyDirection == Canvas.LEFT) {
             this.keyDirection = Canvas.RIGHT;
             this.lastKeyDirection = this.keyDirection;
@@ -80,10 +118,9 @@ public class BasePatrolAI : BasicAI
             this.xTotalDistance = 0;
         }
     }
+    
 
-    public virtual void disable()
-    {
+    public virtual void disable() {
     }
-
 }
 

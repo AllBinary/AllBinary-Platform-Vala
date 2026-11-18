@@ -13,16 +13,12 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.animation
+// import org.allbinary.graphics.color.BasicColor
 
-using System;
-using System.Linq;
-using BasicColor = org.allbinary.graphics.color.BasicColor;
+public interface VectorAnimationFactoryInterface : JObject {
+    
 
-namespace org.allbinary.animation;
-
-public interface VectorAnimationFactoryInterface
-{
-    VectorAnimation getInstance(int[][][] points, BasicColor basicColor);
-
+    public abstract VectorAnimation getInstance2(int32[,,] points, BasicColor basicColor);
 }
 

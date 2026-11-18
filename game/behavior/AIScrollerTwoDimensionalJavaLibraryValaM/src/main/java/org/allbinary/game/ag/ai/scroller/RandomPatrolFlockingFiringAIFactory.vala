@@ -13,28 +13,26 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.game.ag.ai.scroller
+// import org.allbinary.ai.ArtificialIntelligenceInterface
+// import org.allbinary.game.ag.ai.ArrayAI
+// import org.allbinary.game.ai.ArtificialIntelligenceInterfaceFactoryInterface
+// import org.allbinary.game.input.GameInput
+// import org.allbinary.layer.AllBinaryLayer
+// import org.allbinary.util.ABHashtable
 
-using System;
-using System.Linq;
-using ArtificialIntelligenceInterface = org.allbinary.ai.ArtificialIntelligenceInterface;
-using ArrayAI = org.allbinary.game.ag.ai.ArrayAI;
-using ArtificialIntelligenceInterfaceFactoryInterface = org.allbinary.game.ai.ArtificialIntelligenceInterfaceFactoryInterface;
-using GameInput = org.allbinary.game.input.GameInput;
-using AllBinaryLayer = org.allbinary.layer.AllBinaryLayer;
-using org.allbinary.util;
+public class RandomPatrolFlockingFiringAIFactory : JObject, ArtificialIntelligenceInterfaceFactoryInterface {
 
-namespace org.allbinary.game.ag.ai.scroller;
+    public RandomPatrolFlockingFiringAIFactory() {
+        base();
+    }
+    
 
-public class RandomPatrolFlockingFiringAIFactory : ArtificialIntelligenceInterfaceFactoryInterface
-{
-    // throws Exception
-    public virtual ArtificialIntelligenceInterface getInstance(ABHashtable<object, object> hashtable, AllBinaryLayer ownerLayerInterface, GameInput gameInput)
-    {
+    public virtual ArtificialIntelligenceInterface getInstance3(ABHashtable hashtable, AllBinaryLayer ownerLayerInterface, GameInput gameInput) {
         ArtificialIntelligenceInterface[] artificialIntelligenceInterface = new ArtificialIntelligenceInterface[2];
         artificialIntelligenceInterface[0] = new RandomPatrolAI(hashtable, ownerLayerInterface, gameInput);
         artificialIntelligenceInterface[1] = new TimedFireAI(1800, ownerLayerInterface, gameInput);
         return new ArrayAI(artificialIntelligenceInterface, ownerLayerInterface, gameInput);
     }
-
 }
 

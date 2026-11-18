@@ -13,32 +13,35 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.input.motion.button
+// import org.allbinary.string.CommonStrings
+// import org.allbinary.util.BasicArrayList
+// import org.allbinary.util.BasicArrayListUtil
 
-using System;
-using System.Linq;
-using CommonStrings = org.allbinary.@string.CommonStrings;
-using BasicArrayList = org.allbinary.util.BasicArrayList;
-using BasicArrayListUtil = org.allbinary.util.BasicArrayListUtil;
+public class BaseTouchInput : JObject {
+    public CommonStrings commonStrings;
+    private BasicArrayListUtil basicArrayListUtil;
 
-namespace org.allbinary.input.motion.button;
-
-public class BaseTouchInput
-{
-    public readonly CommonStrings commonStrings = CommonStrings.getInstance();
-    private readonly BasicArrayListUtil basicArrayListUtil = BasicArrayListUtil.getInstance();
-    public BaseTouchInput()
-    {
+    // Java field initializers run after the base constructor
+    private void initFieldsBaseTouchInput() {
+    this.commonStrings = CommonStrings.getInstance();
+    this.basicArrayListUtil = BasicArrayListUtil.getInstance();
     }
+    
 
-    public virtual BasicArrayList getList()
-    {
+    public BaseTouchInput() {
+        base();
+        this.initFieldsBaseTouchInput();
+    }
+    
+
+    public virtual BasicArrayList getList() {
         return this.basicArrayListUtil.getImmutableInstance();
     }
+    
 
-    public override string ToString()
-    {
-        return this.GetType().FullName;
+    public override string toString() {
+        return JObject.className(this);
     }
-
 }
 

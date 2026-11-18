@@ -13,25 +13,33 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.game.paint
+// import org.allbinary.graphics.color.BasicColor
+// import org.allbinary.logic.system.os.GenericOperatingSystem
+// import org.allbinary.logic.system.os.OperatingSystemFactory
 
-using System;
-using System.Linq;
-using BasicColor = org.allbinary.graphics.color.BasicColor;
-using GenericOperatingSystem = org.allbinary.logic.system.os.GenericOperatingSystem;
-using OperatingSystemFactory = org.allbinary.logic.system.os.OperatingSystemFactory;
-
-namespace org.allbinary.game.paint;
-
-public class ColorFillPaintableFactory
-{
-    private static readonly ColorFillPaintableFactory instance = new ColorFillPaintableFactory();
-    public static ColorFillPaintableFactory getInstance()
-    {
+public class ColorFillPaintableFactory : JObject {
+    private static ColorFillPaintableFactory? instance;
+    private static bool staticSet_instance = false;
+    private static ColorFillPaintableFactory staticGet_instance() {
+        if (!ColorFillPaintableFactory.staticSet_instance) {
+            ColorFillPaintableFactory.staticSet_instance = true;
+            ColorFillPaintableFactory.instance = new ColorFillPaintableFactory();
+        }
         return ColorFillPaintableFactory.instance;
     }
 
-    public virtual ColorFillBasePaintable getInstance(BasicColor basicColor, bool forThreedCanvas)
-    {
+    public ColorFillPaintableFactory() {
+        base();
+    }
+    
+
+    public static ColorFillPaintableFactory getInstance() {
+        return ColorFillPaintableFactory.staticGet_instance();
+    }
+    
+
+    public virtual ColorFillBasePaintable getInstance2(BasicColor basicColor, bool forThreedCanvas) {
         GenericOperatingSystem operatingSystem = OperatingSystemFactory.getInstance().getOperatingSystemInstance();
         if (operatingSystem.isOverScan()) {
             return new OverScanColorFillPaintable(basicColor);
@@ -39,6 +47,5 @@ public class ColorFillPaintableFactory
             return new ColorFillPaintable(basicColor);
         }
     }
-
 }
 

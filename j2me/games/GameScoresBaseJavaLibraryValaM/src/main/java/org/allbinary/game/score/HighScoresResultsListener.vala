@@ -13,15 +13,11 @@
  *   
  */
 // Generated Code Do Not Modify
+// package org.allbinary.game.score
 
-using System;
-using System.Linq;
+public interface HighScoresResultsListener : JObject {
+    
 
-namespace org.allbinary.game.score;
-
-public interface HighScoresResultsListener
-{
-    void setHighScoresArray(HighScores[] highScoresArrayP);
-
+    public abstract void setHighScoresArray(HighScores[] highScoresArrayP);
 }
 

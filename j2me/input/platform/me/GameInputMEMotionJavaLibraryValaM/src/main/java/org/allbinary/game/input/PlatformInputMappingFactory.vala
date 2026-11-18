@@ -13,37 +13,48 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.game.input
+// import org.allbinary.game.input.mapping.PersistentInputMapping
+// import org.allbinary.logic.communication.log.LogUtil
+// import org.allbinary.string.CommonStrings
 
-using System;
-using System.Linq;
-using PersistentInputMapping = org.allbinary.game.input.mapping.PersistentInputMapping;
-using LogUtil = org.allbinary.logic.communication.log.LogUtil;
-using CommonStrings = org.allbinary.@string.CommonStrings;
-
-namespace org.allbinary.game.input;
-
-public class PlatformInputMappingFactory
-{
-    private static readonly PlatformInputMappingFactory instance = new PlatformInputMappingFactory();
-    public static PlatformInputMappingFactory getInstance()
-    {
+public class PlatformInputMappingFactory : JObject {
+    private static PlatformInputMappingFactory? instance;
+    private static bool staticSet_instance = false;
+    private static PlatformInputMappingFactory staticGet_instance() {
+        if (!PlatformInputMappingFactory.staticSet_instance) {
+            PlatformInputMappingFactory.staticSet_instance = true;
+            PlatformInputMappingFactory.instance = new PlatformInputMappingFactory();
+        }
         return PlatformInputMappingFactory.instance;
     }
+    public LogUtil logUtil;
+    private PersistentInputMapping inputToGameKeyMapping;
 
-    public readonly LogUtil logUtil = LogUtil.getInstance();
-    private PersistentInputMapping inputToGameKeyMapping = PersistentInputMapping.getNullInstance();
-    public virtual PersistentInputMapping getPersistentInputMappingInstance()
-    {
-        try {
+    // Java field initializers run after the base constructor
+    private void initFieldsPlatformInputMappingFactory() {
+    this.logUtil = LogUtil.getInstance();
+    this.inputToGameKeyMapping = PersistentInputMapping.getNullInstance();
+    }
+
+    public PlatformInputMappingFactory() {
+        base();
+        this.initFieldsPlatformInputMappingFactory();
+    }
+    
+
+    public static PlatformInputMappingFactory getInstance() {
+        return PlatformInputMappingFactory.staticGet_instance();
+    }
+    
+
+    public virtual PersistentInputMapping getPersistentInputMappingInstance() {
+        {
             if (this.inputToGameKeyMapping == PersistentInputMapping.getNullInstance()) {
                 this.inputToGameKeyMapping = new MotionJ2MEGameInputMapping();
             }
-        } catch (Exception e) {
-            CommonStrings commonStrings = CommonStrings.getInstance();
-            this.logUtil.put(commonStrings.EXCEPTION, this, commonStrings.GET_INSTANCE, e);
-        }
+        } /* catch (Exception e): a thrown Java exception stops the program */
         return this.inputToGameKeyMapping;
     }
-
 }
 

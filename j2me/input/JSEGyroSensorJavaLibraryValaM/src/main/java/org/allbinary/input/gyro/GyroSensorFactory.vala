@@ -13,25 +13,23 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.input.gyro
 
-using System;
-using System.Linq;
+public class GyroSensorFactory : JObject {
+    private static AllBinaryOrientationSensor? allBinaryGyroSensor = null;
 
-namespace org.allbinary.input.gyro;
+    public GyroSensorFactory() {
+        base();
+    }
+    
 
-public class GyroSensorFactory
-{
-    private static AllBinaryOrientationSensor allBinaryGyroSensor = null;
-    // throws Exception
-    public static void init()
-    {
+    public static void init() {
         GyroSensorFactory.allBinaryGyroSensor = new NoGyroSensor();
     }
+    
 
-    public static AllBinaryOrientationSensor getInstance()
-    {
+    public static AllBinaryOrientationSensor getInstance() {
         return GyroSensorFactory.allBinaryGyroSensor;
     }
-
 }
 

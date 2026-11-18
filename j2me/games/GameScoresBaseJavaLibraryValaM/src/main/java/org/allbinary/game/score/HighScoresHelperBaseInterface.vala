@@ -13,19 +13,17 @@
  *   
  */
 // Generated Code Do Not Modify
+// package org.allbinary.game.score
 
-using System;
-using System.Linq;
+public interface HighScoresHelperBaseInterface : JObject, HighScoresResultsListener {
+    
 
-namespace org.allbinary.game.score;
+    public abstract void setSelectedHighScores(HighScores selectedHighScores);
+    
 
-public interface HighScoresHelperBaseInterface : HighScoresResultsListener
-{
-    void setSelectedHighScores(HighScores selectedHighScores);
+    public abstract HighScores[] getHighScoresArray();
+    
 
-    HighScores[] getHighScoresArray();
-
-    HighScores getSelectedHighScores();
-
+    public abstract HighScores getSelectedHighScores();
 }
 

@@ -13,29 +13,38 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.game.layer.hud.event
+// import org.allbinary.logic.util.event.AllBinaryEventObject
+// import org.allbinary.logic.util.event.EventListenerInterface
+// import org.allbinary.logic.util.event.NullEventListener
+// import org.allbinary.logic.util.event.handler.BasicEventHandler
+// import org.allbinary.util.BasicArrayList
 
-using System;
-using System.Linq;
-using System.Runtime.CompilerServices;
-using AllBinaryEventObject = org.allbinary.logic.util.@event.AllBinaryEventObject;
-using EventListenerInterface = org.allbinary.logic.util.@event.EventListenerInterface;
-using NullEventListener = org.allbinary.logic.util.@event.NullEventListener;
-using BasicEventHandler = org.allbinary.logic.util.@event.handler.BasicEventHandler;
-using BasicArrayList = org.allbinary.util.BasicArrayList;
-
-namespace org.allbinary.game.layer.hud.@event;
-
-public class GameNotificationEventHandler : BasicEventHandler
-{
-    private static readonly GameNotificationEventHandler instance = new GameNotificationEventHandler();
-    private GameNotificationEventHandler()
-    {
+public class GameNotificationEventHandler : BasicEventHandler {
+    private static GameNotificationEventHandler? instance;
+    private static bool staticSet_instance = false;
+    private static GameNotificationEventHandler staticGet_instance() {
+        if (!GameNotificationEventHandler.staticSet_instance) {
+            GameNotificationEventHandler.staticSet_instance = true;
+            GameNotificationEventHandler.instance = new GameNotificationEventHandler();
+        }
+        return GameNotificationEventHandler.instance;
     }
+    public bool enabled;
 
-    public bool enabled = true;
-    [MethodImpl(MethodImplOptions.Synchronized)]
-    public override void removeAllListeners()
-    {
+    // Java field initializers run after the base constructor
+    private void initFieldsGameNotificationEventHandler() {
+    this.enabled = true;
+    }
+    
+
+    public GameNotificationEventHandler() {
+        base();
+        this.initFieldsGameNotificationEventHandler();
+    }
+    
+
+    public override void removeAllListeners() {
         EventListenerInterface eventListenerInterface = NullEventListener.NULL_EVENT_LISTENER;
         BasicArrayList list = this.eventListenerInterfaceList;
         if (list.size() > 0) {
@@ -46,21 +55,19 @@ public class GameNotificationEventHandler : BasicEventHandler
             this.addListenerInterface(eventListenerInterface);
         }
     }
+    
 
-    public static GameNotificationEventHandler getInstance()
-    {
-        return GameNotificationEventHandler.instance;
+    public static GameNotificationEventHandler getInstance() {
+        return GameNotificationEventHandler.staticGet_instance();
     }
+    
 
-    // throws Exception
-    public override void process(AllBinaryEventObject eventObject, EventListenerInterface eventListenerInterface)
-    {
+    public override void process(AllBinaryEventObject eventObject, EventListenerInterface eventListenerInterface) {
         if (!this.enabled) {
             return;
         }
         GameNotificationListenerInterface gameNotificationListenerInterface = ((GameNotificationListenerInterface) eventListenerInterface);
         gameNotificationListenerInterface.onGameNotificationEvent(((GameNotificationEvent) eventObject));
     }
-
 }
 

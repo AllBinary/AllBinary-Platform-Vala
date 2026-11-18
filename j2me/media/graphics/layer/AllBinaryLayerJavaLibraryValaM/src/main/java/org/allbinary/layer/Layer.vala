@@ -13,120 +13,136 @@
  *   
  */
 // Generated Code Do Not Modify
+// package org.allbinary.layer
+// import javax.microedition.lcdui.Graphics
+// import org.allbinary.graphics.displayable.CanvasStrings
+// import org.allbinary.logic.communication.log.LogUtil
+// import org.allbinary.logic.math.SmallIntegerSingletonFactory
+// import org.allbinary.logic.string.StringMaker
+// import org.allbinary.string.CommonStrings
 
-using System;
-using System.Linq;
-using Graphics = javax.microedition.lcdui.Graphics;
-using CanvasStrings = org.allbinary.graphics.displayable.CanvasStrings;
-using LogUtil = org.allbinary.logic.communication.log.LogUtil;
-using SmallIntegerSingletonFactory = org.allbinary.logic.math.SmallIntegerSingletonFactory;
-using StringMaker = org.allbinary.logic.@string.StringMaker;
-using CommonStrings = org.allbinary.@string.CommonStrings;
+public class Layer : JObject {
+    public static int32?? ID;
+    private static bool staticSet_ID = false;
+    public static int32? staticGet_ID() {
+        if (!Layer.staticSet_ID) {
+            Layer.staticSet_ID = true;
+            Layer.ID = SmallIntegerSingletonFactory.getInstance().getAt(0);
+        }
+        return Layer.ID;
+    }
+    public LogUtil logUtil;
+    public int32 x;
+    public int32 y;
+    public int32 z;
+    private int32 width;
+    private int32 height;
+    private bool visible;
 
-namespace org.allbinary.layer;
+    // Java field initializers run after the base constructor
+    private void initFieldsLayer() {
+    this.logUtil = LogUtil.getInstance();
+    this.x = 0;
+    this.y = 0;
+    this.z = 3;
+    this.width = 0;
+    this.height = 0;
+    this.visible = true;
+    }
+    
 
-public class Layer
-{
-    public readonly LogUtil logUtil = LogUtil.getInstance();
-    public static readonly int? ID = SmallIntegerSingletonFactory.getInstance().getAt(0);
-    public int x = 0;
-    public int y = 0;
-    public int z = 3;
-    private int width = 0;
-    private int height = 0;
-    private bool visible = true;
-    public Layer(int width, int height)
-    {
+    public Layer(int32 width, int32 height) {
+        base();
+        this.initFieldsLayer();
         this.setLayerWidth(width);
         this.setLayerHeight(height);
     }
+    
 
-    public virtual void setPosition(int x, int y, int z)
-    {
+    public virtual void setPosition(int32 x, int32 y, int32 z) {
         this.x = x;
         this.y = y;
         this.z = z;
     }
+    
 
-    public virtual void moveDXY(int dx, int dy)
-    {
+    public virtual void moveDXY(int32 dx, int32 dy) {
         this.x += dx;
         this.y += dy;
     }
+    
 
-    public virtual void moveDXYZ(int dx, int dy, int dz)
-    {
+    public virtual void moveDXYZ(int32 dx, int32 dy, int32 dz) {
         this.x += dx;
         this.y += dy;
         this.z += dz;
     }
+    
 
-    public virtual int getXP()
-    {
+    public virtual int32 getXP() {
         return this.x;
     }
+    
 
-    public virtual int getYP()
-    {
+    public virtual int32 getYP() {
         return this.y;
     }
+    
 
-    public virtual int getZP()
-    {
+    public virtual int32 getZP() {
         return this.z;
     }
+    
 
-    public virtual int getWidth()
-    {
+    public virtual int32 getWidth() {
         return this.width;
     }
+    
 
-    public virtual int getHeight()
-    {
+    public virtual int32 getHeight() {
         return this.height;
     }
+    
 
-    public virtual long getDepth()
-    {
-        return 0L;
+    public virtual int64 getDepth() {
+        return 0;
     }
+    
 
-    public virtual void setVisible(bool visible)
-    {
+    public virtual void setVisible(bool visible) {
         this.visible = visible;
     }
+    
 
-    public virtual bool isVisible()
-    {
+    public virtual bool isVisible() {
         return this.visible;
     }
+    
 
-    public virtual void paint(Graphics graphics)
-    {
+    public virtual void paint(Graphics graphics) {
         CommonStrings commonStrings = CommonStrings.getInstance();
         CanvasStrings canvasStrings = CanvasStrings.getInstance();
         this.logUtil.putF(commonStrings.NOT_IMPLEMENTED, this, canvasStrings.PAINT);
     }
+    
 
-    public virtual void setLayerWidth(int width)
-    {
+    public virtual void setLayerWidth(int32 width) {
         if (width < 0) {
-            throw new ArgumentException();
+            JSystem.fatal(new JException("IllegalArgumentException", ""));
         }
         this.width = width;
     }
+    
 
-    public virtual void setLayerHeight(int height)
-    {
+    public virtual void setLayerHeight(int32 height) {
         if (height < 0) {
-            throw new ArgumentException();
+            JSystem.fatal(new JException("IllegalArgumentException", ""));
         }
         this.height = height;
     }
+    
 
-    public virtual void toStringAppend(StringMaker stringBuffer)
-    {
+    public virtual void toStringAppend(StringMaker stringBuffer) {
     }
-
 }
 

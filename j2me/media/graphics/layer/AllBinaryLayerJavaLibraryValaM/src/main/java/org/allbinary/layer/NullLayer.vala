@@ -13,29 +13,32 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.layer
+// import javax.microedition.lcdui.Graphics
 
-using System;
-using System.Linq;
-using Graphics = javax.microedition.lcdui.Graphics;
-
-namespace org.allbinary.layer;
-
-public class NullLayer : Layer
-{
-    private static readonly NullLayer instance = new NullLayer();
-    public static NullLayer getInstance()
-    {
+public class NullLayer : Layer {
+    private static NullLayer? instance;
+    private static bool staticSet_instance = false;
+    private static NullLayer staticGet_instance() {
+        if (!NullLayer.staticSet_instance) {
+            NullLayer.staticSet_instance = true;
+            NullLayer.instance = new NullLayer();
+        }
         return NullLayer.instance;
     }
+    
 
-    private NullLayer() : base(0, 0)
-    {
-        // base(0, 0) is called from the constructor declaration
+    public static NullLayer getInstance() {
+        return NullLayer.staticGet_instance();
     }
+    
 
-    public override void paint(Graphics graphics)
-    {
+    public NullLayer() {
+        base(0, 0);
     }
+    
 
+    public override void paint(Graphics graphics) {
+    }
 }
 

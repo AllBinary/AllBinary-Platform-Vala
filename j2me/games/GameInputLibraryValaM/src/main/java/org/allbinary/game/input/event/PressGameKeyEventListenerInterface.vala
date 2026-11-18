@@ -13,17 +13,12 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.game.input.event
+// import org.allbinary.logic.util.event.EventListenerInterface
 
-using System;
-using System.Linq;
-using EventListenerInterface = org.allbinary.logic.util.@event.EventListenerInterface;
+public interface PressGameKeyEventListenerInterface : JObject, EventListenerInterface {
+    
 
-namespace org.allbinary.game.input.@event;
-
-public interface PressGameKeyEventListenerInterface : EventListenerInterface
-{
-    // throws Exception
-    void onPressGameKeyEvent(GameKeyEvent gameKeyEvent);
-
+    public abstract void onPressGameKeyEvent(GameKeyEvent gameKeyEvent);
 }
 

@@ -13,18 +13,13 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.game.configuration.feature
 
-using System;
-using System.Linq;
+public class TouchFeature : Feature {
+    
 
-namespace org.allbinary.game.configuration.feature;
-
-public class TouchFeature : Feature
-{
-    public TouchFeature(string name) : base(name)
-    {
-        // base(name) is called from the constructor declaration
+    public TouchFeature(string name) {
+        base(name);
     }
-
 }
 

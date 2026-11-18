@@ -13,32 +13,38 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.game.paint
+// import javax.microedition.lcdui.Graphics
+// import org.allbinary.graphics.paint.NullPaintable
+// import org.allbinary.graphics.paint.Paintable
+// import org.allbinary.graphics.paint.StatePaintable
 
-using System;
-using System.Linq;
-using Graphics = javax.microedition.lcdui.Graphics;
-using NullPaintable = org.allbinary.graphics.paint.NullPaintable;
-using Paintable = org.allbinary.graphics.paint.Paintable;
-using StatePaintable = org.allbinary.graphics.paint.StatePaintable;
+public class BasicGameDemoPaintable : StatePaintable {
+    private Paintable mainDemoStatePaintable;
+    private Paintable ownershipPaintable;
+    private Paintable helpPaintableInterface;
+    private Paintable currentStatePaintable;
 
-namespace org.allbinary.game.paint;
+    // Java field initializers run after the base constructor
+    private void initFieldsBasicGameDemoPaintable() {
+    
+    
+    
+    this.currentStatePaintable = NullPaintable.getInstance();
+    }
+    
 
-public class BasicGameDemoPaintable : StatePaintable
-{
-    private readonly Paintable mainDemoStatePaintable;
-    private readonly Paintable ownershipPaintable;
-    private readonly Paintable helpPaintableInterface;
-    private Paintable currentStatePaintable = NullPaintable.getInstance();
-    public BasicGameDemoPaintable(Paintable mainDemoStatePaintable, Paintable ownershipPaintable, Paintable helpPaintableInterface)
-    {
+    public BasicGameDemoPaintable(Paintable mainDemoStatePaintable, Paintable ownershipPaintable, Paintable helpPaintableInterface) {
+        base();
+        this.initFieldsBasicGameDemoPaintable();
         this.mainDemoStatePaintable = mainDemoStatePaintable;
         this.setCurrentStatePaintable(NullPaintable.getInstance());
         this.ownershipPaintable = ownershipPaintable;
         this.helpPaintableInterface = helpPaintableInterface;
     }
+    
 
-    public override void setState(int state)
-    {
+    public override void setState(int32 state) {
         if (state == 0) {
             this.setCurrentStatePaintable(this.getMainDemoStatePaintable());
         } else if (state == 1) {
@@ -47,31 +53,30 @@ public class BasicGameDemoPaintable : StatePaintable
             this.setCurrentStatePaintable(this.ownershipPaintable);
         }
     }
+    
 
-    public override void paint(Graphics graphics)
-    {
+    public override void paint(Graphics graphics) {
         this.getCurrentStatePaintable().paint(graphics);
     }
+    
 
-    public virtual Paintable getHelpPaintableInterface()
-    {
+    public virtual Paintable getHelpPaintableInterface() {
         return this.helpPaintableInterface;
     }
+    
 
-    public virtual void setCurrentStatePaintable(Paintable currentStatePaintable)
-    {
+    public virtual void setCurrentStatePaintable(Paintable currentStatePaintable) {
         this.currentStatePaintable = currentStatePaintable;
     }
+    
 
-    public virtual Paintable getCurrentStatePaintable()
-    {
+    public virtual Paintable getCurrentStatePaintable() {
         return this.currentStatePaintable;
     }
+    
 
-    public virtual Paintable getMainDemoStatePaintable()
-    {
+    public virtual Paintable getMainDemoStatePaintable() {
         return this.mainDemoStatePaintable;
     }
-
 }
 

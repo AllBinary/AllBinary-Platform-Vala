@@ -13,27 +13,40 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.game.displayable.canvas
+// import org.allbinary.graphics.form.item.CommandTextItemArrayFactory
+// import org.allbinary.graphics.form.item.LimitCommandsVisitor
 
-using System;
-using System.Linq;
-using CommandTextItemArrayFactory = org.allbinary.graphics.form.item.CommandTextItemArrayFactory;
-using LimitCommandsVisitor = org.allbinary.graphics.form.item.LimitCommandsVisitor;
-
-namespace org.allbinary.game.displayable.canvas;
-
-public class DemoLimitedCommandTextItemArrayFactory
-{
-    private static readonly DemoLimitedCommandTextItemArrayFactory instance = new DemoLimitedCommandTextItemArrayFactory();
-    private readonly CommandTextItemArrayFactory commandTextItemArrayFactory = new CommandTextItemArrayFactory(new LimitCommandsVisitor());
-    public static DemoLimitedCommandTextItemArrayFactory getInstance()
-    {
+public class DemoLimitedCommandTextItemArrayFactory : JObject {
+    private static DemoLimitedCommandTextItemArrayFactory? instance;
+    private static bool staticSet_instance = false;
+    private static DemoLimitedCommandTextItemArrayFactory staticGet_instance() {
+        if (!DemoLimitedCommandTextItemArrayFactory.staticSet_instance) {
+            DemoLimitedCommandTextItemArrayFactory.staticSet_instance = true;
+            DemoLimitedCommandTextItemArrayFactory.instance = new DemoLimitedCommandTextItemArrayFactory();
+        }
         return DemoLimitedCommandTextItemArrayFactory.instance;
     }
+    private CommandTextItemArrayFactory commandTextItemArrayFactory;
 
-    public virtual CommandTextItemArrayFactory getCommandTextItemArrayFactory()
-    {
-        return this.commandTextItemArrayFactory;
+    // Java field initializers run after the base constructor
+    private void initFieldsDemoLimitedCommandTextItemArrayFactory() {
+    this.commandTextItemArrayFactory = new CommandTextItemArrayFactory(new LimitCommandsVisitor());
     }
 
+    public DemoLimitedCommandTextItemArrayFactory() {
+        base();
+        this.initFieldsDemoLimitedCommandTextItemArrayFactory();
+    }
+    
+
+    public static DemoLimitedCommandTextItemArrayFactory getInstance() {
+        return DemoLimitedCommandTextItemArrayFactory.staticGet_instance();
+    }
+    
+
+    public virtual CommandTextItemArrayFactory getCommandTextItemArrayFactory() {
+        return this.commandTextItemArrayFactory;
+    }
 }
 

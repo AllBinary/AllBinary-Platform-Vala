@@ -13,22 +13,21 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.game
+// import org.allbinary.time.TimeDelayHelper
 
-using System;
-using System.Linq;
-using TimeDelayHelper = org.allbinary.time.TimeDelayHelper;
+public interface IntermissionInterface : JObject {
+    
 
-namespace org.allbinary.game;
+    public abstract TimeDelayHelper getTimeDelayHelper();
+    
 
-public interface IntermissionInterface
-{
-    TimeDelayHelper getTimeDelayHelper();
+    public abstract bool isEnabled();
+    
 
-    bool isEnabled();
+    public abstract void setEnabled(bool value);
+    
 
-    void setEnabled(bool value);
-
-    void setListener(IntermissionEnableListenerInterface enableListener);
-
+    public abstract void setListener(IntermissionEnableListenerInterface enableListener);
 }
 

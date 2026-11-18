@@ -13,34 +13,36 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.graphics.paint
+// import javax.microedition.lcdui.Graphics
 
-using System;
-using System.Linq;
-using Graphics = javax.microedition.lcdui.Graphics;
-
-namespace org.allbinary.graphics.paint;
-
-public class PaintableComposite : Paintable
-{
+public class PaintableComposite : Paintable {
     private PaintableInterface[] paintableArray;
-    public PaintableComposite(PaintableInterface[] paintableArray)
-    {
+
+    // Java field initializers run after the base constructor
+    private void initFieldsPaintableComposite() {
+    
+    }
+    
+
+    public PaintableComposite(PaintableInterface[] paintableArray) {
+        base();
+        this.initFieldsPaintableComposite();
         this.paintableArray = paintableArray;
     }
+    
 
-    public override void paint(Graphics graphics)
-    {
-        for (int index = this.paintableArray.Length - 1; index >= 0; index--) {
+    public override void paint(Graphics graphics) {
+        for (int32 index = this.paintableArray.length - 1; index >= 0; index--) {
             this.paintableArray[index].paint(graphics);
         }
     }
+    
 
-    public override void paintThreed(Graphics graphics)
-    {
-        for (int index = this.paintableArray.Length - 1; index >= 0; index--) {
+    public override void paintThreed(Graphics graphics) {
+        for (int32 index = this.paintableArray.length - 1; index >= 0; index--) {
             this.paintableArray[index].paintThreed(graphics);
         }
     }
-
 }
 

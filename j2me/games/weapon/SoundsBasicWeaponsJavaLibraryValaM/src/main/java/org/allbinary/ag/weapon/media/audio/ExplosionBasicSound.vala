@@ -13,26 +13,29 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.ag.weapon.media.audio
+// import org.allbinary.media.audio.CompositeSound
+// import org.allbinary.media.audio.Sound
 
-using System;
-using System.Linq;
-using CompositeSound = org.allbinary.media.audio.CompositeSound;
-using Sound = org.allbinary.media.audio.Sound;
-
-namespace org.allbinary.ag.weapon.media.audio;
-
-public class ExplosionBasicSound : CompositeSound
-{
-    private static Sound soundInterface = new ExplosionBasicSound();
-    private ExplosionBasicSound() : base("resource:/wav/explosion.wav")
-    {
-        // base("resource:/wav/explosion.wav") is called from the constructor declaration
-    }
-
-    public static Sound getInstance()
-    {
+public class ExplosionBasicSound : CompositeSound {
+    private static Sound? soundInterface;
+    private static bool staticSet_soundInterface = false;
+    private static Sound staticGet_soundInterface() {
+        if (!ExplosionBasicSound.staticSet_soundInterface) {
+            ExplosionBasicSound.staticSet_soundInterface = true;
+            ExplosionBasicSound.soundInterface = new ExplosionBasicSound();
+        }
         return ExplosionBasicSound.soundInterface;
     }
+    
 
+    public ExplosionBasicSound() {
+        base("resource:/wav/explosion.wav");
+    }
+    
+
+    public static Sound getInstance() {
+        return ExplosionBasicSound.staticGet_soundInterface();
+    }
 }
 

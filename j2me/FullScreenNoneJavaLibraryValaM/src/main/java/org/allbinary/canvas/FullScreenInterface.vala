@@ -13,13 +13,8 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.canvas
 
-using System;
-using System.Linq;
-
-namespace org.allbinary.canvas;
-
-public interface FullScreenInterface
-{
+public interface FullScreenInterface : JObject {
 }
 

@@ -13,36 +13,46 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.input.gyro
+// import org.allbinary.game.input.CompleteMotionGestureInputEventListenerInterface
+// import org.allbinary.game.input.motion.action.NoCompleteMotionGestureInputEventListener
+// import org.allbinary.input.AllBinarySensor
+// import org.allbinary.logic.math.Orientation
+// import org.allbinary.logic.math.PrimitiveFloatUtil
 
-using System;
-using System.Linq;
-using CompleteMotionGestureInputEventListenerInterface = org.allbinary.game.input.CompleteMotionGestureInputEventListenerInterface;
-using NoCompleteMotionGestureInputEventListener = org.allbinary.game.input.motion.action.NoCompleteMotionGestureInputEventListener;
-using AllBinarySensor = org.allbinary.input.AllBinarySensor;
-using Orientation = org.allbinary.logic.math.Orientation;
-using PrimitiveFloatUtil = org.allbinary.logic.math.PrimitiveFloatUtil;
+public class AllBinaryOrientationSensor : AllBinarySensor {
+    public static AllBinaryOrientationSensor? NULL_ALLBINARY_ORIENTATION_SENSOR;
+    private static bool staticSet_NULL_ALLBINARY_ORIENTATION_SENSOR = false;
+    public static AllBinaryOrientationSensor staticGet_NULL_ALLBINARY_ORIENTATION_SENSOR() {
+        if (!AllBinaryOrientationSensor.staticSet_NULL_ALLBINARY_ORIENTATION_SENSOR) {
+            AllBinaryOrientationSensor.staticSet_NULL_ALLBINARY_ORIENTATION_SENSOR = true;
+            AllBinaryOrientationSensor.NULL_ALLBINARY_ORIENTATION_SENSOR = new AllBinaryOrientationSensor();
+        }
+        return AllBinaryOrientationSensor.NULL_ALLBINARY_ORIENTATION_SENSOR;
+    }
+    public float[] sensorDataFloatArray;
+    public CompleteMotionGestureInputEventListenerInterface listener;
 
-namespace org.allbinary.input.gyro;
+    // Java field initializers run after the base constructor
+    private void initFieldsAllBinaryOrientationSensor() {
+    this.sensorDataFloatArray = PrimitiveFloatUtil.getArrayInstance();
+    this.listener = NoCompleteMotionGestureInputEventListener.getInstance();
+    }
+    
 
-public class AllBinaryOrientationSensor : AllBinarySensor
-{
-    public static readonly AllBinaryOrientationSensor NULL_ALLBINARY_ORIENTATION_SENSOR = new AllBinaryOrientationSensor();
-    public float[] sensorDataFloatArray = PrimitiveFloatUtil.getArrayInstance();
-    public CompleteMotionGestureInputEventListenerInterface listener = NoCompleteMotionGestureInputEventListener.getInstance();
-    public virtual void setCompleteMotionGestureInputEventListener(CompleteMotionGestureInputEventListenerInterface completeMotionGestureInputEventListenerInterface)
-    {
+    public virtual void setCompleteMotionGestureInputEventListener(CompleteMotionGestureInputEventListenerInterface completeMotionGestureInputEventListenerInterface) {
         this.listener = completeMotionGestureInputEventListenerInterface;
     }
+    
 
-    public AllBinaryOrientationSensor()
-    {
+    public AllBinaryOrientationSensor() {
+        base();
+        this.initFieldsAllBinaryOrientationSensor();
     }
+    
 
-    // throws Exception
-    public virtual Orientation getOrientation()
-    {
-        throw new Exception(this.commonStrings.NOT_IMPLEMENTED);
+    public virtual Orientation getOrientation() {
+        JSystem.fatal(new JException("Exception", this.commonStrings.NOT_IMPLEMENTED));
     }
-
 }
 

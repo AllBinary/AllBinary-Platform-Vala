@@ -13,108 +13,114 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.input.motion.gesture.observer
+// import org.allbinary.input.motion.gesture.MotionGestureInput
+// import org.allbinary.input.motion.gesture.TouchMotionGestureFactory
+// import org.allbinary.logic.communication.log.ForcedLogUtil
+// import org.allbinary.logic.communication.log.LogUtil
+// import org.allbinary.logic.string.StringMaker
+// import org.allbinary.logic.string.StringUtil
+// import org.allbinary.logic.util.event.AllBinaryEventObject
+// import org.allbinary.string.CommonStrings
+// import org.allbinary.util.BasicArrayList
+// import org.allbinary.util.BasicArrayListD
 
-using System;
-using System.Linq;
-using MotionGestureInput = org.allbinary.input.motion.gesture.MotionGestureInput;
-using TouchMotionGestureFactory = org.allbinary.input.motion.gesture.TouchMotionGestureFactory;
-using ForcedLogUtil = org.allbinary.logic.communication.log.ForcedLogUtil;
-using LogUtil = org.allbinary.logic.communication.log.LogUtil;
-using StringMaker = org.allbinary.logic.@string.StringMaker;
-using StringUtil = org.allbinary.logic.@string.StringUtil;
-using AllBinaryEventObject = org.allbinary.logic.util.@event.AllBinaryEventObject;
-using CommonStrings = org.allbinary.@string.CommonStrings;
-using BasicArrayList = org.allbinary.util.BasicArrayList;
-using BasicArrayListD = org.allbinary.util.BasicArrayListD;
-
-namespace org.allbinary.input.motion.gesture.observer;
-
-public class ReleaseControlledMotionGestureListener : MotionGestureEventListener
-{
-    public readonly LogUtil logUtil = LogUtil.getInstance();
-    private readonly CommonStrings commonStrings = CommonStrings.getInstance();
-    private MotionGestureInput currentMotionGesture = TouchMotionGestureFactory.getInstance().NO_MOTION;
-    private bool isMouseGestureOccurring = false;
-    private BasicArrayList motionGestureCollection = new BasicArrayListD();
+public class ReleaseControlledMotionGestureListener : JObject, MotionGestureEventListener, BaseMotionGestureEventListener, EventListenerInterface {
+    public LogUtil logUtil;
+    private CommonStrings commonStrings;
+    private MotionGestureInput currentMotionGesture;
+    private bool isMouseGestureOccurring;
+    private BasicArrayList motionGestureCollection;
     private CompleteMotionGestureListenerInterface signed;
-    public ReleaseControlledMotionGestureListener(CompleteMotionGestureListenerInterface signed)
-    {
+
+    // Java field initializers run after the base constructor
+    private void initFieldsReleaseControlledMotionGestureListener() {
+    this.logUtil = LogUtil.getInstance();
+    this.commonStrings = CommonStrings.getInstance();
+    this.currentMotionGesture = TouchMotionGestureFactory.getInstance().NO_MOTION;
+    this.isMouseGestureOccurring = false;
+    this.motionGestureCollection = new BasicArrayListD();
+    
+    }
+    
+
+    public ReleaseControlledMotionGestureListener(CompleteMotionGestureListenerInterface signed) {
+        base();
+        this.initFieldsReleaseControlledMotionGestureListener();
         this.logUtil.putF(this.commonStrings.START, this, this.commonStrings.CONSTRUCTOR);
         this.signed = signed;
     }
+    
 
-    public virtual void onEvent(AllBinaryEventObject eventObject)
-    {
+    public virtual void onEvent(AllBinaryEventObject eventObject) {
         ForcedLogUtil.log(this.commonStrings.NOT_IMPLEMENTED, this);
     }
+    
 
-    public virtual void onUpMotionGestureEvent(MotionGestureEvent ev)
-    {
+    public virtual void onUpMotionGestureEvent(MotionGestureEvent ev) {
         this.onMotionGestureEvent(ev);
     }
+    
 
-    public virtual void onDownMotionGestureEvent(MotionGestureEvent ev)
-    {
+    public virtual void onDownMotionGestureEvent(MotionGestureEvent ev) {
         this.onMotionGestureEvent(ev);
     }
+    
 
-    public virtual void onLeftMotionGestureEvent(MotionGestureEvent ev)
-    {
+    public virtual void onLeftMotionGestureEvent(MotionGestureEvent ev) {
         this.onMotionGestureEvent(ev);
     }
+    
 
-    public virtual void onRightMotionGestureEvent(MotionGestureEvent ev)
-    {
+    public virtual void onRightMotionGestureEvent(MotionGestureEvent ev) {
         this.onMotionGestureEvent(ev);
     }
+    
 
-    public virtual void onDiagonalDownRightMotionGestureEvent(MotionGestureEvent ev)
-    {
+    public virtual void onDiagonalDownRightMotionGestureEvent(MotionGestureEvent ev) {
         this.onMotionGestureEvent(ev);
     }
+    
 
-    public virtual void onDiagonalDownLeftMotionGestureEvent(MotionGestureEvent ev)
-    {
+    public virtual void onDiagonalDownLeftMotionGestureEvent(MotionGestureEvent ev) {
         this.onMotionGestureEvent(ev);
     }
+    
 
-    public virtual void onDiagonalUpRightMotionGestureEvent(MotionGestureEvent ev)
-    {
+    public virtual void onDiagonalUpRightMotionGestureEvent(MotionGestureEvent ev) {
         this.onMotionGestureEvent(ev);
     }
+    
 
-    public virtual void onDiagonalUpLeftMotionGestureEvent(MotionGestureEvent ev)
-    {
+    public virtual void onDiagonalUpLeftMotionGestureEvent(MotionGestureEvent ev) {
         this.onMotionGestureEvent(ev);
     }
+    
 
-    public virtual void onPressedMotionGestureEvent(MotionGestureEvent ev)
-    {
+    public virtual void onPressedMotionGestureEvent(MotionGestureEvent ev) {
         this.isMouseGestureOccurring = true;
         this.currentMotionGesture = TouchMotionGestureFactory.getInstance().NO_MOTION;
         this.onMotionGestureEvent(ev);
     }
+    
 
-    public virtual void onScrolledMotionGestureEvent(MotionGestureEvent motionGestureEvent)
-    {
+    public virtual void onScrolledMotionGestureEvent(MotionGestureEvent motionGestureEvent) {
     }
+    
 
-    public virtual void released(MotionGestureEvent ev)
-    {
-        try {
+    public virtual void released(MotionGestureEvent ev) {
+        {
             if (this.isMouseGestureOccurring == false) {
                 return;
             }
             this.isMouseGestureOccurring = false;
             this.signed.onMotionGestureCompleted(this.motionGestureCollection);
             this.motionGestureCollection.clear();
-        } catch (Exception e) {
-            this.logUtil.put(new StringMaker().append(this.commonStrings.EXCEPTION_LABEL).append(StringUtil.getInstance().toString(ev.getMotionGesture())).ToString(), this, "release", e);
-        }
+        } /* catch (Exception e): a thrown Java exception stops the program */
     }
+    
 
-    public virtual void onMotionGestureEvent(MotionGestureEvent ev)
-    {
+    public virtual void onMotionGestureEvent(MotionGestureEvent ev) {
         if (this.isMouseGestureOccurring == false) {
             return;
         }
@@ -130,6 +136,5 @@ public class ReleaseControlledMotionGestureListener : MotionGestureEventListener
             }
         }
     }
-
 }
 

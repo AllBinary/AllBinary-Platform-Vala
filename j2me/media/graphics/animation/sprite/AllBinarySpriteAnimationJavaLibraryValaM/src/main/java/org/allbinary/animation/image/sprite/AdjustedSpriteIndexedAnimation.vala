@@ -13,47 +13,49 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.animation.image.sprite
+// import javax.microedition.lcdui.Graphics
+// import javax.microedition.lcdui.Image
+// import javax.microedition.lcdui.game.Sprite
+// import org.allbinary.animation.AnimationBehavior
+// import org.allbinary.graphics.color.BasicColor
+// import org.allbinary.graphics.color.BasicColorUtil
 
-using System;
-using System.Linq;
-using Graphics = javax.microedition.lcdui.Graphics;
-using Image = javax.microedition.lcdui.Image;
-using Sprite = javax.microedition.lcdui.game.Sprite;
-using AnimationBehavior = org.allbinary.animation.AnimationBehavior;
-using BasicColor = org.allbinary.graphics.color.BasicColor;
-using BasicColorUtil = org.allbinary.graphics.color.BasicColorUtil;
+public class AdjustedSpriteIndexedAnimation : SpriteIndexedAnimation {
+    private int32 dx;
+    private int32 dy;
 
-namespace org.allbinary.animation.image.sprite;
+    // Java field initializers run after the base constructor
+    private void initFieldsAdjustedSpriteIndexedAnimation() {
+    
+    
+    }
+    
 
-public class AdjustedSpriteIndexedAnimation : SpriteIndexedAnimation
-{
-    private int dx;
-    private int dy;
-    public AdjustedSpriteIndexedAnimation(Sprite sprite, Image image, BasicColor[] basicColorArray, int dx, int dy, AnimationBehavior animationBehavior) : base(sprite, image, basicColorArray, animationBehavior)
-    {
-        // base(sprite, image, basicColorArray, animationBehavior) is called from the constructor declaration
+    public AdjustedSpriteIndexedAnimation(Sprite sprite, Image image, BasicColor[] basicColorArray, int32 dx, int32 dy, AnimationBehavior animationBehavior) {
+        base(sprite, image, basicColorArray, animationBehavior);
+        this.initFieldsAdjustedSpriteIndexedAnimation();
         this.dx = dx;
         this.dy = dy;
     }
+    
 
-    public override void paintFrame(Graphics graphics, int frame, int x, int y)
-    {
+    public override void paintFrame(Graphics graphics, int32 frame, int32 x, int32 y) {
         this.setFrame(frame);
         this.sprite.setPosition(x + this.dx, y + this.dy);
         base.paint(graphics);
     }
+    
 
-    public override void paintXY(Graphics g, int x, int y)
-    {
+    public override void paintXY(Graphics g, int32 x, int32 y) {
         this.sprite.setPosition(x + this.dx, y + this.dy);
         base.paint(g);
     }
+    
 
-    public override void paint(Graphics g)
-    {
+    public override void paint(Graphics g) {
         this.sprite.setPosition(this.dx, this.dy);
         base.paint(g);
     }
-
 }
 

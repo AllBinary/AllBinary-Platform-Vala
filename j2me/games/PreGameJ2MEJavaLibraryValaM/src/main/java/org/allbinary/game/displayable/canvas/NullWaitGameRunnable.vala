@@ -13,19 +13,26 @@
  *   
  */
 // Generated Code Do Not Modify
+// package org.allbinary.game.displayable.canvas
 
-using System;
-using System.Linq;
-
-namespace org.allbinary.game.displayable.canvas;
-
-public class NullWaitGameRunnable : GameRunnable
-{
-    private static readonly GameRunnable instance = new NullWaitGameRunnable();
-    public static GameRunnable getInstance()
-    {
+public class NullWaitGameRunnable : GameRunnable {
+    private static GameRunnable? instance;
+    private static bool staticSet_instance = false;
+    private static GameRunnable staticGet_instance() {
+        if (!NullWaitGameRunnable.staticSet_instance) {
+            NullWaitGameRunnable.staticSet_instance = true;
+            NullWaitGameRunnable.instance = new NullWaitGameRunnable();
+        }
         return NullWaitGameRunnable.instance;
     }
 
+    public NullWaitGameRunnable() {
+        base();
+    }
+    
+
+    public static GameRunnable getInstance() {
+        return NullWaitGameRunnable.staticGet_instance();
+    }
 }
 

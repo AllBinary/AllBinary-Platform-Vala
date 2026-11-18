@@ -13,58 +13,68 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.input
+// import org.allbinary.logic.communication.log.ForcedLogUtil
+// import org.allbinary.logic.communication.log.LogUtil
+// import org.allbinary.string.CommonStrings
 
-using System;
-using System.Linq;
-using ForcedLogUtil = org.allbinary.logic.communication.log.ForcedLogUtil;
-using LogUtil = org.allbinary.logic.communication.log.LogUtil;
-using CommonStrings = org.allbinary.@string.CommonStrings;
-
-namespace org.allbinary.input;
-
-public class AllBinarySensor : AllBinarySensorListener
-{
-    public static readonly AllBinarySensor NULL_ALLBINARY_SENSOR = new AllBinarySensor();
-    public readonly LogUtil logUtil = LogUtil.getInstance();
-    public readonly CommonStrings commonStrings = CommonStrings.getInstance();
-    private static int max = 100;
-    public AllBinarySensor()
-    {
+public class AllBinarySensor : JObject, AllBinarySensorListener {
+    public static AllBinarySensor? NULL_ALLBINARY_SENSOR;
+    private static bool staticSet_NULL_ALLBINARY_SENSOR = false;
+    public static AllBinarySensor staticGet_NULL_ALLBINARY_SENSOR() {
+        if (!AllBinarySensor.staticSet_NULL_ALLBINARY_SENSOR) {
+            AllBinarySensor.staticSet_NULL_ALLBINARY_SENSOR = true;
+            AllBinarySensor.NULL_ALLBINARY_SENSOR = new AllBinarySensor();
+        }
+        return AllBinarySensor.NULL_ALLBINARY_SENSOR;
     }
+    private static int32 max = 100;
+    public LogUtil logUtil;
+    public CommonStrings commonStrings;
 
-    public virtual void init()
-    {
+    // Java field initializers run after the base constructor
+    private void initFieldsAllBinarySensor() {
+    this.logUtil = LogUtil.getInstance();
+    this.commonStrings = CommonStrings.getInstance();
     }
+    
 
-    // throws Exception
-    public virtual void update()
-    {
+    public AllBinarySensor() {
+        base();
+        this.initFieldsAllBinarySensor();
     }
+    
 
-    public static void setMax(int max)
-    {
+    public virtual void init() {
+    }
+    
+
+    public virtual void update() {
+    }
+    
+
+    public static void setMax(int32 max) {
         AllBinarySensor.max = max;
     }
+    
 
-    public static int getMax()
-    {
+    public static int32 getMax() {
         return AllBinarySensor.max;
     }
+    
 
-    public virtual int getId()
-    {
+    public virtual int32 getId() {
         return AllBinarySensor.getMax();
     }
+    
 
-    public virtual void shutdown()
-    {
+    public virtual void shutdown() {
         this.logUtil.putF(this.commonStrings.START, this, "shutdown");
     }
+    
 
-    public virtual void onSensorChange()
-    {
+    public virtual void onSensorChange() {
         ForcedLogUtil.log(this.commonStrings.NOT_IMPLEMENTED, this);
     }
-
 }
 

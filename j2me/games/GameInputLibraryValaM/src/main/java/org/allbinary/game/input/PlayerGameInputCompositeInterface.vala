@@ -13,15 +13,11 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.game.input
 
-using System;
-using System.Linq;
+public interface PlayerGameInputCompositeInterface : JObject, GameInputInterface {
+    
 
-namespace org.allbinary.game.input;
-
-public interface PlayerGameInputCompositeInterface : GameInputInterface
-{
-    PlayerGameInput getPlayerGameInput();
-
+    public abstract PlayerGameInput getPlayerGameInput();
 }
 

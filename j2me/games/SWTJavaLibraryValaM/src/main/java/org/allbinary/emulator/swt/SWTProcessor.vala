@@ -13,31 +13,41 @@
  *   
  */
 // Generated Code Do Not Modify
+// package org.allbinary.emulator.swt
+// import org.allbinary.thread.NullRunnable
+// import org.eclipse.swt.widgets.Display
 
-using System;
-using System.Linq;
-using NullRunnable = org.allbinary.thread.NullRunnable;
-using Display = org.eclipse.swt.widgets.Display;
-
-namespace org.allbinary.emulator.swt;
-
-public class SWTProcessor
-{
-    private static readonly SWTProcessor instance = new SWTProcessor();
-    public static SWTProcessor getInstance()
-    {
+public class SWTProcessor : JObject {
+    private static SWTProcessor? instance;
+    private static bool staticSet_instance = false;
+    private static SWTProcessor staticGet_instance() {
+        if (!SWTProcessor.staticSet_instance) {
+            SWTProcessor.staticSet_instance = true;
+            SWTProcessor.instance = new SWTProcessor();
+        }
         return SWTProcessor.instance;
     }
+    public Runnable runnable;
 
-    public SWTProcessor()
-    {
+    // Java field initializers run after the base constructor
+    private void initFieldsSWTProcessor() {
+    this.runnable = NullRunnable.getInstance();
     }
+    
 
-    public global::java.lang.Runnable runnable = NullRunnable.getInstance();
-    public virtual void process(Display display)
-    {
+    public static SWTProcessor getInstance() {
+        return SWTProcessor.staticGet_instance();
+    }
+    
+
+    public SWTProcessor() {
+        base();
+        this.initFieldsSWTProcessor();
+    }
+    
+
+    public virtual void process(Display display) {
         display.sleep();
     }
-
 }
 

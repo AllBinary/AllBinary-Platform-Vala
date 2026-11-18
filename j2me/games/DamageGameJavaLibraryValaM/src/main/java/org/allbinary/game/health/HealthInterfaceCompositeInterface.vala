@@ -13,15 +13,11 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.game.health
 
-using System;
-using System.Linq;
+public interface HealthInterfaceCompositeInterface : JObject {
+    
 
-namespace org.allbinary.game.health;
-
-public interface HealthInterfaceCompositeInterface
-{
-    Health getHealthInterface();
-
+    public abstract Health getHealthInterface();
 }
 

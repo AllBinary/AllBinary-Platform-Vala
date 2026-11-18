@@ -13,95 +13,89 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.game.input.event
+// import org.allbinary.game.input.PlayerGameInput
+// import org.allbinary.logic.string.StringMaker
+// import org.allbinary.logic.util.event.AllBinaryEventObject
+// import org.allbinary.logic.util.event.EventListenerInterface
+// import org.allbinary.logic.util.event.EventStrings
+// import org.allbinary.logic.util.event.handler.BasicEventHandler
+// import org.allbinary.util.BasicArrayList
+// import org.allbinary.util.BasicArrayListD
 
-using System;
-using System.Linq;
-using System.Runtime.CompilerServices;
-using PlayerGameInput = org.allbinary.game.input.PlayerGameInput;
-using StringMaker = org.allbinary.logic.@string.StringMaker;
-using AllBinaryEventObject = org.allbinary.logic.util.@event.AllBinaryEventObject;
-using EventListenerInterface = org.allbinary.logic.util.@event.EventListenerInterface;
-using EventStrings = org.allbinary.logic.util.@event.EventStrings;
-using BasicEventHandler = org.allbinary.logic.util.@event.handler.BasicEventHandler;
-using BasicArrayList = org.allbinary.util.BasicArrayList;
-using BasicArrayListD = org.allbinary.util.BasicArrayListD;
+public class UpGameKeyEventHandlerBase : BasicEventHandler {
+    private const string TOTAL_LISTENERS = " Total PlayerGameInput Listeners: ";
+    private const string LISTENER_LABEL = " PlayerGameInput Listener: ";
+    private BasicArrayList list;
 
-namespace org.allbinary.game.input.@event;
-
-public class UpGameKeyEventHandlerBase : BasicEventHandler
-{
-    private readonly BasicArrayList list = new BasicArrayListD();
-    public UpGameKeyEventHandlerBase()
-    {
+    // Java field initializers run after the base constructor
+    private void initFieldsUpGameKeyEventHandlerBase() {
+    this.list = new BasicArrayListD();
     }
+    
 
-    public virtual void addListener(PlayerGameInput playerGameInput)
-    {
+    public UpGameKeyEventHandlerBase() {
+        base();
+        this.initFieldsUpGameKeyEventHandlerBase();
+    }
+    
+
+    public virtual void addListener(PlayerGameInput playerGameInput) {
         if (!this.list.contains(playerGameInput)) {
             this.list.add(playerGameInput);
         }
     }
+    
 
-    public override void removeAllListeners()
-    {
+    public override void removeAllListeners() {
         this.list.clear();
         base.removeAllListeners();
     }
+    
 
-    public override void removeListenerSingleThreaded(EventListenerInterface eventListenerInterface)
-    {
+    public override void removeListenerSingleThreaded(EventListenerInterface eventListenerInterface) {
         this.list.remove(eventListenerInterface);
         base.removeListenerSingleThreaded(eventListenerInterface);
     }
+    
 
-    [MethodImpl(MethodImplOptions.Synchronized)]
-    public override void removeListener(EventListenerInterface eventListenerInterface)
-    {
+    public override void removeListener(EventListenerInterface eventListenerInterface) {
         this.list.remove(eventListenerInterface);
         base.removeListener(eventListenerInterface);
     }
+    
 
-    // throws Exception
-    public override void fireEvent(AllBinaryEventObject eventObject)
-    {
-        for (int index = this.list.size(); --index >= 0; ) {
-            try {
+    public override void fireEvent(AllBinaryEventObject eventObject) {
+        for (int32 index = this.list.size(); --index >= 0; ) {
+            {
                 PlayerGameInput playerGameInput = ((PlayerGameInput) this.list.objectArray[index]);
                 playerGameInput.onUpGameKeyEvent(((GameKeyEvent) eventObject));
-            } catch (Exception e) {
-                this.logUtil.put(this.commonStrings.EXCEPTION, this, EventStrings.getInstance().FIRE_EVENT, e);
-            }
+            } /* catch (Exception e): a thrown Java exception stops the program */
         }
         base.fireEvent(eventObject);
     }
+    
 
-    // throws Exception
-    public override void process(AllBinaryEventObject eventObject, EventListenerInterface eventListenerInterface)
-    {
+    public override void process(AllBinaryEventObject eventObject, EventListenerInterface eventListenerInterface) {
         UpGameKeyEventListenerInterface upGameKeyEventListenerInterface = ((UpGameKeyEventListenerInterface) eventListenerInterface);
         upGameKeyEventListenerInterface.onUpGameKeyEvent(((GameKeyEvent) eventObject));
     }
+    
 
-    private const string TOTAL_LISTENERS = " Total PlayerGameInput Listeners: ";
-    private const string LISTENER_LABEL = " PlayerGameInput Listener: ";
-    public override string ToString()
-    {
+    public override string toString() {
         StringMaker stringBuffer = new StringMaker();
-        int size = this.list.size();
-        stringBuffer.append(base.ToString());
+        int32 size = this.list.size();
+        stringBuffer.append(base.toString());
         stringBuffer.append(UpGameKeyEventHandlerBase.TOTAL_LISTENERS);
         stringBuffer.appendint(size);
-        for (int index = 0; index < size; index++) {
-            try {
-                EventListenerInterface eventListenerInterface = ((EventListenerInterface) this.list.get(index));
+        for (int32 index = 0; index < size; index++) {
+            {
+                EventListenerInterface eventListenerInterface = ((EventListenerInterface) this.list.@get(index));
                 stringBuffer.append(UpGameKeyEventHandlerBase.LISTENER_LABEL);
-                stringBuffer.append(eventListenerInterface.ToString());
-            } catch (Exception e) {
-                this.logUtil.put(this.commonStrings.EXCEPTION, this, this.commonStrings.TOSTRING, e);
-            }
+                stringBuffer.append(eventListenerInterface.toString());
+            } /* catch (Exception e): a thrown Java exception stops the program */
         }
-        return stringBuffer.ToString();
+        return stringBuffer.toString();
     }
-
 }
 

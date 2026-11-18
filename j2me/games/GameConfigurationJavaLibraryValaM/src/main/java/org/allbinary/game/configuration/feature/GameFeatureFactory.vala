@@ -13,39 +13,64 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.game.configuration.feature
 
-using System;
-using System.Linq;
-
-namespace org.allbinary.game.configuration.feature;
-
-public class GameFeatureFactory
-{
-    private static readonly GameFeatureFactory instance = new GameFeatureFactory();
-    public static GameFeatureFactory getInstance()
-    {
+public class GameFeatureFactory : JObject {
+    private static GameFeatureFactory? instance;
+    private static bool staticSet_instance = false;
+    private static GameFeatureFactory staticGet_instance() {
+        if (!GameFeatureFactory.staticSet_instance) {
+            GameFeatureFactory.staticSet_instance = true;
+            GameFeatureFactory.instance = new GameFeatureFactory();
+        }
         return GameFeatureFactory.instance;
     }
+    public GameFeature SOUND;
+    public GameFeature MUSIC;
+    public Feature SCREEN_SHAKE;
+    public Feature POST_IMAGE_LOADING_MODIFICATION;
+    public GameFeature HEALTH_BARS;
+    public GameFeature DAMAGE_FLOATERS;
+    public GameFeature GAME_INPUT_LAYER_PROCESSOR;
+    public GameFeature ARTIFICIAL_INTELLEGENCE_PROCESSOR;
+    public GameFeature COLLIDABLE_INTERFACE_LAYER_PROCESSOR;
+    public GameFeature TICKABLE_LAYER_PROCESSOR;
+    public GameFeature CHEATING;
+    public GameFeature DROPPED_ITEMS;
+    public GameFeature DROPPED_ITEMS_FROM_DEATH;
+    public GameFeature TEST_DESTROYED_LAYER_PROCESSOR;
+    public GameFeature COLLISIONS_WITH_SOURCE;
+    public GameFeature COLLISIONS_FORCED_TWO_DIMENSIONAL;
 
-    private GameFeatureFactory()
-    {
+    // Java field initializers run after the base constructor
+    private void initFieldsGameFeatureFactory() {
+    this.SOUND = new GameFeature("Sound");
+    this.MUSIC = new GameFeature("Music");
+    this.SCREEN_SHAKE = new Feature("Screen Shake");
+    this.POST_IMAGE_LOADING_MODIFICATION = new Feature("Post Image Loading Modification (Scaling, Rotation, or Other)");
+    this.HEALTH_BARS = new GameFeature("Health Bars");
+    this.DAMAGE_FLOATERS = new GameFeature("Damage Floaters");
+    this.GAME_INPUT_LAYER_PROCESSOR = new GameFeature("Game Input Layer Processor");
+    this.ARTIFICIAL_INTELLEGENCE_PROCESSOR = new GameFeature("Artificial Intelligence Layer Processor");
+    this.COLLIDABLE_INTERFACE_LAYER_PROCESSOR = new GameFeature("Collidable Interface Layer Processor");
+    this.TICKABLE_LAYER_PROCESSOR = new GameFeature("Tickable Layer Processor");
+    this.CHEATING = new GameFeature("Cheating");
+    this.DROPPED_ITEMS = new GameFeature("Drops");
+    this.DROPPED_ITEMS_FROM_DEATH = new GameFeature("Drops from Dead");
+    this.TEST_DESTROYED_LAYER_PROCESSOR = new GameFeature("Destroyed Layer Processor");
+    this.COLLISIONS_WITH_SOURCE = new GameFeature("Allow Collisions With Source");
+    this.COLLISIONS_FORCED_TWO_DIMENSIONAL = new GameFeature("Collisions Forced Two Dimensional");
     }
+    
 
-    public readonly GameFeature SOUND = new GameFeature("Sound");
-    public readonly GameFeature MUSIC = new GameFeature("Music");
-    public readonly Feature SCREEN_SHAKE = new Feature("Screen Shake");
-    public readonly Feature POST_IMAGE_LOADING_MODIFICATION = new Feature("Post Image Loading Modification (Scaling, Rotation, or Other)");
-    public readonly GameFeature HEALTH_BARS = new GameFeature("Health Bars");
-    public readonly GameFeature DAMAGE_FLOATERS = new GameFeature("Damage Floaters");
-    public readonly GameFeature GAME_INPUT_LAYER_PROCESSOR = new GameFeature("Game Input Layer Processor");
-    public readonly GameFeature ARTIFICIAL_INTELLEGENCE_PROCESSOR = new GameFeature("Artificial Intelligence Layer Processor");
-    public readonly GameFeature COLLIDABLE_INTERFACE_LAYER_PROCESSOR = new GameFeature("Collidable Interface Layer Processor");
-    public readonly GameFeature TICKABLE_LAYER_PROCESSOR = new GameFeature("Tickable Layer Processor");
-    public readonly GameFeature CHEATING = new GameFeature("Cheating");
-    public readonly GameFeature DROPPED_ITEMS = new GameFeature("Drops");
-    public readonly GameFeature DROPPED_ITEMS_FROM_DEATH = new GameFeature("Drops from Dead");
-    public readonly GameFeature TEST_DESTROYED_LAYER_PROCESSOR = new GameFeature("Destroyed Layer Processor");
-    public readonly GameFeature COLLISIONS_WITH_SOURCE = new GameFeature("Allow Collisions With Source");
-    public readonly GameFeature COLLISIONS_FORCED_TWO_DIMENSIONAL = new GameFeature("Collisions Forced Two Dimensional");
+    public static GameFeatureFactory getInstance() {
+        return GameFeatureFactory.staticGet_instance();
+    }
+    
+
+    public GameFeatureFactory() {
+        base();
+        this.initFieldsGameFeatureFactory();
+    }
 }
 

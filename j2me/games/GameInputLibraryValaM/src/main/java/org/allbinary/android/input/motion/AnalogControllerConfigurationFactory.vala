@@ -13,43 +13,54 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.android.input.motion
+// import org.allbinary.android.input.motion.event.AnalogControllerConfigurationEvent
+// import org.allbinary.android.input.motion.event.AnalogControllerConfigurationEventHandler
+// import org.allbinary.logic.math.ScaleFactorFactory
 
-using System;
-using System.Linq;
-using AnalogControllerConfigurationEvent = org.allbinary.android.input.motion.@event.AnalogControllerConfigurationEvent;
-using AnalogControllerConfigurationEventHandler = org.allbinary.android.input.motion.@event.AnalogControllerConfigurationEventHandler;
-using ScaleFactorFactory = org.allbinary.logic.math.ScaleFactorFactory;
-
-namespace org.allbinary.android.input.motion;
-
-public class AnalogControllerConfigurationFactory
-{
-    private static readonly AnalogControllerConfigurationFactory instance = new AnalogControllerConfigurationFactory();
-    public static AnalogControllerConfigurationFactory getInstance()
-    {
+public class AnalogControllerConfigurationFactory : JObject {
+    private static AnalogControllerConfigurationFactory? instance;
+    private static bool staticSet_instance = false;
+    private static AnalogControllerConfigurationFactory staticGet_instance() {
+        if (!AnalogControllerConfigurationFactory.staticSet_instance) {
+            AnalogControllerConfigurationFactory.staticSet_instance = true;
+            AnalogControllerConfigurationFactory.instance = new AnalogControllerConfigurationFactory();
+        }
         return AnalogControllerConfigurationFactory.instance;
     }
+    public int32 SCALE_FACTOR;
+    public int32 SCALE_VALUE;
+    private bool available;
+    private AnalogControllerConfigurationEvent analogControllerConfigurationEvent;
 
-    public readonly int SCALE_FACTOR = ScaleFactorFactory.getInstance().DEFAULT_SCALE_FACTOR;
-    public readonly int SCALE_VALUE = ScaleFactorFactory.getInstance().DEFAULT_SCALE_VALUE;
-    private bool available = false;
-    private readonly AnalogControllerConfigurationEvent analogControllerConfigurationEvent;
-    private AnalogControllerConfigurationFactory()
-    {
-        this.analogControllerConfigurationEvent = new AnalogControllerConfigurationEvent(this);
+    // Java field initializers run after the base constructor
+    private void initFieldsAnalogControllerConfigurationFactory() {
+    this.SCALE_FACTOR = ScaleFactorFactory.getInstance().DEFAULT_SCALE_FACTOR;
+    this.SCALE_VALUE = ScaleFactorFactory.getInstance().DEFAULT_SCALE_VALUE;
+    this.available = false;
+    this.analogControllerConfigurationEvent = new AnalogControllerConfigurationEvent(this);
     }
+    
 
-    public virtual bool isAvailable()
-    {
+    public static AnalogControllerConfigurationFactory getInstance() {
+        return AnalogControllerConfigurationFactory.staticGet_instance();
+    }
+    
+
+    public AnalogControllerConfigurationFactory() {
+        base();
+        this.initFieldsAnalogControllerConfigurationFactory();
+    }
+    
+
+    public virtual bool isAvailable() {
         return this.available;
     }
+    
 
-    // throws Exception
-    public virtual void setAvailable(bool available)
-    {
+    public virtual void setAvailable(bool available) {
         this.available = available;
         AnalogControllerConfigurationEventHandler.getInstance().fireEvent(this.analogControllerConfigurationEvent);
     }
-
 }
 

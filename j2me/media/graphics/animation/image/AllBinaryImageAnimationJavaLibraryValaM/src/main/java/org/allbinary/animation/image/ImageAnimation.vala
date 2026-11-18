@@ -13,87 +13,86 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.animation.image
+// import javax.microedition.lcdui.Graphics
+// import javax.microedition.lcdui.Image
+// import org.allbinary.DisposalUtil
+// import org.allbinary.animation.AnimationBehavior
+// import org.allbinary.animation.IndexedAnimation
+// import org.allbinary.graphics.Anchor
+// import org.allbinary.logic.math.PrimitiveIntUtil
 
-using System;
-using System.Linq;
-using Graphics = javax.microedition.lcdui.Graphics;
-using Image = javax.microedition.lcdui.Image;
-using DisposalUtil = org.allbinary.DisposalUtil;
-using AnimationBehavior = org.allbinary.animation.AnimationBehavior;
-using IndexedAnimation = org.allbinary.animation.IndexedAnimation;
-using Anchor = org.allbinary.graphics.Anchor;
-using PrimitiveIntUtil = org.allbinary.logic.math.PrimitiveIntUtil;
+public class ImageAnimation : IndexedAnimation {
+    private Image image;
+    private int32 anchor;
 
-namespace org.allbinary.animation.image;
+    // Java field initializers run after the base constructor
+    private void initFieldsImageAnimation() {
+    
+    this.anchor = Anchor.TOP_LEFT;
+    }
+    
 
-public class ImageAnimation : IndexedAnimation
-{
-    private readonly Image image;
-    public ImageAnimation(Image image, AnimationBehavior animationBehavior) : base(animationBehavior)
-    {
-        // base(animationBehavior) is called from the constructor declaration
+    public ImageAnimation(Image image, AnimationBehavior animationBehavior) {
+        base(animationBehavior);
+        this.initFieldsImageAnimation();
         this.image = image;
     }
+    
 
-    // throws Exception
-    public override int getAnimationSize()
-    {
+    public override int32 getAnimationSize() {
         return this.getSize();
     }
+    
 
-    public override void nextFrame()
-    {
+    public override void nextFrame() {
     }
+    
 
-    public override void previousFrame()
-    {
+    public override void previousFrame() {
     }
+    
 
-    public override void setFrame(int index)
-    {
+    public override void setFrame(int32 index) {
     }
+    
 
-    public override int getFrame()
-    {
+    public override int32 getFrame() {
         return 0;
     }
+    
 
-    public override int getSize()
-    {
+    public override int32 getSize() {
         return 1;
     }
+    
 
-    public override void setSequence(int[] sequence)
-    {
+    public override void setSequence(int32[] sequence) {
     }
+    
 
-    public override int[] getSequence()
-    {
+    public override int32[] getSequence() {
         return PrimitiveIntUtil.getArrayInstance();
     }
+    
 
-    private int anchor = Anchor.TOP_LEFT;
-    public override void paintXY(Graphics graphics, int x, int y)
-    {
+    public override void paintXY(Graphics graphics, int32 x, int32 y) {
         graphics.drawImage(this.image, x, y, this.anchor);
     }
+    
 
-    public virtual Image getImage()
-    {
+    public virtual Image getImage() {
         return this.image;
     }
+    
 
-    // throws Exception
-    public virtual void close()
-    {
+    public virtual void close() {
         DisposalUtil.getInstance().disposeImage(this.image);
     }
+    
 
-    // throws Throwable
-    public virtual void finalize()
-    {
+    public virtual void finalize() {
         DisposalUtil.getInstance().disposeImage(this.image);
     }
-
 }
 

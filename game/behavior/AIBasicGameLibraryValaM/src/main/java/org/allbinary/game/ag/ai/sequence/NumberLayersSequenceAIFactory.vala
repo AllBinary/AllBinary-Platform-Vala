@@ -13,21 +13,20 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.game.ag.ai.sequence
+// import org.allbinary.ai.ArtificialIntelligenceInterface
+// import org.allbinary.game.input.GameInput
+// import org.allbinary.layer.AllBinaryLayer
 
-using System;
-using System.Linq;
-using ArtificialIntelligenceInterface = org.allbinary.ai.ArtificialIntelligenceInterface;
-using GameInput = org.allbinary.game.input.GameInput;
-using AllBinaryLayer = org.allbinary.layer.AllBinaryLayer;
+public class NumberLayersSequenceAIFactory : JObject {
 
-namespace org.allbinary.game.ag.ai.sequence;
+    public NumberLayersSequenceAIFactory() {
+        base();
+    }
+    
 
-public class NumberLayersSequenceAIFactory
-{
-    public virtual ArtificialIntelligenceInterface getInstance(int numberOfEnemiesLeft, ArtificialIntelligenceInterface[] artificialIntelligenceInterface, AllBinaryLayer ownerLayerInterface, GameInput gameInput)
-    {
+    public virtual ArtificialIntelligenceInterface getInstance4(int32 numberOfEnemiesLeft, ArtificialIntelligenceInterface[] artificialIntelligenceInterface, AllBinaryLayer ownerLayerInterface, GameInput gameInput) {
         return new NumberLayersSequenceAI(numberOfEnemiesLeft, artificialIntelligenceInterface, ownerLayerInterface, gameInput);
     }
-
 }
 

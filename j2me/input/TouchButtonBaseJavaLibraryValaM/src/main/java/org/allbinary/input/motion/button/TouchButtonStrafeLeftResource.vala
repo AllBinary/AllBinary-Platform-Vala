@@ -13,24 +13,27 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.input.motion.button
 
-using System;
-using System.Linq;
-
-namespace org.allbinary.input.motion.button;
-
-public class TouchButtonStrafeLeftResource : TouchButtonResource
-{
-    private static readonly TouchButtonResource instance = new TouchButtonStrafeLeftResource();
-    public static TouchButtonResource getInstance()
-    {
+public class TouchButtonStrafeLeftResource : TouchButtonResource {
+    private static TouchButtonResource? instance;
+    private static bool staticSet_instance = false;
+    private static TouchButtonResource staticGet_instance() {
+        if (!TouchButtonStrafeLeftResource.staticSet_instance) {
+            TouchButtonStrafeLeftResource.staticSet_instance = true;
+            TouchButtonStrafeLeftResource.instance = new TouchButtonStrafeLeftResource();
+        }
         return TouchButtonStrafeLeftResource.instance;
     }
+    
 
-    private TouchButtonStrafeLeftResource() : base("/touch_button_strafe_left_arrow_64_by_64.png", "/touch_button_strafe_left_arrow_hint_64_by_64.png")
-    {
-        // base("/touch_button_strafe_left_arrow_64_by_64.png", "/touch_button_strafe_left_arrow_hint_64_by_64.png") is called from the constructor declaration
+    public static TouchButtonResource getInstance() {
+        return TouchButtonStrafeLeftResource.staticGet_instance();
     }
+    
 
+    public TouchButtonStrafeLeftResource() {
+        base("/touch_button_strafe_left_arrow_64_by_64.png", "/touch_button_strafe_left_arrow_hint_64_by_64.png");
+    }
 }
 

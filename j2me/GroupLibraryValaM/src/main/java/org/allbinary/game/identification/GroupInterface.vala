@@ -13,17 +13,14 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.game.identification
 
-using System;
-using System.Linq;
+public interface GroupInterface : JObject {
+    
 
-namespace org.allbinary.game.identification;
+    public abstract string getGroupName();
+    
 
-public interface GroupInterface
-{
-    string getGroupName();
-
-    short getGroupId();
-
+    public abstract int16 getGroupId();
 }
 

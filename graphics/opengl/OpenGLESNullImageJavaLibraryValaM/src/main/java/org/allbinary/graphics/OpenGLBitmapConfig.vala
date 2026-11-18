@@ -13,19 +13,21 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.graphics
 
-using System;
-using System.Linq;
+public class OpenGLBitmapConfig : JObject {
+    public JObject bitmapConfig;
 
-namespace org.allbinary.graphics;
+    // Java field initializers run after the base constructor
+    private void initFieldsOpenGLBitmapConfig() {
+    
+    }
+    
 
-public class OpenGLBitmapConfig
-{
-    public readonly object bitmapConfig;
-    public OpenGLBitmapConfig(object bitmapConfig)
-    {
+    public OpenGLBitmapConfig(JObject bitmapConfig) {
+        base();
+        this.initFieldsOpenGLBitmapConfig();
         this.bitmapConfig = bitmapConfig;
     }
-
 }
 

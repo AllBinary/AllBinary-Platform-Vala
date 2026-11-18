@@ -13,65 +13,64 @@
  *   
  */
 // Generated Code Do Not Modify
+// package org.allbinary.animation.image.sprite
+// import javax.microedition.lcdui.Image
+// import javax.microedition.lcdui.game.Sprite
+// import org.allbinary.AndroidUtil
+// import org.allbinary.animation.Animation
+// import org.allbinary.animation.AnimationBehaviorFactory
+// import org.allbinary.animation.ProceduralAnimationInterfaceFactoryInterface
+// import org.allbinary.animation.image.BaseImageAnimationFactory
+// import org.allbinary.graphics.color.BasicColor
+// import org.allbinary.graphics.color.BasicColorUtil
+// import org.allbinary.image.sprite.AnimationFactorySpriteScaleUtil
+// import org.allbinary.logic.math.PrimitiveIntUtil
 
-using System;
-using System.Linq;
-using Image = javax.microedition.lcdui.Image;
-using Sprite = javax.microedition.lcdui.game.Sprite;
-using AndroidUtil = org.allbinary.AndroidUtil;
-using Animation = org.allbinary.animation.Animation;
-using AnimationBehaviorFactory = org.allbinary.animation.AnimationBehaviorFactory;
-using ProceduralAnimationInterfaceFactoryInterface = org.allbinary.animation.ProceduralAnimationInterfaceFactoryInterface;
-using BaseImageAnimationFactory = org.allbinary.animation.image.BaseImageAnimationFactory;
-using BasicColor = org.allbinary.graphics.color.BasicColor;
-using BasicColorUtil = org.allbinary.graphics.color.BasicColorUtil;
-using AnimationFactorySpriteScaleUtil = org.allbinary.image.sprite.AnimationFactorySpriteScaleUtil;
-using PrimitiveIntUtil = org.allbinary.logic.math.PrimitiveIntUtil;
+public class SpriteIndexedAnimationFactory : BaseImageAnimationFactory, ProceduralAnimationInterfaceFactoryInterface, BasicAnimationInterfaceFactoryInterface {
+    private AnimationFactorySpriteScaleUtil animationFactorySpriteScaleUtil;
+    private BasicColor[] basicColorArray;
 
-namespace org.allbinary.animation.image.sprite;
+    // Java field initializers run after the base constructor
+    private void initFieldsSpriteIndexedAnimationFactory() {
+    this.animationFactorySpriteScaleUtil = AnimationFactorySpriteScaleUtil.getInstance();
+    this.basicColorArray = BasicColorUtil.getInstance().ZERO_ARRAY;
+    }
+    
 
-public class SpriteIndexedAnimationFactory : BaseImageAnimationFactory, ProceduralAnimationInterfaceFactoryInterface
-{
-    // throws Exception
-    public static SpriteIndexedAnimationFactory createCWHDXY(Image image, BasicColor[] basicColorArray, int width, int height, int dx, int dy, AnimationBehaviorFactory animationBehaviorFactory)
-    {
+    public static SpriteIndexedAnimationFactory createCWHDXY(Image image, BasicColor[] basicColorArray, int32 width, int32 height, int32 dx, int32 dy, AnimationBehaviorFactory animationBehaviorFactory) {
         return new SpriteIndexedAnimationFactory(image, basicColorArray, PrimitiveIntUtil.getArrayInstance(), width, height, dx, dy, animationBehaviorFactory);
     }
+    
 
-    // throws Exception
-    public static SpriteIndexedAnimationFactory createCWH(Image image, BasicColor[] basicColorArray, int width, int height, AnimationBehaviorFactory animationBehaviorFactory)
-    {
+    public static SpriteIndexedAnimationFactory createCWH(Image image, BasicColor[] basicColorArray, int32 width, int32 height, AnimationBehaviorFactory animationBehaviorFactory) {
         SpriteIndexedAnimationFactory spriteIndexedAnimationFactory = new SpriteIndexedAnimationFactory(image, basicColorArray, PrimitiveIntUtil.getArrayInstance(), width, height, 0, 0, animationBehaviorFactory);
         spriteIndexedAnimationFactory.initHWH();
         return spriteIndexedAnimationFactory;
     }
+    
 
-    // throws Exception
-    public static SpriteIndexedAnimationFactory createWH(Image image, int width, int height, AnimationBehaviorFactory animationBehaviorFactory)
-    {
+    public static SpriteIndexedAnimationFactory createWH(Image image, int32 width, int32 height, AnimationBehaviorFactory animationBehaviorFactory) {
         return new SpriteIndexedAnimationFactory(image, BasicColorUtil.getInstance().ZERO_ARRAY, PrimitiveIntUtil.getArrayInstance(), width, height, 0, 0, animationBehaviorFactory);
     }
+    
 
-    private readonly AnimationFactorySpriteScaleUtil animationFactorySpriteScaleUtil = AnimationFactorySpriteScaleUtil.getInstance();
-    private BasicColor[] basicColorArray = BasicColorUtil.getInstance().ZERO_ARRAY;
-    private SpriteIndexedAnimationFactory(Image image, BasicColor[] basicColorArray, int[] sequenceArray, int width, int height, int dx, int dy, AnimationBehaviorFactory animationBehaviorFactory) : base(image, sequenceArray, width, height, dx, dy, animationBehaviorFactory)
-    {
-        // base(image, sequenceArray, width, height, dx, dy, animationBehaviorFactory) is called from the constructor declaration
+    public SpriteIndexedAnimationFactory(Image image, BasicColor[] basicColorArray, int32[] sequenceArray, int32 width, int32 height, int32 dx, int32 dy, AnimationBehaviorFactory animationBehaviorFactory) {
+        base(image, sequenceArray, width, height, dx, dy, animationBehaviorFactory);
+        this.initFieldsSpriteIndexedAnimationFactory();
         this.basicColorArray = basicColorArray;
     }
+    
 
-    private void initHWH()
-    {
+    private void initHWH() {
         this.animationFactoryInitializationVisitor.dx = -(this.animationFactoryInitializationVisitor.width >> 2);
         this.animationFactoryInitializationVisitor.dy = -(this.animationFactoryInitializationVisitor.height >> 2);
         if (AndroidUtil.isAndroid()) {
             this.animationFactoryInitializationVisitor.dx += 3;
         }
     }
+    
 
-    // throws Exception
-    public override Animation getInstance(int instanceId)
-    {
+    public override Animation getInstance1(int32 instanceId) {
         Sprite sprite = this.animationFactorySpriteScaleUtil.createImage(this.getImage(), this.animationFactoryInitializationVisitor.width, this.animationFactoryInitializationVisitor.height, this.scaleProperties.scaleWidth, this.scaleProperties.scaleHeight);
         if (this.animationFactoryInitializationVisitor.dx != 0 || this.animationFactoryInitializationVisitor.dy != 0) {
             return new AdjustedSpriteIndexedAnimation(sprite, this.getImage(), this.basicColorArray, this.animationFactoryInitializationVisitor.dx, this.animationFactoryInitializationVisitor.dy, this.animationBehaviorFactory.getOrCreateInstance());
@@ -79,12 +78,10 @@ public class SpriteIndexedAnimationFactory : BaseImageAnimationFactory, Procedur
             return new SpriteIndexedAnimation(sprite, this.getImage(), this.basicColorArray, this.animationBehaviorFactory.getOrCreateInstance());
         }
     }
+    
 
-    // throws Exception
-    public virtual Animation getInstanceAnimation(Animation animationInterface)
-    {
-        return this.getInstance(0);
+    public virtual Animation getInstanceAnimation(Animation animationInterface) {
+        return this.getInstance1(0);
     }
-
 }
 

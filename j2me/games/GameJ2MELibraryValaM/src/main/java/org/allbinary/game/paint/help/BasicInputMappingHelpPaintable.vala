@@ -13,62 +13,65 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.game.paint.help
+// import org.allbinary.game.input.GameKey
+// import org.allbinary.game.input.GameKeyFactory
+// import org.allbinary.game.input.Input
+// import org.allbinary.game.input.PlatformInputMappingFactory
+// import org.allbinary.game.input.mapping.GameInputMapping
+// import org.allbinary.game.input.mapping.PersistentInputMapping
+// import org.allbinary.graphics.color.BasicColor
+// import org.allbinary.graphics.color.BasicColorFactory
+// import org.allbinary.logic.string.StringMaker
+// import org.allbinary.string.CommonSeps
+// import org.allbinary.util.BasicArrayList
 
-using System;
-using System.Linq;
-using GameKey = org.allbinary.game.input.GameKey;
-using GameKeyFactory = org.allbinary.game.input.GameKeyFactory;
-using Input = org.allbinary.game.input.Input;
-using PlatformInputMappingFactory = org.allbinary.game.input.PlatformInputMappingFactory;
-using GameInputMapping = org.allbinary.game.input.mapping.GameInputMapping;
-using PersistentInputMapping = org.allbinary.game.input.mapping.PersistentInputMapping;
-using BasicColor = org.allbinary.graphics.color.BasicColor;
-using BasicColorFactory = org.allbinary.graphics.color.BasicColorFactory;
-using StringMaker = org.allbinary.logic.@string.StringMaker;
-using CommonSeps = org.allbinary.@string.CommonSeps;
-using BasicArrayList = org.allbinary.util.BasicArrayList;
-
-namespace org.allbinary.game.paint.help;
-
-public class BasicInputMappingHelpPaintable : HelpPaintable
-{
+public class BasicInputMappingHelpPaintable : HelpPaintable {
     private GameInputMapping[] gameInputMappingArray;
-    private readonly GameKey NONE = GameKeyFactory.getInstance().NONE;
-    public BasicInputMappingHelpPaintable(GameInputMapping[] gameInputMappingArray, BasicColor basicColor) : base("Help Screen", BasicColorFactory.getInstance().BLACK, basicColor)
-    {
-        // base("Help Screen", BasicColorFactory.getInstance().BLACK, basicColor) is called from the constructor declaration
+    private GameKey NONE;
+
+    // Java field initializers run after the base constructor
+    private void initFieldsBasicInputMappingHelpPaintable() {
+    
+    this.NONE = GameKeyFactory.getInstance().NONE;
+    }
+    
+
+    public BasicInputMappingHelpPaintable(GameInputMapping[] gameInputMappingArray, BasicColor basicColor) {
+        base("Help Screen", BasicColorFactory.getInstance().BLACK, basicColor);
+        this.initFieldsBasicInputMappingHelpPaintable();
         this.gameInputMappingArray = gameInputMappingArray;
         this.update(this.NONE, this.NONE);
     }
+    
 
-    public virtual void update(GameKey selectedGameKey, Input selectedInput)
-    {
+    public virtual void update(GameKey selectedGameKey, Input selectedInput) {
         PersistentInputMapping gameKeyMapping = PlatformInputMappingFactory.getInstance().getPersistentInputMappingInstance();
         string EQUAL = " = ";
         StringMaker stringMaker = new StringMaker();
-        int size = this.gameInputMappingArray.Length;
+        int32 size = this.gameInputMappingArray.length;
         string[] keyInfo = new string[size];
         GameInputMapping gameInputMapping = null;
         GameKey gameKey = null;
         BasicArrayList list = null;
-        for (int index = 0; index < size; index++) {
+        for (int32 index = 0; index < size; index++) {
             gameInputMapping = this.gameInputMappingArray[index];
             gameKey = gameInputMapping.getGameKey();
             list = gameKeyMapping.getInputMapping().getMappedInput(gameKey);
-            stringMaker.delete(0, stringMaker.length());
-            keyInfo[index] = stringMaker.append(gameInputMapping.getName()).append(EQUAL).append(this.get(list)).ToString();
+            stringMaker.@delete(0, stringMaker.length());
+            keyInfo[index] = stringMaker.append(gameInputMapping.getName()).append(EQUAL).append(this.@get(list)).toString();
         }
         base.setInputInfoP(keyInfo);
     }
+    
 
-    private string get(BasicArrayList keyList)
-    {
+    private string @get(BasicArrayList keyList) {
         CommonSeps commonSeps = CommonSeps.getInstance();
         StringMaker stringBuffer = new StringMaker();
         string AND = "and ";
         Input key = null;
-        int size = keyList.size();
-        for (int index = 0; index < size; index++) {
+        int32 size = keyList.size();
+        for (int32 index = 0; index < size; index++) {
             key = ((Input) keyList.objectArray[index]);
             stringBuffer.append(key.getName());
             if (index + 1 < keyList.size()) {
@@ -84,8 +87,7 @@ public class BasicInputMappingHelpPaintable : HelpPaintable
                 }
             }
         }
-        return stringBuffer.ToString();
+        return stringBuffer.toString();
     }
-
 }
 

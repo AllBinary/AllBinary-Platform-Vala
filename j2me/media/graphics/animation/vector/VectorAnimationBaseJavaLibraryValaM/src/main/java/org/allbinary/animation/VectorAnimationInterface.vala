@@ -13,16 +13,12 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.animation
+// import org.allbinary.graphics.color.ColorCompositeInterface
 
-using System;
-using System.Linq;
-using ColorCompositeInterface = org.allbinary.graphics.color.ColorCompositeInterface;
+public interface VectorAnimationInterface : JObject, IndexedAnimationInterface, ColorCompositeInterface {
+    
 
-namespace org.allbinary.animation;
-
-public interface VectorAnimationInterface : IndexedAnimationInterface, ColorCompositeInterface
-{
-    int[][] getPoints(int frame);
-
+    public abstract int32[,] getPoints(int32 frame);
 }
 

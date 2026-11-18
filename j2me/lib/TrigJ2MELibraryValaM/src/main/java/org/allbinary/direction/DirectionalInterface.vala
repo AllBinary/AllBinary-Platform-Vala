@@ -13,22 +13,21 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.direction
+// import org.allbinary.math.Angle
 
-using System;
-using System.Linq;
-using Angle = org.allbinary.math.Angle;
+public interface DirectionalInterface : JObject {
+    
 
-namespace org.allbinary.direction;
+    public abstract void setFrameByDirection(Direction direction);
+    
 
-public interface DirectionalInterface
-{
-    void setFrameByDirection(Direction direction);
+    public abstract void setFrameToAngle(Angle angle);
+    
 
-    void setFrameToAngle(Angle angle);
+    public abstract void adjustFrameToAngle(Angle newAngle);
+    
 
-    void adjustFrameToAngle(Angle newAngle);
-
-    void adjustFrame(short angle);
-
+    public abstract void adjustFrame(int16 angle);
 }
 

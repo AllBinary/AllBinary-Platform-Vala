@@ -13,29 +13,34 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.canvas
 
-using System;
-using System.Linq;
-
-namespace org.allbinary.canvas;
-
-public class Processor
-{
-    private static readonly Processor SINGLETON = new Processor();
-    public static Processor getInstance()
-    {
+public class Processor : JObject {
+    private static Processor? SINGLETON;
+    private static bool staticSet_SINGLETON = false;
+    private static Processor staticGet_SINGLETON() {
+        if (!Processor.staticSet_SINGLETON) {
+            Processor.staticSet_SINGLETON = true;
+            Processor.SINGLETON = new Processor();
+        }
         return Processor.SINGLETON;
     }
 
-    // throws Exception
-    public virtual void process()
-    {
+    public Processor() {
+        base();
     }
+    
 
-    // throws Exception
-    public virtual void processt(long timeDelta)
-    {
+    public static Processor getInstance() {
+        return Processor.staticGet_SINGLETON();
     }
+    
 
+    public virtual void process() {
+    }
+    
+
+    public virtual void processt(int64 timeDelta) {
+    }
 }
 

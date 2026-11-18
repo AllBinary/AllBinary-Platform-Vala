@@ -13,18 +13,25 @@
  *   
  */
 // Generated Code Do Not Modify
+// package org.allbinary.game.displayable.canvas
 
-using System;
-using System.Linq;
-
-namespace org.allbinary.game.displayable.canvas;
-
-public class NullDemoPaintable : DemoPaintableInterface
-{
-    public static readonly NullDemoPaintable NULL_DEMO_PAINTABLE = new NullDemoPaintable();
-    public virtual void showGamePaintable()
-    {
+public class NullDemoPaintable : JObject, DemoPaintableInterface {
+    public static NullDemoPaintable? NULL_DEMO_PAINTABLE;
+    private static bool staticSet_NULL_DEMO_PAINTABLE = false;
+    public static NullDemoPaintable staticGet_NULL_DEMO_PAINTABLE() {
+        if (!NullDemoPaintable.staticSet_NULL_DEMO_PAINTABLE) {
+            NullDemoPaintable.staticSet_NULL_DEMO_PAINTABLE = true;
+            NullDemoPaintable.NULL_DEMO_PAINTABLE = new NullDemoPaintable();
+        }
+        return NullDemoPaintable.NULL_DEMO_PAINTABLE;
     }
 
+    public NullDemoPaintable() {
+        base();
+    }
+    
+
+    public virtual void showGamePaintable() {
+    }
 }
 

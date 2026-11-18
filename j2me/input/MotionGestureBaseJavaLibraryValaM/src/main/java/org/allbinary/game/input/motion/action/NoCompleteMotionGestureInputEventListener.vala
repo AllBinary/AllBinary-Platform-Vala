@@ -13,37 +13,41 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.game.input.motion.action
+// import org.allbinary.game.input.CompleteMotionGestureInputEvent
+// import org.allbinary.game.input.CompleteMotionGestureInputEventListener
+// import org.allbinary.logic.communication.log.ForcedLogUtil
+// import org.allbinary.logic.util.event.AllBinaryEventObject
+// import org.allbinary.logic.util.event.EventStrings
 
-using System;
-using System.Linq;
-using CompleteMotionGestureInputEvent = org.allbinary.game.input.CompleteMotionGestureInputEvent;
-using CompleteMotionGestureInputEventListener = org.allbinary.game.input.CompleteMotionGestureInputEventListener;
-using ForcedLogUtil = org.allbinary.logic.communication.log.ForcedLogUtil;
-using AllBinaryEventObject = org.allbinary.logic.util.@event.AllBinaryEventObject;
-using EventStrings = org.allbinary.logic.util.@event.EventStrings;
-
-namespace org.allbinary.game.input.motion.action;
-
-public class NoCompleteMotionGestureInputEventListener : CompleteMotionGestureInputEventListener
-{
-    private static readonly NoCompleteMotionGestureInputEventListener instance = new NoCompleteMotionGestureInputEventListener();
-    private NoCompleteMotionGestureInputEventListener()
-    {
-    }
-
-    public override void onEvent(AllBinaryEventObject eventObject)
-    {
-        ForcedLogUtil.log(EventStrings.getInstance().PERFORMANCE_MESSAGE, this);
-    }
-
-    public override void onCompleteMotionGestureInputEvent(CompleteMotionGestureInputEvent completeMotionGestureInputEvent)
-    {
-    }
-
-    public static NoCompleteMotionGestureInputEventListener getInstance()
-    {
+public class NoCompleteMotionGestureInputEventListener : CompleteMotionGestureInputEventListener {
+    private static NoCompleteMotionGestureInputEventListener? instance;
+    private static bool staticSet_instance = false;
+    private static NoCompleteMotionGestureInputEventListener staticGet_instance() {
+        if (!NoCompleteMotionGestureInputEventListener.staticSet_instance) {
+            NoCompleteMotionGestureInputEventListener.staticSet_instance = true;
+            NoCompleteMotionGestureInputEventListener.instance = new NoCompleteMotionGestureInputEventListener();
+        }
         return NoCompleteMotionGestureInputEventListener.instance;
     }
+    
 
+    public NoCompleteMotionGestureInputEventListener() {
+        base();
+    }
+    
+
+    public override void onEvent(AllBinaryEventObject eventObject) {
+        ForcedLogUtil.log(EventStrings.getInstance().PERFORMANCE_MESSAGE, this);
+    }
+    
+
+    public override void onCompleteMotionGestureInputEvent(CompleteMotionGestureInputEvent completeMotionGestureInputEvent) {
+    }
+    
+
+    public static NoCompleteMotionGestureInputEventListener getInstance() {
+        return NoCompleteMotionGestureInputEventListener.staticGet_instance();
+    }
 }
 

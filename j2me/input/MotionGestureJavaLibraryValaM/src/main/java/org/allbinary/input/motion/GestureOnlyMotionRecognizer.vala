@@ -13,53 +13,61 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.input.motion
+// import org.allbinary.graphics.CustomGPoint
+// import org.allbinary.graphics.GPointCircularPool
+// import org.allbinary.input.motion.gesture.MotionGestureRecognizer
 
-using System;
-using System.Linq;
-using CustomGPoint = org.allbinary.graphics.CustomGPoint;
-using GPointCircularPool = org.allbinary.graphics.GPointCircularPool;
-using MotionGestureRecognizer = org.allbinary.input.motion.gesture.MotionGestureRecognizer;
+public class GestureOnlyMotionRecognizer : MotionRecognizer {
+    private static int32 index = 0;
+    private static GPointCircularPool? pointCircularPool;
+    private static bool staticSet_pointCircularPool = false;
+    private static GPointCircularPool staticGet_pointCircularPool() {
+        if (!GestureOnlyMotionRecognizer.staticSet_pointCircularPool) {
+            GestureOnlyMotionRecognizer.staticSet_pointCircularPool = true;
+            GestureOnlyMotionRecognizer.pointCircularPool = new GPointCircularPool(40);
+        }
+        return GestureOnlyMotionRecognizer.pointCircularPool;
+    }
+    private MotionGestureRecognizer motionGestureRecognizer;
+    private int32 id;
 
-namespace org.allbinary.input.motion;
+    // Java field initializers run after the base constructor
+    private void initFieldsGestureOnlyMotionRecognizer() {
+    
+    
+    }
+    
 
-public class GestureOnlyMotionRecognizer : MotionRecognizer
-{
-    private readonly MotionGestureRecognizer motionGestureRecognizer;
-    private readonly int id;
-    private static int index = 0;
-    private static readonly GPointCircularPool pointCircularPool = new GPointCircularPool(40);
-    public GestureOnlyMotionRecognizer()
-    {
+    public GestureOnlyMotionRecognizer() {
+        base();
+        this.initFieldsGestureOnlyMotionRecognizer();
         this.id = GestureOnlyMotionRecognizer.index++;
         this.motionGestureRecognizer = new MotionGestureRecognizer(this.id);
     }
+    
 
-    // throws Exception
-    public override void processStartMotionEvent(int x, int y, int deviceId, int modifiers)
-    {
-        CustomGPoint point = ((CustomGPoint) GestureOnlyMotionRecognizer.pointCircularPool.getNextInstance());
+    public override void processStartMotionEvent(int32 x, int32 y, int32 deviceId, int32 modifiers) {
+        CustomGPoint point = ((CustomGPoint) GestureOnlyMotionRecognizer.staticGet_pointCircularPool().getNextInstance());
         point.setX(x);
         point.setY(y);
         this.motionGestureRecognizer.processPressedMotionEvent(point, deviceId, modifiers);
     }
+    
 
-    // throws Exception
-    public override void processEndMotionEvent(int x, int y, int deviceId, int modifiers)
-    {
-        CustomGPoint point = ((CustomGPoint) GestureOnlyMotionRecognizer.pointCircularPool.getNextInstance());
+    public override void processEndMotionEvent(int32 x, int32 y, int32 deviceId, int32 modifiers) {
+        CustomGPoint point = ((CustomGPoint) GestureOnlyMotionRecognizer.staticGet_pointCircularPool().getNextInstance());
         point.setX(x);
         point.setY(y);
         this.motionGestureRecognizer.processReleasedMotionEvent(point, deviceId, modifiers);
     }
+    
 
-    // throws Exception
-    public override void processDraggedMotionEvent(int x, int y, int deviceId, int modifiers)
-    {
-        CustomGPoint point = ((CustomGPoint) GestureOnlyMotionRecognizer.pointCircularPool.getNextInstance());
+    public override void processDraggedMotionEvent(int32 x, int32 y, int32 deviceId, int32 modifiers) {
+        CustomGPoint point = ((CustomGPoint) GestureOnlyMotionRecognizer.staticGet_pointCircularPool().getNextInstance());
         point.setX(x);
         point.setY(y);
         this.motionGestureRecognizer.processDraggedMotionEvent(point, deviceId, modifiers);
     }
-
 }
 

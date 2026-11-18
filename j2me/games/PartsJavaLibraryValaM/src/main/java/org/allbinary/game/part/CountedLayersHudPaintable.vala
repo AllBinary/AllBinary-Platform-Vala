@@ -13,44 +13,53 @@
  *   
  */
 // Generated Code Do Not Modify
+// package org.allbinary.game.part
+// import javax.microedition.lcdui.Font
+// import javax.microedition.lcdui.Graphics
+// import org.allbinary.game.layer.pickup.PickedUpLayerInterfaceFactoryInterface
+// import org.allbinary.graphics.displayable.DisplayInfoSingleton
+// import org.allbinary.graphics.font.MyFontProcessor
+// import org.allbinary.graphics.font.UpdateMyFontInterface
+// import org.allbinary.graphics.font.UpdateMyFontProcessor
+// import org.allbinary.graphics.paint.PaintableInterface
+// import org.allbinary.layer.AllBinaryLayer
 
-using System;
-using System.Linq;
-using Font = javax.microedition.lcdui.Font;
-using Graphics = javax.microedition.lcdui.Graphics;
-using PickedUpLayerInterfaceFactoryInterface = org.allbinary.game.layer.pickup.PickedUpLayerInterfaceFactoryInterface;
-using DisplayInfoSingleton = org.allbinary.graphics.displayable.DisplayInfoSingleton;
-using MyFontProcessor = org.allbinary.graphics.font.MyFontProcessor;
-using UpdateMyFontInterface = org.allbinary.graphics.font.UpdateMyFontInterface;
-using UpdateMyFontProcessor = org.allbinary.graphics.font.UpdateMyFontProcessor;
-using PaintableInterface = org.allbinary.graphics.paint.PaintableInterface;
-using AllBinaryLayer = org.allbinary.layer.AllBinaryLayer;
-
-namespace org.allbinary.game.part;
-
-public class CountedLayersHudPaintable : PaintableInterface, UpdateMyFontInterface
-{
-    private static int XXStringWidth = 0;
-    private readonly DisplayInfoSingleton displayInfoSingleton = DisplayInfoSingleton.getInstance();
-    private readonly PartInterface[] partInterfaceArray;
-    private readonly int countedTotalStringColor;
-    private readonly int countedPartsBorder;
-    private readonly int startIndex;
-    private readonly int dropSize;
+public class CountedLayersHudPaintable : JObject, PaintableInterface, UpdateMyFontInterface {
+    private static int32 XXStringWidth = 0;
+    private DisplayInfoSingleton displayInfoSingleton;
+    private PartInterface[] partInterfaceArray;
+    private int32 countedTotalStringColor;
+    private int32 countedPartsBorder;
+    private int32 startIndex;
+    private int32 dropSize;
     private MyFontProcessor myFontProcessor;
-    private int height = 0;
-    public CountedLayersHudPaintable(PartInterface[] partInterfaceArray, int dropSize, int startIndex, int countedTotalStringColor, int countedPartsBorder)
-    {
-        this.myFontProcessor = new UpdateMyFontProcessor(this);
+    private int32 height;
+
+    // Java field initializers run after the base constructor
+    private void initFieldsCountedLayersHudPaintable() {
+    this.displayInfoSingleton = DisplayInfoSingleton.getInstance();
+    
+    
+    
+    
+    
+    this.myFontProcessor = new UpdateMyFontProcessor(this);
+    this.height = 0;
+    }
+    
+
+    public CountedLayersHudPaintable(PartInterface[] partInterfaceArray, int32 dropSize, int32 startIndex, int32 countedTotalStringColor, int32 countedPartsBorder) {
+        base();
+        this.initFieldsCountedLayersHudPaintable();
         this.partInterfaceArray = partInterfaceArray;
         this.startIndex = startIndex;
         this.countedTotalStringColor = countedTotalStringColor;
         this.countedPartsBorder = countedPartsBorder;
         this.dropSize = dropSize;
     }
+    
 
-    public virtual void updateMeasurement(Graphics graphics)
-    {
+    public virtual void updateMeasurement(Graphics graphics) {
         Font font = graphics.getFont();
         this.height = font.getHeight();
         if (this.dropSize > font.getHeight()) {
@@ -62,20 +71,20 @@ public class CountedLayersHudPaintable : PaintableInterface, UpdateMyFontInterfa
         }
         this.myFontProcessor = MyFontProcessor.getInstance();
     }
+    
 
-    public virtual void paint(Graphics graphics)
-    {
+    public virtual void paint(Graphics graphics) {
         this.myFontProcessor.process(graphics);
-        int lastWidth = this.displayInfoSingleton.getLastWidth();
-        int widthEdge = lastWidth - this.dropSize;
-        int size = this.partInterfaceArray.Length;
-        int count = 0;
-        int y = 0;
+        int32 lastWidth = this.displayInfoSingleton.getLastWidth();
+        int32 widthEdge = lastWidth - this.dropSize;
+        int32 size = this.partInterfaceArray.length;
+        int32 count = 0;
+        int32 y = 0;
         CountedLayerInterfaceFactoryPart countedLayerInterfaceFactory = null;
         PickedUpLayerInterfaceFactoryInterface pickedUpLayerInterfaceFactoryInterface = null;
         AllBinaryLayer layerInterface = null;
-        char[] charArray = null;
-        for (int index = this.startIndex; index < size; index++) {
+        uint16[] charArray = null;
+        for (int32 index = this.startIndex; index < size; index++) {
             countedLayerInterfaceFactory = ((CountedLayerInterfaceFactoryPart) this.partInterfaceArray[index]);
             if (countedLayerInterfaceFactory.getTotal() > 0) {
                 pickedUpLayerInterfaceFactoryInterface = countedLayerInterfaceFactory.getCountedPickedUpLayerInterfaceFactory();
@@ -86,7 +95,7 @@ public class CountedLayersHudPaintable : PaintableInterface, UpdateMyFontInterfa
                 graphics.setColor(this.countedTotalStringColor);
                 countedLayerInterfaceFactory.paint(graphics);
                 charArray = countedLayerInterfaceFactory.getTotalString();
-                graphics.drawChars(charArray, 0, charArray.Length, widthEdge - countedLayerInterfaceFactory.getXOffset(), y, 0);
+                graphics.drawChars(charArray, 0, charArray.length, widthEdge - countedLayerInterfaceFactory.getXOffset(), y, 0);
                 count++;
             }
         }
@@ -95,10 +104,9 @@ public class CountedLayersHudPaintable : PaintableInterface, UpdateMyFontInterfa
             graphics.drawRect(lastWidth - (CountedLayersHudPaintable.XXStringWidth + this.dropSize), 40, CountedLayersHudPaintable.XXStringWidth + this.dropSize, (count * this.height) + 3);
         }
     }
+    
 
-    public virtual void paintThreed(Graphics graphics)
-    {
+    public virtual void paintThreed(Graphics graphics) {
     }
-
 }
 

@@ -13,17 +13,14 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.animation
 
-using System;
-using System.Linq;
+public interface SequentialAnimationInterface : JObject, AnimationInterface, SequenceInterface {
+    
 
-namespace org.allbinary.animation;
+    public abstract int32 getSize();
+    
 
-public interface SequentialAnimationInterface : AnimationInterface, SequenceInterface
-{
-    int getSize();
-
-    void previousFrame();
-
+    public abstract void previousFrame();
 }
 

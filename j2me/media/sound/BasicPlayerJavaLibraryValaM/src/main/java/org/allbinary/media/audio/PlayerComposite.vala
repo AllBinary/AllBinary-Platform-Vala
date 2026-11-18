@@ -13,150 +13,143 @@
  *  
  */
 // Generated Code Do Not Modify
-
-using System;
-using System.Linq;
-using System.Runtime.CompilerServices;
-using Control = javax.microedition.media.Control;
-using Controllable = javax.microedition.media.Controllable;
-using Player = javax.microedition.media.Player;
-using PlayerListener = javax.microedition.media.PlayerListener;
-using LogUtil = org.allbinary.logic.communication.log.LogUtil;
-using CommonStrings = org.allbinary.@string.CommonStrings;
-using GameTickTimeDelayHelper = org.allbinary.time.GameTickTimeDelayHelper;
-using GameTickTimeDelayHelperFactory = org.allbinary.time.GameTickTimeDelayHelperFactory;
-using TimeDelayHelper = org.allbinary.time.TimeDelayHelper;
-
-namespace org.allbinary.media.audio;
+// package org.allbinary.media.audio
+// import javax.microedition.media.Control
+// import javax.microedition.media.Controllable
+// import javax.microedition.media.Player
+// import javax.microedition.media.PlayerListener
+// import org.allbinary.logic.communication.log.LogUtil
+// import org.allbinary.string.CommonStrings
+// import org.allbinary.time.GameTickTimeDelayHelper
+// import org.allbinary.time.GameTickTimeDelayHelperFactory
+// import org.allbinary.time.TimeDelayHelper
 
 //BasicPlayer
-public class PlayerComposite : Controllable, Player
-{
-    public readonly LogUtil logUtil = LogUtil.getInstance();
-    private readonly CommonStrings commonStrings = CommonStrings.getInstance();
-    private readonly Player player;
-    private readonly TimeDelayHelper timeElapsedHelper = new TimeDelayHelper(0);
-    public PlayerComposite(Player player, int repeatTime)
-    {
+public class PlayerComposite : JObject, Controllable, Player {
+    public LogUtil logUtil;
+    private CommonStrings commonStrings;
+    private Player player;
+    private TimeDelayHelper timeElapsedHelper;
+    private GameTickTimeDelayHelper gameTickTimeDelayHelper;
+
+    // Java field initializers run after the base constructor
+    private void initFieldsPlayerComposite() {
+    this.logUtil = LogUtil.getInstance();
+    this.commonStrings = CommonStrings.getInstance();
+    
+    this.timeElapsedHelper = new TimeDelayHelper(0);
+    this.gameTickTimeDelayHelper = GameTickTimeDelayHelperFactory.getInstance();
+    }
+    
+
+    public PlayerComposite(Player player, int32 repeatTime) {
+        base();
+        this.initFieldsPlayerComposite();
         this.player = player;
         this.timeElapsedHelper.delay = repeatTime;
     }
+    
 
-    [MethodImpl(MethodImplOptions.Synchronized)]
-    public virtual void addPlayerListener(PlayerListener playerListener)
-    {
+    public virtual void addPlayerListener(PlayerListener playerListener) {
         this.player.addPlayerListener(playerListener);
     }
+    
 
-    public virtual void removePlayerListener(PlayerListener playerListener)
-    {
+    public virtual void removePlayerListener(PlayerListener playerListener) {
         this.player.removePlayerListener(playerListener);
     }
+    
 
-    public virtual void close()
-    {
+    public virtual void close() {
         this.player.close();
     }
+    
 
-    public virtual void deallocate()
-    {
+    public virtual void deallocate() {
         this.player.deallocate();
     }
+    
 
-    public virtual string getContentType()
-    {
+    public virtual string getContentType() {
         return this.player.getContentType();
     }
+    
 
-    public virtual long getDuration()
-    {
+    public virtual int64 getDuration() {
         return this.player.getDuration();
     }
+    
 
-    public virtual long getMediaTime()
-    {
+    public virtual int64 getMediaTime() {
         return this.player.getMediaTime();
     }
+    
 
-    public virtual void prefetch()
-    {
-        try {
+    public virtual void prefetch() {
+        {
             this.player.prefetch();
-        } catch (Exception e) {
-            this.logUtil.put(this.commonStrings.EXCEPTION, this, "prefetch", e);
-        }
+        } /* catch (Exception e): a thrown Java exception stops the program */
     }
+    
 
-    public virtual void realize()
-    {
-        try {
+    public virtual void realize() {
+        {
             this.player.realize();
-        } catch (Exception e) {
-            this.logUtil.put(this.commonStrings.EXCEPTION, this, "realize", e);
-        }
+        } /* catch (Exception e): a thrown Java exception stops the program */
     }
+    
 
-    public virtual int getState()
-    {
+    public virtual int32 getState() {
         return this.player.getState();
     }
+    
 
-    public virtual void setLoopCount(int count)
-    {
+    public virtual void setLoopCount(int32 count) {
         this.player.setLoopCount(count);
     }
+    
 
-    public virtual long setMediaTime(long now)
-    {
-        try {
+    public virtual int64 setMediaTime(int64 now) {
+        {
             return this.player.setMediaTime(now);
-        } catch (Exception e) {
-            this.logUtil.put(this.commonStrings.EXCEPTION, this, "setMediaTime", e);
-            return ((long) (-1));
-        }
+        } /* catch (Exception e): a thrown Java exception stops the program */
     }
+    
 
-    private readonly GameTickTimeDelayHelper gameTickTimeDelayHelper = GameTickTimeDelayHelperFactory.getInstance();
-    public virtual void start()
-    {
-        try {
+    public virtual void start() {
+        {
             if (this.timeElapsedHelper.isTime(this.gameTickTimeDelayHelper.startTime)) {
                 this.player.start();
             }
-        } catch (Exception e) {
-            this.logUtil.put(this.commonStrings.EXCEPTION, this, this.commonStrings.START_METHOD_NAME, e);
-        }
+        } /* catch (Exception e): a thrown Java exception stops the program */
     }
+    
 
-    public virtual void stop()
-    {
-        try {
+    public virtual void stop() {
+        {
             this.player.stop();
-        } catch (Exception e) {
-            this.logUtil.put(this.commonStrings.EXCEPTION, this, "stop", e);
-        }
+        } /* catch (Exception e): a thrown Java exception stops the program */
     }
+    
 
-    public virtual Control getControl(string controlType)
-    {
+    public virtual Control getControl(string controlType) {
         return this.player.getControl(controlType);
     }
+    
 
-    public virtual Control[] getControls()
-    {
-        throw new SystemException();
+    public virtual Control[] getControls() {
+        JSystem.fatal(new JException("RuntimeException", ""));
     }
+    
 
-    public virtual void setVolume(int leftVolume, int rightVolume)
-    {
+    public virtual void setVolume(int32 leftVolume, int32 rightVolume) {
         Controllable2 controllable2 = (((Controllable2) this.player));
         controllable2.setVolume(leftVolume, rightVolume);
     }
+    
 
-    public virtual Player getPlayerP()
-    {
+    public virtual Player getPlayerP() {
         return this.player;
     }
-
 }
 

@@ -13,16 +13,11 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.game.part.weapon
 
-using System;
-using System.Linq;
+public interface BasicWeaponPartFactoryInterface : JObject {
+    
 
-namespace org.allbinary.game.part.weapon;
-
-public interface BasicWeaponPartFactoryInterface
-{
-    // throws Exception
-    BasicWeaponPart getInstance();
-
+    public abstract BasicWeaponPart getInstance();
 }
 

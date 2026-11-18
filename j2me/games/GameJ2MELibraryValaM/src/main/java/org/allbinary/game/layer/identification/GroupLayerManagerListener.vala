@@ -13,111 +13,123 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.game.layer.identification
+// import org.allbinary.game.identification.Group
+// import org.allbinary.game.identification.GroupInterfaceCompositeInterface
+// import org.allbinary.layer.AllBinaryLayer
+// import org.allbinary.layer.event.LayerManagerEvent
+// import org.allbinary.layer.event.LayerManagerEventHandler
+// import org.allbinary.layer.event.LayerManagerEventListener
+// import org.allbinary.logic.communication.log.ForcedLogUtil
+// import org.allbinary.logic.communication.log.LogUtil
+// import org.allbinary.logic.string.StringMaker
+// import org.allbinary.logic.util.event.AllBinaryEventObject
+// import org.allbinary.logic.util.event.EventStrings
+// import org.allbinary.string.CommonLabels
+// import org.allbinary.string.CommonSeps
+// import org.allbinary.util.BasicArrayList
+// import org.allbinary.util.BasicArrayListD
 
-using System;
-using System.Linq;
-using Group = org.allbinary.game.identification.Group;
-using GroupInterfaceCompositeInterface = org.allbinary.game.identification.GroupInterfaceCompositeInterface;
-using AllBinaryLayer = org.allbinary.layer.AllBinaryLayer;
-using LayerManagerEvent = org.allbinary.layer.@event.LayerManagerEvent;
-using LayerManagerEventHandler = org.allbinary.layer.@event.LayerManagerEventHandler;
-using LayerManagerEventListener = org.allbinary.layer.@event.LayerManagerEventListener;
-using ForcedLogUtil = org.allbinary.logic.communication.log.ForcedLogUtil;
-using LogUtil = org.allbinary.logic.communication.log.LogUtil;
-using StringMaker = org.allbinary.logic.@string.StringMaker;
-using AllBinaryEventObject = org.allbinary.logic.util.@event.AllBinaryEventObject;
-using EventStrings = org.allbinary.logic.util.@event.EventStrings;
-using CommonLabels = org.allbinary.@string.CommonLabels;
-using CommonSeps = org.allbinary.@string.CommonSeps;
-using BasicArrayList = org.allbinary.util.BasicArrayList;
-using BasicArrayListD = org.allbinary.util.BasicArrayListD;
-
-namespace org.allbinary.game.layer.identification;
-
-public class GroupLayerManagerListener : LayerManagerEventListener
-{
-    private static GroupLayerManagerListener SINGLETON = new GroupLayerManagerListener();
-    public static GroupLayerManagerListener getInstance()
-    {
+public class GroupLayerManagerListener : LayerManagerEventListener {
+    private static GroupLayerManagerListener? SINGLETON;
+    private static bool staticSet_SINGLETON = false;
+    private static GroupLayerManagerListener staticGet_SINGLETON() {
+        if (!GroupLayerManagerListener.staticSet_SINGLETON) {
+            GroupLayerManagerListener.staticSet_SINGLETON = true;
+            GroupLayerManagerListener.SINGLETON = new GroupLayerManagerListener();
+        }
         return GroupLayerManagerListener.SINGLETON;
     }
+    public LogUtil logUtil;
+    private BasicArrayList list;
 
-    public readonly LogUtil logUtil = LogUtil.getInstance();
-    private readonly BasicArrayList list = new BasicArrayListD();
-    private GroupLayerManagerListener()
-    {
+    // Java field initializers run after the base constructor
+    private void initFieldsGroupLayerManagerListener() {
+    this.logUtil = LogUtil.getInstance();
+    this.list = new BasicArrayListD();
+    }
+    
+
+    public static GroupLayerManagerListener getInstance() {
+        return GroupLayerManagerListener.staticGet_SINGLETON();
+    }
+    
+
+    public GroupLayerManagerListener() {
+        base();
+        this.initFieldsGroupLayerManagerListener();
         LayerManagerEventHandler.getInstance().addListener(this);
     }
+    
 
-    public virtual void clear()
-    {
+    public virtual void clear() {
         BasicArrayList groupList = null;
-        int size = this.list.size();
-        for (int index = size - 1; index >= 0; index--) {
+        int32 size = this.list.size();
+        for (int32 index = size - 1; index >= 0; index--) {
             groupList = ((BasicArrayList) this.list.objectArray[index]);
             groupList.clear();
         }
     }
+    
 
-    public virtual int getGroupSizeFromInterface(GroupInterfaceCompositeInterface groupInterfaceCompositeInterface)
-    {
+    public virtual int32 getGroupSizeFromInterface(GroupInterfaceCompositeInterface groupInterfaceCompositeInterface) {
         Group[] groupInterfaceArray = groupInterfaceCompositeInterface.getGroupInterface();
         return this.getGroupSize(groupInterfaceArray[0]);
     }
+    
 
-    public virtual int getGroupSize(Group groupInterface)
-    {
-        int id = ((int) groupInterface.getGroupId());
+    public virtual int32 getGroupSize(Group groupInterface) {
+        int32 id = ((int32) (groupInterface.getGroupId()));
         return this.getGroupSizeById(id);
     }
+    
 
-    public virtual BasicArrayList getList(Group groupInterface)
-    {
-        int id = ((int) groupInterface.getGroupId());
+    public virtual BasicArrayList getList(Group groupInterface) {
+        int32 id = ((int32) (groupInterface.getGroupId()));
         return this.getListById(id);
     }
+    
 
-    private BasicArrayList getListById(int groupId)
-    {
+    private BasicArrayList getListById(int32 groupId) {
         BasicArrayList groupList = ((BasicArrayList) this.list.objectArray[groupId]);
         return groupList;
     }
+    
 
-    private int getGroupSizeById(int groupId)
-    {
+    private int32 getGroupSizeById(int32 groupId) {
         BasicArrayList groupList = ((BasicArrayList) this.list.objectArray[groupId]);
-        int size = groupList.size();
+        int32 size = groupList.size();
         return size;
     }
+    
 
-    public virtual bool areAllOtherGroupsEmpty(Group groupInterface)
-    {
-        int id = ((int) groupInterface.getGroupId());
-        int size = this.list.size();
-        for (int index = size - 1; index >= 0; index--) {
+    public virtual bool areAllOtherGroupsEmpty(Group groupInterface) {
+        int32 id = ((int32) (groupInterface.getGroupId()));
+        int32 size = this.list.size();
+        for (int32 index = size - 1; index >= 0; index--) {
             if (id != index) {
-                int groupSize = this.getGroupSizeById(index);
+                int32 groupSize = this.getGroupSizeById(index);
                 if (groupSize != 0) {
-                    this.logUtil.putF(new StringMaker().append("Group Size: ").appendint(groupSize).ToString(), this, "areAllOtherGroupsEmpty");
+                    this.logUtil.putF(new StringMaker().append("Group Size: ").appendint(groupSize).toString(), this, "areAllOtherGroupsEmpty");
                     return false;
                 }
             }
         }
         return true;
     }
+    
 
-    private bool isIdInList(int id, BasicArrayList excludeGroupList)
-    {
-        int size = excludeGroupList.size();
+    private bool isIdInList(int32 id, BasicArrayList excludeGroupList) {
+        int32 size = excludeGroupList.size();
         Group[] groupInterfaceArray = null;
         Group groupInterface = null;
-        int groupId = 0;
-        for (int index = size - 1; index >= 0; index--) {
+        int32 groupId = 0;
+        for (int32 index = size - 1; index >= 0; index--) {
             groupInterfaceArray = ((Group[]) excludeGroupList.objectArray[index]);
-            int size2 = groupInterfaceArray.Length;
-            for (int index2 = 0; index2 < size2; index2++) {
+            int32 size2 = groupInterfaceArray.length;
+            for (int32 index2 = 0; index2 < size2; index2++) {
                 groupInterface = groupInterfaceArray[index2];
-                groupId = ((int) groupInterface.getGroupId());
+                groupId = ((int32) (groupInterface.getGroupId()));
                 if (groupId == id) {
                     return true;
                 }
@@ -125,13 +137,13 @@ public class GroupLayerManagerListener : LayerManagerEventListener
         }
         return false;
     }
+    
 
-    public virtual bool areAllOtherGroupsLessThan(BasicArrayList excludeGroupList, int maxSize)
-    {
-        int size = this.list.size();
-        for (int index = size - 1; index >= 0; index--) {
+    public virtual bool areAllOtherGroupsLessThan(BasicArrayList excludeGroupList, int32 maxSize) {
+        int32 size = this.list.size();
+        for (int32 index = size - 1; index >= 0; index--) {
             if (!this.isIdInList(index, excludeGroupList)) {
-                int groupSize = this.getGroupSizeById(index);
+                int32 groupSize = this.getGroupSizeById(index);
                 if (groupSize >= maxSize) {
                     return false;
                 }
@@ -139,32 +151,31 @@ public class GroupLayerManagerListener : LayerManagerEventListener
         }
         return true;
     }
+    
 
-    public virtual void init(int total)
-    {
+    public virtual void init(int32 total) {
         while (this.list.size() <= total + 1) {
             this.list.add(new BasicArrayListD());
         }
     }
+    
 
-    public override void onEvent(AllBinaryEventObject eventObject)
-    {
+    public override void onEvent(AllBinaryEventObject eventObject) {
         ForcedLogUtil.log(EventStrings.getInstance().PERFORMANCE_MESSAGE, this);
     }
+    
 
-    // throws Exception
-    public override void onCreateLayerManagerEvent(LayerManagerEvent layerManagerEvent)
-    {
+    public override void onCreateLayerManagerEvent(LayerManagerEvent layerManagerEvent) {
         AllBinaryLayer layerInterface = layerManagerEvent.getLayerInterface();
         Group[] groupInterfaceArray = layerInterface.getGroupInterface();
-        int size = groupInterfaceArray.Length;
-        int id = 0;
+        int32 size = groupInterfaceArray.length;
+        int32 id = 0;
         BasicArrayList groupList = null;
-        for (int index = 0; index < size; index++) {
-            id = ((int) groupInterfaceArray[index].getGroupId());
+        for (int32 index = 0; index < size; index++) {
+            id = ((int32) (groupInterfaceArray[index].getGroupId()));
             groupList = ((BasicArrayList) this.list.objectArray[id]);
             if (groupList == null) {
-                this.logUtil.putF(new StringMaker().append("id: ").appendint(id).ToString(), this, "onCreateLayerManagerEvent");
+                this.logUtil.putF(new StringMaker().append("id: ").appendint(id).toString(), this, "onCreateLayerManagerEvent");
             }
             if (!groupList.contains(layerInterface)) {
                 groupList.add(layerInterface);
@@ -172,30 +183,29 @@ public class GroupLayerManagerListener : LayerManagerEventListener
             }
         }
     }
+    
 
-    // throws Exception
-    public override void onDeleteLayerManagerEvent(LayerManagerEvent layerManagerEvent)
-    {
+    public override void onDeleteLayerManagerEvent(LayerManagerEvent layerManagerEvent) {
         AllBinaryLayer layerInterface = layerManagerEvent.getLayerInterface();
         Group[] groupInterfaceArray = layerInterface.getGroupInterface();
-        int size = groupInterfaceArray.Length;
-        int id = 0;
+        int32 size = groupInterfaceArray.length;
+        int32 id = 0;
         BasicArrayList groupList = null;
-        for (int index = 0; index < size; index++) {
-            id = ((int) groupInterfaceArray[index].getGroupId());
+        for (int32 index = 0; index < size; index++) {
+            id = ((int32) (groupInterfaceArray[index].getGroupId()));
             groupList = ((BasicArrayList) this.list.objectArray[id]);
             groupList.remove(layerInterface);
         }
     }
+    
 
-    public virtual void log()
-    {
+    public virtual void log() {
         StringMaker stringBuffer = new StringMaker();
         string GROUP = "Group: ";
         string SPACE = CommonSeps.getInstance().SPACE;
         string TOTAL_LABEL = CommonLabels.getInstance().TOTAL_LABEL;
-        int size = this.list.size();
-        for (int index = size - 1; index >= 0; index--) {
+        int32 size = this.list.size();
+        for (int32 index = size - 1; index >= 0; index--) {
             BasicArrayList groupList = ((BasicArrayList) this.list.objectArray[index]);
             stringBuffer.append(GROUP);
             stringBuffer.appendint(index);
@@ -204,8 +214,7 @@ public class GroupLayerManagerListener : LayerManagerEventListener
             stringBuffer.appendint(groupList.size());
             stringBuffer.append(SPACE);
         }
-        this.logUtil.putF(stringBuffer.ToString(), this, "log");
+        this.logUtil.putF(stringBuffer.toString(), this, "log");
     }
-
 }
 

@@ -27,9 +27,9 @@ public class Memory : JObject {
     public static string getInfo() {
         StringMaker stringBuffer = new StringMaker();
         stringBuffer.append("Memory: Free: ");
-        stringBuffer.appendlong(((int64) (Runtime.getRuntime().freeMemory())));
+        stringBuffer.appendlong(Runtime.getRuntime().freeMemory());
         stringBuffer.append(" Total: ");
-        stringBuffer.appendlong(((int64) (Runtime.getRuntime().totalMemory())));
+        stringBuffer.appendlong(Runtime.getRuntime().totalMemory());
         return stringBuffer.toString();
     }
 }

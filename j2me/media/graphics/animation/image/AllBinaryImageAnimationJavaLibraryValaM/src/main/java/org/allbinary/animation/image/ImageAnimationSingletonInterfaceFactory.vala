@@ -13,22 +13,17 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.animation.image
+// import org.allbinary.animation.Animation
+// import org.allbinary.animation.AnimationBehavior
+// import org.allbinary.animation.SingletonAnimationInterfaceFactory
+// import org.allbinary.image.AnimationFrameToImageUtil
 
-using System;
-using System.Linq;
-using Animation = org.allbinary.animation.Animation;
-using AnimationBehavior = org.allbinary.animation.AnimationBehavior;
-using SingletonAnimationInterfaceFactory = org.allbinary.animation.SingletonAnimationInterfaceFactory;
-using AnimationFrameToImageUtil = org.allbinary.image.AnimationFrameToImageUtil;
+public class ImageAnimationSingletonInterfaceFactory : SingletonAnimationInterfaceFactory {
+    
 
-namespace org.allbinary.animation.image;
-
-public class ImageAnimationSingletonInterfaceFactory : SingletonAnimationInterfaceFactory
-{
-    public ImageAnimationSingletonInterfaceFactory(Animation animationInterface, int width, int height) : base(new ImageAnimation(AnimationFrameToImageUtil.getInstance().getInstanceWH(width, height, animationInterface), AnimationBehavior.getInstance()))
-    {
-        // base(new ImageAnimation(AnimationFrameToImageUtil.getInstance().getInstanceWH(width, height, animationInterface), AnimationBehavior.getInstance())) is called from the constructor declaration
+    public ImageAnimationSingletonInterfaceFactory(Animation animationInterface, int32 width, int32 height) {
+        base(new ImageAnimation(AnimationFrameToImageUtil.getInstance().getInstanceWH(width, height, animationInterface), AnimationBehavior.getInstance()));
     }
-
 }
 

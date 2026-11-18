@@ -13,36 +13,34 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.game.displayable
+// import javax.microedition.lcdui.Canvas
+// import org.allbinary.graphics.displayable.DisplayInfoSingleton
+// import org.allbinary.logic.communication.log.LogUtil
+// import org.allbinary.string.CommonStrings
+// import org.allbinary.thread.ARunnable
 
-using System;
-using System.Linq;
-using Canvas = javax.microedition.lcdui.Canvas;
-using DisplayInfoSingleton = org.allbinary.graphics.displayable.DisplayInfoSingleton;
-using LogUtil = org.allbinary.logic.communication.log.LogUtil;
-using CommonStrings = org.allbinary.@string.CommonStrings;
-using ARunnable = org.allbinary.thread.ARunnable;
+public class RepaintRunnable : ARunnable {
+    private Canvas canvas;
 
-namespace org.allbinary.game.displayable;
+    // Java field initializers run after the base constructor
+    private void initFieldsRepaintRunnable() {
+    
+    }
+    
 
-public class RepaintRunnable : ARunnable
-{
-    private readonly Canvas canvas;
-    public RepaintRunnable(Canvas canvas)
-    {
+    public RepaintRunnable(Canvas canvas) {
+        base();
+        this.initFieldsRepaintRunnable();
         this.canvas = canvas;
     }
+    
 
-    public override void run()
-    {
-        try {
+    public override void run() {
+        {
             this.canvas.repaint();
             DisplayInfoSingleton.getInstance().process();
-        } catch (Exception e) {
-            CommonStrings commonStrings = CommonStrings.getInstance();
-            LogUtil logUtil = LogUtil.getInstance();
-            logUtil.put(commonStrings.EXCEPTION, this, commonStrings.RUN, e);
-        }
+        } /* catch (Exception e): a thrown Java exception stops the program */
     }
-
 }
 

@@ -13,39 +13,48 @@
  *   
  */
 // Generated Code Do Not Modify
-
-using System;
-using System.Linq;
-using java.util;
-
-namespace org.allbinary;
+// package org.allbinary
+// import java.util.HashMap
+// import java.util.Map
+// import java.util.Set
 
 //J2SEForJ2ME
-public class J2SEUtil
-{
-    private static readonly J2SEUtil instance = new J2SEUtil();
-    public static J2SEUtil getInstance()
-    {
+public class J2SEUtil : JObject {
+    private static J2SEUtil? instance;
+    private static bool staticSet_instance = false;
+    private static J2SEUtil staticGet_instance() {
+        if (!J2SEUtil.staticSet_instance) {
+            J2SEUtil.staticSet_instance = true;
+            J2SEUtil.instance = new J2SEUtil();
+        }
         return J2SEUtil.instance;
     }
 
-    public virtual object[] getHashMapAsArray(HashMap<object, object> hashMap)
-    {
-        object[] objectArray = hashMap.keySet().toArray();
+    public J2SEUtil() {
+        base();
+    }
+    
+
+    public static J2SEUtil getInstance() {
+        return J2SEUtil.staticGet_instance();
+    }
+    
+
+    public virtual JObject[] getHashMapAsArray(HashMap hashMap) {
+        JObject[] objectArray = hashMap.keySet().toArray();
         return objectArray;
     }
+    
 
-    public virtual object[] getMapAsArray(Map<object, object> map)
-    {
-        object[] objectArray = map.keySet().toArray();
+    public virtual JObject[] getMapAsArray(Map map) {
+        JObject[] objectArray = map.keySet().toArray();
         return objectArray;
     }
+    
 
-    public virtual object[] getSetAsArray(Set<string> set)
-    {
-        object[] objectArray = set.toArray();
+    public virtual JObject[] getSetAsArray(Set @set) {
+        JObject[] objectArray = @set.toArray();
         return objectArray;
     }
-
 }
 

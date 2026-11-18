@@ -13,64 +13,76 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.animation
+// import org.allbinary.graphics.GPoint
+// import org.allbinary.graphics.PointFactory
+// import org.allbinary.graphics.pipeline.RandomRotationFactory
+// import org.allbinary.graphics.pipeline.RandomTranslation
+// import org.allbinary.util.BasicArrayList
+// import org.allbinary.util.BasicArrayListD
+// import org.allbinary.util.BasicArrayListS
 
-using System;
-using System.Linq;
-using GPoint = org.allbinary.graphics.GPoint;
-using PointFactory = org.allbinary.graphics.PointFactory;
-using RandomRotationFactory = org.allbinary.graphics.pipeline.RandomRotationFactory;
-using RandomTranslation = org.allbinary.graphics.pipeline.RandomTranslation;
-using BasicArrayList = org.allbinary.util.BasicArrayList;
-using BasicArrayListD = org.allbinary.util.BasicArrayListD;
-using BasicArrayListS = org.allbinary.util.BasicArrayListS;
-
-namespace org.allbinary.animation;
-
-public class VectorExplosionGenerator
-{
-    private static readonly VectorExplosionGenerator instance = new VectorExplosionGenerator();
-    public static VectorExplosionGenerator getInstance()
-    {
+public class VectorExplosionGenerator : JObject {
+    private static VectorExplosionGenerator? instance;
+    private static bool staticSet_instance = false;
+    private static VectorExplosionGenerator staticGet_instance() {
+        if (!VectorExplosionGenerator.staticSet_instance) {
+            VectorExplosionGenerator.staticSet_instance = true;
+            VectorExplosionGenerator.instance = new VectorExplosionGenerator();
+        }
         return VectorExplosionGenerator.instance;
     }
+    public VectorExplosionType RANDOM;
+    public VectorExplosionType ROTATION;
+    private VectorAnimationUtil vectorAnimationUtil;
+    private RandomRotationFactory randomRotationFactory;
 
-    public readonly VectorExplosionType RANDOM = new VectorExplosionType();
-    public readonly VectorExplosionType ROTATION = new VectorExplosionType();
-    private readonly VectorAnimationUtil vectorAnimationUtil = VectorAnimationUtil.getInstance();
-    private VectorExplosionGenerator()
-    {
+    // Java field initializers run after the base constructor
+    private void initFieldsVectorExplosionGenerator() {
+    this.RANDOM = new VectorExplosionType();
+    this.ROTATION = new VectorExplosionType();
+    this.vectorAnimationUtil = VectorAnimationUtil.getInstance();
+    this.randomRotationFactory = RandomRotationFactory.getInstance();
     }
+    
 
-    // throws Exception
-    public virtual BasicArrayList createList(BasicArrayList list, int howMuch, VectorExplosionType type)
-    {
+    public static VectorExplosionGenerator getInstance() {
+        return VectorExplosionGenerator.staticGet_instance();
+    }
+    
+
+    public VectorExplosionGenerator() {
+        base();
+        this.initFieldsVectorExplosionGenerator();
+    }
+    
+
+    public virtual BasicArrayList createList(BasicArrayList list, int32 howMuch, VectorExplosionType type) {
         GPoint point = null;
-        int size = list.size();
-        int[][] points = System.Linq.Enumerable.Range(0, size).Select(_ => new int[2]).ToArray();
-        for (int index = 0; index < size; index++) {
+        int32 size = list.size();
+        int32[,] points = new int32[size, 2];
+        for (int32 index = 0; index < size; index++) {
             point = ((GPoint) list.objectArray[index]);
-            points[index][0] = point.getX();
-            points[index][1] = point.getY();
+            points[index, 0] = point.getX();
+            points[index, 1] = point.getY();
         }
         return this.createListFromPoints(list, points, howMuch, type);
     }
+    
 
-    // throws Exception
-    public virtual int[][][] getInstance(int[][] points, int howMuch, VectorExplosionType type)
-    {
+    public virtual int32[,,] getInstance3(int32[,] points, int32 howMuch, VectorExplosionType type) {
         BasicArrayList pointsBasicArrayList = this.getInstanceStartFrame(points, howMuch, type, true);
         BasicArrayList tempBasicArrayList = ((BasicArrayList) pointsBasicArrayList.objectArray[0]);
-        int[][][] newPoints = this.vectorAnimationUtil.toAnimationArrayFromListOfPointListWithPointsPerFrame(pointsBasicArrayList, tempBasicArrayList.size());
+        int32[,,] newPoints = this.vectorAnimationUtil.toAnimationArrayFromListOfPointListWithPointsPerFrame(pointsBasicArrayList, tempBasicArrayList.size());
         return newPoints;
     }
+    
 
-    // throws Exception
-    public virtual BasicArrayList getInstanceStartFrame(int[][] points, int howMuch, VectorExplosionType type, bool startFrame)
-    {
-        try {
+    public virtual BasicArrayList getInstanceStartFrame(int32[,] points, int32 howMuch, VectorExplosionType type, bool startFrame) {
+        {
             BasicArrayList pointsBasicArrayList = new BasicArrayListS(howMuch);
             pointsBasicArrayList.add(this.createPointsBasicArrayList(points));
-            int frameIndex = 0;
+            int32 frameIndex = 0;
             BasicArrayList tempBasicArrayList = null;
             BasicArrayList pointBasicArrayList = null;
             while (frameIndex < howMuch) {
@@ -83,58 +95,52 @@ public class VectorExplosionGenerator
                 pointsBasicArrayList.removeAt(0);
             }
             return pointsBasicArrayList;
-        } catch (Exception e) {
-            throw e;
-        }
+        } /* catch (Exception e): a thrown Java exception stops the program */
     }
+    
 
-    private readonly RandomRotationFactory randomRotationFactory = RandomRotationFactory.getInstance();
-    // throws Exception
-    private BasicArrayList createListFromPoints(BasicArrayList tempBasicArrayList, int[][] points, int howMuch, VectorExplosionType type)
-    {
-        int index = 0;
+    private BasicArrayList createListFromPoints(BasicArrayList tempBasicArrayList, int32[,] points, int32 howMuch, VectorExplosionType type) {
+        int32 index = 0;
         BasicArrayList pointBasicArrayList = new BasicArrayListD();
         BasicArrayList sectionBasicArrayList = null;
-        while (index < points.Length) {
+        while (index < points.length[0]) {
             sectionBasicArrayList = new BasicArrayListD();
-            while (points[index][0] != 1000) {
+            while (points[index, 0] != 1000) {
                 sectionBasicArrayList.add(tempBasicArrayList.objectArray[index]);
                 index++;
-                if (index >= points.Length) {
+                if (index >= points.length[0]) {
                     break;
                 }
             }
-            sectionBasicArrayList = RandomTranslation.getInstance(sectionBasicArrayList, howMuch);
+            sectionBasicArrayList = RandomTranslation.getInstance2(sectionBasicArrayList, howMuch);
             if (type == this.ROTATION) {
                 sectionBasicArrayList = this.randomRotationFactory.getInstanceList(sectionBasicArrayList, howMuch);
             }
-            int size = sectionBasicArrayList.size();
-            for (int index2 = 0; index2 < size; index2++) {
+            int32 size = sectionBasicArrayList.size();
+            for (int32 index2 = 0; index2 < size; index2++) {
                 pointBasicArrayList.add(sectionBasicArrayList.objectArray[index2]);
             }
-            if (index >= points.Length) {
+            if (index >= points.length[0]) {
                 break;
-            } else if (points[index][0] == 1000) {
+            } else if (points[index, 0] == 1000) {
                 pointBasicArrayList.add(tempBasicArrayList.objectArray[index]);
                 index++;
             }
         }
         return pointBasicArrayList;
     }
+    
 
-    // throws Exception
-    private BasicArrayList createPointsBasicArrayList(int[][] points)
-    {
-        if (points.Length == 0) {
-            throw new Exception("Not Points Provided");
+    private BasicArrayList createPointsBasicArrayList(int32[,] points) {
+        if (points.length[0] == 0) {
+            JSystem.fatal(new JException("Exception", "Not Points Provided"));
         }
-        BasicArrayList firstPointBasicArrayList = new BasicArrayListS(points.Length);
+        BasicArrayList firstPointBasicArrayList = new BasicArrayListS(points.length[0]);
         PointFactory pointFactory = PointFactory.getInstance();
-        for (int index = 0; index < points.Length; index++) {
-            firstPointBasicArrayList.add(pointFactory.createXY(points[index][0], points[index][1]));
+        for (int32 index = 0; index < points.length[0]; index++) {
+            firstPointBasicArrayList.add(pointFactory.createXY(points[index, 0], points[index, 1]));
         }
         return firstPointBasicArrayList;
     }
-
 }
 

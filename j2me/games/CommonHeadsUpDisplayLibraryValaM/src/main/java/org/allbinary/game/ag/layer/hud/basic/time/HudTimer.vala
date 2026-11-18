@@ -13,81 +13,91 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.game.ag.layer.hud.basic.time
+// import org.allbinary.logic.math.PrimitiveLongSingleton
+// import org.allbinary.logic.math.PrimitiveLongUtil
+// import org.allbinary.time.GameTickTimeDelayHelper
+// import org.allbinary.time.GameTickTimeDelayHelperFactory
 
-using System;
-using System.Linq;
-using PrimitiveLongSingleton = org.allbinary.logic.math.PrimitiveLongSingleton;
-using PrimitiveLongUtil = org.allbinary.logic.math.PrimitiveLongUtil;
-using GameTickTimeDelayHelper = org.allbinary.time.GameTickTimeDelayHelper;
-using GameTickTimeDelayHelperFactory = org.allbinary.time.GameTickTimeDelayHelperFactory;
-
-namespace org.allbinary.game.ag.layer.hud.basic.time;
-
-public class HudTimer
-{
-    private long startTime = ((long) (-1));
-    private long hundredthTime = 0L;
-    private long maxTime;
-    private long modifier = 0L;
-    private char[] hundrethsString = PrimitiveLongSingleton.getInstance().ZERO;
-    private int totalDigits = 1;
+public class HudTimer : JObject {
+    private int64 startTime;
+    private int64 hundredthTime;
+    private int64 maxTime;
+    private int64 modifier;
+    private uint16[] hundrethsString;
+    private int32 totalDigits;
     private PrimitiveLongUtil primitiveLongUtil;
-    private readonly char[] MAX = new char[] { 'L', 'O', 'L' };
-    private readonly GameTickTimeDelayHelper gameTickTimeDelayHelper = GameTickTimeDelayHelperFactory.getInstance();
-    public HudTimer(int maxTime)
-    {
-        this.primitiveLongUtil = PrimitiveLongUtil.createPowerOfTen(maxTime);
-        this.maxTime = ((long) maxTime);
-    }
+    private uint16[] MAX_;
+    private GameTickTimeDelayHelper gameTickTimeDelayHelper;
 
-    public virtual void start()
-    {
-        this.hundredthTime = 0L;
+    // Java field initializers run after the base constructor
+    private void initFieldsHudTimer() {
+    this.startTime = ((int64) (-1));
+    this.hundredthTime = 0;
+    
+    this.modifier = 0;
+    this.hundrethsString = PrimitiveLongSingleton.getInstance().ZERO;
+    this.totalDigits = 1;
+    
+    this.MAX_ = new uint16[] {((uint16) 'L'), ((uint16) 'O'), ((uint16) 'L')};
+    this.gameTickTimeDelayHelper = GameTickTimeDelayHelperFactory.getInstance();
+    }
+    
+
+    public HudTimer(int32 maxTime) {
+        base();
+        this.initFieldsHudTimer();
+        this.primitiveLongUtil = PrimitiveLongUtil.createPowerOfTen(maxTime);
+        this.maxTime = ((int64) (maxTime));
+    }
+    
+
+    public virtual void start() {
+        this.hundredthTime = 0;
         this.startTime = this.gameTickTimeDelayHelper.startTime;
     }
+    
 
-    public virtual long get()
-    {
+    public virtual int64 @get() {
         return this.hundredthTime;
     }
+    
 
-    public virtual void update()
-    {
-        long lastLowerTime = this.hundredthTime;
-        long currentTime = ((this.modifier + this.gameTickTimeDelayHelper.startTime) - this.startTime);
-        if (currentTime < 0L) {
-            currentTime = 0L;
+    public virtual void update() {
+        int64 lastLowerTime = this.hundredthTime;
+        int64 currentTime = ((this.modifier + this.gameTickTimeDelayHelper.startTime) - this.startTime);
+        if (currentTime < 0) {
+            currentTime = 0;
         }
-        this.hundredthTime = currentTime / 100L;
+        this.hundredthTime = currentTime / 100;
         if (this.hundredthTime >= this.maxTime) {
-            if (this.startTime > 0L) {
-                this.hundrethsString = this.MAX;
+            if (this.startTime > 0) {
+                this.hundrethsString = this.MAX_;
             }
         } else if (lastLowerTime != this.hundredthTime) {
-            this.hundrethsString = this.primitiveLongUtil.getCharArray(((int) this.hundredthTime));
+            this.hundrethsString = this.primitiveLongUtil.getCharArray(((int32) (this.hundredthTime)));
             this.totalDigits = this.primitiveLongUtil.getCurrentTotalDigits();
         }
     }
+    
 
-    public virtual void reduce(int value)
-    {
-        this.modifier -= ((long) value);
+    public virtual void reduce(int32 value) {
+        this.modifier -= ((int64) (value));
     }
+    
 
-    public virtual void add(int value)
-    {
-        this.modifier += ((long) value);
+    public virtual void add(int32 value) {
+        this.modifier += ((int64) (value));
     }
+    
 
-    public virtual char[] getTimeChars()
-    {
+    public virtual uint16[] getTimeChars() {
         return this.hundrethsString;
     }
+    
 
-    public virtual int getCurrentTotalDigits()
-    {
+    public virtual int32 getCurrentTotalDigits() {
         return this.totalDigits;
     }
-
 }
 

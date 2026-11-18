@@ -13,129 +13,132 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.animation.image
+// import javax.microedition.lcdui.Graphics
+// import javax.microedition.lcdui.Image
+// import javax.microedition.lcdui.NullImage
+// import org.allbinary.DisposalUtil
+// import org.allbinary.animation.AnimationBehavior
+// import org.allbinary.animation.RotationAnimation
+// import org.allbinary.graphics.Anchor
+// import org.allbinary.logic.math.PrimitiveIntUtil
+// import org.allbinary.math.AngleInfo
+// import org.allbinary.media.image.ImageModifierUtil
+// import org.allbinary.util.CircularIndexUtil
 
-using System;
-using System.Linq;
-using Graphics = javax.microedition.lcdui.Graphics;
-using Image = javax.microedition.lcdui.Image;
-using NullImage = javax.microedition.lcdui.NullImage;
-using DisposalUtil = org.allbinary.DisposalUtil;
-using AnimationBehavior = org.allbinary.animation.AnimationBehavior;
-using RotationAnimation = org.allbinary.animation.RotationAnimation;
-using Anchor = org.allbinary.graphics.Anchor;
-using PrimitiveIntUtil = org.allbinary.logic.math.PrimitiveIntUtil;
-using AngleInfo = org.allbinary.math.AngleInfo;
-using ImageModifierUtil = org.allbinary.media.image.ImageModifierUtil;
-using CircularIndexUtil = org.allbinary.util.CircularIndexUtil;
-
-namespace org.allbinary.animation.image;
-
-public class ImageArrayBaseRotationAnimation : RotationAnimation
-{
-    private readonly ImageModifierUtil imageModifierUtil = ImageModifierUtil.getInstanceOrCreate();
-    private readonly Image[] originalImageArray;
-    private Image[] imageArray = NullImage.NULL_IMAGE_ARRAY;
+public class ImageArrayBaseRotationAnimation : RotationAnimation {
+    private ImageModifierUtil imageModifierUtil;
+    private Image[] originalImageArray;
+    private Image[] imageArray;
     private Image currentImage;
-    private int totalFrames = 0;
-    public ImageArrayBaseRotationAnimation(Image[] originalImageArray, AngleInfo angleInfo, AnimationBehavior animationBehavior) : base(angleInfo, CircularIndexUtil.createInstance(360 / angleInfo.getAngleIncrementInfo().getAngleIncrement()), animationBehavior)
-    {
-        // base(angleInfo, CircularIndexUtil.createInstance(360 / angleInfo.getAngleIncrementInfo().getAngleIncrement()), animationBehavior) is called from the constructor declaration
+    private int32 totalFrames;
+    private int32 anchor;
+
+    // Java field initializers run after the base constructor
+    private void initFieldsImageArrayBaseRotationAnimation() {
+    this.imageModifierUtil = ImageModifierUtil.getInstanceOrCreate();
+    
+    this.imageArray = NullImage.NULL_IMAGE_ARRAY;
+    
+    this.totalFrames = 0;
+    this.anchor = Anchor.TOP_LEFT;
+    }
+    
+
+    public ImageArrayBaseRotationAnimation(Image[] originalImageArray, AngleInfo angleInfo, AnimationBehavior animationBehavior) {
+        base(angleInfo, CircularIndexUtil.createInstance(360 / ((int32) (angleInfo.getAngleIncrementInfo().getAngleIncrement()))), animationBehavior);
+        this.initFieldsImageArrayBaseRotationAnimation();
         this.originalImageArray = originalImageArray;
         this.setImageArray(this.imageModifierUtil.getImageArray(originalImageArray));
         this.currentImage = this.imageArray[this.circularIndexUtil.getIndex()];
     }
+    
 
-    // throws Exception
-    public override int getAnimationSize()
-    {
+    public override int32 getAnimationSize() {
         return this.getSize();
     }
+    
 
-    public override void setAlpha(int alpha)
-    {
+    public override void setAlpha(int32 alpha) {
         if (this.alphaP != alpha) {
             base.setAlpha(alpha);
             this.imageModifierUtil.reset();
-            int index = this.circularIndexUtil.getIndex();
+            int32 index = this.circularIndexUtil.getIndex();
             this.imageModifierUtil.setAlpha(this.originalImageArray[index], this.imageArray[index], index, this.alphaP);
         }
     }
+    
 
-    public override void nextRotation()
-    {
+    public override void nextRotation() {
         base.nextRotation();
-        int index = this.circularIndexUtil.getIndex();
+        int32 index = this.circularIndexUtil.getIndex();
         this.imageModifierUtil.setAlpha(this.originalImageArray[index], this.imageArray[index], index, this.alphaP);
         this.currentImage = this.imageArray[index];
     }
+    
 
-    public override void previousRotation()
-    {
+    public override void previousRotation() {
         base.previousRotation();
-        int index = this.circularIndexUtil.getIndex();
+        int32 index = this.circularIndexUtil.getIndex();
         this.imageModifierUtil.setAlpha(this.originalImageArray[index], this.imageArray[index], index, this.alphaP);
         this.currentImage = this.imageArray[index];
     }
+    
 
-    public override void setFrame(int index2)
-    {
+    public override void setFrame(int32 index2) {
         base.setFrame(index2);
-        int index = this.circularIndexUtil.getIndex();
+        int32 index = this.circularIndexUtil.getIndex();
         this.imageModifierUtil.setAlpha(this.originalImageArray[index], this.imageArray[index], index, this.alphaP);
         this.currentImage = this.imageArray[index];
     }
+    
 
-    public override void setSequence(int[] sequence)
-    {
+    public override void setSequence(int32[] sequence) {
     }
+    
 
-    public override int[] getSequence()
-    {
+    public override int32[] getSequence() {
         return PrimitiveIntUtil.getArrayInstance();
     }
+    
 
-    public virtual void setImageArray(Image[] imageArray)
-    {
+    public virtual void setImageArray(Image[] imageArray) {
         this.imageArray = imageArray;
-        this.totalFrames = imageArray.Length;
+        this.totalFrames = imageArray.length;
         this.circularIndexUtil = CircularIndexUtil.createInstance(this.totalFrames);
     }
+    
 
-    private int anchor = Anchor.TOP_LEFT;
-    public override void paintXY(Graphics graphics, int x, int y)
-    {
+    public override void paintXY(Graphics graphics, int32 x, int32 y) {
         graphics.drawImage(this.currentImage, x, y, this.anchor);
     }
+    
 
-    // throws Exception
-    public virtual void close()
-    {
+    public virtual void close() {
         DisposalUtil disposalUtil = DisposalUtil.getInstance();
-        int size2 = this.imageArray.Length;
-        for (int index_0 = 0; index_0 < size2; index_0++) {
-            disposalUtil.disposeImage(this.imageArray[index_0]);
+        int32 size2 = this.imageArray.length;
+        for (int32 index = 0; index < size2; index++) {
+            disposalUtil.disposeImage(this.imageArray[index]);
         }
-        int size = this.originalImageArray.Length;
-        for (int index_1 = 0; index_1 < size; index_1++) {
-            disposalUtil.disposeImage(this.originalImageArray[index_1]);
+        int32 size = this.originalImageArray.length;
+        for (int32 index = 0; index < size; index++) {
+            disposalUtil.disposeImage(this.originalImageArray[index]);
         }
         disposalUtil.disposeImage(this.currentImage);
     }
+    
 
-    // throws Throwable
-    public virtual void finalize()
-    {
+    public virtual void finalize() {
         DisposalUtil disposalUtil = DisposalUtil.getInstance();
-        int size2 = this.imageArray.Length;
-        for (int index_2 = 0; index_2 < size2; index_2++) {
-            disposalUtil.disposeImage(this.imageArray[index_2]);
+        int32 size2 = this.imageArray.length;
+        for (int32 index = 0; index < size2; index++) {
+            disposalUtil.disposeImage(this.imageArray[index]);
         }
-        int size = this.originalImageArray.Length;
-        for (int index_3 = 0; index_3 < size; index_3++) {
-            disposalUtil.disposeImage(this.originalImageArray[index_3]);
+        int32 size = this.originalImageArray.length;
+        for (int32 index = 0; index < size; index++) {
+            disposalUtil.disposeImage(this.originalImageArray[index]);
         }
         disposalUtil.disposeImage(this.currentImage);
     }
-
 }
 

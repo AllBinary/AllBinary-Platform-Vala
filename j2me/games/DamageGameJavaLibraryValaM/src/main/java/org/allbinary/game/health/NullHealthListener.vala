@@ -13,18 +13,25 @@
  *   
  */
 // Generated Code Do Not Modify
+// package org.allbinary.game.health
 
-using System;
-using System.Linq;
-
-namespace org.allbinary.game.health;
-
-public class NullHealthListener : HealthListenerInterface
-{
-    public static readonly NullHealthListener NULL_HEALTH_LISTENER = new NullHealthListener();
-    public virtual void onHealthChange()
-    {
+public class NullHealthListener : JObject, HealthListenerInterface {
+    public static NullHealthListener? NULL_HEALTH_LISTENER;
+    private static bool staticSet_NULL_HEALTH_LISTENER = false;
+    public static NullHealthListener staticGet_NULL_HEALTH_LISTENER() {
+        if (!NullHealthListener.staticSet_NULL_HEALTH_LISTENER) {
+            NullHealthListener.staticSet_NULL_HEALTH_LISTENER = true;
+            NullHealthListener.NULL_HEALTH_LISTENER = new NullHealthListener();
+        }
+        return NullHealthListener.NULL_HEALTH_LISTENER;
     }
 
+    public NullHealthListener() {
+        base();
+    }
+    
+
+    public virtual void onHealthChange() {
+    }
 }
 

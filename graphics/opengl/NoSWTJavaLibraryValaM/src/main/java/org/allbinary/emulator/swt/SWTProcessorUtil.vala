@@ -13,20 +13,33 @@
  *   
  */
 // Generated Code Do Not Modify
+// package org.allbinary.emulator.swt
 
-using System;
-using System.Linq;
-
-namespace org.allbinary.emulator.swt;
-
-public class SWTProcessorUtil
-{
-    private static readonly SWTProcessorUtil instance = new SWTProcessorUtil();
-    public static SWTProcessorUtil getInstance()
-    {
+public class SWTProcessorUtil : JObject {
+    private static SWTProcessorUtil? instance;
+    private static bool staticSet_instance = false;
+    private static SWTProcessorUtil staticGet_instance() {
+        if (!SWTProcessorUtil.staticSet_instance) {
+            SWTProcessorUtil.staticSet_instance = true;
+            SWTProcessorUtil.instance = new SWTProcessorUtil();
+        }
         return SWTProcessorUtil.instance;
     }
+    public SWTProcessor swtProcessor;
 
-    public SWTProcessor swtProcessor = SWTProcessor.getInstance();
+    // Java field initializers run after the base constructor
+    private void initFieldsSWTProcessorUtil() {
+    this.swtProcessor = SWTProcessor.getInstance();
+    }
+
+    public SWTProcessorUtil() {
+        base();
+        this.initFieldsSWTProcessorUtil();
+    }
+    
+
+    public static SWTProcessorUtil getInstance() {
+        return SWTProcessorUtil.staticGet_instance();
+    }
 }
 

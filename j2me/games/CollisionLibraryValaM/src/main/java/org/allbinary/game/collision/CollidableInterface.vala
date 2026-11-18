@@ -13,27 +13,23 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.game.collision
+// import org.allbinary.game.layer.CollidableCompositeLayer
+// import org.allbinary.layer.AllBinaryLayer
+// import org.allbinary.layer.NamedInterface
 
-using System;
-using System.Linq;
-using CollidableCompositeLayer = org.allbinary.game.layer.CollidableCompositeLayer;
-using AllBinaryLayer = org.allbinary.layer.AllBinaryLayer;
-using NamedInterface = org.allbinary.layer.NamedInterface;
+public interface CollidableInterface : JObject, NamedInterface {
+    
 
-namespace org.allbinary.game.collision;
+    public abstract bool isCollidable(CollidableCompositeLayer ownerLayer);
+    
 
-public interface CollidableInterface : NamedInterface
-{
-    // throws Exception
-    bool isCollidable(CollidableCompositeLayer ownerLayer);
+    public abstract bool isCollision(CollidableCompositeLayer ownerLayer, CollidableCompositeLayer collidableInterfaceCompositeInterface);
+    
 
-    // throws Exception
-    bool isCollision(CollidableCompositeLayer ownerLayer, CollidableCompositeLayer collidableInterfaceCompositeInterface);
+    public abstract void collide(CollidableCompositeLayer ownerLayer, CollidableCompositeLayer collidableInterfaceCompositeInterface);
+    
 
-    // throws Exception
-    void collide(CollidableCompositeLayer ownerLayer, CollidableCompositeLayer collidableInterfaceCompositeInterface);
-
-    CollisionType getCollisionTypeWith(AllBinaryLayer layerInterface);
-
+    public abstract CollisionType getCollisionTypeWith(AllBinaryLayer layerInterface);
 }
 

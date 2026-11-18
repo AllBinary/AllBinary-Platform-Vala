@@ -13,48 +13,53 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.game.init
+// import org.allbinary.game.configuration.event.GameInitializedEvent
+// import org.allbinary.game.configuration.event.GameInitializedEventHandler
+// import org.allbinary.game.configuration.event.GameInitializedListenerInterface
+// import org.allbinary.game.resource.FeatureResourceInitializationUtil
+// import org.allbinary.graphics.threed.SWTJOGLProcessor
+// import org.allbinary.logic.communication.log.ForcedLogUtil
+// import org.allbinary.logic.communication.log.LogUtil
+// import org.allbinary.logic.util.event.AllBinaryEventObject
+// import org.allbinary.logic.util.event.EventStrings
+// import org.allbinary.string.CommonStrings
 
-using System;
-using System.Linq;
-using GameInitializedEvent = org.allbinary.game.configuration.@event.GameInitializedEvent;
-using GameInitializedEventHandler = org.allbinary.game.configuration.@event.GameInitializedEventHandler;
-using GameInitializedListenerInterface = org.allbinary.game.configuration.@event.GameInitializedListenerInterface;
-using FeatureResourceInitializationUtil = org.allbinary.game.resource.FeatureResourceInitializationUtil;
-using SWTJOGLProcessor = org.allbinary.graphics.threed.SWTJOGLProcessor;
-using ForcedLogUtil = org.allbinary.logic.communication.log.ForcedLogUtil;
-using LogUtil = org.allbinary.logic.communication.log.LogUtil;
-using AllBinaryEventObject = org.allbinary.logic.util.@event.AllBinaryEventObject;
-using EventStrings = org.allbinary.logic.util.@event.EventStrings;
-using CommonStrings = org.allbinary.@string.CommonStrings;
+public class DefaultGameInitializationListener : JObject, GameInitializedListenerInterface, EventListenerInterface {
+    public LogUtil logUtil;
+    private SWTJOGLProcessor swtJOGLProcessor;
+    public bool firstTime;
 
-namespace org.allbinary.game.init;
+    // Java field initializers run after the base constructor
+    private void initFieldsDefaultGameInitializationListener() {
+    this.logUtil = LogUtil.getInstance();
+    this.swtJOGLProcessor = SWTJOGLProcessor.getInstance();
+    this.firstTime = true;
+    }
+    
 
-public class DefaultGameInitializationListener : GameInitializedListenerInterface
-{
-    public readonly LogUtil logUtil = LogUtil.getInstance();
-    private readonly SWTJOGLProcessor swtJOGLProcessor = SWTJOGLProcessor.getInstance();
-    public DefaultGameInitializationListener()
-    {
+    public DefaultGameInitializationListener() {
+        base();
+        this.initFieldsDefaultGameInitializationListener();
         GameInitializedEventHandler gameInitializedEventHandler = GameInitializedEventHandler.getInstance();
         gameInitializedEventHandler.removeAllListeners();
         gameInitializedEventHandler.addListenerInterface(((GameInitializedListenerInterface) this));
     }
+    
 
-    public virtual void onEvent(AllBinaryEventObject eventObject)
-    {
+    public virtual void onEvent(AllBinaryEventObject eventObject) {
         ForcedLogUtil.log(EventStrings.getInstance().PERFORMANCE_MESSAGE, this);
     }
+    
 
-    public bool firstTime = true;
-    public virtual void onGameInitialized(GameInitializedEvent gameInitializedEvent)
-    {
+    public virtual void onGameInitialized(GameInitializedEvent gameInitializedEvent) {
         string ON_GAME_INITIALIZED = "onGameInitialized";
         CommonStrings commonStrings = CommonStrings.getInstance();
-        try {
+        {
             this.logUtil.putF(commonStrings.START, this, ON_GAME_INITIALIZED);
             while (!this.swtJOGLProcessor.isHolderCreated()) {
                 this.logUtil.putF(commonStrings.UPDATE, this, ON_GAME_INITIALIZED);
-                System.Threading.Thread.Sleep((int) (20));
+                Thread.sleep(20);
             }
             FeatureResourceInitializationUtil.getInstance().init(gameInitializedEvent.getLevel());
             if (this.firstTime) {
@@ -62,10 +67,7 @@ public class DefaultGameInitializationListener : GameInitializedListenerInterfac
             } else {
                 this.swtJOGLProcessor.onSurfaceChanged();
             }
-        } catch (Exception e) {
-            this.logUtil.put(commonStrings.EXCEPTION, this, ON_GAME_INITIALIZED, e);
-        }
+        } /* catch (Exception e): a thrown Java exception stops the program */
     }
-
 }
 

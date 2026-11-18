@@ -13,19 +13,26 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.game.part
 
-using System;
-using System.Linq;
-
-namespace org.allbinary.game.part;
-
-public class PartInterfaceUtil
-{
-    private static readonly PartInterface[] SINGLETON = new PartInterface[0];
-    public static PartInterface[] getZeroArray()
-    {
+public class PartInterfaceUtil : JObject {
+    private static PartInterface[]? SINGLETON;
+    private static bool staticSet_SINGLETON = false;
+    private static PartInterface[] staticGet_SINGLETON() {
+        if (!PartInterfaceUtil.staticSet_SINGLETON) {
+            PartInterfaceUtil.staticSet_SINGLETON = true;
+            PartInterfaceUtil.SINGLETON = new PartInterface[0];
+        }
         return PartInterfaceUtil.SINGLETON;
     }
 
+    public PartInterfaceUtil() {
+        base();
+    }
+    
+
+    public static PartInterface[] getZeroArray() {
+        return PartInterfaceUtil.staticGet_SINGLETON();
+    }
 }
 

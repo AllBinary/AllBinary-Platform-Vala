@@ -13,24 +13,20 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.game.tracking
+// import org.allbinary.logic.util.event.AllBinaryEventObject
+// import org.allbinary.logic.util.event.AllBinaryEventObjectFactoryInterface
 
-using System;
-using System.Linq;
-using AllBinaryEventObject = org.allbinary.logic.util.@event.AllBinaryEventObject;
-using AllBinaryEventObjectFactoryInterface = org.allbinary.logic.util.@event.AllBinaryEventObjectFactoryInterface;
+public class TrackingEventFactory : JObject, AllBinaryEventObjectFactoryInterface {
+    
 
-namespace org.allbinary.game.tracking;
-
-public class TrackingEventFactory : AllBinaryEventObjectFactoryInterface
-{
-    public TrackingEventFactory()
-    {
+    public TrackingEventFactory() {
+        base();
     }
+    
 
-    public virtual AllBinaryEventObject getInstance()
-    {
+    public virtual AllBinaryEventObject getInstance() {
         return new TrackingEvent(TrackingEventHandler.getInstance());
     }
-
 }
 

@@ -13,22 +13,18 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary
 
-using System;
-using System.Linq;
+public class AppletUtil : JObject {
+    
 
-namespace org.allbinary;
-
-public class AppletUtil
-{
-    private AppletUtil()
-    {
+    public AppletUtil() {
+        base();
     }
+    
 
-    public static bool isAppletLoader(object anyType)
-    {
+    public static bool isAppletLoader(JObject anyType) {
         return false;
     }
-
 }
 

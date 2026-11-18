@@ -13,34 +13,43 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.game.part.weapon
+// import org.allbinary.game.combat.weapon.WeaponProperties
+// import org.allbinary.game.score.ScoreableInterface
+// import org.allbinary.graphics.RelativeRelationship
+// import org.allbinary.layer.AllBinaryLayer
 
-using System;
-using System.Linq;
-using System.Runtime.CompilerServices;
-using WeaponProperties = org.allbinary.game.combat.weapon.WeaponProperties;
-using ScoreableInterface = org.allbinary.game.score.ScoreableInterface;
-using RelativeRelationship = org.allbinary.graphics.RelativeRelationship;
-using AllBinaryLayer = org.allbinary.layer.AllBinaryLayer;
+public class BasicWeaponPartCircularPool : JObject {
+    public static BasicWeaponPartCircularPool? NULL_BASIC_WEAPON_PART_CIRCULAR_POOL;
+    private static bool staticSet_NULL_BASIC_WEAPON_PART_CIRCULAR_POOL = false;
+    public static BasicWeaponPartCircularPool staticGet_NULL_BASIC_WEAPON_PART_CIRCULAR_POOL() {
+        if (!BasicWeaponPartCircularPool.staticSet_NULL_BASIC_WEAPON_PART_CIRCULAR_POOL) {
+            BasicWeaponPartCircularPool.staticSet_NULL_BASIC_WEAPON_PART_CIRCULAR_POOL = true;
+            BasicWeaponPartCircularPool.NULL_BASIC_WEAPON_PART_CIRCULAR_POOL = new BasicWeaponPartCircularPool();
+        }
+        return BasicWeaponPartCircularPool.NULL_BASIC_WEAPON_PART_CIRCULAR_POOL;
+    }
+    private BasicWeaponPart basicWeaponPart;
 
-namespace org.allbinary.game.part.weapon;
-
-public class BasicWeaponPartCircularPool
-{
-    public static readonly BasicWeaponPartCircularPool NULL_BASIC_WEAPON_PART_CIRCULAR_POOL = new BasicWeaponPartCircularPool();
-    private BasicWeaponPart basicWeaponPart = BasicWeaponPart.NULL_BASIC_WEAPON_PART;
-    // throws Exception
-    public virtual void init(BasicWeaponPartFactoryInterface basicWeaponPartFactoryInterface)
-    {
-        this.basicWeaponPart = basicWeaponPartFactoryInterface.getInstance();
+    // Java field initializers run after the base constructor
+    private void initFieldsBasicWeaponPartCircularPool() {
+    this.basicWeaponPart = BasicWeaponPart.NULL_BASIC_WEAPON_PART;
     }
 
-    // throws Exception
-    [MethodImpl(MethodImplOptions.Synchronized)]
-    public virtual BasicWeaponPart getInstance(AllBinaryLayer sourceLayerInterface, WeaponProperties weaponProperties, ScoreableInterface scoreableInterface, RelativeRelationship relativeRelationship)
-    {
+    public BasicWeaponPartCircularPool() {
+        base();
+        this.initFieldsBasicWeaponPartCircularPool();
+    }
+    
+
+    public virtual void init(BasicWeaponPartFactoryInterface basicWeaponPartFactoryInterface) {
+        this.basicWeaponPart = basicWeaponPartFactoryInterface.getInstance();
+    }
+    
+
+    public virtual BasicWeaponPart getInstance4(AllBinaryLayer sourceLayerInterface, WeaponProperties weaponProperties, ScoreableInterface scoreableInterface, RelativeRelationship relativeRelationship) {
         this.basicWeaponPart.init(sourceLayerInterface, weaponProperties, scoreableInterface, relativeRelationship);
         return this.basicWeaponPart;
     }
-
 }
 

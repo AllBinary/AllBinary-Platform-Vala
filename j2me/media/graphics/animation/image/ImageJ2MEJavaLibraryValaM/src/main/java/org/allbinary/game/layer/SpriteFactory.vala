@@ -13,28 +13,41 @@
  *   
  */
 // Generated Code Do Not Modify
+// package org.allbinary.game.layer
+// import javax.microedition.lcdui.Image
+// import javax.microedition.lcdui.game.Sprite
+// import org.allbinary.logic.communication.log.LogUtil
 
-using System;
-using System.Linq;
-using Image = javax.microedition.lcdui.Image;
-using Sprite = javax.microedition.lcdui.game.Sprite;
-using LogUtil = org.allbinary.logic.communication.log.LogUtil;
-
-namespace org.allbinary.game.layer;
-
-public class SpriteFactory : SpriteFactoryInterface
-{
-    public readonly LogUtil logUtil = LogUtil.getInstance();
-    private static readonly SpriteFactory instance = new SpriteFactory();
-    public static SpriteFactory getInstance()
-    {
+public class SpriteFactory : JObject, SpriteFactoryInterface {
+    private static SpriteFactory? instance;
+    private static bool staticSet_instance = false;
+    private static SpriteFactory staticGet_instance() {
+        if (!SpriteFactory.staticSet_instance) {
+            SpriteFactory.staticSet_instance = true;
+            SpriteFactory.instance = new SpriteFactory();
+        }
         return SpriteFactory.instance;
     }
+    public LogUtil logUtil;
 
-    public virtual Sprite createSprite(Image image, int frameWidth, int frameHeight)
-    {
-        return new Sprite(image, frameWidth, frameHeight);
+    // Java field initializers run after the base constructor
+    private void initFieldsSpriteFactory() {
+    this.logUtil = LogUtil.getInstance();
     }
 
+    public SpriteFactory() {
+        base();
+        this.initFieldsSpriteFactory();
+    }
+    
+
+    public static SpriteFactory getInstance() {
+        return SpriteFactory.staticGet_instance();
+    }
+    
+
+    public virtual Sprite createSprite(Image image, int32 frameWidth, int32 frameHeight) {
+        return new Sprite(image, frameWidth, frameHeight);
+    }
 }
 

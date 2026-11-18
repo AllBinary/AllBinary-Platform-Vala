@@ -13,31 +13,32 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.game.displayable.canvas
+// import org.allbinary.canvas.Processor
+// import org.allbinary.graphics.canvas.transition.progress.ProgressCanvasFactory
+// import org.allbinary.logic.communication.log.LogUtil
+// import org.allbinary.string.CommonStrings
 
-using System;
-using System.Linq;
-using Processor = org.allbinary.canvas.Processor;
-using ProgressCanvasFactory = org.allbinary.graphics.canvas.transition.progress.ProgressCanvasFactory;
-using LogUtil = org.allbinary.logic.communication.log.LogUtil;
-using CommonStrings = org.allbinary.@string.CommonStrings;
-
-namespace org.allbinary.game.displayable.canvas;
-
-public class InitGameProcessor : Processor
-{
+public class InitGameProcessor : Processor {
     private AllBinaryGameCanvas gameCanvas;
-    public InitGameProcessor(AllBinaryGameCanvas gameCanvas)
-    {
+
+    // Java field initializers run after the base constructor
+    private void initFieldsInitGameProcessor() {
+    
+    }
+    
+
+    public InitGameProcessor(AllBinaryGameCanvas gameCanvas) {
+        base();
+        this.initFieldsInitGameProcessor();
         this.gameCanvas = gameCanvas;
     }
+    
 
-    // throws Exception
-    public override void process()
-    {
+    public override void process() {
         if (ProgressCanvasFactory.getInstance().isInGame()) {
             this.gameCanvas.setProcessGameProcessorInit();
         }
     }
-
 }
 

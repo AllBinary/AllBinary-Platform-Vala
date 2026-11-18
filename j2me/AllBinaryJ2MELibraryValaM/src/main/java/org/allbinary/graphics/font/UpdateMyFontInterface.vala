@@ -13,16 +13,12 @@
  *   
  */
 // Generated Code Do Not Modify
+// package org.allbinary.graphics.font
+// import javax.microedition.lcdui.Graphics
 
-using System;
-using System.Linq;
-using Graphics = javax.microedition.lcdui.Graphics;
+public interface UpdateMyFontInterface : JObject {
+    
 
-namespace org.allbinary.graphics.font;
-
-public interface UpdateMyFontInterface
-{
-    void updateMeasurement(Graphics graphics);
-
+    public abstract void updateMeasurement(Graphics graphics);
 }
 

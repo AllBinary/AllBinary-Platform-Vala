@@ -13,43 +13,43 @@
  * 
  */
 // Generated Code Do Not Modify
+// package org.allbinary.game.displayable.canvas
+// import org.allbinary.game.score.displayable.HighScoreTextBox
+// import org.allbinary.graphics.canvas.transition.progress.ProgressCanvas
+// import org.allbinary.graphics.canvas.transition.progress.ProgressCanvasFactory
+// import org.allbinary.logic.communication.log.LogUtil
+// import org.allbinary.string.CommonStrings
 
-using System;
-using System.Linq;
-using HighScoreTextBox = org.allbinary.game.score.displayable.HighScoreTextBox;
-using ProgressCanvas = org.allbinary.graphics.canvas.transition.progress.ProgressCanvas;
-using ProgressCanvasFactory = org.allbinary.graphics.canvas.transition.progress.ProgressCanvasFactory;
-using LogUtil = org.allbinary.logic.communication.log.LogUtil;
-using CommonStrings = org.allbinary.@string.CommonStrings;
+public class SaveHighScoreRunnable : JObject, Runnable {
+    private ProgressCanvas progressCanvas;
+    private bool isLast;
+    private HighScoreTextBox textBox;
 
-namespace org.allbinary.game.displayable.canvas;
+    // Java field initializers run after the base constructor
+    private void initFieldsSaveHighScoreRunnable() {
+    this.progressCanvas = ProgressCanvasFactory.getInstance();
+    
+    
+    }
+    
 
-public class SaveHighScoreRunnable : global::java.lang.Runnable
-{
-    private readonly ProgressCanvas progressCanvas = ProgressCanvasFactory.getInstance();
-    private readonly bool isLast;
-    private readonly HighScoreTextBox textBox;
-    public SaveHighScoreRunnable(bool isLast, HighScoreTextBox textBox)
-    {
+    public SaveHighScoreRunnable(bool isLast, HighScoreTextBox textBox) {
+        base();
+        this.initFieldsSaveHighScoreRunnable();
         this.isLast = isLast;
         this.textBox = textBox;
     }
+    
 
-    public virtual void run()
-    {
+    public virtual void run() {
         LogUtil logUtil = LogUtil.getInstance();
-        try {
+        {
             if (this.isLast) {
                 this.textBox.submit();
             } else {
                 this.textBox.saveHighScore();
             }
-        } catch (Exception e) {
-            CommonStrings commonStrings = CommonStrings.getInstance();
-            logUtil.put(commonStrings.EXCEPTION, this, "run", e);
-            this.progressCanvas.end();
-        }
+        } /* catch (Exception e): a thrown Java exception stops the program */
     }
-
 }
 

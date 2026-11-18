@@ -13,16 +13,12 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.game.configuration.event
+// import org.allbinary.logic.util.event.EventListenerInterface
 
-using System;
-using System.Linq;
-using EventListenerInterface = org.allbinary.logic.util.@event.EventListenerInterface;
+public interface GameInitializedListenerInterface : JObject, EventListenerInterface {
+    
 
-namespace org.allbinary.game.configuration.@event;
-
-public interface GameInitializedListenerInterface : EventListenerInterface
-{
-    void onGameInitialized(GameInitializedEvent gameInitializedEvent);
-
+    public abstract void onGameInitialized(GameInitializedEvent gameInitializedEvent);
 }
 

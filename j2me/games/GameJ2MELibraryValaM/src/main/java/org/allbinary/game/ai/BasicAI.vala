@@ -13,93 +13,114 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.game.ai
+// import org.allbinary.ai.ArtificialIntelligence
+// import org.allbinary.game.displayable.canvas.CanvasUtil
+// import org.allbinary.game.input.GameInput
+// import org.allbinary.game.input.GameKeyEventSourceInterface
+// import org.allbinary.game.input.event.GameKeyEventFactory
+// import org.allbinary.layer.AllBinaryLayer
+// import org.allbinary.layer.AllBinaryLayerManager
+// import org.allbinary.logic.communication.log.LogUtil
+// import org.allbinary.logic.math.SmallIntegerSingletonFactory
+// import org.allbinary.logic.string.StringMaker
+// import org.allbinary.string.CommonSeps
+// import org.allbinary.string.CommonStrings
 
-using System;
-using System.Linq;
-using ArtificialIntelligence = org.allbinary.ai.ArtificialIntelligence;
-using CanvasUtil = org.allbinary.game.displayable.canvas.CanvasUtil;
-using GameInput = org.allbinary.game.input.GameInput;
-using GameKeyEventSourceInterface = org.allbinary.game.input.GameKeyEventSourceInterface;
-using GameKeyEventFactory = org.allbinary.game.input.@event.GameKeyEventFactory;
-using AllBinaryLayer = org.allbinary.layer.AllBinaryLayer;
-using AllBinaryLayerManager = org.allbinary.layer.AllBinaryLayerManager;
-using LogUtil = org.allbinary.logic.communication.log.LogUtil;
-using SmallIntegerSingletonFactory = org.allbinary.logic.math.SmallIntegerSingletonFactory;
-using StringMaker = org.allbinary.logic.@string.StringMaker;
-using CommonSeps = org.allbinary.@string.CommonSeps;
-using CommonStrings = org.allbinary.@string.CommonStrings;
+public class BasicAI : ArtificialIntelligence, GameKeyEventSourceInterface {
+    public static int32?? AI_VISITOR;
+    private static bool staticSet_AI_VISITOR = false;
+    public static int32? staticGet_AI_VISITOR() {
+        if (!BasicAI.staticSet_AI_VISITOR) {
+            BasicAI.staticSet_AI_VISITOR = true;
+            BasicAI.AI_VISITOR = SmallIntegerSingletonFactory.getInstance().getAt(2);
+        }
+        return BasicAI.AI_VISITOR;
+    }
+    public static int32?? ID;
+    private static bool staticSet_ID = false;
+    public static int32? staticGet_ID() {
+        if (!BasicAI.staticSet_ID) {
+            BasicAI.staticSet_ID = true;
+            BasicAI.ID = SmallIntegerSingletonFactory.getInstance().getAt(1);
+        }
+        return BasicAI.ID;
+    }
+    public LogUtil logUtil;
+    public CommonStrings commonStrings;
+    public GameKeyEventFactory gameKeyEventFactory;
+    private AllBinaryLayer ownerLayerInterface;
+    private GameInput gameInput;
+    private int32 lastKey;
 
-namespace org.allbinary.game.ai;
+    // Java field initializers run after the base constructor
+    private void initFieldsBasicAI() {
+    this.logUtil = LogUtil.getInstance();
+    this.commonStrings = CommonStrings.getInstance();
+    this.gameKeyEventFactory = GameKeyEventFactory.getInstance();
+    
+    
+    this.lastKey = -1;
+    }
+    
 
-public class BasicAI : ArtificialIntelligence, GameKeyEventSourceInterface
-{
-    public static readonly int? AI_VISITOR = SmallIntegerSingletonFactory.getInstance().getAt(2);
-    public static readonly int? ID = SmallIntegerSingletonFactory.getInstance().getAt(1);
-    public readonly LogUtil logUtil = LogUtil.getInstance();
-    public readonly CommonStrings commonStrings = CommonStrings.getInstance();
-    public readonly GameKeyEventFactory gameKeyEventFactory = GameKeyEventFactory.getInstance();
-    private readonly AllBinaryLayer ownerLayerInterface;
-    private readonly GameInput gameInput;
-    private int lastKey = -1;
-    public BasicAI(AllBinaryLayer ownerLayerInterface, GameInput gameInput)
-    {
+    public BasicAI(AllBinaryLayer ownerLayerInterface, GameInput gameInput) {
+        base();
+        this.initFieldsBasicAI();
         this.ownerLayerInterface = ownerLayerInterface;
         this.gameInput = gameInput;
     }
+    
 
-    // throws Exception
-    public override void processAI(AllBinaryLayerManager allBinaryLayerManager)
-    {
-        throw new Exception(this.commonStrings.NOT_IMPLEMENTED);
+    public override void processAI(AllBinaryLayerManager allBinaryLayerManager) {
+        JSystem.fatal(new JException("Exception", this.commonStrings.NOT_IMPLEMENTED));
     }
+    
 
-    // throws Exception
-    public virtual void processKeyAI(int key)
-    {
+    public virtual void processKeyAI(int32 key) {
         if (key != -1) {
             this.gameInput.add(this.gameKeyEventFactory.getInstanceForKey(this, key));
         }
     }
+    
 
-    public virtual void setLastKey(int lastKey)
-    {
+    public virtual void setLastKey(int32 lastKey) {
         this.lastKey = lastKey;
     }
+    
 
-    public virtual int getLastKey()
-    {
+    public virtual int32 getLastKey() {
         return this.lastKey;
     }
+    
 
-    public virtual AllBinaryLayer getOwnerLayerInterface()
-    {
+    public virtual AllBinaryLayer getOwnerLayerInterface() {
         return this.ownerLayerInterface;
     }
+    
 
-    public virtual GameInput getGameInput()
-    {
+    public virtual GameInput getGameInput() {
         return this.gameInput;
     }
+    
 
-    public virtual string getName()
-    {
-        return this.GetType().FullName;
+    public virtual string getName() {
+        return JObject.className(this);
     }
+    
 
-    public override string ToString()
-    {
+    public override string toString() {
         StringMaker stringBuffer = new StringMaker();
         stringBuffer.append(CommonSeps.getInstance().NEW_LINE);
         stringBuffer.append(this.getName());
         stringBuffer.append(" LastKey: ");
         stringBuffer.append(CanvasUtil.getKeyName(this.getLastKey()));
-        return stringBuffer.ToString();
+        return stringBuffer.toString();
     }
+    
 
-    public virtual int getSourceId()
-    {
+    public virtual int32 getSourceId() {
         return 1;
     }
-
 }
 

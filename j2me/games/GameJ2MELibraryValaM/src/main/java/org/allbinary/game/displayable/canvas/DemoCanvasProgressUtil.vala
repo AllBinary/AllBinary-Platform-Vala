@@ -13,25 +13,25 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.game.displayable.canvas
+// import org.allbinary.graphics.canvas.transition.progress.ProgressCanvas
+// import org.allbinary.graphics.canvas.transition.progress.ProgressCanvasFactory
+// import org.allbinary.graphics.paint.PaintableComposite
+// import org.allbinary.graphics.paint.PaintableInterface
 
-using System;
-using System.Linq;
-using ProgressCanvas = org.allbinary.graphics.canvas.transition.progress.ProgressCanvas;
-using ProgressCanvasFactory = org.allbinary.graphics.canvas.transition.progress.ProgressCanvasFactory;
-using PaintableComposite = org.allbinary.graphics.paint.PaintableComposite;
-using PaintableInterface = org.allbinary.graphics.paint.PaintableInterface;
+public class DemoCanvasProgressUtil : JObject {
 
-namespace org.allbinary.game.displayable.canvas;
+    public DemoCanvasProgressUtil() {
+        base();
+    }
+    
 
-public class DemoCanvasProgressUtil
-{
-    public static void showProgress(DemoCanvas demoCanvas)
-    {
+    public static void showProgress(DemoCanvas demoCanvas) {
         DemoCanvasProgressUtil.showProgressOptionallyInTheBackground(demoCanvas, false);
     }
+    
 
-    public static void showProgressOptionallyInTheBackground(DemoCanvas demoCanvas, bool background)
-    {
+    public static void showProgressOptionallyInTheBackground(DemoCanvas demoCanvas, bool background) {
         ProgressCanvas progressCanvas = ProgressCanvasFactory.getInstance();
         progressCanvas.startBackground(background);
         PaintableInterface[] paintableArray = new PaintableInterface[2];
@@ -40,6 +40,5 @@ public class DemoCanvasProgressUtil
         demoCanvas.setDefaultPaintableInterface(new PaintableComposite(paintableArray));
         demoCanvas.setPaintableInterface(demoCanvas.getDefaultPaintableInterface());
     }
-
 }
 

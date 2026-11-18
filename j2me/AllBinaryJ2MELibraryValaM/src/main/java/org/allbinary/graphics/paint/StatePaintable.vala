@@ -13,22 +13,18 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.graphics.paint
+// import org.allbinary.graphics.displayable.StateControlledInterface
 
-using System;
-using System.Linq;
-using StateControlledInterface = org.allbinary.graphics.displayable.StateControlledInterface;
+public class StatePaintable : Paintable, StateControlledInterface {
+    
 
-namespace org.allbinary.graphics.paint;
-
-public class StatePaintable : Paintable, StateControlledInterface
-{
-    public StatePaintable()
-    {
+    public StatePaintable() {
+        base();
     }
+    
 
-    public virtual void setState(int state)
-    {
+    public virtual void setState(int32 state) {
     }
-
 }
 

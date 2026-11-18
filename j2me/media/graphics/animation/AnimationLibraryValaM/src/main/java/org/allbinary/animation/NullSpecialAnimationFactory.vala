@@ -13,41 +13,43 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.animation
+// import org.allbinary.animation.special.SpecialAnimation
+// import org.allbinary.media.ScaleProperties
 
-using System;
-using System.Linq;
-using SpecialAnimation = org.allbinary.animation.special.SpecialAnimation;
-using ScaleProperties = org.allbinary.media.ScaleProperties;
-
-namespace org.allbinary.animation;
-
-public class NullSpecialAnimationFactory : AnimationInterfaceFactoryInterface, ProceduralAnimationInterfaceFactoryInterface
-{
-    private static NullSpecialAnimationFactory NULL_SPECIAL_ANIMATION_FACTORY = new NullSpecialAnimationFactory();
-    private NullSpecialAnimationFactory()
-    {
-    }
-
-    public static NullSpecialAnimationFactory getFactoryInstance()
-    {
+public class NullSpecialAnimationFactory : JObject, AnimationInterfaceFactoryInterface, ProceduralAnimationInterfaceFactoryInterface, BasicAnimationInterfaceFactoryInterface {
+    private static NullSpecialAnimationFactory? NULL_SPECIAL_ANIMATION_FACTORY;
+    private static bool staticSet_NULL_SPECIAL_ANIMATION_FACTORY = false;
+    private static NullSpecialAnimationFactory staticGet_NULL_SPECIAL_ANIMATION_FACTORY() {
+        if (!NullSpecialAnimationFactory.staticSet_NULL_SPECIAL_ANIMATION_FACTORY) {
+            NullSpecialAnimationFactory.staticSet_NULL_SPECIAL_ANIMATION_FACTORY = true;
+            NullSpecialAnimationFactory.NULL_SPECIAL_ANIMATION_FACTORY = new NullSpecialAnimationFactory();
+        }
         return NullSpecialAnimationFactory.NULL_SPECIAL_ANIMATION_FACTORY;
     }
+    
 
-    // throws Exception
-    public virtual Animation getInstance(int instanceId)
-    {
+    public NullSpecialAnimationFactory() {
+        base();
+    }
+    
+
+    public static NullSpecialAnimationFactory getFactoryInstance() {
+        return NullSpecialAnimationFactory.staticGet_NULL_SPECIAL_ANIMATION_FACTORY();
+    }
+    
+
+    public virtual Animation getInstance1(int32 instanceId) {
         return SpecialAnimation.getInstance();
     }
+    
 
-    // throws Exception
-    public virtual Animation getInstanceAnimation(Animation animationInterface)
-    {
+    public virtual Animation getInstanceAnimation(Animation animationInterface) {
         return SpecialAnimation.getInstance();
     }
+    
 
-    public virtual void setInitialScale(ScaleProperties scaleProperties)
-    {
+    public virtual void setInitialScale(ScaleProperties scaleProperties) {
     }
-
 }
 

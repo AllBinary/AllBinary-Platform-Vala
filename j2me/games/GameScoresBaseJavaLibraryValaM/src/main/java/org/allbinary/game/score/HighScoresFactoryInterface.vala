@@ -13,20 +13,18 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.game.score
+// import org.allbinary.game.GameInfo
 
-using System;
-using System.Linq;
-using GameInfo = org.allbinary.game.GameInfo;
+public interface HighScoresFactoryInterface : JObject {
+    
 
-namespace org.allbinary.game.score;
+    public abstract void fetchHighScores(GameInfo gameInfo, HighScoresResultsListener highScoresResultsListener);
+    
 
-public interface HighScoresFactoryInterface
-{
-    void fetchHighScores(GameInfo gameInfo, HighScoresResultsListener highScoresResultsListener);
+    public abstract void fetchHighScoresPreload(GameInfo gameInfo, HighScoresResultsListener highScoresResultsListener, bool preload);
+    
 
-    void fetchHighScoresPreload(GameInfo gameInfo, HighScoresResultsListener highScoresResultsListener, bool preload);
-
-    HighScoresHelperBaseInterface createHighScoresHelper();
-
+    public abstract HighScoresHelperBaseInterface createHighScoresHelper();
 }
 

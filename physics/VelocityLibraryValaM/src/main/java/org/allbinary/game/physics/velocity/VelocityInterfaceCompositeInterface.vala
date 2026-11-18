@@ -13,15 +13,11 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.game.physics.velocity
 
-using System;
-using System.Linq;
+public interface VelocityInterfaceCompositeInterface : JObject {
+    
 
-namespace org.allbinary.game.physics.velocity;
-
-public interface VelocityInterfaceCompositeInterface
-{
-    BasicVelocityProperties getVelocityProperties();
-
+    public abstract BasicVelocityProperties getVelocityProperties();
 }
 

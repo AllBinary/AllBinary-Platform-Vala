@@ -13,18 +13,17 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.graphics.displayable.screen
+// import javax.microedition.lcdui.Displayable
 
-using System;
-using System.Linq;
-using Displayable = javax.microedition.lcdui.Displayable;
+public class ScreenRepaintUtil : JObject {
 
-namespace org.allbinary.graphics.displayable.screen;
-
-public class ScreenRepaintUtil
-{
-    public static void repaint(Displayable displayable)
-    {
+    public ScreenRepaintUtil() {
+        base();
     }
+    
 
+    public static void repaint(Displayable displayable) {
+    }
 }
 

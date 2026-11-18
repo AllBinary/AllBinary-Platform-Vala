@@ -13,24 +13,39 @@
  *   
  */
 // Generated Code Do Not Modify
+// package org.allbinary.canvas
+// import org.allbinary.graphics.GPoint
+// import org.allbinary.graphics.PointFactory
 
-using System;
-using System.Linq;
-using GPoint = org.allbinary.graphics.GPoint;
-using PointFactory = org.allbinary.graphics.PointFactory;
-
-namespace org.allbinary.canvas;
-
-public class GameGlobalsFactory
-{
-    private static readonly GameGlobalsFactory instance = new GameGlobalsFactory();
-    public static GameGlobalsFactory getInstance()
-    {
+public class GameGlobalsFactory : JObject {
+    private static GameGlobalsFactory? instance;
+    private static bool staticSet_instance = false;
+    private static GameGlobalsFactory staticGet_instance() {
+        if (!GameGlobalsFactory.staticSet_instance) {
+            GameGlobalsFactory.staticSet_instance = true;
+            GameGlobalsFactory.instance = new GameGlobalsFactory();
+        }
         return GameGlobalsFactory.instance;
     }
+    public bool newCanvas;
+    public int64 newDisplaybleTime;
+    public GPoint point;
 
-    public bool newCanvas = true;
-    public long newDisplaybleTime = ((long) int.MinValue);
-    public GPoint point = PointFactory.getInstance().ZERO_ZERO;
+    // Java field initializers run after the base constructor
+    private void initFieldsGameGlobalsFactory() {
+    this.newCanvas = true;
+    this.newDisplaybleTime = ((int64) (Integer.MIN_VALUE));
+    this.point = PointFactory.getInstance().ZERO_ZERO;
+    }
+
+    public GameGlobalsFactory() {
+        base();
+        this.initFieldsGameGlobalsFactory();
+    }
+    
+
+    public static GameGlobalsFactory getInstance() {
+        return GameGlobalsFactory.staticGet_instance();
+    }
 }
 

@@ -13,15 +13,11 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.graphics.displayable
 
-using System;
-using System.Linq;
+public interface StateControlledInterface : JObject {
+    
 
-namespace org.allbinary.graphics.displayable;
-
-public interface StateControlledInterface
-{
-    void setState(int state);
-
+    public abstract void setState(int32 state);
 }
 

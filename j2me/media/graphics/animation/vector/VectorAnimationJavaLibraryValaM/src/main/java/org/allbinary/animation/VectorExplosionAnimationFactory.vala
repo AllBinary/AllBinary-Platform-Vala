@@ -13,44 +13,47 @@
  *   
  */
 // Generated Code Do Not Modify
+// package org.allbinary.animation
+// import org.allbinary.graphics.color.BasicColor
+// import org.allbinary.graphics.color.BasicColorFactory
 
-using System;
-using System.Linq;
-using BasicColor = org.allbinary.graphics.color.BasicColor;
-using BasicColorFactory = org.allbinary.graphics.color.BasicColorFactory;
+public class VectorExplosionAnimationFactory : JObject, ProceduralAnimationInterfaceFactoryInterface, BasicAnimationInterfaceFactoryInterface {
+    private VectorExplosionGenerator vectorExplosionGenerator;
+    private BasicColor basicColor;
+    public AnimationBehaviorFactory animationBehaviorFactory;
 
-namespace org.allbinary.animation;
+    // Java field initializers run after the base constructor
+    private void initFieldsVectorExplosionAnimationFactory() {
+    this.vectorExplosionGenerator = VectorExplosionGenerator.getInstance();
+    this.basicColor = BasicColorFactory.getInstance().WHITE;
+    
+    }
+    
 
-public class VectorExplosionAnimationFactory : ProceduralAnimationInterfaceFactoryInterface
-{
-    private readonly VectorExplosionGenerator vectorExplosionGenerator = VectorExplosionGenerator.getInstance();
-    private BasicColor basicColor = BasicColorFactory.getInstance().WHITE;
-    public readonly AnimationBehaviorFactory animationBehaviorFactory;
-    public VectorExplosionAnimationFactory(BasicColor basicColor, AnimationBehaviorFactory animationBehaviorFactory)
-    {
+    public VectorExplosionAnimationFactory(BasicColor basicColor, AnimationBehaviorFactory animationBehaviorFactory) {
+        base();
+        this.initFieldsVectorExplosionAnimationFactory();
         this.animationBehaviorFactory = animationBehaviorFactory;
         this.setBasicColorP(basicColor);
     }
+    
 
-    // throws Exception
-    public virtual Animation getInstanceAnimation(Animation animationInterface)
-    {
+    public virtual Animation getInstanceAnimation(Animation animationInterface) {
         VectorAnimationInterface vectorRotationAnimationInterface = ((VectorAnimationInterface) animationInterface);
-        int frame = vectorRotationAnimationInterface.getFrame();
-        int[][] framePoints = vectorRotationAnimationInterface.getPoints(frame);
-        int[][][] points = this.vectorExplosionGenerator.getInstance(framePoints, 6, this.vectorExplosionGenerator.ROTATION);
+        int32 frame = vectorRotationAnimationInterface.getFrame();
+        int32[,] framePoints = vectorRotationAnimationInterface.getPoints(frame);
+        int32[,,] points = this.vectorExplosionGenerator.getInstance3(framePoints, 6, this.vectorExplosionGenerator.ROTATION);
         return new VectorRotationAnimation(points, this.getBasicColorP(), this.animationBehaviorFactory.getOrCreateInstance());
     }
+    
 
-    private void setBasicColorP(BasicColor basicColor)
-    {
+    private void setBasicColorP(BasicColor basicColor) {
         this.basicColor = basicColor;
     }
+    
 
-    private BasicColor getBasicColorP()
-    {
+    private BasicColor getBasicColorP() {
         return this.basicColor;
     }
-
 }
 

@@ -13,37 +13,47 @@
  *   
  */
 // Generated Code Do Not Modify
+// package org.allbinary.graphics.opengles.shader
+// import javax.microedition.khronos.egl.EGLConfig
+// import javax.microedition.khronos.opengles.GL10
+// import org.allbinary.logic.NullUtil
+// import org.allbinary.logic.string.StringUtil
+// import org.allbinary.string.CommonSeps
 
-using System;
-using System.Linq;
-using EGLConfig = javax.microedition.khronos.egl.EGLConfig;
-using GL10 = javax.microedition.khronos.opengles.GL10;
-using NullUtil = org.allbinary.logic.NullUtil;
-using StringUtil = org.allbinary.logic.@string.StringUtil;
-using CommonSeps = org.allbinary.@string.CommonSeps;
-
-namespace org.allbinary.graphics.opengles.shader;
-
-public class CompositeShaderUpdater : ShaderUpdater
-{
-    public readonly CommonSeps commonSeps = CommonSeps.getInstance();
-    private static readonly CompositeShaderUpdater instanceC = new CompositeShaderUpdater(StringUtil.getInstance().getArrayInstance(), StringUtil.getInstance().getArrayInstance(), StringUtil.getInstance().getArrayInstance(), NullUtil.getInstance().NULL_INT_ARRAY);
-    public static CompositeShaderUpdater getInstance()
-    {
+public class CompositeShaderUpdater : ShaderUpdater {
+    private static CompositeShaderUpdater? instanceC;
+    private static bool staticSet_instanceC = false;
+    private static CompositeShaderUpdater staticGet_instanceC() {
+        if (!CompositeShaderUpdater.staticSet_instanceC) {
+            CompositeShaderUpdater.staticSet_instanceC = true;
+            CompositeShaderUpdater.instanceC = new CompositeShaderUpdater(StringUtil.getInstance().getArrayInstance(), StringUtil.getInstance().getArrayInstance(), StringUtil.getInstance().getArrayInstance(), NullUtil.getInstance().NULL_INT_ARRAY);
+        }
         return CompositeShaderUpdater.instanceC;
     }
+    public CommonSeps commonSeps;
 
-    public CompositeShaderUpdater(string[] uniformBlockArray, string[] uniformArray, string[] attributeArray, int[] attributeHandleArray)
-    {
+    // Java field initializers run after the base constructor
+    private void initFieldsCompositeShaderUpdater() {
+    this.commonSeps = CommonSeps.getInstance();
     }
+    
 
-    public virtual void onSurfaceCreated(GL10 gl, EGLConfig eglConfig, int programHandle)
-    {
+    public static CompositeShaderUpdater getInstance() {
+        return CompositeShaderUpdater.staticGet_instanceC();
     }
+    
 
-    public virtual void onSurfaceDestroyed(GL10 gl)
-    {
+    public CompositeShaderUpdater(string[] uniformBlockArray, string[] uniformArray, string[] attributeArray, int32[] attributeHandleArray) {
+        base();
+        this.initFieldsCompositeShaderUpdater();
     }
+    
 
+    public virtual void onSurfaceCreated(GL10 gl, EGLConfig eglConfig, int32 programHandle) {
+    }
+    
+
+    public virtual void onSurfaceDestroyed(GL10 gl) {
+    }
 }
 

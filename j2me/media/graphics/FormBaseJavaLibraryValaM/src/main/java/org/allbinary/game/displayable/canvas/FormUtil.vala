@@ -13,31 +13,38 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.game.displayable.canvas
+// import org.allbinary.graphics.PointFactory
+// import org.allbinary.graphics.Rectangle
+// import org.allbinary.graphics.displayable.DisplayInfoSingleton
+// import org.allbinary.logic.communication.log.LogUtil
 
-using System;
-using System.Linq;
-using PointFactory = org.allbinary.graphics.PointFactory;
-using Rectangle = org.allbinary.graphics.Rectangle;
-using DisplayInfoSingleton = org.allbinary.graphics.displayable.DisplayInfoSingleton;
-using LogUtil = org.allbinary.logic.communication.log.LogUtil;
-
-namespace org.allbinary.game.displayable.canvas;
-
-public class FormUtil
-{
-    private static readonly FormUtil instance = new FormUtil();
-    public static FormUtil getInstance()
-    {
+public class FormUtil : JObject {
+    private static FormUtil? instance;
+    private static bool staticSet_instance = false;
+    private static FormUtil staticGet_instance() {
+        if (!FormUtil.staticSet_instance) {
+            FormUtil.staticSet_instance = true;
+            FormUtil.instance = new FormUtil();
+        }
         return FormUtil.instance;
     }
 
-    public virtual Rectangle createFormRectangle()
-    {
+    public FormUtil() {
+        base();
+    }
+    
+
+    public static FormUtil getInstance() {
+        return FormUtil.staticGet_instance();
+    }
+    
+
+    public virtual Rectangle createFormRectangle() {
         DisplayInfoSingleton displayInfo = DisplayInfoSingleton.getInstance();
         PointFactory pointFactory = PointFactory.getInstance();
         Rectangle rectangle = new Rectangle(pointFactory.createXY(30, 10), displayInfo.getLastWidth() - 30, displayInfo.getLastHeight() - 35);
         return rectangle;
     }
-
 }
 

@@ -13,18 +13,17 @@
  *   
  */
 // Generated Code Do Not Modify
+// package org.allbinary
 
-using System;
-using System.Linq;
+public class AvianUtil : JObject {
 
-namespace org.allbinary;
+    public AvianUtil() {
+        base();
+    }
+    
 
-public class AvianUtil
-{
-    public static bool isAvian()
-    {
+    public static bool isAvian() {
         return false;
     }
-
 }
 

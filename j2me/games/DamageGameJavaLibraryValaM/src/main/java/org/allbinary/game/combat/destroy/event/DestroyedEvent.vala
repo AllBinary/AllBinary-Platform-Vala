@@ -13,58 +13,60 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.game.combat.destroy.event
+// import org.allbinary.game.displayable.canvas.AllBinaryGameCanvas
+// import org.allbinary.game.displayable.canvas.NullGameCanvas
+// import org.allbinary.layer.AllBinaryLayer
+// import org.allbinary.logic.string.StringMaker
+// import org.allbinary.logic.string.StringUtil
+// import org.allbinary.logic.util.event.AllBinaryEventObject
 
-using System;
-using System.Linq;
-using AllBinaryGameCanvas = org.allbinary.game.displayable.canvas.AllBinaryGameCanvas;
-using NullGameCanvas = org.allbinary.game.displayable.canvas.NullGameCanvas;
-using AllBinaryLayer = org.allbinary.layer.AllBinaryLayer;
-using StringMaker = org.allbinary.logic.@string.StringMaker;
-using StringUtil = org.allbinary.logic.@string.StringUtil;
-using AllBinaryEventObject = org.allbinary.logic.util.@event.AllBinaryEventObject;
+public class DestroyedEvent : AllBinaryEventObject {
+    private AllBinaryGameCanvas allBinaryGameCanvas;
+    private AllBinaryLayer allBinaryLayerInterface;
 
-namespace org.allbinary.game.combat.destroy.@event;
+    // Java field initializers run after the base constructor
+    private void initFieldsDestroyedEvent() {
+    this.allBinaryGameCanvas = NullGameCanvas.getInstance();
+    this.allBinaryLayerInterface = AllBinaryLayer.NULL_ALLBINARY_LAYER;
+    }
+    
 
-public class DestroyedEvent : AllBinaryEventObject
-{
-    private AllBinaryGameCanvas allBinaryGameCanvas = NullGameCanvas.getInstance();
-    private AllBinaryLayer allBinaryLayerInterface = AllBinaryLayer.NULL_ALLBINARY_LAYER;
-    public DestroyedEvent(AllBinaryGameCanvas combatGameCanvas) : base(DestroyedEventHandler.getInstance())
-    {
-        // base(DestroyedEventHandler.getInstance()) is called from the constructor declaration
+    public DestroyedEvent(AllBinaryGameCanvas combatGameCanvas) {
+        base(DestroyedEventHandler.getInstance());
+        this.initFieldsDestroyedEvent();
         this.setAllBinaryGameCanvas(combatGameCanvas);
     }
+    
 
-    public virtual AllBinaryGameCanvas getAllBinaryGameCanvas()
-    {
+    public virtual AllBinaryGameCanvas getAllBinaryGameCanvas() {
         return this.allBinaryGameCanvas;
     }
+    
 
-    public virtual AllBinaryLayer getLayerInterface()
-    {
+    public virtual AllBinaryLayer getLayerInterface() {
         return this.allBinaryLayerInterface;
     }
+    
 
-    private void setAllBinaryGameCanvas(AllBinaryGameCanvas allBinaryGameCanvas)
-    {
+    private void setAllBinaryGameCanvas(AllBinaryGameCanvas allBinaryGameCanvas) {
         this.allBinaryGameCanvas = allBinaryGameCanvas;
     }
+    
 
-    public virtual void setLayerInterfaceForCircularStaticPool(AllBinaryLayer allBinaryLayerInterface)
-    {
+    public virtual void setLayerInterfaceForCircularStaticPool(AllBinaryLayer allBinaryLayerInterface) {
         this.allBinaryLayerInterface = allBinaryLayerInterface;
     }
+    
 
-    public override string ToString()
-    {
+    public override string toString() {
         StringMaker stringBuffer = new StringMaker();
         stringBuffer.append("DestroyedEvent: \n");
         stringBuffer.append("AllBinaryLayerInterface: ");
-        stringBuffer.append(this.allBinaryLayerInterface.ToString());
+        stringBuffer.append(this.allBinaryLayerInterface.toString());
         stringBuffer.append("\nAllBinaryGameCanvas: ");
-        stringBuffer.append(StringUtil.getInstance().toString(this.getAllBinaryGameCanvas()));
-        return stringBuffer.ToString();
+        stringBuffer.append(StringUtil.getInstance().toString1(this.getAllBinaryGameCanvas()));
+        return stringBuffer.toString();
     }
-
 }
 

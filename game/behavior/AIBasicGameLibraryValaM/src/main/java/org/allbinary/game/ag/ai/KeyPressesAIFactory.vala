@@ -13,23 +13,22 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.game.ag.ai
+// import org.allbinary.ai.ArtificialIntelligenceInterface
+// import org.allbinary.game.ai.ArtificialIntelligenceInterfaceFactoryInterface
+// import org.allbinary.game.configuration.feature.InputFeatureFactory
+// import org.allbinary.game.input.GameInput
+// import org.allbinary.layer.AllBinaryLayer
+// import org.allbinary.util.ABHashtable
 
-using System;
-using System.Linq;
-using ArtificialIntelligenceInterface = org.allbinary.ai.ArtificialIntelligenceInterface;
-using ArtificialIntelligenceInterfaceFactoryInterface = org.allbinary.game.ai.ArtificialIntelligenceInterfaceFactoryInterface;
-using InputFeatureFactory = org.allbinary.game.configuration.feature.InputFeatureFactory;
-using GameInput = org.allbinary.game.input.GameInput;
-using AllBinaryLayer = org.allbinary.layer.AllBinaryLayer;
-using org.allbinary.util;
+public class KeyPressesAIFactory : JObject, ArtificialIntelligenceInterfaceFactoryInterface {
 
-namespace org.allbinary.game.ag.ai;
+    public KeyPressesAIFactory() {
+        base();
+    }
+    
 
-public class KeyPressesAIFactory : ArtificialIntelligenceInterfaceFactoryInterface
-{
-    // throws Exception
-    public virtual ArtificialIntelligenceInterface getInstance(ABHashtable<object, object> hashtable, AllBinaryLayer ownerLayerInterface, GameInput gameInput)
-    {
+    public virtual ArtificialIntelligenceInterface getInstance3(ABHashtable hashtable, AllBinaryLayer ownerLayerInterface, GameInput gameInput) {
         bool isSingleKeyProcessing = InputFeatureFactory.getInstance().isSingleKeyProcessing();
         if (isSingleKeyProcessing) {
             return new KeyPressesAI(hashtable, ownerLayerInterface, gameInput);
@@ -37,6 +36,5 @@ public class KeyPressesAIFactory : ArtificialIntelligenceInterfaceFactoryInterfa
             return new MultiKeyPressesAI(hashtable, ownerLayerInterface, gameInput);
         }
     }
-
 }
 

@@ -13,25 +13,28 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.game.score
+// import javax.microedition.lcdui.Command
 
-using System;
-using System.Linq;
-using Command = javax.microedition.lcdui.Command;
-
-namespace org.allbinary.game.score;
-
-public class HighScoreCommandsFactory : HighScoreCommandsBaseFactory
-{
-    private static readonly HighScoreCommandsFactory instance = new HighScoreCommandsFactory();
-    public static HighScoreCommandsFactory getInstance()
-    {
+public class HighScoreCommandsFactory : HighScoreCommandsBaseFactory {
+    private static HighScoreCommandsFactory? instance;
+    private static bool staticSet_instance = false;
+    private static HighScoreCommandsFactory staticGet_instance() {
+        if (!HighScoreCommandsFactory.staticSet_instance) {
+            HighScoreCommandsFactory.staticSet_instance = true;
+            HighScoreCommandsFactory.instance = new HighScoreCommandsFactory();
+        }
         return HighScoreCommandsFactory.instance;
     }
+    
 
-    private HighScoreCommandsFactory() : base(new Command[] { HighScoreCommands.getInstance().PERSONAL, HighScoreCommands.getInstance().WORLD })
-    {
-        // base(new Command[] { HighScoreCommands.getInstance().PERSONAL, HighScoreCommands.getInstance().WORLD }) is called from the constructor declaration
+    public static HighScoreCommandsFactory getInstance() {
+        return HighScoreCommandsFactory.staticGet_instance();
     }
+    
 
+    public HighScoreCommandsFactory() {
+        base(new Command[] {HighScoreCommands.getInstance().PERSONAL, HighScoreCommands.getInstance().WORLD});
+    }
 }
 

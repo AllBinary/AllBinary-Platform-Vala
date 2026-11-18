@@ -13,31 +13,32 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.game.input.mapping.event
+// import org.allbinary.game.input.mapping.InputToGameKeyMapping
+// import org.allbinary.logic.util.event.AllBinaryEventObject
 
-using System;
-using System.Linq;
-using InputToGameKeyMapping = org.allbinary.game.input.mapping.InputToGameKeyMapping;
-using AllBinaryEventObject = org.allbinary.logic.util.@event.AllBinaryEventObject;
+public class InputMappingEvent : AllBinaryEventObject {
+    private InputToGameKeyMapping inputToGameKeyMapping;
 
-namespace org.allbinary.game.input.mapping.@event;
-
-public class InputMappingEvent : AllBinaryEventObject
-{
-    private InputToGameKeyMapping inputToGameKeyMapping = InputToGameKeyMapping.getNullInstance();
-    public InputMappingEvent(object anyType) : base(anyType)
-    {
-        // base(anyType) is called from the constructor declaration
+    // Java field initializers run after the base constructor
+    private void initFieldsInputMappingEvent() {
+    this.inputToGameKeyMapping = InputToGameKeyMapping.getNullInstance();
     }
+    
 
-    public virtual void setInputToGameKeyMapping(InputToGameKeyMapping inputToGameKeyMapping)
-    {
+    public InputMappingEvent(JObject anyType) {
+        base(anyType);
+        this.initFieldsInputMappingEvent();
+    }
+    
+
+    public virtual void setInputToGameKeyMapping(InputToGameKeyMapping inputToGameKeyMapping) {
         this.inputToGameKeyMapping = inputToGameKeyMapping;
     }
+    
 
-    public virtual InputToGameKeyMapping getInputToGameKeyMapping()
-    {
+    public virtual InputToGameKeyMapping getInputToGameKeyMapping() {
         return this.inputToGameKeyMapping;
     }
-
 }
 

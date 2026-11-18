@@ -1,58 +1,59 @@
 // Generated Code Do Not Modify
+// package org.allbinary.graphics.form.item
+// import javax.microedition.lcdui.Canvas
+// import javax.microedition.lcdui.Font
+// import org.allbinary.graphics.color.BasicColor
+// import org.allbinary.logic.string.StringUtil
+// import org.allbinary.logic.util.visitor.Visitor
 
-using System;
-using System.Linq;
-using Canvas = javax.microedition.lcdui.Canvas;
-using Font = javax.microedition.lcdui.Font;
-using BasicColor = org.allbinary.graphics.color.BasicColor;
-using StringUtil = org.allbinary.logic.@string.StringUtil;
-using Visitor = org.allbinary.logic.util.visitor.Visitor;
-
-namespace org.allbinary.graphics.form.item;
-
-public class ABTextFieldItem : ABTextItem
-{
+public class ABTextFieldItem : ABTextItem {
     private Font font;
-    public ABTextFieldItem(Canvas canvas, Visitor visitor, string label, string value, int maxSize, int layout, string altText, Font font, BasicColor backgroundBasicColor, BasicColor foregroundBasicColor) : base(label, layout, altText, backgroundBasicColor, foregroundBasicColor)
-    {
-        // base(label, layout, altText, backgroundBasicColor, foregroundBasicColor) is called from the constructor declaration
+
+    // Java field initializers run after the base constructor
+    private void initFieldsABTextFieldItem() {
+    
+    }
+    
+
+    public ABTextFieldItem(Canvas canvas, Visitor visitor, string label, string value, int32 maxSize, int32 layout, string altText, Font font, BasicColor backgroundBasicColor, BasicColor foregroundBasicColor) {
+        base(label, layout, altText, backgroundBasicColor, foregroundBasicColor);
+        this.initFieldsABTextFieldItem();
         this.font = font;
     }
+    
 
-    public override string getLabel()
-    {
+    public override string getLabel() {
         return StringUtil.getInstance().EMPTY_STRING;
     }
+    
 
-    public override void setLabel(string label)
-    {
+    public override void setLabel(string label) {
     }
+    
 
-    public virtual string getString()
-    {
+    public virtual string getString() {
         return StringUtil.getInstance().EMPTY_STRING;
     }
+    
 
-    public virtual void setString(string @string)
-    {
+    public virtual void setString(string string) {
     }
+    
 
-    public virtual void setFocus(bool state)
-    {
+    public virtual void setFocus(bool state) {
     }
+    
 
-    public virtual int getFontHeight()
-    {
+    public virtual int32 getFontHeight() {
         return this.font.getHeight();
     }
+    
 
-    public virtual void setBackgroundBasicColorP(BasicColor basicColor)
-    {
+    public virtual void setBackgroundBasicColorP(BasicColor basicColor) {
     }
+    
 
-    public virtual void setForegroundBasicColorP(BasicColor basicColor)
-    {
+    public virtual void setForegroundBasicColorP(BasicColor basicColor) {
     }
-
 }
 

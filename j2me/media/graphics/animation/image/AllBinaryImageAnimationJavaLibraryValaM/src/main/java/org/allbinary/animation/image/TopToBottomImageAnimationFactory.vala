@@ -13,28 +13,22 @@
  *   
  */
 // Generated Code Do Not Modify
+// package org.allbinary.animation.image
+// import javax.microedition.lcdui.Image
+// import org.allbinary.animation.Animation
+// import org.allbinary.animation.AnimationBehaviorFactory
 
-using System;
-using System.Linq;
-using Image = javax.microedition.lcdui.Image;
-using Animation = org.allbinary.animation.Animation;
-using AnimationBehaviorFactory = org.allbinary.animation.AnimationBehaviorFactory;
+public class TopToBottomImageAnimationFactory : BaseImageAnimationFactory {
+    
 
-namespace org.allbinary.animation.image;
-
-public class TopToBottomImageAnimationFactory : BaseImageAnimationFactory
-{
-    public TopToBottomImageAnimationFactory(Image image, int[] sequenceArray, AnimationBehaviorFactory animationBehaviorFactory) : base(image, sequenceArray, image.getWidth(), image.getHeight(), 0, 0, animationBehaviorFactory)
-    {
-        // base(image, sequenceArray, image.getWidth(), image.getHeight(), 0, 0, animationBehaviorFactory) is called from the constructor declaration
+    public TopToBottomImageAnimationFactory(Image image, int32[] sequenceArray, AnimationBehaviorFactory animationBehaviorFactory) {
+        base(image, sequenceArray, image.getWidth(), image.getHeight(), 0, 0, animationBehaviorFactory);
     }
+    
 
-    // throws Exception
-    public override Animation getInstance(int instanceId)
-    {
+    public override Animation getInstance1(int32 instanceId) {
         Image scaledImage = this.animationFactoryImageScaleUtil.createImage(this.getImage(), this.animationFactoryInitializationVisitor.width, this.animationFactoryInitializationVisitor.height, this.scaleProperties.scaleWidth, this.scaleProperties.scaleHeight);
         return new TopToBottomImageAnimation(scaledImage, this.getSequenceArray(), this.animationBehaviorFactory.getOrCreateInstance());
     }
-
 }
 

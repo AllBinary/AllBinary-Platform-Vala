@@ -13,46 +13,49 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.bounds
+// import org.allbinary.bounds.event.BoundsChangeEvent
+// import org.allbinary.bounds.event.BoundsChangeEventListener
+// import org.allbinary.graphics.Rectangle
+// import org.allbinary.logic.communication.log.ForcedLogUtil
+// import org.allbinary.logic.communication.log.LogUtil
+// import org.allbinary.logic.util.event.AllBinaryEventObject
+// import org.allbinary.logic.util.event.EventStrings
 
-using System;
-using System.Linq;
-using BoundsChangeEvent = org.allbinary.bounds.@event.BoundsChangeEvent;
-using BoundsChangeEventListener = org.allbinary.bounds.@event.BoundsChangeEventListener;
-using Rectangle = org.allbinary.graphics.Rectangle;
-using ForcedLogUtil = org.allbinary.logic.communication.log.ForcedLogUtil;
-using LogUtil = org.allbinary.logic.communication.log.LogUtil;
-using AllBinaryEventObject = org.allbinary.logic.util.@event.AllBinaryEventObject;
-using EventStrings = org.allbinary.logic.util.@event.EventStrings;
-
-namespace org.allbinary.bounds;
-
-public class LayerBounds : BoundsChangeEventListener
-{
-    public readonly LogUtil logUtil = LogUtil.getInstance();
+public class LayerBounds : JObject, BoundsChangeEventListener, EventListenerInterface {
+    public LogUtil logUtil;
     public Rectangle rectangle;
-    public LayerBounds(Rectangle rectangle)
-    {
+
+    // Java field initializers run after the base constructor
+    private void initFieldsLayerBounds() {
+    this.logUtil = LogUtil.getInstance();
+    
+    }
+    
+
+    public LayerBounds(Rectangle rectangle) {
+        base();
+        this.initFieldsLayerBounds();
         this.rectangle = rectangle;
     }
+    
 
-    public virtual Rectangle getRectangleP()
-    {
+    public virtual Rectangle getRectangleP() {
         return this.rectangle;
     }
+    
 
-    public virtual void visit(BoundsVisitorInterface boundsVisitorInterface)
-    {
+    public virtual void visit(BoundsVisitorInterface boundsVisitorInterface) {
     }
+    
 
-    public virtual void onEvent(AllBinaryEventObject eventObject)
-    {
+    public virtual void onEvent(AllBinaryEventObject eventObject) {
         ForcedLogUtil.log(EventStrings.getInstance().PERFORMANCE_MESSAGE, this);
     }
+    
 
-    public virtual void onBoundsChangeEvent(BoundsChangeEvent boundsChangeEvent)
-    {
+    public virtual void onBoundsChangeEvent(BoundsChangeEvent boundsChangeEvent) {
         this.rectangle = boundsChangeEvent.getRectangle();
     }
-
 }
 

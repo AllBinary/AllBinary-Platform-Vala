@@ -13,53 +13,58 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.input.motion.button
+// import org.allbinary.game.input.event.DownGameKeyEventHandler
+// import org.allbinary.game.input.event.GameKeyEvent
+// import org.allbinary.game.input.event.UpGameKeyEventHandler
+// import org.allbinary.graphics.GPoint
+// import org.allbinary.graphics.Rectangle
+// import org.allbinary.logic.communication.log.LogUtil
+// import org.allbinary.math.RectangleCollisionUtil
+// import org.allbinary.util.BasicArrayList
 
-using System;
-using System.Linq;
-using System.Runtime.CompilerServices;
-using DownGameKeyEventHandler = org.allbinary.game.input.@event.DownGameKeyEventHandler;
-using GameKeyEvent = org.allbinary.game.input.@event.GameKeyEvent;
-using UpGameKeyEventHandler = org.allbinary.game.input.@event.UpGameKeyEventHandler;
-using GPoint = org.allbinary.graphics.GPoint;
-using Rectangle = org.allbinary.graphics.Rectangle;
-using LogUtil = org.allbinary.logic.communication.log.LogUtil;
-using RectangleCollisionUtil = org.allbinary.math.RectangleCollisionUtil;
-using BasicArrayList = org.allbinary.util.BasicArrayList;
+public class TouchButtonRecognizer : JObject {
+    public LogUtil logUtil;
+    private RectangleCollisionUtil rectangleCollisionUtil;
+    public UpGameKeyEventHandler upGameKeyEventHandler;
+    private DownGameKeyEventHandler downGameKeyEventHandler;
+    private TouchButtonInput lastPressedTouchButtonInput;
+    public CurrentlyPressedTouchButtonSingleton currentlyPressedTouchButtonSingleton;
+    private ReleaseHelper releaseHelper;
 
-namespace org.allbinary.input.motion.button;
+    // Java field initializers run after the base constructor
+    private void initFieldsTouchButtonRecognizer() {
+    this.logUtil = LogUtil.getInstance();
+    this.rectangleCollisionUtil = RectangleCollisionUtil.getInstance();
+    this.upGameKeyEventHandler = UpGameKeyEventHandler.getInstance();
+    this.downGameKeyEventHandler = DownGameKeyEventHandler.getInstance();
+    this.lastPressedTouchButtonInput = BasicTouchInputFactory.getInstance().NONE;
+    this.currentlyPressedTouchButtonSingleton = CurrentlyPressedTouchButtonSingleton.getInstance();
+    this.releaseHelper = null;
+    }
+    
 
-public class TouchButtonRecognizer
-{
-    public readonly LogUtil logUtil = LogUtil.getInstance();
-    private readonly RectangleCollisionUtil rectangleCollisionUtil = RectangleCollisionUtil.getInstance();
-    public readonly UpGameKeyEventHandler upGameKeyEventHandler = UpGameKeyEventHandler.getInstance();
-    private readonly DownGameKeyEventHandler downGameKeyEventHandler = DownGameKeyEventHandler.getInstance();
-    private TouchButtonInput lastPressedTouchButtonInput = BasicTouchInputFactory.getInstance().NONE;
-    public readonly CurrentlyPressedTouchButtonSingleton currentlyPressedTouchButtonSingleton = CurrentlyPressedTouchButtonSingleton.getInstance();
-    private readonly ReleaseHelper releaseHelper = null;
-    public TouchButtonRecognizer()
-    {
+    public TouchButtonRecognizer() {
+        base();
+        this.initFieldsTouchButtonRecognizer();
         if (TouchScreenFactory.getInstance().isMultiTouch()) {
             this.releaseHelper = new MultitouchReleaseHelper(this);
         } else {
             this.releaseHelper = new ReleaseHelper(this);
         }
     }
+    
 
-    // throws Exception
-    private void processRelease(TouchButtonInput touchButtonInput, int deviceId)
-    {
+    private void processRelease(TouchButtonInput touchButtonInput, int32 deviceId) {
         this.releaseHelper.release(touchButtonInput, deviceId);
         GameKeyEvent gameKeyEvent = touchButtonInput.getGameKeyEvent();
         this.upGameKeyEventHandler.fireEvent(gameKeyEvent);
         this.upGameKeyEventHandler.getInstanceForDevice(deviceId).fireEvent(gameKeyEvent);
         this.currentlyPressedTouchButtonSingleton.remove(touchButtonInput);
     }
+    
 
-    // throws Exception
-    [MethodImpl(MethodImplOptions.Synchronized)]
-    public virtual bool releaseTouchButtonInput(int x, int y, int deviceId)
-    {
+    public virtual bool releaseTouchButtonInput(int32 x, int32 y, int32 deviceId) {
         TouchButtonInput touchButtonInput = this.lastPressedTouchButtonInput;
         if (this.currentlyPressedTouchButtonSingleton.contains(touchButtonInput)) {
             this.lastPressedTouchButtonInput = BasicTouchInputFactory.getInstance().NONE;
@@ -70,7 +75,7 @@ public class TouchButtonRecognizer
             Rectangle rectangle = null;
             GPoint point = null;
             TouchButton touchButton = null;
-            for (int index = list.size() - 1; index >= 0; index--) {
+            for (int32 index = list.size() - 1; index >= 0; index--) {
                 touchButton = ((TouchButton) list.objectArray[index]);
                 rectangle = touchButton.getRectangle();
                 point = rectangle.getPoint();
@@ -83,18 +88,16 @@ public class TouchButtonRecognizer
         }
         return false;
     }
+    
 
-    // throws Exception
-    [MethodImpl(MethodImplOptions.Synchronized)]
-    public virtual bool pressTouchButtonInput(int x, int y, int deviceId)
-    {
+    public virtual bool pressTouchButtonInput(int32 x, int32 y, int32 deviceId) {
         BasicArrayList list = TouchButtonFactory.getInstance().getList();
         Rectangle rectangle = null;
         GPoint point = null;
         TouchButton touchButton = null;
         TouchButtonInput touchButtonInput = null;
         GameKeyEvent gameKeyEvent = null;
-        for (int index = list.size() - 1; index >= 0; index--) {
+        for (int32 index = list.size() - 1; index >= 0; index--) {
             touchButton = ((TouchButton) list.objectArray[index]);
             rectangle = touchButton.getRectangle();
             point = rectangle.getPoint();
@@ -113,6 +116,5 @@ public class TouchButtonRecognizer
         }
         return false;
     }
-
 }
 

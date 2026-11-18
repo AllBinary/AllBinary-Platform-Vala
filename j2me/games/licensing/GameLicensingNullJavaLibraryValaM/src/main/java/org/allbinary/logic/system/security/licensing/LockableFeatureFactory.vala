@@ -13,27 +13,40 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.logic.system.security.licensing
+// import org.allbinary.util.BasicArrayList
+// import org.allbinary.util.BasicArrayListD
 
-using System;
-using System.Linq;
-using BasicArrayList = org.allbinary.util.BasicArrayList;
-using BasicArrayListD = org.allbinary.util.BasicArrayListD;
-
-namespace org.allbinary.logic.system.security.licensing;
-
-public class LockableFeatureFactory
-{
-    private static readonly LockableFeatureFactory instance = new LockableFeatureFactory();
-    public static LockableFeatureFactory getInstance()
-    {
+public class LockableFeatureFactory : JObject {
+    private static LockableFeatureFactory? instance;
+    private static bool staticSet_instance = false;
+    private static LockableFeatureFactory staticGet_instance() {
+        if (!LockableFeatureFactory.staticSet_instance) {
+            LockableFeatureFactory.staticSet_instance = true;
+            LockableFeatureFactory.instance = new LockableFeatureFactory();
+        }
         return LockableFeatureFactory.instance;
     }
+    private BasicArrayList list;
 
-    private readonly BasicArrayList list = new BasicArrayListD();
-    public virtual BasicArrayList getList()
-    {
-        return this.list;
+    // Java field initializers run after the base constructor
+    private void initFieldsLockableFeatureFactory() {
+    this.list = new BasicArrayListD();
     }
 
+    public LockableFeatureFactory() {
+        base();
+        this.initFieldsLockableFeatureFactory();
+    }
+    
+
+    public static LockableFeatureFactory getInstance() {
+        return LockableFeatureFactory.staticGet_instance();
+    }
+    
+
+    public virtual BasicArrayList getList() {
+        return this.list;
+    }
 }
 

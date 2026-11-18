@@ -13,27 +13,41 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.game.physics.acceleration
+// import org.allbinary.game.physics.velocity.BasicVelocityProperties
 
-using System;
-using System.Linq;
-using BasicVelocityProperties = org.allbinary.game.physics.velocity.BasicVelocityProperties;
-
-namespace org.allbinary.game.physics.acceleration;
-
-public class GravityUtil
-{
-    private static readonly GravityUtil instance = new GravityUtil();
-    public static GravityUtil getInstance()
-    {
+public class GravityUtil : JObject {
+    private static GravityUtil? instance;
+    private static bool staticSet_instance = false;
+    private static GravityUtil staticGet_instance() {
+        if (!GravityUtil.staticSet_instance) {
+            GravityUtil.staticSet_instance = true;
+            GravityUtil.instance = new GravityUtil();
+        }
         return GravityUtil.instance;
     }
+    public int32 GAME_GRAVITY_VELOCITY;
+    public int32 MAX_GAME_VELOCITY;
 
-    public readonly int GAME_GRAVITY_VELOCITY = 1800;
-    public readonly int MAX_GAME_VELOCITY = 18000;
-    public void process(BasicVelocityProperties velocityProperties, int customGravity)
-    {
-        velocityProperties.getVelocityYBasicDecimalP().addint(customGravity);
+    // Java field initializers run after the base constructor
+    private void initFieldsGravityUtil() {
+    this.GAME_GRAVITY_VELOCITY = 1800;
+    this.MAX_GAME_VELOCITY = 18000;
     }
 
+    public GravityUtil() {
+        base();
+        this.initFieldsGravityUtil();
+    }
+    
+
+    public static GravityUtil getInstance() {
+        return GravityUtil.staticGet_instance();
+    }
+    
+
+    public virtual void process(BasicVelocityProperties velocityProperties, int32 customGravity) {
+        velocityProperties.getVelocityYBasicDecimalP().addint(customGravity);
+    }
 }
 

@@ -13,53 +13,66 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.graphics
+// import org.allbinary.util.BasicArrayList
+// import org.allbinary.util.BasicArrayListUtil
 
-using System;
-using System.Linq;
-using BasicArrayList = org.allbinary.util.BasicArrayList;
-using BasicArrayListUtil = org.allbinary.util.BasicArrayListUtil;
-
-namespace org.allbinary.graphics;
-
-public class RelativeRelationship
-{
-    public static readonly RelativeRelationship NULL_RELATIVE_RELATIONSHIP = new RelativeRelationship(PointFactory.getInstance().ZERO_ZERO, BasicArrayListUtil.getInstance().getImmutableInstance());
+public class RelativeRelationship : JObject {
+    public static RelativeRelationship? NULL_RELATIVE_RELATIONSHIP;
+    private static bool staticSet_NULL_RELATIVE_RELATIONSHIP = false;
+    public static RelativeRelationship staticGet_NULL_RELATIVE_RELATIONSHIP() {
+        if (!RelativeRelationship.staticSet_NULL_RELATIVE_RELATIONSHIP) {
+            RelativeRelationship.staticSet_NULL_RELATIVE_RELATIONSHIP = true;
+            RelativeRelationship.NULL_RELATIVE_RELATIONSHIP = new RelativeRelationship(PointFactory.getInstance().ZERO_ZERO, BasicArrayListUtil.getInstance().getImmutableInstance());
+        }
+        return RelativeRelationship.NULL_RELATIVE_RELATIONSHIP;
+    }
     private BasicArrayList typesAllowedList;
-    private int x;
-    private int y;
-    private int z;
-    public RelativeRelationship(GPoint point, BasicArrayList typesAllowedList)
-    {
+    private int32 x;
+    private int32 y;
+    private int32 z;
+
+    // Java field initializers run after the base constructor
+    private void initFieldsRelativeRelationship() {
+    
+    
+    
+    
+    }
+    
+
+    public RelativeRelationship(GPoint point, BasicArrayList typesAllowedList) {
+        base();
+        this.initFieldsRelativeRelationship();
         this.x = point.getX();
         this.y = point.getY();
         this.z = point.getZ();
         this.typesAllowedList = typesAllowedList;
     }
+    
 
-    public virtual int getX()
-    {
+    public virtual int32 getX() {
         return this.x;
     }
+    
 
-    public virtual int getY()
-    {
+    public virtual int32 getY() {
         return this.y;
     }
+    
 
-    public virtual int getZ()
-    {
+    public virtual int32 getZ() {
         return this.z;
     }
+    
 
-    public virtual BasicArrayList getTypesAllowedList()
-    {
+    public virtual BasicArrayList getTypesAllowedList() {
         return this.typesAllowedList;
     }
+    
 
-    public virtual void setTypesAllowedList(BasicArrayList typesAllowedList)
-    {
+    public virtual void setTypesAllowedList(BasicArrayList typesAllowedList) {
         this.typesAllowedList = typesAllowedList;
     }
-
 }
 

@@ -13,38 +13,49 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.game.score
+// import org.allbinary.game.GameInfo
+// import org.allbinary.logic.communication.log.LogUtil
 
-using System;
-using System.Linq;
-using GameInfo = org.allbinary.game.GameInfo;
-using LogUtil = org.allbinary.logic.communication.log.LogUtil;
-
-namespace org.allbinary.game.score;
-
-public class NoHighScoresFactory : HighScoresBase
-{
-    public readonly LogUtil logUtil = LogUtil.getInstance();
-    private static readonly NoHighScoresFactory instance = new NoHighScoresFactory();
-    public static NoHighScoresFactory getInstance()
-    {
+public class NoHighScoresFactory : HighScoresBase {
+    private static NoHighScoresFactory? instance;
+    private static bool staticSet_instance = false;
+    private static NoHighScoresFactory staticGet_instance() {
+        if (!NoHighScoresFactory.staticSet_instance) {
+            NoHighScoresFactory.staticSet_instance = true;
+            NoHighScoresFactory.instance = new NoHighScoresFactory();
+        }
         return NoHighScoresFactory.instance;
     }
+    public LogUtil logUtil;
+    public HighScores[] NO_HIGH_SCORES;
 
-    public readonly HighScores[] NO_HIGH_SCORES = new HighScores[0];
-    private NoHighScoresFactory()
-    {
+    // Java field initializers run after the base constructor
+    private void initFieldsNoHighScoresFactory() {
+    this.logUtil = LogUtil.getInstance();
+    this.NO_HIGH_SCORES = new HighScores[0];
     }
+    
 
-    public override void fetchHighScores(GameInfo gameInfo, HighScoresResultsListener highScoresResultsListener)
-    {
+    public static NoHighScoresFactory getInstance() {
+        return NoHighScoresFactory.staticGet_instance();
+    }
+    
+
+    public NoHighScoresFactory() {
+        base();
+        this.initFieldsNoHighScoresFactory();
+    }
+    
+
+    public override void fetchHighScores(GameInfo gameInfo, HighScoresResultsListener highScoresResultsListener) {
         this.logUtil.putF("Getting No HighScores", this, "fetchHighScores");
         highScoresResultsListener.setHighScoresArray(this.NO_HIGH_SCORES);
     }
+    
 
-    public override HighScoresHelperBaseInterface createHighScoresHelper()
-    {
+    public override HighScoresHelperBaseInterface createHighScoresHelper() {
         return new HighScoresHelperBase();
     }
-
 }
 

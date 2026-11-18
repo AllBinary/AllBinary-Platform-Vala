@@ -13,20 +13,22 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.game.layer.special
+// import org.allbinary.game.input.GameInputProcessor
 
-using System;
-using System.Linq;
-using GameInputProcessor = org.allbinary.game.input.GameInputProcessor;
+public class SpecialGameInputProcessor : GameInputProcessor {
+    public CollidableDestroyableDamageableLayer collidableDestroyableDamageableLayer;
 
-namespace org.allbinary.game.layer.special;
+    // Java field initializers run after the base constructor
+    private void initFieldsSpecialGameInputProcessor() {
+    
+    }
+    
 
-public class SpecialGameInputProcessor : GameInputProcessor
-{
-    public readonly CollidableDestroyableDamageableLayer collidableDestroyableDamageableLayer;
-    public SpecialGameInputProcessor(CollidableDestroyableDamageableLayer collidableDestroyableDamageableLayer)
-    {
+    public SpecialGameInputProcessor(CollidableDestroyableDamageableLayer collidableDestroyableDamageableLayer) {
+        base();
+        this.initFieldsSpecialGameInputProcessor();
         this.collidableDestroyableDamageableLayer = collidableDestroyableDamageableLayer;
     }
-
 }
 

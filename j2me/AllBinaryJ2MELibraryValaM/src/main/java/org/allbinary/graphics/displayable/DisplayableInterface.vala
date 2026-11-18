@@ -13,25 +13,25 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.graphics.displayable
+// import javax.microedition.lcdui.Command
+// import javax.microedition.lcdui.CommandListener
 
-using System;
-using System.Linq;
-using Command = javax.microedition.lcdui.Command;
-using CommandListener = javax.microedition.lcdui.CommandListener;
+public interface DisplayableInterface : JObject {
+    
 
-namespace org.allbinary.graphics.displayable;
+    public abstract void addCommand(Command cmd);
+    
 
-public interface DisplayableInterface
-{
-    void addCommand(Command cmd);
+    public abstract int32 getHeight();
+    
 
-    int getHeight();
+    public abstract int32 getWidth();
+    
 
-    int getWidth();
+    public abstract void removeCommand(Command cmd);
+    
 
-    void removeCommand(Command cmd);
-
-    void setCommandListener(CommandListener l);
-
+    public abstract void setCommandListener(CommandListener l);
 }
 

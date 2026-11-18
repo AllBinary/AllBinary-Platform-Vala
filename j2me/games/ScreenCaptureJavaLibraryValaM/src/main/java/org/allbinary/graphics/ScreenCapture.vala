@@ -13,25 +13,24 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.graphics
 
-using System;
-using System.Linq;
+public class ScreenCapture : JObject {
 
-namespace org.allbinary.graphics;
-
-public class ScreenCapture
-{
-    public virtual void saveFrame()
-    {
+    public ScreenCapture() {
+        base();
     }
+    
 
-    public virtual void startRecording()
-    {
+    public virtual void saveFrame() {
     }
+    
 
-    public virtual void endRecording()
-    {
+    public virtual void startRecording() {
     }
+    
 
+    public virtual void endRecording() {
+    }
 }
 

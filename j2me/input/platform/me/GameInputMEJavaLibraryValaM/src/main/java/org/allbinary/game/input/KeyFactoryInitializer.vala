@@ -13,21 +13,26 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.game.input
+// import org.allbinary.init.Init
+// import org.allbinary.logic.communication.log.LogUtil
 
-using System;
-using System.Linq;
-using Init = org.allbinary.init.Init;
-using LogUtil = org.allbinary.logic.communication.log.LogUtil;
+public class KeyFactoryInitializer : Init {
+    public LogUtil logUtil;
 
-namespace org.allbinary.game.input;
-
-public class KeyFactoryInitializer : Init
-{
-    public readonly LogUtil logUtil = LogUtil.getInstance();
-    public override void init()
-    {
-        this.logUtil.putF(this.commonStrings.START, this, this.commonStrings.INIT);
+    // Java field initializers run after the base constructor
+    private void initFieldsKeyFactoryInitializer() {
+    this.logUtil = LogUtil.getInstance();
     }
 
+    public KeyFactoryInitializer() {
+        base();
+        this.initFieldsKeyFactoryInitializer();
+    }
+    
+
+    public override void init() {
+        this.logUtil.putF(this.commonStrings.START, this, this.commonStrings.INIT);
+    }
 }
 

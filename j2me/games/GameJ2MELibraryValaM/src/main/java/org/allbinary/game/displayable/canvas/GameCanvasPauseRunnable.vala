@@ -13,44 +13,43 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.game.displayable.canvas
+// import org.allbinary.AndroidUtil
+// import org.allbinary.game.configuration.feature.Features
+// import org.allbinary.graphics.opengles.OpenGLFeatureFactory
+// import org.allbinary.logic.communication.log.LogUtil
+// import org.allbinary.string.CommonStrings
 
-using System;
-using System.Linq;
-using AndroidUtil = org.allbinary.AndroidUtil;
-using Features = org.allbinary.game.configuration.feature.Features;
-using OpenGLFeatureFactory = org.allbinary.graphics.opengles.OpenGLFeatureFactory;
-using LogUtil = org.allbinary.logic.communication.log.LogUtil;
-using CommonStrings = org.allbinary.@string.CommonStrings;
+public class GameCanvasPauseRunnable : GameRunnable {
+    public LogUtil logUtil;
+    private AllBinaryGameCanvas allBinaryGameCanvas;
 
-namespace org.allbinary.game.displayable.canvas;
+    // Java field initializers run after the base constructor
+    private void initFieldsGameCanvasPauseRunnable() {
+    this.logUtil = LogUtil.getInstance();
+    
+    }
+    
 
-public class GameCanvasPauseRunnable : GameRunnable
-{
-    public readonly LogUtil logUtil = LogUtil.getInstance();
-    private readonly AllBinaryGameCanvas allBinaryGameCanvas;
-    public GameCanvasPauseRunnable(AllBinaryGameCanvas allBinaryGameCanvas)
-    {
+    public GameCanvasPauseRunnable(AllBinaryGameCanvas allBinaryGameCanvas) {
+        base();
+        this.initFieldsGameCanvasPauseRunnable();
         this.allBinaryGameCanvas = allBinaryGameCanvas;
     }
+    
 
-    public override void run()
-    {
+    public override void run() {
     }
+    
 
-    // throws Exception
-    public override void processLoopSleep()
-    {
-        try {
+    public override void processLoopSleep() {
+        {
             Features features = Features.getInstance();
             bool isOpenGL = features.isDefault(OpenGLFeatureFactory.getInstance().OPENGL);
             if (isOpenGL) {
                 this.allBinaryGameCanvas.processSleep();
             }
-        } catch (Exception e) {
-            CommonStrings commonStrings = CommonStrings.getInstance();
-            this.logUtil.put(commonStrings.EXCEPTION, this, commonStrings.RUN, e);
-        }
+        } /* catch (Exception e): a thrown Java exception stops the program */
     }
-
 }
 

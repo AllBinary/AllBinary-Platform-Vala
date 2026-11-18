@@ -13,47 +13,48 @@
  *   
  */
 // Generated Code Do Not Modify
+// package org.allbinary.animation
+// import org.allbinary.game.configuration.GameConfigurationCentral
+// import org.allbinary.math.AngleFactory
+// import org.allbinary.math.AngleInfo
+// import org.allbinary.media.ScaleProperties
 
-using System;
-using System.Linq;
-using GameConfigurationCentral = org.allbinary.game.configuration.GameConfigurationCentral;
-using AngleFactory = org.allbinary.math.AngleFactory;
-using AngleInfo = org.allbinary.math.AngleInfo;
-using ScaleProperties = org.allbinary.media.ScaleProperties;
+public class RotationAnimationFactory : JObject, AnimationInterfaceFactoryInterface, ProceduralAnimationInterfaceFactoryInterface, BasicAnimationInterfaceFactoryInterface {
+    private int16 totalAngle;
+    private int16 angleIncrement;
 
-namespace org.allbinary.animation;
-
-public class RotationAnimationFactory : AnimationInterfaceFactoryInterface, ProceduralAnimationInterfaceFactoryInterface
-{
-    public static RotationAnimationFactory createFactory()
-    {
-        short totalAngle = AngleFactory.getInstance().TOTAL_ANGLE;
-        return new RotationAnimationFactory(totalAngle, ((short) (totalAngle / GameConfigurationCentral.getInstance().getGameControlFidelity())));
+    // Java field initializers run after the base constructor
+    private void initFieldsRotationAnimationFactory() {
+    
+    
     }
+    
 
-    private short totalAngle;
-    private short angleIncrement;
-    public RotationAnimationFactory(short totalAngle, short angleIncrement)
-    {
+    public static RotationAnimationFactory createFactory() {
+        int16 totalAngle = AngleFactory.getInstance().TOTAL_ANGLE;
+        return new RotationAnimationFactory(totalAngle, ((int16) ((((int32) (totalAngle)) / GameConfigurationCentral.getInstance().getGameControlFidelity()))));
+    }
+    
+
+    public RotationAnimationFactory(int16 totalAngle, int16 angleIncrement) {
+        base();
+        this.initFieldsRotationAnimationFactory();
         this.totalAngle = totalAngle;
         this.angleIncrement = angleIncrement;
     }
+    
 
-    // throws Exception
-    public virtual Animation getInstance(int instanceId)
-    {
-        return NullRotationAnimation.createTotalAngle(AngleInfo.getInstance(this.angleIncrement), this.totalAngle, AnimationBehavior.getInstance());
+    public virtual Animation getInstance1(int32 instanceId) {
+        return NullRotationAnimation.createTotalAngle(AngleInfo.getInstance1(this.angleIncrement), this.totalAngle, AnimationBehavior.getInstance());
     }
+    
 
-    // throws Exception
-    public virtual Animation getInstanceAnimation(Animation animationInterface)
-    {
-        return NullRotationAnimation.createTotalAngle(AngleInfo.getInstance(this.angleIncrement), this.totalAngle, AnimationBehavior.getInstance());
+    public virtual Animation getInstanceAnimation(Animation animationInterface) {
+        return NullRotationAnimation.createTotalAngle(AngleInfo.getInstance1(this.angleIncrement), this.totalAngle, AnimationBehavior.getInstance());
     }
+    
 
-    public virtual void setInitialScale(ScaleProperties scaleProperties)
-    {
+    public virtual void setInitialScale(ScaleProperties scaleProperties) {
     }
-
 }
 

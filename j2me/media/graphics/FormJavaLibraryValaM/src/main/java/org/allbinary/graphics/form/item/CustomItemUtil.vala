@@ -13,20 +13,33 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.graphics.form.item
 
-using System;
-using System.Linq;
-
-namespace org.allbinary.graphics.form.item;
-
-public class CustomItemUtil
-{
-    private static readonly CustomItemUtil instance = new CustomItemUtil();
-    public static CustomItemUtil getInstance()
-    {
+public class CustomItemUtil : JObject {
+    private static CustomItemUtil? instance;
+    private static bool staticSet_instance = false;
+    private static CustomItemUtil staticGet_instance() {
+        if (!CustomItemUtil.staticSet_instance) {
+            CustomItemUtil.staticSet_instance = true;
+            CustomItemUtil.instance = new CustomItemUtil();
+        }
         return CustomItemUtil.instance;
     }
+    public ABCustomItem[] CUSTOM_ITEM_ARRAY;
 
-    public readonly ABCustomItem[] CUSTOM_ITEM_ARRAY = new ABCustomItem[0];
+    // Java field initializers run after the base constructor
+    private void initFieldsCustomItemUtil() {
+    this.CUSTOM_ITEM_ARRAY = new ABCustomItem[0];
+    }
+
+    public CustomItemUtil() {
+        base();
+        this.initFieldsCustomItemUtil();
+    }
+    
+
+    public static CustomItemUtil getInstance() {
+        return CustomItemUtil.staticGet_instance();
+    }
 }
 

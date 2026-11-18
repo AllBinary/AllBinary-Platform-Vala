@@ -13,19 +13,18 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.game.score
+// import org.allbinary.game.score.displayable.HighScoresCanvas
 
-using System;
-using System.Linq;
-using HighScoresCanvas = org.allbinary.game.score.displayable.HighScoresCanvas;
+public class HighScoresCanvasNoInputProcessorFactory : JObject, HighScoresCanvasInputProcessorFactoryInterface {
 
-namespace org.allbinary.game.score;
+    public HighScoresCanvasNoInputProcessorFactory() {
+        base();
+    }
+    
 
-public class HighScoresCanvasNoInputProcessorFactory : HighScoresCanvasInputProcessorFactoryInterface
-{
-    public virtual HighScoresCanvasInputProcessor getInstance(HighScoresCanvas highScoresCanvas)
-    {
+    public virtual HighScoresCanvasInputProcessor getInstance1(HighScoresCanvas highScoresCanvas) {
         return new HighScoresCanvasInputProcessor(highScoresCanvas);
     }
-
 }
 

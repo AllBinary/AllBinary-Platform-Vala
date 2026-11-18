@@ -13,37 +13,39 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.graphics.form.item
+// import javax.microedition.lcdui.Command
+// import org.allbinary.game.commands.GameCommandsFactory
+// import org.allbinary.graphics.displayable.DisplayInfoSingleton
+// import org.allbinary.graphics.form.ScreenInfo
+// import org.allbinary.logic.java.bool.BooleanFactory
+// import org.allbinary.logic.util.visitor.Visitor
 
-using System;
-using System.Linq;
-using Command = javax.microedition.lcdui.Command;
-using GameCommandsFactory = org.allbinary.game.commands.GameCommandsFactory;
-using DisplayInfoSingleton = org.allbinary.graphics.displayable.DisplayInfoSingleton;
-using ScreenInfo = org.allbinary.graphics.form.ScreenInfo;
-using BooleanFactory = org.allbinary.logic.java.@bool.BooleanFactory;
-using Visitor = org.allbinary.logic.util.visitor.Visitor;
+public class LimitCommandsVisitor : Visitor {
+    private bool isNotSmallDisplay;
 
-namespace org.allbinary.graphics.form.item;
+    // Java field initializers run after the base constructor
+    private void initFieldsLimitCommandsVisitor() {
+    
+    }
+    
 
-public class LimitCommandsVisitor : Visitor
-{
-    private readonly bool isNotSmallDisplay;
-    public LimitCommandsVisitor()
-    {
+    public LimitCommandsVisitor() {
+        base();
+        this.initFieldsLimitCommandsVisitor();
         DisplayInfoSingleton displayInfo = DisplayInfoSingleton.getInstance();
         this.isNotSmallDisplay = (displayInfo.isPortrait() && displayInfo.getLastHeight() > ScreenInfo.getInstance().SMALL_WIDTH) || (!displayInfo.isPortrait() && displayInfo.getLastHeight() > ScreenInfo.getInstance().SMALL_HEIGHT);
     }
+    
 
-    public override object visit(object anyType)
-    {
+    public override JObject visit(JObject anyType) {
         Command command = ((Command) anyType);
         BooleanFactory booleanFactory = BooleanFactory.getInstance();
         if (this.isNotSmallDisplay || command.getPriority() == 1 || command == GameCommandsFactory.getInstance().EXIT_COMMAND || command == GameCommandsFactory.getInstance().EXIT_WITHOUT_PROGRESS_COMMAND) {
-            return booleanFactory.TRUE;
+            return booleanFactory.TRUE_;
         } else {
-            return booleanFactory.FALSE;
+            return booleanFactory.FALSE_;
         }
     }
-
 }
 

@@ -13,35 +13,34 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.game.displayable.canvas
+// import javax.microedition.lcdui.Graphics
+// import org.allbinary.graphics.paint.InitUpdatePaintable
+// import org.allbinary.logic.communication.log.LogUtil
+// import org.allbinary.string.CommonStrings
 
-using System;
-using System.Linq;
-using Graphics = javax.microedition.lcdui.Graphics;
-using InitUpdatePaintable = org.allbinary.graphics.paint.InitUpdatePaintable;
-using LogUtil = org.allbinary.logic.communication.log.LogUtil;
-using CommonStrings = org.allbinary.@string.CommonStrings;
+public class OverlayPaintable : InitUpdatePaintable {
+    public LogUtil logUtil;
 
-namespace org.allbinary.game.displayable.canvas;
-
-public class OverlayPaintable : InitUpdatePaintable
-{
-    public readonly LogUtil logUtil = LogUtil.getInstance();
-    public OverlayPaintable()
-    {
+    // Java field initializers run after the base constructor
+    private void initFieldsOverlayPaintable() {
+    this.logUtil = LogUtil.getInstance();
     }
+    
 
-    public override void update()
-    {
-        try {
-        } catch (Exception e) {
-            CommonStrings commonStrings = CommonStrings.getInstance();
-            this.logUtil.put(commonStrings.EXCEPTION, this, commonStrings.UPDATE, e);
-        }
+    public OverlayPaintable() {
+        base();
+        this.initFieldsOverlayPaintable();
     }
+    
 
-    public override void paint(Graphics graphics)
-    {
+    public override void update() {
+        {
+        } /* catch (Exception e): a thrown Java exception stops the program */
     }
+    
 
+    public override void paint(Graphics graphics) {
+    }
 }
 

@@ -13,55 +13,60 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.game.ag.ai.tactical
+// import javax.microedition.lcdui.Canvas
+// import org.allbinary.game.ai.BasicAI
+// import org.allbinary.game.ag.ai.InputProbability
+// import org.allbinary.game.input.GameInput
+// import org.allbinary.game.rand.MyRandomFactory
+// import org.allbinary.layer.AllBinaryLayer
+// import org.allbinary.layer.AllBinaryLayerManager
+// import org.allbinary.logic.util.visitor.Visitor
+// import org.allbinary.time.GameTickTimeDelayHelperFactory
 
-using System;
-using System.Linq;
-using Canvas = javax.microedition.lcdui.Canvas;
-using BasicAI = org.allbinary.game.ai.BasicAI;
-using InputProbability = org.allbinary.game.ag.ai.InputProbability;
-using GameInput = org.allbinary.game.input.GameInput;
-using MyRandomFactory = org.allbinary.game.rand.MyRandomFactory;
-using AllBinaryLayer = org.allbinary.layer.AllBinaryLayer;
-using AllBinaryLayerManager = org.allbinary.layer.AllBinaryLayerManager;
-using Visitor = org.allbinary.logic.util.visitor.Visitor;
-using GameTickTimeDelayHelperFactory = org.allbinary.time.GameTickTimeDelayHelperFactory;
+public class BasicRandomAI : BasicAI {
+    private int32 i_random;
+    private InputProbability inputProbability;
+    private Visitor visitor;
+    private int32[] keyArray;
+    private MyRandomFactory myRandomFactory;
 
-namespace org.allbinary.game.ag.ai.tactical;
+    // Java field initializers run after the base constructor
+    private void initFieldsBasicRandomAI() {
+    this.i_random = 0;
+    
+    
+    this.keyArray = new int32[] {Canvas.UP, Canvas.DOWN, Canvas.LEFT, Canvas.RIGHT, Canvas.KEY_NUM1, Canvas.KEY_NUM7, Canvas.KEY_NUM9};
+    this.myRandomFactory = MyRandomFactory.getInstance();
+    }
+    
 
-public class BasicRandomAI : BasicAI
-{
-    private int i_random = 0;
-    private readonly InputProbability inputProbability;
-    private readonly Visitor visitor;
-    private readonly int[] keyArray = new int[] { Canvas.UP, Canvas.DOWN, Canvas.LEFT, Canvas.RIGHT, Canvas.KEY_NUM1, Canvas.KEY_NUM7, Canvas.KEY_NUM9 };
-    public BasicRandomAI(AllBinaryLayer ownerLayerInterface, GameInput gameInput, InputProbability inputProbability, Visitor visitor) : base(ownerLayerInterface, gameInput)
-    {
-        // base(ownerLayerInterface, gameInput) is called from the constructor declaration
+    public BasicRandomAI(AllBinaryLayer ownerLayerInterface, GameInput gameInput, InputProbability inputProbability, Visitor visitor) {
+        base(ownerLayerInterface, gameInput);
+        this.initFieldsBasicRandomAI();
         this.inputProbability = inputProbability;
         this.visitor = visitor;
     }
+    
 
-    private readonly MyRandomFactory myRandomFactory = MyRandomFactory.getInstance();
-    // throws Exception
-    public override void processAI(AllBinaryLayerManager allBinaryLayerManager)
-    {
+    public override void processAI(AllBinaryLayerManager allBinaryLayerManager) {
         if (this.inputProbability.getTimeDelayHelper().isTime(GameTickTimeDelayHelperFactory.getInstance().startTime)) {
             this.i_random = this.myRandomFactory.getAbsoluteNextInt(this.inputProbability.getMax());
             bool repeat = false;
-            int?[] repeatLikelyhoodIntegerArray = this.inputProbability.getRepeatLikelyhoodIntegerArray();
-            if (this.getLastKey() != -1 && global::java.lang.JavaNumber.intValue(repeatLikelyhoodIntegerArray[this.getLastKey()]) >= this.i_random) {
+            int32?[] repeatLikelyhoodIntegerArray = this.inputProbability.getRepeatLikelyhoodIntegerArray();
+            if (this.getLastKey() != -1 && repeatLikelyhoodIntegerArray[this.getLastKey()].intValue() >= this.i_random) {
                 repeat = true;
             }
             if (!repeat) {
-                int?[][] likelyhoodIntegerArray = this.inputProbability.getLikelyhoodIntegerArray();
+                int32?[,] likelyhoodIntegerArray = this.inputProbability.getLikelyhoodIntegerArray();
                 this.i_random = this.myRandomFactory.getAbsoluteNextInt(this.inputProbability.getMax());
-                int size = this.keyArray.Length;
-                int?[] likelyhoodIntegerKeyArray = null;
-                for (int index = 0; index < size; index++) {
-                    int key = this.keyArray[index];
+                int32 size = this.keyArray.length;
+                int32?[] likelyhoodIntegerKeyArray = null;
+                for (int32 index = 0; index < size; index++) {
+                    int32 key = this.keyArray[index];
                     likelyhoodIntegerKeyArray = likelyhoodIntegerArray[key];
-                    if (likelyhoodIntegerArray.Length >= key && likelyhoodIntegerKeyArray[0] != null) {
-                        if (this.i_random >= global::java.lang.JavaNumber.intValue(likelyhoodIntegerKeyArray[0]) && this.i_random < global::java.lang.JavaNumber.intValue(likelyhoodIntegerKeyArray[1])) {
+                    if (likelyhoodIntegerArray.length[0] >= key && likelyhoodIntegerKeyArray[0] != null) {
+                        if (this.i_random >= likelyhoodIntegerKeyArray[0].intValue() && this.i_random < likelyhoodIntegerKeyArray[1].intValue()) {
                             this.setLastKey(key);
                             break;
                         }
@@ -71,6 +76,5 @@ public class BasicRandomAI : BasicAI
             this.visitor.visit(this);
         }
     }
-
 }
 

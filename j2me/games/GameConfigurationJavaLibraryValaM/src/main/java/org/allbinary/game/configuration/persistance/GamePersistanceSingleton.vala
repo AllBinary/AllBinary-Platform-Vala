@@ -13,24 +13,27 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.game.configuration.persistance
 
-using System;
-using System.Linq;
-
-namespace org.allbinary.game.configuration.persistance;
-
-public class GamePersistanceSingleton : KeyValuePersistance
-{
-    private static GamePersistanceSingleton GAME_PERSISTANCE = new GamePersistanceSingleton();
-    public static GamePersistanceSingleton getInstance()
-    {
+public class GamePersistanceSingleton : KeyValuePersistance {
+    private static GamePersistanceSingleton? GAME_PERSISTANCE;
+    private static bool staticSet_GAME_PERSISTANCE = false;
+    private static GamePersistanceSingleton staticGet_GAME_PERSISTANCE() {
+        if (!GamePersistanceSingleton.staticSet_GAME_PERSISTANCE) {
+            GamePersistanceSingleton.staticSet_GAME_PERSISTANCE = true;
+            GamePersistanceSingleton.GAME_PERSISTANCE = new GamePersistanceSingleton();
+        }
         return GamePersistanceSingleton.GAME_PERSISTANCE;
     }
+    
 
-    private GamePersistanceSingleton() : base(GamePersistanceStrings.getInstance().SAVED_GAME_RECORD_ID)
-    {
-        // base(GamePersistanceStrings.getInstance().SAVED_GAME_RECORD_ID) is called from the constructor declaration
+    public static GamePersistanceSingleton getInstance() {
+        return GamePersistanceSingleton.staticGet_GAME_PERSISTANCE();
     }
+    
 
+    public GamePersistanceSingleton() {
+        base(GamePersistanceStrings.getInstance().SAVED_GAME_RECORD_ID);
+    }
 }
 

@@ -13,26 +13,20 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.game.layer.special
+// import org.allbinary.game.input.event.GameKeyEvent
+// import org.allbinary.layer.AllBinaryLayerManager
 
-using System;
-using System.Linq;
-using GameKeyEvent = org.allbinary.game.input.@event.GameKeyEvent;
-using AllBinaryLayerManager = org.allbinary.layer.AllBinaryLayerManager;
+public class SpecialDownGameInputProcessor : SpecialGameInputProcessor {
+    
 
-namespace org.allbinary.game.layer.special;
-
-public class SpecialDownGameInputProcessor : SpecialGameInputProcessor
-{
-    public SpecialDownGameInputProcessor(CollidableDestroyableDamageableLayer collidableDestroyableDamageableLayer) : base(collidableDestroyableDamageableLayer)
-    {
-        // base(collidableDestroyableDamageableLayer) is called from the constructor declaration
+    public SpecialDownGameInputProcessor(CollidableDestroyableDamageableLayer collidableDestroyableDamageableLayer) {
+        base(collidableDestroyableDamageableLayer);
     }
+    
 
-    // throws Exception
-    public override void processEvent(AllBinaryLayerManager allbinaryLayerManager, GameKeyEvent gameKeyEvent)
-    {
+    public override void processEvent(AllBinaryLayerManager allbinaryLayerManager, GameKeyEvent gameKeyEvent) {
         this.collidableDestroyableDamageableLayer.down();
     }
-
 }
 

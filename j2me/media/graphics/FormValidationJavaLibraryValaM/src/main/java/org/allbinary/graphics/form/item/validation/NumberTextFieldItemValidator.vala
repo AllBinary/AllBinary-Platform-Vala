@@ -13,98 +13,98 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.graphics.form.item.validation
+// import org.allbinary.graphics.form.item.ABTextFieldItem
+// import org.allbinary.logic.control.validate.ValidatorBase
+// import org.allbinary.logic.java.bool.BooleanFactory
+// import org.allbinary.logic.math.SmallIntegerSingletonFactory
+// import org.allbinary.logic.string.StringMaker
+// import org.allbinary.util.BasicArrayList
+// import org.allbinary.util.BasicArrayListD
 
-using System;
-using System.Linq;
-using ABTextFieldItem = org.allbinary.graphics.form.item.ABTextFieldItem;
-using ValidatorBase = org.allbinary.logic.control.validate.ValidatorBase;
-using BooleanFactory = org.allbinary.logic.java.@bool.BooleanFactory;
-using SmallIntegerSingletonFactory = org.allbinary.logic.math.SmallIntegerSingletonFactory;
-using StringMaker = org.allbinary.logic.@string.StringMaker;
-using BasicArrayList = org.allbinary.util.BasicArrayList;
-using BasicArrayListD = org.allbinary.util.BasicArrayListD;
+public class NumberTextFieldItemValidator : ValidatorBase {
+    private ABTextFieldItem textFieldItem;
+    private int32 min;
+    private int32 max;
+    private int32 maxChars;
 
-namespace org.allbinary.graphics.form.item.validation;
+    // Java field initializers run after the base constructor
+    private void initFieldsNumberTextFieldItemValidator() {
+    
+    
+    
+    
+    }
+    
 
-public class NumberTextFieldItemValidator : ValidatorBase
-{
-    private readonly ABTextFieldItem textFieldItem;
-    private readonly int min;
-    private readonly int max;
-    private readonly int maxChars;
-    public NumberTextFieldItemValidator(ABTextFieldItem textFieldItem, int maxChars, int min, int max)
-    {
+    public NumberTextFieldItemValidator(ABTextFieldItem textFieldItem, int32 maxChars, int32 min, int32 max) {
+        base();
+        this.initFieldsNumberTextFieldItemValidator();
         this.textFieldItem = textFieldItem;
         this.min = min;
         this.max = max;
         this.maxChars = maxChars;
     }
+    
 
-    public virtual bool? isNumberValid(int? value)
-    {
-        return BooleanFactory.getInstance().TRUE;
+    public virtual bool isNumberValid(int32? value) {
+        return BooleanFactory.getInstance().TRUE_;
     }
+    
 
-    public virtual BasicArrayList toNumberVector(int? value)
-    {
+    public virtual BasicArrayList toNumberVector(int32? value) {
         return new BasicArrayListD();
     }
+    
 
-    public override bool? isValid()
-    {
-        bool? result = BooleanFactory.getInstance().TRUE;
-        string @string = this.textFieldItem.getString();
-        int textLength = @string.Length;
+    public override bool isValid() {
+        bool result = BooleanFactory.getInstance().TRUE_;
+        string string = this.textFieldItem.getString();
+        int32 textLength = JString.length(string);
         if (textLength > 0 && textLength < this.maxChars) {
-            try {
-                int.Parse(this.textFieldItem.getString());
-            } catch (FormatException e) {
-                result = BooleanFactory.getInstance().FALSE;
-            }
+            {
+                (int32) int.parse(this.textFieldItem.getString());
+            } /* catch (NumberFormatException e): a thrown Java exception stops the program */
         } else {
             if (textLength < 1) {
-                result = BooleanFactory.getInstance().FALSE;
+                result = BooleanFactory.getInstance().FALSE_;
             } else if (textLength > this.maxChars) {
-                result = BooleanFactory.getInstance().FALSE;
+                result = BooleanFactory.getInstance().FALSE_;
             }
         }
         return result;
     }
+    
 
-    public override BasicArrayList toList()
-    {
+    public override BasicArrayList toList() {
         BasicArrayList list = new BasicArrayListD();
-        string @string = this.textFieldItem.getString();
-        int textLength = @string.Length;
+        string string = this.textFieldItem.getString();
+        int32 textLength = JString.length(string);
         string label = this.textFieldItem.getLabel();
-        string name = label.Substring(0, (label.Length - 2) - (0));
+        string name = JString.substring(label, 0, JString.length(label) - 2);
         SmallIntegerSingletonFactory smallIntegerSingletonFactory = SmallIntegerSingletonFactory.getInstance();
         StringMaker stringMaker = new StringMaker();
         if (textLength > 0 && textLength < this.maxChars) {
-            try {
-                int? number = smallIntegerSingletonFactory.createInstance(int.Parse(this.textFieldItem.getString()));
-                if (((int) number) > this.min) {
-                    stringMaker.delete(0, stringMaker.length());
-                    list.add(stringMaker.append(name).append(" is to small").ToString());
-                } else if (((int) number) > this.max) {
-                    stringMaker.delete(0, stringMaker.length());
-                    list.add(stringMaker.append(name).append(" is to large").ToString());
+            {
+                int32? number = smallIntegerSingletonFactory.createInstance((int32) int.parse(this.textFieldItem.getString()));
+                if (((int32) number) > this.min) {
+                    stringMaker.@delete(0, stringMaker.length());
+                    list.add(JString.box(stringMaker.append(name).append(" is to small").toString()));
+                } else if (((int32) number) > this.max) {
+                    stringMaker.@delete(0, stringMaker.length());
+                    list.add(JString.box(stringMaker.append(name).append(" is to large").toString()));
                 }
-            } catch (FormatException e) {
-                stringMaker.delete(0, stringMaker.length());
-                list.add(stringMaker.append(name).append(" is not a number").ToString());
-            }
+            } /* catch (NumberFormatException e): a thrown Java exception stops the program */
         } else {
             if (textLength < 1) {
-                stringMaker.delete(0, stringMaker.length());
-                list.add(stringMaker.append(name).append(" is to short").ToString());
+                stringMaker.@delete(0, stringMaker.length());
+                list.add(JString.box(stringMaker.append(name).append(" is to short").toString()));
             } else if (textLength > this.maxChars) {
-                stringMaker.delete(0, stringMaker.length());
-                list.add(stringMaker.append(name).append(" is to long").ToString());
+                stringMaker.@delete(0, stringMaker.length());
+                list.add(JString.box(stringMaker.append(name).append(" is to long").toString()));
             }
         }
         return list;
     }
-
 }
 

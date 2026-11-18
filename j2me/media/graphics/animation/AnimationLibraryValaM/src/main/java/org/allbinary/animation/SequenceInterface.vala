@@ -13,17 +13,14 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.animation
 
-using System;
-using System.Linq;
+public interface SequenceInterface : JObject {
+    
 
-namespace org.allbinary.animation;
+    public abstract void setSequence(int32[] sequence);
+    
 
-public interface SequenceInterface
-{
-    void setSequence(int[] sequence);
-
-    int[] getSequence();
-
+    public abstract int32[] getSequence();
 }
 

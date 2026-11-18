@@ -13,18 +13,13 @@
  * 
  */
 // Generated Code Do Not Modify
+// package org.allbinary.layer
 
-using System;
-using System.Linq;
+public class SingleLayerLayerManager : LayerManager {
+    
 
-namespace org.allbinary.layer;
-
-public class SingleLayerLayerManager : LayerManager
-{
-    public SingleLayerLayerManager() : base(LayerManagerNoDebug.getInstance())
-    {
-        // base(LayerManagerNoDebug.getInstance()) is called from the constructor declaration
+    public SingleLayerLayerManager() {
+        base(LayerManagerNoDebug.getInstance());
     }
-
 }
 

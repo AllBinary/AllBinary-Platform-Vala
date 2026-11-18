@@ -1,38 +1,42 @@
 // Generated Code Do Not Modify
+// package org.allbinary.physics.movement
+// import org.allbinary.game.layer.AllBinaryGameLayer
+// import org.allbinary.game.physics.velocity.BasicVelocityProperties
+// import org.allbinary.logic.math.BasicDecimal
+// import org.allbinary.logic.math.MathUtil
+// import org.allbinary.logic.math.ScaleFactorFactory
 
-using System;
-using System.Linq;
-using AllBinaryGameLayer = org.allbinary.game.layer.AllBinaryGameLayer;
-using BasicVelocityProperties = org.allbinary.game.physics.velocity.BasicVelocityProperties;
-using BasicDecimal = org.allbinary.logic.math.BasicDecimal;
-using MathUtil = org.allbinary.logic.math.MathUtil;
-using ScaleFactorFactory = org.allbinary.logic.math.ScaleFactorFactory;
+public class PreciseConstantVelocityMovement : BasicConstantVelocityMovement {
+    private int32 accumulatedX;
+    private int32 accumulatedY;
+    private int32 accumulatedZ;
+    private int32 factorValue;
 
-namespace org.allbinary.physics.movement;
-
-public class PreciseConstantVelocityMovement : BasicConstantVelocityMovement
-{
-    private int accumulatedX = 0;
-    private int accumulatedY = 0;
-    private int accumulatedZ = 0;
-    public PreciseConstantVelocityMovement(BasicDecimal basicDecimal, BasicVelocityProperties velocityProperties) : base(basicDecimal, velocityProperties)
-    {
-        // base(basicDecimal, velocityProperties) is called from the constructor declaration
+    // Java field initializers run after the base constructor
+    private void initFieldsPreciseConstantVelocityMovement() {
+    this.accumulatedX = 0;
+    this.accumulatedY = 0;
+    this.accumulatedZ = 0;
+    this.factorValue = ScaleFactorFactory.getInstance().DEFAULT_SCALE_VALUE;
     }
+    
 
-    public override void init(BasicDecimal speedBasicDecimal, int angle, int otherAngle)
-    {
+    public PreciseConstantVelocityMovement(BasicDecimal basicDecimal, BasicVelocityProperties velocityProperties) {
+        base(basicDecimal, velocityProperties);
+        this.initFieldsPreciseConstantVelocityMovement();
     }
+    
 
-    private readonly int factorValue = ScaleFactorFactory.getInstance().DEFAULT_SCALE_VALUE;
-    // throws Exception
-    public override void process(AllBinaryGameLayer layer)
-    {
+    public override void init(BasicDecimal speedBasicDecimal, int32 angle, int32 otherAngle) {
+    }
+    
+
+    public override void process(AllBinaryGameLayer layer) {
         MathUtil mathUtil = MathUtil.getInstance();
         BasicVelocityProperties velocityProperties = this.getVelocityProperties();
-        this.accumulatedX = ((int) (this.accumulatedX + velocityProperties.getVelocityXBasicDecimalP().getUnscaled()));
-        this.accumulatedY = ((int) (this.accumulatedY + velocityProperties.getVelocityYBasicDecimalP().getUnscaled()));
-        this.accumulatedZ = ((int) (this.accumulatedZ + velocityProperties.getVelocityZBasicDecimalP().getUnscaled()));
+        this.accumulatedX = ((int32) ((((int64) (this.accumulatedX)) + velocityProperties.getVelocityXBasicDecimalP().getUnscaled())));
+        this.accumulatedY = ((int32) ((((int64) (this.accumulatedY)) + velocityProperties.getVelocityYBasicDecimalP().getUnscaled())));
+        this.accumulatedZ = ((int32) ((((int64) (this.accumulatedZ)) + velocityProperties.getVelocityZBasicDecimalP().getUnscaled())));
         layer.moveDXYZ(this.accumulatedX / this.factorValue, this.accumulatedY / this.factorValue, this.accumulatedZ / this.factorValue);
         if (mathUtil.abs(this.accumulatedX) > this.factorValue) {
             this.accumulatedX = 0;
@@ -44,6 +48,5 @@ public class PreciseConstantVelocityMovement : BasicConstantVelocityMovement
             this.accumulatedZ = 0;
         }
     }
-
 }
 

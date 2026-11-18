@@ -13,17 +13,12 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.game.combat.destroy
+// import org.allbinary.layer.NamedInterface
 
-using System;
-using System.Linq;
-using NamedInterface = org.allbinary.layer.NamedInterface;
+public interface DestroyableInterface : JObject, NamedInterface {
+    
 
-namespace org.allbinary.game.combat.destroy;
-
-public interface DestroyableInterface : NamedInterface
-{
-    // throws Exception
-    bool isDestroyed();
-
+    public abstract bool isDestroyed();
 }
 

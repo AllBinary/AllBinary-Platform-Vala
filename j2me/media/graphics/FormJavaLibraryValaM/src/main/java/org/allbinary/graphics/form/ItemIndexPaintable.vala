@@ -13,27 +13,33 @@
  *   
  */
 // Generated Code Do Not Modify
+// package org.allbinary.graphics.form
+// import javax.microedition.lcdui.Graphics
+// import org.allbinary.graphics.form.item.ABCustomItem
 
-using System;
-using System.Linq;
-using Graphics = javax.microedition.lcdui.Graphics;
-using ABCustomItem = org.allbinary.graphics.form.item.ABCustomItem;
-
-namespace org.allbinary.graphics.form;
-
-public class ItemIndexPaintable
-{
-    private static readonly ItemIndexPaintable instance = new ItemIndexPaintable();
-    public static ItemIndexPaintable getInstance()
-    {
+public class ItemIndexPaintable : JObject {
+    private static ItemIndexPaintable? instance;
+    private static bool staticSet_instance = false;
+    private static ItemIndexPaintable staticGet_instance() {
+        if (!ItemIndexPaintable.staticSet_instance) {
+            ItemIndexPaintable.staticSet_instance = true;
+            ItemIndexPaintable.instance = new ItemIndexPaintable();
+        }
         return ItemIndexPaintable.instance;
     }
 
-    // throws Exception
-    public virtual int paint(Graphics graphics, int index, ABCustomItem item, int dx, int dy)
-    {
+    public ItemIndexPaintable() {
+        base();
+    }
+    
+
+    public static ItemIndexPaintable getInstance() {
+        return ItemIndexPaintable.staticGet_instance();
+    }
+    
+
+    public virtual int32 paint(Graphics graphics, int32 index, ABCustomItem item, int32 dx, int32 dy) {
         return 0;
     }
-
 }
 

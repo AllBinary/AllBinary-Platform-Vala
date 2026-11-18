@@ -13,29 +13,24 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.input.accelerometer
+// import org.allbinary.input.gyro.AllBinaryOrientationSensor
+// import org.allbinary.logic.math.Orientation
 
-using System;
-using System.Linq;
-using AllBinaryOrientationSensor = org.allbinary.input.gyro.AllBinaryOrientationSensor;
-using Orientation = org.allbinary.logic.math.Orientation;
+public class NoAccelerometerSensor : AllBinaryOrientationSensor {
+    
 
-namespace org.allbinary.input.accelerometer;
-
-public class NoAccelerometerSensor : AllBinaryOrientationSensor
-{
-    public NoAccelerometerSensor()
-    {
+    public NoAccelerometerSensor() {
+        base();
     }
+    
 
-    // throws Exception
-    public override Orientation getOrientation()
-    {
+    public override Orientation getOrientation() {
         return Orientation.NONE;
     }
+    
 
-    public override void onSensorChange()
-    {
+    public override void onSensorChange() {
     }
-
 }
 

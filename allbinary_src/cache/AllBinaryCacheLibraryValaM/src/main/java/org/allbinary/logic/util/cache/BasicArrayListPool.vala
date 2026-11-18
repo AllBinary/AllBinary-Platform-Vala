@@ -13,50 +13,43 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.logic.util.cache
+// import org.allbinary.util.BasicArrayList
 
-using System;
-using System.Linq;
-using BasicArrayList = org.allbinary.util.BasicArrayList;
+public class BasicArrayListPool : AbstractArrayListPool {
+    
 
-namespace org.allbinary.logic.util.cache;
-
-public class BasicArrayListPool : AbstractArrayListPool
-{
-    public BasicArrayListPool(CacheableInterfaceFactoryInterface cacheableInterfaceFactoryInterface) : base(cacheableInterfaceFactoryInterface)
-    {
-        // base(cacheableInterfaceFactoryInterface) is called from the constructor declaration
+    public BasicArrayListPool(CacheableInterfaceFactoryInterface cacheableInterfaceFactoryInterface) {
+        base(cacheableInterfaceFactoryInterface);
     }
+    
 
-    public override void clear()
-    {
+    public override void clear() {
         this.buffers.clear();
     }
+    
 
-    // throws Exception
-    public override CacheableInterface remove(object key)
-    {
-        int size = this.buffers.size();
+    public override CacheableInterface remove(JObject key) {
+        int32 size = this.buffers.size();
         if (size > 0) {
             return ((CacheableInterface) this.buffers.removeAt(size - 1));
         } else {
-            return this.cacheableInterfaceFactoryInterface.getInstance(key);
+            return this.cacheableInterfaceFactoryInterface.getInstance1(key);
         }
     }
+    
 
-    // throws Exception
-    public virtual void addAll(BasicArrayList usedList)
-    {
-        for (int index = usedList.size(); --index >= 0; ) {
+    public virtual void addAll(BasicArrayList usedList) {
+        for (int32 index = usedList.size(); --index >= 0; ) {
             CacheableInterface anyType = ((CacheableInterface) usedList.objectArray[index]);
             this.add(anyType);
         }
         usedList.clear();
     }
+    
 
-    // throws Exception
-    public virtual void releaseUsedBackToPool(BasicArrayList usedList)
-    {
-        for (int index = usedList.size(); --index >= 0; ) {
+    public virtual void releaseUsedBackToPool(BasicArrayList usedList) {
+        for (int32 index = usedList.size(); --index >= 0; ) {
             BasicArrayListCacheable list = ((BasicArrayListCacheable) usedList.objectArray[index]);
             if (list.size() == 0) {
                 usedList.removeAt(index);
@@ -64,6 +57,5 @@ public class BasicArrayListPool : AbstractArrayListPool
             }
         }
     }
-
 }
 

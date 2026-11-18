@@ -13,50 +13,53 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.input.gyro
+// import org.allbinary.input.AllBinarySensor
+// import org.allbinary.input.NoAllBinarySensor
 
-using System;
-using System.Linq;
-using AllBinarySensor = org.allbinary.input.AllBinarySensor;
-using NoAllBinarySensor = org.allbinary.input.NoAllBinarySensor;
+public class SensorGameUpdateProcessor : JObject {
+    private AllBinarySensor inputSensor;
 
-namespace org.allbinary.input.gyro;
+    // Java field initializers run after the base constructor
+    private void initFieldsSensorGameUpdateProcessor() {
+    this.inputSensor = NoAllBinarySensor.getInstance();
+    }
 
-public class SensorGameUpdateProcessor
-{
-    private AllBinarySensor inputSensor = NoAllBinarySensor.getInstance();
-    public virtual void setInputSensor(AllBinarySensor inputSensor)
-    {
+    public SensorGameUpdateProcessor() {
+        base();
+        this.initFieldsSensorGameUpdateProcessor();
+    }
+    
+
+    public virtual void setInputSensor(AllBinarySensor inputSensor) {
         this.inputSensor = inputSensor;
     }
+    
 
-    public virtual AllBinarySensor getInputSensor()
-    {
+    public virtual AllBinarySensor getInputSensor() {
         return this.inputSensor;
     }
+    
 
-    // throws Exception
-    public virtual void process(object anyType)
-    {
+    public virtual void process(JObject anyType) {
     }
+    
 
-    // throws Exception
-    public virtual void sendNotifications(object anyType)
-    {
+    public virtual void sendNotifications(JObject anyType) {
     }
+    
 
-    public virtual bool isAnySensor()
-    {
+    public virtual bool isAnySensor() {
         if (this.inputSensor == NoAllBinarySensor.getInstance()) {
             return false;
         } else {
             return true;
         }
     }
+    
 
-    public virtual void setNoSensors()
-    {
+    public virtual void setNoSensors() {
         this.setInputSensor(NoAllBinarySensor.getInstance());
     }
-
 }
 

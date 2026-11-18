@@ -13,25 +13,32 @@
  *   
  */
 // Generated Code Do Not Modify
+// package org.allbinary.logic
+// import org.allbinary.logic.communication.log.LogUtil
+// import org.allbinary.logic.string.StringMaker
+// import org.allbinary.string.CommonStrings
 
-using System;
-using System.Linq;
-using LogUtil = org.allbinary.logic.communication.log.LogUtil;
-using StringMaker = org.allbinary.logic.@string.StringMaker;
-using CommonStrings = org.allbinary.@string.CommonStrings;
-
-namespace org.allbinary.logic;
-
-public class PropertyInitUtil
-{
-    private static readonly PropertyInitUtil instance = new PropertyInitUtil();
-    public static PropertyInitUtil getInstance(int value)
-    {
-        CommonStrings commonStrings = CommonStrings.getInstance();
-        LogUtil logUtil = LogUtil.getInstance();
-        logUtil.putF(new StringMaker().append("PropertyInitUtil: ").appendint(value).ToString(), logUtil, commonStrings.CONSTRUCTOR);
+public class PropertyInitUtil : JObject {
+    private static PropertyInitUtil? instance;
+    private static bool staticSet_instance = false;
+    private static PropertyInitUtil staticGet_instance() {
+        if (!PropertyInitUtil.staticSet_instance) {
+            PropertyInitUtil.staticSet_instance = true;
+            PropertyInitUtil.instance = new PropertyInitUtil();
+        }
         return PropertyInitUtil.instance;
     }
 
+    public PropertyInitUtil() {
+        base();
+    }
+    
+
+    public static PropertyInitUtil getInstance1(int32 value) {
+        CommonStrings commonStrings = CommonStrings.getInstance();
+        LogUtil logUtil = LogUtil.getInstance();
+        logUtil.putF(new StringMaker().append("PropertyInitUtil: ").appendint(value).toString(), logUtil, commonStrings.CONSTRUCTOR);
+        return PropertyInitUtil.staticGet_instance();
+    }
 }
 

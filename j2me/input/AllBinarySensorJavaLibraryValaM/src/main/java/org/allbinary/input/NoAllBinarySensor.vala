@@ -13,23 +13,27 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.input
 
-using System;
-using System.Linq;
-
-namespace org.allbinary.input;
-
-public class NoAllBinarySensor : AllBinarySensor
-{
-    private static readonly NoAllBinarySensor instance = new NoAllBinarySensor();
-    public static NoAllBinarySensor getInstance()
-    {
+public class NoAllBinarySensor : AllBinarySensor {
+    private static NoAllBinarySensor? instance;
+    private static bool staticSet_instance = false;
+    private static NoAllBinarySensor staticGet_instance() {
+        if (!NoAllBinarySensor.staticSet_instance) {
+            NoAllBinarySensor.staticSet_instance = true;
+            NoAllBinarySensor.instance = new NoAllBinarySensor();
+        }
         return NoAllBinarySensor.instance;
     }
+    
 
-    private NoAllBinarySensor()
-    {
+    public static NoAllBinarySensor getInstance() {
+        return NoAllBinarySensor.staticGet_instance();
     }
+    
 
+    public NoAllBinarySensor() {
+        base();
+    }
 }
 

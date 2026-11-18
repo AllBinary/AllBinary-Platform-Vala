@@ -13,61 +13,64 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.physics.movement
+// import org.allbinary.game.layer.AllBinaryGameLayer
+// import org.allbinary.game.physics.velocity.BasicVelocityProperties
+// import org.allbinary.layer.AllBinaryLayer
+// import org.allbinary.logic.math.BasicDecimal
+// import org.allbinary.logic.math.vector.AxisMathVectorUtil
+// import org.allbinary.math.AngleFactory
 
-using System;
-using System.Linq;
-using AllBinaryGameLayer = org.allbinary.game.layer.AllBinaryGameLayer;
-using BasicVelocityProperties = org.allbinary.game.physics.velocity.BasicVelocityProperties;
-using AllBinaryLayer = org.allbinary.layer.AllBinaryLayer;
-using BasicDecimal = org.allbinary.logic.math.BasicDecimal;
-using AxisMathVectorUtil = org.allbinary.logic.math.vector.AxisMathVectorUtil;
-using AngleFactory = org.allbinary.math.AngleFactory;
-
-namespace org.allbinary.physics.movement;
-
-public class ConstantVelocityNotifyViewChangeMovement : Movement
-{
+public class ConstantVelocityNotifyViewChangeMovement : Movement {
     public BasicVelocityProperties basicVelocityProperties;
     private BasicDecimal speedBasicDecimal;
-    private readonly AxisMathVectorUtil axisMathVectorUtil = AxisMathVectorUtil.getInstance();
-    public ConstantVelocityNotifyViewChangeMovement()
-    {
+    private AxisMathVectorUtil axisMathVectorUtil;
+
+    // Java field initializers run after the base constructor
+    private void initFieldsConstantVelocityNotifyViewChangeMovement() {
+    
+    
+    this.axisMathVectorUtil = AxisMathVectorUtil.getInstance();
+    }
+    
+
+    public ConstantVelocityNotifyViewChangeMovement() {
+        base();
+        this.initFieldsConstantVelocityNotifyViewChangeMovement();
         this.speedBasicDecimal = BasicDecimal.ZERO_BIGDECIMAL;
         this.basicVelocityProperties = new BasicVelocityProperties();
     }
+    
 
-    public override void init(BasicDecimal speedBasicDecimal, int angle, int otherAngle)
-    {
+    public override void init(BasicDecimal speedBasicDecimal, int32 angle, int32 otherAngle) {
         this.speedBasicDecimal = speedBasicDecimal;
         AngleFactory angleFactory = AngleFactory.getInstance();
         this.basicVelocityProperties.setVelocityWithBigDecimal(speedBasicDecimal, angleFactory.getAt(angle), angleFactory.getAt(otherAngle));
     }
+    
 
-    public virtual void moveOutsideRadius(AllBinaryLayer layer, long radius, int angle, int otherAngle)
-    {
-        int scaleFactorValue = this.speedBasicDecimal.getScaledFactorValue();
-        int xVector = ((int) (this.axisMathVectorUtil.calculateX(radius, angle) / scaleFactorValue));
-        int yVector = ((int) (this.axisMathVectorUtil.calculateY(radius, angle) / scaleFactorValue));
-        int zVector = ((int) (this.axisMathVectorUtil.calculateZ(radius, otherAngle) / scaleFactorValue));
+    public virtual void moveOutsideRadius(AllBinaryLayer layer, int64 radius, int32 angle, int32 otherAngle) {
+        int32 scaleFactorValue = this.speedBasicDecimal.getScaledFactorValue();
+        int32 xVector = ((int32) ((this.axisMathVectorUtil.calculateX(radius, angle) / ((int64) (scaleFactorValue)))));
+        int32 yVector = ((int32) ((this.axisMathVectorUtil.calculateY(radius, angle) / ((int64) (scaleFactorValue)))));
+        int32 zVector = ((int32) ((this.axisMathVectorUtil.calculateZ(radius, otherAngle) / ((int64) (scaleFactorValue)))));
         layer.moveDXYZ(xVector, yVector, zVector);
     }
+    
 
-    // throws Exception
-    public override void process(AllBinaryGameLayer layer)
-    {
-        int x = this.basicVelocityProperties.getVelocityXBasicDecimalP().getScaled();
-        int y = this.basicVelocityProperties.getVelocityYBasicDecimalP().getScaled();
-        int z = this.basicVelocityProperties.getVelocityZBasicDecimalP().getScaled();
+    public override void process(AllBinaryGameLayer layer) {
+        int32 x = this.basicVelocityProperties.getVelocityXBasicDecimalP().getScaled();
+        int32 y = this.basicVelocityProperties.getVelocityYBasicDecimalP().getScaled();
+        int32 z = this.basicVelocityProperties.getVelocityZBasicDecimalP().getScaled();
         layer.moveDXYZ(x, y, z);
         if (x != 0 || y != 0 || z != 0) {
             layer.onViewPositionChangeEvent();
         }
     }
+    
 
-    public override void stop()
-    {
+    public override void stop() {
         this.basicVelocityProperties.zero();
     }
-
 }
 

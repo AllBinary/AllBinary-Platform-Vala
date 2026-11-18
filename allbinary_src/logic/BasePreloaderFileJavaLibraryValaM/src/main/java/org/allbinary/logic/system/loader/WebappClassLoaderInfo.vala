@@ -13,32 +13,33 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.logic.system.loader
+// import org.allbinary.logic.NullUtil
 
-using System;
-using System.Linq;
-using System.Runtime.CompilerServices;
-using NullUtil = org.allbinary.logic.NullUtil;
-
-namespace org.allbinary.logic.system.loader;
-
-public class WebappClassLoaderInfo
-{
-    private static object classLoader = NullUtil.getInstance().NULL_OBJECT;
-    private WebappClassLoaderInfo()
-    {
+public class WebappClassLoaderInfo : JObject {
+    private static JObject? classLoader;
+    private static bool staticSet_classLoader = false;
+    private static JObject staticGet_classLoader() {
+        if (!WebappClassLoaderInfo.staticSet_classLoader) {
+            WebappClassLoaderInfo.staticSet_classLoader = true;
+            WebappClassLoaderInfo.classLoader = NullUtil.getInstance().NULL_OBJECT;
+        }
+        return WebappClassLoaderInfo.classLoader;
     }
+    
 
-    [MethodImpl(MethodImplOptions.Synchronized)]
-    public static void setLoader(global::java.lang.ClassLoader classLoader)
-    {
+    public WebappClassLoaderInfo() {
+        base();
+    }
+    
+
+    public static void setLoader(ClassLoader classLoader) {
         WebappClassLoaderInfo.classLoader = classLoader;
     }
+    
 
-    [MethodImpl(MethodImplOptions.Synchronized)]
-    public static global::java.lang.ClassLoader getLoader()
-    {
-        return ((global::java.lang.ClassLoader) WebappClassLoaderInfo.classLoader);
+    public static ClassLoader getLoader() {
+        return ((ClassLoader) WebappClassLoaderInfo.staticGet_classLoader());
     }
-
 }
 

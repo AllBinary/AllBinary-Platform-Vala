@@ -13,28 +13,41 @@
  *   
  */
 // Generated Code Do Not Modify
+// package org.allbinary.persistance
+// import org.allbinary.logic.string.StringMaker
+// import org.allbinary.logic.system.security.licensing.AbeClientInformationInterface
+// import org.allbinary.string.CommonSeps
 
-using System;
-using System.Linq;
-using StringMaker = org.allbinary.logic.@string.StringMaker;
-using AbeClientInformationInterface = org.allbinary.logic.system.security.licensing.AbeClientInformationInterface;
-using CommonSeps = org.allbinary.@string.CommonSeps;
-
-namespace org.allbinary.persistance;
-
-public class PlatformRecordIdUtil
-{
-    private static readonly PlatformRecordIdUtil instance = new PlatformRecordIdUtil();
-    public static PlatformRecordIdUtil getInstance()
-    {
+public class PlatformRecordIdUtil : JObject {
+    private static PlatformRecordIdUtil? instance;
+    private static bool staticSet_instance = false;
+    private static PlatformRecordIdUtil staticGet_instance() {
+        if (!PlatformRecordIdUtil.staticSet_instance) {
+            PlatformRecordIdUtil.staticSet_instance = true;
+            PlatformRecordIdUtil.instance = new PlatformRecordIdUtil();
+        }
         return PlatformRecordIdUtil.instance;
     }
+    private string PLATFORM_SHORT_NAME;
 
-    private readonly string PLATFORM_SHORT_NAME = "JME";
-    public virtual string getRecordId(AbeClientInformationInterface abeClientInformation, string baseRecordId)
-    {
-        return new StringMaker().append(abeClientInformation.toShortString()).append(CommonSeps.getInstance().UNDERSCORE).append(this.PLATFORM_SHORT_NAME).append(baseRecordId).ToString();
+    // Java field initializers run after the base constructor
+    private void initFieldsPlatformRecordIdUtil() {
+    this.PLATFORM_SHORT_NAME = "JME";
     }
 
+    public PlatformRecordIdUtil() {
+        base();
+        this.initFieldsPlatformRecordIdUtil();
+    }
+    
+
+    public static PlatformRecordIdUtil getInstance() {
+        return PlatformRecordIdUtil.staticGet_instance();
+    }
+    
+
+    public virtual string getRecordId(AbeClientInformationInterface abeClientInformation, string baseRecordId) {
+        return new StringMaker().append(abeClientInformation.toShortString()).append(CommonSeps.getInstance().UNDERSCORE).append(this.PLATFORM_SHORT_NAME).append(baseRecordId).toString();
+    }
 }
 

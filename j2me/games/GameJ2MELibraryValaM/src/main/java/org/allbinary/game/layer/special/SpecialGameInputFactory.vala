@@ -13,14 +13,21 @@
  *   
  */
 // Generated Code Do Not Modify
+// package org.allbinary.game.layer.special
 
-using System;
-using System.Linq;
+public class SpecialGameInputFactory : JObject {
+    public static SpecialGameInput? NO_SPECIAL_GAME_INPUT;
+    private static bool staticSet_NO_SPECIAL_GAME_INPUT = false;
+    public static SpecialGameInput staticGet_NO_SPECIAL_GAME_INPUT() {
+        if (!SpecialGameInputFactory.staticSet_NO_SPECIAL_GAME_INPUT) {
+            SpecialGameInputFactory.staticSet_NO_SPECIAL_GAME_INPUT = true;
+            SpecialGameInputFactory.NO_SPECIAL_GAME_INPUT = new SpecialGameInput();
+        }
+        return SpecialGameInputFactory.NO_SPECIAL_GAME_INPUT;
+    }
 
-namespace org.allbinary.game.layer.special;
-
-public class SpecialGameInputFactory
-{
-    public static readonly SpecialGameInput NO_SPECIAL_GAME_INPUT = new SpecialGameInput();
+    public SpecialGameInputFactory() {
+        base();
+    }
 }
 

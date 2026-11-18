@@ -13,25 +13,42 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.game
+// import org.allbinary.logic.string.StringUtil
 
-using System;
-using System.Linq;
-using StringUtil = org.allbinary.logic.@string.StringUtil;
-
-namespace org.allbinary.game;
-
-public class GameTypeFactory
-{
-    private static readonly GameTypeFactory instance = new GameTypeFactory();
-    public static GameTypeFactory getInstance()
-    {
+public class GameTypeFactory : JObject {
+    private static GameTypeFactory? instance;
+    private static bool staticSet_instance = false;
+    private static GameTypeFactory staticGet_instance() {
+        if (!GameTypeFactory.staticSet_instance) {
+            GameTypeFactory.staticSet_instance = true;
+            GameTypeFactory.instance = new GameTypeFactory();
+        }
         return GameTypeFactory.instance;
     }
+    public GameType[] NULL_GAME_TYPE_ARRAY;
+    public GameType NONE;
+    public GameType SINGLE_PLAYER;
+    public GameType MULTI_PLAYER;
+    public GameType BOT;
 
-    public GameType[] NULL_GAME_TYPE_ARRAY = new GameType[0];
-    public GameType NONE = new GameType(StringUtil.getInstance().NULL_STRING);
-    public GameType SINGLE_PLAYER = new GameType("Single Player");
-    public GameType MULTI_PLAYER = new GameType("Multi Player");
-    public GameType BOT = new GameType("Artificial Player");
+    // Java field initializers run after the base constructor
+    private void initFieldsGameTypeFactory() {
+    this.NULL_GAME_TYPE_ARRAY = new GameType[0];
+    this.NONE = new GameType(StringUtil.getInstance().NULL_STRING);
+    this.SINGLE_PLAYER = new GameType("Single Player");
+    this.MULTI_PLAYER = new GameType("Multi Player");
+    this.BOT = new GameType("Artificial Player");
+    }
+
+    public GameTypeFactory() {
+        base();
+        this.initFieldsGameTypeFactory();
+    }
+    
+
+    public static GameTypeFactory getInstance() {
+        return GameTypeFactory.staticGet_instance();
+    }
 }
 

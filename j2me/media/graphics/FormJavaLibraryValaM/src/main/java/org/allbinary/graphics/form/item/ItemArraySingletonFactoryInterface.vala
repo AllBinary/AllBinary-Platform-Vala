@@ -13,16 +13,11 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.graphics.form.item
 
-using System;
-using System.Linq;
+public interface ItemArraySingletonFactoryInterface : JObject {
+    
 
-namespace org.allbinary.graphics.form.item;
-
-public interface ItemArraySingletonFactoryInterface
-{
-    // throws Exception
-    ABCustomItem[] getItems();
-
+    public abstract ABCustomItem[] getItems();
 }
 

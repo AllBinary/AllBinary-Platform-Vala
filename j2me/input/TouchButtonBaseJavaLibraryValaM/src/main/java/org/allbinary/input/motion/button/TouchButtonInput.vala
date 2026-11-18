@@ -13,55 +13,55 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.input.motion.button
+// import org.allbinary.game.input.GameKey
+// import org.allbinary.game.input.GameKeyEventSourceInterface
+// import org.allbinary.game.input.Input
+// import org.allbinary.game.input.InputFactory
+// import org.allbinary.game.input.event.GameKeyEvent
+// import org.allbinary.game.input.event.GameKeyEventFactory
+// import org.allbinary.game.input.mapping.InputToGameKeyMapping
+// import org.allbinary.logic.communication.log.LogUtil
+// import org.allbinary.string.CommonStrings
 
-using System;
-using System.Linq;
-using GameKey = org.allbinary.game.input.GameKey;
-using GameKeyEventSourceInterface = org.allbinary.game.input.GameKeyEventSourceInterface;
-using Input = org.allbinary.game.input.Input;
-using InputFactory = org.allbinary.game.input.InputFactory;
-using GameKeyEvent = org.allbinary.game.input.@event.GameKeyEvent;
-using GameKeyEventFactory = org.allbinary.game.input.@event.GameKeyEventFactory;
-using InputToGameKeyMapping = org.allbinary.game.input.mapping.InputToGameKeyMapping;
-using LogUtil = org.allbinary.logic.communication.log.LogUtil;
-using CommonStrings = org.allbinary.@string.CommonStrings;
+public class TouchButtonInput : Input, GameKeyEventSourceInterface {
+    public LogUtil logUtil;
+    private GameKeyEventFactory gameKeyEventFactory;
+    private int32 TOUCH_BUTTON_SOURCE_ID;
+    private GameKeyEvent gameKeyEvent;
 
-namespace org.allbinary.input.motion.button;
+    // Java field initializers run after the base constructor
+    private void initFieldsTouchButtonInput() {
+    this.logUtil = LogUtil.getInstance();
+    this.gameKeyEventFactory = GameKeyEventFactory.getInstance();
+    this.TOUCH_BUTTON_SOURCE_ID = this.gameKeyEventFactory.TOUCH_BUTTON_SOURCE_ID;
+    this.gameKeyEvent = GameKeyEvent.NONE;
+    }
+    
 
-public class TouchButtonInput : Input, GameKeyEventSourceInterface
-{
-    public readonly LogUtil logUtil = LogUtil.getInstance();
-    private readonly GameKeyEventFactory gameKeyEventFactory = GameKeyEventFactory.getInstance();
-    private readonly int TOUCH_BUTTON_SOURCE_ID;
-    private GameKeyEvent gameKeyEvent = GameKeyEvent.NONE;
-    public TouchButtonInput(int id, string name) : base(id, name)
-    {
-        this.TOUCH_BUTTON_SOURCE_ID = this.gameKeyEventFactory.TOUCH_BUTTON_SOURCE_ID;
-        // base(id, name) is called from the constructor declaration
+    public TouchButtonInput(int32 id, string name) {
+        base(id, name);
+        this.initFieldsTouchButtonInput();
         InputFactory inputFactory = InputFactory.getInstance();
         inputFactory.add(this.getId(), this);
     }
+    
 
-    public virtual void update(InputToGameKeyMapping inputToGameKeyMapping)
-    {
-        try {
-            GameKey gameKey = inputToGameKeyMapping.getInstance(this.getId());
+    public virtual void update(InputToGameKeyMapping inputToGameKeyMapping) {
+        {
+            GameKey gameKey = inputToGameKeyMapping.getInstance1(this.getId());
             this.gameKeyEvent = this.gameKeyEventFactory.getInstanceForInput(this, gameKey);
-        } catch (Exception e) {
-            CommonStrings commonStrings = CommonStrings.getInstance();
-            this.logUtil.put(commonStrings.EXCEPTION, this, commonStrings.UPDATE, e);
-        }
+        } /* catch (Exception e): a thrown Java exception stops the program */
     }
+    
 
-    public virtual int getSourceId()
-    {
+    public virtual int32 getSourceId() {
         return this.TOUCH_BUTTON_SOURCE_ID;
     }
+    
 
-    public virtual GameKeyEvent getGameKeyEvent()
-    {
+    public virtual GameKeyEvent getGameKeyEvent() {
         return this.gameKeyEvent;
     }
-
 }
 

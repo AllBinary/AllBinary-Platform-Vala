@@ -13,15 +13,22 @@
  *   
  */
 // Generated Code Do Not Modify
+// package org.allbinary.game.configuration.persistance
+// import javax.microedition.rms.RecordStore
 
-using System;
-using System.Linq;
-using RecordStore = javax.microedition.rms.RecordStore;
+public class NullRecordStore : RecordStore {
+    public static NullRecordStore? NULL_RECORD_STORE;
+    private static bool staticSet_NULL_RECORD_STORE = false;
+    public static NullRecordStore staticGet_NULL_RECORD_STORE() {
+        if (!NullRecordStore.staticSet_NULL_RECORD_STORE) {
+            NullRecordStore.staticSet_NULL_RECORD_STORE = true;
+            NullRecordStore.NULL_RECORD_STORE = new NullRecordStore();
+        }
+        return NullRecordStore.NULL_RECORD_STORE;
+    }
 
-namespace org.allbinary.game.configuration.persistance;
-
-public class NullRecordStore : RecordStore
-{
-    public static NullRecordStore NULL_RECORD_STORE = new NullRecordStore();
+    public NullRecordStore() {
+        base();
+    }
 }
 

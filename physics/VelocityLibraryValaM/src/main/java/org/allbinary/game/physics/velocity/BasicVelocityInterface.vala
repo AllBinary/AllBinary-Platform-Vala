@@ -13,40 +13,47 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.game.physics.velocity
+// import org.allbinary.direction.Direction
+// import org.allbinary.logic.math.BasicDecimal
+// import org.allbinary.math.Angle
 
-using System;
-using System.Linq;
-using Direction = org.allbinary.direction.Direction;
-using BasicDecimal = org.allbinary.logic.math.BasicDecimal;
-using Angle = org.allbinary.math.Angle;
+public interface BasicVelocityInterface : JObject {
+    
 
-namespace org.allbinary.game.physics.velocity;
+    public abstract BasicDecimal getVelocityXBasicDecimalP();
+    
 
-public interface BasicVelocityInterface
-{
-    BasicDecimal getVelocityXBasicDecimalP();
+    public abstract BasicDecimal getVelocityYBasicDecimalP();
+    
 
-    BasicDecimal getVelocityYBasicDecimalP();
+    public abstract void zero();
+    
 
-    void zero();
+    public abstract void setVelocityWithBigDecimalAndDirection(BasicDecimal magnitudeBasicDecimal, Direction direction, Direction otherDirection);
+    
 
-    void setVelocityWithBigDecimalAndDirection(BasicDecimal magnitudeBasicDecimal, Direction direction, Direction otherDirection);
+    public abstract void addVelocityWithBigDecimalAndDirection(BasicDecimal magnitudeBasicDecimal, Direction direction, Direction otherDirection);
+    
 
-    void addVelocityWithBigDecimalAndDirection(BasicDecimal magnitudeBasicDecimal, Direction direction, Direction otherDirection);
+    public abstract void setVelocityWithDirection(int64 magnitude, Direction direction, Direction otherDirection);
+    
 
-    void setVelocityWithDirection(long magnitude, Direction direction, Direction otherDirection);
+    public abstract void addVelocityWithDirection(int64 magnitude, Direction direction, Direction otherDirection);
+    
 
-    void addVelocityWithDirection(long magnitude, Direction direction, Direction otherDirection);
+    public abstract void setVelocityWithBigDecimal(BasicDecimal magnitudeBasicDecimal, Angle angle, Angle otherAngle);
+    
 
-    void setVelocityWithBigDecimal(BasicDecimal magnitudeBasicDecimal, Angle angle, Angle otherAngle);
+    public abstract void addVelocityWithBigDecimal(BasicDecimal magnitudeBasicDecimal, Angle angle, Angle otherAngle);
+    
 
-    void addVelocityWithBigDecimal(BasicDecimal magnitudeBasicDecimal, Angle angle, Angle otherAngle);
+    public abstract void setVelocity(int64 magnitude, Angle angle, Angle otherAngle);
+    
 
-    void setVelocity(long magnitude, Angle angle, Angle otherAngle);
+    public abstract void addVelocity(int64 magnitude, Angle angle, Angle otherAngle);
+    
 
-    void addVelocity(long magnitude, Angle angle, Angle otherAngle);
-
-    void addVelocityi(long magnitude, int angle, int otherAngle);
-
+    public abstract void addVelocityi(int64 magnitude, int32 angle, int32 otherAngle);
 }
 

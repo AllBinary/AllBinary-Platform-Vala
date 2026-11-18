@@ -1,16 +1,11 @@
 // Generated Code Do Not Modify
+// package org.apache.xmlrpc
+// import org.allbinary.util.BasicArrayList
+// import org.allbinary.util.BasicArrayListD
 
-using System;
-using System.Linq;
-using BasicArrayList = org.allbinary.util.BasicArrayList;
-using BasicArrayListD = org.allbinary.util.BasicArrayListD;
+public interface XmlRpcHandler : JObject {
+    
 
-namespace org.apache.xmlrpc;
-
-public interface XmlRpcHandler
-{
-    // throws Exception
-    object execute(string method, BasicArrayList @params);
-
+    public abstract JObject execute(string method, BasicArrayList @params);
 }
 

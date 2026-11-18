@@ -13,33 +13,36 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.game.configuration.event
+// import org.allbinary.logic.util.event.AllBinaryEventObject
+// import org.allbinary.logic.util.event.EventListenerInterface
+// import org.allbinary.logic.util.event.handler.BasicEventHandler
 
-using System;
-using System.Linq;
-using AllBinaryEventObject = org.allbinary.logic.util.@event.AllBinaryEventObject;
-using EventListenerInterface = org.allbinary.logic.util.@event.EventListenerInterface;
-using BasicEventHandler = org.allbinary.logic.util.@event.handler.BasicEventHandler;
-
-namespace org.allbinary.game.configuration.@event;
-
-public class GameFeatureEventHandler : BasicEventHandler
-{
-    private static readonly GameFeatureEventHandler gameKeyEventHandler = new GameFeatureEventHandler();
-    private GameFeatureEventHandler()
-    {
-    }
-
-    public static GameFeatureEventHandler getInstance()
-    {
+public class GameFeatureEventHandler : BasicEventHandler {
+    private static GameFeatureEventHandler? gameKeyEventHandler;
+    private static bool staticSet_gameKeyEventHandler = false;
+    private static GameFeatureEventHandler staticGet_gameKeyEventHandler() {
+        if (!GameFeatureEventHandler.staticSet_gameKeyEventHandler) {
+            GameFeatureEventHandler.staticSet_gameKeyEventHandler = true;
+            GameFeatureEventHandler.gameKeyEventHandler = new GameFeatureEventHandler();
+        }
         return GameFeatureEventHandler.gameKeyEventHandler;
     }
+    
 
-    // throws Exception
-    public override void process(AllBinaryEventObject eventObject, EventListenerInterface eventListenerInterface)
-    {
+    public GameFeatureEventHandler() {
+        base();
+    }
+    
+
+    public static GameFeatureEventHandler getInstance() {
+        return GameFeatureEventHandler.staticGet_gameKeyEventHandler();
+    }
+    
+
+    public override void process(AllBinaryEventObject eventObject, EventListenerInterface eventListenerInterface) {
         GameFeatureListenerInterface gameFeatureListenerInterface = (((GameFeatureListenerInterface) eventListenerInterface));
         gameFeatureListenerInterface.onGameFeatureChange(((GameFeatureEvent) eventObject));
     }
-
 }
 

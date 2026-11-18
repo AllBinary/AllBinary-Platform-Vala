@@ -13,15 +13,11 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.game.health
 
-using System;
-using System.Linq;
+public interface HealthListenerInterface : JObject {
+    
 
-namespace org.allbinary.game.health;
-
-public interface HealthListenerInterface
-{
-    void onHealthChange();
-
+    public abstract void onHealthChange();
 }
 

@@ -13,57 +13,60 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.input.motion.gesture
+// import org.allbinary.game.input.CompleteMotionGestureInputEvent
+// import org.allbinary.util.BasicArrayList
 
-using System;
-using System.Linq;
-using CompleteMotionGestureInputEvent = org.allbinary.game.input.CompleteMotionGestureInputEvent;
-using BasicArrayList = org.allbinary.util.BasicArrayList;
-
-namespace org.allbinary.input.motion.gesture;
-
-public class MotionGestureToMotionGestureActionAssociation
-{
+public class MotionGestureToMotionGestureActionAssociation : JObject {
     private BasicArrayList list;
     private CompleteMotionGestureInputEvent motionGestureAction;
-    public MotionGestureToMotionGestureActionAssociation(BasicArrayList list, CompleteMotionGestureInputEvent commandAction)
-    {
+
+    // Java field initializers run after the base constructor
+    private void initFieldsMotionGestureToMotionGestureActionAssociation() {
+    
+    
+    }
+    
+
+    public MotionGestureToMotionGestureActionAssociation(BasicArrayList list, CompleteMotionGestureInputEvent commandAction) {
+        base();
+        this.initFieldsMotionGestureToMotionGestureActionAssociation();
         this.list = list;
         this.motionGestureAction = commandAction;
     }
+    
 
-    public virtual BasicArrayList getMotionGesture()
-    {
+    public virtual BasicArrayList getMotionGesture() {
         return this.list;
     }
+    
 
-    public virtual void setMotionGestures(BasicArrayList list)
-    {
+    public virtual void setMotionGestures(BasicArrayList list) {
         this.list = list;
     }
+    
 
-    public virtual CompleteMotionGestureInputEvent getCommandAction()
-    {
+    public virtual CompleteMotionGestureInputEvent getCommandAction() {
         return this.motionGestureAction;
     }
+    
 
-    public virtual void setMotionGestureAction(CompleteMotionGestureInputEvent commandAction)
-    {
+    public virtual void setMotionGestureAction(CompleteMotionGestureInputEvent commandAction) {
         this.motionGestureAction = commandAction;
     }
+    
 
-    public virtual bool isMotionGestureArrayEquals(BasicArrayList aList)
-    {
-        int size = aList.size();
+    public virtual bool isMotionGestureArrayEquals(BasicArrayList aList) {
+        int32 size = aList.size();
         if (this.list.size() != size) {
             return false;
         }
-        for (int i = size - 1; i >= 0; i--) {
+        for (int32 i = size - 1; i >= 0; i--) {
             if (aList.objectArray[i] != this.list.objectArray[i]) {
                 return false;
             }
         }
         return true;
     }
-
 }
 

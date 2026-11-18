@@ -13,35 +13,37 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.game.score
+// import org.allbinary.game.GameInfo
+// import org.allbinary.string.CommonStrings
 
-using System;
-using System.Linq;
-using GameInfo = org.allbinary.game.GameInfo;
-using CommonStrings = org.allbinary.@string.CommonStrings;
+public class HighScoresBase : JObject, HighScoresFactoryInterface {
+    public CommonStrings commonStrings;
 
-namespace org.allbinary.game.score;
-
-public class HighScoresBase : HighScoresFactoryInterface
-{
-    public CommonStrings commonStrings = CommonStrings.getInstance();
-    public HighScoresBase()
-    {
+    // Java field initializers run after the base constructor
+    private void initFieldsHighScoresBase() {
+    this.commonStrings = CommonStrings.getInstance();
     }
+    
 
-    public virtual void fetchHighScores(GameInfo gameInfo, HighScoresResultsListener highScoresResultsListener)
-    {
-        throw new SystemException();
+    public HighScoresBase() {
+        base();
+        this.initFieldsHighScoresBase();
     }
+    
 
-    public virtual void fetchHighScoresPreload(GameInfo gameInfo, HighScoresResultsListener highScoresResultsListener, bool preload)
-    {
-        throw new SystemException();
+    public virtual void fetchHighScores(GameInfo gameInfo, HighScoresResultsListener highScoresResultsListener) {
+        JSystem.fatal(new JException("RuntimeException", ""));
     }
+    
 
-    public virtual HighScoresHelperBaseInterface createHighScoresHelper()
-    {
-        throw new SystemException();
+    public virtual void fetchHighScoresPreload(GameInfo gameInfo, HighScoresResultsListener highScoresResultsListener, bool preload) {
+        JSystem.fatal(new JException("RuntimeException", ""));
     }
+    
 
+    public virtual HighScoresHelperBaseInterface createHighScoresHelper() {
+        JSystem.fatal(new JException("RuntimeException", ""));
+    }
 }
 

@@ -13,42 +13,45 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.graphics.form
+// import javax.microedition.lcdui.Graphics
+// import org.allbinary.animation.Animation
+// import org.allbinary.animation.FeaturedAnimationInterfaceFactoryInterfaceFactory
+// import org.allbinary.logic.system.security.licensing.LockedResources
+// import org.allbinary.logic.system.security.licensing.LockedUtil
 
-using System;
-using System.Linq;
-using Graphics = javax.microedition.lcdui.Graphics;
-using Animation = org.allbinary.animation.Animation;
-using FeaturedAnimationInterfaceFactoryInterfaceFactory = org.allbinary.animation.FeaturedAnimationInterfaceFactoryInterfaceFactory;
-using LockedResources = org.allbinary.logic.system.security.licensing.LockedResources;
-using LockedUtil = org.allbinary.logic.system.security.licensing.LockedUtil;
+public class LockablePaintable : ItemPaintable {
+    private Animation animation;
+    private int32 lockedIndex;
 
-namespace org.allbinary.graphics.form;
+    // Java field initializers run after the base constructor
+    private void initFieldsLockablePaintable() {
+    this.animation = FeaturedAnimationInterfaceFactoryInterfaceFactory.getInstance().@get(LockedResources.getInstance().LOCKED_DEMO_GAME_FEATURE_RESOURCE).getInstance1(0);
+    
+    }
+    
 
-public class LockablePaintable : ItemPaintable
-{
-    private readonly Animation animation = FeaturedAnimationInterfaceFactoryInterfaceFactory.getInstance().get(LockedResources.getInstance().LOCKED_DEMO_GAME_FEATURE_RESOURCE).getInstance(0);
-    private readonly int lockedIndex;
-    public LockablePaintable(int lockedIndex)
-    {
+    public LockablePaintable(int32 lockedIndex) {
+        base();
+        this.initFieldsLockablePaintable();
         this.lockedIndex = lockedIndex;
     }
+    
 
-    public override void paint(Graphics graphics, int currentIndex, int x, int y)
-    {
+    public override void paint(Graphics graphics, int32 currentIndex, int32 x, int32 y) {
         if (LockedUtil.getInstance().isLocked() && currentIndex >= this.getLockedIndex()) {
             this.getAnimation().paintXY(graphics, x, y);
         }
     }
+    
 
-    public virtual int getLockedIndex()
-    {
+    public virtual int32 getLockedIndex() {
         return this.lockedIndex;
     }
+    
 
-    public virtual Animation getAnimation()
-    {
+    public virtual Animation getAnimation() {
         return this.animation;
     }
-
 }
 

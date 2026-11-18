@@ -13,18 +13,14 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.game.layer.pickup
 
-using System;
-using System.Linq;
+public interface PickupBehaviorInterface : JObject {
+    
 
-namespace org.allbinary.game.layer.pickup;
+    public abstract void doPickup(PickupProcessorInterface pickupProcessorInterface);
+    
 
-public interface PickupBehaviorInterface
-{
-    // throws Exception
-    void doPickup(PickupProcessorInterface pickupProcessorInterface);
-
-    void doPickupLayer(PickedUpLayerInterface pickupLayerInterface);
-
+    public abstract void doPickupLayer(PickedUpLayerInterface pickupLayerInterface);
 }
 

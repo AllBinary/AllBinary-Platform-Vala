@@ -13,18 +13,14 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.game.state
 
-using System;
-using System.Linq;
+public interface GameStateCompositeInterface : JObject {
+    
 
-namespace org.allbinary.game.state;
+    public abstract void setGameState(GameState gameState);
+    
 
-public interface GameStateCompositeInterface
-{
-    // throws Exception
-    void setGameState(GameState gameState);
-
-    GameState getGameState();
-
+    public abstract GameState getGameState();
 }
 

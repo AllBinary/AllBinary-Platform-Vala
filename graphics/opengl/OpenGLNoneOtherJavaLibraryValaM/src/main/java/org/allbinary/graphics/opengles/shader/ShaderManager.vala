@@ -13,42 +13,55 @@
  *   
  */
 // Generated Code Do Not Modify
+// package org.allbinary.graphics.opengles.shader
+// import javax.microedition.khronos.opengles.GL10
+// import org.allbinary.string.CommonStrings
+// import org.allbinary.util.BasicArrayList
 
-using System;
-using System.Linq;
-using GL10 = javax.microedition.khronos.opengles.GL10;
-using CommonStrings = org.allbinary.@string.CommonStrings;
-using BasicArrayList = org.allbinary.util.BasicArrayList;
-
-namespace org.allbinary.graphics.opengles.shader;
-
-public class ShaderManager
-{
-    private static readonly ShaderManager instance = new ShaderManager(-1, -1);
-    public static ShaderManager getInstance()
-    {
+public class ShaderManager : JObject {
+    private static ShaderManager? instance;
+    private static bool staticSet_instance = false;
+    private static ShaderManager staticGet_instance() {
+        if (!ShaderManager.staticSet_instance) {
+            ShaderManager.staticSet_instance = true;
+            ShaderManager.instance = new ShaderManager(-1, -1);
+        }
         return ShaderManager.instance;
     }
+    public string LOAD_SHADER;
+    public CommonStrings commonStrings;
+    public int32 GL_VERTEX_SHADER;
+    public int32 GL_FRAGMENT_SHADER;
 
-    public readonly string LOAD_SHADER = "loadShader";
-    public readonly CommonStrings commonStrings = CommonStrings.getInstance();
-    public readonly int GL_VERTEX_SHADER;
-    public readonly int GL_FRAGMENT_SHADER;
-    public ShaderManager(int GL_VERTEX_SHADER, int GL_FRAGMENT_SHADER)
-    {
+    // Java field initializers run after the base constructor
+    private void initFieldsShaderManager() {
+    this.LOAD_SHADER = "loadShader";
+    this.commonStrings = CommonStrings.getInstance();
+    
+    
+    }
+    
+
+    public static ShaderManager getInstance() {
+        return ShaderManager.staticGet_instance();
+    }
+    
+
+    public ShaderManager(int32 GL_VERTEX_SHADER, int32 GL_FRAGMENT_SHADER) {
+        base();
+        this.initFieldsShaderManager();
         this.GL_VERTEX_SHADER = GL_VERTEX_SHADER;
         this.GL_FRAGMENT_SHADER = GL_FRAGMENT_SHADER;
     }
+    
 
-    public virtual int load(GL10 gl, string resource, string[] shaderAsStringArray, int shaderType)
-    {
+    public virtual int32 load(GL10 gl, string resource, string[] shaderAsStringArray, int32 shaderType) {
         return -1;
     }
+    
 
-    public virtual int loadShader(GL10 gl, string resource, BasicArrayList stringList, int shaderType)
-    {
+    public virtual int32 loadShader(GL10 gl, string resource, BasicArrayList stringList, int32 shaderType) {
         return -1;
     }
-
 }
 

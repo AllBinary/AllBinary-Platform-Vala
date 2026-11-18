@@ -13,18 +13,13 @@
  *   
  */
 // Generated Code Do Not Modify
+// package org.allbinary.graphics.opengles.shader
 
-using System;
-using System.Linq;
+public class SimpleCompositeShaderUpdater : CompositeShaderUpdater {
+    
 
-namespace org.allbinary.graphics.opengles.shader;
-
-public class SimpleCompositeShaderUpdater : CompositeShaderUpdater
-{
-    public SimpleCompositeShaderUpdater(string[] uniformBlockArray, string[] uniformArray, string[] attributeArray, int[] attributeHandleArray) : base(uniformBlockArray, uniformArray, attributeArray, attributeHandleArray)
-    {
-        // base(uniformBlockArray, uniformArray, attributeArray, attributeHandleArray) is called from the constructor declaration
+    public SimpleCompositeShaderUpdater(string[] uniformBlockArray, string[] uniformArray, string[] attributeArray, int32[] attributeHandleArray) {
+        base(uniformBlockArray, uniformArray, attributeArray, attributeHandleArray);
     }
-
 }
 

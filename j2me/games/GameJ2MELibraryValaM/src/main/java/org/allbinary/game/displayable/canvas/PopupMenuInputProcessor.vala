@@ -13,48 +13,51 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.game.displayable.canvas
+// import javax.microedition.lcdui.Canvas
+// import org.allbinary.game.input.GameInputStrings
+// import org.allbinary.game.input.event.GameKeyEvent
+// import org.allbinary.graphics.GPoint
+// import org.allbinary.graphics.Rectangle
+// import org.allbinary.graphics.displayable.MyCanvas
+// import org.allbinary.input.motion.gesture.MotionGestureInput
+// import org.allbinary.input.motion.gesture.TouchMotionGestureFactory
+// import org.allbinary.input.motion.gesture.observer.MotionGestureEvent
+// import org.allbinary.logic.communication.log.PreLogUtil
+// import org.allbinary.logic.string.StringMaker
+// import org.allbinary.math.RectangleCollisionUtil
+// import org.allbinary.string.CommonSeps
+// import org.allbinary.time.TimeDelayHelper
+// import org.allbinary.util.BasicArrayList
 
-using System;
-using System.Linq;
-using Canvas = javax.microedition.lcdui.Canvas;
-using GameInputStrings = org.allbinary.game.input.GameInputStrings;
-using GameKeyEvent = org.allbinary.game.input.@event.GameKeyEvent;
-using GPoint = org.allbinary.graphics.GPoint;
-using Rectangle = org.allbinary.graphics.Rectangle;
-using MyCanvas = org.allbinary.graphics.displayable.MyCanvas;
-using MotionGestureInput = org.allbinary.input.motion.gesture.MotionGestureInput;
-using TouchMotionGestureFactory = org.allbinary.input.motion.gesture.TouchMotionGestureFactory;
-using MotionGestureEvent = org.allbinary.input.motion.gesture.observer.MotionGestureEvent;
-using PreLogUtil = org.allbinary.logic.communication.log.PreLogUtil;
-using StringMaker = org.allbinary.logic.@string.StringMaker;
-using RectangleCollisionUtil = org.allbinary.math.RectangleCollisionUtil;
-using CommonSeps = org.allbinary.@string.CommonSeps;
-using TimeDelayHelper = org.allbinary.time.TimeDelayHelper;
-using BasicArrayList = org.allbinary.util.BasicArrayList;
-
-namespace org.allbinary.game.displayable.canvas;
-
-public class PopupMenuInputProcessor : BasicMenuInputProcessor
-{
-    private readonly RectangleCollisionUtil rectangleCollisionUtil = RectangleCollisionUtil.getInstance();
-    private readonly int CLICK_DELAY = 120;
-    private readonly TimeDelayHelper clickTimeHelper;
+public class PopupMenuInputProcessor : BasicMenuInputProcessor {
+    private RectangleCollisionUtil rectangleCollisionUtil;
+    private int32 CLICK_DELAY;
+    private TimeDelayHelper clickTimeHelper;
     private Rectangle rectangle;
-    public PopupMenuInputProcessor(BasicArrayList gameKeyEventList, int playerInputId, MyCanvas gameCanvas, Rectangle rectangle) : base(gameKeyEventList, playerInputId, gameCanvas)
-    {
-        this.clickTimeHelper = new TimeDelayHelper(this.CLICK_DELAY);
-        // base(gameKeyEventList, playerInputId, gameCanvas) is called from the constructor declaration
+
+    // Java field initializers run after the base constructor
+    private void initFieldsPopupMenuInputProcessor() {
+    this.rectangleCollisionUtil = RectangleCollisionUtil.getInstance();
+    this.CLICK_DELAY = 120;
+    this.clickTimeHelper = new TimeDelayHelper(this.CLICK_DELAY);
+    
+    }
+    
+
+    public PopupMenuInputProcessor(BasicArrayList gameKeyEventList, int32 playerInputId, MyCanvas gameCanvas, Rectangle rectangle) {
+        base(gameKeyEventList, playerInputId, gameCanvas);
+        this.initFieldsPopupMenuInputProcessor();
         this.rectangle = rectangle;
     }
+    
 
-    public virtual void init(Rectangle rectangle)
-    {
+    public virtual void init(Rectangle rectangle) {
         this.rectangle = rectangle;
     }
+    
 
-    // throws Exception
-    public virtual int processInput(int key)
-    {
+    public virtual int32 processInput(int32 key) {
         if (key == Canvas.KEY_STAR) {
             AllBinaryGameCanvas gameCanvas = ((AllBinaryGameCanvas) this.getCanvas());
             gameCanvas.toggleMenu();
@@ -62,17 +65,16 @@ public class PopupMenuInputProcessor : BasicMenuInputProcessor
         }
         return 0;
     }
+    
 
-    // throws Exception
-    public override int processInputList()
-    {
-        try {
-            int motionInputsIndex = this.processMotionInputs();
+    public override int32 processInputList() {
+        {
+            int32 motionInputsIndex = this.processMotionInputs();
             BasicArrayList list = this.getGameKeyEventList();
-            int size = list.size();
-            int key = 0;
+            int32 size = list.size();
+            int32 key = 0;
             GameKeyEvent gameKeyEvent = null;
-            for (int index = 0; index < size; index++) {
+            for (int32 index = 0; index < size; index++) {
                 gameKeyEvent = ((GameKeyEvent) list.objectArray[index]);
                 if (gameKeyEvent != null) {
                     key = gameKeyEvent.getKey();
@@ -87,16 +89,12 @@ public class PopupMenuInputProcessor : BasicMenuInputProcessor
             } else {
                 return -1;
             }
-        } catch (Exception e) {
-            this.logUtil.put(this.commonStrings.EXCEPTION, this, GameInputStrings.getInstance().PROCESS_INPUT, e);
-            return -1;
-        }
+        } /* catch (Exception e): a thrown Java exception stops the program */
     }
+    
 
-    // throws Exception
-    public virtual int processMotionInputs()
-    {
-        int lastIndex = this.motionGestureEventList.size() - 1;
+    public virtual int32 processMotionInputs() {
+        int32 lastIndex = this.motionGestureEventList.size() - 1;
         if (lastIndex >= 0) {
             MotionGestureEvent motionGestureEvent = ((MotionGestureEvent) this.motionGestureEventList.objectArray[lastIndex]);
             this.processMotionInput(motionGestureEvent);
@@ -104,10 +102,9 @@ public class PopupMenuInputProcessor : BasicMenuInputProcessor
         this.motionGestureEventList.clear();
         return lastIndex;
     }
+    
 
-    // throws Exception
-    public virtual void processMotionInput(MotionGestureEvent motionGestureEvent)
-    {
+    public virtual void processMotionInput(MotionGestureEvent motionGestureEvent) {
         if (motionGestureEvent == null) {
             this.logUtil.putF("Exception: Bug", this, this.gameInputStrings.PROCESS_MOTION_INPUT);
             return;
@@ -125,6 +122,5 @@ public class PopupMenuInputProcessor : BasicMenuInputProcessor
             }
         }
     }
-
 }
 

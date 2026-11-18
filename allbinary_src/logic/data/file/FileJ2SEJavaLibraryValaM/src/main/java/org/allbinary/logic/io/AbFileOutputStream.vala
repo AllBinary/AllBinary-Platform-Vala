@@ -13,46 +13,37 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.logic.io
+// import java.io.FileNotFoundException
+// import java.io.FileOutputStream
+// import org.allbinary.logic.io.file.AbFile
+// import org.allbinary.logic.io.file.AbFileNativeUtil
 
-using System;
-using System.Linq;
-//using FileNotFoundException = java.io.FileNotFoundException;
-using FileOutputStream = java.io.FileOutputStream;
-using AbFile = org.allbinary.logic.io.file.AbFile;
-using AbFileNativeUtil = org.allbinary.logic.io.file.AbFileNativeUtil;
+public class AbFileOutputStream : FileOutputStream {
+    
 
-namespace org.allbinary.logic.io;
-
-public class AbFileOutputStream : FileOutputStream
-{
-    // throws FileNotFoundException
-    public static AbFileOutputStream createFromAbFile(AbFile file)
-    {
+    public static AbFileOutputStream createFromAbFile(AbFile file) {
         return new AbFileOutputStream(file.getPath(), false);
     }
+    
 
-    // throws FileNotFoundException
-    public static AbFileOutputStream createFromAbFileAppend(AbFile file, bool append)
-    {
+    public static AbFileOutputStream createFromAbFileAppend(AbFile file, bool append) {
         return new AbFileOutputStream(file.getPath(), append);
     }
+    
 
-    // throws FileNotFoundException
-    public static AbFileOutputStream createFromFilePath(string name)
-    {
+    public static AbFileOutputStream createFromFilePath(string name) {
         return new AbFileOutputStream(name, false);
     }
+    
 
-    // throws FileNotFoundException
-    public static AbFileOutputStream createFromFilePathAppend(string name, bool append)
-    {
+    public static AbFileOutputStream createFromFilePathAppend(string name, bool append) {
         return new AbFileOutputStream(name, append);
     }
+    
 
-    public AbFileOutputStream(string name, bool append) : base(name, append)
-    {
-        // base(name, append) is called from the constructor declaration
+    public AbFileOutputStream(string name, bool append) {
+        base(name, append);
     }
-
 }
 

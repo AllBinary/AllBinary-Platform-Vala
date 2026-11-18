@@ -13,59 +13,66 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.vector
 
-using System;
-using System.Linq;
-
-namespace org.allbinary.vector;
-
-public class PointsUtil
-{
-    private static readonly PointsUtil instance = new PointsUtil();
-    public static PointsUtil getInstance()
-    {
+public class PointsUtil : JObject {
+    private static PointsUtil? instance;
+    private static bool staticSet_instance = false;
+    private static PointsUtil staticGet_instance() {
+        if (!PointsUtil.staticSet_instance) {
+            PointsUtil.staticSet_instance = true;
+            PointsUtil.instance = new PointsUtil();
+        }
         return PointsUtil.instance;
     }
 
-    public virtual int[][][] adjustXY(int[][][] points, int x, int y)
-    {
-        int size = points.Length;
-        int[][][] newPoints = System.Linq.Enumerable.Range(0, size).Select(_ => System.Linq.Enumerable.Range(0, 0).Select(_ => new int[0]).ToArray()).ToArray();
-        for (int index = 0; index < size; index++) {
-            int size2 = points[index].Length;
-            newPoints[index] = System.Linq.Enumerable.Range(0, size2).Select(_ => new int[2]).ToArray();
-            for (int index2 = 0; index2 < size2; index2++) {
-                if (points[index][index2][0] != 1000) {
-                    newPoints[index][index2][0] = points[index][index2][0] + x;
-                    newPoints[index][index2][1] = points[index][index2][1] + y;
+    public PointsUtil() {
+        base();
+    }
+    
+
+    public static PointsUtil getInstance() {
+        return PointsUtil.staticGet_instance();
+    }
+    
+
+    public virtual int32[,,] adjustXY(int32[,,] points, int32 x, int32 y) {
+        int32 size = points.length[0];
+        int32[,,] newPoints = new int32[size, 0, 0];
+        for (int32 index = 0; index < size; index++) {
+            int32 size2 = points[index].length;
+            newPoints[index] = new int32[size2, 2];
+            for (int32 index2 = 0; index2 < size2; index2++) {
+                if (points[index, index2, 0] != 1000) {
+                    newPoints[index, index2, 0] = points[index, index2, 0] + x;
+                    newPoints[index, index2, 1] = points[index, index2, 1] + y;
                 } else {
-                    newPoints[index][index2][0] = 1000;
-                    newPoints[index][index2][1] = 1000;
+                    newPoints[index, index2, 0] = 1000;
+                    newPoints[index, index2, 1] = 1000;
                 }
             }
         }
         return newPoints;
     }
+    
 
-    public virtual int[][] adjust(int[][] points, int both)
-    {
-        return this.adjust(points, both, both);
+    public virtual int32[,] adjust_2(int32[,] points, int32 both) {
+        return this.adjust_3(points, both, both);
     }
+    
 
-    public virtual int[][] adjust(int[][] points, int x, int y)
-    {
-        int[][] newPoints = System.Linq.Enumerable.Range(0, points.Length).Select(_ => new int[2]).ToArray();
-        for (int index2 = 0; index2 < points.Length; index2++) {
-            if (points[index2][0] != 1000) {
-                newPoints[index2][0] = points[index2][0] + x;
-                newPoints[index2][1] = points[index2][1] + y;
+    public virtual int32[,] adjust_3(int32[,] points, int32 x, int32 y) {
+        int32[,] newPoints = new int32[points.length[0], 2];
+        for (int32 index2 = 0; index2 < points.length[0]; index2++) {
+            if (points[index2, 0] != 1000) {
+                newPoints[index2, 0] = points[index2, 0] + x;
+                newPoints[index2, 1] = points[index2, 1] + y;
             } else {
-                newPoints[index2][0] = 1000;
-                newPoints[index2][1] = 1000;
+                newPoints[index2, 0] = 1000;
+                newPoints[index2, 1] = 1000;
             }
         }
         return newPoints;
     }
-
 }
 

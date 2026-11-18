@@ -13,16 +13,12 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.bounds.event
+// import org.allbinary.logic.util.event.EventListenerInterface
 
-using System;
-using System.Linq;
-using EventListenerInterface = org.allbinary.logic.util.@event.EventListenerInterface;
+public interface BoundsChangeEventListener : JObject, EventListenerInterface {
+    
 
-namespace org.allbinary.bounds.@event;
-
-public interface BoundsChangeEventListener : EventListenerInterface
-{
-    void onBoundsChangeEvent(BoundsChangeEvent boundsChangeEvent);
-
+    public abstract void onBoundsChangeEvent(BoundsChangeEvent boundsChangeEvent);
 }
 

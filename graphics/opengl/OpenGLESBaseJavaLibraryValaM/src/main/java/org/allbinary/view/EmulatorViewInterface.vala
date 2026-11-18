@@ -1,19 +1,17 @@
 // Generated Code Do Not Modify
+// package org.allbinary.view
+// import javax.microedition.lcdui.Displayable
+// import javax.microedition.midlet.MIDlet
 
-using System;
-using System.Linq;
-using Displayable = javax.microedition.lcdui.Displayable;
-using MIDlet = javax.microedition.midlet.MIDlet;
+public interface EmulatorViewInterface : JObject {
+    
 
-namespace org.allbinary.view;
+    public abstract void setMidlet(MIDlet midlet);
+    
 
-public interface EmulatorViewInterface
-{
-    void setMidlet(MIDlet midlet);
+    public abstract void onEmulatorInitComplete(JObject midletActivity);
+    
 
-    void onEmulatorInitComplete(object midletActivity);
-
-    void onSetDisplayable(Displayable displayable);
-
+    public abstract void onSetDisplayable(Displayable displayable);
 }
 

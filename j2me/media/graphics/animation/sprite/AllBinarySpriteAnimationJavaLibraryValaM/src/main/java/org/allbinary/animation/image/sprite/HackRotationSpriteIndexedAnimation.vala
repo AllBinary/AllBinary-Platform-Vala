@@ -13,87 +13,88 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.animation.image.sprite
+// import javax.microedition.lcdui.Graphics
+// import javax.microedition.lcdui.Image
+// import javax.microedition.lcdui.game.Sprite
+// import org.allbinary.animation.AnimationBehavior
+// import org.allbinary.animation.RotationAnimation
+// import org.allbinary.logic.math.PrimitiveIntUtil
+// import org.allbinary.math.AngleInfo
+// import org.allbinary.util.CircularIndexUtil
 
-using System;
-using System.Linq;
-using Graphics = javax.microedition.lcdui.Graphics;
-using Image = javax.microedition.lcdui.Image;
-using Sprite = javax.microedition.lcdui.game.Sprite;
-using AnimationBehavior = org.allbinary.animation.AnimationBehavior;
-using RotationAnimation = org.allbinary.animation.RotationAnimation;
-using PrimitiveIntUtil = org.allbinary.logic.math.PrimitiveIntUtil;
-using AngleInfo = org.allbinary.math.AngleInfo;
-using CircularIndexUtil = org.allbinary.util.CircularIndexUtil;
+public class HackRotationSpriteIndexedAnimation : RotationAnimation {
+    public Sprite sprite;
+    private Image image;
 
-namespace org.allbinary.animation.image.sprite;
+    // Java field initializers run after the base constructor
+    private void initFieldsHackRotationSpriteIndexedAnimation() {
+    
+    
+    }
+    
 
-public class HackRotationSpriteIndexedAnimation : RotationAnimation
-{
-    public readonly Sprite sprite;
-    private readonly Image image;
-    public HackRotationSpriteIndexedAnimation(Sprite sprite, Image image, AngleInfo angleInfo, AnimationBehavior animationBehavior) : base(angleInfo, CircularIndexUtil.createInstance(360 / angleInfo.getAngleIncrementInfo().getAngleIncrement()), animationBehavior)
-    {
-        // base(angleInfo, CircularIndexUtil.createInstance(360 / angleInfo.getAngleIncrementInfo().getAngleIncrement()), animationBehavior) is called from the constructor declaration
+    public HackRotationSpriteIndexedAnimation(Sprite sprite, Image image, AngleInfo angleInfo, AnimationBehavior animationBehavior) {
+        base(angleInfo, CircularIndexUtil.createInstance(360 / ((int32) (angleInfo.getAngleIncrementInfo().getAngleIncrement()))), animationBehavior);
+        this.initFieldsHackRotationSpriteIndexedAnimation();
         this.sprite = sprite;
         this.image = image;
     }
+    
 
-    // throws Exception
-    public override int getAnimationSize()
-    {
+    public override int32 getAnimationSize() {
         return this.getSize();
     }
+    
 
-    public virtual void paintFrame(Graphics g, int frame, int x, int y)
-    {
+    public virtual void paintFrame(Graphics g, int32 frame, int32 x, int32 y) {
         this.setFrame(frame);
         this.paintXY(g, x, y);
     }
+    
 
-    public override void paintXY(Graphics g, int x, int y)
-    {
+    public override void paintXY(Graphics g, int32 x, int32 y) {
         this.sprite.setPosition(x, y);
         this.paint(g);
     }
+    
 
-    public virtual void paint(Graphics g)
-    {
+    public virtual void paint(Graphics g) {
         this.sprite.paint(g);
     }
+    
 
-    public override void nextRotation()
-    {
+    public override void nextRotation() {
         this.sprite.nextFrame();
     }
+    
 
-    public override void previousRotation()
-    {
+    public override void previousRotation() {
         this.sprite.prevFrame();
     }
+    
 
-    public override int getSize()
-    {
+    public override int32 getSize() {
         return this.sprite.getRawFrameCount();
     }
+    
 
-    public override void setFrame(int frame)
-    {
+    public override void setFrame(int32 frame) {
         this.sprite.setFrame(frame);
     }
+    
 
-    public override int getFrame()
-    {
+    public override int32 getFrame() {
         return this.sprite.getFrame();
     }
+    
 
-    public override void setSequence(int[] sequence)
-    {
+    public override void setSequence(int32[] sequence) {
     }
+    
 
-    public override int[] getSequence()
-    {
+    public override int32[] getSequence() {
         return PrimitiveIntUtil.getArrayInstance();
     }
-
 }
 

@@ -13,18 +13,13 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.game.init
+// import javax.microedition.lcdui.CommandListener
+// import org.allbinary.logic.system.security.licensing.AbeClientInformationInterface
 
-using System;
-using System.Linq;
-using CommandListener = javax.microedition.lcdui.CommandListener;
-using AbeClientInformationInterface = org.allbinary.logic.system.security.licensing.AbeClientInformationInterface;
+public interface GameInitializationInterface : JObject {
+    
 
-namespace org.allbinary.game.init;
-
-public interface GameInitializationInterface
-{
-    // throws Exception
-    void init(AbeClientInformationInterface abeClientInformation, CommandListener commandListener, int level);
-
+    public abstract void init(AbeClientInformationInterface abeClientInformation, CommandListener commandListener, int32 level);
 }
 

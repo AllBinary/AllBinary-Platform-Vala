@@ -13,90 +13,82 @@
  *   
  */
 // Generated Code Do Not Modify
-
-using System;
-using System.Linq;
-using System.Runtime.CompilerServices;
-using InputStream = java.io.InputStream;
-using Player = javax.microedition.media.Player;
-using TsUtil = org.allbinary.TsUtil;
-using ProgressCanvasFactory = org.allbinary.graphics.canvas.transition.progress.ProgressCanvasFactory;
-using LogUtil = org.allbinary.logic.communication.log.LogUtil;
-using StringUtil = org.allbinary.logic.@string.StringUtil;
-using CommonStrings = org.allbinary.@string.CommonStrings;
-
-namespace org.allbinary.media.audio;
+// package org.allbinary.media.audio
+// import java.io.InputStream
+// import javax.microedition.media.Player
+// import org.allbinary.TsUtil
+// import org.allbinary.graphics.canvas.transition.progress.ProgressCanvasFactory
+// import org.allbinary.logic.communication.log.LogUtil
+// import org.allbinary.logic.string.StringUtil
+// import org.allbinary.string.CommonStrings
 
 //NotDeviceSpecificNoMediaMIDP1Library
-public class AllBinaryMediaManager
-{
+public class AllBinaryMediaManager : JObject {
     private const string THIS = "AllBinaryMediaManagerNoMediaMIDP1";
-    private AllBinaryMediaManager()
-    {
-    }
+    
 
-    public static bool isMuted()
-    {
+    public AllBinaryMediaManager() {
+        base();
+    }
+    
+
+    public static bool isMuted() {
         return false;
     }
+    
 
-    public static void setMuted(bool aMuted)
-    {
+    public static void setMuted(bool aMuted) {
     }
+    
 
-    public static bool update()
-    {
+    public static bool update() {
         return true;
     }
+    
 
-    // throws Exception
-    public static void init(SoundsFactoryInterface soundsFactoryInterface)
-    {
+    public static void init(SoundsFactoryInterface soundsFactoryInterface) {
         LogUtil logUtil = LogUtil.getInstance();
         CommonStrings commonString = CommonStrings.getInstance();
-        logUtil.putF(commonString.START, AllBinaryMediaManager.THIS, commonString.INIT);
+        logUtil.putF(commonString.START, JString.box(AllBinaryMediaManager.THIS), commonString.INIT);
         ProgressCanvasFactory.getInstance().addNormalPortion(50, "Media Manager");
         new Sounds(soundsFactoryInterface).init();
     }
+    
 
-    // throws Exception
-    public static void shutdown(SoundsFactoryInterface soundsFactoryInterface)
-    {
+    public static void shutdown(SoundsFactoryInterface soundsFactoryInterface) {
         new Sounds(soundsFactoryInterface).stopAll();
         new Sounds(soundsFactoryInterface).closeAll();
         TsUtil.getInstance().gc();
     }
+    
 
-    public static Player createPlayerFromInputStream(InputStream stream, string type)
-    {
+    public static Player createPlayerFromInputStream(InputStream stream, string type) {
         LogUtil logUtil = LogUtil.getInstance();
         CommonStrings commonString = CommonStrings.getInstance();
-        logUtil.putF(commonString.START, AllBinaryMediaManager.THIS, "creatPlayer(InputStream)");
+        logUtil.putF(commonString.START, JString.box(AllBinaryMediaManager.THIS), "creatPlayer(InputStream)");
         return ((Player) NoPlayer.NO_PLAYER);
     }
+    
 
-    public static Player createPlayer(string locator)
-    {
+    public static Player createPlayer(string locator) {
         LogUtil logUtil = LogUtil.getInstance();
         CommonStrings commonString = CommonStrings.getInstance();
-        logUtil.putF(commonString.START, AllBinaryMediaManager.THIS, "creatPlayer(locator)");
+        logUtil.putF(commonString.START, JString.box(AllBinaryMediaManager.THIS), "creatPlayer(locator)");
         return ((Player) NoPlayer.NO_PLAYER);
     }
+    
 
-    [MethodImpl(MethodImplOptions.Synchronized)]
-    public static void playTone(int frequency, int time, int volume)
-    {
+    public static void playTone(int32 frequency, int32 time, int32 volume) {
     }
+    
 
-    public static string[] getSupportedContentTypes(string protocol)
-    {
+    public static string[] getSupportedContentTypes(string protocol) {
         return StringUtil.getInstance().getArrayInstance();
     }
+    
 
-    public static string[] getSupportedProtocols(string content_type)
-    {
+    public static string[] getSupportedProtocols(string content_type) {
         return StringUtil.getInstance().getArrayInstance();
     }
-
 }
 

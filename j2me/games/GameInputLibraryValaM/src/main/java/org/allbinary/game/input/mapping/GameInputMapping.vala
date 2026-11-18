@@ -13,43 +13,46 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.game.input.mapping
+// import org.allbinary.game.input.GameKey
+// import org.allbinary.logic.string.StringUtil
 
-using System;
-using System.Linq;
-using GameKey = org.allbinary.game.input.GameKey;
-using StringUtil = org.allbinary.logic.@string.StringUtil;
+public class GameInputMapping : JObject {
+    private string name;
+    private GameKey gameKey;
 
-namespace org.allbinary.game.input.mapping;
+    // Java field initializers run after the base constructor
+    private void initFieldsGameInputMapping() {
+    this.name = StringUtil.getInstance().EMPTY_STRING;
+    this.gameKey = GameKey.NULL_GAME_KEY;
+    }
+    
 
-public class GameInputMapping
-{
-    private string name = StringUtil.getInstance().EMPTY_STRING;
-    private GameKey gameKey = GameKey.NULL_GAME_KEY;
-    public GameInputMapping(string name, GameKey gameKey)
-    {
+    public GameInputMapping(string name, GameKey gameKey) {
+        base();
+        this.initFieldsGameInputMapping();
         this.setName(name);
         this.setGameKey(gameKey);
     }
+    
 
-    private void setGameKey(GameKey gameKey)
-    {
+    private void setGameKey(GameKey gameKey) {
         this.gameKey = gameKey;
     }
+    
 
-    public virtual GameKey getGameKey()
-    {
+    public virtual GameKey getGameKey() {
         return this.gameKey;
     }
+    
 
-    private void setName(string name)
-    {
+    private void setName(string name) {
         this.name = name;
     }
+    
 
-    public virtual string getName()
-    {
+    public virtual string getName() {
         return this.name;
     }
-
 }
 

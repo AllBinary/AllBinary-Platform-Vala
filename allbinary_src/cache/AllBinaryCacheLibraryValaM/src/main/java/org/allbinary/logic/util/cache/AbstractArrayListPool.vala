@@ -13,50 +13,50 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.logic.util.cache
+// import org.allbinary.string.CommonStrings
+// import org.allbinary.util.BasicArrayList
+// import org.allbinary.util.BasicArrayListD
 
-using System;
-using System.Linq;
-using CommonStrings = org.allbinary.@string.CommonStrings;
-using BasicArrayList = org.allbinary.util.BasicArrayList;
-using BasicArrayListD = org.allbinary.util.BasicArrayListD;
-
-namespace org.allbinary.logic.util.cache;
-
-public class AbstractArrayListPool : PoolInterface
-{
-    public readonly CommonStrings commonStrings = CommonStrings.getInstance();
-    public BasicArrayList buffers = new BasicArrayListD();
+public class AbstractArrayListPool : JObject, PoolInterface, CacheInterface {
+    public CommonStrings commonStrings;
+    public BasicArrayList buffers;
     public CacheableInterfaceFactoryInterface cacheableInterfaceFactoryInterface;
-    public AbstractArrayListPool(CacheableInterfaceFactoryInterface cacheableInterfaceFactoryInterface)
-    {
+
+    // Java field initializers run after the base constructor
+    private void initFieldsAbstractArrayListPool() {
+    this.commonStrings = CommonStrings.getInstance();
+    this.buffers = new BasicArrayListD();
+    
+    }
+    
+
+    public AbstractArrayListPool(CacheableInterfaceFactoryInterface cacheableInterfaceFactoryInterface) {
+        base();
+        this.initFieldsAbstractArrayListPool();
         this.cacheableInterfaceFactoryInterface = cacheableInterfaceFactoryInterface;
     }
+    
 
-    // throws Exception
-    public virtual void clear()
-    {
-        throw new Exception(this.commonStrings.NOT_IMPLEMENTED);
+    public virtual void clear() {
+        JSystem.fatal(new JException("Exception", this.commonStrings.NOT_IMPLEMENTED));
     }
+    
 
-    // throws Exception
-    public virtual CacheableInterface remove(object key)
-    {
-        throw new Exception(this.commonStrings.NOT_IMPLEMENTED);
+    public virtual CacheableInterface remove(JObject key) {
+        JSystem.fatal(new JException("Exception", this.commonStrings.NOT_IMPLEMENTED));
     }
+    
 
-    // throws Exception
-    public virtual void add(CacheableInterface cacheableInterface)
-    {
+    public virtual void add(CacheableInterface cacheableInterface) {
         this.buffers.add(cacheableInterface);
     }
+    
 
-    // throws Exception
-    public virtual void addArray(CacheableInterface[] cacheableInterfaces)
-    {
-        for (int index = 0; index < cacheableInterfaces.Length; index++) {
+    public virtual void addArray(CacheableInterface[] cacheableInterfaces) {
+        for (int32 index = 0; index < cacheableInterfaces.length; index++) {
             this.buffers.add(cacheableInterfaces[index]);
         }
     }
-
 }
 

@@ -13,19 +13,26 @@
  * 
  */
 // Generated Code Do Not Modify
+// package org.allbinary.layer
 
-using System;
-using System.Linq;
-
-namespace org.allbinary.layer;
-
-public class LayerManagerNoDebug : LayerManagerLoggingBase
-{
-    private static readonly LayerManagerNoDebug instance = new LayerManagerNoDebug();
-    public static LayerManagerNoDebug getInstance()
-    {
+public class LayerManagerNoDebug : LayerManagerLoggingBase {
+    private static LayerManagerNoDebug? instance;
+    private static bool staticSet_instance = false;
+    private static LayerManagerNoDebug staticGet_instance() {
+        if (!LayerManagerNoDebug.staticSet_instance) {
+            LayerManagerNoDebug.staticSet_instance = true;
+            LayerManagerNoDebug.instance = new LayerManagerNoDebug();
+        }
         return LayerManagerNoDebug.instance;
     }
 
+    public LayerManagerNoDebug() {
+        base();
+    }
+    
+
+    public static LayerManagerNoDebug getInstance() {
+        return LayerManagerNoDebug.staticGet_instance();
+    }
 }
 

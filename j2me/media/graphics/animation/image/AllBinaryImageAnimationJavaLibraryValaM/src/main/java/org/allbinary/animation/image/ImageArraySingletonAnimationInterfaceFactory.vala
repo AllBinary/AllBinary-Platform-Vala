@@ -13,24 +13,19 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.animation.image
+// import javax.microedition.lcdui.Image
+// import org.allbinary.animation.Animation
+// import org.allbinary.animation.AnimationBehavior
+// import org.allbinary.animation.IndexedAnimation
+// import org.allbinary.animation.SingletonAnimationInterfaceFactory
+// import org.allbinary.image.IndexedAnimationToImageArrayUtil
 
-using System;
-using System.Linq;
-using Image = javax.microedition.lcdui.Image;
-using Animation = org.allbinary.animation.Animation;
-using AnimationBehavior = org.allbinary.animation.AnimationBehavior;
-using IndexedAnimation = org.allbinary.animation.IndexedAnimation;
-using SingletonAnimationInterfaceFactory = org.allbinary.animation.SingletonAnimationInterfaceFactory;
-using IndexedAnimationToImageArrayUtil = org.allbinary.image.IndexedAnimationToImageArrayUtil;
+public class ImageArraySingletonAnimationInterfaceFactory : SingletonAnimationInterfaceFactory {
+    
 
-namespace org.allbinary.animation.image;
-
-public class ImageArraySingletonAnimationInterfaceFactory : SingletonAnimationInterfaceFactory
-{
-    public ImageArraySingletonAnimationInterfaceFactory(Image[] imageArray) : base(new ImageArrayAnimation(imageArray, AnimationBehavior.getInstance()))
-    {
-        // base(new ImageArrayAnimation(imageArray, AnimationBehavior.getInstance())) is called from the constructor declaration
+    public ImageArraySingletonAnimationInterfaceFactory(Image[] imageArray) {
+        base(new ImageArrayAnimation(imageArray, AnimationBehavior.getInstance()));
     }
-
 }
 

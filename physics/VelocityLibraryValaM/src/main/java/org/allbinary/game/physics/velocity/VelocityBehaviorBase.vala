@@ -13,25 +13,24 @@
  *   
  */
 // Generated Code Do Not Modify
+// package org.allbinary.game.physics.velocity
 
-using System;
-using System.Linq;
+public class VelocityBehaviorBase : JObject {
 
-namespace org.allbinary.game.physics.velocity;
-
-public class VelocityBehaviorBase
-{
-    public virtual void reduce(BasicVelocityProperties velocityProperties, int nominator, int denominator)
-    {
+    public VelocityBehaviorBase() {
+        base();
     }
+    
 
-    public virtual void reduceX(BasicVelocityProperties velocityProperties, int nominator, int denominator)
-    {
+    public virtual void reduce(BasicVelocityProperties velocityProperties, int32 nominator, int32 denominator) {
     }
+    
 
-    public virtual void reduceY(BasicVelocityProperties velocityProperties, int nominator, int denominator)
-    {
+    public virtual void reduceX(BasicVelocityProperties velocityProperties, int32 nominator, int32 denominator) {
     }
+    
 
+    public virtual void reduceY(BasicVelocityProperties velocityProperties, int32 nominator, int32 denominator) {
+    }
 }
 

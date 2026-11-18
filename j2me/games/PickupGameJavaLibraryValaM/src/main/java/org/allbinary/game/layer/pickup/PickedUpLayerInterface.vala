@@ -13,18 +13,15 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.game.layer.pickup
+// import org.allbinary.layer.LayerInterface
 
-using System;
-using System.Linq;
-using LayerInterface = org.allbinary.layer.LayerInterface;
+public interface PickedUpLayerInterface : JObject, LayerInterface {
+    
 
-namespace org.allbinary.game.layer.pickup;
+    public abstract PickedUpLayerInterfaceFactoryInterface getPickedUpLayerInterfaceFactoryInterface();
+    
 
-public interface PickedUpLayerInterface : LayerInterface
-{
-    PickedUpLayerInterfaceFactoryInterface getPickedUpLayerInterfaceFactoryInterface();
-
-    void setPickedUp();
-
+    public abstract void setPickedUp();
 }
 

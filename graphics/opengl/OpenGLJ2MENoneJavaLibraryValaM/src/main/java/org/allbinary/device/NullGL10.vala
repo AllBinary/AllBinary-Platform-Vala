@@ -13,15 +13,22 @@
  *   
  */
 // Generated Code Do Not Modify
+// package org.allbinary.device
+// import javax.microedition.khronos.opengles.GL10
 
-using System;
-using System.Linq;
-using GL10 = javax.microedition.khronos.opengles.GL10;
+public class NullGL10 : JObject, GL10, GL {
+    public static NullGL10? NULL_GL10;
+    private static bool staticSet_NULL_GL10 = false;
+    public static NullGL10 staticGet_NULL_GL10() {
+        if (!NullGL10.staticSet_NULL_GL10) {
+            NullGL10.staticSet_NULL_GL10 = true;
+            NullGL10.NULL_GL10 = new NullGL10();
+        }
+        return NullGL10.NULL_GL10;
+    }
 
-namespace org.allbinary.device;
-
-public class NullGL10 : GL10
-{
-    public static readonly NullGL10 NULL_GL10 = new NullGL10();
+    public NullGL10() {
+        base();
+    }
 }
 

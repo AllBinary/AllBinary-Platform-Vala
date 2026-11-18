@@ -13,50 +13,58 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.logic.system.security.crypt.jcehelper
+// import java.security.spec.KeySpec
+// import javax.crypto.spec.DESKeySpec
+// import javax.crypto.spec.DESedeKeySpec
+// import org.allbinary.TsUtil
+// import org.allbinary.logic.communication.log.PreLogUtil
+// import org.allbinary.string.CommonStrings
 
-using System;
-using System.Linq;
-using KeySpec = java.security.spec.KeySpec;
-using DESKeySpec = javax.crypto.spec.DESKeySpec;
-using DESedeKeySpec = javax.crypto.spec.DESedeKeySpec;
-using TsUtil = org.allbinary.TsUtil;
-using PreLogUtil = org.allbinary.logic.communication.log.PreLogUtil;
-using CommonStrings = org.allbinary.@string.CommonStrings;
-
-namespace org.allbinary.logic.system.security.crypt.jcehelper;
-
-public class KeySpecFactory
-{
-    private static readonly KeySpecFactory instance = new KeySpecFactory();
-    public static KeySpecFactory getInstance()
-    {
+public class KeySpecFactory : JObject {
+    private static KeySpecFactory? instance;
+    private static bool staticSet_instance = false;
+    private static KeySpecFactory staticGet_instance() {
+        if (!KeySpecFactory.staticSet_instance) {
+            KeySpecFactory.staticSet_instance = true;
+            KeySpecFactory.instance = new KeySpecFactory();
+        }
         return KeySpecFactory.instance;
     }
+    public string DES;
+    public string DESEDE;
+    public string BLOWFISH;
 
-    public readonly string DES = "DES";
-    public readonly string DESEDE = "DESede";
-    public readonly string BLOWFISH = "Blowfish";
-    private KeySpecFactory()
-    {
+    // Java field initializers run after the base constructor
+    private void initFieldsKeySpecFactory() {
+    this.DES = "DES";
+    this.DESEDE = "DESede";
+    this.BLOWFISH = "Blowfish";
     }
+    
 
-    public virtual KeySpec getInstance(string algorithm, sbyte[] keyData)
-    {
-        try {
+    public static KeySpecFactory getInstance() {
+        return KeySpecFactory.staticGet_instance();
+    }
+    
+
+    public KeySpecFactory() {
+        base();
+        this.initFieldsKeySpecFactory();
+    }
+    
+
+    public virtual KeySpec getInstance2(string algorithm, int8[] keyData) {
+        {
             TsUtil tsUtil = TsUtil.getInstance();
             if (tsUtil.compareTo(algorithm, this.DES) == 0) {
                 return new DESKeySpec(keyData);
             } else if (tsUtil.compareTo(algorithm, this.DESEDE) == 0) {
                 return new DESedeKeySpec(keyData);
             } else {
-                throw new SystemException();
+                JSystem.fatal(new JException("RuntimeException", ""));
             }
-        } catch (Exception e) {
-            CommonStrings commonStrings = CommonStrings.getInstance();
-            PreLogUtil.putOE(commonStrings.EXCEPTION, this, commonStrings.GET_INSTANCE, e);
-            throw new SystemException();
-        }
+        } /* catch (Exception e): a thrown Java exception stops the program */
     }
-
 }
 

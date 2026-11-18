@@ -13,23 +13,20 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.input.gyro
 
-using System;
-using System.Linq;
+public class SingleSensorGameUpdateProcessor : SensorGameUpdateProcessor {
 
-namespace org.allbinary.input.gyro;
-
-public class SingleSensorGameUpdateProcessor : SensorGameUpdateProcessor
-{
-    // throws Exception
-    public override void process(object anyType)
-    {
+    public SingleSensorGameUpdateProcessor() {
+        base();
     }
+    
 
-    // throws Exception
-    public override void sendNotifications(object anyType)
-    {
+    public override void process(JObject anyType) {
     }
+    
 
+    public override void sendNotifications(JObject anyType) {
+    }
 }
 

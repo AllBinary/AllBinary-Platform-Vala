@@ -13,44 +13,43 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.game.displayable.canvas
+// import org.allbinary.logic.communication.log.LogUtil
+// import org.allbinary.string.CommonStrings
+// import org.allbinary.thread.ABRunnable
 
-using System;
-using System.Linq;
-using LogUtil = org.allbinary.logic.communication.log.LogUtil;
-using CommonStrings = org.allbinary.@string.CommonStrings;
-using ABRunnable = org.allbinary.thread.ABRunnable;
+public class DemoGameStartupRunnable : ABRunnable {
+    public const int32 TYPE = 4;
+    public LogUtil logUtil;
+    private DemoCanvas demoCanvas;
 
-namespace org.allbinary.game.displayable.canvas;
+    // Java field initializers run after the base constructor
+    private void initFieldsDemoGameStartupRunnable() {
+    this.logUtil = LogUtil.getInstance();
+    
+    }
+    
 
-public class DemoGameStartupRunnable : ABRunnable
-{
-    public readonly LogUtil logUtil = LogUtil.getInstance();
-    private readonly DemoCanvas demoCanvas;
-    public DemoGameStartupRunnable(DemoCanvas demoCanvas)
-    {
+    public DemoGameStartupRunnable(DemoCanvas demoCanvas) {
+        base();
+        this.initFieldsDemoGameStartupRunnable();
         this.demoCanvas = demoCanvas;
     }
+    
 
-    public override void run()
-    {
-        try {
+    public override void run() {
+        {
             this.setRunning(true);
             this.demoCanvas.stopGameDemo();
             this.demoCanvas.create();
             this.demoCanvas.start();
             this.setRunning(false);
-        } catch (Exception e) {
-            this.setRunning(false);
-            CommonStrings commonStrings = CommonStrings.getInstance();
-            this.logUtil.put(commonStrings.EXCEPTION, this, commonStrings.RUN, e);
-        }
+        } /* catch (Exception e): a thrown Java exception stops the program */
     }
+    
 
-    public const int TYPE = 4;
-    public override int getType()
-    {
+    public override int32 getType() {
         return DemoGameStartupRunnable.TYPE;
     }
-
 }
 

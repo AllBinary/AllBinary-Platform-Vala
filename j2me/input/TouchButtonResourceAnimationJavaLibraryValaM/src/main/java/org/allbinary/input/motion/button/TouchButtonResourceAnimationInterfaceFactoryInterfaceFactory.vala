@@ -13,55 +13,49 @@
  *   
  */
 // Generated Code Do Not Modify
+// package org.allbinary.input.motion.button
+// import javax.microedition.lcdui.Image
+// import org.allbinary.animation.AnimationBehaviorFactory
+// import org.allbinary.animation.NullAnimationFactory
+// import org.allbinary.animation.image.sprite.OneRowSpriteIndexedAnimationFactory
+// import org.allbinary.animation.resource.BaseResourceAnimationInterfaceFactoryInterfaceFactory
+// import org.allbinary.game.configuration.feature.Features
+// import org.allbinary.game.resource.ResourceLoadingLevelFactory
+// import org.allbinary.graphics.canvas.transition.progress.ProgressCanvas
+// import org.allbinary.graphics.canvas.transition.progress.ProgressCanvasFactory
+// import org.allbinary.graphics.opengles.OpenGLFeatureFactory
+// import org.allbinary.image.ImageCache
+// import org.allbinary.image.ImageCacheFactory
+// import org.allbinary.logic.StdUtil
+// import org.allbinary.logic.string.StringMaker
+// import org.allbinary.logic.system.os.OperatingSystemFactory
+// import org.allbinary.media.image.ImageCompleteUtil
 
-using System;
-using System.Linq;
-using Image = javax.microedition.lcdui.Image;
-using AnimationBehaviorFactory = org.allbinary.animation.AnimationBehaviorFactory;
-using NullAnimationFactory = org.allbinary.animation.NullAnimationFactory;
-using OneRowSpriteIndexedAnimationFactory = org.allbinary.animation.image.sprite.OneRowSpriteIndexedAnimationFactory;
-using BaseResourceAnimationInterfaceFactoryInterfaceFactory = org.allbinary.animation.resource.BaseResourceAnimationInterfaceFactoryInterfaceFactory;
-using Features = org.allbinary.game.configuration.feature.Features;
-using ResourceLoadingLevelFactory = org.allbinary.game.resource.ResourceLoadingLevelFactory;
-using ProgressCanvas = org.allbinary.graphics.canvas.transition.progress.ProgressCanvas;
-using ProgressCanvasFactory = org.allbinary.graphics.canvas.transition.progress.ProgressCanvasFactory;
-using OpenGLFeatureFactory = org.allbinary.graphics.opengles.OpenGLFeatureFactory;
-using ImageCache = org.allbinary.image.ImageCache;
-using ImageCacheFactory = org.allbinary.image.ImageCacheFactory;
-using StdUtil = org.allbinary.logic.StdUtil;
-using StringMaker = org.allbinary.logic.@string.StringMaker;
-using OperatingSystemFactory = org.allbinary.logic.system.os.OperatingSystemFactory;
-using ImageCompleteUtil = org.allbinary.media.image.ImageCompleteUtil;
+public class TouchButtonResourceAnimationInterfaceFactoryInterfaceFactory : BaseResourceAnimationInterfaceFactoryInterfaceFactory {
+    
 
-namespace org.allbinary.input.motion.button;
-
-public class TouchButtonResourceAnimationInterfaceFactoryInterfaceFactory : BaseResourceAnimationInterfaceFactoryInterfaceFactory
-{
-    public static TouchButtonResourceAnimationInterfaceFactoryInterfaceFactory createFactory()
-    {
+    public static TouchButtonResourceAnimationInterfaceFactoryInterfaceFactory createFactory() {
         return new TouchButtonResourceAnimationInterfaceFactoryInterfaceFactory("TouchButton Animations");
     }
+    
 
-    public TouchButtonResourceAnimationInterfaceFactoryInterfaceFactory(string name) : base(name, StdUtil.getInstance().createHashtable(), StdUtil.getInstance().createHashtable(), StdUtil.getInstance().createHashtable())
-    {
-        // base(name, StdUtil.getInstance().createHashtable(), StdUtil.getInstance().createHashtable(), StdUtil.getInstance().createHashtable()) is called from the constructor declaration
+    public TouchButtonResourceAnimationInterfaceFactoryInterfaceFactory(string name) {
+        base(name, StdUtil.getInstance().createHashtable(), StdUtil.getInstance().createHashtable(), StdUtil.getInstance().createHashtable());
     }
+    
 
-    // throws Exception
-    public override void init(int level)
-    {
+    public override void init(int32 level) {
         this.initImageCache(ImageCacheFactory.getInstance(), level);
     }
+    
 
-    // throws Exception
-    public override void initImageCache(ImageCache imageCache, int level)
-    {
+    public override void initImageCache(ImageCache imageCache, int32 level) {
         if (this.isInitialized()) {
             return;
         }
-        int portion = 140;
-        string loadingString = new StringMaker().append(this.ToString()).append(" Loading: ").ToString();
-        int index = 0;
+        int32 portion = 140;
+        string loadingString = new StringMaker().append(this.toString()).append(" Loading: ").toString();
+        int32 index = 0;
         ProgressCanvas progressCanvas = ProgressCanvasFactory.getInstance();
         progressCanvas.addPortion(portion, loadingString, index++);
         TouchButtonResource touchButtonBlankResource = TouchButtonBlankResource.getInstance();
@@ -73,18 +67,18 @@ public class TouchButtonResourceAnimationInterfaceFactoryInterfaceFactory : Base
         TouchButtonResource touchButtonTurnRightResource = TouchButtonTurnRightResource.getInstance();
         TouchButtonResource touchButtonStrafeLeftResource = TouchButtonStrafeLeftResource.getInstance();
         TouchButtonResource touchButtonStrafeRightResource = TouchButtonStrafeRightResource.getInstance();
-        Image touchButtonBlankResourceImage = imageCache.getWithKey(touchButtonBlankResource.RESOURCE);
-        Image touchButtonGenericActionResourceImage = imageCache.getWithKey(touchButtonGenericActionResource.RESOURCE);
-        Image touchButtonStartResourceImage = imageCache.getWithKey(touchButtonStartResource.RESOURCE);
-        Image touchButtonUpResourceImage = imageCache.getWithKey(touchButtonUpResource.RESOURCE);
-        Image touchButtonDownResourceImage = imageCache.getWithKey(touchButtonDownResource.RESOURCE);
-        Image touchButtonTurnLeftResourceImage = imageCache.getWithKey(touchButtonTurnLeftResource.RESOURCE);
-        Image touchButtonTurnRightResourceImage = imageCache.getWithKey(touchButtonTurnRightResource.RESOURCE);
-        Image touchButtonStrafeLeftResourceImage = imageCache.getWithKey(touchButtonStrafeLeftResource.RESOURCE);
-        Image touchButtonStrafeRightResourceImage = imageCache.getWithKey(touchButtonStrafeRightResource.RESOURCE);
+        Image touchButtonBlankResourceImage = imageCache.getWithKey(JString.box(touchButtonBlankResource.RESOURCE));
+        Image touchButtonGenericActionResourceImage = imageCache.getWithKey(JString.box(touchButtonGenericActionResource.RESOURCE));
+        Image touchButtonStartResourceImage = imageCache.getWithKey(JString.box(touchButtonStartResource.RESOURCE));
+        Image touchButtonUpResourceImage = imageCache.getWithKey(JString.box(touchButtonUpResource.RESOURCE));
+        Image touchButtonDownResourceImage = imageCache.getWithKey(JString.box(touchButtonDownResource.RESOURCE));
+        Image touchButtonTurnLeftResourceImage = imageCache.getWithKey(JString.box(touchButtonTurnLeftResource.RESOURCE));
+        Image touchButtonTurnRightResourceImage = imageCache.getWithKey(JString.box(touchButtonTurnRightResource.RESOURCE));
+        Image touchButtonStrafeLeftResourceImage = imageCache.getWithKey(JString.box(touchButtonStrafeLeftResource.RESOURCE));
+        Image touchButtonStrafeRightResourceImage = imageCache.getWithKey(JString.box(touchButtonStrafeRightResource.RESOURCE));
         NullAnimationFactory nullAnimationFactory = NullAnimationFactory.getFactoryInstance();
         if (OperatingSystemFactory.getInstance().getOperatingSystemInstance().isOverScan()) {
-            imageCache.getWithKey(TouchButtonStartResource.getInstance().HINT);
+            imageCache.getWithKey(JString.box(TouchButtonStartResource.getInstance().HINT));
         }
         progressCanvas.addPortion(portion, loadingString, index++);
         ImageCompleteUtil imageCompleteUtil = ImageCompleteUtil.getInstance();
@@ -124,16 +118,16 @@ public class TouchButtonResourceAnimationInterfaceFactoryInterfaceFactory : Base
         this.add(touchButtonStrafeRightResource.RESOURCE, OneRowSpriteIndexedAnimationFactory.createFactory(touchButtonStrafeRightResourceImage, AnimationBehaviorFactory.getInstance()));
         this.add(touchButtonStrafeRightResource.HINT, nullAnimationFactory);
         if (OperatingSystemFactory.getInstance().getOperatingSystemInstance().isOverScan()) {
-            Image touchButtonStartHintResource = imageCache.getWithKey(TouchButtonStartResource.getInstance().HINT);
+            Image touchButtonStartHintResource = imageCache.getWithKey(JString.box(TouchButtonStartResource.getInstance().HINT));
             this.add(touchButtonStartResource.HINT, OneRowSpriteIndexedAnimationFactory.createFactory(touchButtonStartHintResource, AnimationBehaviorFactory.getInstance()));
         } else {
             this.add(touchButtonStartResource.HINT, nullAnimationFactory);
         }
         base.init(level);
     }
+    
 
-    public override bool isLoadingLevel(int level)
-    {
+    public override bool isLoadingLevel(int32 level) {
         ResourceLoadingLevelFactory resourceLoadingLevelFactory = ResourceLoadingLevelFactory.getInstance();
         if (level == resourceLoadingLevelFactory.LOAD_TOUCH.getLevel()) {
             return true;
@@ -141,15 +135,14 @@ public class TouchButtonResourceAnimationInterfaceFactoryInterfaceFactory : Base
             return base.isLoadingLevel(level);
         }
     }
+    
 
-    public override bool isFeature()
-    {
+    public override bool isFeature() {
         if (!Features.getInstance().isDefault(OpenGLFeatureFactory.getInstance().OPENGL)) {
             return true;
         } else {
             return false;
         }
     }
-
 }
 

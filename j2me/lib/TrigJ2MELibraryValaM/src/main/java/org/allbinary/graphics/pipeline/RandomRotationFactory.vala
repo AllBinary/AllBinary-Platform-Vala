@@ -13,38 +13,51 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.graphics.pipeline
+// import org.allbinary.game.rand.MyRandomFactory
+// import org.allbinary.math.AngleFactory
+// import org.allbinary.util.BasicArrayList
 
-using System;
-using System.Linq;
-using MyRandomFactory = org.allbinary.game.rand.MyRandomFactory;
-using AngleFactory = org.allbinary.math.AngleFactory;
-using BasicArrayList = org.allbinary.util.BasicArrayList;
-
-namespace org.allbinary.graphics.pipeline;
-
-public class RandomRotationFactory
-{
-    private static readonly RandomRotationFactory instance = new RandomRotationFactory();
-    public static RandomRotationFactory getInstance()
-    {
+public class RandomRotationFactory : JObject {
+    private static RandomRotationFactory? instance;
+    private static bool staticSet_instance = false;
+    private static RandomRotationFactory staticGet_instance() {
+        if (!RandomRotationFactory.staticSet_instance) {
+            RandomRotationFactory.staticSet_instance = true;
+            RandomRotationFactory.instance = new RandomRotationFactory();
+        }
         return RandomRotationFactory.instance;
     }
+    private MyRandomFactory myRandomFactory;
+    private AngleFactory angleFactory;
 
-    private readonly MyRandomFactory myRandomFactory = MyRandomFactory.getInstance();
-    private readonly AngleFactory angleFactory = AngleFactory.getInstance();
-    // throws Exception
-    public virtual BasicArrayList getInstanceList(BasicArrayList vector, int howMuch)
-    {
+    // Java field initializers run after the base constructor
+    private void initFieldsRandomRotationFactory() {
+    this.myRandomFactory = MyRandomFactory.getInstance();
+    this.angleFactory = AngleFactory.getInstance();
+    }
+
+    public RandomRotationFactory() {
+        base();
+        this.initFieldsRandomRotationFactory();
+    }
+    
+
+    public static RandomRotationFactory getInstance() {
+        return RandomRotationFactory.staticGet_instance();
+    }
+    
+
+    public virtual BasicArrayList getInstanceList(BasicArrayList vector, int32 howMuch) {
         BasicGraphicsPipeline graphicsPipe = new BasicGraphicsPipeline(vector);
         graphicsPipe.createMatrix();
         graphicsPipe.rotateToAngle(this.angleFactory.getAt(this.getNextRandomAngle(howMuch)));
         return graphicsPipe.getMatrix();
     }
+    
 
-    public virtual int getNextRandomAngle(int howMuch)
-    {
+    public virtual int32 getNextRandomAngle(int32 howMuch) {
         return this.myRandomFactory.getNextInt(howMuch * 10);
     }
-
 }
 

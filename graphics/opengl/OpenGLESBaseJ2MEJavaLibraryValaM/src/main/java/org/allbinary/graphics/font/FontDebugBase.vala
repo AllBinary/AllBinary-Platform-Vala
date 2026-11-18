@@ -1,33 +1,46 @@
 // Generated Code Do Not Modify
-
-using System;
-using System.Linq;
-using Font = javax.microedition.lcdui.Font;
-using StringMaker = org.allbinary.logic.@string.StringMaker;
-
-namespace org.allbinary.graphics.font;
+// package org.allbinary.graphics.font
+// import javax.microedition.lcdui.Font
+// import org.allbinary.logic.string.StringMaker
 
 //OpenGLESBaseJ2MEJavaLibrary
-public class FontDebugBase
-{
-    private static readonly FontDebugBase instanceBase = new FontDebugBase();
-    public static FontDebugBase getInstance()
-    {
+public class FontDebugBase : JObject {
+    private static FontDebugBase? instanceBase;
+    private static bool staticSet_instanceBase = false;
+    private static FontDebugBase staticGet_instanceBase() {
+        if (!FontDebugBase.staticSet_instanceBase) {
+            FontDebugBase.staticSet_instanceBase = true;
+            FontDebugBase.instanceBase = new FontDebugBase();
+        }
         return FontDebugBase.instanceBase;
     }
+    public string SET_FONT;
 
-    public readonly string SET_FONT = "setFont";
-    public virtual void debugMetrics(Font currentFont, float convertedTextSize, object displayMetrics, StringMaker stringBuffer)
-    {
+    // Java field initializers run after the base constructor
+    private void initFieldsFontDebugBase() {
+    this.SET_FONT = "setFont";
     }
 
-    public virtual void debugDpi(int densityDpi, StringMaker stringBuffer)
-    {
+    public FontDebugBase() {
+        base();
+        this.initFieldsFontDebugBase();
     }
+    
 
-    public virtual void debugDimension(Font currentFont, float convertedTextSize, int longestDimensionTotalPixels, StringMaker stringBuffer)
-    {
+    public static FontDebugBase getInstance() {
+        return FontDebugBase.staticGet_instanceBase();
     }
+    
 
+    public virtual void debugMetrics(Font currentFont, float convertedTextSize, JObject displayMetrics, StringMaker stringBuffer) {
+    }
+    
+
+    public virtual void debugDpi(int32 densityDpi, StringMaker stringBuffer) {
+    }
+    
+
+    public virtual void debugDimension(Font currentFont, float convertedTextSize, int32 longestDimensionTotalPixels, StringMaker stringBuffer) {
+    }
 }
 

@@ -13,43 +13,68 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.input.motion.button
+// import org.allbinary.graphics.CellPosition
+// import org.allbinary.graphics.CellPositionFactory
+// import org.allbinary.logic.communication.log.LogUtil
+// import org.allbinary.string.CommonStrings
 
-using System;
-using System.Linq;
-using CellPosition = org.allbinary.graphics.CellPosition;
-using CellPositionFactory = org.allbinary.graphics.CellPositionFactory;
-using LogUtil = org.allbinary.logic.communication.log.LogUtil;
-using CommonStrings = org.allbinary.@string.CommonStrings;
+public class BasicTouchButtonCellPositionFactory : JObject {
+    public LogUtil logUtil;
+    private CommonStrings commonStrings;
+    public CellPosition TOP_RIGHT;
+    public CellPosition TOP_LEFT;
+    public CellPosition SECOND_FROM_TOP_LEFT;
+    public CellPosition SECOND_FROM_TOP_RIGHT;
+    public CellPosition TOP_SECOND_FROM_LEFT;
+    public CellPosition TOP_SECOND_FROM_RIGHT;
+    public CellPosition BOTTOM_RIGHT;
+    public CellPosition BOTTOM_SECOND_FROM_RIGHT;
+    public CellPosition SECOND_FROM_BOTTOM_RIGHT;
+    public CellPosition THIRD_FROM_BOTTOM_RIGHT;
+    public CellPosition FOURTH_FROM_BOTTOM_RIGHT;
+    public CellPosition SECOND_FROM_BOTTOM_SECOND_FROM_RIGHT;
+    public CellPosition SECOND_FROM_BOTTOM_THIRD_FROM_RIGHT;
+    public CellPosition SECOND_FROM_BOTTOM_FOURTH_FROM_RIGHT;
+    public CellPosition BOTTOM_THIRD_FROM_RIGHT;
+    public CellPosition BOTTOM_FOURTH_FROM_RIGHT;
+    public CellPosition BOTTOM_SECOND_FROM_LEFT;
+    public CellPosition SECOND_FROM_BOTTOM_LEFT;
+    public CellPosition THIRD_FROM_BOTTOM_LEFT;
+    public CellPosition BOTTOM_LEFT;
+    public CellPosition SECOND_FROM_BOTTOM_SECOND_FROM_LEFT;
 
-namespace org.allbinary.input.motion.button;
+    // Java field initializers run after the base constructor
+    private void initFieldsBasicTouchButtonCellPositionFactory() {
+    this.logUtil = LogUtil.getInstance();
+    this.commonStrings = CommonStrings.getInstance();
+    
+    
+    this.SECOND_FROM_TOP_LEFT = null;
+    this.SECOND_FROM_TOP_RIGHT = null;
+    this.TOP_SECOND_FROM_LEFT = null;
+    this.TOP_SECOND_FROM_RIGHT = null;
+    
+    
+    
+    this.THIRD_FROM_BOTTOM_RIGHT = null;
+    this.FOURTH_FROM_BOTTOM_RIGHT = null;
+    
+    this.SECOND_FROM_BOTTOM_THIRD_FROM_RIGHT = null;
+    this.SECOND_FROM_BOTTOM_FOURTH_FROM_RIGHT = null;
+    this.BOTTOM_THIRD_FROM_RIGHT = null;
+    this.BOTTOM_FOURTH_FROM_RIGHT = null;
+    
+    
+    this.THIRD_FROM_BOTTOM_LEFT = null;
+    
+    
+    }
+    
 
-public class BasicTouchButtonCellPositionFactory
-{
-    public readonly LogUtil logUtil = LogUtil.getInstance();
-    private readonly CommonStrings commonStrings = CommonStrings.getInstance();
-    public readonly CellPosition TOP_RIGHT;
-    public readonly CellPosition TOP_LEFT;
-    public readonly CellPosition SECOND_FROM_TOP_LEFT = null;
-    public readonly CellPosition SECOND_FROM_TOP_RIGHT = null;
-    public readonly CellPosition TOP_SECOND_FROM_LEFT = null;
-    public readonly CellPosition TOP_SECOND_FROM_RIGHT = null;
-    public readonly CellPosition BOTTOM_RIGHT;
-    public readonly CellPosition BOTTOM_SECOND_FROM_RIGHT;
-    public readonly CellPosition SECOND_FROM_BOTTOM_RIGHT;
-    public readonly CellPosition THIRD_FROM_BOTTOM_RIGHT = null;
-    public readonly CellPosition FOURTH_FROM_BOTTOM_RIGHT = null;
-    public readonly CellPosition SECOND_FROM_BOTTOM_SECOND_FROM_RIGHT;
-    public readonly CellPosition SECOND_FROM_BOTTOM_THIRD_FROM_RIGHT = null;
-    public readonly CellPosition SECOND_FROM_BOTTOM_FOURTH_FROM_RIGHT = null;
-    public readonly CellPosition BOTTOM_THIRD_FROM_RIGHT = null;
-    public readonly CellPosition BOTTOM_FOURTH_FROM_RIGHT = null;
-    public readonly CellPosition BOTTOM_SECOND_FROM_LEFT;
-    public readonly CellPosition SECOND_FROM_BOTTOM_LEFT;
-    public readonly CellPosition THIRD_FROM_BOTTOM_LEFT = null;
-    public readonly CellPosition BOTTOM_LEFT;
-    public readonly CellPosition SECOND_FROM_BOTTOM_SECOND_FROM_LEFT;
-    public BasicTouchButtonCellPositionFactory()
-    {
+    public BasicTouchButtonCellPositionFactory() {
+        base();
+        this.initFieldsBasicTouchButtonCellPositionFactory();
         this.logUtil.putF(this.commonStrings.START, this, this.commonStrings.CONSTRUCTOR);
         TouchButtonLocationHelper touchButtonLocationHelper = new TouchButtonLocationHelper();
         CellPositionFactory cellPositionFactory = CellPositionFactory.getInstance();
@@ -96,6 +121,5 @@ public class BasicTouchButtonCellPositionFactory
             this.TOP_SECOND_FROM_RIGHT = cellPositionFactory.NONE;
         }
     }
-
 }
 

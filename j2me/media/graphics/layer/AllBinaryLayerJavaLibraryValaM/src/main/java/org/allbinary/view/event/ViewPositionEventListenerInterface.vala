@@ -13,17 +13,12 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.view.event
+// import org.allbinary.logic.util.event.EventListenerInterface
 
-using System;
-using System.Linq;
-using EventListenerInterface = org.allbinary.logic.util.@event.EventListenerInterface;
+public interface ViewPositionEventListenerInterface : JObject, EventListenerInterface {
+    
 
-namespace org.allbinary.view.@event;
-
-public interface ViewPositionEventListenerInterface : EventListenerInterface
-{
-    // throws Exception
-    void onChangeEvent(ViewPositionEvent layerManagerEvent);
-
+    public abstract void onChangeEvent(ViewPositionEvent layerManagerEvent);
 }
 

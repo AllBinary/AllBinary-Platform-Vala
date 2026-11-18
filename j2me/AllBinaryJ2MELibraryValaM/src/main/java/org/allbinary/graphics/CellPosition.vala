@@ -13,49 +13,54 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.graphics
+// import org.allbinary.graph.V
+// import org.allbinary.logic.string.StringMaker
+// import org.allbinary.string.CommonSeps
 
-using System;
-using System.Linq;
-using V = org.allbinary.graph.V;
-using StringMaker = org.allbinary.logic.@string.StringMaker;
-using CommonSeps = org.allbinary.@string.CommonSeps;
+public class CellPosition : V {
+    private int32 id;
+    private int32 column;
+    private int32 row;
 
-namespace org.allbinary.graphics;
+    // Java field initializers run after the base constructor
+    private void initFieldsCellPosition() {
+    
+    
+    
+    }
+    
 
-public class CellPosition : V
-{
-    private readonly int id;
-    private readonly int column;
-    private readonly int row;
-    public CellPosition(int column, int row, int columns, int rows)
-    {
+    public CellPosition(int32 column, int32 row, int32 columns, int32 rows) {
+        base();
+        this.initFieldsCellPosition();
         this.column = column;
         this.row = row;
         this.id = (row * columns) + column;
     }
+    
 
-    public virtual int getColumn()
-    {
+    public virtual int32 getColumn() {
         return this.column;
     }
+    
 
-    public virtual int getRow()
-    {
+    public virtual int32 getRow() {
         return this.row;
     }
+    
 
-    public override string ToString()
-    {
+    public override string toString() {
         return CellPosition.toStringColRow(this.getColumn(), this.getRow());
     }
+    
 
-    public static string toStringCellPosition(CellPosition basicGeographicMapCellPosition)
-    {
+    public static string toStringCellPosition(CellPosition basicGeographicMapCellPosition) {
         return CellPosition.toStringColRow(basicGeographicMapCellPosition.getColumn(), basicGeographicMapCellPosition.getRow());
     }
+    
 
-    public static string toStringColRow(int i_column, int i_row)
-    {
+    public static string toStringColRow(int32 i_column, int32 i_row) {
         StringMaker stringBuffer = new StringMaker();
         CommonSeps commonSeps = CommonSeps.getInstance();
         stringBuffer.append(commonSeps.PARENTHESIS_OPEN);
@@ -63,13 +68,12 @@ public class CellPosition : V
         stringBuffer.append(commonSeps.COMMA);
         stringBuffer.appendint(i_row);
         stringBuffer.append(commonSeps.PARENTHESIS_CLOSE);
-        return stringBuffer.ToString();
+        return stringBuffer.toString();
     }
+    
 
-    public override int getId()
-    {
+    public override int32 getId() {
         return this.id;
     }
-
 }
 

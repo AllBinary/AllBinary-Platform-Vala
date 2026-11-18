@@ -13,29 +13,32 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.game.health
 
-using System;
-using System.Linq;
+public interface HealthInterface : JObject {
+    
 
-namespace org.allbinary.game.health;
+    public abstract bool isAlive();
+    
 
-public interface HealthInterface
-{
-    bool isAlive();
+    public abstract void damage(int32 ahealth);
+    
 
-    void damage(int ahealth);
+    public abstract void heal(int32 ahealth);
+    
 
-    void heal(int ahealth);
+    public abstract void healMax();
+    
 
-    void healMax();
+    public abstract int32 getMaxHealth();
+    
 
-    int getMaxHealth();
+    public abstract void setMaxHealth(int32 maxHealth);
+    
 
-    void setMaxHealth(int maxHealth);
+    public abstract int32 getHealth();
+    
 
-    int getHealth();
-
-    void addListener(HealthListenerInterface healthListenerInterface);
-
+    public abstract void addListener(HealthListenerInterface healthListenerInterface);
 }
 

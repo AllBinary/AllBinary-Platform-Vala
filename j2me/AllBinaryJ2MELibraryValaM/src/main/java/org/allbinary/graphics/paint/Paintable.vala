@@ -13,27 +13,26 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.graphics.paint
+// import javax.microedition.lcdui.Graphics
+// import org.allbinary.graphics.color.BasicColor
 
-using System;
-using System.Linq;
-using Graphics = javax.microedition.lcdui.Graphics;
-using BasicColor = org.allbinary.graphics.color.BasicColor;
+public class Paintable : JObject, PaintableInterface {
 
-namespace org.allbinary.graphics.paint;
-
-public class Paintable : PaintableInterface
-{
-    public virtual void setBasicColorP(BasicColor basicColor)
-    {
+    public Paintable() {
+        base();
     }
+    
 
-    public virtual void paint(Graphics graphics)
-    {
+    public virtual void setBasicColorP(BasicColor basicColor) {
     }
+    
 
-    public virtual void paintThreed(Graphics graphics)
-    {
+    public virtual void paint(Graphics graphics) {
     }
+    
 
+    public virtual void paintThreed(Graphics graphics) {
+    }
 }
 

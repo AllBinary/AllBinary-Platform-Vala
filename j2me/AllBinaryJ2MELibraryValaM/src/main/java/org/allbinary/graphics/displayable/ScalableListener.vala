@@ -13,21 +13,20 @@
  *   
  */
 // Generated Code Do Not Modify
+// package org.allbinary.graphics.displayable
 
-using System;
-using System.Linq;
+public interface ScalableListener : JObject {
+    
 
-namespace org.allbinary.graphics.displayable;
+    public abstract float getRatio(float ratio);
+    
 
-public interface ScalableListener
-{
-    float getRatio(float ratio);
+    public abstract int32 getLeft(int32 xOffset);
+    
 
-    int getLeft(int xOffset);
+    public abstract int32 getTop(int32 yOffset);
+    
 
-    int getTop(int yOffset);
-
-    void scale(float ratio);
-
+    public abstract void scale(float ratio);
 }
 

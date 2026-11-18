@@ -13,62 +13,62 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.animation.image
+// import javax.microedition.lcdui.Image
+// import javax.microedition.lcdui.NullImage
+// import org.allbinary.animation.Animation
+// import org.allbinary.animation.AnimationBehaviorFactory
+// import org.allbinary.animation.VectorAnimation
+// import org.allbinary.game.configuration.GameConfigurationCentral
+// import org.allbinary.graphics.color.BasicColor
+// import org.allbinary.image.AnimationFrameToImageUtil
+// import org.allbinary.logic.math.PrimitiveIntUtil
+// import org.allbinary.math.AngleFactory
+// import org.allbinary.math.AngleInfo
+// import org.allbinary.media.ScaleProperties
+// import org.allbinary.media.image.ImageToRotationImageArrayUtil
+// import org.allbinary.vector.VectorInfo
 
-using System;
-using System.Linq;
-using Image = javax.microedition.lcdui.Image;
-using NullImage = javax.microedition.lcdui.NullImage;
-using Animation = org.allbinary.animation.Animation;
-using AnimationBehaviorFactory = org.allbinary.animation.AnimationBehaviorFactory;
-using VectorAnimation = org.allbinary.animation.VectorAnimation;
-using GameConfigurationCentral = org.allbinary.game.configuration.GameConfigurationCentral;
-using BasicColor = org.allbinary.graphics.color.BasicColor;
-using AnimationFrameToImageUtil = org.allbinary.image.AnimationFrameToImageUtil;
-using PrimitiveIntUtil = org.allbinary.logic.math.PrimitiveIntUtil;
-using AngleFactory = org.allbinary.math.AngleFactory;
-using AngleInfo = org.allbinary.math.AngleInfo;
-using ScaleProperties = org.allbinary.media.ScaleProperties;
-using ImageToRotationImageArrayUtil = org.allbinary.media.image.ImageToRotationImageArrayUtil;
-using VectorInfo = org.allbinary.vector.VectorInfo;
+public class VectorToImageArrayRotationAnimationFactory : BaseImageAnimationFactory {
+    private Image[] imageArray;
+    private int32 angleIncrement;
 
-namespace org.allbinary.animation.image;
+    // Java field initializers run after the base constructor
+    private void initFieldsVectorToImageArrayRotationAnimationFactory() {
+    this.imageArray = NullImage.NULL_IMAGE_ARRAY;
+    this.angleIncrement = 0;
+    }
+    
 
-public class VectorToImageArrayRotationAnimationFactory : BaseImageAnimationFactory
-{
-    private Image[] imageArray = NullImage.NULL_IMAGE_ARRAY;
-    private int angleIncrement = 0;
-    public VectorToImageArrayRotationAnimationFactory(VectorInfo vectorInfo, BasicColor basicColor, AnimationBehaviorFactory animationBehaviorFactory) : base(AnimationFrameToImageUtil.getInstance().getInstanceTranslate(vectorInfo.getWidth(), vectorInfo.getHeight(), VectorAnimation.createVectorAnimation(vectorInfo.getPoints(), basicColor, animationBehaviorFactory.getOrCreateInstance())), PrimitiveIntUtil.getArrayInstance(), 0, 0, 0, 0, animationBehaviorFactory)
-    {
-        // base(AnimationFrameToImageUtil.getInstance().getInstanceTranslate(vectorInfo.getWidth(), vectorInfo.getHeight(), VectorAnimation.createVectorAnimation(vectorInfo.getPoints(), basicColor, animationBehaviorFactory.getOrCreateInstance())), PrimitiveIntUtil.getArrayInstance(), 0, 0, 0, 0, animationBehaviorFactory) is called from the constructor declaration
+    public VectorToImageArrayRotationAnimationFactory(VectorInfo vectorInfo, BasicColor basicColor, AnimationBehaviorFactory animationBehaviorFactory) {
+        base(AnimationFrameToImageUtil.getInstance().getInstanceTranslate(vectorInfo.getWidth(), vectorInfo.getHeight(), VectorAnimation.createVectorAnimation(vectorInfo.getPoints(), basicColor, animationBehaviorFactory.getOrCreateInstance())), PrimitiveIntUtil.getArrayInstance(), 0, 0, 0, 0, animationBehaviorFactory);
+        this.initFieldsVectorToImageArrayRotationAnimationFactory();
         this.init();
     }
+    
 
-    // throws Exception
-    public virtual void init()
-    {
+    public virtual void init() {
         AngleFactory angleFactory = AngleFactory.getInstance();
-        this.angleIncrement = angleFactory.TOTAL_ANGLE / GameConfigurationCentral.getInstance().getGameControlFidelity();
-        this.imageArray = ImageToRotationImageArrayUtil.getInstance().generate(this.getImage(), this.getAngleIncrement(), ((int) angleFactory.TOTAL_ANGLE));
+        this.angleIncrement = ((int32) (angleFactory.TOTAL_ANGLE)) / GameConfigurationCentral.getInstance().getGameControlFidelity();
+        this.imageArray = ImageToRotationImageArrayUtil.getInstance().generate(this.getImage(), this.getAngleIncrement(), ((int32) (angleFactory.TOTAL_ANGLE)));
     }
+    
 
-    // throws Exception
-    public override Animation getInstance(int instanceId)
-    {
+    public override Animation getInstance1(int32 instanceId) {
         if (this.animationFactoryInitializationVisitor.dx != 0 || this.animationFactoryInitializationVisitor.dy != 0) {
-            return new AdjustedImageArrayRotationAnimation(this.imageArray, AngleInfo.getInstance(((short) this.getAngleIncrement())), ((int) AngleFactory.getInstance().TOTAL_ANGLE), this.animationFactoryInitializationVisitor.dx, this.animationFactoryInitializationVisitor.dy, this.animationBehaviorFactory.getOrCreateInstance());
+            return new AdjustedImageArrayRotationAnimation(this.imageArray, AngleInfo.getInstance1(((int16) (this.getAngleIncrement()))), ((int32) (AngleFactory.getInstance().TOTAL_ANGLE)), this.animationFactoryInitializationVisitor.dx, this.animationFactoryInitializationVisitor.dy, this.animationBehaviorFactory.getOrCreateInstance());
         } else {
-            return AdjustedImageArrayRotationAnimation.createAnimation(this.imageArray, AngleInfo.getInstance(((short) this.angleIncrement)), ((int) AngleFactory.getInstance().TOTAL_ANGLE), this.animationBehaviorFactory.getOrCreateInstance());
+            return AdjustedImageArrayRotationAnimation.createAnimation(this.imageArray, AngleInfo.getInstance1(((int16) (this.angleIncrement))), ((int32) (AngleFactory.getInstance().TOTAL_ANGLE)), this.animationBehaviorFactory.getOrCreateInstance());
         }
     }
+    
 
-    public virtual int getAngleIncrement()
-    {
+    public virtual int32 getAngleIncrement() {
         return this.angleIncrement;
     }
+    
 
-    public override void setInitialScale(ScaleProperties scaleProperties)
-    {
+    public override void setInitialScale(ScaleProperties scaleProperties) {
     }
-
 }
 

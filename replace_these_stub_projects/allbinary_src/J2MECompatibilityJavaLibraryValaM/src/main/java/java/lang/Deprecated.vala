@@ -1,12 +1,11 @@
 // Generated Code Do Not Modify
-
-using System;
-using System.Linq;
-
-namespace java.lang;
+// package java.lang
 
 //J2SE to J2ME compatibility
-public class Deprecated
-{
+public class Deprecated : JObject {
+
+    public Deprecated() {
+        base();
+    }
 }
 

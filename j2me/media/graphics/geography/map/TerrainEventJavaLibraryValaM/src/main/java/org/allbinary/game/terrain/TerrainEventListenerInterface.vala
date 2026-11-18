@@ -13,17 +13,12 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.game.terrain
+// import org.allbinary.logic.util.event.EventListenerInterface
 
-using System;
-using System.Linq;
-using EventListenerInterface = org.allbinary.logic.util.@event.EventListenerInterface;
+public interface TerrainEventListenerInterface : JObject, EventListenerInterface {
+    
 
-namespace org.allbinary.game.terrain;
-
-public interface TerrainEventListenerInterface : EventListenerInterface
-{
-    // throws Exception
-    void onTerrainEvent(TerrainEvent trackingEvent);
-
+    public abstract void onTerrainEvent(TerrainEvent trackingEvent);
 }
 

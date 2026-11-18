@@ -13,94 +13,97 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.animation
+// import org.allbinary.logic.communication.log.LogUtil
+// import org.allbinary.logic.math.PrimitiveIntUtil
+// import org.allbinary.string.CommonStrings
 
-using System;
-using System.Linq;
-using LogUtil = org.allbinary.logic.communication.log.LogUtil;
-using PrimitiveIntUtil = org.allbinary.logic.math.PrimitiveIntUtil;
-using CommonStrings = org.allbinary.@string.CommonStrings;
+public class IndexedAnimation : Animation, IndexedAnimationInterface, SequentialAnimationInterface, AnimationInterface, SequenceInterface, LocationPaintableInterface {
+    public LogUtil logUtil;
+    public CommonStrings commonStrings;
+    public AnimationBehavior animationBehaviorP;
 
-namespace org.allbinary.animation;
+    // Java field initializers run after the base constructor
+    private void initFieldsIndexedAnimation() {
+    this.logUtil = LogUtil.getInstance();
+    this.commonStrings = CommonStrings.getInstance();
+    
+    }
+    
 
-public class IndexedAnimation : Animation, IndexedAnimationInterface
-{
-    public readonly LogUtil logUtil = LogUtil.getInstance();
-    public readonly CommonStrings commonStrings = CommonStrings.getInstance();
-    public readonly AnimationBehavior animationBehaviorP;
-    public IndexedAnimation(AnimationBehavior animationBehavior)
-    {
+    public IndexedAnimation(AnimationBehavior animationBehavior) {
+        base();
+        this.initFieldsIndexedAnimation();
         this.animationBehaviorP = animationBehavior;
     }
+    
 
-    public virtual AnimationBehavior getAnimationBehavior()
-    {
+    public virtual AnimationBehavior getAnimationBehavior() {
         return this.animationBehaviorP;
     }
+    
 
-    public virtual void reset()
-    {
+    public virtual void reset() {
         this.animationBehaviorP.reset();
         this.setFrame(0);
     }
+    
 
-    public virtual void setFrame(int index)
-    {
+    public virtual void setFrame(int32 index) {
     }
+    
 
-    public virtual int getFrame()
-    {
+    public virtual int32 getFrame() {
         return 0;
     }
+    
 
-    // throws Exception
-    public virtual int getAnimationSize()
-    {
-        throw new Exception(this.commonStrings.NOT_IMPLEMENTED);
+    public virtual int32 getAnimationSize() {
+        JSystem.fatal(new JException("Exception", this.commonStrings.NOT_IMPLEMENTED));
     }
+    
 
-    public virtual int getSize()
-    {
+    public virtual int32 getSize() {
         return 0;
     }
+    
 
-    public virtual void previousFrame()
-    {
+    public virtual void previousFrame() {
     }
+    
 
-    public virtual bool isLastFrame()
-    {
+    public virtual bool isLastFrame() {
         if (this.getFrame() == this.getSize() - 1) {
             return true;
         } else {
             return false;
         }
     }
+    
 
-    public virtual void setSequence(int[] sequence)
-    {
+    public virtual void setSequence(int32[] sequence) {
     }
+    
 
-    public virtual int[] getSequence()
-    {
+    public virtual int32[] getSequence() {
         return PrimitiveIntUtil.getArrayInstance();
     }
+    
 
-    public virtual void setState(IndexedAnimation indexedAnimation)
-    {
+    public virtual void setState(IndexedAnimation indexedAnimation) {
         this.setFrame(indexedAnimation.getFrame());
         this.setDx(indexedAnimation.getDx());
         this.setDy(indexedAnimation.getDy());
     }
+    
 
-    public virtual int getWidth()
-    {
+    public virtual int32 getWidth() {
         return 0;
     }
+    
 
-    public virtual int getHeight()
-    {
+    public virtual int32 getHeight() {
         return 0;
     }
-
 }
 

@@ -13,53 +13,58 @@
  *   
  */
 // Generated Code Do Not Modify
+// package org.allbinary.logic.system.security.crypt.jcehelper
+// import javax.crypto.Cipher
+// import javax.crypto.SecretKey
+// import org.allbinary.logic.java.byteutil.ByteUtil
 
-using System;
-using System.Linq;
-using Cipher = javax.crypto.Cipher;
-using SecretKey = javax.crypto.SecretKey;
-using ByteUtil = org.allbinary.logic.java.byteutil.ByteUtil;
+public class SecretComposite : BaseSecretComposite {
+    private ByteUtil byteUtil;
+    private Cipher cipher;
+    private SecretKey secretKey;
+    private int8[] key;
 
-namespace org.allbinary.logic.system.security.crypt.jcehelper;
+    // Java field initializers run after the base constructor
+    private void initFieldsSecretComposite() {
+    this.byteUtil = ByteUtil.getInstance();
+    
+    
+    
+    }
+    
 
-public class SecretComposite : BaseSecretComposite
-{
-    private readonly ByteUtil byteUtil = ByteUtil.getInstance();
-    private readonly Cipher cipher;
-    private readonly SecretKey secretKey;
-    private sbyte[] key;
-    public SecretComposite(SecretKey secretKey, Cipher cipher, sbyte[] key)
-    {
+    public SecretComposite(SecretKey secretKey, Cipher cipher, int8[] key) {
+        base();
+        this.initFieldsSecretComposite();
         this.secretKey = secretKey;
         this.cipher = cipher;
         this.key = key;
     }
+    
 
-    // throws Exception
-    public override sbyte[] encrypt(sbyte[] array)
-    {
+    public override int8[] encrypt(int8[] array_parameter) {
+        int8[] array = array_parameter;
         array = this.mutilate(array);
         this.cipher.init(Cipher.ENCRYPT_MODE, this.secretKey);
         return this.cipher.doFinal(array);
     }
+    
 
-    // throws Exception
-    public override sbyte[] decrypt(sbyte[] array)
-    {
+    public override int8[] decrypt(int8[] array) {
         this.cipher.init(Cipher.DECRYPT_MODE, this.secretKey);
         return this.mutilate(this.cipher.doFinal(array));
     }
+    
 
-    private sbyte[] mutilate(sbyte[] array)
-    {
-        for (int index = 0; index < this.key.Length; index++) {
-            sbyte value = this.key[index];
-            if (((int) value) < 8 && ((int) value) > 0) {
-                array = this.byteUtil.xorByte(array, ((int) value));
+    private int8[] mutilate(int8[] array_parameter) {
+        int8[] array = array_parameter;
+        for (int32 index = 0; index < this.key.length; index++) {
+            int8 value = this.key[index];
+            if (((int32) (value)) < 8 && ((int32) (value)) > 0) {
+                array = this.byteUtil.xorByte(array, ((int32) (value)));
             }
         }
         return array;
     }
-
 }
 

@@ -13,33 +13,29 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.game.input
+// import org.allbinary.logic.string.StringMaker
+// import org.allbinary.logic.string.StringUtil
 
-using System;
-using System.Linq;
-using StringMaker = org.allbinary.logic.@string.StringMaker;
-using StringUtil = org.allbinary.logic.@string.StringUtil;
+public class J2MEGameKey : Input {
+    
 
-namespace org.allbinary.game.input;
-
-public class J2MEGameKey : Input
-{
-    public J2MEGameKey(int key, string keyName) : base(key, keyName)
-    {
-        // base(key, keyName) is called from the constructor declaration
-        int id = this.getId();
+    public J2MEGameKey(int32 key, string keyName) {
+        base(key, keyName);
+        int32 id = this.getId();
         if (id >= 0) {
             InputFactory inputFactory = InputFactory.getInstance();
             inputFactory.add(id, this);
         }
     }
+    
 
-    public override string ToString()
-    {
-        return new StringMaker().append("J2MEGameKey: ").append(base.ToString()).ToString();
+    public override string toString() {
+        return new StringMaker().append("J2MEGameKey: ").append(base.toString()).toString();
     }
+    
 
-    public static string getString(int keyCode)
-    {
+    public static string getString(int32 keyCode) {
         Input input = InputFactory.getInstance().getInstanceById(keyCode);
         if (input != null) {
             return input.getName();
@@ -47,6 +43,5 @@ public class J2MEGameKey : Input
             return StringUtil.getInstance().EMPTY_STRING;
         }
     }
-
 }
 

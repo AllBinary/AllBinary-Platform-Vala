@@ -13,23 +13,19 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.game.input.event
 
-using System;
-using System.Linq;
+public class GameKeyEventUtil : JObject {
+    
 
-namespace org.allbinary.game.input.@event;
-
-public class GameKeyEventUtil
-{
-    private GameKeyEventUtil()
-    {
+    public GameKeyEventUtil() {
+        base();
     }
+    
 
-    public static int getKey(object anyType)
-    {
+    public static int32 getKey(JObject anyType) {
         GameKeyEvent gameKeyEvent = ((GameKeyEvent) anyType);
         return gameKeyEvent.getKey();
     }
-
 }
 

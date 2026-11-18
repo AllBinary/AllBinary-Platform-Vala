@@ -13,37 +13,39 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.media.image
+// import javax.microedition.lcdui.Image
+// import org.allbinary.image.ImageCache
 
-using System;
-using System.Linq;
-using Image = javax.microedition.lcdui.Image;
-using ImageCache = org.allbinary.image.ImageCache;
-
-namespace org.allbinary.media.image;
-
-public class ImageScaleUtil
-{
-    private static readonly ImageScaleUtil instance = new ImageScaleUtil();
-    public static ImageScaleUtil getInstance()
-    {
+public class ImageScaleUtil : JObject {
+    private static ImageScaleUtil? instance;
+    private static bool staticSet_instance = false;
+    private static ImageScaleUtil staticGet_instance() {
+        if (!ImageScaleUtil.staticSet_instance) {
+            ImageScaleUtil.staticSet_instance = true;
+            ImageScaleUtil.instance = new ImageScaleUtil();
+        }
         return ImageScaleUtil.instance;
     }
+    
 
-    private ImageScaleUtil()
-    {
+    public static ImageScaleUtil getInstance() {
+        return ImageScaleUtil.staticGet_instance();
     }
+    
 
-    // throws Exception
-    public virtual Image createImage2(ImageCache imageCache, Image originalImage, float scaleNominatorX, float scaleDenominatorX, float scaleNominatorY, float scaleDenominatorY, bool cached)
-    {
+    public ImageScaleUtil() {
+        base();
+    }
+    
+
+    public virtual Image createImage2(ImageCache imageCache, Image originalImage, float scaleNominatorX, float scaleDenominatorX, float scaleNominatorY, float scaleDenominatorY, bool cached) {
         return this.createImage3(imageCache, originalImage, scaleNominatorX, scaleDenominatorX, scaleNominatorY, scaleDenominatorY, cached, true);
     }
+    
 
-    // throws Exception
-    public virtual Image createImage3(ImageCache imageCache, Image originalImage, float scaleNominatorX, float scaleDenominatorX, float scaleNominatorY, float scaleDenominatorY, bool cached, bool mutable)
-    {
+    public virtual Image createImage3(ImageCache imageCache, Image originalImage, float scaleNominatorX, float scaleDenominatorX, float scaleNominatorY, float scaleDenominatorY, bool cached, bool mutable) {
         return originalImage;
     }
-
 }
 

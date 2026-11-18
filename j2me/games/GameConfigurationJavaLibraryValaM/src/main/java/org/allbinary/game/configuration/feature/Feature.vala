@@ -13,45 +13,55 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.game.configuration.feature
+// import org.allbinary.game.configuration.event.ChangedGameFeatureListener
+// import org.allbinary.logic.StdUtil
+// import org.allbinary.util.ABHashtable
 
-using System;
-using System.Linq;
-using ChangedGameFeatureListener = org.allbinary.game.configuration.@event.ChangedGameFeatureListener;
-using StdUtil = org.allbinary.logic.StdUtil;
-using org.allbinary.util;
+public class Feature : JObject {
+    private static ABHashtable? hashtable;
+    private static bool staticSet_hashtable = false;
+    private static ABHashtable staticGet_hashtable() {
+        if (!Feature.staticSet_hashtable) {
+            Feature.staticSet_hashtable = true;
+            Feature.hashtable = StdUtil.getInstance().createHashtable();
+        }
+        return Feature.hashtable;
+    }
+    private string name;
 
-namespace org.allbinary.game.configuration.feature;
+    // Java field initializers run after the base constructor
+    private void initFieldsFeature() {
+    
+    }
+    
 
-public class Feature
-{
-    private static ABHashtable<object, object> hashtable = StdUtil.getInstance().createHashtable();
-    private readonly string name;
-    public Feature(string name)
-    {
+    public Feature(string name) {
+        base();
+        this.initFieldsFeature();
         this.name = name;
         Feature.add(name, this);
         ChangedGameFeatureListener.getInstance().add(this);
     }
+    
 
-    public static Feature getInstance(string name)
-    {
-        return ((Feature) Feature.hashtable.get(name));
+    public static Feature getInstance1(string name) {
+        return ((Feature) Feature.staticGet_hashtable().@get(name));
     }
+    
 
-    private static void add(string name, Feature gameFeature)
-    {
-        Feature.hashtable.put(name, gameFeature);
+    private static void add(string name, Feature gameFeature) {
+        Feature.staticGet_hashtable().put(JString.box(name), gameFeature);
     }
+    
 
-    public override string ToString()
-    {
+    public override string toString() {
         return this.getName();
     }
+    
 
-    public virtual string getName()
-    {
+    public virtual string getName() {
         return this.name;
     }
-
 }
 

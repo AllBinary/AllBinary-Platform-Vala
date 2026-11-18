@@ -13,39 +13,41 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.media.image
+// import javax.microedition.lcdui.Image
+// import org.allbinary.image.GameFeatureImageCacheFactory
 
-using System;
-using System.Linq;
-using Image = javax.microedition.lcdui.Image;
-using GameFeatureImageCacheFactory = org.allbinary.image.GameFeatureImageCacheFactory;
-
-namespace org.allbinary.media.image;
-
-public class ImageCreationUtil
-{
-    private static readonly ImageCreationUtil instance = new ImageCreationUtil();
-    public static ImageCreationUtil getInstance()
-    {
+public class ImageCreationUtil : JObject {
+    private static ImageCreationUtil? instance;
+    private static bool staticSet_instance = false;
+    private static ImageCreationUtil staticGet_instance() {
+        if (!ImageCreationUtil.staticSet_instance) {
+            ImageCreationUtil.staticSet_instance = true;
+            ImageCreationUtil.instance = new ImageCreationUtil();
+        }
         return ImageCreationUtil.instance;
     }
+    
 
-    private ImageCreationUtil()
-    {
+    public static ImageCreationUtil getInstance() {
+        return ImageCreationUtil.staticGet_instance();
     }
+    
 
-    // throws Exception
-    public virtual Image createImageWH(int width, int height)
-    {
-        Image image = GameFeatureImageCacheFactory.getInstance().get(this.GetType().FullName, width, height);
+    public ImageCreationUtil() {
+        base();
+    }
+    
+
+    public virtual Image createImageWH(int32 width, int32 height) {
+        Image image = GameFeatureImageCacheFactory.getInstance().@get(JObject.className(this), width, height);
         return image;
     }
+    
 
-    // throws Exception
-    public virtual Image createImage(int width, int height, float maxScaleX, float maxScaleY)
-    {
-        Image image = GameFeatureImageCacheFactory.getInstance().get(this.GetType().FullName, ((int) (((float) width) * maxScaleX)) + 1, ((int) (((float) height) * maxScaleY)) + 1);
+    public virtual Image createImage(int32 width, int32 height, float maxScaleX, float maxScaleY) {
+        Image image = GameFeatureImageCacheFactory.getInstance().@get(JObject.className(this), ((int32) JMath.toInt32((((float) (width)) * maxScaleX))) + 1, ((int32) JMath.toInt32((((float) (height)) * maxScaleY))) + 1);
         return image;
     }
-
 }
 

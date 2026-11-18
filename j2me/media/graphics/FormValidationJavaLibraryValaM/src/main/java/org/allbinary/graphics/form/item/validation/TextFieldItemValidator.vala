@@ -13,66 +13,71 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.graphics.form.item.validation
+// import org.allbinary.graphics.form.item.ABTextFieldItem
+// import org.allbinary.logic.control.validate.ValidatorBase
+// import org.allbinary.logic.java.bool.BooleanFactory
+// import org.allbinary.logic.string.StringMaker
+// import org.allbinary.util.BasicArrayList
+// import org.allbinary.util.BasicArrayListD
 
-using System;
-using System.Linq;
-using ABTextFieldItem = org.allbinary.graphics.form.item.ABTextFieldItem;
-using ValidatorBase = org.allbinary.logic.control.validate.ValidatorBase;
-using BooleanFactory = org.allbinary.logic.java.@bool.BooleanFactory;
-using StringMaker = org.allbinary.logic.@string.StringMaker;
-using BasicArrayList = org.allbinary.util.BasicArrayList;
-using BasicArrayListD = org.allbinary.util.BasicArrayListD;
-
-namespace org.allbinary.graphics.form.item.validation;
-
-public class TextFieldItemValidator : ValidatorBase
-{
-    private readonly ABTextFieldItem textFieldItem;
-    private int min;
-    private int max;
+public class TextFieldItemValidator : ValidatorBase {
+    private ABTextFieldItem textFieldItem;
+    private int32 min;
+    private int32 max;
     private bool allowOnEmpty;
-    public TextFieldItemValidator(ABTextFieldItem textFieldItem, int min, int max, bool allowOnEmpty)
-    {
+
+    // Java field initializers run after the base constructor
+    private void initFieldsTextFieldItemValidator() {
+    
+    
+    
+    
+    }
+    
+
+    public TextFieldItemValidator(ABTextFieldItem textFieldItem, int32 min, int32 max, bool allowOnEmpty) {
+        base();
+        this.initFieldsTextFieldItemValidator();
         this.textFieldItem = textFieldItem;
         this.min = min;
         this.max = max;
         this.allowOnEmpty = allowOnEmpty;
     }
+    
 
-    public override bool? isValid()
-    {
+    public override bool isValid() {
         BooleanFactory booleanFactory = BooleanFactory.getInstance();
-        bool? result = booleanFactory.TRUE;
-        string @string = this.textFieldItem.getString();
-        int textLength = @string.Length;
+        bool result = booleanFactory.TRUE_;
+        string string = this.textFieldItem.getString();
+        int32 textLength = JString.length(string);
         if ((textLength == 0 && this.allowOnEmpty) || textLength > this.min && textLength < this.max) {
         } else {
             if (textLength < this.min) {
-                result = booleanFactory.FALSE;
+                result = booleanFactory.FALSE_;
             } else if (textLength > this.max) {
-                result = booleanFactory.FALSE;
+                result = booleanFactory.FALSE_;
             }
         }
         return result;
     }
+    
 
-    public override BasicArrayList toList()
-    {
+    public override BasicArrayList toList() {
         BasicArrayList list = new BasicArrayListD();
-        string @string = this.textFieldItem.getString();
-        int textLength = @string.Length;
+        string string = this.textFieldItem.getString();
+        int32 textLength = JString.length(string);
         if (textLength > this.min && textLength < this.max) {
         } else {
             string label = this.textFieldItem.getLabel();
-            string name = label.Substring(0, (label.Length - 2) - (0));
+            string name = JString.substring(label, 0, JString.length(label) - 2);
             if (textLength < this.min) {
-                list.add(new StringMaker().append(name).append(" is to short").ToString());
+                list.add(JString.box(new StringMaker().append(name).append(" is to short").toString()));
             } else if (textLength > this.max) {
-                list.add(new StringMaker().append(name).append(" is to long").ToString());
+                list.add(JString.box(new StringMaker().append(name).append(" is to long").toString()));
             }
         }
         return list;
     }
-
 }
 

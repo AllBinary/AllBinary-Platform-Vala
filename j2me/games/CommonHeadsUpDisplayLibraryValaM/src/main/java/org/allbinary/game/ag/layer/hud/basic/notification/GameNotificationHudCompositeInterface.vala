@@ -13,15 +13,11 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.game.ag.layer.hud.basic.notification
 
-using System;
-using System.Linq;
+public interface GameNotificationHudCompositeInterface : JObject {
+    
 
-namespace org.allbinary.game.ag.layer.hud.basic.notification;
-
-public interface GameNotificationHudCompositeInterface
-{
-    GameNotificationHud getGameNotificationHud();
-
+    public abstract GameNotificationHud getGameNotificationHud();
 }
 

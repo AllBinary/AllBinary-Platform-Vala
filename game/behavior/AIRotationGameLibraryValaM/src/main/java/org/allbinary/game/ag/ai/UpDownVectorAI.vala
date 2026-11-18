@@ -13,35 +13,37 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.game.ag.ai
+// import org.allbinary.game.ai.BasicAI
+// import org.allbinary.game.input.GameInput
+// import org.allbinary.game.physics.velocity.BasicVelocityProperties
+// import org.allbinary.game.physics.velocity.VelocityInterfaceCompositeInterface
+// import org.allbinary.layer.AllBinaryLayer
+// import org.allbinary.layer.AllBinaryLayerManager
+// import org.allbinary.logic.math.BasicDecimal
 
-using System;
-using System.Linq;
-using BasicAI = org.allbinary.game.ai.BasicAI;
-using GameInput = org.allbinary.game.input.GameInput;
-using BasicVelocityProperties = org.allbinary.game.physics.velocity.BasicVelocityProperties;
-using VelocityInterfaceCompositeInterface = org.allbinary.game.physics.velocity.VelocityInterfaceCompositeInterface;
-using AllBinaryLayer = org.allbinary.layer.AllBinaryLayer;
-using AllBinaryLayerManager = org.allbinary.layer.AllBinaryLayerManager;
-using BasicDecimal = org.allbinary.logic.math.BasicDecimal;
+public class UpDownVectorAI : BasicAI {
+    private BasicVelocityProperties velocityInterface;
+    private int32 index;
 
-namespace org.allbinary.game.ag.ai;
+    // Java field initializers run after the base constructor
+    private void initFieldsUpDownVectorAI() {
+    
+    this.index = 0;
+    }
+    
 
-public class UpDownVectorAI : BasicAI
-{
-    private readonly BasicVelocityProperties velocityInterface;
-    private int index = 0;
-    public UpDownVectorAI(AllBinaryLayer ownerLayerInterface, GameInput gameInput) : base(ownerLayerInterface, gameInput)
-    {
-        // base(ownerLayerInterface, gameInput) is called from the constructor declaration
+    public UpDownVectorAI(AllBinaryLayer ownerLayerInterface, GameInput gameInput) {
+        base(ownerLayerInterface, gameInput);
+        this.initFieldsUpDownVectorAI();
         VelocityInterfaceCompositeInterface velocityInterfaceCompositeInterface = ((VelocityInterfaceCompositeInterface) this.getOwnerLayerInterface());
         this.velocityInterface = velocityInterfaceCompositeInterface.getVelocityProperties();
         this.velocityInterface.getVelocityYBasicDecimalP().setint(0);
     }
+    
 
-    // throws Exception
-    public override void processAI(AllBinaryLayerManager allBinaryLayerManager)
-    {
-        int y = this.getOwnerLayerInterface().getHeight() * 270;
+    public override void processAI(AllBinaryLayerManager allBinaryLayerManager) {
+        int32 y = this.getOwnerLayerInterface().getHeight() * 270;
         if (this.index < 5) {
             BasicDecimal basicDecimal = this.velocityInterface.getVelocityYBasicDecimalP();
             basicDecimal.setint(0);
@@ -57,6 +59,5 @@ public class UpDownVectorAI : BasicAI
             this.processAI(allBinaryLayerManager);
         }
     }
-
 }
 

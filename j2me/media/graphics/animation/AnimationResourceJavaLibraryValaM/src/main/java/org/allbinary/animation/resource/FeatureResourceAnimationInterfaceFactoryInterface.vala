@@ -13,18 +13,14 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.animation.resource
+// import org.allbinary.game.configuration.feature.GameFeatureControlledInterface
+// import org.allbinary.game.resource.RectangleResourceFactoryInterface
+// import org.allbinary.util.ABHashtable
 
-using System;
-using System.Linq;
-using GameFeatureControlledInterface = org.allbinary.game.configuration.feature.GameFeatureControlledInterface;
-using RectangleResourceFactoryInterface = org.allbinary.game.resource.RectangleResourceFactoryInterface;
-using org.allbinary.util;
+public interface FeatureResourceAnimationInterfaceFactoryInterface : JObject, ResourceAnimationInterfaceFactoryInterface, RectangleResourceFactoryInterface, GameFeatureControlledInterface {
+    
 
-namespace org.allbinary.animation.resource;
-
-public interface FeatureResourceAnimationInterfaceFactoryInterface : ResourceAnimationInterfaceFactoryInterface, RectangleResourceFactoryInterface, GameFeatureControlledInterface
-{
-    ABHashtable<object, object> getHashtable();
-
+    public abstract ABHashtable getHashtable();
 }
 

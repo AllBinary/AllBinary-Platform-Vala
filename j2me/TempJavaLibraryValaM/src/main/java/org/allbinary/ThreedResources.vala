@@ -13,23 +13,30 @@
  *   
  */
 // Generated Code Do Not Modify
+// package org.allbinary
 
-using System;
-using System.Linq;
-
-namespace org.allbinary;
-
-public class ThreedResources
-{
-    private static readonly ThreedResources threedResources = new ThreedResources();
-    public static ThreedResources getThreedResources()
-    {
+public class ThreedResources : JObject {
+    private static ThreedResources? threedResources;
+    private static bool staticSet_threedResources = false;
+    private static ThreedResources staticGet_threedResources() {
+        if (!ThreedResources.staticSet_threedResources) {
+            ThreedResources.staticSet_threedResources = true;
+            ThreedResources.threedResources = new ThreedResources();
+        }
         return ThreedResources.threedResources;
     }
 
-    public virtual void add()
-    {
+    public ThreedResources() {
+        base();
     }
+    
 
+    public static ThreedResources getThreedResources() {
+        return ThreedResources.staticGet_threedResources();
+    }
+    
+
+    public virtual void add() {
+    }
 }
 

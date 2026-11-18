@@ -13,39 +13,42 @@
  *   
  */
 // Generated Code Do Not Modify
+// package org.allbinary.view
+// import org.allbinary.graphics.GPoint
 
-using System;
-using System.Linq;
-using GPoint = org.allbinary.graphics.GPoint;
-
-namespace org.allbinary.view;
-
-public class ViewPositionBase : GPoint
-{
-    public static readonly ViewPositionBase NULL_VIEW_POSITION = new ViewPositionBase(0, 0, 0);
-    public ViewPositionBase(int x, int y, int z) : base(x, y, z)
-    {
-        // base(x, y, z) is called from the constructor declaration
+public class ViewPositionBase : GPoint {
+    public static ViewPositionBase? NULL_VIEW_POSITION;
+    private static bool staticSet_NULL_VIEW_POSITION = false;
+    public static ViewPositionBase staticGet_NULL_VIEW_POSITION() {
+        if (!ViewPositionBase.staticSet_NULL_VIEW_POSITION) {
+            ViewPositionBase.staticSet_NULL_VIEW_POSITION = true;
+            ViewPositionBase.NULL_VIEW_POSITION = new ViewPositionBase(0, 0, 0);
+        }
+        return ViewPositionBase.NULL_VIEW_POSITION;
     }
+    
 
-    public virtual int getX2()
-    {
+    public ViewPositionBase(int32 x, int32 y, int32 z) {
+        base(x, y, z);
+    }
+    
+
+    public virtual int32 getX2() {
         return this.getX();
     }
+    
 
-    public virtual int getY2()
-    {
+    public virtual int32 getY2() {
         return this.getY();
     }
+    
 
-    public virtual int getZ2()
-    {
+    public virtual int32 getZ2() {
         return this.getZ();
     }
+    
 
-    public virtual void setAllbinaryLayer(object allbinaryLayer)
-    {
+    public virtual void setAllbinaryLayer(JObject allbinaryLayer) {
     }
-
 }
 

@@ -13,26 +13,25 @@
  *   
  */
 // Generated Code Do Not Modify
+// package org.allbinary.graphics.opengles
+// import javax.microedition.khronos.opengles.GL10
 
-using System;
-using System.Linq;
-using GL10 = javax.microedition.khronos.opengles.GL10;
+public class OpenGLVUtilBase : JObject {
 
-namespace org.allbinary.graphics.opengles;
-
-public class OpenGLVUtilBase
-{
-    public virtual void glTexEnvix(GL10 gl, int target, int pname, int param)
-    {
+    public OpenGLVUtilBase() {
+        base();
     }
+    
 
-    public virtual void glTexParameterix(GL10 gl, int target, int pname, int param)
-    {
+    public virtual void glTexEnvix(GL10 gl, int32 target, int32 pname, int32 param) {
     }
+    
 
-    public virtual void glGenerateMipmap(GL10 gl, int textureId, int target, bool generateMipMap)
-    {
+    public virtual void glTexParameterix(GL10 gl, int32 target, int32 pname, int32 param) {
     }
+    
 
+    public virtual void glGenerateMipmap(GL10 gl, int32 textureId, int32 target, bool generateMipMap) {
+    }
 }
 

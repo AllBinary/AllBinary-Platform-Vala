@@ -13,47 +13,42 @@
  *  
  */
 // Generated Code Do Not Modify
-
-using System;
-using System.Linq;
-using Processor = org.allbinary.canvas.Processor;
-using AbeClientInformationInterface = org.allbinary.logic.system.security.licensing.AbeClientInformationInterface;
-using ClientInformationFactory = org.allbinary.logic.system.security.licensing.ClientInformationFactory;
-using PrimaryThreadPool = org.allbinary.thread.PrimaryThreadPool;
-using ThreadPool = org.allbinary.thread.ThreadPool;
-
-namespace org.allbinary.midlet;
+// package org.allbinary.midlet
+// import org.allbinary.canvas.Processor
+// import org.allbinary.logic.system.security.licensing.AbeClientInformationInterface
+// import org.allbinary.logic.system.security.licensing.ClientInformationFactory
+// import org.allbinary.thread.PrimaryThreadPool
+// import org.allbinary.thread.ThreadPool
 
 //J2SEForJ2ME
-public class ProgressMidlet : AllBinaryMidlet
-{
-    public readonly AbeClientInformationInterface abeClientInformation;
-    public ProgressMidlet(ClientInformationFactory clientInformationFactory)
-    {
+public class ProgressMidlet : AllBinaryMidlet {
+    public AbeClientInformationInterface abeClientInformation;
+
+    // Java field initializers run after the base constructor
+    private void initFieldsProgressMidlet() {
+    
+    }
+    
+
+    public ProgressMidlet(ClientInformationFactory clientInformationFactory) {
+        base();
+        this.initFieldsProgressMidlet();
         this.preInit();
         this.abeClientInformation = clientInformationFactory.getInstance();
     }
+    
 
-    public virtual void preInit()
-    {
+    public virtual void preInit() {
     }
+    
 
-    public virtual void exitProgress(bool isProgress)
-    {
+    public virtual void exitProgress(bool isProgress) {
         Processor processor = MidletExitProcessorFactory.getInstance().getExitInstance(this);
-        try {
+        {
             ThreadPool primaryThreadPool = PrimaryThreadPool.getInstance();
-            global::java.lang.Runnable runnable = new ExitRunnable(this, processor, isProgress);
+            Runnable runnable = new ExitRunnable(this, processor, isProgress);
             primaryThreadPool.runTask(runnable);
-        } catch (Exception e) {
-            this.logUtil.put(this.commonStrings.EXCEPTION, this, "exit", e);
-            try {
-                processor.process();
-            } catch (Exception e2) {
-                this.logUtil.put(this.commonStrings.EXCEPTION, this, "exit", e);
-            }
-        }
+        } /* catch (Exception e): a thrown Java exception stops the program */
     }
-
 }
 

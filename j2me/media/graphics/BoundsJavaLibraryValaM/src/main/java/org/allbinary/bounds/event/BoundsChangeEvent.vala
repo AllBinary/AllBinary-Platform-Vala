@@ -13,25 +13,20 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.bounds.event
+// import org.allbinary.graphics.Rectangle
+// import org.allbinary.logic.util.event.AllBinaryEventObject
 
-using System;
-using System.Linq;
-using Rectangle = org.allbinary.graphics.Rectangle;
-using AllBinaryEventObject = org.allbinary.logic.util.@event.AllBinaryEventObject;
+public class BoundsChangeEvent : AllBinaryEventObject {
+    
 
-namespace org.allbinary.bounds.@event;
-
-public class BoundsChangeEvent : AllBinaryEventObject
-{
-    public BoundsChangeEvent(Rectangle rectangle) : base(rectangle)
-    {
-        // base(rectangle) is called from the constructor declaration
+    public BoundsChangeEvent(Rectangle rectangle) {
+        base(rectangle);
     }
+    
 
-    public virtual Rectangle getRectangle()
-    {
+    public virtual Rectangle getRectangle() {
         return ((Rectangle) this.getSource());
     }
-
 }
 

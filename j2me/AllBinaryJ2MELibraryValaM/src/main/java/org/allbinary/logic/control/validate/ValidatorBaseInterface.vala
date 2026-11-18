@@ -13,23 +13,22 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.logic.control.validate
+// import org.allbinary.util.ABHashtable
+// import org.allbinary.util.BasicArrayList
 
-using System;
-using System.Linq;
-using org.allbinary.util;
-using BasicArrayList = org.allbinary.util.BasicArrayList;
+public interface ValidatorBaseInterface : JObject {
+    
 
-namespace org.allbinary.logic.control.validate;
+    public abstract bool isValid();
+    
 
-public interface ValidatorBaseInterface
-{
-    bool? isValid();
+    public abstract string validationInfo();
+    
 
-    string validationInfo();
+    public abstract ABHashtable toHashtable();
+    
 
-    ABHashtable<object, object> toHashtable();
-
-    BasicArrayList toList();
-
+    public abstract BasicArrayList toList();
 }
 

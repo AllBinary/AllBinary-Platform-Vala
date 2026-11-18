@@ -13,21 +13,20 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.logic.system.security.licensing
 
-using System;
-using System.Linq;
+public class LicenseServerInitFileUtil : JObject {
 
-namespace org.allbinary.logic.system.security.licensing;
-
-public class LicenseServerInitFileUtil
-{
-    public void init()
-    {
+    public LicenseServerInitFileUtil() {
+        base();
     }
+    
 
-    private void write()
-    {
+    public virtual void init() {
     }
+    
 
+    private void write() {
+    }
 }
 

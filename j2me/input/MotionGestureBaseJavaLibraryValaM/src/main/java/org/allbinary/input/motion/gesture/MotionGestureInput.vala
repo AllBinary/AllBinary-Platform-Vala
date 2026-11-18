@@ -13,22 +13,17 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.input.motion.gesture
+// import org.allbinary.game.input.Input
+// import org.allbinary.game.input.InputFactory
 
-using System;
-using System.Linq;
-using Input = org.allbinary.game.input.Input;
-using InputFactory = org.allbinary.game.input.InputFactory;
+public class MotionGestureInput : Input {
+    
 
-namespace org.allbinary.input.motion.gesture;
-
-public class MotionGestureInput : Input
-{
-    public MotionGestureInput(int id, string name) : base(id, name)
-    {
-        // base(id, name) is called from the constructor declaration
+    public MotionGestureInput(int32 id, string name) {
+        base(id, name);
         InputFactory inputFactory = InputFactory.getInstance();
         inputFactory.add(this.getId(), this);
     }
-
 }
 

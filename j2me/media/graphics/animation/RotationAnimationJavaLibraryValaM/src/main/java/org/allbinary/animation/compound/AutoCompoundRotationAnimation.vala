@@ -13,164 +13,162 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.animation.compound
+// import javax.microedition.khronos.opengles.GL
+// import javax.microedition.lcdui.Graphics
+// import org.allbinary.animation.AnimationBehavior
+// import org.allbinary.animation.IndexedAnimation
+// import org.allbinary.animation.RotationAnimation
+// import org.allbinary.direction.Direction
+// import org.allbinary.logic.math.PrimitiveIntUtil
+// import org.allbinary.math.Angle
+// import org.allbinary.math.AngleFactory
+// import org.allbinary.math.AngleInfo
+// import org.allbinary.util.CircularIndexUtil
 
-using System;
-using System.Linq;
-using GL = javax.microedition.khronos.opengles.GL;
-using Graphics = javax.microedition.lcdui.Graphics;
-using AnimationBehavior = org.allbinary.animation.AnimationBehavior;
-using IndexedAnimation = org.allbinary.animation.IndexedAnimation;
-using RotationAnimation = org.allbinary.animation.RotationAnimation;
-using Direction = org.allbinary.direction.Direction;
-using PrimitiveIntUtil = org.allbinary.logic.math.PrimitiveIntUtil;
-using Angle = org.allbinary.math.Angle;
-using AngleFactory = org.allbinary.math.AngleFactory;
-using AngleInfo = org.allbinary.math.AngleInfo;
-using CircularIndexUtil = org.allbinary.util.CircularIndexUtil;
-
-namespace org.allbinary.animation.compound;
-
-public class AutoCompoundRotationAnimation : RotationAnimation, CompoundAnimationInterface
-{
+public class AutoCompoundRotationAnimation : RotationAnimation, CompoundAnimationInterface, AnimationInterface, LocationPaintableInterface {
     private RotationAnimation[] animationInterfaceArray;
-    public AutoCompoundRotationAnimation(RotationAnimation[] animationInterfaceArray, AnimationBehavior animationBehavior) : base(AngleInfo.getInstance(AngleFactory.getInstance().QUARTER_TOTAL_ANGLE), CircularIndexUtil.createInstance(4), animationBehavior)
-    {
-        // base(AngleInfo.getInstance(AngleFactory.getInstance().QUARTER_TOTAL_ANGLE), CircularIndexUtil.createInstance(4), animationBehavior) is called from the constructor declaration
-        this.animationInterfaceArray = animationInterfaceArray;
-        this.circularIndexUtil = CircularIndexUtil.createInstance(this.animationInterfaceArray.Length);
-    }
 
-    public override void setFrame(int index)
-    {
+    // Java field initializers run after the base constructor
+    private void initFieldsAutoCompoundRotationAnimation() {
+    
+    }
+    
+
+    public AutoCompoundRotationAnimation(RotationAnimation[] animationInterfaceArray, AnimationBehavior animationBehavior) {
+        base(AngleInfo.getInstance1(AngleFactory.getInstance().QUARTER_TOTAL_ANGLE), CircularIndexUtil.createInstance(4), animationBehavior);
+        this.initFieldsAutoCompoundRotationAnimation();
+        this.animationInterfaceArray = animationInterfaceArray;
+        this.circularIndexUtil = CircularIndexUtil.createInstance(this.animationInterfaceArray.length);
+    }
+    
+
+    public override void setFrame(int32 index) {
         this.animationInterfaceArray[this.circularIndexUtil.getIndex()].setFrame(index);
     }
+    
 
-    public override int getFrame()
-    {
+    public override int32 getFrame() {
         return this.animationInterfaceArray[this.circularIndexUtil.getIndex()].getFrame();
     }
+    
 
-    // throws Exception
-    public override int getAnimationSize()
-    {
+    public override int32 getAnimationSize() {
         return this.animationInterfaceArray[this.circularIndexUtil.getIndex()].getAnimationSize();
     }
+    
 
-    public override int getSize()
-    {
+    public override int32 getSize() {
         return this.animationInterfaceArray[this.circularIndexUtil.getIndex()].getSize();
     }
+    
 
-    public override void previousFrame()
-    {
+    public override void previousFrame() {
         this.circularIndexUtil.previous();
         this.animationInterfaceArray[this.circularIndexUtil.getIndex()].previousFrame();
     }
+    
 
-    // throws Exception
-    public override void nextFrame()
-    {
+    public override void nextFrame() {
         this.circularIndexUtil.next();
         this.animationInterfaceArray[this.circularIndexUtil.getIndex()].nextFrame();
     }
+    
 
-    public override void previousRotation()
-    {
+    public override void previousRotation() {
         this.animationInterfaceArray[this.circularIndexUtil.getIndex()].previousRotation();
     }
+    
 
-    public override void nextRotation()
-    {
+    public override void nextRotation() {
         this.animationInterfaceArray[this.circularIndexUtil.getIndex()].nextRotation();
     }
+    
 
-    public override void setSequence(int[] sequence)
-    {
+    public override void setSequence(int32[] sequence) {
     }
+    
 
-    public override int[] getSequence()
-    {
+    public override int32[] getSequence() {
         return PrimitiveIntUtil.getArrayInstance();
     }
+    
 
-    public override void paintXY(Graphics graphics, int x, int y)
-    {
+    public override void paintXY(Graphics graphics, int32 x, int32 y) {
         this.animationInterfaceArray[this.circularIndexUtil.getIndex()].paintXY(graphics, x, y);
     }
+    
 
-    public override void paintThreedXYZ(Graphics graphics, int x, int y, int z)
-    {
+    public override void paintThreedXYZ(Graphics graphics, int32 x, int32 y, int32 z) {
         this.animationInterfaceArray[this.circularIndexUtil.getIndex()].paintThreedXYZ(graphics, x, y, z);
     }
+    
 
-    public virtual IndexedAnimation getCurrentAnimation()
-    {
+    public virtual IndexedAnimation getCurrentAnimation() {
         return this.animationInterfaceArray[this.circularIndexUtil.getIndex()];
     }
+    
 
-    public virtual void nextAnimation()
-    {
-        int frame = this.getFrame();
+    public virtual void nextAnimation() {
+        int32 frame = this.getFrame();
         this.circularIndexUtil.next();
         this.setFrame(frame);
     }
+    
 
-    public virtual void previousAnimation()
-    {
-        int frame = this.getFrame();
+    public virtual void previousAnimation() {
+        int32 frame = this.getFrame();
         this.circularIndexUtil.previous();
         this.setFrame(frame);
     }
+    
 
-    public virtual void setAnimation(int index)
-    {
-        int frame = this.getFrame();
+    public virtual void setAnimation(int32 index) {
+        int32 frame = this.getFrame();
         this.circularIndexUtil.setIndex(index);
         this.setFrame(frame);
     }
+    
 
-    public override void setFrameByDirection(Direction direction)
-    {
+    public override void setFrameByDirection(Direction direction) {
         this.animationInterfaceArray[this.circularIndexUtil.getIndex()].setFrameByDirection(direction);
     }
+    
 
-    public override void setFrameToAngle(Angle angle)
-    {
+    public override void setFrameToAngle(Angle angle) {
         this.animationInterfaceArray[this.circularIndexUtil.getIndex()].setFrameToAngle(angle);
     }
+    
 
-    public override void adjustFrameToAngle(Angle newAngle)
-    {
+    public override void adjustFrameToAngle(Angle newAngle) {
         this.adjustFrame(newAngle.getValue());
     }
+    
 
-    public override void adjustFrame(short angle)
-    {
+    public override void adjustFrame(int16 angle) {
         this.animationInterfaceArray[this.circularIndexUtil.getIndex()].adjustFrame(angle);
     }
+    
 
-    public override AngleInfo getAngleInfoP()
-    {
+    public override AngleInfo getAngleInfoP() {
         return this.animationInterfaceArray[this.circularIndexUtil.getIndex()].getAngleInfoP();
     }
+    
 
-    public virtual RotationAnimation[] getAnimationInterfaceArray()
-    {
+    public virtual RotationAnimation[] getAnimationInterfaceArray() {
         return this.animationInterfaceArray;
     }
+    
 
-    public virtual void setAnimationInterfaceArray(RotationAnimation[] animationInterfaceArray)
-    {
+    public virtual void setAnimationInterfaceArray(RotationAnimation[] animationInterfaceArray) {
         this.animationInterfaceArray = animationInterfaceArray;
     }
+    
 
-    // throws Exception
-    public override void set(GL gl)
-    {
-        for (int index = this.animationInterfaceArray.Length; --index >= 0; ) {
-            this.animationInterfaceArray[index].set(gl);
+    public override void @set(GL gl) {
+        for (int32 index = this.animationInterfaceArray.length; --index >= 0; ) {
+            this.animationInterfaceArray[index].@set(gl);
         }
     }
-
 }
 

@@ -13,28 +13,34 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.game.ag.layer.weapon.mine
+// import org.allbinary.game.layer.weapon.WeaponLayerCircularPool
+// import org.allbinary.view.ViewPositionFactoryInterface
 
-using System;
-using System.Linq;
-using WeaponLayerCircularPool = org.allbinary.game.layer.weapon.WeaponLayerCircularPool;
-using ViewPositionFactoryInterface = org.allbinary.view.ViewPositionFactoryInterface;
-
-namespace org.allbinary.game.ag.layer.weapon.mine;
-
-public class MineLayerCircularStaticPool
-{
-    private static WeaponLayerCircularPool WEAPON_LAYER_CIRCULAR_STATIC_POOL = new WeaponLayerCircularPool();
-    // throws Exception
-    public static void init(ViewPositionFactoryInterface viewPositionFactoryInterface)
-    {
-        MineCountedPickedUpLayerInterfaceFactory.init();
-        MineLayerCircularStaticPool.WEAPON_LAYER_CIRCULAR_STATIC_POOL.initAllBinaryLayerCircularPool(new MineLayerFactory(viewPositionFactoryInterface), 20);
-    }
-
-    public static WeaponLayerCircularPool getInstance()
-    {
+public class MineLayerCircularStaticPool : JObject {
+    private static WeaponLayerCircularPool? WEAPON_LAYER_CIRCULAR_STATIC_POOL;
+    private static bool staticSet_WEAPON_LAYER_CIRCULAR_STATIC_POOL = false;
+    private static WeaponLayerCircularPool staticGet_WEAPON_LAYER_CIRCULAR_STATIC_POOL() {
+        if (!MineLayerCircularStaticPool.staticSet_WEAPON_LAYER_CIRCULAR_STATIC_POOL) {
+            MineLayerCircularStaticPool.staticSet_WEAPON_LAYER_CIRCULAR_STATIC_POOL = true;
+            MineLayerCircularStaticPool.WEAPON_LAYER_CIRCULAR_STATIC_POOL = new WeaponLayerCircularPool();
+        }
         return MineLayerCircularStaticPool.WEAPON_LAYER_CIRCULAR_STATIC_POOL;
     }
 
+    public MineLayerCircularStaticPool() {
+        base();
+    }
+    
+
+    public static void init(ViewPositionFactoryInterface viewPositionFactoryInterface) {
+        MineCountedPickedUpLayerInterfaceFactory.init();
+        MineLayerCircularStaticPool.staticGet_WEAPON_LAYER_CIRCULAR_STATIC_POOL().initAllBinaryLayerCircularPool(new MineLayerFactory(viewPositionFactoryInterface), 20);
+    }
+    
+
+    public static WeaponLayerCircularPool getInstance() {
+        return MineLayerCircularStaticPool.staticGet_WEAPON_LAYER_CIRCULAR_STATIC_POOL();
+    }
 }
 

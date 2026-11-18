@@ -13,28 +13,23 @@
  * 
  */
 // Generated Code Do Not Modify
+// package org.allbinary.input.motion.button
+// import org.allbinary.game.input.event.GameKeyEvent
 
-using System;
-using System.Linq;
-using GameKeyEvent = org.allbinary.game.input.@event.GameKeyEvent;
+public class MultitouchReleaseHelper : ReleaseHelper {
+    
 
-namespace org.allbinary.input.motion.button;
-
-public class MultitouchReleaseHelper : ReleaseHelper
-{
-    public MultitouchReleaseHelper(TouchButtonRecognizer touchButtonRecognizer) : base(touchButtonRecognizer)
-    {
-        // base(touchButtonRecognizer) is called from the constructor declaration
+    public MultitouchReleaseHelper(TouchButtonRecognizer touchButtonRecognizer) {
+        base(touchButtonRecognizer);
     }
+    
 
-    // throws Exception
-    public override void release(TouchButtonInput touchButtonInput, int deviceId)
-    {
+    public override void release(TouchButtonInput touchButtonInput, int32 deviceId) {
         TouchButtonInput cancelTouchButtonInput = CancelTouchButtonInputFactory.getInstance().getCancel(touchButtonInput);
         TouchButtonInput nextTouchButtonInput = null;
         GameKeyEvent gameKeyEvent = null;
-        for (int index = this.touchButtonRecognizer.currentlyPressedTouchButtonSingleton.size() - 1; index >= 0; index--) {
-            nextTouchButtonInput = this.touchButtonRecognizer.currentlyPressedTouchButtonSingleton.get(index);
+        for (int32 index = this.touchButtonRecognizer.currentlyPressedTouchButtonSingleton.size() - 1; index >= 0; index--) {
+            nextTouchButtonInput = this.touchButtonRecognizer.currentlyPressedTouchButtonSingleton.@get(index);
             if (cancelTouchButtonInput == nextTouchButtonInput) {
                 gameKeyEvent = nextTouchButtonInput.getGameKeyEvent();
                 this.touchButtonRecognizer.upGameKeyEventHandler.fireEvent(gameKeyEvent);
@@ -43,6 +38,5 @@ public class MultitouchReleaseHelper : ReleaseHelper
             }
         }
     }
-
 }
 

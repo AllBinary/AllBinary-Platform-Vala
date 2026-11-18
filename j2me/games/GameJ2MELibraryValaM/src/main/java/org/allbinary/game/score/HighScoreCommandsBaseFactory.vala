@@ -13,44 +13,46 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.game.score
+// import javax.microedition.lcdui.Command
+// import org.allbinary.J2MEUtil
+// import org.allbinary.logic.communication.log.LogUtil
 
-using System;
-using System.Linq;
-using Command = javax.microedition.lcdui.Command;
-using J2MEUtil = org.allbinary.J2MEUtil;
-using LogUtil = org.allbinary.logic.communication.log.LogUtil;
+public class HighScoreCommandsBaseFactory : JObject {
+    public LogUtil logUtil;
+    public Command[] HIGH_SCORE_COMMANDS;
 
-namespace org.allbinary.game.score;
+    // Java field initializers run after the base constructor
+    private void initFieldsHighScoreCommandsBaseFactory() {
+    this.logUtil = LogUtil.getInstance();
+    
+    }
+    
 
-public class HighScoreCommandsBaseFactory
-{
-    public readonly LogUtil logUtil = LogUtil.getInstance();
-    public readonly Command[] HIGH_SCORE_COMMANDS;
-    public HighScoreCommandsBaseFactory(Command[] HIGH_SCORE_COMMANDS)
-    {
+    public HighScoreCommandsBaseFactory(Command[] HIGH_SCORE_COMMANDS) {
+        base();
+        this.initFieldsHighScoreCommandsBaseFactory();
         this.HIGH_SCORE_COMMANDS = HIGH_SCORE_COMMANDS;
     }
+    
 
-    public virtual bool isHighScoreCommand(Command command)
-    {
-        for (int index = this.HIGH_SCORE_COMMANDS.Length - 1; index >= 0; index--) {
+    public virtual bool isHighScoreCommand(Command command) {
+        for (int32 index = this.HIGH_SCORE_COMMANDS.length - 1; index >= 0; index--) {
             if (command == this.HIGH_SCORE_COMMANDS[index]) {
                 return true;
             }
         }
         return false;
     }
+    
 
-    // throws Exception
-    public virtual int getIndex(Command command)
-    {
-        for (int index = this.HIGH_SCORE_COMMANDS.Length - 1; index >= 0; index--) {
+    public virtual int32 getIndex(Command command) {
+        for (int32 index = this.HIGH_SCORE_COMMANDS.length - 1; index >= 0; index--) {
             if (command == this.HIGH_SCORE_COMMANDS[index]) {
                 return index;
             }
         }
-        throw new Exception("No Such Command");
+        JSystem.fatal(new JException("Exception", "No Such Command"));
     }
-
 }
 

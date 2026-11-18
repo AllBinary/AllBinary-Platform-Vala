@@ -1,55 +1,67 @@
 // Generated Code Do Not Modify
+// package org.allbinary.graphics.form
+// import org.allbinary.graphics.GPoint
+// import org.allbinary.graphics.Rectangle
+// import org.allbinary.graphics.RectangleFactory
+// import org.allbinary.graphics.color.BasicColor
+// import org.allbinary.graphics.color.BasicColorFactory
+// import org.allbinary.graphics.displayable.CanvasStrings
+// import org.allbinary.graphics.form.item.ABCustomItem
+// import org.allbinary.logic.NullUtil
+// import org.allbinary.logic.string.StringUtil
 
-using System;
-using System.Linq;
-using GPoint = org.allbinary.graphics.GPoint;
-using Rectangle = org.allbinary.graphics.Rectangle;
-using RectangleFactory = org.allbinary.graphics.RectangleFactory;
-using BasicColor = org.allbinary.graphics.color.BasicColor;
-using BasicColorFactory = org.allbinary.graphics.color.BasicColorFactory;
-using CanvasStrings = org.allbinary.graphics.displayable.CanvasStrings;
-using ABCustomItem = org.allbinary.graphics.form.item.ABCustomItem;
-using NullUtil = org.allbinary.logic.NullUtil;
-using StringUtil = org.allbinary.logic.@string.StringUtil;
+public class PaintableForm : ABCustomForm {
+    private static JObject? NULL_PAINTABLE_FORM;
+    private static bool staticSet_NULL_PAINTABLE_FORM = false;
+    private static JObject staticGet_NULL_PAINTABLE_FORM() {
+        if (!PaintableForm.staticSet_NULL_PAINTABLE_FORM) {
+            PaintableForm.staticSet_NULL_PAINTABLE_FORM = true;
+            PaintableForm.NULL_PAINTABLE_FORM = NullUtil.getInstance().NULL_OBJECT;
+        }
+        return PaintableForm.NULL_PAINTABLE_FORM;
+    }
+    public CanvasStrings canvasStrings;
+    public Rectangle rectangle;
+    public int32 x;
+    public int32 y;
+    public FormType formType;
 
-namespace org.allbinary.graphics.form;
+    // Java field initializers run after the base constructor
+    private void initFieldsPaintableForm() {
+    this.canvasStrings = CanvasStrings.getInstance();
+    this.rectangle = RectangleFactory.SINGLETON;
+    this.x = 0;
+    this.y = 0;
+    this.formType = FormTypeFactory.getInstance().NULL_FORM_TYPE;
+    }
+    
 
-public class PaintableForm : ABCustomForm
-{
-    private static object NULL_PAINTABLE_FORM = NullUtil.getInstance().NULL_OBJECT;
-    public static PaintableForm getNullPaintableForm()
-    {
-        if (PaintableForm.NULL_PAINTABLE_FORM == NullUtil.getInstance().NULL_OBJECT) {
+    public static PaintableForm getNullPaintableForm() {
+        if (PaintableForm.staticGet_NULL_PAINTABLE_FORM() == NullUtil.getInstance().NULL_OBJECT) {
             PaintableForm.NULL_PAINTABLE_FORM = new PaintableForm(StringUtil.getInstance().EMPTY_STRING, new ABCustomItem[0], BasicColorFactory.getInstance().BLACK, BasicColorFactory.getInstance().WHITE);
         }
-        return ((PaintableForm) PaintableForm.NULL_PAINTABLE_FORM);
+        return ((PaintableForm) PaintableForm.staticGet_NULL_PAINTABLE_FORM());
     }
+    
 
-    public readonly CanvasStrings canvasStrings = CanvasStrings.getInstance();
-    public Rectangle rectangle = RectangleFactory.SINGLETON;
-    public int x = 0;
-    public int y = 0;
-    public FormType formType = FormTypeFactory.getInstance().NULL_FORM_TYPE;
-    public PaintableForm(string title, ABCustomItem[] items, BasicColor backgroundBasicColor, BasicColor foregroundBasicColor) : base(title, items, backgroundBasicColor, foregroundBasicColor)
-    {
-        // base(title, items, backgroundBasicColor, foregroundBasicColor) is called from the constructor declaration
+    public PaintableForm(string title, ABCustomItem[] items, BasicColor backgroundBasicColor, BasicColor foregroundBasicColor) {
+        base(title, items, backgroundBasicColor, foregroundBasicColor);
+        this.initFieldsPaintableForm();
         this.setSelectedIndex(0);
     }
+    
 
-    // throws Exception
-    public virtual void init(Rectangle rectangle, FormType formType)
-    {
+    public virtual void init(Rectangle rectangle, FormType formType) {
         this.rectangle = rectangle;
         GPoint point = this.rectangle.getPoint();
         this.x = point.getX();
         this.y = point.getY();
         this.formType = formType;
     }
+    
 
-    public override int getWidth()
-    {
+    public override int32 getWidth() {
         return this.rectangle.getWidth();
     }
-
 }
 

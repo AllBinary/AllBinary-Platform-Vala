@@ -13,22 +13,29 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.image.opengles
+// import javax.microedition.lcdui.Image
+// import org.allbinary.platform.graphics.PlatformBitmapBaseFactory
+// import org.allbinary.platform.opengles.PlatformTextureBaseFactory
 
-using System;
-using System.Linq;
-using Image = javax.microedition.lcdui.Image;
-using PlatformBitmapBaseFactory = org.allbinary.platform.graphics.PlatformBitmapBaseFactory;
-using PlatformTextureBaseFactory = org.allbinary.platform.opengles.PlatformTextureBaseFactory;
-
-namespace org.allbinary.image.opengles;
-
-public class OpenGLImageFactory
-{
-    public static OpenGLImageFactory NULL_OPENGL_IMAGE_FACTORY = new OpenGLImageFactory();
-    public virtual Image getInstance(Image image, PlatformBitmapBaseFactory bitmapFactory, PlatformTextureBaseFactory textureFactory)
-    {
-        throw new SystemException();
+public class OpenGLImageFactory : JObject {
+    public static OpenGLImageFactory? NULL_OPENGL_IMAGE_FACTORY;
+    private static bool staticSet_NULL_OPENGL_IMAGE_FACTORY = false;
+    public static OpenGLImageFactory staticGet_NULL_OPENGL_IMAGE_FACTORY() {
+        if (!OpenGLImageFactory.staticSet_NULL_OPENGL_IMAGE_FACTORY) {
+            OpenGLImageFactory.staticSet_NULL_OPENGL_IMAGE_FACTORY = true;
+            OpenGLImageFactory.NULL_OPENGL_IMAGE_FACTORY = new OpenGLImageFactory();
+        }
+        return OpenGLImageFactory.NULL_OPENGL_IMAGE_FACTORY;
     }
 
+    public OpenGLImageFactory() {
+        base();
+    }
+    
+
+    public virtual Image getInstance3(Image image, PlatformBitmapBaseFactory bitmapFactory, PlatformTextureBaseFactory textureFactory) {
+        JSystem.fatal(new JException("RuntimeException", ""));
+    }
 }
 

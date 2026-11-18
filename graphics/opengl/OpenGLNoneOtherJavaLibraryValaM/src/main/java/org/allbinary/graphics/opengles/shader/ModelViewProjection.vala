@@ -13,25 +13,32 @@
  *   
  */
 // Generated Code Do Not Modify
+// package org.allbinary.graphics.opengles.shader
+// import org.allbinary.logic.NullUtil
 
-using System;
-using System.Linq;
-using NullUtil = org.allbinary.logic.NullUtil;
-
-namespace org.allbinary.graphics.opengles.shader;
-
-public class ModelViewProjection
-{
-    private static readonly ModelViewProjection instance = new ModelViewProjection();
-    public static ModelViewProjection getInstance()
-    {
+public class ModelViewProjection : JObject {
+    private static ModelViewProjection? instance;
+    private static bool staticSet_instance = false;
+    private static ModelViewProjection staticGet_instance() {
+        if (!ModelViewProjection.staticSet_instance) {
+            ModelViewProjection.staticSet_instance = true;
+            ModelViewProjection.instance = new ModelViewProjection();
+        }
         return ModelViewProjection.instance;
     }
 
-    public virtual float[] get()
-    {
+    public ModelViewProjection() {
+        base();
+    }
+    
+
+    public static ModelViewProjection getInstance() {
+        return ModelViewProjection.staticGet_instance();
+    }
+    
+
+    public virtual float[] @get() {
         return NullUtil.getInstance().NULL_FLOAT_ARRAY;
     }
-
 }
 

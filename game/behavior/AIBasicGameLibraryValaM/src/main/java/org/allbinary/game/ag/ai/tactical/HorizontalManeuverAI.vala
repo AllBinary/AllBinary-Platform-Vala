@@ -13,33 +13,35 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.game.ag.ai.tactical
+// import javax.microedition.lcdui.Canvas
+// import org.allbinary.game.ai.BasicAI
+// import org.allbinary.game.input.GameInput
+// import org.allbinary.graphics.displayable.DisplayInfoSingleton
+// import org.allbinary.layer.AllBinaryLayer
+// import org.allbinary.layer.AllBinaryLayerManager
 
-using System;
-using System.Linq;
-using Canvas = javax.microedition.lcdui.Canvas;
-using BasicAI = org.allbinary.game.ai.BasicAI;
-using GameInput = org.allbinary.game.input.GameInput;
-using DisplayInfoSingleton = org.allbinary.graphics.displayable.DisplayInfoSingleton;
-using AllBinaryLayer = org.allbinary.layer.AllBinaryLayer;
-using AllBinaryLayerManager = org.allbinary.layer.AllBinaryLayerManager;
+public class HorizontalManeuverAI : BasicAI {
+    public int32 currentRelativeAngle;
+    private int32 currentSpeed;
 
-namespace org.allbinary.game.ag.ai.tactical;
+    // Java field initializers run after the base constructor
+    private void initFieldsHorizontalManeuverAI() {
+    this.currentRelativeAngle = 0;
+    
+    }
+    
 
-public class HorizontalManeuverAI : BasicAI
-{
-    public int currentRelativeAngle = 0;
-    private int currentSpeed;
-    public HorizontalManeuverAI(AllBinaryLayer ownerLayerInterface, GameInput gameInput) : base(ownerLayerInterface, gameInput)
-    {
-        // base(ownerLayerInterface, gameInput) is called from the constructor declaration
+    public HorizontalManeuverAI(AllBinaryLayer ownerLayerInterface, GameInput gameInput) {
+        base(ownerLayerInterface, gameInput);
+        this.initFieldsHorizontalManeuverAI();
         this.currentSpeed = 5;
     }
+    
 
-    // throws Exception
-    public override void processAI(AllBinaryLayerManager allBinaryLayerManager)
-    {
+    public override void processAI(AllBinaryLayerManager allBinaryLayerManager) {
         AllBinaryLayer ownerLayerInterface = this.getOwnerLayerInterface();
-        int x = ownerLayerInterface.getXP();
+        int32 x = ownerLayerInterface.getXP();
         if (ownerLayerInterface.getXP() - this.currentSpeed <= 0) {
             this.reverse();
             this.drop();
@@ -61,27 +63,27 @@ public class HorizontalManeuverAI : BasicAI
             base.processKeyAI(Canvas.KEY_POUND);
         }
     }
+    
 
-    public virtual void reverse()
-    {
+    public virtual void reverse() {
         if (this.currentRelativeAngle == 180) {
             this.currentRelativeAngle = 0;
         } else if (this.currentRelativeAngle == 0) {
             this.currentRelativeAngle = 180;
         }
     }
+    
 
-    private void accelerate()
-    {
+    private void accelerate() {
         if (this.currentSpeed < 20) {
             this.currentSpeed++;
         }
     }
+    
 
-    private void drop()
-    {
+    private void drop() {
         AllBinaryLayer ownerLayerInterface = this.getOwnerLayerInterface();
-        int y = ownerLayerInterface.getYP();
+        int32 y = ownerLayerInterface.getYP();
         if (ownerLayerInterface.getY2() + ownerLayerInterface.getHeight() > DisplayInfoSingleton.getInstance().getLastHeight()) {
             y = 0;
         } else {
@@ -89,6 +91,5 @@ public class HorizontalManeuverAI : BasicAI
         }
         ownerLayerInterface.setPosition(ownerLayerInterface.getXP(), y, ownerLayerInterface.getZP());
     }
-
 }
 

@@ -13,38 +13,45 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.game.layer.resources
+// import org.allbinary.animation.resource.BaseResourceAnimationInterfaceFactoryInterfaceFactory
+// import org.allbinary.image.ImageCache
+// import org.allbinary.logic.communication.log.LogUtil
 
-using System;
-using System.Linq;
-using BaseResourceAnimationInterfaceFactoryInterfaceFactory = org.allbinary.animation.resource.BaseResourceAnimationInterfaceFactoryInterfaceFactory;
-using ImageCache = org.allbinary.image.ImageCache;
-using LogUtil = org.allbinary.logic.communication.log.LogUtil;
-
-namespace org.allbinary.game.layer.resources;
-
-public class OnDemandResources
-{
-    public static readonly OnDemandResources NULL_ON_DEMAND_RESOURCES = new OnDemandResources();
-    public readonly LogUtil logUtil = LogUtil.getInstance();
-    public OnDemandResources()
-    {
+public class OnDemandResources : JObject {
+    public static OnDemandResources? NULL_ON_DEMAND_RESOURCES;
+    private static bool staticSet_NULL_ON_DEMAND_RESOURCES = false;
+    public static OnDemandResources staticGet_NULL_ON_DEMAND_RESOURCES() {
+        if (!OnDemandResources.staticSet_NULL_ON_DEMAND_RESOURCES) {
+            OnDemandResources.staticSet_NULL_ON_DEMAND_RESOURCES = true;
+            OnDemandResources.NULL_ON_DEMAND_RESOURCES = new OnDemandResources();
+        }
+        return OnDemandResources.NULL_ON_DEMAND_RESOURCES;
     }
+    public LogUtil logUtil;
 
-    // throws Exception
-    public virtual void waitFor()
-    {
+    // Java field initializers run after the base constructor
+    private void initFieldsOnDemandResources() {
+    this.logUtil = LogUtil.getInstance();
     }
+    
 
-    // throws Exception
-    public virtual void init()
-    {
+    public OnDemandResources() {
+        base();
+        this.initFieldsOnDemandResources();
     }
+    
 
-    // throws Exception
-    public virtual int initAt(ImageCache imageCache, BaseResourceAnimationInterfaceFactoryInterfaceFactory resourceAnimationInterfaceFactoryInterfaceFactory, int portion, string loadingString, int index)
-    {
+    public virtual void waitFor() {
+    }
+    
+
+    public virtual void init() {
+    }
+    
+
+    public virtual int32 initAt(ImageCache imageCache, BaseResourceAnimationInterfaceFactoryInterfaceFactory resourceAnimationInterfaceFactoryInterfaceFactory, int32 portion, string loadingString, int32 index) {
         return 0;
     }
-
 }
 

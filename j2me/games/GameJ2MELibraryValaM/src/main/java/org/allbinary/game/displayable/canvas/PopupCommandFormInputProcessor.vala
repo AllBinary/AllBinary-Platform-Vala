@@ -13,34 +13,27 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.game.displayable.canvas
+// import org.allbinary.graphics.displayable.MyCanvas
+// import org.allbinary.graphics.form.ScrollSelectionForm
+// import org.allbinary.input.motion.gesture.observer.MotionGestureEvent
+// import org.allbinary.util.BasicArrayList
 
-using System;
-using System.Linq;
-using MyCanvas = org.allbinary.graphics.displayable.MyCanvas;
-using ScrollSelectionForm = org.allbinary.graphics.form.ScrollSelectionForm;
-using MotionGestureEvent = org.allbinary.input.motion.gesture.observer.MotionGestureEvent;
-using BasicArrayList = org.allbinary.util.BasicArrayList;
+public class PopupCommandFormInputProcessor : CommandFormInputProcessor {
+    
 
-namespace org.allbinary.game.displayable.canvas;
-
-public class PopupCommandFormInputProcessor : CommandFormInputProcessor
-{
-    public PopupCommandFormInputProcessor(BasicArrayList gameKeyEventList, int playerInputId, MyCanvas gameCanvas, ScrollSelectionForm form, PopupMenuInputProcessor popupMenuInputProcessor) : base(gameKeyEventList, playerInputId, gameCanvas, form)
-    {
-        // base(gameKeyEventList, playerInputId, gameCanvas, form) is called from the constructor declaration
+    public PopupCommandFormInputProcessor(BasicArrayList gameKeyEventList, int32 playerInputId, MyCanvas gameCanvas, ScrollSelectionForm form, PopupMenuInputProcessor popupMenuInputProcessor) {
+        base(gameKeyEventList, playerInputId, gameCanvas, form);
     }
+    
 
-    // throws Exception
-    public override int processInput(int key)
-    {
+    public override int32 processInput(int32 key) {
         return base.processInput(key);
     }
+    
 
-    // throws Exception
-    public override void processMotionInput(MotionGestureEvent motionGestureEvent)
-    {
+    public override void processMotionInput(MotionGestureEvent motionGestureEvent) {
         base.processMotionInput(motionGestureEvent);
     }
-
 }
 

@@ -13,30 +13,49 @@
  *   
  */
 // Generated Code Do Not Modify
+// package org.allbinary.media.audio
+// import javax.microedition.media.Player
+// import org.allbinary.string.CommonStrings
 
-using System;
-using System.Linq;
-using Player = javax.microedition.media.Player;
-using CommonStrings = org.allbinary.@string.CommonStrings;
-
-namespace org.allbinary.media.audio;
-
-public class PlayerStateUtil
-{
-    private static readonly PlayerStateUtil instance = new PlayerStateUtil();
-    public static PlayerStateUtil getInstance()
-    {
+public class PlayerStateUtil : JObject {
+    private static PlayerStateUtil? instance;
+    private static bool staticSet_instance = false;
+    private static PlayerStateUtil staticGet_instance() {
+        if (!PlayerStateUtil.staticSet_instance) {
+            PlayerStateUtil.staticSet_instance = true;
+            PlayerStateUtil.instance = new PlayerStateUtil();
+        }
         return PlayerStateUtil.instance;
     }
+    private CommonStrings commonStrings;
+    public string UNREALIZED;
+    public string REALIZED;
+    public string PREFETCHED;
+    public string STARTED;
+    public string CLOSED;
 
-    private readonly CommonStrings commonStrings = CommonStrings.getInstance();
-    public readonly string UNREALIZED = "UNREALIZED";
-    public readonly string REALIZED = "REALIZED";
-    public readonly string PREFETCHED = "PREFETCHED";
-    public readonly string STARTED = "STARTED";
-    public readonly string CLOSED = "CLOSED";
-    public virtual string convert(int state)
-    {
+    // Java field initializers run after the base constructor
+    private void initFieldsPlayerStateUtil() {
+    this.commonStrings = CommonStrings.getInstance();
+    this.UNREALIZED = "UNREALIZED";
+    this.REALIZED = "REALIZED";
+    this.PREFETCHED = "PREFETCHED";
+    this.STARTED = "STARTED";
+    this.CLOSED = "CLOSED";
+    }
+
+    public PlayerStateUtil() {
+        base();
+        this.initFieldsPlayerStateUtil();
+    }
+    
+
+    public static PlayerStateUtil getInstance() {
+        return PlayerStateUtil.staticGet_instance();
+    }
+    
+
+    public virtual string convert(int32 state) {
         if (state == Player.UNREALIZED) {
             return this.UNREALIZED;
         } else if (state == Player.REALIZED) {
@@ -50,6 +69,5 @@ public class PlayerStateUtil
         }
         return this.commonStrings.UNKNOWN;
     }
-
 }
 

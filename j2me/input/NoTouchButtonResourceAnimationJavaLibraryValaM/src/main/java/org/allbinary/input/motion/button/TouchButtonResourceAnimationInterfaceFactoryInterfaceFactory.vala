@@ -13,48 +13,42 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.input.motion.button
+// import org.allbinary.animation.resource.BaseResourceAnimationInterfaceFactoryInterfaceFactory
+// import org.allbinary.game.configuration.feature.Features
+// import org.allbinary.game.resource.ResourceLoadingLevelFactory
+// import org.allbinary.graphics.opengles.OpenGLFeatureFactory
+// import org.allbinary.image.ImageCache
+// import org.allbinary.image.ImageCacheFactory
+// import org.allbinary.logic.StdUtil
 
-using System;
-using System.Linq;
-using BaseResourceAnimationInterfaceFactoryInterfaceFactory = org.allbinary.animation.resource.BaseResourceAnimationInterfaceFactoryInterfaceFactory;
-using Features = org.allbinary.game.configuration.feature.Features;
-using ResourceLoadingLevelFactory = org.allbinary.game.resource.ResourceLoadingLevelFactory;
-using OpenGLFeatureFactory = org.allbinary.graphics.opengles.OpenGLFeatureFactory;
-using ImageCache = org.allbinary.image.ImageCache;
-using ImageCacheFactory = org.allbinary.image.ImageCacheFactory;
-using StdUtil = org.allbinary.logic.StdUtil;
+public class TouchButtonResourceAnimationInterfaceFactoryInterfaceFactory : BaseResourceAnimationInterfaceFactoryInterfaceFactory {
+    
 
-namespace org.allbinary.input.motion.button;
-
-public class TouchButtonResourceAnimationInterfaceFactoryInterfaceFactory : BaseResourceAnimationInterfaceFactoryInterfaceFactory
-{
-    public static TouchButtonResourceAnimationInterfaceFactoryInterfaceFactory createFactory()
-    {
+    public static TouchButtonResourceAnimationInterfaceFactoryInterfaceFactory createFactory() {
         return new TouchButtonResourceAnimationInterfaceFactoryInterfaceFactory("TouchButton Animations");
     }
+    
 
-    public TouchButtonResourceAnimationInterfaceFactoryInterfaceFactory(string name) : base(name, StdUtil.getInstance().createHashtable(), StdUtil.getInstance().createHashtable(), StdUtil.getInstance().createHashtable())
-    {
-        // base(name, StdUtil.getInstance().createHashtable(), StdUtil.getInstance().createHashtable(), StdUtil.getInstance().createHashtable()) is called from the constructor declaration
+    public TouchButtonResourceAnimationInterfaceFactoryInterfaceFactory(string name) {
+        base(name, StdUtil.getInstance().createHashtable(), StdUtil.getInstance().createHashtable(), StdUtil.getInstance().createHashtable());
     }
+    
 
-    // throws Exception
-    public override void init(int level)
-    {
+    public override void init(int32 level) {
         this.initImageCache(ImageCacheFactory.getInstance(), level);
     }
+    
 
-    // throws Exception
-    public override void initImageCache(ImageCache imageCache, int level)
-    {
+    public override void initImageCache(ImageCache imageCache, int32 level) {
         if (this.isInitialized()) {
             return;
         }
         base.init(level);
     }
+    
 
-    public override bool isLoadingLevel(int level)
-    {
+    public override bool isLoadingLevel(int32 level) {
         ResourceLoadingLevelFactory resourceLoadingLevelFactory = ResourceLoadingLevelFactory.getInstance();
         if (level == resourceLoadingLevelFactory.LOAD_TOUCH.getLevel()) {
             return true;
@@ -62,15 +56,14 @@ public class TouchButtonResourceAnimationInterfaceFactoryInterfaceFactory : Base
             return base.isLoadingLevel(level);
         }
     }
+    
 
-    public override bool isFeature()
-    {
+    public override bool isFeature() {
         if (!Features.getInstance().isDefault(OpenGLFeatureFactory.getInstance().OPENGL)) {
             return true;
         } else {
             return false;
         }
     }
-
 }
 

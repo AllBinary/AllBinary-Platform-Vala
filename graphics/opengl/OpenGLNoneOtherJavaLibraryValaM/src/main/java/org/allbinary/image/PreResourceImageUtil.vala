@@ -13,35 +13,42 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.image
+// import javax.microedition.khronos.opengles.GL
+// import javax.microedition.lcdui.Graphics
+// import javax.microedition.lcdui.Image
 
-using System;
-using System.Linq;
-using GL = javax.microedition.khronos.opengles.GL;
-using Graphics = javax.microedition.lcdui.Graphics;
-using Image = javax.microedition.lcdui.Image;
-
-namespace org.allbinary.image;
-
-public class PreResourceImageUtil
-{
-    private static readonly PreResourceImageUtil instance = new PreResourceImageUtil();
-    public static PreResourceImageUtil getInstance()
-    {
+public class PreResourceImageUtil : JObject {
+    private static PreResourceImageUtil? instance;
+    private static bool staticSet_instance = false;
+    private static PreResourceImageUtil staticGet_instance() {
+        if (!PreResourceImageUtil.staticSet_instance) {
+            PreResourceImageUtil.staticSet_instance = true;
+            PreResourceImageUtil.instance = new PreResourceImageUtil();
+        }
         return PreResourceImageUtil.instance;
     }
 
-    public virtual Image encapsulate(Image image)
-    {
+    public PreResourceImageUtil() {
+        base();
+    }
+    
+
+    public static PreResourceImageUtil getInstance() {
+        return PreResourceImageUtil.staticGet_instance();
+    }
+    
+
+    public virtual Image encapsulate(Image image) {
         return image;
     }
+    
 
-    public virtual void updateGL(GL gl, Image image)
-    {
+    public virtual void updateGL(GL gl, Image image) {
     }
+    
 
-    public virtual void update(Graphics graphics, Image image)
-    {
+    public virtual void update(Graphics graphics, Image image) {
     }
-
 }
 

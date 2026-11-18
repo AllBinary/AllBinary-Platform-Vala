@@ -13,25 +13,26 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.graphics.form
 
-using System;
-using System.Linq;
+public class LockableFormPaintableFactory : ItemPaintableFactory {
+    private int32 lockedIndex;
 
-namespace org.allbinary.graphics.form;
+    // Java field initializers run after the base constructor
+    private void initFieldsLockableFormPaintableFactory() {
+    
+    }
+    
 
-public class LockableFormPaintableFactory : ItemPaintableFactory
-{
-    private readonly int lockedIndex;
-    public LockableFormPaintableFactory(int lockedIndex)
-    {
+    public LockableFormPaintableFactory(int32 lockedIndex) {
+        base();
+        this.initFieldsLockableFormPaintableFactory();
         this.lockedIndex = lockedIndex;
     }
+    
 
-    // throws Exception
-    public override ItemPaintable getInstanceItemPaintable(PaintableForm paintableForm)
-    {
+    public override ItemPaintable getInstanceItemPaintable(PaintableForm paintableForm) {
         return new LockablePaintable(this.lockedIndex);
     }
-
 }
 

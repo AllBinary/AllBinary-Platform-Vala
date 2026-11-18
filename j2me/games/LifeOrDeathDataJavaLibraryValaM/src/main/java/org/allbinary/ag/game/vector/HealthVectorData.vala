@@ -13,14 +13,21 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.ag.game.vector
 
-using System;
-using System.Linq;
+public class HealthVectorData : JObject {
+    public static int32[,,]? points;
+    private static bool staticSet_points = false;
+    public static int32[,,] staticGet_points() {
+        if (!HealthVectorData.staticSet_points) {
+            HealthVectorData.staticSet_points = true;
+            HealthVectorData.points = new int32[,,] {{{2, 1}, {3, 2}, {3, 2}, {4, 1}, {4, 1}, {5, 1}, {5, 1}, {6, 2}, {6, 2}, {6, 3}, {6, 3}, {3, 6}, {3, 6}, {0, 3}, {0, 3}, {0, 2}, {0, 2}, {1, 1}, {1, 1}, {2, 1}, {1000, 1000}}};
+        }
+        return HealthVectorData.points;
+    }
 
-namespace org.allbinary.ag.game.vector;
-
-public class HealthVectorData
-{
-    public static int[][][] points = new int[][][] { new int[][] { new int[] { 2, 1 }, new int[] { 3, 2 }, new int[] { 3, 2 }, new int[] { 4, 1 }, new int[] { 4, 1 }, new int[] { 5, 1 }, new int[] { 5, 1 }, new int[] { 6, 2 }, new int[] { 6, 2 }, new int[] { 6, 3 }, new int[] { 6, 3 }, new int[] { 3, 6 }, new int[] { 3, 6 }, new int[] { 0, 3 }, new int[] { 0, 3 }, new int[] { 0, 2 }, new int[] { 0, 2 }, new int[] { 1, 1 }, new int[] { 1, 1 }, new int[] { 2, 1 }, new int[] { 1000, 1000 } } };
+    public HealthVectorData() {
+        base();
+    }
 }
 

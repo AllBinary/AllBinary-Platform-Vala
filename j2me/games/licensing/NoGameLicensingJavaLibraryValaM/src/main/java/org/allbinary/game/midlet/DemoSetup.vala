@@ -13,17 +13,16 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.game.midlet
 
-using System;
-using System.Linq;
+public class DemoSetup : JObject {
 
-namespace org.allbinary.game.midlet;
-
-public class DemoSetup
-{
-    public virtual void init(GameMidlet gameMidlet)
-    {
+    public DemoSetup() {
+        base();
     }
+    
 
+    public virtual void init(GameMidlet gameMidlet) {
+    }
 }
 

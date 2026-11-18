@@ -13,37 +13,38 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.game.ag.layer.hud.basic.score
+// import org.allbinary.game.score.Scoreable
 
-using System;
-using System.Linq;
-using Scoreable = org.allbinary.game.score.Scoreable;
+public class ScoreableAddOnlyForHud : Scoreable {
+    private ScoreHudWidget scoreHudWidget;
 
-namespace org.allbinary.game.ag.layer.hud.basic.score;
+    // Java field initializers run after the base constructor
+    private void initFieldsScoreableAddOnlyForHud() {
+    
+    }
+    
 
-public class ScoreableAddOnlyForHud : Scoreable
-{
-    private readonly ScoreHudWidget scoreHudWidget;
-    public ScoreableAddOnlyForHud(ScoreHudWidget scoreVectorGraphic) : base(0)
-    {
-        // base(0) is called from the constructor declaration
+    public ScoreableAddOnlyForHud(ScoreHudWidget scoreVectorGraphic) {
+        base(0);
+        this.initFieldsScoreableAddOnlyForHud();
         this.scoreHudWidget = scoreVectorGraphic;
-        this.getScoreHudWidget().set(0);
+        this.getScoreHudWidget().@set(0);
     }
+    
 
-    public override void removePoints(int points)
-    {
+    public override void removePoints(int32 points) {
     }
+    
 
-    public override void addPoints(int points)
-    {
+    public override void addPoints(int32 points) {
         base.addPoints(points);
         this.getScoreHudWidget().add(points);
     }
+    
 
-    public virtual ScoreHudWidget getScoreHudWidget()
-    {
+    public virtual ScoreHudWidget getScoreHudWidget() {
         return this.scoreHudWidget;
     }
-
 }
 

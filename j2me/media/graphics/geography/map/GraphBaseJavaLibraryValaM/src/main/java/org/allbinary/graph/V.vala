@@ -1,16 +1,15 @@
 // Generated Code Do Not Modify
+// package org.allbinary.graph
 
-using System;
-using System.Linq;
+public class V : JObject {
 
-namespace org.allbinary.graph;
+    public V() {
+        base();
+    }
+    
 
-public class V
-{
-    public virtual int getId()
-    {
+    public virtual int32 getId() {
         return 0;
     }
-
 }
 

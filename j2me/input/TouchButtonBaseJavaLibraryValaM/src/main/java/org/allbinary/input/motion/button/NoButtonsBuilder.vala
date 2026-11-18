@@ -13,29 +13,31 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.input.motion.button
+// import org.allbinary.logic.communication.log.LogUtil
+// import org.allbinary.util.BasicArrayList
+// import org.allbinary.util.BasicArrayListUtil
 
-using System;
-using System.Linq;
-using LogUtil = org.allbinary.logic.communication.log.LogUtil;
-using BasicArrayList = org.allbinary.util.BasicArrayList;
-using BasicArrayListUtil = org.allbinary.util.BasicArrayListUtil;
+public class NoButtonsBuilder : BaseTouchInput {
+    public LogUtil logUtil;
 
-namespace org.allbinary.input.motion.button;
+    // Java field initializers run after the base constructor
+    private void initFieldsNoButtonsBuilder() {
+    this.logUtil = LogUtil.getInstance();
+    }
 
-public class NoButtonsBuilder : BaseTouchInput
-{
-    public readonly LogUtil logUtil = LogUtil.getInstance();
-    public override BasicArrayList getList()
-    {
-        try {
+    public NoButtonsBuilder() {
+        base();
+        this.initFieldsNoButtonsBuilder();
+    }
+    
+
+    public override BasicArrayList getList() {
+        {
             this.logUtil.putF(this.commonStrings.START, this, this.commonStrings.CONSTRUCTOR);
             BasicArrayList list = BasicArrayListUtil.getInstance().getImmutableInstance();
             return list;
-        } catch (Exception e) {
-            this.logUtil.put(this.commonStrings.EXCEPTION, this, this.commonStrings.GET_LIST, e);
-            return BasicArrayListUtil.getInstance().getImmutableInstance();
-        }
+        } /* catch (Exception e): a thrown Java exception stops the program */
     }
-
 }
 

@@ -13,42 +13,52 @@
  *   
  */
 // Generated Code Do Not Modify
+// package org.allbinary.animation.image
+// import org.allbinary.logic.string.StringMaker
+// import org.allbinary.math.PositionStrings
+// import org.allbinary.string.CommonLabels
+// import org.allbinary.string.CommonSeps
 
-using System;
-using System.Linq;
-using StringMaker = org.allbinary.logic.@string.StringMaker;
-using PositionStrings = org.allbinary.math.PositionStrings;
-using CommonLabels = org.allbinary.@string.CommonLabels;
-using CommonSeps = org.allbinary.@string.CommonSeps;
+public class AnimationFactoryInitializationVisitor : JObject {
+    public int32 width;
+    public int32 height;
+    public int32 dx;
+    public int32 dy;
+    public int32 originalDx;
+    public int32 originalDy;
 
-namespace org.allbinary.animation.image;
-
-public class AnimationFactoryInitializationVisitor
-{
-    public int width = 0;
-    public int height = 0;
-    public int dx = 0;
-    public int dy = 0;
-    public int originalDx = 0;
-    public int originalDy = 0;
-    public virtual void visit()
-    {
+    // Java field initializers run after the base constructor
+    private void initFieldsAnimationFactoryInitializationVisitor() {
+    this.width = 0;
+    this.height = 0;
+    this.dx = 0;
+    this.dy = 0;
+    this.originalDx = 0;
+    this.originalDy = 0;
     }
 
-    public override string ToString()
-    {
+    public AnimationFactoryInitializationVisitor() {
+        base();
+        this.initFieldsAnimationFactoryInitializationVisitor();
+    }
+    
+
+    public virtual void visit() {
+    }
+    
+
+    public override string toString() {
         CommonSeps commonSeps = CommonSeps.getInstance();
         CommonLabels commonLabels = CommonLabels.getInstance();
         StringMaker stringBuffer = new StringMaker();
-        stringBuffer.append(PositionStrings.getInstance().DX_LABEL).appendfloat(((float) this.dx));
-        stringBuffer.append(PositionStrings.getInstance().DY_LABEL).appendfloat(((float) this.dy));
+        stringBuffer.append(PositionStrings.getInstance().DX_LABEL).appendfloat(((float) (this.dx)));
+        stringBuffer.append(PositionStrings.getInstance().DY_LABEL).appendfloat(((float) (this.dy)));
         stringBuffer.append(commonLabels.WIDTH_LABEL);
         stringBuffer.appendint(this.width);
         stringBuffer.append(commonSeps.SPACE);
         stringBuffer.append(commonLabels.HEIGHT_LABEL);
         stringBuffer.appendint(this.height);
-        return stringBuffer.ToString();
+        return stringBuffer.toString();
     }
-
 }
 

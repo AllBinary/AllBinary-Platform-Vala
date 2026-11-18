@@ -13,28 +13,23 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.game.collision
+// import org.allbinary.game.layer.CollidableCompositeLayer
+// import org.allbinary.layer.AllBinaryLayer
 
-using System;
-using System.Linq;
-using CollidableCompositeLayer = org.allbinary.game.layer.CollidableCompositeLayer;
-using AllBinaryLayer = org.allbinary.layer.AllBinaryLayer;
+public class SourceCollisionHelper : CollisionHelper {
+    
 
-namespace org.allbinary.game.collision;
-
-public class SourceCollisionHelper : CollisionHelper
-{
-    public SourceCollisionHelper(AllBinaryLayer layerInterface) : base(layerInterface)
-    {
-        // base(layerInterface) is called from the constructor declaration
+    public SourceCollisionHelper(AllBinaryLayer layerInterface) {
+        base(layerInterface);
     }
+    
 
-    public override bool isCollidable(CollidableCompositeLayer layerInterface)
-    {
+    public override bool isCollidable(CollidableCompositeLayer layerInterface) {
         if (this.sourceLayerInterface != layerInterface) {
             return true;
         }
         return false;
     }
-
 }
 

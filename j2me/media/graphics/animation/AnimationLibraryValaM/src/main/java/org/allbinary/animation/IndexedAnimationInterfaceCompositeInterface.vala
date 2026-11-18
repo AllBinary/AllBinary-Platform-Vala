@@ -13,13 +13,8 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.animation
 
-using System;
-using System.Linq;
-
-namespace org.allbinary.animation;
-
-public interface IndexedAnimationInterfaceCompositeInterface
-{
+public interface IndexedAnimationInterfaceCompositeInterface : JObject {
 }
 

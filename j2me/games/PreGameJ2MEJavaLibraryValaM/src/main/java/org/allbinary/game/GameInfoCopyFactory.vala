@@ -13,23 +13,22 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.game
 
-using System;
-using System.Linq;
+public class GameInfoCopyFactory : JObject {
 
-namespace org.allbinary.game;
+    public GameInfoCopyFactory() {
+        base();
+    }
+    
 
-public class GameInfoCopyFactory
-{
-    public static GameInfo getInstanceMaxLevel(GameInfo gameInfo, int maxLevel)
-    {
+    public static GameInfo getInstanceMaxLevel(GameInfo gameInfo, int32 maxLevel) {
         return new GameInfo(gameInfo.getGameType(), gameInfo.getGameMode(), gameInfo.getPlayerType(), maxLevel, gameInfo.getCurrentLevel());
     }
+    
 
-    public static GameInfo getInstance(GameInfo gameInfo)
-    {
+    public static GameInfo getInstance1(GameInfo gameInfo) {
         return new GameInfo(gameInfo.getGameType(), gameInfo.getGameMode(), gameInfo.getPlayerType(), gameInfo.getHighestLevel(), gameInfo.getCurrentLevel());
     }
-
 }
 

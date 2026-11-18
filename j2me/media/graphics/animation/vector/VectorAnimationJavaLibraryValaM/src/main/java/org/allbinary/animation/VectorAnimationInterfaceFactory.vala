@@ -13,46 +13,49 @@
  *   
  */
 // Generated Code Do Not Modify
+// package org.allbinary.animation
+// import org.allbinary.graphics.color.BasicColor
+// import org.allbinary.graphics.color.BasicColorFactory
+// import org.allbinary.media.ScaleProperties
 
-using System;
-using System.Linq;
-using BasicColor = org.allbinary.graphics.color.BasicColor;
-using BasicColorFactory = org.allbinary.graphics.color.BasicColorFactory;
-using ScaleProperties = org.allbinary.media.ScaleProperties;
+public class VectorAnimationInterfaceFactory : JObject, AnimationInterfaceFactoryInterface, BasicAnimationInterfaceFactoryInterface {
+    private int32[,,] currentPoints;
+    private BasicColor basicColor;
+    public AnimationBehaviorFactory animationBehaviorFactory;
 
-namespace org.allbinary.animation;
+    // Java field initializers run after the base constructor
+    private void initFieldsVectorAnimationInterfaceFactory() {
+    
+    this.basicColor = BasicColorFactory.getInstance().WHITE;
+    
+    }
+    
 
-public class VectorAnimationInterfaceFactory : AnimationInterfaceFactoryInterface
-{
-    private int[][][] currentPoints;
-    private BasicColor basicColor = BasicColorFactory.getInstance().WHITE;
-    public readonly AnimationBehaviorFactory animationBehaviorFactory;
-    public VectorAnimationInterfaceFactory(int[][][] currentPoints, BasicColor basicColor, AnimationBehaviorFactory animationBehaviorFactory)
-    {
+    public VectorAnimationInterfaceFactory(int32[,,] currentPoints, BasicColor basicColor, AnimationBehaviorFactory animationBehaviorFactory) {
+        base();
+        this.initFieldsVectorAnimationInterfaceFactory();
         this.currentPoints = currentPoints;
         this.setBasicColorP(basicColor);
         this.animationBehaviorFactory = animationBehaviorFactory;
     }
+    
 
-    // throws Exception
-    public virtual Animation getInstance(int instanceId)
-    {
+    public virtual Animation getInstance1(int32 instanceId) {
         return new VectorAnimation(this.currentPoints, this.getBasicColorP(), this.animationBehaviorFactory.getOrCreateInstance());
     }
+    
 
-    public virtual void setBasicColorP(BasicColor basicColor)
-    {
+    public virtual void setBasicColorP(BasicColor basicColor) {
         this.basicColor = basicColor;
     }
+    
 
-    public virtual BasicColor getBasicColorP()
-    {
+    public virtual BasicColor getBasicColorP() {
         return this.basicColor;
     }
+    
 
-    public virtual void setInitialScale(ScaleProperties scaleProperties)
-    {
+    public virtual void setInitialScale(ScaleProperties scaleProperties) {
     }
-
 }
 

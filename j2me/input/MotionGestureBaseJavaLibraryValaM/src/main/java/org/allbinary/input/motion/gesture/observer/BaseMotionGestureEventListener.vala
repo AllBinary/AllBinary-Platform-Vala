@@ -13,18 +13,15 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.input.motion.gesture.observer
+// import org.allbinary.logic.util.event.EventListenerInterface
 
-using System;
-using System.Linq;
-using EventListenerInterface = org.allbinary.logic.util.@event.EventListenerInterface;
+public interface BaseMotionGestureEventListener : JObject, EventListenerInterface {
+    
 
-namespace org.allbinary.input.motion.gesture.observer;
+    public abstract void onMotionGestureEvent(MotionGestureEvent motionGestureEvent);
+    
 
-public interface BaseMotionGestureEventListener : EventListenerInterface
-{
-    void onMotionGestureEvent(MotionGestureEvent motionGestureEvent);
-
-    void onScrolledMotionGestureEvent(MotionGestureEvent motionGestureEvent);
-
+    public abstract void onScrolledMotionGestureEvent(MotionGestureEvent motionGestureEvent);
 }
 

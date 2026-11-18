@@ -1,25 +1,26 @@
 // Generated Code Do Not Modify
+// package org.allbinary.graphics.form.item
+// import javax.microedition.lcdui.Image
+// import javax.microedition.lcdui.NullImage
+// import org.allbinary.graphics.color.BasicColor
 
-using System;
-using System.Linq;
-using Image = javax.microedition.lcdui.Image;
-using NullImage = javax.microedition.lcdui.NullImage;
-using BasicColor = org.allbinary.graphics.color.BasicColor;
+public class ABCustomImageItem : ABCustomItem {
+    public int32 yOffset;
 
-namespace org.allbinary.graphics.form.item;
-
-public class ABCustomImageItem : ABCustomItem
-{
-    public int yOffset = 0;
-    public ABCustomImageItem(string label, Image image, int layout, string altText, BasicColor basicColor, int yOffset) : base(label, basicColor, basicColor)
-    {
-        // base(label, basicColor, basicColor) is called from the constructor declaration
+    // Java field initializers run after the base constructor
+    private void initFieldsABCustomImageItem() {
+    this.yOffset = 0;
     }
+    
 
-    public virtual Image getImage()
-    {
+    public ABCustomImageItem(string label, Image image, int32 layout, string altText, BasicColor basicColor, int32 yOffset) {
+        base(label, basicColor, basicColor);
+        this.initFieldsABCustomImageItem();
+    }
+    
+
+    public virtual Image getImage() {
         return NullImage.NULL_IMAGE;
     }
-
 }
 

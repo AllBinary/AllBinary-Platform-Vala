@@ -13,47 +13,54 @@
  *   
  */
 // Generated Code Do Not Modify
+// package org.allbinary.game.displayable.canvas
+// import javax.microedition.lcdui.Command
+// import javax.microedition.lcdui.CommandListener
+// import org.allbinary.game.layer.AllBinaryGameLayerManager
 
-using System;
-using System.Linq;
-using Command = javax.microedition.lcdui.Command;
-using CommandListener = javax.microedition.lcdui.CommandListener;
-using AllBinaryGameLayerManager = org.allbinary.game.layer.AllBinaryGameLayerManager;
-
-namespace org.allbinary.game.displayable.canvas;
-
-public class NullAllBinaryGameCanvas : AllBinaryGameCanvasInterface
-{
-    public static readonly NullAllBinaryGameCanvas NULL_ALLBINARY_GAME_CANVAS = new NullAllBinaryGameCanvas();
-    public virtual AllBinaryGameLayerManager getLayerManager()
-    {
-        throw new SystemException();
+public class NullAllBinaryGameCanvas : JObject, AllBinaryGameCanvasInterface, DisplayableInterface {
+    public static NullAllBinaryGameCanvas? NULL_ALLBINARY_GAME_CANVAS;
+    private static bool staticSet_NULL_ALLBINARY_GAME_CANVAS = false;
+    public static NullAllBinaryGameCanvas staticGet_NULL_ALLBINARY_GAME_CANVAS() {
+        if (!NullAllBinaryGameCanvas.staticSet_NULL_ALLBINARY_GAME_CANVAS) {
+            NullAllBinaryGameCanvas.staticSet_NULL_ALLBINARY_GAME_CANVAS = true;
+            NullAllBinaryGameCanvas.NULL_ALLBINARY_GAME_CANVAS = new NullAllBinaryGameCanvas();
+        }
+        return NullAllBinaryGameCanvas.NULL_ALLBINARY_GAME_CANVAS;
     }
 
-    public virtual void addCommand(Command cmd)
-    {
-        throw new SystemException();
+    public NullAllBinaryGameCanvas() {
+        base();
     }
+    
 
-    public virtual int getHeight()
-    {
-        throw new SystemException();
+    public virtual AllBinaryGameLayerManager getLayerManager() {
+        JSystem.fatal(new JException("RuntimeException", ""));
     }
+    
 
-    public virtual int getWidth()
-    {
-        throw new SystemException();
+    public virtual void addCommand(Command cmd) {
+        JSystem.fatal(new JException("RuntimeException", ""));
     }
+    
 
-    public virtual void removeCommand(Command cmd)
-    {
-        throw new SystemException();
+    public virtual int32 getHeight() {
+        JSystem.fatal(new JException("RuntimeException", ""));
     }
+    
 
-    public virtual void setCommandListener(CommandListener l)
-    {
-        throw new SystemException();
+    public virtual int32 getWidth() {
+        JSystem.fatal(new JException("RuntimeException", ""));
     }
+    
 
+    public virtual void removeCommand(Command cmd) {
+        JSystem.fatal(new JException("RuntimeException", ""));
+    }
+    
+
+    public virtual void setCommandListener(CommandListener l) {
+        JSystem.fatal(new JException("RuntimeException", ""));
+    }
 }
 

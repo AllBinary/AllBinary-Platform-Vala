@@ -13,39 +13,38 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.game.displayable.canvas
+// import org.allbinary.canvas.RunnableCanvas
+// import org.allbinary.logic.communication.log.LogUtil
+// import org.allbinary.string.CommonStrings
 
-using System;
-using System.Linq;
-using RunnableCanvas = org.allbinary.canvas.RunnableCanvas;
-using LogUtil = org.allbinary.logic.communication.log.LogUtil;
-using CommonStrings = org.allbinary.@string.CommonStrings;
+public class RunnableCanvasSingleThreadStartRunnable : GameRunnable {
+    public LogUtil logUtil;
+    private RunnableCanvas runnableCanvas;
 
-namespace org.allbinary.game.displayable.canvas;
+    // Java field initializers run after the base constructor
+    private void initFieldsRunnableCanvasSingleThreadStartRunnable() {
+    this.logUtil = LogUtil.getInstance();
+    
+    }
+    
 
-public class RunnableCanvasSingleThreadStartRunnable : GameRunnable
-{
-    public readonly LogUtil logUtil = LogUtil.getInstance();
-    private readonly RunnableCanvas runnableCanvas;
-    public RunnableCanvasSingleThreadStartRunnable(RunnableCanvas demoCanvas)
-    {
+    public RunnableCanvasSingleThreadStartRunnable(RunnableCanvas demoCanvas) {
+        base();
+        this.initFieldsRunnableCanvasSingleThreadStartRunnable();
         this.runnableCanvas = demoCanvas;
     }
+    
 
-    public override void run()
-    {
-        try {
+    public override void run() {
+        {
             this.runnableCanvas.run();
-        } catch (Exception e) {
-            CommonStrings commonStrings = CommonStrings.getInstance();
-            this.logUtil.put(commonStrings.EXCEPTION, this, commonStrings.RUN, e);
-        }
+        } /* catch (Exception e): a thrown Java exception stops the program */
     }
+    
 
-    // throws Exception
-    public override void processLoopSleep()
-    {
+    public override void processLoopSleep() {
         this.runnableCanvas.processLoopSleep();
     }
-
 }
 

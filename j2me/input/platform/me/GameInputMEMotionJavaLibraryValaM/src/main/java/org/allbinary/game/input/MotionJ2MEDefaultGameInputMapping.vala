@@ -13,22 +13,18 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.game.input
+// import org.allbinary.game.configuration.persistance.GamePersistanceStrings
+// import org.allbinary.game.input.mapping.InputToGameKeyMapping
+// import org.allbinary.game.input.mapping.PersistentInputMapping
+// import org.allbinary.input.motion.button.BasicTouchInputFactory
+// import org.allbinary.input.motion.gesture.TouchMotionGestureFactory
 
-using System;
-using System.Linq;
-using GamePersistanceStrings = org.allbinary.game.configuration.persistance.GamePersistanceStrings;
-using InputToGameKeyMapping = org.allbinary.game.input.mapping.InputToGameKeyMapping;
-using PersistentInputMapping = org.allbinary.game.input.mapping.PersistentInputMapping;
-using BasicTouchInputFactory = org.allbinary.input.motion.button.BasicTouchInputFactory;
-using TouchMotionGestureFactory = org.allbinary.input.motion.gesture.TouchMotionGestureFactory;
+public class MotionJ2MEDefaultGameInputMapping : PersistentInputMapping {
+    
 
-namespace org.allbinary.game.input;
-
-public class MotionJ2MEDefaultGameInputMapping : PersistentInputMapping
-{
-    public MotionJ2MEDefaultGameInputMapping() : base(GamePersistanceStrings.getInstance().DEFAULT_INPUT_MAPPING_RECORD_ID)
-    {
-        // base(GamePersistanceStrings.getInstance().DEFAULT_INPUT_MAPPING_RECORD_ID) is called from the constructor declaration
+    public MotionJ2MEDefaultGameInputMapping() {
+        base(GamePersistanceStrings.getInstance().DEFAULT_INPUT_MAPPING_RECORD_ID);
         InputToGameKeyMapping inputToGameKeyMapping = this.getInputMapping();
         GameKeyFactory gameKeyFactory = GameKeyFactory.getInstance();
         inputToGameKeyMapping.add(gameKeyFactory.UP, gameKeyFactory.KEY_NUM2);
@@ -70,6 +66,5 @@ public class MotionJ2MEDefaultGameInputMapping : PersistentInputMapping
         inputToGameKeyMapping.add(gameKeyFactory.KEY_NUM3, basicTouchInputFactory.SPECIAL_BUTTON_ONE);
         inputToGameKeyMapping.add(gameKeyFactory.KEY_NUM2, basicTouchInputFactory.SPECIAL_BUTTON_SIX);
     }
-
 }
 

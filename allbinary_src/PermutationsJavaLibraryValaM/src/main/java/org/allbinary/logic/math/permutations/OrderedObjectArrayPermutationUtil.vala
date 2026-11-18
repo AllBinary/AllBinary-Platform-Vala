@@ -13,39 +13,51 @@
  *   
  */
 // Generated Code Do Not Modify
+// package org.allbinary.logic.math.permutations
+// import java.util.Arrays
+// import org.allbinary.TsUtil
+// import org.allbinary.logic.util.visitor.Visitor
 
-using System;
-using System.Linq;
-using Arrays = java.util.Arrays;
-using TsUtil = org.allbinary.TsUtil;
-using Visitor = org.allbinary.logic.util.visitor.Visitor;
-
-namespace org.allbinary.logic.math.permutations;
-
-public class OrderedObjectArrayPermutationUtil
-{
-    private static readonly OrderedObjectArrayPermutationUtil instance = new OrderedObjectArrayPermutationUtil();
-    public static OrderedObjectArrayPermutationUtil getInstance()
-    {
+public class OrderedObjectArrayPermutationUtil : JObject {
+    private static OrderedObjectArrayPermutationUtil? instance;
+    private static bool staticSet_instance = false;
+    private static OrderedObjectArrayPermutationUtil staticGet_instance() {
+        if (!OrderedObjectArrayPermutationUtil.staticSet_instance) {
+            OrderedObjectArrayPermutationUtil.staticSet_instance = true;
+            OrderedObjectArrayPermutationUtil.instance = new OrderedObjectArrayPermutationUtil();
+        }
         return OrderedObjectArrayPermutationUtil.instance;
     }
+    private string TOTAL_ITERATIONS_TABLE;
+    private string FINISHED;
 
-    private readonly string TOTAL_ITERATIONS_TABLE = "Total Iterations: ";
-    private readonly string FINISHED = "\nFINISHED";
-    private OrderedObjectArrayPermutationUtil()
-    {
+    // Java field initializers run after the base constructor
+    private void initFieldsOrderedObjectArrayPermutationUtil() {
+    this.TOTAL_ITERATIONS_TABLE = "Total Iterations: ";
+    this.FINISHED = "\nFINISHED";
     }
+    
 
-    public virtual void getNext(object[] data)
-    {
-        int length = data.Length;
-        int i = length - 1;
+    public static OrderedObjectArrayPermutationUtil getInstance() {
+        return OrderedObjectArrayPermutationUtil.staticGet_instance();
+    }
+    
+
+    public OrderedObjectArrayPermutationUtil() {
+        base();
+        this.initFieldsOrderedObjectArrayPermutationUtil();
+    }
+    
+
+    public virtual void getNext(JObject[] data) {
+        int32 length = data.length;
+        int32 i = length - 1;
         TsUtil tsUtil = TsUtil.getInstance();
-        while (tsUtil.hashCode(data[i - 1]) >= tsUtil.hashCode(data[i])) {
+        while (tsUtil.hashCode1(data[i - 1]) >= tsUtil.hashCode1(data[i])) {
             i = i - 1;
         }
-        int j = length;
-        while (tsUtil.hashCode(data[j - 1]) <= tsUtil.hashCode(data[i - 1])) {
+        int32 j = length;
+        while (tsUtil.hashCode1(data[j - 1]) <= tsUtil.hashCode1(data[i - 1])) {
             j = j - 1;
         }
         this.swap(data, i - 1, j - 1);
@@ -57,51 +69,50 @@ public class OrderedObjectArrayPermutationUtil
             j--;
         }
     }
+    
 
-    public virtual void swap(object[] data, int a, int b)
-    {
-        object temp = data[a];
+    public virtual void swap(JObject[] data, int32 a, int32 b) {
+        JObject temp = data[a];
         data[a] = data[b];
         data[b] = temp;
     }
+    
 
-    public virtual long factorial(int dataLength)
-    {
-        long temp = 1L;
+    public virtual int64 factorial(int32 dataLength) {
+        int64 temp = 1;
         if (dataLength > 1) {
-            for (int i = 1; i <= dataLength; i++) {
-                temp *= ((long) i);
+            for (int32 i = 1; i <= dataLength; i++) {
+                temp *= ((int64) (i));
             }
         }
         return temp;
     }
+    
 
-    public virtual void generate(object[] data, Visitor visitor)
-    {
-        long iterations = this.factorial(data.Length);
-        Console.Write(this.TOTAL_ITERATIONS_TABLE);
-        Console.WriteLine(iterations);
-        for (long count = 0L; count < iterations - 1L; count++) {
+    public virtual void generate(JObject[] data, Visitor visitor) {
+        int64 iterations = this.factorial(data.length);
+        JSystem.println(JString.ofString(this.TOTAL_ITERATIONS_TABLE));
+        JSystem.println((iterations).to_string());
+        for (int64 count = 0; count < iterations - 1; count++) {
             this.getNext(data);
             visitor.visit(this);
         }
-        Console.WriteLine(this.FINISHED);
+        JSystem.println(JString.ofString(this.FINISHED));
     }
+    
 
-    public static void main(string[] args)
-    {
-        int TOTAL = 7;
-        object[] data = new object[TOTAL];
-        for (int i = 0; i < TOTAL; i++) {
+    public static void main(string[] args) {
+        int32 TOTAL = 7;
+        JObject[] data = new JObject[TOTAL];
+        for (int32 i = 0; i < TOTAL; i++) {
             data[i] = new ComparableObject();
         }
         Arrays.sort(data);
         ObjectPermutationVisitor permutationVisitor = new ObjectPermutationVisitor(data);
         string ORIGINAL_DATA_LABEL = "Original Data: ";
-        Console.Write(ORIGINAL_DATA_LABEL);
+        JSystem.println(JString.ofString(ORIGINAL_DATA_LABEL));
         permutationVisitor.visit(data);
         OrderedObjectArrayPermutationUtil.getInstance().generate(data, permutationVisitor);
     }
-
 }
 

@@ -1,45 +1,45 @@
 // Generated Code Do Not Modify
+// package org.apache.xmlrpc
+// import java.io.IOException
+// import java.net.MalformedURLException
+// import java.net.URL
+// import org.allbinary.util.BasicArrayList
+// import org.allbinary.util.BasicArrayListD
+// import org.allbinary.init.crypt.jcehelper.CryptInterface
+// import org.allbinary.logic.NullUtil
 
-using System;
-using System.Linq;
-//using IOException = java.io.IOException;
-//using MalformedURLException = java.net.MalformedURLException;
-using URL = java.net.URL;
-using BasicArrayList = org.allbinary.util.BasicArrayList;
-using BasicArrayListD = org.allbinary.util.BasicArrayListD;
-using CryptInterface = org.allbinary.init.crypt.jcehelper.CryptInterface;
-using NullUtil = org.allbinary.logic.NullUtil;
+public class XmlRpcClient : JObject, XmlRpcHandler {
+    private URL url;
 
-namespace org.apache.xmlrpc;
+    // Java field initializers run after the base constructor
+    private void initFieldsXmlRpcClient() {
+    
+    }
+    
 
-public class XmlRpcClient : XmlRpcHandler
-{
-    private readonly URL url;
-    public XmlRpcClient(string url)
-    {
+    public XmlRpcClient(string url) {
+        base();
+        this.initFieldsXmlRpcClient();
         this.url = new URL(url);
     }
+    
 
-    public virtual URL getURL()
-    {
+    public virtual URL getURL() {
         return this.url;
     }
+    
 
-    public virtual void setBasicAuthentication(string user, string password)
-    {
+    public virtual void setBasicAuthentication(string user, string password) {
     }
+    
 
-    // throws XmlRpcException, IOException
-    public virtual object execute(string method, BasicArrayList @params)
-    {
+    public virtual JObject execute(string method, BasicArrayList @params) {
         return NullUtil.getInstance().NULL_OBJECT;
     }
+    
 
-    // throws XmlRpcException, IOException
-    public virtual object executeWithCrypt(string method, BasicArrayList @params, CryptInterface cryptInterface)
-    {
+    public virtual JObject executeWithCrypt(string method, BasicArrayList @params, CryptInterface cryptInterface) {
         return NullUtil.getInstance().NULL_OBJECT;
     }
-
 }
 

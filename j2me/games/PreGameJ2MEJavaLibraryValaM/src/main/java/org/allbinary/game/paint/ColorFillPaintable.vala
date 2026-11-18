@@ -13,28 +13,29 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.game.paint
+// import javax.microedition.lcdui.Graphics
+// import org.allbinary.graphics.color.BasicColor
+// import org.allbinary.graphics.displayable.DisplayInfoSingleton
 
-using System;
-using System.Linq;
-using Graphics = javax.microedition.lcdui.Graphics;
-using BasicColor = org.allbinary.graphics.color.BasicColor;
-using DisplayInfoSingleton = org.allbinary.graphics.displayable.DisplayInfoSingleton;
+public class ColorFillPaintable : ColorFillBasePaintable {
+    public DisplayInfoSingleton displayInfoSingleton;
 
-namespace org.allbinary.game.paint;
-
-public class ColorFillPaintable : ColorFillBasePaintable
-{
-    public readonly DisplayInfoSingleton displayInfoSingleton = DisplayInfoSingleton.getInstance();
-    public ColorFillPaintable(BasicColor basicColor) : base(basicColor)
-    {
-        // base(basicColor) is called from the constructor declaration
+    // Java field initializers run after the base constructor
+    private void initFieldsColorFillPaintable() {
+    this.displayInfoSingleton = DisplayInfoSingleton.getInstance();
     }
+    
 
-    public override void paint(Graphics graphics)
-    {
+    public ColorFillPaintable(BasicColor basicColor) {
+        base(basicColor);
+        this.initFieldsColorFillPaintable();
+    }
+    
+
+    public override void paint(Graphics graphics) {
         graphics.setColor(this.colorP);
         graphics.fillRect(0, 0, this.displayInfoSingleton.getLastWidth(), this.displayInfoSingleton.getLastHeight());
     }
-
 }
 

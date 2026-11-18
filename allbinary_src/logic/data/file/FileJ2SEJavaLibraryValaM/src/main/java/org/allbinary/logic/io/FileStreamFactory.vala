@@ -13,57 +13,58 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.logic.io
+// import org.allbinary.logic.NullUtil
+// import org.allbinary.logic.io.file.AbFile
+// import org.allbinary.logic.io.path.AbPath
 
-using System;
-using System.Linq;
-using NullUtil = org.allbinary.logic.NullUtil;
-using AbFile = org.allbinary.logic.io.file.AbFile;
-using AbPath = org.allbinary.logic.io.path.AbPath;
+public class FileStreamFactory : JObject {
+    private static JObject? SINGLETON;
+    private static bool staticSet_SINGLETON = false;
+    private static JObject staticGet_SINGLETON() {
+        if (!FileStreamFactory.staticSet_SINGLETON) {
+            FileStreamFactory.staticSet_SINGLETON = true;
+            FileStreamFactory.SINGLETON = NullUtil.getInstance().NULL_OBJECT;
+        }
+        return FileStreamFactory.SINGLETON;
+    }
+    
 
-namespace org.allbinary.logic.io;
-
-public class FileStreamFactory
-{
-    private static object SINGLETON = NullUtil.getInstance().NULL_OBJECT;
-    public static FileStreamFactory getInstance()
-    {
-        if (FileStreamFactory.SINGLETON == NullUtil.getInstance().NULL_OBJECT) {
+    public static FileStreamFactory getInstance() {
+        if (FileStreamFactory.staticGet_SINGLETON() == NullUtil.getInstance().NULL_OBJECT) {
             FileStreamFactory.SINGLETON = new FileStreamFactory();
         }
-        return ((FileStreamFactory) FileStreamFactory.SINGLETON);
+        return ((FileStreamFactory) FileStreamFactory.staticGet_SINGLETON());
     }
+    
 
-    private FileStreamFactory()
-    {
+    public FileStreamFactory() {
+        base();
     }
+    
 
-    // throws Exception
-    public virtual AbFileInputStream getFileInputStreamInstance(string path, string fileName)
-    {
+    public virtual AbFileInputStream getFileInputStreamInstance(string path, string fileName) {
         AbPath FILEABPATH = new AbPath(path, fileName);
         AbFile file = AbFile.createAbFileFromAbPath(FILEABPATH);
         return AbFileInputStream.createFromAbFile(file);
     }
+    
 
-    // throws Exception
-    public virtual AbFileOutputStream getFileOutputStreamInstance(string path, string fileName)
-    {
+    public virtual AbFileOutputStream getFileOutputStreamInstance(string path, string fileName) {
         AbPath FILEABPATH = new AbPath(path, fileName);
         AbFile file = AbFile.createAbFileFromAbPath(FILEABPATH);
         if (file.exists()) {
-            file.delete();
+            file.@delete();
             file.createNewFile();
         }
         return AbFileOutputStream.createFromAbFile(file);
     }
+    
 
-    // throws Exception
-    public virtual void delete(string path, string fileName)
-    {
+    public virtual void @delete(string path, string fileName) {
         AbPath FILEABPATH = new AbPath(path, fileName);
         AbFile file = AbFile.createAbFileFromAbPath(FILEABPATH);
-        file.delete();
+        file.@delete();
     }
-
 }
 

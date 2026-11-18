@@ -13,29 +13,31 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.animation
+// import javax.microedition.lcdui.Graphics
+// import org.allbinary.graphics.color.BasicColor
 
-using System;
-using System.Linq;
-using Graphics = javax.microedition.lcdui.Graphics;
-using BasicColor = org.allbinary.graphics.color.BasicColor;
+public class AdjustedVectorAnimation : VectorAnimation {
+    private int32 dx;
+    private int32 dy;
 
-namespace org.allbinary.animation;
+    // Java field initializers run after the base constructor
+    private void initFieldsAdjustedVectorAnimation() {
+    
+    
+    }
+    
 
-public class AdjustedVectorAnimation : VectorAnimation
-{
-    private int dx;
-    private int dy;
-    public AdjustedVectorAnimation(int[][][] currentPoints, BasicColor basicColor, int dx, int dy, AnimationBehavior animationBehavior) : base(currentPoints, basicColor, animationBehavior)
-    {
-        // base(currentPoints, basicColor, animationBehavior) is called from the constructor declaration
+    public AdjustedVectorAnimation(int32[,,] currentPoints, BasicColor basicColor, int32 dx, int32 dy, AnimationBehavior animationBehavior) {
+        base(currentPoints, basicColor, animationBehavior);
+        this.initFieldsAdjustedVectorAnimation();
         this.dx = dx;
         this.dy = dy;
     }
+    
 
-    public override void paintXY(Graphics graphics, int x, int y)
-    {
+    public override void paintXY(Graphics graphics, int32 x, int32 y) {
         base.paintXY(graphics, x + this.dx, y + this.dy);
     }
-
 }
 

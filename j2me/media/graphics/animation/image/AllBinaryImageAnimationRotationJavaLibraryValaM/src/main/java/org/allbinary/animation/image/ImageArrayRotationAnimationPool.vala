@@ -13,38 +13,40 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.animation.image
+// import org.allbinary.logic.util.cache.BasicArrayListResetablePool
+// import org.allbinary.logic.util.cache.CacheableInterface
+// import org.allbinary.logic.util.cache.CacheableInterfaceFactoryInterface
+// import org.allbinary.logic.util.cache.PoolInterface
 
-using System;
-using System.Linq;
-using BasicArrayListResetablePool = org.allbinary.logic.util.cache.BasicArrayListResetablePool;
-using CacheableInterface = org.allbinary.logic.util.cache.CacheableInterface;
-using CacheableInterfaceFactoryInterface = org.allbinary.logic.util.cache.CacheableInterfaceFactoryInterface;
-using PoolInterface = org.allbinary.logic.util.cache.PoolInterface;
-
-namespace org.allbinary.animation.image;
-
-public class ImageArrayRotationAnimationPool : BasicArrayListResetablePool
-{
-    private static PoolInterface IMAGE_ROTATION_ANIMATION_POOL = new ImageArrayRotationAnimationPool(new ImageArrayRotationAnimationCacheableInterfaceFactory());
-    public ImageArrayRotationAnimationPool(CacheableInterfaceFactoryInterface cacheableInterfaceFactoryInterface) : base(cacheableInterfaceFactoryInterface)
-    {
-        // base(cacheableInterfaceFactoryInterface) is called from the constructor declaration
-    }
-
-    public static PoolInterface getInstance()
-    {
+public class ImageArrayRotationAnimationPool : BasicArrayListResetablePool {
+    private static PoolInterface? IMAGE_ROTATION_ANIMATION_POOL;
+    private static bool staticSet_IMAGE_ROTATION_ANIMATION_POOL = false;
+    private static PoolInterface staticGet_IMAGE_ROTATION_ANIMATION_POOL() {
+        if (!ImageArrayRotationAnimationPool.staticSet_IMAGE_ROTATION_ANIMATION_POOL) {
+            ImageArrayRotationAnimationPool.staticSet_IMAGE_ROTATION_ANIMATION_POOL = true;
+            ImageArrayRotationAnimationPool.IMAGE_ROTATION_ANIMATION_POOL = new ImageArrayRotationAnimationPool(new ImageArrayRotationAnimationCacheableInterfaceFactory());
+        }
         return ImageArrayRotationAnimationPool.IMAGE_ROTATION_ANIMATION_POOL;
     }
+    
 
-    // throws Exception
-    public override CacheableInterface remove(object key)
-    {
+    public ImageArrayRotationAnimationPool(CacheableInterfaceFactoryInterface cacheableInterfaceFactoryInterface) {
+        base(cacheableInterfaceFactoryInterface);
+    }
+    
+
+    public static PoolInterface getInstance() {
+        return ImageArrayRotationAnimationPool.staticGet_IMAGE_ROTATION_ANIMATION_POOL();
+    }
+    
+
+    public override CacheableInterface remove(JObject key) {
         CacheableInterface cacheableInterface = base.remove(key);
         ImageArrayRotationAnimationInfo allBinaryImageRotationAnimationInfo = ((ImageArrayRotationAnimationInfo) key);
         ImageArrayRotationAnimationCacheable imageArrayRotationAnimationCacheable = (((ImageArrayRotationAnimationCacheable) cacheableInterface));
         imageArrayRotationAnimationCacheable.setImageArray(allBinaryImageRotationAnimationInfo.getImageArray());
         return cacheableInterface;
     }
-
 }
 

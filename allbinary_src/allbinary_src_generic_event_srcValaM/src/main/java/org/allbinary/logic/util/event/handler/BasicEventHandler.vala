@@ -13,114 +13,104 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.logic.util.event.handler
+// import org.allbinary.logic.communication.log.LogUtil
+// import org.allbinary.logic.string.StringMaker
+// import org.allbinary.logic.string.StringUtil
+// import org.allbinary.logic.util.event.AllBinaryEventObject
+// import org.allbinary.logic.util.event.EventListenerInterface
+// import org.allbinary.logic.util.event.EventStrings
+// import org.allbinary.string.CommonStrings
+// import org.allbinary.util.BasicArrayList
+// import org.allbinary.util.BasicArrayListD
 
-using System;
-using System.Linq;
-using System.Runtime.CompilerServices;
-using LogUtil = org.allbinary.logic.communication.log.LogUtil;
-using StringMaker = org.allbinary.logic.@string.StringMaker;
-using StringUtil = org.allbinary.logic.@string.StringUtil;
-using AllBinaryEventObject = org.allbinary.logic.util.@event.AllBinaryEventObject;
-using EventListenerInterface = org.allbinary.logic.util.@event.EventListenerInterface;
-using EventStrings = org.allbinary.logic.util.@event.EventStrings;
-using CommonStrings = org.allbinary.@string.CommonStrings;
-using BasicArrayList = org.allbinary.util.BasicArrayList;
-using BasicArrayListD = org.allbinary.util.BasicArrayListD;
-
-namespace org.allbinary.logic.util.@event.handler;
-
-public class BasicEventHandler : BasicEventHandlerInterface
-{
-    public readonly LogUtil logUtil = LogUtil.getInstance();
+public class BasicEventHandler : JObject, BasicEventHandlerInterface {
     public const string PERFORMANCE_MESSAGE = "Use Custom onEvent Methods for needed optimization";
+    public LogUtil logUtil;
     private BasicArrayList eventListenerInterfaceList;
-    public BasicEventHandler()
-    {
+
+    // Java field initializers run after the base constructor
+    private void initFieldsBasicEventHandler() {
+    this.logUtil = LogUtil.getInstance();
+    
+    }
+    
+
+    public BasicEventHandler() {
+        base();
+        this.initFieldsBasicEventHandler();
         this.eventListenerInterfaceList = new BasicArrayListD();
     }
+    
 
-    public override string ToString()
-    {
+    public override string toString() {
         StringMaker stringBuffer = new StringMaker();
         string LISTENER = " Listener: ";
         stringBuffer.append("Total Listeners: ");
         stringBuffer.appendint(this.eventListenerInterfaceList.size());
         EventListenerInterface eventListenerInterface = null;
-        int index = 0;
+        int32 index = 0;
         while (index < this.eventListenerInterfaceList.size()) {
-            try {
+            {
                 eventListenerInterface = ((EventListenerInterface) this.eventListenerInterfaceList.objectArray[index]);
                 stringBuffer.append(LISTENER);
-                stringBuffer.append(StringUtil.getInstance().toString(eventListenerInterface));
-            } catch (Exception e) {
-                CommonStrings commonStrings = CommonStrings.getInstance();
-                this.logUtil.put(commonStrings.EXCEPTION, this, commonStrings.TOSTRING, e);
-            }
+                stringBuffer.append(StringUtil.getInstance().toString1(eventListenerInterface));
+            } /* catch (Exception e): a thrown Java exception stops the program */
             index++;
         }
-        return stringBuffer.ToString();
+        return stringBuffer.toString();
     }
+    
 
-    [MethodImpl(MethodImplOptions.Synchronized)]
-    public virtual void removeAllListeners()
-    {
+    public virtual void removeAllListeners() {
         this.eventListenerInterfaceList = new BasicArrayListD();
     }
+    
 
-    public virtual void addListenerSingleThreaded(EventListenerInterface eventListenerInterface)
-    {
+    public virtual void addListenerSingleThreaded(EventListenerInterface eventListenerInterface) {
         if (!this.eventListenerInterfaceList.contains(eventListenerInterface)) {
             this.eventListenerInterfaceList.add(eventListenerInterface);
         }
     }
+    
 
-    [MethodImpl(MethodImplOptions.Synchronized)]
-    public virtual void addListenerInterface(EventListenerInterface eventListenerInterface)
-    {
+    public virtual void addListenerInterface(EventListenerInterface eventListenerInterface) {
         if (!this.eventListenerInterfaceList.contains(eventListenerInterface)) {
             this.eventListenerInterfaceList.add(eventListenerInterface);
         }
     }
+    
 
-    public virtual void removeListenerSingleThreaded(EventListenerInterface eventListenerInterface)
-    {
+    public virtual void removeListenerSingleThreaded(EventListenerInterface eventListenerInterface) {
         this.eventListenerInterfaceList.remove(eventListenerInterface);
     }
+    
 
-    [MethodImpl(MethodImplOptions.Synchronized)]
-    public virtual void removeListener(EventListenerInterface eventListenerInterface)
-    {
+    public virtual void removeListener(EventListenerInterface eventListenerInterface) {
         this.eventListenerInterfaceList.remove(eventListenerInterface);
     }
+    
 
-    // throws Exception
-    [MethodImpl(MethodImplOptions.Synchronized)]
-    public virtual void fireEvent(AllBinaryEventObject eventObject)
-    {
-        int index = 0;
+    public virtual void fireEvent(AllBinaryEventObject eventObject) {
+        int32 index = 0;
         EventListenerInterface eventListenerInterface = null;
         while (index < this.eventListenerInterfaceList.size()) {
-            try {
+            {
                 eventListenerInterface = ((EventListenerInterface) this.eventListenerInterfaceList.objectArray[index]);
                 this.process(eventObject, eventListenerInterface);
-            } catch (Exception e) {
-                CommonStrings commonStrings = CommonStrings.getInstance();
-                this.logUtil.put(commonStrings.EXCEPTION, this, EventStrings.getInstance().FIRE_EVENT, e);
-            }
+            } /* catch (Exception e): a thrown Java exception stops the program */
             index++;
         }
     }
+    
 
-    // throws Exception
-    public virtual void process(AllBinaryEventObject eventObject, EventListenerInterface eventListenerInterface)
-    {
+    public virtual void process(AllBinaryEventObject eventObject, EventListenerInterface eventListenerInterface) {
         eventListenerInterface.onEvent(eventObject);
     }
+    
 
-    public virtual BasicArrayList getEventListenerInterfaceListP()
-    {
+    public virtual BasicArrayList getEventListenerInterfaceListP() {
         return this.eventListenerInterfaceList;
     }
-
 }
 

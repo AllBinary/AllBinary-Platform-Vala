@@ -13,35 +13,36 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.animation
+// import org.allbinary.media.ScaleProperties
 
-using System;
-using System.Linq;
-using ScaleProperties = org.allbinary.media.ScaleProperties;
+public class AnimationInterfaceFactoryInterfaceComposite : JObject, AnimationInterfaceFactoryInterface, BasicAnimationInterfaceFactoryInterface {
+    private AnimationInterfaceFactoryInterface[] animationInterfaceFactoryInterfaceArray;
 
-namespace org.allbinary.animation;
+    // Java field initializers run after the base constructor
+    private void initFieldsAnimationInterfaceFactoryInterfaceComposite() {
+    
+    }
+    
 
-public class AnimationInterfaceFactoryInterfaceComposite : AnimationInterfaceFactoryInterface
-{
-    private readonly AnimationInterfaceFactoryInterface[] animationInterfaceFactoryInterfaceArray;
-    public AnimationInterfaceFactoryInterfaceComposite(AnimationInterfaceFactoryInterface[] basicAnimationInterfaceFactoryInterfaceArray)
-    {
+    public AnimationInterfaceFactoryInterfaceComposite(AnimationInterfaceFactoryInterface[] basicAnimationInterfaceFactoryInterfaceArray) {
+        base();
+        this.initFieldsAnimationInterfaceFactoryInterfaceComposite();
         this.animationInterfaceFactoryInterfaceArray = basicAnimationInterfaceFactoryInterfaceArray;
     }
+    
 
-    // throws Exception
-    public virtual Animation getInstance(int instanceId)
-    {
-        return NullAnimationFactory.getFactoryInstance().getInstance(0);
+    public virtual Animation getInstance1(int32 instanceId) {
+        return NullAnimationFactory.getFactoryInstance().getInstance1(0);
     }
+    
 
-    public virtual AnimationInterfaceFactoryInterface[] getAnimationInterfaceFactoryInterfaceArray()
-    {
+    public virtual AnimationInterfaceFactoryInterface[] getAnimationInterfaceFactoryInterfaceArray() {
         return this.animationInterfaceFactoryInterfaceArray;
     }
+    
 
-    public virtual void setInitialScale(ScaleProperties scaleProperties)
-    {
+    public virtual void setInitialScale(ScaleProperties scaleProperties) {
     }
-
 }
 

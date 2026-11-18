@@ -13,25 +13,32 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.game.configuration.event
+// import org.allbinary.game.configuration.GameConfiguration
 
-using System;
-using System.Linq;
-using GameConfiguration = org.allbinary.game.configuration.GameConfiguration;
-
-namespace org.allbinary.game.configuration.@event;
-
-public class ChangedGameFeatureListener : BaseChangedGameFeatureListener
-{
-    private static readonly ChangedGameFeatureListener gameFeatureListener = new ChangedGameFeatureListener();
-    public static ChangedGameFeatureListener getInstance()
-    {
+public class ChangedGameFeatureListener : BaseChangedGameFeatureListener {
+    private static ChangedGameFeatureListener? gameFeatureListener;
+    private static bool staticSet_gameFeatureListener = false;
+    private static ChangedGameFeatureListener staticGet_gameFeatureListener() {
+        if (!ChangedGameFeatureListener.staticSet_gameFeatureListener) {
+            ChangedGameFeatureListener.staticSet_gameFeatureListener = true;
+            ChangedGameFeatureListener.gameFeatureListener = new ChangedGameFeatureListener();
+        }
         return ChangedGameFeatureListener.gameFeatureListener;
     }
 
-    public virtual bool isChangedGameConfiguration(GameConfiguration gameConfiguration)
-    {
+    public ChangedGameFeatureListener() {
+        base();
+    }
+    
+
+    public static ChangedGameFeatureListener getInstance() {
+        return ChangedGameFeatureListener.staticGet_gameFeatureListener();
+    }
+    
+
+    public virtual bool isChangedGameConfiguration(GameConfiguration gameConfiguration) {
         return this.list.contains(gameConfiguration);
     }
-
 }
 

@@ -1,20 +1,18 @@
 // Generated Code Do Not Modify
+// package org.allbinary.view
+// import org.allbinary.game.configuration.event.GameInitializedListenerInterface
+// import org.allbinary.game.midlet.DemoGameMidletEventListener
+// import org.allbinary.midlet.MidletCompositeInterface
 
-using System;
-using System.Linq;
-using GameInitializedListenerInterface = org.allbinary.game.configuration.@event.GameInitializedListenerInterface;
-using DemoGameMidletEventListener = org.allbinary.game.midlet.DemoGameMidletEventListener;
-using MidletCompositeInterface = org.allbinary.midlet.MidletCompositeInterface;
+public interface AllBinaryMidletViewInterface : JObject, MidletCompositeInterface, EmulatorViewInterface, DemoGameMidletEventListener, GameInitializedListenerInterface {
+    
 
-namespace org.allbinary.view;
+    public abstract void onResume();
+    
 
-public interface AllBinaryMidletViewInterface : MidletCompositeInterface, EmulatorViewInterface, DemoGameMidletEventListener, GameInitializedListenerInterface
-{
-    void onResume();
+    public abstract void onPause();
+    
 
-    void onPause();
-
-    void onDestroy();
-
+    public abstract void onDestroy();
 }
 

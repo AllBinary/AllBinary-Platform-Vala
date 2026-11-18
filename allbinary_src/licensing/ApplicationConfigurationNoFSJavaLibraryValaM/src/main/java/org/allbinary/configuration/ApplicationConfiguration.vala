@@ -1,59 +1,67 @@
 // Generated Code Do Not Modify
+// package org.allbinary.configuration
+// import org.allbinary.game.configuration.feature.Feature
+// import org.allbinary.game.configuration.feature.Features
+// import org.allbinary.game.configuration.feature.MainFeatureFactory
+// import org.allbinary.logic.NullUtil
+// import org.allbinary.logic.communication.log.LogUtil
+// import org.allbinary.logic.string.StringMaker
+// import org.allbinary.string.CommonStrings
 
-using System;
-using System.Linq;
-using Feature = org.allbinary.game.configuration.feature.Feature;
-using Features = org.allbinary.game.configuration.feature.Features;
-using MainFeatureFactory = org.allbinary.game.configuration.feature.MainFeatureFactory;
-using NullUtil = org.allbinary.logic.NullUtil;
-using LogUtil = org.allbinary.logic.communication.log.LogUtil;
-using StringMaker = org.allbinary.logic.@string.StringMaker;
-using CommonStrings = org.allbinary.@string.CommonStrings;
+public class ApplicationConfiguration : JObject {
+    private static JObject? instance;
+    private static bool staticSet_instance = false;
+    private static JObject staticGet_instance() {
+        if (!ApplicationConfiguration.staticSet_instance) {
+            ApplicationConfiguration.staticSet_instance = true;
+            ApplicationConfiguration.instance = NullUtil.getInstance().NULL_OBJECT;
+        }
+        return ApplicationConfiguration.instance;
+    }
+    public LogUtil logUtil;
+    private bool fullscreen;
+    private bool showTitleBar;
+    private bool progressBarView;
 
-namespace org.allbinary.configuration;
+    // Java field initializers run after the base constructor
+    private void initFieldsApplicationConfiguration() {
+    this.logUtil = LogUtil.getInstance();
+    this.fullscreen = true;
+    this.showTitleBar = false;
+    this.progressBarView = false;
+    }
+    
 
-public class ApplicationConfiguration
-{
-    public readonly LogUtil logUtil = LogUtil.getInstance();
-    private static object instance = NullUtil.getInstance().NULL_OBJECT;
-    public static ApplicationConfiguration getInstance()
-    {
-        if (ApplicationConfiguration.instance == NullUtil.getInstance().NULL_OBJECT) {
+    public static ApplicationConfiguration getInstance() {
+        if (ApplicationConfiguration.staticGet_instance() == NullUtil.getInstance().NULL_OBJECT) {
             ApplicationConfiguration.instance = new ApplicationConfiguration();
         }
-        return ((ApplicationConfiguration) ApplicationConfiguration.instance);
+        return ((ApplicationConfiguration) ApplicationConfiguration.staticGet_instance());
     }
+    
 
-    private bool fullscreen = true;
-    private bool showTitleBar = false;
-    private bool progressBarView = false;
-    private ApplicationConfiguration()
-    {
-        try {
+    public ApplicationConfiguration() {
+        base();
+        this.initFieldsApplicationConfiguration();
+        {
             this.read();
-        } catch (Exception e) {
-            CommonStrings commonStrings = CommonStrings.getInstance();
-            this.logUtil.put(commonStrings.EXCEPTION, this, commonStrings.CONSTRUCTOR, e);
-        }
+        } /* catch (Exception e): a thrown Java exception stops the program */
     }
+    
 
-    // throws Exception
-    private void read()
-    {
+    private void read() {
         this.setFullscreen(true);
         this.setProgressBarView(false);
         this.setShowTitleBar(false);
-        this.logUtil.putF("Read Configuration: " + this.ToString(), this, "read");
+        this.logUtil.putF(JString.ofString("Read Configuration: ") + JString.ofString(this.toString()), this, "read");
     }
+    
 
-    // throws Exception
-    public virtual void write()
-    {
+    public virtual void write() {
     }
+    
 
-    // throws Exception
-    public virtual void update(Feature gameFeature)
-    {
+    public virtual void update(Feature gameFeature) {
         if (gameFeature == MainFeatureFactory.getInstance().FULL_SCREEN) {
             Features features = Features.getInstance();
             if (features.isFeature(gameFeature)) {
@@ -69,39 +77,39 @@ public class ApplicationConfiguration
             }
         }
     }
+    
 
-    public virtual void setFullscreen(bool fullscreen)
-    {
+    public virtual void setFullscreen(bool fullscreen) {
         this.fullscreen = fullscreen;
     }
+    
 
-    public virtual bool isFullscreen()
-    {
+    public virtual bool isFullscreen() {
         return this.fullscreen;
     }
+    
 
-    public virtual void setShowTitleBar(bool showTitleBar)
-    {
+    public virtual void setShowTitleBar(bool showTitleBar) {
         this.showTitleBar = showTitleBar;
     }
+    
 
-    public virtual bool isShowTitleBar()
-    {
+    public virtual bool isShowTitleBar() {
         return this.showTitleBar;
     }
+    
 
-    public virtual void setProgressBarView(bool progressBarView)
-    {
+    public virtual void setProgressBarView(bool progressBarView) {
         this.progressBarView = progressBarView;
     }
+    
 
-    public virtual bool isProgressBarView()
-    {
+    public virtual bool isProgressBarView() {
         return this.progressBarView;
     }
+    
 
-    public override string ToString()
-    {
+    public override string toString() {
         StringMaker stringBuffer = new StringMaker();
         stringBuffer.append("isFullscreen: ");
         stringBuffer.appendboolean(this.isFullscreen());
@@ -109,8 +117,7 @@ public class ApplicationConfiguration
         stringBuffer.appendboolean(this.isProgressBarView());
         stringBuffer.append(" isShowTitleBar: ");
         stringBuffer.appendboolean(this.isShowTitleBar());
-        return stringBuffer.ToString();
+        return stringBuffer.toString();
     }
-
 }
 

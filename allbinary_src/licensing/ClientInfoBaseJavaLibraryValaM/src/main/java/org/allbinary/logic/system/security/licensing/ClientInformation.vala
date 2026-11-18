@@ -13,128 +13,139 @@
  *  
  */
 // Generated Code Do Not Modify
-
-using System;
-using System.Linq;
-using TsUtil = org.allbinary.TsUtil;
-using StringMaker = org.allbinary.logic.@string.StringMaker;
-using StringUtil = org.allbinary.logic.@string.StringUtil;
-using HardwareInterface = org.allbinary.logic.system.hardware.HardwareInterface;
-using SystemHardwareFactory = org.allbinary.logic.system.hardware.SystemHardwareFactory;
-using GenericOperatingSystem = org.allbinary.logic.system.os.GenericOperatingSystem;
-using NoOperatingSystem = org.allbinary.logic.system.os.NoOperatingSystem;
-using CommonSeps = org.allbinary.@string.CommonSeps;
-using BasicArrayList = org.allbinary.util.BasicArrayList;
-using BasicArrayListUtil = org.allbinary.util.BasicArrayListUtil;
-using StdUtil = org.allbinary.logic.StdUtil;
-using org.allbinary.util;
-
-namespace org.allbinary.logic.system.security.licensing;
+// package org.allbinary.logic.system.security.licensing
+// import org.allbinary.TsUtil
+// import org.allbinary.logic.string.StringMaker
+// import org.allbinary.logic.string.StringUtil
+// import org.allbinary.logic.system.hardware.HardwareInterface
+// import org.allbinary.logic.system.hardware.SystemHardwareFactory
+// import org.allbinary.logic.system.os.GenericOperatingSystem
+// import org.allbinary.logic.system.os.NoOperatingSystem
+// import org.allbinary.string.CommonSeps
+// import org.allbinary.util.BasicArrayList
+// import org.allbinary.util.BasicArrayListUtil
+// import org.allbinary.logic.StdUtil
+// import org.allbinary.util.ABHashtable
 
 // This is the information sent to the license server
-public class ClientInformation : AbeClientInformationInterface
-{
-    private GenericOperatingSystem operatingSystemInterface = NoOperatingSystem.NO_OPERATING_SYSTEM;
-    private readonly TsUtil tsUtil = TsUtil.getInstance();
-    private readonly string name;
-    private readonly string shortName;
-    private readonly string version;
-    private readonly string specialName;
-    private bool hardSale = true;
-    private string licenseId = StringUtil.getInstance().EMPTY_STRING;
-    private BasicArrayList licenseServers = BasicArrayListUtil.getInstance().getImmutableInstance();
-    public ClientInformation(string name, string version, string specialName, string shortName)
-    {
+public class ClientInformation : JObject, AbeClientInformationInterface {
+    private GenericOperatingSystem operatingSystemInterface;
+    private TsUtil tsUtil;
+    private string name;
+    private string shortName;
+    private string version;
+    private string specialName;
+    private bool hardSale;
+    private string licenseId;
+    private BasicArrayList licenseServers;
+
+    // Java field initializers run after the base constructor
+    private void initFieldsClientInformation() {
+    this.operatingSystemInterface = NoOperatingSystem.NO_OPERATING_SYSTEM;
+    this.tsUtil = TsUtil.getInstance();
+    
+    
+    
+    
+    this.hardSale = true;
+    this.licenseId = StringUtil.getInstance().EMPTY_STRING;
+    this.licenseServers = BasicArrayListUtil.getInstance().getImmutableInstance();
+    }
+    
+
+    public ClientInformation(string name, string version, string specialName, string shortName) {
+        base();
+        this.initFieldsClientInformation();
         this.name = name;
         this.version = version;
         this.specialName = specialName;
-        this.shortName = new StringMaker().append(shortName).append(CommonSeps.getInstance().UNDERSCORE).append(version).ToString();
+        this.shortName = new StringMaker().append(shortName).append(CommonSeps.getInstance().UNDERSCORE).append(version).toString();
         this.init();
     }
+    
 
-    public virtual void init()
-    {
+    public virtual void init() {
     }
+    
 
-    public virtual GenericOperatingSystem getOperatingSystemInterface()
-    {
+    public virtual GenericOperatingSystem getOperatingSystemInterface() {
         return this.operatingSystemInterface;
     }
+    
 
-    public virtual string getName()
-    {
+    public virtual string getName() {
         return this.name;
     }
+    
 
-    public virtual string getSpecialName()
-    {
+    public virtual string getSpecialName() {
         return this.specialName;
     }
+    
 
-    public virtual string getVersion()
-    {
+    public virtual string getVersion() {
         return this.version;
     }
+    
 
-    public virtual string getLicenseId()
-    {
+    public virtual string getLicenseId() {
         return this.licenseId;
     }
+    
 
-    public virtual BasicArrayList getLicenseServers()
-    {
+    public virtual BasicArrayList getLicenseServers() {
         return this.licenseServers;
     }
+    
 
-    public virtual string getLicenseServer(int index)
-    {
-        return ((string) this.licenseServers.objectArray[index]);
+    public virtual string getLicenseServer(int32 index) {
+        return JString.unbox(this.licenseServers.objectArray[index]);
     }
+    
 
-    public virtual int getNumberOfLicenseServers()
-    {
+    public virtual int32 getNumberOfLicenseServers() {
         return this.licenseServers.size();
     }
+    
 
-    public virtual ABHashtable<object, object> toHashtable()
-    {
+    public virtual ABHashtable toHashtable() {
         AbeClientInformationData abeClientInformationData = AbeClientInformationData.getInstance();
         GenericOperatingSystem genericOperatingSystem = this.getOperatingSystemInterface();
-        ABHashtable<object, object> clientInfoHashtable = StdUtil.getInstance().createHashtable();
-        clientInfoHashtable.put(abeClientInformationData.NAME, this.name);
-        clientInfoHashtable.put(abeClientInformationData.VERSION, this.version);
-        clientInfoHashtable.put(abeClientInformationData.SPECIALNAME, this.specialName);
-        clientInfoHashtable.put(abeClientInformationData.LICENSEID, this.getLicenseId());
-        clientInfoHashtable.put(abeClientInformationData.OSNAME, genericOperatingSystem.getName());
-        clientInfoHashtable.put(abeClientInformationData.OSARCH, genericOperatingSystem.getArch());
-        clientInfoHashtable.put(abeClientInformationData.OSVERSION, genericOperatingSystem.getVersion());
-        clientInfoHashtable.put(abeClientInformationData.OS, genericOperatingSystem.ToString());
-        HardwareInterface hardwareInterface = SystemHardwareFactory.getInstance().getInstance(genericOperatingSystem);
-        string hardwareString = hardwareInterface.ToString();
-        clientInfoHashtable.put(abeClientInformationData.HARDWARE, hardwareString);
+        ABHashtable clientInfoHashtable = StdUtil.getInstance().createHashtable();
+        clientInfoHashtable.put(JString.box(abeClientInformationData.NAME), JString.box(this.name));
+        clientInfoHashtable.put(JString.box(abeClientInformationData.VERSION), JString.box(this.version));
+        clientInfoHashtable.put(JString.box(abeClientInformationData.SPECIALNAME), JString.box(this.specialName));
+        clientInfoHashtable.put(JString.box(abeClientInformationData.LICENSEID), this.getLicenseId());
+        clientInfoHashtable.put(JString.box(abeClientInformationData.OSNAME), JString.box(genericOperatingSystem.getName()));
+        clientInfoHashtable.put(JString.box(abeClientInformationData.OSARCH), JString.box(genericOperatingSystem.getArch()));
+        clientInfoHashtable.put(JString.box(abeClientInformationData.OSVERSION), genericOperatingSystem.getVersion());
+        clientInfoHashtable.put(JString.box(abeClientInformationData.OS), JString.box(genericOperatingSystem.toString()));
+        HardwareInterface hardwareInterface = SystemHardwareFactory.getInstance().getInstance1(genericOperatingSystem);
+        string hardwareString = hardwareInterface.toString();
+        clientInfoHashtable.put(JString.box(abeClientInformationData.HARDWARE), JString.box(hardwareString));
         return clientInfoHashtable;
     }
+    
 
-    public virtual bool isSameId(string alicenseId)
-    {
+    public virtual bool isSameId(string alicenseId) {
         if (this.tsUtil.compareTo(this.getLicenseId(), alicenseId) == 0) {
             return true;
         } else {
             return false;
         }
     }
+    
 
-    public virtual bool isLargerOrDifferentServerList(BasicArrayList list)
-    {
-        int size = list.size() - 1;
-        int currentSize = this.licenseServers.size() - 1;
+    public virtual bool isLargerOrDifferentServerList(BasicArrayList list) {
+        int32 size = list.size() - 1;
+        int32 currentSize = this.licenseServers.size() - 1;
         if (size > currentSize) {
             return true;
         }
-        for (int index = size; index >= 0; index--) {
-            string newServerName = ((string) list.objectArray[index]);
-            for (int index2 = currentSize; index2 >= 0; index2--) {
-                string nextOldServerName = ((string) this.licenseServers.objectArray[index]);
+        for (int32 index = size; index >= 0; index--) {
+            string newServerName = JString.unbox(list.objectArray[index]);
+            for (int32 index2 = currentSize; index2 >= 0; index2--) {
+                string nextOldServerName = JString.unbox(this.licenseServers.objectArray[index]);
                 if (this.tsUtil.compareTo(newServerName, nextOldServerName) != 0) {
                     return true;
                 }
@@ -142,36 +153,35 @@ public class ClientInformation : AbeClientInformationInterface
         }
         return false;
     }
+    
 
-    public virtual void setHardSale(bool hardSale)
-    {
+    public virtual void setHardSale(bool hardSale) {
         this.hardSale = hardSale;
     }
+    
 
-    public virtual bool isHardSale()
-    {
+    public virtual bool isHardSale() {
         return this.hardSale;
     }
+    
 
-    public virtual void setOperatingSystemInterface(GenericOperatingSystem operatingSystemInterface)
-    {
+    public virtual void setOperatingSystemInterface(GenericOperatingSystem operatingSystemInterface) {
         this.operatingSystemInterface = operatingSystemInterface;
     }
+    
 
-    public virtual void setLicenseId(string licenseId)
-    {
+    public virtual void setLicenseId(string licenseId) {
         this.licenseId = licenseId;
     }
+    
 
-    public virtual void setLicenseServers(BasicArrayList licenseServers)
-    {
+    public virtual void setLicenseServers(BasicArrayList licenseServers) {
         this.licenseServers = licenseServers;
     }
+    
 
-    public virtual string toShortString()
-    {
+    public virtual string toShortString() {
         return this.shortName;
     }
-
 }
 

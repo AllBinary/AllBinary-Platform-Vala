@@ -13,37 +13,38 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.animation.image
+// import javax.microedition.lcdui.Graphics
+// import javax.microedition.lcdui.Image
+// import org.allbinary.animation.AnimationBehavior
+// import org.allbinary.math.AngleInfo
 
-using System;
-using System.Linq;
-using Graphics = javax.microedition.lcdui.Graphics;
-using Image = javax.microedition.lcdui.Image;
-using AnimationBehavior = org.allbinary.animation.AnimationBehavior;
-using AngleInfo = org.allbinary.math.AngleInfo;
+public class AdjustedImageBaseRotationAnimation : ImageBaseRotationAnimation {
+    private int32 dx;
+    private int32 dy;
 
-namespace org.allbinary.animation.image;
+    // Java field initializers run after the base constructor
+    private void initFieldsAdjustedImageBaseRotationAnimation() {
+    this.dx = 0;
+    this.dy = 0;
+    }
+    
 
-public class AdjustedImageBaseRotationAnimation : ImageBaseRotationAnimation
-{
-    private int dx = 0;
-    private int dy = 0;
-    public AdjustedImageBaseRotationAnimation(Image image, AngleInfo angleInfo, short totalAngle, int dx, int dy, AnimationBehavior animationBehavior) : base(image, angleInfo, totalAngle, animationBehavior)
-    {
-        // base(image, angleInfo, totalAngle, animationBehavior) is called from the constructor declaration
+    public AdjustedImageBaseRotationAnimation(Image image, AngleInfo angleInfo, int16 totalAngle, int32 dx, int32 dy, AnimationBehavior animationBehavior) {
+        base(image, angleInfo, totalAngle, animationBehavior);
+        this.initFieldsAdjustedImageBaseRotationAnimation();
         this.init(dx, dy);
     }
+    
 
-    // throws Exception
-    public virtual void init(int dx, int dy)
-    {
+    public virtual void init(int32 dx, int32 dy) {
         this.dx = dx;
         this.dy = dy;
     }
+    
 
-    public override void paintXY(Graphics graphics, int x, int y)
-    {
+    public override void paintXY(Graphics graphics, int32 x, int32 y) {
         base.paintXY(graphics, x + this.dx, y + this.dy);
     }
-
 }
 

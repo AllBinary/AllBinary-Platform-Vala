@@ -13,18 +13,15 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.game.layer.pickup
+// import org.allbinary.layer.LayerInterfaceFactoryInterface
 
-using System;
-using System.Linq;
-using LayerInterfaceFactoryInterface = org.allbinary.layer.LayerInterfaceFactoryInterface;
+public interface CountedPickedUpLayerInterfaceFactoryInterface : JObject, PickedUpLayerInterfaceFactoryInterface, LayerInterfaceFactoryInterface {
+    
 
-namespace org.allbinary.game.layer.pickup;
+    public abstract int32 getId();
+    
 
-public interface CountedPickedUpLayerInterfaceFactoryInterface : PickedUpLayerInterfaceFactoryInterface, LayerInterfaceFactoryInterface
-{
-    int getId();
-
-    int getTotal();
-
+    public abstract int32 getTotal();
 }
 

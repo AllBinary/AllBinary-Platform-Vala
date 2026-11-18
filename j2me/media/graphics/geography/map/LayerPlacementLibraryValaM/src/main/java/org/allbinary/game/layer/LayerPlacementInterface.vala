@@ -13,23 +13,21 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.game.layer
+// import org.allbinary.util.ABHashtable
 
-using System;
-using System.Linq;
-using org.allbinary.util;
+public interface LayerPlacementInterface : JObject {
+    
 
-namespace org.allbinary.game.layer;
+    public abstract int32 getWidth();
+    
 
-public interface LayerPlacementInterface
-{
-    int getWidth();
+    public abstract int32 getHeight();
+    
 
-    int getHeight();
+    public abstract LayerPlacementType getLayerType();
+    
 
-    LayerPlacementType getLayerType();
-
-    // throws Exception
-    ABHashtable<object, object> getInstance();
-
+    public abstract ABHashtable getInstance();
 }
 

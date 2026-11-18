@@ -13,45 +13,57 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.input
+// import org.allbinary.logic.NullUtil
+// import org.allbinary.util.BasicArrayList
+// import org.allbinary.util.BasicArrayListD
 
-using System;
-using System.Linq;
-using NullUtil = org.allbinary.logic.NullUtil;
-using BasicArrayList = org.allbinary.util.BasicArrayList;
-using BasicArrayListD = org.allbinary.util.BasicArrayListD;
+public class AllBinarySensorManager : JObject {
+    private static JObject? instance;
+    private static bool staticSet_instance = false;
+    private static JObject staticGet_instance() {
+        if (!AllBinarySensorManager.staticSet_instance) {
+            AllBinarySensorManager.staticSet_instance = true;
+            AllBinarySensorManager.instance = NullUtil.getInstance().NULL_OBJECT;
+        }
+        return AllBinarySensorManager.instance;
+    }
+    public string ORIENTATION_SENSOR_INPUT;
+    public string ORIENTATION_TYPE;
+    private BasicArrayList list;
 
-namespace org.allbinary.input;
+    // Java field initializers run after the base constructor
+    private void initFieldsAllBinarySensorManager() {
+    this.ORIENTATION_SENSOR_INPUT = "Orientation Sensor Input";
+    this.ORIENTATION_TYPE = "Orientation Type";
+    this.list = new BasicArrayListD();
+    }
+    
 
-public class AllBinarySensorManager
-{
-    private static object instance = NullUtil.getInstance().NULL_OBJECT;
-    public static AllBinarySensorManager getInstance()
-    {
-        if (AllBinarySensorManager.instance == NullUtil.getInstance().NULL_OBJECT) {
+    public static AllBinarySensorManager getInstance() {
+        if (AllBinarySensorManager.staticGet_instance() == NullUtil.getInstance().NULL_OBJECT) {
             AllBinarySensorManager.instance = new AllBinarySensorManager();
         }
-        return ((AllBinarySensorManager) AllBinarySensorManager.instance);
+        return ((AllBinarySensorManager) AllBinarySensorManager.staticGet_instance());
     }
+    
 
-    public readonly string ORIENTATION_SENSOR_INPUT = "Orientation Sensor Input";
-    public readonly string ORIENTATION_TYPE = "Orientation Type";
-    private AllBinarySensorManager()
-    {
+    public AllBinarySensorManager() {
+        base();
+        this.initFieldsAllBinarySensorManager();
     }
+    
 
-    public virtual void init()
-    {
+    public virtual void init() {
     }
+    
 
-    private readonly BasicArrayList list = new BasicArrayListD();
-    public virtual BasicArrayList getSensorNamesList()
-    {
+    public virtual BasicArrayList getSensorNamesList() {
         return this.list;
     }
+    
 
-    public virtual void shutdown()
-    {
+    public virtual void shutdown() {
     }
-
 }
 

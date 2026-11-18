@@ -13,14 +13,13 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.animation.caption
 
-using System;
-using System.Linq;
-
-namespace org.allbinary.animation.caption;
-
-public class CaptionResources
-{
+public class CaptionResources : JObject {
     public const string RESOURCE = "/character_message_bubbled_box.png";
+
+    public CaptionResources() {
+        base();
+    }
 }
 

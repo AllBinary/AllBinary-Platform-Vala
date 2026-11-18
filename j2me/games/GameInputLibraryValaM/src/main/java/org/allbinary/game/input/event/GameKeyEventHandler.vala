@@ -13,60 +13,75 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.game.input.event
+// import org.allbinary.logic.communication.log.LogUtil
+// import org.allbinary.logic.util.event.EventListenerInterface
+// import org.allbinary.string.CommonStrings
 
-using System;
-using System.Linq;
-using System.Runtime.CompilerServices;
-using LogUtil = org.allbinary.logic.communication.log.LogUtil;
-using EventListenerInterface = org.allbinary.logic.util.@event.EventListenerInterface;
-using CommonStrings = org.allbinary.@string.CommonStrings;
-
-namespace org.allbinary.game.input.@event;
-
-public class GameKeyEventHandler
-{
-    public readonly LogUtil logUtil = LogUtil.getInstance();
-    private static readonly GameKeyEventHandler instance = new GameKeyEventHandler();
-    public static GameKeyEventHandler getInstance()
-    {
+public class GameKeyEventHandler : JObject {
+    private static GameKeyEventHandler? instance;
+    private static bool staticSet_instance = false;
+    private static GameKeyEventHandler staticGet_instance() {
+        if (!GameKeyEventHandler.staticSet_instance) {
+            GameKeyEventHandler.staticSet_instance = true;
+            GameKeyEventHandler.instance = new GameKeyEventHandler();
+        }
         return GameKeyEventHandler.instance;
     }
+    public LogUtil logUtil;
+    private CommonStrings commonStrings;
+    private PressGameKeyEventHandler pressGameKeyEventHandler;
+    private UpGameKeyEventHandler upGameKeyEventHandler;
+    private DownGameKeyEventHandler downGameKeyEventHandler;
 
-    private readonly CommonStrings commonStrings = CommonStrings.getInstance();
-    private readonly PressGameKeyEventHandler pressGameKeyEventHandler = PressGameKeyEventHandler.getInstance();
-    private readonly UpGameKeyEventHandler upGameKeyEventHandler = UpGameKeyEventHandler.getInstance();
-    private readonly DownGameKeyEventHandler downGameKeyEventHandler = DownGameKeyEventHandler.getInstance();
-    [MethodImpl(MethodImplOptions.Synchronized)]
-    public virtual void removeAllListeners()
-    {
+    // Java field initializers run after the base constructor
+    private void initFieldsGameKeyEventHandler() {
+    this.logUtil = LogUtil.getInstance();
+    this.commonStrings = CommonStrings.getInstance();
+    this.pressGameKeyEventHandler = PressGameKeyEventHandler.getInstance();
+    this.upGameKeyEventHandler = UpGameKeyEventHandler.getInstance();
+    this.downGameKeyEventHandler = DownGameKeyEventHandler.getInstance();
+    }
+
+    public GameKeyEventHandler() {
+        base();
+        this.initFieldsGameKeyEventHandler();
+    }
+    
+
+    public static GameKeyEventHandler getInstance() {
+        return GameKeyEventHandler.staticGet_instance();
+    }
+    
+
+    public virtual void removeAllListeners() {
         this.pressGameKeyEventHandler.removeAllListeners();
         this.upGameKeyEventHandler.removeAllListeners();
         this.downGameKeyEventHandler.removeAllListeners();
     }
+    
 
-    public virtual void addListenerForPlayer(EventListenerInterface eventListenerInterface, int playerInputId)
-    {
-        this.logUtil.putF(eventListenerInterface.ToString(), this, this.commonStrings.ADD_LISTENER);
+    public virtual void addListenerForPlayer(EventListenerInterface eventListenerInterface, int32 playerInputId) {
+        this.logUtil.putF(eventListenerInterface.toString(), this, this.commonStrings.ADD_LISTENER);
         this.pressGameKeyEventHandler.addListenerSingleThreaded(eventListenerInterface);
         this.upGameKeyEventHandler.getInstanceForPlayer(playerInputId).addListenerSingleThreaded(eventListenerInterface);
         this.downGameKeyEventHandler.getInstanceForPlayer(playerInputId).addListenerSingleThreaded(eventListenerInterface);
     }
+    
 
-    public virtual void addListener(EventListenerInterface eventListenerInterface)
-    {
-        this.logUtil.putF(eventListenerInterface.ToString(), this, this.commonStrings.ADD_LISTENER);
+    public virtual void addListener(EventListenerInterface eventListenerInterface) {
+        this.logUtil.putF(eventListenerInterface.toString(), this, this.commonStrings.ADD_LISTENER);
         this.pressGameKeyEventHandler.addListenerSingleThreaded(eventListenerInterface);
         this.upGameKeyEventHandler.addListenerSingleThreaded(eventListenerInterface);
         this.downGameKeyEventHandler.addListenerSingleThreaded(eventListenerInterface);
     }
+    
 
-    public virtual void removeListener(EventListenerInterface eventListenerInterface)
-    {
-        this.logUtil.putF(eventListenerInterface.ToString(), this, this.commonStrings.REMOVE_LISTENER);
+    public virtual void removeListener(EventListenerInterface eventListenerInterface) {
+        this.logUtil.putF(eventListenerInterface.toString(), this, this.commonStrings.REMOVE_LISTENER);
         this.pressGameKeyEventHandler.removeListenerSingleThreaded(eventListenerInterface);
         this.upGameKeyEventHandler.removeListenerSingleThreaded(eventListenerInterface);
         this.downGameKeyEventHandler.removeListenerSingleThreaded(eventListenerInterface);
     }
-
 }
 

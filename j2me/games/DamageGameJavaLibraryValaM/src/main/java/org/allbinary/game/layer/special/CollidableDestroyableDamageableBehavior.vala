@@ -13,52 +13,51 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.game.layer.special
+// import org.allbinary.game.collision.CollidableBaseBehavior
+// import org.allbinary.game.collision.CollidableInterfaceCompositeInterface
+// import org.allbinary.game.combat.damage.DamageUtil
+// import org.allbinary.game.layer.CollidableCompositeLayer
+// import org.allbinary.logic.communication.log.ForcedLogUtil
 
-using System;
-using System.Linq;
-using CollidableBaseBehavior = org.allbinary.game.collision.CollidableBaseBehavior;
-using CollidableInterfaceCompositeInterface = org.allbinary.game.collision.CollidableInterfaceCompositeInterface;
-using DamageUtil = org.allbinary.game.combat.damage.DamageUtil;
-using CollidableCompositeLayer = org.allbinary.game.layer.CollidableCompositeLayer;
-using ForcedLogUtil = org.allbinary.logic.communication.log.ForcedLogUtil;
+public class CollidableDestroyableDamageableBehavior : CollidableBaseBehavior {
+    public DamageUtil damageUtil;
 
-namespace org.allbinary.game.layer.special;
-
-public class CollidableDestroyableDamageableBehavior : CollidableBaseBehavior
-{
-    public readonly DamageUtil damageUtil = DamageUtil.getInstance();
-    public CollidableDestroyableDamageableBehavior(bool collidable) : base(collidable)
-    {
-        // base(collidable) is called from the constructor declaration
+    // Java field initializers run after the base constructor
+    private void initFieldsCollidableDestroyableDamageableBehavior() {
+    this.damageUtil = DamageUtil.getInstance();
     }
+    
 
-    public override bool isCollision(CollidableCompositeLayer ownerLayer, CollidableCompositeLayer collisionLayer)
-    {
+    public CollidableDestroyableDamageableBehavior(bool collidable) {
+        base(collidable);
+        this.initFieldsCollidableDestroyableDamageableBehavior();
+    }
+    
+
+    public override bool isCollision(CollidableCompositeLayer ownerLayer, CollidableCompositeLayer collisionLayer) {
         if (ownerLayer.getGroupInterface()[0] != collisionLayer.getGroupInterface()[0]) {
             return base.isCollision(ownerLayer, collisionLayer);
         }
         return false;
     }
+    
 
-    // throws Exception
-    public override void collide(CollidableCompositeLayer ownerLayer, CollidableCompositeLayer collidableInterfaceCompositeInterface)
-    {
+    public override void collide(CollidableCompositeLayer ownerLayer, CollidableCompositeLayer collidableInterfaceCompositeInterface) {
         CollidableDestroyableDamageableLayer ownerCollidableDestroyableDamageableLayer = ((CollidableDestroyableDamageableLayer) ownerLayer);
         CollidableDestroyableDamageableLayer collidableDestroyableDamageableLayer = ((CollidableDestroyableDamageableLayer) collidableInterfaceCompositeInterface);
         ownerCollidableDestroyableDamageableLayer.damage(collidableDestroyableDamageableLayer.getDamage(0), 0);
     }
+    
 
-    public override bool isCollisionInterface(CollidableCompositeLayer ownerLayer, CollidableInterfaceCompositeInterface collidableInterfaceCompositeInterface)
-    {
+    public override bool isCollisionInterface(CollidableCompositeLayer ownerLayer, CollidableInterfaceCompositeInterface collidableInterfaceCompositeInterface) {
         ForcedLogUtil.log("No Longer Used", this);
         return false;
     }
+    
 
-    // throws Exception
-    public override void collideInterface(CollidableCompositeLayer ownerLayer, CollidableInterfaceCompositeInterface collidableInterfaceCompositeInterface)
-    {
+    public override void collideInterface(CollidableCompositeLayer ownerLayer, CollidableInterfaceCompositeInterface collidableInterfaceCompositeInterface) {
         ForcedLogUtil.log("No Longer Used", this);
     }
-
 }
 

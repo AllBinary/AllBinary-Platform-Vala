@@ -13,18 +13,13 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.ai
+// import org.allbinary.graphics.IdentifierInterface
+// import org.allbinary.layer.AllBinaryLayerManager
 
-using System;
-using System.Linq;
-using IdentifierInterface = org.allbinary.graphics.IdentifierInterface;
-using AllBinaryLayerManager = org.allbinary.layer.AllBinaryLayerManager;
+public interface ArtificialIntelligenceInterface : JObject, IdentifierInterface {
+    
 
-namespace org.allbinary.ai;
-
-public interface ArtificialIntelligenceInterface : IdentifierInterface
-{
-    // throws Exception
-    void processAI(AllBinaryLayerManager layerManager);
-
+    public abstract void processAI(AllBinaryLayerManager layerManager);
 }
 

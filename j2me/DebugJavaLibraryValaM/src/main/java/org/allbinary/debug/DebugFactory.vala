@@ -13,18 +13,17 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.debug
 
-using System;
-using System.Linq;
+public class DebugFactory : JObject {
 
-namespace org.allbinary.debug;
+    public DebugFactory() {
+        base();
+    }
+    
 
-public class DebugFactory
-{
-    public static DebugInterface getInstance()
-    {
+    public static DebugInterface getInstance() {
         return NoDebug.getInstance();
     }
-
 }
 

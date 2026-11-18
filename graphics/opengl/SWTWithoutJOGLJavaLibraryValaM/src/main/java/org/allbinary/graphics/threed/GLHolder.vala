@@ -13,30 +13,32 @@
  *   
  */
 // Generated Code Do Not Modify
+// package org.allbinary.graphics.threed
 
-using System;
-using System.Linq;
+public class GLHolder : JObject {
+    public bool isCreated;
 
-namespace org.allbinary.graphics.threed;
-
-public class GLHolder
-{
-    public bool isCreated = true;
-    public GLHolder()
-    {
+    // Java field initializers run after the base constructor
+    private void initFieldsGLHolder() {
+    this.isCreated = true;
     }
+    
 
-    public virtual void runOnSurfaceCreated(object renderer)
-    {
+    public GLHolder() {
+        base();
+        this.initFieldsGLHolder();
     }
+    
 
-    public virtual void runOnSurfaceChanged(object renderer, int width, int height)
-    {
+    public virtual void runOnSurfaceCreated(JObject renderer) {
     }
+    
 
-    public virtual void run(object renderer)
-    {
+    public virtual void runOnSurfaceChanged(JObject renderer, int32 width, int32 height) {
     }
+    
 
+    public virtual void run(JObject renderer) {
+    }
 }
 

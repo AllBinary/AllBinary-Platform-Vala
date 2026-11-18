@@ -13,21 +13,20 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.input.motion.button
+// import org.allbinary.game.input.mapping.InputMappingInterface
+// import org.allbinary.graphics.color.BasicColor
+// import org.allbinary.graphics.paint.ProcessPaintable
 
-using System;
-using System.Linq;
-using InputMappingInterface = org.allbinary.game.input.mapping.InputMappingInterface;
-using BasicColor = org.allbinary.graphics.color.BasicColor;
-using ProcessPaintable = org.allbinary.graphics.paint.ProcessPaintable;
+public class TouchButtonsPaintableCompositeFactory : JObject {
 
-namespace org.allbinary.input.motion.button;
+    public TouchButtonsPaintableCompositeFactory() {
+        base();
+    }
+    
 
-public class TouchButtonsPaintableCompositeFactory
-{
-    public static ProcessPaintable getInstance(InputMappingInterface inputMappingInterface, BasicColor basicColor)
-    {
+    public static ProcessPaintable getInstance2(InputMappingInterface inputMappingInterface, BasicColor basicColor) {
         return new ProcessPaintable();
     }
-
 }
 

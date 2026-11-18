@@ -13,43 +13,43 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.game.displayable.canvas
+// import javax.microedition.lcdui.NullCanvas
+// import org.allbinary.game.input.event.GameKeyEvent
+// import org.allbinary.input.motion.gesture.observer.MotionGestureEvent
+// import org.allbinary.util.BasicArrayListUtil
 
-using System;
-using System.Linq;
-using System.Runtime.CompilerServices;
-using NullCanvas = javax.microedition.lcdui.NullCanvas;
-using GameKeyEvent = org.allbinary.game.input.@event.GameKeyEvent;
-using MotionGestureEvent = org.allbinary.input.motion.gesture.observer.MotionGestureEvent;
-using BasicArrayListUtil = org.allbinary.util.BasicArrayListUtil;
-
-namespace org.allbinary.game.displayable.canvas;
-
-public class NoMenuInputProcessor : BasicMenuInputProcessor
-{
-    private static readonly NoMenuInputProcessor SINGLETON = new NoMenuInputProcessor();
-    public static NoMenuInputProcessor getInstance()
-    {
+public class NoMenuInputProcessor : BasicMenuInputProcessor {
+    private static NoMenuInputProcessor? SINGLETON;
+    private static bool staticSet_SINGLETON = false;
+    private static NoMenuInputProcessor staticGet_SINGLETON() {
+        if (!NoMenuInputProcessor.staticSet_SINGLETON) {
+            NoMenuInputProcessor.staticSet_SINGLETON = true;
+            NoMenuInputProcessor.SINGLETON = new NoMenuInputProcessor();
+        }
         return NoMenuInputProcessor.SINGLETON;
     }
+    
 
-    private NoMenuInputProcessor() : base(BasicArrayListUtil.getInstance().getImmutableInstance(), -1, NullCanvas.NULL_CANVAS)
-    {
-        // base(BasicArrayListUtil.getInstance().getImmutableInstance(), -1, NullCanvas.NULL_CANVAS) is called from the constructor declaration
+    public static NoMenuInputProcessor getInstance() {
+        return NoMenuInputProcessor.staticGet_SINGLETON();
     }
+    
 
-    [MethodImpl(MethodImplOptions.Synchronized)]
-    public override void onDownGameKeyEvent(GameKeyEvent gameKeyEvent)
-    {
+    public NoMenuInputProcessor() {
+        base(BasicArrayListUtil.getInstance().getImmutableInstance(), -1, NullCanvas.NULL_CANVAS);
     }
+    
 
-    [MethodImpl(MethodImplOptions.Synchronized)]
-    public override void onUpGameKeyEvent(GameKeyEvent gameKeyEvent)
-    {
+    public override void onDownGameKeyEvent(GameKeyEvent gameKeyEvent) {
     }
+    
 
-    public override void onMotionGestureEvent(MotionGestureEvent motionGestureEvent)
-    {
+    public override void onUpGameKeyEvent(GameKeyEvent gameKeyEvent) {
     }
+    
 
+    public override void onMotionGestureEvent(MotionGestureEvent motionGestureEvent) {
+    }
 }
 

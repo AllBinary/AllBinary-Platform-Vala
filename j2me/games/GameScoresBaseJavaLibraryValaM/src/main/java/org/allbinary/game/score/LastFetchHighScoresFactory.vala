@@ -13,24 +13,37 @@
  *   
  */
 // Generated Code Do Not Modify
+// package org.allbinary.game.score
+// import org.allbinary.logic.NullUtil
 
-using System;
-using System.Linq;
-using NullUtil = org.allbinary.logic.NullUtil;
-
-namespace org.allbinary.game.score;
-
-public class LastFetchHighScoresFactory
-{
-    private static object instance = NullUtil.getInstance().NULL_OBJECT;
-    public static LastFetchHighScoresFactory getInstance()
-    {
-        if (LastFetchHighScoresFactory.instance == NullUtil.getInstance().NULL_OBJECT) {
-            LastFetchHighScoresFactory.instance = new LastFetchHighScoresFactory();
+public class LastFetchHighScoresFactory : JObject {
+    private static JObject? instance;
+    private static bool staticSet_instance = false;
+    private static JObject staticGet_instance() {
+        if (!LastFetchHighScoresFactory.staticSet_instance) {
+            LastFetchHighScoresFactory.staticSet_instance = true;
+            LastFetchHighScoresFactory.instance = NullUtil.getInstance().NULL_OBJECT;
         }
-        return ((LastFetchHighScoresFactory) LastFetchHighScoresFactory.instance);
+        return LastFetchHighScoresFactory.instance;
+    }
+    public HighScores[] highScoresArray;
+
+    // Java field initializers run after the base constructor
+    private void initFieldsLastFetchHighScoresFactory() {
+    this.highScoresArray = NoHighScoresFactory.getInstance().NO_HIGH_SCORES;
     }
 
-    public HighScores[] highScoresArray = NoHighScoresFactory.getInstance().NO_HIGH_SCORES;
+    public LastFetchHighScoresFactory() {
+        base();
+        this.initFieldsLastFetchHighScoresFactory();
+    }
+    
+
+    public static LastFetchHighScoresFactory getInstance() {
+        if (LastFetchHighScoresFactory.staticGet_instance() == NullUtil.getInstance().NULL_OBJECT) {
+            LastFetchHighScoresFactory.instance = new LastFetchHighScoresFactory();
+        }
+        return ((LastFetchHighScoresFactory) LastFetchHighScoresFactory.staticGet_instance());
+    }
 }
 

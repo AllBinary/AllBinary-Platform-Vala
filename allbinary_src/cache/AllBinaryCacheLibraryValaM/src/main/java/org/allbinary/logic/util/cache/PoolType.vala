@@ -13,30 +13,32 @@
  *   
  */
 // Generated Code Do Not Modify
+// package org.allbinary.logic.util.cache
 
-using System;
-using System.Linq;
+public class PoolType : JObject {
+    private CacheType cacheType;
 
-namespace org.allbinary.logic.util.cache;
+    // Java field initializers run after the base constructor
+    private void initFieldsPoolType() {
+    
+    }
+    
 
-public class PoolType
-{
-    private readonly CacheType cacheType;
-    public PoolType(CacheType cacheType)
-    {
+    public PoolType(CacheType cacheType) {
+        base();
+        this.initFieldsPoolType();
         this.cacheType = cacheType;
     }
+    
 
-    public virtual CacheType getCacheType()
-    {
+    public virtual CacheType getCacheType() {
         return this.cacheType;
     }
+    
 
-    public override string ToString()
-    {
+    public override string toString() {
         string POOL_TYPE = "PoolType: ";
-        return POOL_TYPE + this.getCacheType().ToString();
+        return JString.ofString(POOL_TYPE) + JString.ofString(this.getCacheType().toString());
     }
-
 }
 

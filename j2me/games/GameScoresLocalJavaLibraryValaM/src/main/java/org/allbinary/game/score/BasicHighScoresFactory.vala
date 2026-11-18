@@ -1,56 +1,62 @@
 // Generated Code Do Not Modify
+// package org.allbinary.game.score
+// import org.allbinary.game.GameInfo
+// import org.allbinary.logic.communication.log.LogUtil
+// import org.allbinary.logic.system.SoftwareInformation
+// import org.allbinary.logic.system.security.licensing.AbeClientInformationInterface
 
-using System;
-using System.Linq;
-using GameInfo = org.allbinary.game.GameInfo;
-using LogUtil = org.allbinary.logic.communication.log.LogUtil;
-using SoftwareInformation = org.allbinary.logic.system.SoftwareInformation;
-using AbeClientInformationInterface = org.allbinary.logic.system.security.licensing.AbeClientInformationInterface;
+public class BasicHighScoresFactory : HighScoresBase {
+    public LogUtil logUtil;
+    private AbeClientInformationInterface abeClientInformation;
+    private HighScores[] highScoresArray;
+    private string TOP;
+    private string SCORES;
+    private string PERSONAL_HIGH_SCORES;
+    private string FETCH;
 
-namespace org.allbinary.game.score;
+    // Java field initializers run after the base constructor
+    private void initFieldsBasicHighScoresFactory() {
+    this.logUtil = LogUtil.getInstance();
+    
+    this.highScoresArray = new HighScores[1];
+    this.TOP = "Top";
+    this.SCORES = "Scores";
+    this.PERSONAL_HIGH_SCORES = "Personal Top Scores";
+    this.FETCH = "fetchHighScores";
+    }
+    
 
-public class BasicHighScoresFactory : HighScoresBase
-{
-    public readonly LogUtil logUtil = LogUtil.getInstance();
-    private readonly AbeClientInformationInterface abeClientInformation;
-    public BasicHighScoresFactory(AbeClientInformationInterface abeClientInformation, SoftwareInformation softwareInformation)
-    {
+    public BasicHighScoresFactory(AbeClientInformationInterface abeClientInformation, SoftwareInformation softwareInformation) {
+        base();
+        this.initFieldsBasicHighScoresFactory();
         this.abeClientInformation = abeClientInformation;
     }
+    
 
-    private readonly HighScores[] highScoresArray = new HighScores[1];
-    private readonly string TOP = "Top";
-    private readonly string SCORES = "Scores";
-    private readonly string PERSONAL_HIGH_SCORES = "Personal Top Scores";
-    private readonly string FETCH = "fetchHighScores";
-    public override void fetchHighScores(GameInfo gameInfo, HighScoresResultsListener highScoresResultsListener)
-    {
+    public override void fetchHighScores(GameInfo gameInfo, HighScoresResultsListener highScoresResultsListener) {
         this.logUtil.putF("Getting Local HighScores", this, this.FETCH);
         this.fetchHighScoresPreload(gameInfo, highScoresResultsListener, true);
     }
+    
 
-    public override void fetchHighScoresPreload(GameInfo gameInfo, HighScoresResultsListener highScoresResultsListener, bool preload)
-    {
-        try {
-            this.highScoresArray[0] = RecordStoreHighScores.getInstance(this.abeClientInformation, gameInfo, this.TOP, this.PERSONAL_HIGH_SCORES, this.SCORES, new ScoreComparator(true));
+    public override void fetchHighScoresPreload(GameInfo gameInfo, HighScoresResultsListener highScoresResultsListener, bool preload) {
+        {
+            this.highScoresArray[0] = RecordStoreHighScores.getInstance6(this.abeClientInformation, gameInfo, this.TOP, this.PERSONAL_HIGH_SCORES, this.SCORES, new ScoreComparator(true));
             highScoresResultsListener.setHighScoresArray(this.highScoresArray);
-        } catch (Exception e) {
-            this.logUtil.put(this.commonStrings.EXCEPTION, this, this.FETCH, e);
-        }
+        } /* catch (Exception e): a thrown Java exception stops the program */
     }
+    
 
-    public override HighScoresHelperBaseInterface createHighScoresHelper()
-    {
+    public override HighScoresHelperBaseInterface createHighScoresHelper() {
         return new HighScoresHelper2();
     }
+    
 
-    public static bool loaded(int index2)
-    {
+    public static bool loaded(int32 index2) {
         if (index2 >= 0) {
             return true;
         }
         return false;
     }
-
 }
 

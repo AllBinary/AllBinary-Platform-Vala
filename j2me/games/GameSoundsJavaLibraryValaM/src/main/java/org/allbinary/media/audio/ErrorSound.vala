@@ -13,24 +13,27 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.media.audio
 
-using System;
-using System.Linq;
-
-namespace org.allbinary.media.audio;
-
-public class ErrorSound : CompositeSound
-{
-    private static Sound soundInterface = new ErrorSound();
-    private ErrorSound() : base("resource:/wav/error.wav")
-    {
-        // base("resource:/wav/error.wav") is called from the constructor declaration
-    }
-
-    public static Sound getInstance()
-    {
+public class ErrorSound : CompositeSound {
+    private static Sound? soundInterface;
+    private static bool staticSet_soundInterface = false;
+    private static Sound staticGet_soundInterface() {
+        if (!ErrorSound.staticSet_soundInterface) {
+            ErrorSound.staticSet_soundInterface = true;
+            ErrorSound.soundInterface = new ErrorSound();
+        }
         return ErrorSound.soundInterface;
     }
+    
 
+    public ErrorSound() {
+        base("resource:/wav/error.wav");
+    }
+    
+
+    public static Sound getInstance() {
+        return ErrorSound.staticGet_soundInterface();
+    }
 }
 

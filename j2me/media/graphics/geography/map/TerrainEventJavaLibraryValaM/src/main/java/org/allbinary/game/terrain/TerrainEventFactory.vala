@@ -13,25 +13,21 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.game.terrain
+// import org.allbinary.logic.NullUtil
+// import org.allbinary.logic.util.event.AllBinaryEventObject
+// import org.allbinary.logic.util.event.AllBinaryEventObjectFactoryInterface
 
-using System;
-using System.Linq;
-using NullUtil = org.allbinary.logic.NullUtil;
-using AllBinaryEventObject = org.allbinary.logic.util.@event.AllBinaryEventObject;
-using AllBinaryEventObjectFactoryInterface = org.allbinary.logic.util.@event.AllBinaryEventObjectFactoryInterface;
+public class TerrainEventFactory : JObject, AllBinaryEventObjectFactoryInterface {
+    
 
-namespace org.allbinary.game.terrain;
-
-public class TerrainEventFactory : AllBinaryEventObjectFactoryInterface
-{
-    public TerrainEventFactory()
-    {
+    public TerrainEventFactory() {
+        base();
     }
+    
 
-    public virtual AllBinaryEventObject getInstance()
-    {
+    public virtual AllBinaryEventObject getInstance() {
         return new TerrainEvent(NullUtil.getInstance().NULL_OBJECT);
     }
-
 }
 

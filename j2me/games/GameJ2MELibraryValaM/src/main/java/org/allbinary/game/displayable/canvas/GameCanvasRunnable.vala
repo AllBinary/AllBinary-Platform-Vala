@@ -13,45 +13,46 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.game.displayable.canvas
+// import org.allbinary.graphics.displayable.GameTickDisplayInfoSingleton
+// import org.allbinary.logic.communication.log.LogUtil
+// import org.allbinary.string.CommonStrings
+// import org.allbinary.time.GameTickTimeDelayHelper
+// import org.allbinary.time.GameTickTimeDelayHelperFactory
 
-using System;
-using System.Linq;
-using GameTickDisplayInfoSingleton = org.allbinary.graphics.displayable.GameTickDisplayInfoSingleton;
-using LogUtil = org.allbinary.logic.communication.log.LogUtil;
-using CommonStrings = org.allbinary.@string.CommonStrings;
-using GameTickTimeDelayHelper = org.allbinary.time.GameTickTimeDelayHelper;
-using GameTickTimeDelayHelperFactory = org.allbinary.time.GameTickTimeDelayHelperFactory;
+public class GameCanvasRunnable : GameRunnable {
+    public LogUtil logUtil;
+    private GameTickDisplayInfoSingleton gameTickDisplayInfoSingleton;
+    private AllBinaryGameCanvas allBinaryGameCanvas;
+    private GameTickTimeDelayHelper gameTickTimeDelayHelper;
 
-namespace org.allbinary.game.displayable.canvas;
+    // Java field initializers run after the base constructor
+    private void initFieldsGameCanvasRunnable() {
+    this.logUtil = LogUtil.getInstance();
+    this.gameTickDisplayInfoSingleton = GameTickDisplayInfoSingleton.getInstance();
+    
+    this.gameTickTimeDelayHelper = GameTickTimeDelayHelperFactory.getInstance();
+    }
+    
 
-public class GameCanvasRunnable : GameRunnable
-{
-    public readonly LogUtil logUtil = LogUtil.getInstance();
-    private readonly GameTickDisplayInfoSingleton gameTickDisplayInfoSingleton = GameTickDisplayInfoSingleton.getInstance();
-    private readonly AllBinaryGameCanvas allBinaryGameCanvas;
-    public GameCanvasRunnable(AllBinaryGameCanvas allBinaryGameCanvas)
-    {
+    public GameCanvasRunnable(AllBinaryGameCanvas allBinaryGameCanvas) {
+        base();
+        this.initFieldsGameCanvasRunnable();
         this.allBinaryGameCanvas = allBinaryGameCanvas;
     }
+    
 
-    private readonly GameTickTimeDelayHelper gameTickTimeDelayHelper = GameTickTimeDelayHelperFactory.getInstance();
-    public override void run()
-    {
-        try {
+    public override void run() {
+        {
             this.allBinaryGameCanvas.getLoopTimeHelperP().setStartTime(this.gameTickTimeDelayHelper.setStartTime());
             this.gameTickDisplayInfoSingleton.update();
             this.allBinaryGameCanvas.processGame();
-        } catch (Exception e) {
-            CommonStrings commonStrings = CommonStrings.getInstance();
-            this.logUtil.put(commonStrings.EXCEPTION, this, commonStrings.RUN, e);
-        }
+        } /* catch (Exception e): a thrown Java exception stops the program */
     }
+    
 
-    // throws Exception
-    public override void processLoopSleep()
-    {
+    public override void processLoopSleep() {
         this.allBinaryGameCanvas.processLoopSleep();
     }
-
 }
 

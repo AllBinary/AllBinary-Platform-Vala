@@ -13,66 +13,67 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.input.motion.button
+// import javax.microedition.lcdui.Graphics
+// import org.allbinary.graphics.CellPositionFactory
+// import org.allbinary.graphics.color.BasicColor
+// import org.allbinary.graphics.paint.Paintable
+// import org.allbinary.logic.communication.log.LogUtil
+// import org.allbinary.string.CommonStrings
 
-using System;
-using System.Linq;
-using Graphics = javax.microedition.lcdui.Graphics;
-using CellPositionFactory = org.allbinary.graphics.CellPositionFactory;
-using BasicColor = org.allbinary.graphics.color.BasicColor;
-using Paintable = org.allbinary.graphics.paint.Paintable;
-using LogUtil = org.allbinary.logic.communication.log.LogUtil;
-using CommonStrings = org.allbinary.@string.CommonStrings;
+public class TouchButtonsMappingPaintable : Paintable {
+    public LogUtil logUtil;
+    public int32 foregroundColor;
+    private Paintable[,] paintableTable;
+    private TouchButtonLocationHelper touchButtonLocationHelper;
 
-namespace org.allbinary.input.motion.button;
+    // Java field initializers run after the base constructor
+    private void initFieldsTouchButtonsMappingPaintable() {
+    this.logUtil = LogUtil.getInstance();
+    
+    this.paintableTable = new Paintable[0, 0];
+    this.touchButtonLocationHelper = new TouchButtonLocationHelper();
+    }
+    
 
-public class TouchButtonsMappingPaintable : Paintable
-{
-    public readonly LogUtil logUtil = LogUtil.getInstance();
-    public int foregroundColor;
-    private Paintable[][] paintableTable = System.Linq.Enumerable.Range(0, 0).Select(_ => new Paintable[0]).ToArray();
-    private TouchButtonLocationHelper touchButtonLocationHelper = new TouchButtonLocationHelper();
-    public TouchButtonsMappingPaintable(BasicColor basicColor)
-    {
+    public TouchButtonsMappingPaintable(BasicColor basicColor) {
+        base();
+        this.initFieldsTouchButtonsMappingPaintable();
         this.foregroundColor = basicColor.intValue();
         this.init();
     }
+    
 
-    private void init()
-    {
-        try {
+    private void init() {
+        {
             this.paintableTable = this.createPaintableTable();
-        } catch (Exception e) {
-            CommonStrings commonStrings = CommonStrings.getInstance();
-            this.logUtil.put(commonStrings.EXCEPTION, this, "updateRectangle", e);
-        }
+        } /* catch (Exception e): a thrown Java exception stops the program */
     }
+    
 
-    // throws Exception
-    private Paintable[][] createPaintableTable()
-    {
-        int totalColumns = this.touchButtonLocationHelper.getTotalColumns();
-        int totalRows = this.touchButtonLocationHelper.getTotalRows();
-        Paintable[][] paintableTable = System.Linq.Enumerable.Range(0, totalColumns).Select(_ => new Paintable[totalRows]).ToArray();
+    private Paintable[,] createPaintableTable() {
+        int32 totalColumns = this.touchButtonLocationHelper.getTotalColumns();
+        int32 totalRows = this.touchButtonLocationHelper.getTotalRows();
+        Paintable[,] paintableTable = new Paintable[totalColumns, totalRows];
         CellPositionFactory cellPositionFactory = CellPositionFactory.getInstance();
         CommonButtons commonButtons = CommonButtons.getInstance();
-        for (int index = totalColumns - 1; index >= 0; index--) {
-            for (int rowIndex = totalRows - 1; rowIndex >= 0; rowIndex--) {
-                this.paintableTable[index][rowIndex] = TouchButton.createButton(BasicTouchInputFactory.getInstance().NONE, TouchButtonBlankResource.getInstance(), commonButtons.NORMAL_BUTTON, cellPositionFactory.getInstanceColRow(index, rowIndex), this.touchButtonLocationHelper.getColumnsRemainderHalf(), this.touchButtonLocationHelper.getRowsRemainderHalf());
+        for (int32 index = totalColumns - 1; index >= 0; index--) {
+            for (int32 rowIndex = totalRows - 1; rowIndex >= 0; rowIndex--) {
+                this.paintableTable[index, rowIndex] = TouchButton.createButton(BasicTouchInputFactory.getInstance().NONE, TouchButtonBlankResource.getInstance(), commonButtons.NORMAL_BUTTON, cellPositionFactory.getInstanceColRow(index, rowIndex), this.touchButtonLocationHelper.getColumnsRemainderHalf(), this.touchButtonLocationHelper.getRowsRemainderHalf());
             }
         }
         return paintableTable;
     }
+    
 
-    public override void paint(Graphics graphics)
-    {
-        int totalColumns = this.touchButtonLocationHelper.getTotalColumns();
-        int totalRows = this.touchButtonLocationHelper.getTotalRows();
-        for (int index = totalColumns - 1; index >= 0; index--) {
-            for (int rowIndex = totalRows - 1; rowIndex >= 0; rowIndex--) {
-                this.paintableTable[index][rowIndex].paint(graphics);
+    public override void paint(Graphics graphics) {
+        int32 totalColumns = this.touchButtonLocationHelper.getTotalColumns();
+        int32 totalRows = this.touchButtonLocationHelper.getTotalRows();
+        for (int32 index = totalColumns - 1; index >= 0; index--) {
+            for (int32 rowIndex = totalRows - 1; rowIndex >= 0; rowIndex--) {
+                this.paintableTable[index, rowIndex].paint(graphics);
             }
         }
     }
-
 }
 

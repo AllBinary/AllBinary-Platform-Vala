@@ -13,19 +13,26 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.game.init
 
-using System;
-using System.Linq;
-
-namespace org.allbinary.game.init;
-
-public class BasicBuildGameInitializerFactory : GameInitializationInterfaceFactoryInterface
-{
-    public static BasicBuildGameInitializerFactory NULL_BASE_BUILD_GMAE_INITIALIZER_FACTORY = new BasicBuildGameInitializerFactory();
-    public virtual GameInitializationInterface getInstance()
-    {
-        return BaseGameInitialization.NULL_BASE_GAME_INITIALIZATION;
+public class BasicBuildGameInitializerFactory : JObject, GameInitializationInterfaceFactoryInterface {
+    public static BasicBuildGameInitializerFactory? NULL_BASE_BUILD_GMAE_INITIALIZER_FACTORY;
+    private static bool staticSet_NULL_BASE_BUILD_GMAE_INITIALIZER_FACTORY = false;
+    public static BasicBuildGameInitializerFactory staticGet_NULL_BASE_BUILD_GMAE_INITIALIZER_FACTORY() {
+        if (!BasicBuildGameInitializerFactory.staticSet_NULL_BASE_BUILD_GMAE_INITIALIZER_FACTORY) {
+            BasicBuildGameInitializerFactory.staticSet_NULL_BASE_BUILD_GMAE_INITIALIZER_FACTORY = true;
+            BasicBuildGameInitializerFactory.NULL_BASE_BUILD_GMAE_INITIALIZER_FACTORY = new BasicBuildGameInitializerFactory();
+        }
+        return BasicBuildGameInitializerFactory.NULL_BASE_BUILD_GMAE_INITIALIZER_FACTORY;
     }
 
+    public BasicBuildGameInitializerFactory() {
+        base();
+    }
+    
+
+    public virtual GameInitializationInterface getInstance() {
+        return BaseGameInitialization.NULL_BASE_GAME_INITIALIZATION;
+    }
 }
 

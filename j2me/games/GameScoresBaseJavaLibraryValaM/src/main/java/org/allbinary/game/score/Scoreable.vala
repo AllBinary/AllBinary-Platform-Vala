@@ -13,41 +13,51 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.game.score
+// import org.allbinary.logic.math.SmallIntegerSingletonFactory
 
-using System;
-using System.Linq;
-using SmallIntegerSingletonFactory = org.allbinary.logic.math.SmallIntegerSingletonFactory;
+public class Scoreable : JObject, ScoreableInterface {
+    public static int32?? ID;
+    private static bool staticSet_ID = false;
+    public static int32? staticGet_ID() {
+        if (!Scoreable.staticSet_ID) {
+            Scoreable.staticSet_ID = true;
+            Scoreable.ID = SmallIntegerSingletonFactory.getInstance().getAt(3);
+        }
+        return Scoreable.ID;
+    }
+    private int32 points;
 
-namespace org.allbinary.game.score;
+    // Java field initializers run after the base constructor
+    private void initFieldsScoreable() {
+    
+    }
+    
 
-public class Scoreable : ScoreableInterface
-{
-    public static int? ID = SmallIntegerSingletonFactory.getInstance().getAt(3);
-    private int points;
-    public Scoreable(int points)
-    {
+    public Scoreable(int32 points) {
+        base();
+        this.initFieldsScoreable();
         this.points = points;
     }
+    
 
-    public virtual void addPoints(int points)
-    {
+    public virtual void addPoints(int32 points) {
         this.points += points;
     }
+    
 
-    public virtual void removePoints(int points)
-    {
+    public virtual void removePoints(int32 points) {
         this.points -= points;
     }
+    
 
-    public virtual void setPoints(int points)
-    {
+    public virtual void setPoints(int32 points) {
         this.points = points;
     }
+    
 
-    public virtual int getPoints()
-    {
+    public virtual int32 getPoints() {
         return this.points;
     }
-
 }
 

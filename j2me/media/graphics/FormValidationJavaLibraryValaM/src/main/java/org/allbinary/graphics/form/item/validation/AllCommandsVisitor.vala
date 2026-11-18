@@ -13,24 +13,20 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.graphics.form.item.validation
+// import org.allbinary.logic.java.bool.BooleanFactory
+// import org.allbinary.logic.util.visitor.Visitor
 
-using System;
-using System.Linq;
-using BooleanFactory = org.allbinary.logic.java.@bool.BooleanFactory;
-using Visitor = org.allbinary.logic.util.visitor.Visitor;
+public class AllCommandsVisitor : Visitor {
+    
 
-namespace org.allbinary.graphics.form.item.validation;
-
-public class AllCommandsVisitor : Visitor
-{
-    public AllCommandsVisitor()
-    {
+    public AllCommandsVisitor() {
+        base();
     }
+    
 
-    public override object visit(object anyType)
-    {
-        return BooleanFactory.getInstance().TRUE;
+    public override JObject visit(JObject anyType) {
+        return BooleanFactory.getInstance().TRUE_;
     }
-
 }
 

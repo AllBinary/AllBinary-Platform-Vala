@@ -13,69 +13,73 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.game.displayable.canvas
+// import javax.microedition.lcdui.Font
+// import javax.microedition.lcdui.Graphics
+// import org.allbinary.canvas.GameStatisticsFactory
+// import org.allbinary.graphics.color.BasicColorFactory
+// import org.allbinary.graphics.displayable.DisplayInfoSingleton
+// import org.allbinary.graphics.font.MyFontProcessor
+// import org.allbinary.graphics.font.UpdateMyFontInterface
+// import org.allbinary.graphics.font.UpdateMyFontProcessor
+// import org.allbinary.graphics.paint.InitUpdatePaintable
 
-using System;
-using System.Linq;
-using Font = javax.microedition.lcdui.Font;
-using Graphics = javax.microedition.lcdui.Graphics;
-using GameStatisticsFactory = org.allbinary.canvas.GameStatisticsFactory;
-using BasicColorFactory = org.allbinary.graphics.color.BasicColorFactory;
-using DisplayInfoSingleton = org.allbinary.graphics.displayable.DisplayInfoSingleton;
-using MyFontProcessor = org.allbinary.graphics.font.MyFontProcessor;
-using UpdateMyFontInterface = org.allbinary.graphics.font.UpdateMyFontInterface;
-using UpdateMyFontProcessor = org.allbinary.graphics.font.UpdateMyFontProcessor;
-using InitUpdatePaintable = org.allbinary.graphics.paint.InitUpdatePaintable;
-
-namespace org.allbinary.game.displayable.canvas;
-
-public class GamePerformanceInitUpdatePaintable : InitUpdatePaintable, UpdateMyFontInterface
-{
-    private readonly int halfHeight = DisplayInfoSingleton.getInstance().getLastHalfHeight();
-    private readonly int[] yArray;
+public class GamePerformanceInitUpdatePaintable : InitUpdatePaintable, UpdateMyFontInterface {
+    private int32 halfHeight;
+    private int32[] yArray;
     private MyFontProcessor myFontProcessor;
-    private char[][] baseRefreshHelperCharArray = System.Linq.Enumerable.Range(0, 0).Select(_ => new char[0]).ToArray();
-    private int defaultStringWidth = 0;
-    public virtual void updateMeasurement(Graphics graphics)
-    {
+    private uint16[,] baseRefreshHelperCharArray;
+    private int32 defaultStringWidth;
+    private int32 RED;
+
+    // Java field initializers run after the base constructor
+    private void initFieldsGamePerformanceInitUpdatePaintable() {
+    this.halfHeight = DisplayInfoSingleton.getInstance().getLastHalfHeight();
+    this.yArray = new int32[] {this.halfHeight + 30, this.halfHeight + 30, this.halfHeight + 30 + 15, this.halfHeight + 30 + 15, this.halfHeight + 30 + 30, this.halfHeight + 30 + 30, this.halfHeight + 30 + 45, this.halfHeight + 30 + 45};
+    this.myFontProcessor = new UpdateMyFontProcessor(this);
+    this.baseRefreshHelperCharArray = new uint16[0, 0];
+    this.defaultStringWidth = 0;
+    this.RED = BasicColorFactory.getInstance().RED.intValue();
+    }
+
+    public GamePerformanceInitUpdatePaintable() {
+        base();
+        this.initFieldsGamePerformanceInitUpdatePaintable();
+    }
+    
+
+    public virtual void updateMeasurement(Graphics graphics) {
         Font font = graphics.getFont();
         this.defaultStringWidth = MyFontProcessor.defaultStringWidth(font, 2);
         this.myFontProcessor = MyFontProcessor.getInstance();
     }
+    
 
-    public override void init()
-    {
+    public override void init() {
     }
+    
 
-    public override void update()
-    {
+    public override void update() {
         this.baseRefreshHelperCharArray = GameStatisticsFactory.getInstance().to2DCharArray();
     }
+    
 
-    private readonly int RED = global::java.lang.JavaNumber.intValue(BasicColorFactory.getInstance().RED);
-    public override void paint(Graphics graphics)
-    {
+    public override void paint(Graphics graphics) {
         this.myFontProcessor.process(graphics);
         graphics.setColor(this.RED);
-        char[] charArray = null;
-        char[] charArray2 = null;
-        int size2 = 0;
-        int size3 = 0;
-        int size = this.baseRefreshHelperCharArray.Length - 2;
-        for (int index = size; index >= 0; index -= 2) {
-            charArray = this.baseRefreshHelperCharArray[index];
-            charArray2 = this.baseRefreshHelperCharArray[index + 1];
-            size2 = charArray.Length;
-            size3 = charArray2.Length;
+        uint16[] charArray = null;
+        uint16[] charArray2 = null;
+        int32 size2 = 0;
+        int32 size3 = 0;
+        int32 size = this.baseRefreshHelperCharArray.length[0] - 2;
+        for (int32 index = size; index >= 0; index -= 2) {
+            charArray = JArrays.rowUint16(this.baseRefreshHelperCharArray, index);
+            charArray2 = JArrays.rowUint16(this.baseRefreshHelperCharArray, index + 1);
+            size2 = charArray.length;
+            size3 = charArray2.length;
             graphics.drawChars(charArray, 0, size2, 0, this.yArray[index], 0);
             graphics.drawChars(charArray2, 0, size3, size2 * this.defaultStringWidth, this.yArray[index + 1], 0);
         }
     }
-
-    public GamePerformanceInitUpdatePaintable()
-    {
-        this.yArray = new int[] { this.halfHeight + 30, this.halfHeight + 30, this.halfHeight + 30 + 15, this.halfHeight + 30 + 15, this.halfHeight + 30 + 30, this.halfHeight + 30 + 30, this.halfHeight + 30 + 45, this.halfHeight + 30 + 45 };
-        this.myFontProcessor = new UpdateMyFontProcessor(this);
-    }
-
 }
 

@@ -13,18 +13,13 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.game.input.mapping
+// import org.allbinary.game.input.GameKey
+// import org.allbinary.game.input.Input
 
-using System;
-using System.Linq;
-using GameKey = org.allbinary.game.input.GameKey;
-using Input = org.allbinary.game.input.Input;
+public interface InputMappingInterface : JObject {
+    
 
-namespace org.allbinary.game.input.mapping;
-
-public interface InputMappingInterface
-{
-    // throws Exception
-    void processInputMapping(GameKey gameKey, Input input);
-
+    public abstract void processInputMapping(GameKey gameKey, Input input);
 }
 

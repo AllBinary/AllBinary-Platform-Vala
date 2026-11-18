@@ -13,17 +13,12 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.animation.resource
+// import org.allbinary.animation.BasicAnimationInterfaceFactoryInterface
 
-using System;
-using System.Linq;
-using BasicAnimationInterfaceFactoryInterface = org.allbinary.animation.BasicAnimationInterfaceFactoryInterface;
+public interface ResourceAnimationInterfaceFactoryInterface : JObject {
+    
 
-namespace org.allbinary.animation.resource;
-
-public interface ResourceAnimationInterfaceFactoryInterface
-{
-    // throws Exception
-    BasicAnimationInterfaceFactoryInterface getBasicAnimationInterfaceFactoryInstance(string resource);
-
+    public abstract BasicAnimationInterfaceFactoryInterface getBasicAnimationInterfaceFactoryInstance(string resource);
 }
 

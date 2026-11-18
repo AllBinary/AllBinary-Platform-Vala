@@ -13,17 +13,12 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.graphics.displayable.event
+// import org.allbinary.logic.util.event.EventListenerInterface
 
-using System;
-using System.Linq;
-using EventListenerInterface = org.allbinary.logic.util.@event.EventListenerInterface;
+public interface DisplayChangeEventListener : JObject, EventListenerInterface {
+    
 
-namespace org.allbinary.graphics.displayable.@event;
-
-public interface DisplayChangeEventListener : EventListenerInterface
-{
-    // throws Exception
-    void onDisplayChangeEvent(DisplayChangeEvent displayChangeEvent);
-
+    public abstract void onDisplayChangeEvent(DisplayChangeEvent displayChangeEvent);
 }
 

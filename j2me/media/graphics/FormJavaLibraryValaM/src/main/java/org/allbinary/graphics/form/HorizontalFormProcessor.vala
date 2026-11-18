@@ -13,27 +13,28 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.graphics.form
+// import org.allbinary.canvas.Processor
 
-using System;
-using System.Linq;
-using Processor = org.allbinary.canvas.Processor;
+public class HorizontalFormProcessor : Processor {
+    private ScrollCurrentSelectionForm scrollCurrentSelectionForm;
 
-namespace org.allbinary.graphics.form;
+    // Java field initializers run after the base constructor
+    private void initFieldsHorizontalFormProcessor() {
+    
+    }
+    
 
-public class HorizontalFormProcessor : Processor
-{
-    private readonly ScrollCurrentSelectionForm scrollCurrentSelectionForm;
-    public HorizontalFormProcessor(ScrollCurrentSelectionForm scrollCurrentSelectionForm)
-    {
+    public HorizontalFormProcessor(ScrollCurrentSelectionForm scrollCurrentSelectionForm) {
+        base();
+        this.initFieldsHorizontalFormProcessor();
         this.scrollCurrentSelectionForm = scrollCurrentSelectionForm;
     }
+    
 
-    // throws Exception
-    public override void process()
-    {
+    public override void process() {
         this.scrollCurrentSelectionForm.processHorizontalForm();
         this.scrollCurrentSelectionForm.processor = Processor.getInstance();
     }
-
 }
 

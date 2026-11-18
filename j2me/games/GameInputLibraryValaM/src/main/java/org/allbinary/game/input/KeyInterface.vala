@@ -13,21 +13,20 @@
  *   
  */
 // Generated Code Do Not Modify
+// package org.allbinary.game.input
 
-using System;
-using System.Linq;
+public interface KeyInterface : JObject {
+    
 
-namespace org.allbinary.game.input;
+    public abstract void keyPressed(int32 keyCode);
+    
 
-public interface KeyInterface
-{
-    void keyPressed(int keyCode);
+    public abstract void keyReleased(int32 keyCode);
+    
 
-    void keyReleased(int keyCode);
+    public abstract void keyPressedByDevice(int32 keyCode, int32 deviceId);
+    
 
-    void keyPressedByDevice(int keyCode, int deviceId);
-
-    void keyReleasedByDevice(int keyCode, int deviceId);
-
+    public abstract void keyReleasedByDevice(int32 keyCode, int32 deviceId);
 }
 

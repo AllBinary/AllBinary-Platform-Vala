@@ -13,37 +13,47 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.game.tracking
+// import org.allbinary.layer.AllBinaryLayer
+// import org.allbinary.logic.util.event.AllBinaryEventCircularPool
 
-using System;
-using System.Linq;
-using System.Runtime.CompilerServices;
-using AllBinaryLayer = org.allbinary.layer.AllBinaryLayer;
-using AllBinaryEventCircularPool = org.allbinary.logic.util.@event.AllBinaryEventCircularPool;
-
-namespace org.allbinary.game.tracking;
-
-public class TrackingEventCircularStaticPool
-{
-    private static TrackingEventCircularStaticPool instance = new TrackingEventCircularStaticPool();
-    public static TrackingEventCircularStaticPool getInstance()
-    {
+public class TrackingEventCircularStaticPool : JObject {
+    private static TrackingEventCircularStaticPool? instance;
+    private static bool staticSet_instance = false;
+    private static TrackingEventCircularStaticPool staticGet_instance() {
+        if (!TrackingEventCircularStaticPool.staticSet_instance) {
+            TrackingEventCircularStaticPool.staticSet_instance = true;
+            TrackingEventCircularStaticPool.instance = new TrackingEventCircularStaticPool();
+        }
         return TrackingEventCircularStaticPool.instance;
     }
+    private AllBinaryEventCircularPool EVENT_POOL;
 
-    private AllBinaryEventCircularPool EVENT_POOL = new AllBinaryEventCircularPool(20);
-    public virtual void init()
-    {
-        this.EVENT_POOL.initAllBinaryEventCircularPool(new TrackingEventFactory());
+    // Java field initializers run after the base constructor
+    private void initFieldsTrackingEventCircularStaticPool() {
+    this.EVENT_POOL = new AllBinaryEventCircularPool(20);
     }
 
-    // throws Exception
-    [MethodImpl(MethodImplOptions.Synchronized)]
-    public virtual TrackingEvent getNextInstance(AllBinaryLayer layerInterface)
-    {
+    public TrackingEventCircularStaticPool() {
+        base();
+        this.initFieldsTrackingEventCircularStaticPool();
+    }
+    
+
+    public static TrackingEventCircularStaticPool getInstance() {
+        return TrackingEventCircularStaticPool.staticGet_instance();
+    }
+    
+
+    public virtual void init() {
+        this.EVENT_POOL.initAllBinaryEventCircularPool(new TrackingEventFactory());
+    }
+    
+
+    public virtual TrackingEvent getNextInstance(AllBinaryLayer layerInterface) {
         TrackingEvent trackingEvent = ((TrackingEvent) this.EVENT_POOL.getNextInstance());
         trackingEvent.setLayerInterfaceForCircularStaticPool(layerInterface);
         return trackingEvent;
     }
-
 }
 

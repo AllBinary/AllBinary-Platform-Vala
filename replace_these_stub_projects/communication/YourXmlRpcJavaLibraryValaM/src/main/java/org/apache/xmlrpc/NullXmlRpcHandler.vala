@@ -13,23 +13,29 @@
  *   
  */
 // Generated Code Do Not Modify
+// package org.apache.xmlrpc
+// import org.allbinary.util.BasicArrayList
+// import org.allbinary.util.BasicArrayListD
+// import org.allbinary.logic.NullUtil
 
-using System;
-using System.Linq;
-using BasicArrayList = org.allbinary.util.BasicArrayList;
-using BasicArrayListD = org.allbinary.util.BasicArrayListD;
-using NullUtil = org.allbinary.logic.NullUtil;
-
-namespace org.apache.xmlrpc;
-
-public class NullXmlRpcHandler : XmlRpcHandler
-{
-    public static readonly NullXmlRpcHandler NULL_XML_RPC_HANDLER = new NullXmlRpcHandler();
-    // throws Exception
-    public virtual object execute(string method, BasicArrayList @params)
-    {
-        return NullUtil.getInstance().NULL_OBJECT;
+public class NullXmlRpcHandler : JObject, XmlRpcHandler {
+    public static NullXmlRpcHandler? NULL_XML_RPC_HANDLER;
+    private static bool staticSet_NULL_XML_RPC_HANDLER = false;
+    public static NullXmlRpcHandler staticGet_NULL_XML_RPC_HANDLER() {
+        if (!NullXmlRpcHandler.staticSet_NULL_XML_RPC_HANDLER) {
+            NullXmlRpcHandler.staticSet_NULL_XML_RPC_HANDLER = true;
+            NullXmlRpcHandler.NULL_XML_RPC_HANDLER = new NullXmlRpcHandler();
+        }
+        return NullXmlRpcHandler.NULL_XML_RPC_HANDLER;
     }
 
+    public NullXmlRpcHandler() {
+        base();
+    }
+    
+
+    public virtual JObject execute(string method, BasicArrayList @params) {
+        return NullUtil.getInstance().NULL_OBJECT;
+    }
 }
 

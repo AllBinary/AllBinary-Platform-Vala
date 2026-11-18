@@ -13,63 +13,58 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.logic.system.security.crypt.jcehelper
+// import org.allbinary.TsUtil
+// import org.allbinary.init.crypt.jcehelper.CryptInterface
+// import org.allbinary.logic.NullUtil
+// import org.allbinary.logic.communication.log.PreLogUtil
+// import org.allbinary.logic.java.byteutil.ByteUtil
+// import org.allbinary.string.CommonStrings
 
-using System;
-using System.Linq;
-using TsUtil = org.allbinary.TsUtil;
-using CryptInterface = org.allbinary.init.crypt.jcehelper.CryptInterface;
-using NullUtil = org.allbinary.logic.NullUtil;
-using PreLogUtil = org.allbinary.logic.communication.log.PreLogUtil;
-using ByteUtil = org.allbinary.logic.java.byteutil.ByteUtil;
-using CommonStrings = org.allbinary.@string.CommonStrings;
+public class BasicCrypt : JObject, CryptInterface {
+    private ByteUtil byteUtil;
+    private int8[] key;
 
-namespace org.allbinary.logic.system.security.crypt.jcehelper;
+    // Java field initializers run after the base constructor
+    private void initFieldsBasicCrypt() {
+    this.byteUtil = ByteUtil.getInstance();
+    
+    }
+    
 
-public class BasicCrypt : CryptInterface
-{
-    private readonly ByteUtil byteUtil = ByteUtil.getInstance();
-    private readonly sbyte[] key;
-    public BasicCrypt(string keyAsString)
-    {
-        sbyte[] key = NullUtil.getInstance().NULL_BYTE_ARRAY;
-        try {
+    public BasicCrypt(string keyAsString) {
+        base();
+        this.initFieldsBasicCrypt();
+        int8[] key = NullUtil.getInstance().NULL_BYTE_ARRAY;
+        {
             key = TsUtil.getInstance().getByteArray(keyAsString);
-        } catch (Exception e) {
-            CommonStrings commonStrings = CommonStrings.getInstance();
-            PreLogUtil.putOE(commonStrings.EXCEPTION, this, "AbCrypt(alg,key)", e);
-        }
+        } /* catch (Exception e): a thrown Java exception stops the program */
         this.key = key;
     }
+    
 
-    public virtual sbyte[] encrypt(sbyte[] array)
-    {
-        try {
+    public virtual int8[] encrypt(int8[] array) {
+        {
             return this.mutilate(array);
-        } catch (Exception e) {
-            PreLogUtil.putOE("Encrypt Failed", this, "encrypt", e);
-            return NullUtil.getInstance().NULL_BYTE_ARRAY;
-        }
+        } /* catch (Exception e): a thrown Java exception stops the program */
     }
+    
 
-    public virtual sbyte[] decrypt(sbyte[] array)
-    {
-        try {
+    public virtual int8[] decrypt(int8[] array) {
+        {
             return this.mutilate(array);
-        } catch (Exception e) {
-            PreLogUtil.putOE("decrypt Failed", this, "decrypt", e);
-            return NullUtil.getInstance().NULL_BYTE_ARRAY;
-        }
+        } /* catch (Exception e): a thrown Java exception stops the program */
     }
+    
 
-    public virtual sbyte[] mutilate(sbyte[] array)
-    {
-        sbyte value = 0;
-        for (int index = 0; index < this.key.Length; index++) {
+    public virtual int8[] mutilate(int8[] array_parameter) {
+        int8[] array = array_parameter;
+        int8 value = 0;
+        for (int32 index = 0; index < this.key.length; index++) {
             value = this.key[index];
             array = this.byteUtil.xor(array, value);
         }
         return array;
     }
-
 }
 

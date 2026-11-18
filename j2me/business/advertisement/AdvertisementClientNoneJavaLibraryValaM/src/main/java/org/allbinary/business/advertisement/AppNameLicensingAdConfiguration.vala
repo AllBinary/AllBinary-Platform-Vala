@@ -1,17 +1,12 @@
 // Generated Code Do Not Modify
+// package org.allbinary.business.advertisement
+// import org.allbinary.logic.string.StringUtil
 
-using System;
-using System.Linq;
-using StringUtil = org.allbinary.logic.@string.StringUtil;
+public class AppNameLicensingAdConfiguration : AdConfiguration {
+    
 
-namespace org.allbinary.business.advertisement;
-
-public class AppNameLicensingAdConfiguration : AdConfiguration
-{
-    public AppNameLicensingAdConfiguration() : base(new object[] { StringUtil.getInstance().EMPTY_STRING, StringUtil.getInstance().EMPTY_STRING, StringUtil.getInstance().EMPTY_STRING })
-    {
-        // base(new object[] { StringUtil.getInstance().EMPTY_STRING, StringUtil.getInstance().EMPTY_STRING, StringUtil.getInstance().EMPTY_STRING }) is called from the constructor declaration
+    public AppNameLicensingAdConfiguration() {
+        base(new JObject[] {StringUtil.getInstance().EMPTY_STRING, StringUtil.getInstance().EMPTY_STRING, StringUtil.getInstance().EMPTY_STRING});
     }
-
 }
 

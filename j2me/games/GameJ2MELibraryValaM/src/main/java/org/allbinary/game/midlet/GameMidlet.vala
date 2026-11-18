@@ -13,135 +13,163 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.game.midlet
+// import java.util.Enumeration
+// import javax.microedition.lcdui.Canvas
+// import javax.microedition.lcdui.Command
+// import javax.microedition.lcdui.CommandListener
+// import javax.microedition.lcdui.Displayable
+// import javax.microedition.lcdui.NullCanvas
+// import javax.microedition.midlet.MIDletStateChangeException
+// import org.allbinary.J2MEUtil
+// import org.allbinary.TsUtil
+// import org.allbinary.business.advertisement.GameAdStateFactory
+// import org.allbinary.canvas.FullScreenUtil
+// import org.allbinary.canvas.GameStatisticsFactory
+// import org.allbinary.debug.DebugFactory
+// import org.allbinary.debug.DebugInterface
+// import org.allbinary.game.GameAdState
+// import org.allbinary.game.GameInfo
+// import org.allbinary.game.GameMode
+// import org.allbinary.game.GameStrings
+// import org.allbinary.game.GameTypeFactory
+// import org.allbinary.game.PlayerTypesFactory
+// import org.allbinary.game.commands.GameCommandsFactory
+// import org.allbinary.game.configuration.GameOptionsForm
+// import org.allbinary.game.configuration.GameOptionsFormFactory
+// import org.allbinary.game.configuration.InGameFeatures
+// import org.allbinary.game.configuration.InGameOptionsForm
+// import org.allbinary.game.configuration.InGameOptionsFormFactory
+// import org.allbinary.game.configuration.LoadGameForm
+// import org.allbinary.game.configuration.event.ChangedGameFeatureListener
+// import org.allbinary.game.configuration.event.GameFeatureEventHandler
+// import org.allbinary.game.configuration.feature.Features
+// import org.allbinary.game.configuration.feature.GameFeatureFormUtil
+// import org.allbinary.game.configuration.feature.MainFeatureFactory
+// import org.allbinary.game.configuration.persistance.GamePersistanceSingleton
+// import org.allbinary.game.configuration.persistance.KeyValuePersistance
+// import org.allbinary.game.displayable.canvas.AllBinaryGameCanvas
+// import org.allbinary.game.displayable.canvas.BasicPaintablesCanvas
+// import org.allbinary.game.displayable.canvas.DemoCanvas
+// import org.allbinary.game.displayable.canvas.GameCanvasRunnableInterface
+// import org.allbinary.game.displayable.canvas.GameEventHandlerUtil
+// import org.allbinary.game.displayable.canvas.GameInputMappingCanvas
+// import org.allbinary.game.displayable.canvas.GameInputMappingInstructionsCanvas
+// import org.allbinary.game.displayable.canvas.MenuListener
+// import org.allbinary.game.displayable.canvas.NullGameCanvasRunnable
+// import org.allbinary.game.input.TextNotificationUtil
+// import org.allbinary.game.layer.AllBinaryGameLayerManager
+// import org.allbinary.game.layer.hud.event.GameNotificationEventHandler
+// import org.allbinary.game.paint.help.HelpPaintable
+// import org.allbinary.game.score.HighScoreCommands
+// import org.allbinary.game.score.HighScoreCommandsFactory
+// import org.allbinary.game.score.displayable.HighScoreTextBox
+// import org.allbinary.game.score.displayable.HighScoreUtil
+// import org.allbinary.game.score.displayable.HighScoresCanvas
+// import org.allbinary.game.state.GameStateFactory
+// import org.allbinary.graphics.ResizableListenerHandler
+// import org.allbinary.graphics.canvas.transition.progress.ProgressCanvas
+// import org.allbinary.graphics.canvas.transition.progress.ProgressCanvasFactory
+// import org.allbinary.graphics.color.BasicColorFactory
+// import org.allbinary.graphics.color.ColorChangeEventHandler
+// import org.allbinary.graphics.displayable.CanvasStrings
+// import org.allbinary.graphics.displayable.MyCanvas
+// import org.allbinary.graphics.displayable.command.MyCommandsFactory
+// import org.allbinary.graphics.displayable.screen.AboutCommandProcessor
+// import org.allbinary.graphics.displayable.screen.AboutPaintableFactory
+// import org.allbinary.graphics.displayable.screen.CommandForm
+// import org.allbinary.graphics.displayable.screen.WebCommandProcessor
+// import org.allbinary.input.AllBinarySensorManager
+// import org.allbinary.input.event.VirtualKeyboardEventHandler
+// import org.allbinary.input.motion.gesture.observer.BasicMotionGesturesHandler
+// import org.allbinary.logic.communication.log.ForcedLogUtil
+// import org.allbinary.logic.communication.log.PreLogUtil
+// import org.allbinary.logic.math.SmallIntegerSingletonFactory
+// import org.allbinary.logic.string.StringMaker
+// import org.allbinary.logic.system.security.licensing.ClientInformationFactory
+// import org.allbinary.logic.system.security.licensing.InApplicationPurchaseFactory
+// import org.allbinary.logic.system.security.licensing.LockableFeature
+// import org.allbinary.logic.system.security.licensing.LockableFeatureFactory
+// import org.allbinary.logic.util.event.AllBinaryEventObject
+// import org.allbinary.logic.util.event.EventStrings
+// import org.allbinary.media.audio.AllBinaryMediaManager
+// import org.allbinary.midlet.MidletStrings
+// import org.allbinary.midlet.ProgressMidlet
+// import org.allbinary.thread.NullThread
+// import org.allbinary.thread.ThreadFactoryUtil
+// import org.allbinary.thread.ThreadUtil
+// import org.allbinary.time.TimeDelayHelper
+// import org.allbinary.util.BasicArrayList
+// import org.allbinary.util.EnumerationUtil
+// import org.allbinary.logic.StdUtil
+// import org.allbinary.util.ABHashtable
 
-using System;
-using System.Linq;
-using System.Runtime.CompilerServices;
-using java.util;
-using Canvas = javax.microedition.lcdui.Canvas;
-using Command = javax.microedition.lcdui.Command;
-using CommandListener = javax.microedition.lcdui.CommandListener;
-using Displayable = javax.microedition.lcdui.Displayable;
-using NullCanvas = javax.microedition.lcdui.NullCanvas;
-using MIDletStateChangeException = javax.microedition.midlet.MIDletStateChangeException;
-using J2MEUtil = org.allbinary.J2MEUtil;
-using TsUtil = org.allbinary.TsUtil;
-using GameAdStateFactory = org.allbinary.business.advertisement.GameAdStateFactory;
-using FullScreenUtil = org.allbinary.canvas.FullScreenUtil;
-using GameStatisticsFactory = org.allbinary.canvas.GameStatisticsFactory;
-using DebugFactory = org.allbinary.debug.DebugFactory;
-using DebugInterface = org.allbinary.debug.DebugInterface;
-using GameAdState = org.allbinary.game.GameAdState;
-using GameInfo = org.allbinary.game.GameInfo;
-using GameMode = org.allbinary.game.GameMode;
-using GameStrings = org.allbinary.game.GameStrings;
-using GameTypeFactory = org.allbinary.game.GameTypeFactory;
-using PlayerTypesFactory = org.allbinary.game.PlayerTypesFactory;
-using GameCommandsFactory = org.allbinary.game.commands.GameCommandsFactory;
-using GameOptionsForm = org.allbinary.game.configuration.GameOptionsForm;
-using GameOptionsFormFactory = org.allbinary.game.configuration.GameOptionsFormFactory;
-using InGameFeatures = org.allbinary.game.configuration.InGameFeatures;
-using InGameOptionsForm = org.allbinary.game.configuration.InGameOptionsForm;
-using InGameOptionsFormFactory = org.allbinary.game.configuration.InGameOptionsFormFactory;
-using LoadGameForm = org.allbinary.game.configuration.LoadGameForm;
-using ChangedGameFeatureListener = org.allbinary.game.configuration.@event.ChangedGameFeatureListener;
-using GameFeatureEventHandler = org.allbinary.game.configuration.@event.GameFeatureEventHandler;
-using Features = org.allbinary.game.configuration.feature.Features;
-using GameFeatureFormUtil = org.allbinary.game.configuration.feature.GameFeatureFormUtil;
-using MainFeatureFactory = org.allbinary.game.configuration.feature.MainFeatureFactory;
-using GamePersistanceSingleton = org.allbinary.game.configuration.persistance.GamePersistanceSingleton;
-using KeyValuePersistance = org.allbinary.game.configuration.persistance.KeyValuePersistance;
-using AllBinaryGameCanvas = org.allbinary.game.displayable.canvas.AllBinaryGameCanvas;
-using BasicPaintablesCanvas = org.allbinary.game.displayable.canvas.BasicPaintablesCanvas;
-using DemoCanvas = org.allbinary.game.displayable.canvas.DemoCanvas;
-using GameCanvasRunnableInterface = org.allbinary.game.displayable.canvas.GameCanvasRunnableInterface;
-using GameEventHandlerUtil = org.allbinary.game.displayable.canvas.GameEventHandlerUtil;
-using GameInputMappingCanvas = org.allbinary.game.displayable.canvas.GameInputMappingCanvas;
-using GameInputMappingInstructionsCanvas = org.allbinary.game.displayable.canvas.GameInputMappingInstructionsCanvas;
-using MenuListener = org.allbinary.game.displayable.canvas.MenuListener;
-using NullGameCanvasRunnable = org.allbinary.game.displayable.canvas.NullGameCanvasRunnable;
-using TextNotificationUtil = org.allbinary.game.input.TextNotificationUtil;
-using AllBinaryGameLayerManager = org.allbinary.game.layer.AllBinaryGameLayerManager;
-using GameNotificationEventHandler = org.allbinary.game.layer.hud.@event.GameNotificationEventHandler;
-using HelpPaintable = org.allbinary.game.paint.help.HelpPaintable;
-using HighScoreCommands = org.allbinary.game.score.HighScoreCommands;
-using HighScoreCommandsFactory = org.allbinary.game.score.HighScoreCommandsFactory;
-using HighScoreTextBox = org.allbinary.game.score.displayable.HighScoreTextBox;
-using HighScoreUtil = org.allbinary.game.score.displayable.HighScoreUtil;
-using HighScoresCanvas = org.allbinary.game.score.displayable.HighScoresCanvas;
-using GameStateFactory = org.allbinary.game.state.GameStateFactory;
-using ResizableListenerHandler = org.allbinary.graphics.ResizableListenerHandler;
-using ProgressCanvas = org.allbinary.graphics.canvas.transition.progress.ProgressCanvas;
-using ProgressCanvasFactory = org.allbinary.graphics.canvas.transition.progress.ProgressCanvasFactory;
-using BasicColorFactory = org.allbinary.graphics.color.BasicColorFactory;
-using ColorChangeEventHandler = org.allbinary.graphics.color.ColorChangeEventHandler;
-using CanvasStrings = org.allbinary.graphics.displayable.CanvasStrings;
-using MyCanvas = org.allbinary.graphics.displayable.MyCanvas;
-using MyCommandsFactory = org.allbinary.graphics.displayable.command.MyCommandsFactory;
-using AboutCommandProcessor = org.allbinary.graphics.displayable.screen.AboutCommandProcessor;
-using AboutPaintableFactory = org.allbinary.graphics.displayable.screen.AboutPaintableFactory;
-using CommandForm = org.allbinary.graphics.displayable.screen.CommandForm;
-using WebCommandProcessor = org.allbinary.graphics.displayable.screen.WebCommandProcessor;
-using AllBinarySensorManager = org.allbinary.input.AllBinarySensorManager;
-using VirtualKeyboardEventHandler = org.allbinary.input.@event.VirtualKeyboardEventHandler;
-using BasicMotionGesturesHandler = org.allbinary.input.motion.gesture.observer.BasicMotionGesturesHandler;
-using ForcedLogUtil = org.allbinary.logic.communication.log.ForcedLogUtil;
-using PreLogUtil = org.allbinary.logic.communication.log.PreLogUtil;
-using SmallIntegerSingletonFactory = org.allbinary.logic.math.SmallIntegerSingletonFactory;
-using StringMaker = org.allbinary.logic.@string.StringMaker;
-using ClientInformationFactory = org.allbinary.logic.system.security.licensing.ClientInformationFactory;
-using InApplicationPurchaseFactory = org.allbinary.logic.system.security.licensing.InApplicationPurchaseFactory;
-using LockableFeature = org.allbinary.logic.system.security.licensing.LockableFeature;
-using LockableFeatureFactory = org.allbinary.logic.system.security.licensing.LockableFeatureFactory;
-using AllBinaryEventObject = org.allbinary.logic.util.@event.AllBinaryEventObject;
-using EventStrings = org.allbinary.logic.util.@event.EventStrings;
-using AllBinaryMediaManager = org.allbinary.media.audio.AllBinaryMediaManager;
-using MidletStrings = org.allbinary.midlet.MidletStrings;
-using ProgressMidlet = org.allbinary.midlet.ProgressMidlet;
-using NullThread = org.allbinary.thread.NullThread;
-using ThreadFactoryUtil = org.allbinary.thread.ThreadFactoryUtil;
-using ThreadUtil = org.allbinary.thread.ThreadUtil;
-using TimeDelayHelper = org.allbinary.time.TimeDelayHelper;
-using BasicArrayList = org.allbinary.util.BasicArrayList;
-using EnumerationUtil = org.allbinary.util.EnumerationUtil;
-using StdUtil = org.allbinary.logic.StdUtil;
-using org.allbinary.util;
-
-namespace org.allbinary.game.midlet;
-
-public class GameMidlet : ProgressMidlet, CommandListener
-{
-    private readonly EnumerationUtil enumerationUtil = EnumerationUtil.getInstance();
-    public readonly BasicColorFactory basicColorFactory = BasicColorFactory.getInstance();
-    public readonly Features features = Features.getInstance();
-    public readonly MidletStrings midletStrings = MidletStrings.getInstance();
-    public readonly MyCommandsFactory myCommandsFactory = MyCommandsFactory.getInstance();
-    public readonly GameStrings gameStrings = GameStrings.getInstance();
-    public readonly GameAdStateFactory gameAdStateFactory = GameAdStateFactory.getInstance();
-    public readonly GameStateFactory gameStateFactory = GameStateFactory.getInstance();
-    public readonly TsUtil tsUtil = TsUtil.getInstance();
-    private readonly string DISPLAYABLE = " Displayable: ";
-    private readonly string COMMAND_NAME = "command Name/Label: ";
-    private readonly string NO_COMMAND = "No Command";
-    private readonly string NO_DISPLAYABLE = "No Displayable";
-    private readonly string COMMAND_ACTION;
-    private readonly string PAUSE_APP_BACKGROUND = "pauseAppBackground";
-    private readonly string UN_PAUSE_APP_BACKGROUND = "unPauseAppBackground";
-    private readonly AboutCommandProcessor aboutCommandProcessor = AboutCommandProcessor.getInstance();
-    private readonly WebCommandProcessor webCommandProcessor = WebCommandProcessor.getInstance();
-    private readonly GameMidletStateFactory gameMidletStateFactory = GameMidletStateFactory.getInstance();
-    public readonly TimeDelayHelper gameStartTimeHelper = new TimeDelayHelper(240);
-    private readonly FullScreenUtil fullScreenUtil = FullScreenUtil.getInstance();
-    private readonly DebugInterface debugInterface;
-    private GameCanvasRunnableInterface allbinaryGameCanvasRunnableInterface = NullGameCanvasRunnable.NULL_GAME_CANVAS_RUNNABLE;
-    private global::org.allbinary.thread.NullThread thread = NullThread.NULL_THREAD;
+public class GameMidlet : ProgressMidlet, CommandListener {
+    private EnumerationUtil enumerationUtil;
+    public BasicColorFactory basicColorFactory;
+    public Features features;
+    public MidletStrings midletStrings;
+    public MyCommandsFactory myCommandsFactory;
+    public GameStrings gameStrings;
+    public GameAdStateFactory gameAdStateFactory;
+    public GameStateFactory gameStateFactory;
+    public TsUtil tsUtil;
+    private string DISPLAYABLE;
+    private string COMMAND_NAME;
+    private string NO_COMMAND;
+    private string NO_DISPLAYABLE;
+    private string COMMAND_ACTION;
+    private string PAUSE_APP_BACKGROUND;
+    private string UN_PAUSE_APP_BACKGROUND;
+    private AboutCommandProcessor aboutCommandProcessor;
+    private WebCommandProcessor webCommandProcessor;
+    private GameMidletStateFactory gameMidletStateFactory;
+    public TimeDelayHelper gameStartTimeHelper;
+    private FullScreenUtil fullScreenUtil;
+    private DebugInterface debugInterface;
+    private GameCanvasRunnableInterface allbinaryGameCanvasRunnableInterface;
+    private Thread thread;
     private CommandForm loadGameForm;
-    private bool isFullScreen = false;
-    private bool resized = false;
-    public GameMidlet(ClientInformationFactory clientInformationFactory) : base(clientInformationFactory)
-    {
-        this.COMMAND_ACTION = new StringMaker().append("GameMidlet::").append(this.midletStrings.COMMAND_ACTION).ToString();
-        // base(clientInformationFactory) is called from the constructor declaration
+    private bool isFullScreen;
+    private bool resized;
+    private bool startedBefore;
+
+    // Java field initializers run after the base constructor
+    private void initFieldsGameMidlet() {
+    this.enumerationUtil = EnumerationUtil.getInstance();
+    this.basicColorFactory = BasicColorFactory.getInstance();
+    this.features = Features.getInstance();
+    this.midletStrings = MidletStrings.getInstance();
+    this.myCommandsFactory = MyCommandsFactory.getInstance();
+    this.gameStrings = GameStrings.getInstance();
+    this.gameAdStateFactory = GameAdStateFactory.getInstance();
+    this.gameStateFactory = GameStateFactory.getInstance();
+    this.tsUtil = TsUtil.getInstance();
+    this.DISPLAYABLE = " Displayable: ";
+    this.COMMAND_NAME = "command Name/Label: ";
+    this.NO_COMMAND = "No Command";
+    this.NO_DISPLAYABLE = "No Displayable";
+    this.COMMAND_ACTION = new StringMaker().append("GameMidlet::").append(this.midletStrings.COMMAND_ACTION).toString();
+    this.PAUSE_APP_BACKGROUND = "pauseAppBackground";
+    this.UN_PAUSE_APP_BACKGROUND = "unPauseAppBackground";
+    this.aboutCommandProcessor = AboutCommandProcessor.getInstance();
+    this.webCommandProcessor = WebCommandProcessor.getInstance();
+    this.gameMidletStateFactory = GameMidletStateFactory.getInstance();
+    this.gameStartTimeHelper = new TimeDelayHelper(240);
+    this.fullScreenUtil = FullScreenUtil.getInstance();
+    
+    this.allbinaryGameCanvasRunnableInterface = NullGameCanvasRunnable.NULL_GAME_CANVAS_RUNNABLE;
+    this.thread = NullThread.NULL_THREAD;
+    
+    this.isFullScreen = false;
+    this.resized = false;
+    this.startedBefore = false;
+    }
+    
+
+    public GameMidlet(ClientInformationFactory clientInformationFactory) {
+        base(clientInformationFactory);
+        this.initFieldsGameMidlet();
         SmallIntegerSingletonFactory.getInstance().initWithRange(0x291, 6);
         this.loadGameForm = CommandForm.getNullCommandForm();
         ProgressCanvas progressCanvas = ProgressCanvasFactory.getInstance();
@@ -151,42 +179,39 @@ public class GameMidlet : ProgressMidlet, CommandListener
         this.debugInterface = DebugFactory.getInstance();
         this.init();
     }
+    
 
-    public virtual void init()
-    {
+    public virtual void init() {
     }
+    
 
-    // throws Exception
-    public virtual void setDemo()
-    {
-        throw new Exception(this.commonStrings.NOT_IMPLEMENTED);
+    public virtual void setDemo() {
+        JSystem.fatal(new JException("Exception", this.commonStrings.NOT_IMPLEMENTED));
     }
+    
 
-    // throws Exception
-    public virtual void createGame()
-    {
-        throw new Exception(this.commonStrings.NOT_IMPLEMENTED);
+    public virtual void createGame() {
+        JSystem.fatal(new JException("Exception", this.commonStrings.NOT_IMPLEMENTED));
     }
+    
 
-    // throws Exception
-    public virtual void mediaShutdown()
-    {
-        throw new Exception(this.commonStrings.NOT_IMPLEMENTED);
+    public virtual void mediaShutdown() {
+        JSystem.fatal(new JException("Exception", this.commonStrings.NOT_IMPLEMENTED));
     }
+    
 
-    public virtual void stopAll()
-    {
+    public virtual void stopAll() {
     }
+    
 
-    public override void pauseApp()
-    {
+    public override void pauseApp() {
         this.pauseAppBackground(true);
         GameAdState gameAdState = this.gameAdStateFactory.getCurrentInstance();
         gameAdState.getAdvertisements().stopAll();
     }
+    
 
-    public virtual void pauseAppBackground(bool background)
-    {
+    public virtual void pauseAppBackground(bool background) {
         this.logUtil.putF(this.commonStrings.START, this, this.PAUSE_APP_BACKGROUND);
         if (this.allbinaryGameCanvasRunnableInterface != NullGameCanvasRunnable.NULL_GAME_CANVAS_RUNNABLE) {
             this.allbinaryGameCanvasRunnableInterface.pause();
@@ -195,16 +220,16 @@ public class GameMidlet : ProgressMidlet, CommandListener
         }
         AllBinarySensorManager.getInstance().shutdown();
     }
+    
 
-    public virtual void unPauseApp()
-    {
+    public virtual void unPauseApp() {
         this.unPauseAppBackground(true);
         GameAdState gameAdState = this.gameAdStateFactory.getCurrentInstance();
         gameAdState.getAdvertisements().startAll();
     }
+    
 
-    public virtual void unPauseAppBackground(bool background)
-    {
+    public virtual void unPauseAppBackground(bool background) {
         this.logUtil.putF(this.commonStrings.START, this, this.UN_PAUSE_APP_BACKGROUND);
         AllBinarySensorManager.getInstance().init();
         GameCanvasRunnableInterface gameCanvasRunnableInterface = this.allbinaryGameCanvasRunnableInterface;
@@ -214,9 +239,9 @@ public class GameMidlet : ProgressMidlet, CommandListener
             this.logUtil.putF("<<<<<< Null", this, this.UN_PAUSE_APP_BACKGROUND);
         }
     }
+    
 
-    public override void destroyAppInRunnable(bool unconditional, bool isProgress)
-    {
+    public override void destroyAppInRunnable(bool unconditional, bool isProgress) {
         ProgressCanvas progressCanvas = ProgressCanvasFactory.getInstance();
         if (isProgress) {
             progressCanvas.start();
@@ -227,12 +252,12 @@ public class GameMidlet : ProgressMidlet, CommandListener
             progressCanvas.end();
         }
     }
+    
 
-    public override void destroyApp(bool unconditional)
-    {
+    public override void destroyApp(bool unconditional) {
         string METHOD_NAME = "GameMidlet::destroyApp";
-        try {
-            PreLogUtil.put(GameStatisticsFactory.getInstance().ToString(), this, METHOD_NAME);
+        {
+            PreLogUtil.put(GameStatisticsFactory.getInstance().toString(), this, METHOD_NAME);
             GameAdState gameAdState = this.gameAdStateFactory.getCurrentInstance();
             gameAdState.getAdvertisements().stopAll();
             if (!this.isDestroyed()) {
@@ -244,21 +269,18 @@ public class GameMidlet : ProgressMidlet, CommandListener
             }
             base.destroyApp(true);
             PreLogUtil.put(this.commonStrings.END, this, METHOD_NAME);
-        } catch (Exception e) {
-            this.logUtil.put(this.commonStrings.EXCEPTION, this, METHOD_NAME, e);
-        }
+        } /* catch (Exception e): a thrown Java exception stops the program */
         this.logUtil.putF(this.commonStrings.END, this, METHOD_NAME);
     }
+    
 
-    // throws MIDletStateChangeException
-    public override void startApp()
-    {
-        try {
+    public override void startApp() {
+        {
             GameAdState gameAdState = this.gameAdStateFactory.getCurrentInstance();
             gameAdState.getAdvertisements().startAll();
             string START_APP = "startApp";
             this.logUtil.putF(this.commonStrings.START, this, START_APP);
-            object gameCanvasRunnableInterface = this.allbinaryGameCanvasRunnableInterface;
+            JObject gameCanvasRunnableInterface = this.allbinaryGameCanvasRunnableInterface;
             if (gameCanvasRunnableInterface == NullGameCanvasRunnable.NULL_GAME_CANVAS_RUNNABLE) {
                 this.gameMidletStateFactory.setCurrentGameState(this.gameStateFactory.NO_GAME_STATE);
                 this.setDemo();
@@ -270,29 +292,24 @@ public class GameMidlet : ProgressMidlet, CommandListener
                     this.logUtil.putF("GameCanvasRunnableInterface is not current displayable", this, START_APP);
                 }
             }
-        } catch (Exception e) {
-            this.logUtil.put(this.commonStrings.EXCEPTION, this, "startApp", e);
-            this.destroyApp(false);
-            this.notifyDestroyed();
-        }
+        } /* catch (Exception e): a thrown Java exception stops the program */
     }
+    
 
-    [MethodImpl(MethodImplOptions.Synchronized)]
-    public override void commandAction(Command command, Displayable displayable)
-    {
-        try {
+    public override void commandAction(Command command, Displayable displayable) {
+        {
             string displayableAsString = this.NO_DISPLAYABLE;
             if (displayable != null) {
-                displayableAsString = displayable.ToString();
+                displayableAsString = displayable.toString();
             }
             string label = this.NO_COMMAND;
             if (command != null) {
                 label = command.getLabel();
             }
-            PreLogUtil.put(new StringMaker().append(this.COMMAND_NAME).append(label).append(this.DISPLAYABLE).append(displayableAsString).ToString(), this, this.COMMAND_ACTION);
+            PreLogUtil.put(new StringMaker().append(this.COMMAND_NAME).append(label).append(this.DISPLAYABLE).append(displayableAsString).toString(), this, this.COMMAND_ACTION);
             GameCommandsFactory gameCommandsFactory = GameCommandsFactory.getInstance();
             GameCanvasRunnableInterface allbinaryGameCanvasRunnableInterface = this.allbinaryGameCanvasRunnableInterface;
-            object gameCanvasRunnableInterface = allbinaryGameCanvasRunnableInterface;
+            JObject gameCanvasRunnableInterface = allbinaryGameCanvasRunnableInterface;
             if (command == gameCommandsFactory.SHOW_GAME_CANVAS) {
                 if (this.getDisplay().getCurrent() != gameCanvasRunnableInterface && allbinaryGameCanvasRunnableInterface.getType() != NullGameCanvasRunnable.NULL_GAME_CANVAS_RUNNABLE.getType()) {
                     this.setDisplay(((Displayable) gameCanvasRunnableInterface));
@@ -329,7 +346,7 @@ public class GameMidlet : ProgressMidlet, CommandListener
             } else if (command == gameCommandsFactory.BUY_COMMAND) {
                 InApplicationPurchaseFactory inApplicationPurchaseFactory = InApplicationPurchaseFactory.getInstance();
                 BasicArrayList list = LockableFeatureFactory.getInstance().getList();
-                LockableFeature lockableFeature = ((LockableFeature) list.get(0));
+                LockableFeature lockableFeature = ((LockableFeature) list.@get(0));
                 if (list.size() > 0 && !inApplicationPurchaseFactory.isPurchased(lockableFeature)) {
                     inApplicationPurchaseFactory.purchase(lockableFeature);
                 } else {
@@ -337,7 +354,7 @@ public class GameMidlet : ProgressMidlet, CommandListener
                 }
             } else if (command == gameCommandsFactory.QUIT_COMMAND) {
                 if (this.gameStartTimeHelper.isTimeTNT()) {
-                    if (displayable is HighScoreTextBox) {
+                    if ((displayable is HighScoreTextBox)) {
                         MenuListener menuListener = ((MenuListener) displayable);
                         menuListener.close();
                     }
@@ -371,19 +388,19 @@ public class GameMidlet : ProgressMidlet, CommandListener
                 gameCanvas.removeCommand(gameCommandsFactory.STOP_TRACE);
             } else if (command == gameCommandsFactory.DEFAULT_OPTIONS) {
                 Displayable tempDisplayable = displayable;
-                if (tempDisplayable is GameOptionsForm) {
+                if ((tempDisplayable is GameOptionsForm)) {
                     GameFeatureFormUtil.getInstance().setDefault(((CommandForm) tempDisplayable));
                 }
             } else if (command == GameInputMappingInstructionsCanvas.DISPLAY) {
                 Displayable tempDisplayable = displayable;
-                if (tempDisplayable is GameInputMappingCanvas) {
+                if ((tempDisplayable is GameInputMappingCanvas)) {
                     GameInputMappingCanvas gameInputMappingCanvas = ((GameInputMappingCanvas) tempDisplayable);
                     gameInputMappingCanvas.update();
                 }
                 this.commandAction(gameCommandsFactory.SET_MENU_DISPLAYABLE, this.getInputMappingInstructionsCanvas());
             } else if (HighScoreCommandsFactory.getInstance().isHighScoreCommand(command)) {
                 Displayable tempDisplayable = displayable;
-                if (tempDisplayable is HighScoresCanvas) {
+                if ((tempDisplayable is HighScoresCanvas)) {
                     HighScoresCanvas highScoresCanvas = ((HighScoresCanvas) tempDisplayable);
                     highScoresCanvas.updateCommand(command);
                 }
@@ -400,7 +417,7 @@ public class GameMidlet : ProgressMidlet, CommandListener
                 this.commandAction(gameCommandsFactory.SET_MENU_DISPLAYABLE, this.getInputMappingCanvas());
             } else if (command == GameInputMappingCanvas.DEFAULT) {
                 Displayable tempDisplayable = displayable;
-                if (tempDisplayable is GameInputMappingCanvas) {
+                if ((tempDisplayable is GameInputMappingCanvas)) {
                     GameInputMappingCanvas gameInputMappingCanvas = ((GameInputMappingCanvas) tempDisplayable);
                     gameInputMappingCanvas.setDefault();
                 }
@@ -411,11 +428,11 @@ public class GameMidlet : ProgressMidlet, CommandListener
                 AllBinaryGameLayerManager layerManager = this.createGameLayerManager();
                 InGameOptionsFormFactory inGameOptionsFormFactory = InGameOptionsFormFactory.getInstance();
                 inGameOptionsFormFactory.init(this, new InGameFeatures(), "Options In Game", layerManager.getBackgroundBasicColor(), layerManager.getForegroundBasicColor());
-                CommandForm inGameOptionsForm = inGameOptionsFormFactory.get();
+                CommandForm inGameOptionsForm = inGameOptionsFormFactory.@get();
                 inGameOptionsForm.setItemStateListener(allbinaryGameCanvasRunnableInterface);
                 this.commandAction(gameCommandsFactory.SET_MENU_DISPLAYABLE, inGameOptionsForm);
             } else if (command == InGameOptionsForm.DEFAULT) {
-                InGameOptionsForm inGameOptionsForm = ((InGameOptionsForm) InGameOptionsFormFactory.getInstance().get());
+                InGameOptionsForm inGameOptionsForm = ((InGameOptionsForm) InGameOptionsFormFactory.getInstance().@get());
                 GameFeatureFormUtil.getInstance().setDefault(inGameOptionsForm);
             } else if (command == gameCommandsFactory.DISPLAY_OPTIONS) {
                 AllBinaryMediaManager.setMuted(true);
@@ -434,7 +451,7 @@ public class GameMidlet : ProgressMidlet, CommandListener
                 stringBuffer.appendboolean(this.fullScreenUtil.isScreenChange(this.isFullScreen));
                 stringBuffer.append(" isResized: ");
                 stringBuffer.appendboolean(this.isResized());
-                PreLogUtil.put(stringBuffer.ToString(), this, this.COMMAND_ACTION);
+                PreLogUtil.put(stringBuffer.toString(), this, this.COMMAND_ACTION);
                 if (this.isResized() || this.fullScreenUtil.isScreenChange(this.isFullScreen)) {
                     this.updateFullScreen();
                 }
@@ -453,22 +470,22 @@ public class GameMidlet : ProgressMidlet, CommandListener
                 this.commandAction(gameCommandsFactory.SET_MENU_DISPLAYABLE, this.getLoadGameForm());
             } else if (command == gameCommandsFactory.LOAD_FILE) {
                 LoadGameForm loadGameForm = ((LoadGameForm) this.getLoadGameForm());
-                int index = loadGameForm.getSelectedId();
+                int32 index = loadGameForm.getSelectedId();
                 if (index != -1) {
                     KeyValuePersistance keyValuePersistance = GamePersistanceSingleton.getInstance();
-                    this.setStartStateHashtable(keyValuePersistance.get(index));
+                    this.setStartStateHashtable(keyValuePersistance.@get(index));
                     MenuListener menuListener = this.getLoadGameForm();
                     menuListener.close();
-                    PreLogUtil.put(BasicMotionGesturesHandler.getInstance().ToString(), this, this.COMMAND_ACTION);
+                    PreLogUtil.put(BasicMotionGesturesHandler.getInstance().toString(), this, this.COMMAND_ACTION);
                     this.commandAction(gameCommandsFactory.START_COMMAND, NullCanvas.NULL_CANVAS);
-                    PreLogUtil.put(BasicMotionGesturesHandler.getInstance().ToString(), this, this.COMMAND_ACTION);
+                    PreLogUtil.put(BasicMotionGesturesHandler.getInstance().toString(), this, this.COMMAND_ACTION);
                 }
             } else if (command == gameCommandsFactory.DELETE_FILE) {
                 LoadGameForm loadGameForm = ((LoadGameForm) this.getLoadGameForm());
-                int index = loadGameForm.getSelectedText();
+                int32 index = loadGameForm.getSelectedText();
                 if (index != -1) {
                     KeyValuePersistance keyValuePersistance = GamePersistanceSingleton.getInstance();
-                    keyValuePersistance.delete(this.abeClientInformation, index);
+                    keyValuePersistance.@delete(this.abeClientInformation, index);
                     keyValuePersistance.clear();
                     keyValuePersistance.loadAllSize(this.abeClientInformation, 1);
                     this.getLoadGameForm().update();
@@ -480,7 +497,7 @@ public class GameMidlet : ProgressMidlet, CommandListener
                 this.unPauseAppBackground(false);
             } else if (command == HighScoreUtil.SUBMIT_TEXTBOX_COMMAND) {
                 this.logUtil.putF("Submitted Score", this, this.COMMAND_ACTION);
-                if (displayable is HighScoreTextBox) {
+                if ((displayable is HighScoreTextBox)) {
                     HighScoreTextBox highScoreTextBox = ((HighScoreTextBox) displayable);
                     highScoreTextBox.submitted = true;
                 }
@@ -503,80 +520,68 @@ public class GameMidlet : ProgressMidlet, CommandListener
                 }
                 this.updateFullScreen();
             }
-        } catch (Exception e) {
-            this.logUtil.put(new StringMaker().append(this.commonStrings.EXCEPTION_LABEL).append(command.getLabel()).ToString(), this, this.midletStrings.COMMAND_ACTION, e);
-            if (command != GameCommandsFactory.getInstance().EXIT_COMMAND) {
-                this.exitProgress(false);
-            }
-        }
+        } /* catch (Exception e): a thrown Java exception stops the program */
     }
+    
 
-    private void updateFullScreen()
-    {
+    private void updateFullScreen() {
         MainFeatureFactory mainFeatureFactory = MainFeatureFactory.getInstance();
         bool isFullScreen = this.features.isFeature(mainFeatureFactory.FULL_SCREEN);
         Displayable displayable = this.getDisplay().getCurrent();
-        if (displayable is Canvas) {
+        if ((displayable is Canvas)) {
             Canvas canvas = ((Canvas) displayable);
             canvas.setFullScreenMode(isFullScreen);
         }
     }
+    
 
-    public virtual void onEvent(AllBinaryEventObject eventObject)
-    {
+    public virtual void onEvent(AllBinaryEventObject eventObject) {
         ForcedLogUtil.log(EventStrings.getInstance().PERFORMANCE_MESSAGE, this);
     }
+    
 
-    // throws Exception
-    public virtual MyCanvas getInputMappingInstructionsCanvas()
-    {
+    public virtual MyCanvas getInputMappingInstructionsCanvas() {
         return new GameInputMappingInstructionsCanvas(this, this.createGameLayerManager());
     }
+    
 
-    // throws Exception
-    public virtual MyCanvas getInputMappingCanvas()
-    {
+    public virtual MyCanvas getInputMappingCanvas() {
         return new GameInputMappingCanvas(this.abeClientInformation, this, this.createGameLayerManager(), this.getHelpPaintable());
     }
+    
 
-    // throws Exception
-    public virtual MyCanvas getAboutCanvas()
-    {
+    public virtual MyCanvas getAboutCanvas() {
         return new BasicPaintablesCanvas(this, CanvasStrings.getInstance().ABOUT, this.createGameLayerManager(), AboutPaintableFactory.getInstance().paintableArray);
     }
+    
 
-    // throws Exception
-    public virtual HelpPaintable getHelpPaintable()
-    {
-        throw new Exception(this.commonStrings.NOT_IMPLEMENTED);
+    public virtual HelpPaintable getHelpPaintable() {
+        JSystem.fatal(new JException("Exception", this.commonStrings.NOT_IMPLEMENTED));
     }
+    
 
-    // throws Exception
-    public virtual HighScoresCanvas createHighScoresCanvas()
-    {
-        throw new Exception(this.commonStrings.NOT_IMPLEMENTED);
+    public virtual HighScoresCanvas createHighScoresCanvas() {
+        JSystem.fatal(new JException("Exception", this.commonStrings.NOT_IMPLEMENTED));
     }
+    
 
-    // throws Exception
-    public virtual void startGameCanvasRunnableInterface()
-    {
+    public virtual void startGameCanvasRunnableInterface() {
         ThreadFactoryUtil threadFactoryUtil = ThreadFactoryUtil.getInstance();
         this.thread = threadFactoryUtil.getInstanceGameCanvasRunnable(this.allbinaryGameCanvasRunnableInterface);
-        this.logUtil.putF(new StringMaker().append("Thread Priority: ").appendint(((int) this.thread.getPriority())).ToString(), this, "startGameCanvasRunnableInterface");
+        this.logUtil.putF(new StringMaker().append("Thread Priority: ").appendint(this.thread.getPriority()).toString(), this, "startGameCanvasRunnableInterface");
         this.allbinaryGameCanvasRunnableInterface.setThread(this.thread);
         threadFactoryUtil.start(this.thread);
     }
+    
 
-    // throws Exception
-    public virtual void stopGameCanvasRunnableInterface()
-    {
+    public virtual void stopGameCanvasRunnableInterface() {
         this.logUtil.putF(this.commonStrings.START, this, this.gameStrings.STOP_GAME_CANVAS_RUNNABLE_INTERFACE);
         GameNotificationEventHandler.getInstance().removeAllListeners();
         ColorChangeEventHandler.getInstance().removeAllListeners();
         GameEventHandlerUtil.removeAllListeners();
         GameCanvasRunnableInterface gameCanvasRunnableInterface = this.allbinaryGameCanvasRunnableInterface;
         if (gameCanvasRunnableInterface != NullGameCanvasRunnable.NULL_GAME_CANVAS_RUNNABLE) {
-            this.logUtil.putF(new StringMaker().append("Set Running False: ").append(gameCanvasRunnableInterface.ToString()).ToString(), this, this.gameStrings.STOP_GAME_CANVAS_RUNNABLE_INTERFACE);
+            this.logUtil.putF(new StringMaker().append("Set Running False: ").append(gameCanvasRunnableInterface.toString()).toString(), this, this.gameStrings.STOP_GAME_CANVAS_RUNNABLE_INTERFACE);
             gameCanvasRunnableInterface.setRunning(false);
         } else {
             this.logUtil.putF("StopGame - Could Not Stop", this, this.gameStrings.STOP_GAME_CANVAS_RUNNABLE_INTERFACE);
@@ -590,82 +595,79 @@ public class GameMidlet : ProgressMidlet, CommandListener
         }
         this.logUtil.putF(this.commonStrings.END, this, this.gameStrings.STOP_GAME_CANVAS_RUNNABLE_INTERFACE);
     }
+    
 
-    public virtual GameCanvasRunnableInterface getGameCanvasRunnableInterface()
-    {
+    public virtual GameCanvasRunnableInterface getGameCanvasRunnableInterface() {
         return this.allbinaryGameCanvasRunnableInterface;
     }
+    
 
-    public virtual void setGameCanvasRunnableInterface(GameCanvasRunnableInterface gameCanvasRunnableInterface)
-    {
+    public virtual void setGameCanvasRunnableInterface(GameCanvasRunnableInterface gameCanvasRunnableInterface) {
         this.allbinaryGameCanvasRunnableInterface = gameCanvasRunnableInterface;
     }
+    
 
-    public virtual AllBinaryGameLayerManager createGameLayerManager()
-    {
+    public virtual AllBinaryGameLayerManager createGameLayerManager() {
         GameInfo gameInfo = new GameInfo(GameTypeFactory.getInstance().SINGLE_PLAYER, GameMode.SERVER, PlayerTypesFactory.getInstance().PLAYER_TYPE_ONE, 1, 1);
         return new AllBinaryGameLayerManager(this.basicColorFactory.BLACK, this.basicColorFactory.WHITE, gameInfo);
     }
+    
 
-    public virtual CommandForm getGameOptionsForm()
-    {
+    public virtual CommandForm getGameOptionsForm() {
         AllBinaryGameLayerManager layerManager = this.createGameLayerManager();
         return GameOptionsFormFactory.getInstance().init(this, "Game Options", layerManager.getBackgroundBasicColor(), layerManager.getForegroundBasicColor());
     }
+    
 
-    // throws Exception
-    public virtual void save()
-    {
+    public virtual void save() {
         this.logUtil.putF(this.commonStrings.START, this, this.commonStrings.SAVE);
-        ABHashtable<object, object> hashtable = this.getCurrentStateHashtable();
+        ABHashtable hashtable = this.getCurrentStateHashtable();
         GamePersistanceSingleton.getInstance().save(this.abeClientInformation, hashtable);
     }
+    
 
-    // throws Exception
-    public override ABHashtable<object, object> getCurrentStateHashtable()
-    {
+    public override ABHashtable getCurrentStateHashtable() {
         this.logUtil.putF(this.commonStrings.START, this, "getCurrentStateHashtable");
-        ABHashtable<object, object> hashtable = StdUtil.getInstance().createHashtable();
+        ABHashtable hashtable = StdUtil.getInstance().createHashtable();
         if (this.allbinaryGameCanvasRunnableInterface != NullGameCanvasRunnable.NULL_GAME_CANVAS_RUNNABLE) {
-            ABHashtable<object, object> currentHashtable = this.allbinaryGameCanvasRunnableInterface.getCurrentStateHashtable();
-            Enumeration<object> enumeration = currentHashtable.keys();
-            object key = null;
+            ABHashtable currentHashtable = this.allbinaryGameCanvasRunnableInterface.getCurrentStateHashtable();
+            Enumeration enumeration = currentHashtable.keys();
+            JObject key = null;
             while (this.enumerationUtil.hasMoreElements(enumeration)) {
                 key = this.enumerationUtil.nextElement(enumeration);
-                hashtable.put(key, currentHashtable.get(key));
+                hashtable.put(key, currentHashtable.@get(key));
             }
         }
         return hashtable;
     }
+    
 
-    public virtual void setLoadGameForm(LoadGameForm loadGameForm)
-    {
+    public virtual void setLoadGameForm(LoadGameForm loadGameForm) {
         this.loadGameForm = loadGameForm;
     }
+    
 
-    public virtual CommandForm getLoadGameForm()
-    {
+    public virtual CommandForm getLoadGameForm() {
         return this.loadGameForm;
     }
+    
 
-    public virtual void setResized(bool resized)
-    {
+    public virtual void setResized(bool resized) {
         this.resized = resized;
     }
+    
 
-    public virtual bool isResized()
-    {
+    public virtual bool isResized() {
         return this.resized;
     }
+    
 
-    private bool startedBefore = false;
-    public virtual bool isDemoLoading()
-    {
+    public virtual bool isDemoLoading() {
         if (this.startedBefore) {
             return false;
         }
         Displayable displayable = this.getDisplay().getCurrent();
-        if (displayable is DemoCanvas) {
+        if ((displayable is DemoCanvas)) {
             DemoCanvas demoCanvas = ((DemoCanvas) displayable);
             if (demoCanvas.isDemoLoading()) {
                 return true;
@@ -673,6 +675,5 @@ public class GameMidlet : ProgressMidlet, CommandListener
         }
         return false;
     }
-
 }
 

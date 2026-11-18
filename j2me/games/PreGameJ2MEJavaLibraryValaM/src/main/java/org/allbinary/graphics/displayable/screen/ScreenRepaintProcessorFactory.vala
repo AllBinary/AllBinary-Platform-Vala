@@ -13,35 +13,39 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.graphics.displayable.screen
+// import javax.microedition.lcdui.Displayable
+// import org.allbinary.J2MEUtil
+// import org.allbinary.canvas.Processor
 
-using System;
-using System.Linq;
-using Displayable = javax.microedition.lcdui.Displayable;
-using J2MEUtil = org.allbinary.J2MEUtil;
-using Processor = org.allbinary.canvas.Processor;
-
-namespace org.allbinary.graphics.displayable.screen;
-
-public class ScreenRepaintProcessorFactory
-{
-    private static readonly ScreenRepaintProcessorFactory instance = new ScreenRepaintProcessorFactory();
-    public static ScreenRepaintProcessorFactory getInstance()
-    {
+public class ScreenRepaintProcessorFactory : JObject {
+    private static ScreenRepaintProcessorFactory? instance;
+    private static bool staticSet_instance = false;
+    private static ScreenRepaintProcessorFactory staticGet_instance() {
+        if (!ScreenRepaintProcessorFactory.staticSet_instance) {
+            ScreenRepaintProcessorFactory.staticSet_instance = true;
+            ScreenRepaintProcessorFactory.instance = new ScreenRepaintProcessorFactory();
+        }
         return ScreenRepaintProcessorFactory.instance;
     }
+    
 
-    private ScreenRepaintProcessorFactory()
-    {
+    public static ScreenRepaintProcessorFactory getInstance() {
+        return ScreenRepaintProcessorFactory.staticGet_instance();
     }
+    
 
-    public virtual Processor create(Displayable displayable)
-    {
+    public ScreenRepaintProcessorFactory() {
+        base();
+    }
+    
+
+    public virtual Processor create(Displayable displayable) {
         if (!J2MEUtil.isJ2ME()) {
             return new ScreenRepaintProcessor(displayable);
         } else {
             return Processor.getInstance();
         }
     }
-
 }
 

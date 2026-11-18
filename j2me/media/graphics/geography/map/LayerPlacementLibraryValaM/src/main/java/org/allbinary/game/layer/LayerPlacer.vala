@@ -13,59 +13,62 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.game.layer
+// import java.util.Enumeration
+// import org.allbinary.graphics.GPoint
+// import org.allbinary.graphics.PointFactory
+// import org.allbinary.layer.AllBinaryLayer
+// import org.allbinary.layer.LayerInterfaceFactory
+// import org.allbinary.layer.LayerInterfaceVisitor
+// import org.allbinary.util.ABHashtable
+// import org.allbinary.util.BasicArrayList
+// import org.allbinary.util.EnumerationUtil
 
-using System;
-using System.Linq;
-using java.util;
-using GPoint = org.allbinary.graphics.GPoint;
-using PointFactory = org.allbinary.graphics.PointFactory;
-using AllBinaryLayer = org.allbinary.layer.AllBinaryLayer;
-using LayerInterfaceFactory = org.allbinary.layer.LayerInterfaceFactory;
-using LayerInterfaceVisitor = org.allbinary.layer.LayerInterfaceVisitor;
-using org.allbinary.util;
-using BasicArrayList = org.allbinary.util.BasicArrayList;
-using EnumerationUtil = org.allbinary.util.EnumerationUtil;
+public class LayerPlacer : JObject {
+    private EnumerationUtil enumerationUtil;
+    public LayerInterfaceVisitor layerInterfaceVisitor;
+    private GPoint dimension;
 
-namespace org.allbinary.game.layer;
+    // Java field initializers run after the base constructor
+    private void initFieldsLayerPlacer() {
+    this.enumerationUtil = EnumerationUtil.getInstance();
+    
+    
+    }
+    
 
-public class LayerPlacer
-{
-    private readonly EnumerationUtil enumerationUtil = EnumerationUtil.getInstance();
-    public readonly LayerInterfaceVisitor layerInterfaceVisitor;
-    private readonly GPoint dimension;
-    public LayerPlacer(LayerInterfaceVisitor layerInterfaceVisitor, GPoint dimension)
-    {
+    public LayerPlacer(LayerInterfaceVisitor layerInterfaceVisitor, GPoint dimension) {
+        base();
+        this.initFieldsLayerPlacer();
         this.layerInterfaceVisitor = layerInterfaceVisitor;
         this.dimension = dimension;
     }
+    
 
-    // throws Exception
-    public virtual void processList(BasicArrayList list)
-    {
-        int size = list.size();
+    public virtual void processList(BasicArrayList list) {
+        int32 size = list.size();
         LayerPlacementInterface layerPlacementInterface = null;
-        for (int index = 0; index < size; index++) {
+        for (int32 index = 0; index < size; index++) {
             layerPlacementInterface = ((LayerPlacementInterface) list.objectArray[index]);
             this.process(layerPlacementInterface);
         }
     }
+    
 
-    // throws Exception
-    public virtual void process(LayerPlacementInterface layerPlacementInterface)
-    {
+    public virtual void process(LayerPlacementInterface layerPlacementInterface) {
         GPoint relativePoint = this.getPoint(layerPlacementInterface);
         LayerInterfaceFactory layerInterfaceFactory = LayerInterfaceFactory.getInstance();
-        ABHashtable<object, object> hashtable = layerPlacementInterface.getInstance();
-        Enumeration<object> enumeration = hashtable.keys();
+        ABHashtable hashtable = layerPlacementInterface.getInstance();
+        Enumeration enumeration = hashtable.keys();
         GPoint point = null;
-        ABHashtable<object, object> layerHashtable = null;
-        int x = 0;
-        int y = 0;
-        int z = 0;
+        ABHashtable layerHashtable = null;
+        int32 x = 0;
+        int32 y = 0;
+        int32 z = 0;
         AllBinaryLayer layerInterface = null;
         while (this.enumerationUtil.hasMoreElements(enumeration)) {
             point = ((GPoint) this.enumerationUtil.nextElement(enumeration));
-            layerHashtable = ((ABHashtable<object, object>) hashtable.get(point));
+            layerHashtable = ((ABHashtable) hashtable.@get(point));
             x = point.getX() + relativePoint.getX();
             y = point.getY() + relativePoint.getY();
             z = point.getZ() + relativePoint.getZ();
@@ -73,28 +76,26 @@ public class LayerPlacer
             this.layerInterfaceVisitor.visit(layerInterface);
         }
     }
+    
 
-    // throws Exception
-    public virtual GPoint getPoint(LayerPlacementInterface layerPlacementInterface)
-    {
+    public virtual GPoint getPoint(LayerPlacementInterface layerPlacementInterface) {
         PointFactory pointFactory = PointFactory.getInstance();
         LayerPlacementType layerPlacementType = layerPlacementInterface.getLayerType();
         if (layerPlacementType == LayerPlacementTypeFactory.getInstance().MAP) {
-            int width = layerPlacementInterface.getWidth();
-            int height = layerPlacementInterface.getHeight();
-            int x = ((this.dimension.getX() - width) / 2);
-            int y = ((this.dimension.getY() - height) / 2);
+            int32 width = layerPlacementInterface.getWidth();
+            int32 height = layerPlacementInterface.getHeight();
+            int32 x = ((this.dimension.getX() - width) / 2);
+            int32 y = ((this.dimension.getY() - height) / 2);
             return pointFactory.createXY(x, y);
         } else if (layerPlacementType == LayerPlacementTypeFactory.getInstance().UP) {
-            int width = layerPlacementInterface.getWidth();
-            int height = layerPlacementInterface.getHeight();
-            int x = ((this.dimension.getX() - width) / 2);
-            int y = -height;
+            int32 width = layerPlacementInterface.getWidth();
+            int32 height = layerPlacementInterface.getHeight();
+            int32 x = ((this.dimension.getX() - width) / 2);
+            int32 y = -height;
             return pointFactory.createXY(x, y);
         } else {
-            throw new Exception("PlacementType Not Recognized");
+            JSystem.fatal(new JException("Exception", "PlacementType Not Recognized"));
         }
     }
-
 }
 

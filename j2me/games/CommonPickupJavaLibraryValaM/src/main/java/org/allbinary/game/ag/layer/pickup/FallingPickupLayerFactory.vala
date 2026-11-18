@@ -13,22 +13,20 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.game.ag.layer.pickup
+// import org.allbinary.game.multiplayer.layer.RemoteInfo
+// import org.allbinary.layer.AllBinaryLayer
+// import org.allbinary.layer.AllBinaryLayerFactoryInterface
 
-using System;
-using System.Linq;
-using RemoteInfo = org.allbinary.game.multiplayer.layer.RemoteInfo;
-using AllBinaryLayer = org.allbinary.layer.AllBinaryLayer;
-using AllBinaryLayerFactoryInterface = org.allbinary.layer.AllBinaryLayerFactoryInterface;
+public class FallingPickupLayerFactory : JObject, AllBinaryLayerFactoryInterface {
 
-namespace org.allbinary.game.ag.layer.pickup;
+    public FallingPickupLayerFactory() {
+        base();
+    }
+    
 
-public class FallingPickupLayerFactory : AllBinaryLayerFactoryInterface
-{
-    // throws Exception
-    public virtual AllBinaryLayer getInstance()
-    {
+    public virtual AllBinaryLayer getInstance() {
         return new FallingPickupLayer(RemoteInfo.REMOTE_INFO);
     }
-
 }
 

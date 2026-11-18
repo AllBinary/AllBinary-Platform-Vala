@@ -13,36 +13,49 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.logic.math.vector
+// import org.allbinary.math.NoDecimalTrigTable
 
-using System;
-using System.Linq;
-using NoDecimalTrigTable = org.allbinary.math.NoDecimalTrigTable;
-
-namespace org.allbinary.logic.math.vector;
-
-public class AxisMathVectorUtil
-{
-    private static readonly AxisMathVectorUtil instance = new AxisMathVectorUtil();
-    public static AxisMathVectorUtil getInstance()
-    {
+public class AxisMathVectorUtil : JObject {
+    private static AxisMathVectorUtil? instance;
+    private static bool staticSet_instance = false;
+    private static AxisMathVectorUtil staticGet_instance() {
+        if (!AxisMathVectorUtil.staticSet_instance) {
+            AxisMathVectorUtil.staticSet_instance = true;
+            AxisMathVectorUtil.instance = new AxisMathVectorUtil();
+        }
         return AxisMathVectorUtil.instance;
     }
+    private NoDecimalTrigTable noDecimalTrigTable;
 
-    private readonly NoDecimalTrigTable noDecimalTrigTable = NoDecimalTrigTable.getInstance();
-    public virtual long calculateX(long magnitude, int angle)
-    {
+    // Java field initializers run after the base constructor
+    private void initFieldsAxisMathVectorUtil() {
+    this.noDecimalTrigTable = NoDecimalTrigTable.getInstance();
+    }
+
+    public AxisMathVectorUtil() {
+        base();
+        this.initFieldsAxisMathVectorUtil();
+    }
+    
+
+    public static AxisMathVectorUtil getInstance() {
+        return AxisMathVectorUtil.staticGet_instance();
+    }
+    
+
+    public virtual int64 calculateX(int64 magnitude, int32 angle) {
         return magnitude * this.noDecimalTrigTable.cos(angle) / 10;
     }
+    
 
-    public virtual long calculateY(long magnitude, int angle)
-    {
+    public virtual int64 calculateY(int64 magnitude, int32 angle) {
         return magnitude * this.noDecimalTrigTable.sin(angle) / 10;
     }
+    
 
-    public virtual long calculateZ(long magnitude, int otherAngle)
-    {
+    public virtual int64 calculateZ(int64 magnitude, int32 otherAngle) {
         return magnitude * this.noDecimalTrigTable.sin(otherAngle) / 10;
     }
-
 }
 

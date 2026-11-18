@@ -13,42 +13,55 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.game.ai
+// import org.allbinary.util.ABHashtable
+// import org.allbinary.util.BasicArrayList
+// import org.allbinary.util.BasicArrayListD
+// import org.allbinary.util.BasicArrayListUtil
 
-using System;
-using System.Linq;
-using org.allbinary.util;
-using BasicArrayList = org.allbinary.util.BasicArrayList;
-using BasicArrayListD = org.allbinary.util.BasicArrayListD;
-using BasicArrayListUtil = org.allbinary.util.BasicArrayListUtil;
-
-namespace org.allbinary.game.ai;
-
-public class ArtificialIntelligenceInterfaceFactoryInterfaceFactory
-{
-    private static ArtificialIntelligenceInterfaceFactoryInterfaceFactory SINGLETON = new ArtificialIntelligenceInterfaceFactoryInterfaceFactory();
-    private BasicArrayList list = BasicArrayListUtil.getInstance().getImmutableInstance();
-    public virtual void clear()
-    {
-        this.list = new BasicArrayListD();
-    }
-
-    public static ArtificialIntelligenceInterfaceFactoryInterfaceFactory getInstance()
-    {
+public class ArtificialIntelligenceInterfaceFactoryInterfaceFactory : JObject {
+    private static ArtificialIntelligenceInterfaceFactoryInterfaceFactory? SINGLETON;
+    private static bool staticSet_SINGLETON = false;
+    private static ArtificialIntelligenceInterfaceFactoryInterfaceFactory staticGet_SINGLETON() {
+        if (!ArtificialIntelligenceInterfaceFactoryInterfaceFactory.staticSet_SINGLETON) {
+            ArtificialIntelligenceInterfaceFactoryInterfaceFactory.staticSet_SINGLETON = true;
+            ArtificialIntelligenceInterfaceFactoryInterfaceFactory.SINGLETON = new ArtificialIntelligenceInterfaceFactoryInterfaceFactory();
+        }
         return ArtificialIntelligenceInterfaceFactoryInterfaceFactory.SINGLETON;
     }
+    private BasicArrayList list;
 
-    public virtual ArtificialIntelligenceInterfaceFactoryInterface getInstanceFromCollection(ABHashtable<object, object> hashtable)
-    {
-        int? typeInteger = ((int?) hashtable.get(((object) BasicAI.ID)));
-        int type = ((int) typeInteger);
+    // Java field initializers run after the base constructor
+    private void initFieldsArtificialIntelligenceInterfaceFactoryInterfaceFactory() {
+    this.list = BasicArrayListUtil.getInstance().getImmutableInstance();
+    }
+
+    public ArtificialIntelligenceInterfaceFactoryInterfaceFactory() {
+        base();
+        this.initFieldsArtificialIntelligenceInterfaceFactoryInterfaceFactory();
+    }
+    
+
+    public virtual void clear() {
+        this.list = new BasicArrayListD();
+    }
+    
+
+    public static ArtificialIntelligenceInterfaceFactoryInterfaceFactory getInstance() {
+        return ArtificialIntelligenceInterfaceFactoryInterfaceFactory.staticGet_SINGLETON();
+    }
+    
+
+    public virtual ArtificialIntelligenceInterfaceFactoryInterface getInstanceFromCollection(ABHashtable hashtable) {
+        int32? typeInteger = JNumber.unboxInt(hashtable.@get(((JObject) BasicAI.ID)));
+        int32 type = ((int32) typeInteger);
         ArtificialIntelligenceInterfaceFactoryInterface artificialIntelligenceInterfaceFactoryInterface = ((ArtificialIntelligenceInterfaceFactoryInterface) this.list.objectArray[type - 1]);
         return artificialIntelligenceInterfaceFactoryInterface;
     }
+    
 
-    public virtual void add(ArtificialIntelligenceInterfaceFactoryInterface artificialIntelligenceInterfaceFactoryInterface)
-    {
+    public virtual void add(ArtificialIntelligenceInterfaceFactoryInterface artificialIntelligenceInterfaceFactoryInterface) {
         this.list.add(artificialIntelligenceInterfaceFactoryInterface);
     }
-
 }
 

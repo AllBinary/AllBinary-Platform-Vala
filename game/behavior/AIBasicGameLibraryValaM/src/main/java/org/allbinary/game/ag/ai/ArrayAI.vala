@@ -13,39 +13,39 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.game.ag.ai
+// import org.allbinary.ai.ArtificialIntelligenceInterface
+// import org.allbinary.game.input.GameInput
+// import org.allbinary.layer.AllBinaryLayer
+// import org.allbinary.layer.AllBinaryLayerManager
+// import org.allbinary.game.ai.BasicAI
 
-using System;
-using System.Linq;
-using ArtificialIntelligenceInterface = org.allbinary.ai.ArtificialIntelligenceInterface;
-using GameInput = org.allbinary.game.input.GameInput;
-using AllBinaryLayer = org.allbinary.layer.AllBinaryLayer;
-using AllBinaryLayerManager = org.allbinary.layer.AllBinaryLayerManager;
-using BasicAI = org.allbinary.game.ai.BasicAI;
+public class ArrayAI : BasicAI {
+    private ArtificialIntelligenceInterface[] artificialIntelligenceInterfaceArray;
 
-namespace org.allbinary.game.ag.ai;
+    // Java field initializers run after the base constructor
+    private void initFieldsArrayAI() {
+    
+    }
+    
 
-public class ArrayAI : BasicAI
-{
-    private readonly ArtificialIntelligenceInterface[] artificialIntelligenceInterfaceArray;
-    public ArrayAI(ArtificialIntelligenceInterface[] artificialIntelligenceInterface, AllBinaryLayer ownerLayerInterface, GameInput gameInput) : base(ownerLayerInterface, gameInput)
-    {
-        // base(ownerLayerInterface, gameInput) is called from the constructor declaration
+    public ArrayAI(ArtificialIntelligenceInterface[] artificialIntelligenceInterface, AllBinaryLayer ownerLayerInterface, GameInput gameInput) {
+        base(ownerLayerInterface, gameInput);
+        this.initFieldsArrayAI();
         this.artificialIntelligenceInterfaceArray = artificialIntelligenceInterface;
     }
+    
 
-    // throws Exception
-    public override void processAI(AllBinaryLayerManager allBinaryLayerManager)
-    {
-        int size = this.artificialIntelligenceInterfaceArray.Length;
-        for (int index = 0; index < size; index++) {
+    public override void processAI(AllBinaryLayerManager allBinaryLayerManager) {
+        int32 size = this.artificialIntelligenceInterfaceArray.length;
+        for (int32 index = 0; index < size; index++) {
             this.artificialIntelligenceInterfaceArray[index].processAI(allBinaryLayerManager);
         }
     }
+    
 
-    public virtual ArtificialIntelligenceInterface[] getArtificialIntelligenceInterface()
-    {
+    public virtual ArtificialIntelligenceInterface[] getArtificialIntelligenceInterface() {
         return this.artificialIntelligenceInterfaceArray;
     }
-
 }
 

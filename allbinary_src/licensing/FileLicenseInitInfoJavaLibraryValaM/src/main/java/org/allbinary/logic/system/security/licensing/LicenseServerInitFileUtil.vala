@@ -13,31 +13,39 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.logic.system.security.licensing
+// import java.io.InputStream
+// import java.io.OutputStream
+// import org.allbinary.business.init.LicenseInitInfoUtil
+// import org.allbinary.data.resource.ResourceUtil
+// import org.allbinary.logic.communication.log.LogUtil
+// import org.allbinary.logic.io.FileStreamFactory
+// import org.allbinary.logic.io.StreamUtil
+// import org.allbinary.logic.io.file.FileFactory
+// import org.allbinary.logic.io.file.SimpleFileUtil
+// import org.allbinary.logic.string.StringUtil
+// import org.allbinary.string.CommonStrings
 
-using System;
-using System.Linq;
-using InputStream = java.io.InputStream;
-using OutputStream = java.io.OutputStream;
-using LicenseInitInfoUtil = org.allbinary.business.init.LicenseInitInfoUtil;
-using ResourceUtil = org.allbinary.data.resource.ResourceUtil;
-using LogUtil = org.allbinary.logic.communication.log.LogUtil;
-using FileStreamFactory = org.allbinary.logic.io.FileStreamFactory;
-using StreamUtil = org.allbinary.logic.io.StreamUtil;
-using FileFactory = org.allbinary.logic.io.file.FileFactory;
-using SimpleFileUtil = org.allbinary.logic.io.file.SimpleFileUtil;
-using StringUtil = org.allbinary.logic.@string.StringUtil;
-using CommonStrings = org.allbinary.@string.CommonStrings;
+public class LicenseServerInitFileUtil : JObject {
+    public LogUtil logUtil;
+    private CommonStrings commonStrings;
+    private OutputStream NULL_OUTPUT_STREAM;
 
-namespace org.allbinary.logic.system.security.licensing;
+    // Java field initializers run after the base constructor
+    private void initFieldsLicenseServerInitFileUtil() {
+    this.logUtil = LogUtil.getInstance();
+    this.commonStrings = CommonStrings.getInstance();
+    this.NULL_OUTPUT_STREAM = SimpleFileUtil.nullOutputStream();
+    }
 
-public class LicenseServerInitFileUtil
-{
-    public readonly LogUtil logUtil = LogUtil.getInstance();
-    private readonly CommonStrings commonStrings = CommonStrings.getInstance();
-    private readonly OutputStream NULL_OUTPUT_STREAM = SimpleFileUtil.nullOutputStream();
-    public void init()
-    {
-        try {
+    public LicenseServerInitFileUtil() {
+        base();
+        this.initFieldsLicenseServerInitFileUtil();
+    }
+    
+
+    public virtual void init() {
+        {
             string filePath = LicenseInitInfoUtil.getInstance().INITFILENAME;
             LicenseInitInfoUtil.getInstance().setFilePath(StringUtil.getInstance().EMPTY_STRING);
             if (FileFactory.getInstance().isFile(filePath)) {
@@ -45,23 +53,21 @@ public class LicenseServerInitFileUtil
             } else {
                 this.write();
             }
-        } catch (Exception e) {
-            this.logUtil.put(this.commonStrings.EXCEPTION, this, this.commonStrings.INIT, e);
-        }
+        } /* catch (Exception e): a thrown Java exception stops the program */
     }
+    
 
-    private void write()
-    {
+    private void write() {
         OutputStream fileOutputStream = this.NULL_OUTPUT_STREAM;
-        try {
+        {
             ResourceUtil resourceUtil = ResourceUtil.getInstance();
             string filePath = LicenseInitInfoUtil.getInstance().INITFILENAME;
             InputStream inputStream = resourceUtil.getResourceAsStream(filePath);
             this.logUtil.putF("Writing Default License File", this, this.commonStrings.INIT);
             FileStreamFactory fileStreamFactory = FileStreamFactory.getInstance();
             fileOutputStream = fileStreamFactory.getFileOutputStreamInstance(StringUtil.getInstance().EMPTY_STRING, filePath);
-            int b = 0;
-            int index = 0;
+            int32 b = 0;
+            int32 index = 0;
             while (true) {
                 b = inputStream.read();
                 if (b == -1) {
@@ -70,14 +76,12 @@ public class LicenseServerInitFileUtil
                 fileOutputStream.write(b);
                 index++;
             }
-            this.logUtil.putF("Wrote Bytes: " + index, this, this.commonStrings.INIT);
+            this.logUtil.putF(JString.ofString("Wrote Bytes: ") + (index).to_string(), this, this.commonStrings.INIT);
             fileOutputStream.flush();
-        } catch (Exception e) {
-            this.logUtil.put(this.commonStrings.EXCEPTION, this, this.commonStrings.INIT, e);
-        } finally {
+        } /* catch (Exception e): a thrown Java exception stops the program */
+        {
             StreamUtil.getInstance().close(fileOutputStream);
         }
     }
-
 }
 

@@ -13,40 +13,43 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.thirdparty.store
+// import org.allbinary.logic.system.security.licensing.AbeClientInformationInterface
 
-using System;
-using System.Linq;
-using AbeClientInformationInterface = org.allbinary.logic.system.security.licensing.AbeClientInformationInterface;
+public class ThirdPartyStore : JObject {
+    private bool authorized;
+    private string name;
 
-namespace org.allbinary.thirdparty.store;
+    // Java field initializers run after the base constructor
+    private void initFieldsThirdPartyStore() {
+    this.authorized = false;
+    
+    }
+    
 
-public class ThirdPartyStore
-{
-    private bool authorized = false;
-    private readonly string name;
-    public ThirdPartyStore(string name)
-    {
+    public ThirdPartyStore(string name) {
+        base();
+        this.initFieldsThirdPartyStore();
         this.name = name;
     }
+    
 
-    public virtual void authorize(AbeClientInformationInterface clientInformationInterface)
-    {
+    public virtual void authorize(AbeClientInformationInterface clientInformationInterface) {
     }
+    
 
-    public virtual bool isAuthorized()
-    {
+    public virtual bool isAuthorized() {
         return this.authorized;
     }
+    
 
-    public virtual void setAuthorized(bool authorized)
-    {
+    public virtual void setAuthorized(bool authorized) {
         this.authorized = authorized;
     }
+    
 
-    public virtual string getName()
-    {
+    public virtual string getName() {
         return this.name;
     }
-
 }
 

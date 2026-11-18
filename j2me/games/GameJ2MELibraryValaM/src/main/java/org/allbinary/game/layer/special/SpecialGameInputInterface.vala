@@ -13,52 +13,47 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.game.layer.special
+// import org.allbinary.game.input.event.GameKeyEvent
+// import org.allbinary.graphics.paint.PaintableInterface
+// import org.allbinary.layer.AllBinaryLayerManager
 
-using System;
-using System.Linq;
-using GameKeyEvent = org.allbinary.game.input.@event.GameKeyEvent;
-using PaintableInterface = org.allbinary.graphics.paint.PaintableInterface;
-using AllBinaryLayerManager = org.allbinary.layer.AllBinaryLayerManager;
+public interface SpecialGameInputInterface : JObject, PaintableInterface {
+    
 
-namespace org.allbinary.game.layer.special;
+    public abstract void up();
+    
 
-public interface SpecialGameInputInterface : PaintableInterface
-{
-    // throws Exception
-    void up();
+    public abstract void down();
+    
 
-    // throws Exception
-    void down();
+    public abstract void right();
+    
 
-    // throws Exception
-    void right();
+    public abstract void left();
+    
 
-    // throws Exception
-    void left();
+    public abstract void strafeLeft();
+    
 
-    // throws Exception
-    void strafeLeft();
+    public abstract void strafeRight();
+    
 
-    // throws Exception
-    void strafeRight();
+    public abstract void fire(AllBinaryLayerManager layerManager, GameKeyEvent gameKeyEvent);
+    
 
-    // throws Exception
-    void fire(AllBinaryLayerManager layerManager, GameKeyEvent gameKeyEvent);
+    public abstract void special1(AllBinaryLayerManager layerManager, GameKeyEvent gameKeyEvent);
+    
 
-    // throws Exception
-    void special1(AllBinaryLayerManager layerManager, GameKeyEvent gameKeyEvent);
+    public abstract void special2(AllBinaryLayerManager layerManager, GameKeyEvent gameKeyEvent);
+    
 
-    // throws Exception
-    void special2(AllBinaryLayerManager layerManager, GameKeyEvent gameKeyEvent);
+    public abstract void special3(AllBinaryLayerManager layerManager, GameKeyEvent gameKeyEvent);
+    
 
-    // throws Exception
-    void special3(AllBinaryLayerManager layerManager, GameKeyEvent gameKeyEvent);
+    public abstract void special4(AllBinaryLayerManager layerManager, GameKeyEvent gameKeyEvent);
+    
 
-    // throws Exception
-    void special4(AllBinaryLayerManager layerManager, GameKeyEvent gameKeyEvent);
-
-    // throws Exception
-    void special5(AllBinaryLayerManager layerManager, GameKeyEvent gameKeyEvent);
-
+    public abstract void special5(AllBinaryLayerManager layerManager, GameKeyEvent gameKeyEvent);
 }
 

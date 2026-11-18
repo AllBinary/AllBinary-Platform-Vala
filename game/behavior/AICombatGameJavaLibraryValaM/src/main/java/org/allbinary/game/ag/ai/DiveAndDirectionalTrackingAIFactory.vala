@@ -13,34 +13,32 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.game.ag.ai
+// import org.allbinary.ai.ArtificialIntelligenceInterface
+// import org.allbinary.game.ag.ai.tactical.BasicRandomAIFactory
+// import org.allbinary.game.ai.ArtificialIntelligenceInterfaceFactoryInterface
+// import org.allbinary.game.ai.BasicAI
+// import org.allbinary.game.input.GameInput
+// import org.allbinary.layer.AllBinaryLayer
+// import org.allbinary.logic.util.visitor.Visitor
+// import org.allbinary.util.ABHashtable
 
-using System;
-using System.Linq;
-using ArtificialIntelligenceInterface = org.allbinary.ai.ArtificialIntelligenceInterface;
-using BasicRandomAIFactory = org.allbinary.game.ag.ai.tactical.BasicRandomAIFactory;
-using ArtificialIntelligenceInterfaceFactoryInterface = org.allbinary.game.ai.ArtificialIntelligenceInterfaceFactoryInterface;
-using BasicAI = org.allbinary.game.ai.BasicAI;
-using GameInput = org.allbinary.game.input.GameInput;
-using AllBinaryLayer = org.allbinary.layer.AllBinaryLayer;
-using Visitor = org.allbinary.logic.util.visitor.Visitor;
-using org.allbinary.util;
+public class DiveAndDirectionalTrackingAIFactory : JObject, ArtificialIntelligenceInterfaceFactoryInterface {
 
-namespace org.allbinary.game.ag.ai;
+    public DiveAndDirectionalTrackingAIFactory() {
+        base();
+    }
+    
 
-public class DiveAndDirectionalTrackingAIFactory : ArtificialIntelligenceInterfaceFactoryInterface
-{
-    // throws Exception
-    public virtual ArtificialIntelligenceInterface getInstance(ABHashtable<object, object> hashtable, AllBinaryLayer ownerLayerInterface, GameInput gameInput)
-    {
-        object visitorCanBeNull = hashtable.get(((object) BasicAI.AI_VISITOR));
+    public virtual ArtificialIntelligenceInterface getInstance3(ABHashtable hashtable, AllBinaryLayer ownerLayerInterface, GameInput gameInput) {
+        JObject visitorCanBeNull = hashtable.@get(((JObject) BasicAI.AI_VISITOR));
         if (visitorCanBeNull == null) {
             visitorCanBeNull = ThrustAIVisitorFactory.getInstance();
         }
-        ABHashtable<object, object> hashtable2 = new BasicProbabilityAIDataFactory().getInstance();
+        ABHashtable hashtable2 = new BasicProbabilityAIDataFactory().getInstance();
         hashtable2.put(BasicAI.AI_VISITOR, LastKeyAIVisitorFactory.getInstance());
-        ArtificialIntelligenceInterface artificialIntelligenceInterface = new BasicRandomAIFactory().getInstance(hashtable2, ownerLayerInterface, gameInput);
+        ArtificialIntelligenceInterface artificialIntelligenceInterface = new BasicRandomAIFactory().getInstance3(hashtable2, ownerLayerInterface, gameInput);
         return new DiveAndDirectionalTrackingAI(ownerLayerInterface, artificialIntelligenceInterface, gameInput, ((Visitor) visitorCanBeNull));
     }
-
 }
 

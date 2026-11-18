@@ -13,18 +13,17 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.view
 
-using System;
-using System.Linq;
+public class ViewPositionFactory : JObject, ViewPositionFactoryInterface {
 
-namespace org.allbinary.view;
+    public ViewPositionFactory() {
+        base();
+    }
+    
 
-public class ViewPositionFactory : ViewPositionFactoryInterface
-{
-    public virtual ViewPositionBase getInstance()
-    {
+    public virtual ViewPositionBase getInstance() {
         return ViewPosition.getInstanceD();
     }
-
 }
 

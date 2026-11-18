@@ -13,47 +13,53 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.input.motion.touch.action
+// import org.allbinary.game.input.GameKey
+// import org.allbinary.game.input.GameKeyFactory
+// import org.allbinary.game.input.PlatformInputMappingFactory
+// import org.allbinary.game.input.event.GameKeyEventFactory
+// import org.allbinary.game.input.motion.action.GameKeyCompleteMotionGestureInputEvent
+// import org.allbinary.input.motion.gesture.TouchMotionGestureFactory
+// import org.allbinary.logic.NullUtil
+// import org.allbinary.string.CommonStrings
 
-using System;
-using System.Linq;
-using GameKey = org.allbinary.game.input.GameKey;
-using GameKeyFactory = org.allbinary.game.input.GameKeyFactory;
-using PlatformInputMappingFactory = org.allbinary.game.input.PlatformInputMappingFactory;
-using GameKeyEventFactory = org.allbinary.game.input.@event.GameKeyEventFactory;
-using GameKeyCompleteMotionGestureInputEvent = org.allbinary.game.input.motion.action.GameKeyCompleteMotionGestureInputEvent;
-using TouchMotionGestureFactory = org.allbinary.input.motion.gesture.TouchMotionGestureFactory;
-using NullUtil = org.allbinary.logic.NullUtil;
-using CommonStrings = org.allbinary.@string.CommonStrings;
+public class ReleaseTouchInputToGameKeyEventAction : GameKeyCompleteMotionGestureInputEvent {
+    private static JObject? instance;
+    private static bool staticSet_instance = false;
+    private static JObject staticGet_instance() {
+        if (!ReleaseTouchInputToGameKeyEventAction.staticSet_instance) {
+            ReleaseTouchInputToGameKeyEventAction.staticSet_instance = true;
+            ReleaseTouchInputToGameKeyEventAction.instance = NullUtil.getInstance().NULL_OBJECT;
+        }
+        return ReleaseTouchInputToGameKeyEventAction.instance;
+    }
+    private GameKey NONE;
 
-namespace org.allbinary.input.motion.touch.action;
+    // Java field initializers run after the base constructor
+    private void initFieldsReleaseTouchInputToGameKeyEventAction() {
+    this.NONE = GameKeyFactory.getInstance().NONE;
+    }
+    
 
-public class ReleaseTouchInputToGameKeyEventAction : GameKeyCompleteMotionGestureInputEvent
-{
-    private static object instance = NullUtil.getInstance().NULL_OBJECT;
-    public static GameKeyCompleteMotionGestureInputEvent getInstance()
-    {
-        if (ReleaseTouchInputToGameKeyEventAction.instance == NullUtil.getInstance().NULL_OBJECT) {
+    public static GameKeyCompleteMotionGestureInputEvent getInstance() {
+        if (ReleaseTouchInputToGameKeyEventAction.staticGet_instance() == NullUtil.getInstance().NULL_OBJECT) {
             ReleaseTouchInputToGameKeyEventAction.instance = new ReleaseTouchInputToGameKeyEventAction();
         }
-        return ((GameKeyCompleteMotionGestureInputEvent) ReleaseTouchInputToGameKeyEventAction.instance);
+        return ((GameKeyCompleteMotionGestureInputEvent) ReleaseTouchInputToGameKeyEventAction.staticGet_instance());
     }
+    
 
-    private readonly GameKey NONE = GameKeyFactory.getInstance().NONE;
-    private ReleaseTouchInputToGameKeyEventAction() : base("Release Action", TouchMotionGestureFactory.getInstance().RELEASED, PlatformInputMappingFactory.getInstance().getPersistentInputMappingInstance().getInputMapping())
-    {
-        // base("Release Action", TouchMotionGestureFactory.getInstance().RELEASED, PlatformInputMappingFactory.getInstance().getPersistentInputMappingInstance().getInputMapping()) is called from the constructor declaration
-        try {
+    public ReleaseTouchInputToGameKeyEventAction() {
+        base("Release Action", TouchMotionGestureFactory.getInstance().RELEASED, PlatformInputMappingFactory.getInstance().getPersistentInputMappingInstance().getInputMapping());
+        this.initFieldsReleaseTouchInputToGameKeyEventAction();
+        {
             this.setGameKey(this.NONE);
             this.setGameKeyEvent(GameKeyEventFactory.getInstance().getInstanceForInput(this, this.NONE));
-        } catch (Exception e) {
-            CommonStrings commonStrings = CommonStrings.getInstance();
-            this.logUtil.put(commonStrings.EXCEPTION, this, commonStrings.CONSTRUCTOR, e);
-        }
+        } /* catch (Exception e): a thrown Java exception stops the program */
     }
+    
 
-    public override void update()
-    {
+    public override void update() {
     }
-
 }
 

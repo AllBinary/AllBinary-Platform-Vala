@@ -13,16 +13,11 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.logic.util.cache
 
-using System;
-using System.Linq;
+public interface PoolInterface : JObject, CacheInterface {
+    
 
-namespace org.allbinary.logic.util.cache;
-
-public interface PoolInterface : CacheInterface
-{
-    // throws Exception
-    CacheableInterface remove(object key);
-
+    public abstract CacheableInterface remove(JObject key);
 }
 

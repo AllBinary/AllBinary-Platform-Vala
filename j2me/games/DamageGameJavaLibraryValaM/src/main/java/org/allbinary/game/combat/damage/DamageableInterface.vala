@@ -13,20 +13,15 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.game.combat.damage
+// import org.allbinary.layer.NamedInterface
 
-using System;
-using System.Linq;
-using NamedInterface = org.allbinary.layer.NamedInterface;
+public interface DamageableInterface : JObject, NamedInterface {
+    
 
-namespace org.allbinary.game.combat.damage;
+    public abstract void damage(int32 damage, int32 damageType);
+    
 
-public interface DamageableInterface : NamedInterface
-{
-    // throws Exception
-    void damage(int damage, int damageType);
-
-    // throws Exception
-    int getDamage(int damageType);
-
+    public abstract int32 getDamage(int32 damageType);
 }
 

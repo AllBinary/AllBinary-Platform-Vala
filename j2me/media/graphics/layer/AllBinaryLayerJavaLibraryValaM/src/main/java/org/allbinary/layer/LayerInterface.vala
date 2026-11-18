@@ -13,51 +13,64 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.layer
+// import org.allbinary.game.identification.GroupInterfaceCompositeInterface
+// import org.allbinary.graphics.paint.PaintableInterface
 
-using System;
-using System.Linq;
-using GroupInterfaceCompositeInterface = org.allbinary.game.identification.GroupInterfaceCompositeInterface;
-using PaintableInterface = org.allbinary.graphics.paint.PaintableInterface;
+public interface LayerInterface : JObject, NamedInterface, PaintableInterface, GroupInterfaceCompositeInterface, PositionInterface {
+    
 
-namespace org.allbinary.layer;
+    public abstract int32 getHeight();
+    
 
-public interface LayerInterface : NamedInterface, PaintableInterface, GroupInterfaceCompositeInterface, PositionInterface
-{
-    int getHeight();
+    public abstract int32 getWidth();
+    
 
-    int getWidth();
+    public abstract int32 getHalfHeight();
+    
 
-    int getHalfHeight();
+    public abstract int32 getHalfWidth();
+    
 
-    int getHalfWidth();
+    public abstract int32 getXP();
+    
 
-    int getXP();
+    public abstract int32 getYP();
+    
 
-    int getYP();
+    public abstract int32 getZP();
+    
 
-    int getZP();
+    public abstract int32 getX2();
+    
 
-    int getX2();
+    public abstract int32 getY2();
+    
 
-    int getY2();
+    public abstract int32 getZ2();
+    
 
-    int getZ2();
+    public abstract bool isVisible();
+    
 
-    bool isVisible();
+    public abstract void moveDXYZ(int32 dx, int32 dy, int32 dz);
+    
 
-    void moveDXYZ(int dx, int dy, int dz);
+    public abstract void setVisible(bool visible);
+    
 
-    void setVisible(bool visible);
+    public abstract bool implmentsTickableInterface();
+    
 
-    bool implmentsTickableInterface();
+    public abstract bool implmentsCollidableInterface();
+    
 
-    bool implmentsCollidableInterface();
+    public abstract bool implmentsGameInputInterface();
+    
 
-    bool implmentsGameInputInterface();
+    public abstract bool implmentsArtificialIntelligenceCompositeInterface();
+    
 
-    bool implmentsArtificialIntelligenceCompositeInterface();
-
-    int getType();
-
+    public abstract int32 getType();
 }
 

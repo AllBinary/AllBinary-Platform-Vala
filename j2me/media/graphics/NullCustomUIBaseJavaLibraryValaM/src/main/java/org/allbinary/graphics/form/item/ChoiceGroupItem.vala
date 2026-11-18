@@ -1,11 +1,10 @@
 // Generated Code Do Not Modify
+// package org.allbinary.graphics.form.item
 
-using System;
-using System.Linq;
+public class ChoiceGroupItem : JObject {
 
-namespace org.allbinary.graphics.form.item;
-
-public class ChoiceGroupItem
-{
+    public ChoiceGroupItem() {
+        base();
+    }
 }
 

@@ -13,18 +13,13 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.game.configuration.feature
 
-using System;
-using System.Linq;
+public class InputFeature : Feature {
+    
 
-namespace org.allbinary.game.configuration.feature;
-
-public class InputFeature : Feature
-{
-    public InputFeature(string name) : base(name)
-    {
-        // base(name) is called from the constructor declaration
+    public InputFeature(string name) {
+        base(name);
     }
-
 }
 

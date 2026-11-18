@@ -13,43 +13,45 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.game.ag.ai
+// import javax.microedition.lcdui.Graphics
+// import org.allbinary.bounds.BoundsVisitorInterface
+// import org.allbinary.bounds.LayerBounds
+// import org.allbinary.game.ai.BasicAI
+// import org.allbinary.game.input.GameInput
+// import org.allbinary.graphics.Rectangle
+// import org.allbinary.layer.AllBinaryLayer
+// import org.allbinary.layer.AllBinaryLayerManager
 
-using System;
-using System.Linq;
-using Graphics = javax.microedition.lcdui.Graphics;
-using BoundsVisitorInterface = org.allbinary.bounds.BoundsVisitorInterface;
-using LayerBounds = org.allbinary.bounds.LayerBounds;
-using BasicAI = org.allbinary.game.ai.BasicAI;
-using GameInput = org.allbinary.game.input.GameInput;
-using Rectangle = org.allbinary.graphics.Rectangle;
-using AllBinaryLayer = org.allbinary.layer.AllBinaryLayer;
-using AllBinaryLayerManager = org.allbinary.layer.AllBinaryLayerManager;
-
-namespace org.allbinary.game.ag.ai;
-
-public class BoundBounceAI : BasicAI
-{
-    public int currentRelativeAngle = 0;
+public class BoundBounceAI : BasicAI {
+    public int32 currentRelativeAngle;
     private LayerBounds layerBounds;
     private BoundsVisitorInterface boundsVisitorInterface;
-    public BoundBounceAI(AllBinaryLayer ownerLayerInterface, GameInput gameInput, LayerBounds layerBounds, BoundsVisitorInterface boundsVisitorInterface) : base(ownerLayerInterface, gameInput)
-    {
-        // base(ownerLayerInterface, gameInput) is called from the constructor declaration
+
+    // Java field initializers run after the base constructor
+    private void initFieldsBoundBounceAI() {
+    this.currentRelativeAngle = 0;
+    
+    
+    }
+    
+
+    public BoundBounceAI(AllBinaryLayer ownerLayerInterface, GameInput gameInput, LayerBounds layerBounds, BoundsVisitorInterface boundsVisitorInterface) {
+        base(ownerLayerInterface, gameInput);
+        this.initFieldsBoundBounceAI();
         this.layerBounds = layerBounds;
         this.boundsVisitorInterface = boundsVisitorInterface;
     }
+    
 
-    public virtual void paint(Graphics graphics)
-    {
+    public virtual void paint(Graphics graphics) {
         Rectangle rectange = this.layerBounds.getRectangleP();
         graphics.drawRect(rectange.getPoint().getX(), rectange.getPoint().getY(), rectange.getWidth(), rectange.getHeight());
     }
+    
 
-    // throws Exception
-    public override void processAI(AllBinaryLayerManager allBinaryLayerManager)
-    {
+    public override void processAI(AllBinaryLayerManager allBinaryLayerManager) {
         this.layerBounds.visit(this.boundsVisitorInterface);
     }
-
 }
 

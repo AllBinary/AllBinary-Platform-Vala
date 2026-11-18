@@ -13,39 +13,32 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.logic.io.file
+// import java.io.File
+// import org.allbinary.logic.communication.log.PreLogUtil
 
-using System;
-using System.Linq;
-using File = java.io.File;
-using PreLogUtil = org.allbinary.logic.communication.log.PreLogUtil;
+public class FileWrapperUtil : JObject {
 
-namespace org.allbinary.logic.io.file;
+    public FileWrapperUtil() {
+        base();
+    }
+    
 
-public class FileWrapperUtil
-{
-    public static AbFile[] wrapFiles(object[] files)
-    {
-        try {
-            AbFile[] abFileArray = new AbFile[files.Length];
-            for (int index = files.Length - 1; index >= 0; index--) {
+    public static AbFile[] wrapFiles(JObject[] files) {
+        {
+            AbFile[] abFileArray = new AbFile[files.length];
+            for (int32 index = files.length - 1; index >= 0; index--) {
                 abFileArray[index] = new AbFile(((File) files[index]));
             }
             return abFileArray;
-        } catch (Exception e) {
-            PreLogUtil.putSE("Exception Wrapping Files", "FileWrapperUtil", "wrapFiles", e);
-            return new AbFile[0];
-        }
+        } /* catch (Exception e): a thrown Java exception stops the program */
     }
+    
 
-    public static AbFile wrapFile(File file)
-    {
-        try {
+    public static AbFile wrapFile(File file) {
+        {
             return new AbFile(file);
-        } catch (Exception e) {
-            PreLogUtil.putSE("Exception Wrapping File", "FileWrapperUtil", "wrapFile", e);
-            return AbFile.NULL_FILE;
-        }
+        } /* catch (Exception e): a thrown Java exception stops the program */
     }
-
 }
 

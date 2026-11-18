@@ -13,23 +13,21 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.game.score
+// import org.allbinary.util.BasicArrayList
 
-using System;
-using System.Linq;
-using BasicArrayList = org.allbinary.util.BasicArrayList;
+public interface HighScoresInterface : JObject {
+    
 
-namespace org.allbinary.game.score;
+    public abstract BasicArrayList getList();
+    
 
-public interface HighScoresInterface
-{
-    BasicArrayList getList();
+    public abstract void addHighScore(HighScore newHighScore);
+    
 
-    void addHighScore(HighScore newHighScore);
+    public abstract int32 getTotal();
+    
 
-    int getTotal();
-
-    // throws Exception
-    bool isBestScore(HighScore newHighScore);
-
+    public abstract bool isBestScore(HighScore newHighScore);
 }
 

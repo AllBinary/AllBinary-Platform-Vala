@@ -13,27 +13,29 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.game.combat.destroy.event
+// import org.allbinary.game.displayable.canvas.AllBinaryGameCanvas
+// import org.allbinary.logic.util.event.AllBinaryEventObject
+// import org.allbinary.logic.util.event.AllBinaryEventObjectFactoryInterface
 
-using System;
-using System.Linq;
-using AllBinaryGameCanvas = org.allbinary.game.displayable.canvas.AllBinaryGameCanvas;
-using AllBinaryEventObject = org.allbinary.logic.util.@event.AllBinaryEventObject;
-using AllBinaryEventObjectFactoryInterface = org.allbinary.logic.util.@event.AllBinaryEventObjectFactoryInterface;
-
-namespace org.allbinary.game.combat.destroy.@event;
-
-public class DestroyEventFactory : AllBinaryEventObjectFactoryInterface
-{
+public class DestroyEventFactory : JObject, AllBinaryEventObjectFactoryInterface {
     private AllBinaryGameCanvas combatGameCanvas;
-    public DestroyEventFactory(AllBinaryGameCanvas combatGameCanvas)
-    {
+
+    // Java field initializers run after the base constructor
+    private void initFieldsDestroyEventFactory() {
+    
+    }
+    
+
+    public DestroyEventFactory(AllBinaryGameCanvas combatGameCanvas) {
+        base();
+        this.initFieldsDestroyEventFactory();
         this.combatGameCanvas = combatGameCanvas;
     }
+    
 
-    public virtual AllBinaryEventObject getInstance()
-    {
+    public virtual AllBinaryEventObject getInstance() {
         return new DestroyedEvent(this.combatGameCanvas);
     }
-
 }
 

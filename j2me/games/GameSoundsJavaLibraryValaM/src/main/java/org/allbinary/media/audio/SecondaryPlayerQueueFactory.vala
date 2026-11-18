@@ -13,19 +13,26 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.media.audio
 
-using System;
-using System.Linq;
-
-namespace org.allbinary.media.audio;
-
-public class SecondaryPlayerQueueFactory
-{
-    private static readonly PlayerQueue SINGLETON = new PlayerQueue(4);
-    public static PlayerQueue getInstance()
-    {
+public class SecondaryPlayerQueueFactory : JObject {
+    private static PlayerQueue? SINGLETON;
+    private static bool staticSet_SINGLETON = false;
+    private static PlayerQueue staticGet_SINGLETON() {
+        if (!SecondaryPlayerQueueFactory.staticSet_SINGLETON) {
+            SecondaryPlayerQueueFactory.staticSet_SINGLETON = true;
+            SecondaryPlayerQueueFactory.SINGLETON = new PlayerQueue(4);
+        }
         return SecondaryPlayerQueueFactory.SINGLETON;
     }
 
+    public SecondaryPlayerQueueFactory() {
+        base();
+    }
+    
+
+    public static PlayerQueue getInstance() {
+        return SecondaryPlayerQueueFactory.staticGet_SINGLETON();
+    }
 }
 

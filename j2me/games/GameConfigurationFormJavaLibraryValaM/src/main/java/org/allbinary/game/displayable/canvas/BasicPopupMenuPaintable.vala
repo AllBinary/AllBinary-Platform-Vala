@@ -13,68 +13,79 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.game.displayable.canvas
+// import javax.microedition.lcdui.Font
+// import javax.microedition.lcdui.Graphics
+// import org.allbinary.AndroidUtil
+// import org.allbinary.J2MEUtil
+// import org.allbinary.animation.Animation
+// import org.allbinary.animation.NullAnimationFactory
+// import org.allbinary.animation.vector.RectangleFilledAnimation
+// import org.allbinary.game.configuration.feature.Features
+// import org.allbinary.game.layer.SWTUtil
+// import org.allbinary.graphics.GPoint
+// import org.allbinary.graphics.Rectangle
+// import org.allbinary.graphics.color.BasicColor
+// import org.allbinary.graphics.color.BasicColorFactory
+// import org.allbinary.graphics.color.BasicColorSetUtil
+// import org.allbinary.graphics.draw.DrawVerticalStringUtil
+// import org.allbinary.graphics.font.MyFontProcessor
+// import org.allbinary.graphics.font.UpdateMyFontInterface
+// import org.allbinary.graphics.font.UpdateMyFontProcessor
+// import org.allbinary.graphics.opengles.OpenGLFeatureFactory
+// import org.allbinary.graphics.opengles.OpenGLFeatureUtil
+// import org.allbinary.graphics.paint.Paintable
+// import org.allbinary.graphics.threed.SWTJOGLProcessor
 
-using System;
-using System.Linq;
-using Font = javax.microedition.lcdui.Font;
-using Graphics = javax.microedition.lcdui.Graphics;
-using AndroidUtil = org.allbinary.AndroidUtil;
-using J2MEUtil = org.allbinary.J2MEUtil;
-using Animation = org.allbinary.animation.Animation;
-using NullAnimationFactory = org.allbinary.animation.NullAnimationFactory;
-using RectangleFilledAnimation = org.allbinary.animation.vector.RectangleFilledAnimation;
-using Features = org.allbinary.game.configuration.feature.Features;
-using SWTUtil = org.allbinary.game.layer.SWTUtil;
-using GPoint = org.allbinary.graphics.GPoint;
-using Rectangle = org.allbinary.graphics.Rectangle;
-using BasicColor = org.allbinary.graphics.color.BasicColor;
-using BasicColorFactory = org.allbinary.graphics.color.BasicColorFactory;
-using BasicColorSetUtil = org.allbinary.graphics.color.BasicColorSetUtil;
-using DrawVerticalStringUtil = org.allbinary.graphics.draw.DrawVerticalStringUtil;
-using MyFontProcessor = org.allbinary.graphics.font.MyFontProcessor;
-using UpdateMyFontInterface = org.allbinary.graphics.font.UpdateMyFontInterface;
-using UpdateMyFontProcessor = org.allbinary.graphics.font.UpdateMyFontProcessor;
-using OpenGLFeatureFactory = org.allbinary.graphics.opengles.OpenGLFeatureFactory;
-using OpenGLFeatureUtil = org.allbinary.graphics.opengles.OpenGLFeatureUtil;
-using Paintable = org.allbinary.graphics.paint.Paintable;
-using SWTJOGLProcessor = org.allbinary.graphics.threed.SWTJOGLProcessor;
-
-namespace org.allbinary.game.displayable.canvas;
-
-public class BasicPopupMenuPaintable : Paintable, UpdateMyFontInterface
-{
+public class BasicPopupMenuPaintable : Paintable, UpdateMyFontInterface {
     private const string NAME = "MENU";
-    public readonly BasicColorSetUtil basicSetColorUtil = BasicColorSetUtil.getInstance();
-    private readonly DrawVerticalStringUtil drawStringUtil = DrawVerticalStringUtil.getInstance();
-    private readonly string label;
-    private readonly BasicColor foregroundBasicColor;
+    public BasicColorSetUtil basicSetColorUtil;
+    private DrawVerticalStringUtil drawStringUtil;
+    private string label;
+    private BasicColor foregroundBasicColor;
     private MyFontProcessor myFontProcessor;
     private Rectangle rectangle;
-    private int BORDER = 0;
-    private int heightOffset = 0;
-    private int offset = 0;
-    private Animation animationInterface = null;
-    public BasicPopupMenuPaintable(Rectangle rectangle, BasicColor backgroundBasicColor, BasicColor foregroundBasicColor)
-    {
-        this.myFontProcessor = new UpdateMyFontProcessor(this);
+    private int32 BORDER;
+    private int32 heightOffset;
+    private int32 offset;
+    private Animation animationInterface;
+
+    // Java field initializers run after the base constructor
+    private void initFieldsBasicPopupMenuPaintable() {
+    this.basicSetColorUtil = BasicColorSetUtil.getInstance();
+    this.drawStringUtil = DrawVerticalStringUtil.getInstance();
+    
+    
+    this.myFontProcessor = new UpdateMyFontProcessor(this);
+    
+    this.BORDER = 0;
+    this.heightOffset = 0;
+    this.offset = 0;
+    this.animationInterface = null;
+    }
+    
+
+    public BasicPopupMenuPaintable(Rectangle rectangle, BasicColor backgroundBasicColor, BasicColor foregroundBasicColor) {
+        base();
+        this.initFieldsBasicPopupMenuPaintable();
         this.foregroundBasicColor = foregroundBasicColor;
         this.label = BasicPopupMenuPaintable.NAME;
         this.rectangle = rectangle;
         if (J2MEUtil.isJ2ME() || J2MEUtil.isHTML()) {
-            this.animationInterface = NullAnimationFactory.getFactoryInstance().getInstance(0);
+            this.animationInterface = NullAnimationFactory.getFactoryInstance().getInstance1(0);
         } else {
             this.animationInterface = new RectangleFilledAnimation(this.rectangle.getWidth(), this.rectangle.getHeight(), BasicColorFactory.getInstance().TRANSPARENT_GREY);
         }
         this.init(rectangle);
     }
+    
 
-    public virtual void updateMeasurement(Graphics graphics)
-    {
+    public virtual void updateMeasurement(Graphics graphics) {
         Font font = graphics.getFont();
         Features features = Features.getInstance();
         bool isOpenGL = features.isDefault(OpenGLFeatureFactory.getInstance().OPENGL);
         this.drawStringUtil.updateMeasurement(graphics, this.label);
-        int BORDER = 0;
+        int32 BORDER = 0;
         if (J2MEUtil.isHTML() || isOpenGL) {
             BORDER = MyFontProcessor.defaultCharWidth(font) / 2;
         } else if (AndroidUtil.isAndroid() || J2MEUtil.isJ2SE() || SWTUtil.isSWT) {
@@ -95,13 +106,12 @@ public class BasicPopupMenuPaintable : Paintable, UpdateMyFontInterface
         this.offset = (this.heightOffset >> 1) + ((SWTJOGLProcessor.getInstance().isJOGL() ? 4 : 0));
         this.myFontProcessor = MyFontProcessor.getInstance();
     }
+    
 
-    // throws Exception
-    public virtual void init(Rectangle rectangle)
-    {
+    public virtual void init(Rectangle rectangle) {
         this.rectangle = rectangle;
-        int width = this.rectangle.getWidth();
-        int height = this.rectangle.getHeight();
+        int32 width = this.rectangle.getWidth();
+        int32 height = this.rectangle.getHeight();
         if (J2MEUtil.isJ2ME() || J2MEUtil.isHTML()) {
         } else {
             RectangleFilledAnimation rectangleFilledAnimation = ((RectangleFilledAnimation) this.animationInterface);
@@ -109,20 +119,19 @@ public class BasicPopupMenuPaintable : Paintable, UpdateMyFontInterface
             rectangleFilledAnimation.setHeight(height);
         }
     }
+    
 
-    public override void paint(Graphics graphics)
-    {
+    public override void paint(Graphics graphics) {
         this.myFontProcessor.process(graphics);
         GPoint point = this.rectangle.getPoint();
-        int x = point.getX();
-        int y = point.getY();
-        int width = this.rectangle.getWidth();
-        int height = this.rectangle.getHeight();
+        int32 x = point.getX();
+        int32 y = point.getY();
+        int32 width = this.rectangle.getWidth();
+        int32 height = this.rectangle.getHeight();
         this.animationInterface.paintXY(graphics, x, y);
         this.basicSetColorUtil.setBasicColorP(graphics, this.foregroundBasicColor);
         this.drawStringUtil.paintVerticle(graphics, this.label, x + this.BORDER, y + this.offset, 0);
         graphics.drawRect(x, y, width, height);
     }
-
 }
 

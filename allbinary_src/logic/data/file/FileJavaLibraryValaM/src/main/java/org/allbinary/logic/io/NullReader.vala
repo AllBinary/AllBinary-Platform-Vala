@@ -13,44 +13,47 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.logic.io
+// import java.io.IOException
+// import java.io.Reader
 
-using System;
-using System.Linq;
-//using IOException = java.io.IOException;
-using Reader = java.io.Reader;
-
-namespace org.allbinary.logic.io;
-
-public class NullReader : Reader
-{
-    public static readonly NullReader NULL_READER = new NullReader();
-    // throws IOException
-    public override int read()
-    {
-        return -1;
+public class NullReader : Reader {
+    public static NullReader? NULL_READER;
+    private static bool staticSet_NULL_READER = false;
+    public static NullReader staticGet_NULL_READER() {
+        if (!NullReader.staticSet_NULL_READER) {
+            NullReader.staticSet_NULL_READER = true;
+            NullReader.NULL_READER = new NullReader();
+        }
+        return NullReader.NULL_READER;
     }
 
-    // throws IOException
-    public override int read(char[] cbuf, int off, int len)
-    {
+    public NullReader() {
+        base();
+    }
+    
+
+    public override int32 read_0() {
         return -1;
     }
+    
 
-    // throws IOException
-    public override bool ready()
-    {
+    public override int32 read_3(uint16[] cbuf, int32 off, int32 len) {
+        return -1;
+    }
+    
+
+    public override bool ready() {
         return false;
     }
+    
 
-    // throws IOException
-    public override long skip(long n)
-    {
-        return 0L;
+    public override int64 skip(int64 n) {
+        return (int64) 0;
     }
+    
 
-    public override void close()
-    {
+    public override void close() {
     }
-
 }
 

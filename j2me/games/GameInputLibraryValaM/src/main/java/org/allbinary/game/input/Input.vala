@@ -13,53 +13,56 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.game.input
+// import org.allbinary.logic.string.StringMaker
+// import org.allbinary.logic.string.StringUtil
 
-using System;
-using System.Linq;
-using StringMaker = org.allbinary.logic.@string.StringMaker;
-using StringUtil = org.allbinary.logic.@string.StringUtil;
+public class Input : JObject {
+    private int32 id;
+    private string name;
 
-namespace org.allbinary.game.input;
+    // Java field initializers run after the base constructor
+    private void initFieldsInput() {
+    this.id = 0;
+    this.name = StringUtil.getInstance().EMPTY_STRING;
+    }
+    
 
-public class Input
-{
-    private int id = 0;
-    private string name = StringUtil.getInstance().EMPTY_STRING;
-    public Input(int id, string name)
-    {
+    public Input(int32 id, string name) {
+        base();
+        this.initFieldsInput();
         this.setId(id);
         this.setName(name);
     }
+    
 
-    public virtual int getId()
-    {
+    public virtual int32 getId() {
         return this.id;
     }
+    
 
-    private void setId(int key)
-    {
+    private void setId(int32 key) {
         this.id = key;
     }
+    
 
-    public virtual string getName()
-    {
+    public virtual string getName() {
         return this.name;
     }
+    
 
-    private void setName(string keyName)
-    {
+    private void setName(string keyName) {
         this.name = keyName;
     }
+    
 
-    public override string ToString()
-    {
+    public override string toString() {
         StringMaker stringBuffer = new StringMaker();
         stringBuffer.append("Name: ");
         stringBuffer.append(this.getName());
         stringBuffer.append(" Id: ");
         stringBuffer.appendint(this.getId());
-        return stringBuffer.ToString();
+        return stringBuffer.toString();
     }
-
 }
 

@@ -13,13 +13,8 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.logic.util.event
 
-using System;
-using System.Linq;
-
-namespace org.allbinary.logic.util.@event;
-
-public interface BasicEventListenerInterface : EventListenerInterface
-{
+public interface BasicEventListenerInterface : JObject, EventListenerInterface {
 }
 

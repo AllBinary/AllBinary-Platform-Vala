@@ -13,20 +13,15 @@
  *   
  */
 // Generated Code Do Not Modify
+// package org.allbinary.graphics.opengles.shader
+// import org.allbinary.graphics.opengles.NullOpenGLProcessorFactory
+// import org.allbinary.graphics.opengles.OpenGLProcessor
 
-using System;
-using System.Linq;
-using NullOpenGLProcessorFactory = org.allbinary.graphics.opengles.NullOpenGLProcessorFactory;
-using OpenGLProcessor = org.allbinary.graphics.opengles.OpenGLProcessor;
+public class PlatformShaderComposite : ShaderComposite {
+    
 
-namespace org.allbinary.graphics.opengles.shader;
-
-public class PlatformShaderComposite : ShaderComposite
-{
-    public PlatformShaderComposite(string requiresOpenGLVersion, Shader[] shaderArray, CompositeShaderUpdater compositeShaderUpdater, ShaderInitializer shaderInitializer, ModelViewProjection modelViewProjection, OpenGLProcessor colorOpenGLProcessor, OpenGLProcessor vertexOpenGLProcessor) : base(requiresOpenGLVersion, shaderArray, compositeShaderUpdater, shaderInitializer, modelViewProjection, colorOpenGLProcessor, vertexOpenGLProcessor, NullOpenGLProcessorFactory.getInstance())
-    {
-        // base(requiresOpenGLVersion, shaderArray, compositeShaderUpdater, shaderInitializer, modelViewProjection, colorOpenGLProcessor, vertexOpenGLProcessor, NullOpenGLProcessorFactory.getInstance()) is called from the constructor declaration
+    public PlatformShaderComposite(string requiresOpenGLVersion, Shader[] shaderArray, CompositeShaderUpdater compositeShaderUpdater, ShaderInitializer shaderInitializer, ModelViewProjection modelViewProjection, OpenGLProcessor colorOpenGLProcessor, OpenGLProcessor vertexOpenGLProcessor) {
+        base(requiresOpenGLVersion, shaderArray, compositeShaderUpdater, shaderInitializer, modelViewProjection, colorOpenGLProcessor, vertexOpenGLProcessor, NullOpenGLProcessorFactory.getInstance());
     }
-
 }
 

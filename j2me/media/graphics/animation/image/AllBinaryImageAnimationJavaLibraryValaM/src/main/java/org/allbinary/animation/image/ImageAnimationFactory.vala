@@ -13,33 +13,27 @@
  *   
  */
 // Generated Code Do Not Modify
+// package org.allbinary.animation.image
+// import javax.microedition.lcdui.Image
+// import org.allbinary.animation.Animation
+// import org.allbinary.animation.AnimationBehaviorFactory
+// import org.allbinary.graphics.opengles.OpenGLUtil
+// import org.allbinary.logic.math.PrimitiveIntUtil
 
-using System;
-using System.Linq;
-using Image = javax.microedition.lcdui.Image;
-using Animation = org.allbinary.animation.Animation;
-using AnimationBehaviorFactory = org.allbinary.animation.AnimationBehaviorFactory;
-using OpenGLUtil = org.allbinary.graphics.opengles.OpenGLUtil;
-using PrimitiveIntUtil = org.allbinary.logic.math.PrimitiveIntUtil;
+public class ImageAnimationFactory : BaseImageAnimationFactory {
+    
 
-namespace org.allbinary.animation.image;
-
-public class ImageAnimationFactory : BaseImageAnimationFactory
-{
-    // throws Exception
-    public static ImageAnimationFactory createFactory(Image image)
-    {
+    public static ImageAnimationFactory createFactory(Image image) {
         return new ImageAnimationFactory(image, image.getWidth(), image.getHeight(), 0, 0, AnimationBehaviorFactory.getInstance());
     }
+    
 
-    public ImageAnimationFactory(Image image, int width, int height, int dx, int dy, AnimationBehaviorFactory animationBehaviorFactory) : base(image, PrimitiveIntUtil.getArrayInstance(), width, height, dx, dy, animationBehaviorFactory)
-    {
-        // base(image, PrimitiveIntUtil.getArrayInstance(), width, height, dx, dy, animationBehaviorFactory) is called from the constructor declaration
+    public ImageAnimationFactory(Image image, int32 width, int32 height, int32 dx, int32 dy, AnimationBehaviorFactory animationBehaviorFactory) {
+        base(image, PrimitiveIntUtil.getArrayInstance(), width, height, dx, dy, animationBehaviorFactory);
     }
+    
 
-    // throws Exception
-    public override Animation getInstance(int instanceId)
-    {
+    public override Animation getInstance1(int32 instanceId) {
         Image scaledImage = this.animationFactoryImageScaleUtil.createImage(this.getImage(), this.animationFactoryInitializationVisitor.width, this.animationFactoryInitializationVisitor.height, this.scaleProperties.scaleWidth, this.scaleProperties.scaleHeight);
         OpenGLUtil openGLUtil = OpenGLUtil.getInstance();
         scaledImage = openGLUtil.addImage(scaledImage);
@@ -50,6 +44,5 @@ public class ImageAnimationFactory : BaseImageAnimationFactory
             return new ImageAnimation(scaledImage, this.animationBehaviorFactory.getOrCreateInstance());
         }
     }
-
 }
 

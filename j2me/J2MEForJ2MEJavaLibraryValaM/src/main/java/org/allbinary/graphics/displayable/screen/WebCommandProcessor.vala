@@ -13,39 +13,51 @@
  * 
  */
 // Generated Code Do Not Modify
+// package org.allbinary.graphics.displayable.screen
+// import javax.microedition.lcdui.Canvas
+// import javax.microedition.lcdui.Command
+// import javax.microedition.lcdui.CommandListener
+// import org.allbinary.logic.communication.log.LogUtil
+// import org.allbinary.string.CommonStrings
+// import org.allbinary.util.BasicArrayList
+// import org.allbinary.util.BasicArrayListD
 
-using System;
-using System.Linq;
-using Canvas = javax.microedition.lcdui.Canvas;
-using Command = javax.microedition.lcdui.Command;
-using CommandListener = javax.microedition.lcdui.CommandListener;
-using LogUtil = org.allbinary.logic.communication.log.LogUtil;
-using CommonStrings = org.allbinary.@string.CommonStrings;
-using BasicArrayList = org.allbinary.util.BasicArrayList;
-using BasicArrayListD = org.allbinary.util.BasicArrayListD;
-
-namespace org.allbinary.graphics.displayable.screen;
-
-public class WebCommandProcessor
-{
-    public readonly LogUtil logUtil = LogUtil.getInstance();
-    private static readonly WebCommandProcessor instance = new WebCommandProcessor();
-    public static WebCommandProcessor getInstance()
-    {
+public class WebCommandProcessor : JObject {
+    private static WebCommandProcessor? instance;
+    private static bool staticSet_instance = false;
+    private static WebCommandProcessor staticGet_instance() {
+        if (!WebCommandProcessor.staticSet_instance) {
+            WebCommandProcessor.staticSet_instance = true;
+            WebCommandProcessor.instance = new WebCommandProcessor();
+        }
         return WebCommandProcessor.instance;
     }
+    public LogUtil logUtil;
+    private AboutCommandProcessor aboutCommandProcessor;
+    public BasicArrayList list;
 
-    private readonly AboutCommandProcessor aboutCommandProcessor = AboutCommandProcessor.getInstance();
-    public readonly BasicArrayList list = new BasicArrayListD();
-    public virtual void process(CommandListener midletCommandListener, Command command, Canvas canvas)
-    {
-        try {
-            this.list.removeAt(0);
-        } catch (Exception e) {
-            CommonStrings commonStrings = CommonStrings.getInstance();
-            this.logUtil.put(commonStrings.EXCEPTION, this, commonStrings.PROCESS, e);
-        }
+    // Java field initializers run after the base constructor
+    private void initFieldsWebCommandProcessor() {
+    this.logUtil = LogUtil.getInstance();
+    this.aboutCommandProcessor = AboutCommandProcessor.getInstance();
+    this.list = new BasicArrayListD();
     }
 
+    public WebCommandProcessor() {
+        base();
+        this.initFieldsWebCommandProcessor();
+    }
+    
+
+    public static WebCommandProcessor getInstance() {
+        return WebCommandProcessor.staticGet_instance();
+    }
+    
+
+    public virtual void process(CommandListener midletCommandListener, Command command, Canvas canvas) {
+        {
+            this.list.removeAt(0);
+        } /* catch (Exception e): a thrown Java exception stops the program */
+    }
 }
 

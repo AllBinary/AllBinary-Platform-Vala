@@ -13,81 +13,90 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.game.layer
+// import org.allbinary.ai.ArtificialIntelligence
+// import org.allbinary.ai.ArtificialIntelligenceInterface
+// import org.allbinary.game.collision.CollidableBaseBehavior
+// import org.allbinary.game.collision.CollidableBaseBehaviorFactory
+// import org.allbinary.game.collision.CollidableInterfaceCompositeInterface
+// import org.allbinary.game.collision.CollidableNeverCollideBehaviorFactory
+// import org.allbinary.graphics.Rectangle
+// import org.allbinary.graphics.RectangleFactory
+// import org.allbinary.logic.communication.log.ForcedLogUtil
+// import org.allbinary.logic.string.StringMaker
+// import org.allbinary.logic.string.StringUtil
+// import org.allbinary.string.CommonSeps
+// import org.allbinary.view.ViewPositionBase
+// import org.allbinary.logic.NullUtil
 
-using System;
-using System.Linq;
-using ArtificialIntelligence = org.allbinary.ai.ArtificialIntelligence;
-using ArtificialIntelligenceInterface = org.allbinary.ai.ArtificialIntelligenceInterface;
-using CollidableBaseBehavior = org.allbinary.game.collision.CollidableBaseBehavior;
-using CollidableBaseBehaviorFactory = org.allbinary.game.collision.CollidableBaseBehaviorFactory;
-using CollidableInterfaceCompositeInterface = org.allbinary.game.collision.CollidableInterfaceCompositeInterface;
-using CollidableNeverCollideBehaviorFactory = org.allbinary.game.collision.CollidableNeverCollideBehaviorFactory;
-using Rectangle = org.allbinary.graphics.Rectangle;
-using RectangleFactory = org.allbinary.graphics.RectangleFactory;
-using ForcedLogUtil = org.allbinary.logic.communication.log.ForcedLogUtil;
-using StringMaker = org.allbinary.logic.@string.StringMaker;
-using StringUtil = org.allbinary.logic.@string.StringUtil;
-using CommonSeps = org.allbinary.@string.CommonSeps;
-using ViewPositionBase = org.allbinary.view.ViewPositionBase;
-using NullUtil = org.allbinary.logic.NullUtil;
+public class CollidableCompositeLayer : AllBinaryGameLayer, CollidableInterfaceCompositeInterface {
+    private static JObject? NULL_COLLIDABLE_COMPOSITE_LAYER;
+    private static bool staticSet_NULL_COLLIDABLE_COMPOSITE_LAYER = false;
+    private static JObject staticGet_NULL_COLLIDABLE_COMPOSITE_LAYER() {
+        if (!CollidableCompositeLayer.staticSet_NULL_COLLIDABLE_COMPOSITE_LAYER) {
+            CollidableCompositeLayer.staticSet_NULL_COLLIDABLE_COMPOSITE_LAYER = true;
+            CollidableCompositeLayer.NULL_COLLIDABLE_COMPOSITE_LAYER = NullUtil.getInstance().NULL_OBJECT;
+        }
+        return CollidableCompositeLayer.NULL_COLLIDABLE_COMPOSITE_LAYER;
+    }
+    private CollidableBaseBehavior collidableInferface;
 
-namespace org.allbinary.game.layer;
+    // Java field initializers run after the base constructor
+    private void initFieldsCollidableCompositeLayer() {
+    this.collidableInferface = CollidableNeverCollideBehaviorFactory.getInstance().createBehavior();
+    }
+    
 
-public class CollidableCompositeLayer : AllBinaryGameLayer, CollidableInterfaceCompositeInterface
-{
-    private static object NULL_COLLIDABLE_COMPOSITE_LAYER = NullUtil.getInstance().NULL_OBJECT;
-    public static CollidableCompositeLayer getNullInstance()
-    {
-        if (CollidableCompositeLayer.NULL_COLLIDABLE_COMPOSITE_LAYER == NullUtil.getInstance().NULL_OBJECT) {
+    public static CollidableCompositeLayer getNullInstance() {
+        if (CollidableCompositeLayer.staticGet_NULL_COLLIDABLE_COMPOSITE_LAYER() == NullUtil.getInstance().NULL_OBJECT) {
             CollidableCompositeLayer.NULL_COLLIDABLE_COMPOSITE_LAYER = new CollidableCompositeLayer(StringUtil.getInstance().EMPTY_STRING, RectangleFactory.SINGLETON, ViewPositionBase.NULL_VIEW_POSITION, CollidableNeverCollideBehaviorFactory.getInstance());
         }
-        return ((CollidableCompositeLayer) CollidableCompositeLayer.NULL_COLLIDABLE_COMPOSITE_LAYER);
+        return ((CollidableCompositeLayer) CollidableCompositeLayer.staticGet_NULL_COLLIDABLE_COMPOSITE_LAYER());
     }
+    
 
-    private CollidableBaseBehavior collidableInferface = CollidableNeverCollideBehaviorFactory.getInstance().createBehavior();
-    public CollidableCompositeLayer(string name, Rectangle layerInfo, ViewPositionBase viewPosition, CollidableBaseBehaviorFactory collidableBaseBehaviorFactory) : base(name, layerInfo, viewPosition)
-    {
-        // base(name, layerInfo, viewPosition) is called from the constructor declaration
+    public CollidableCompositeLayer(string name, Rectangle layerInfo, ViewPositionBase viewPosition, CollidableBaseBehaviorFactory collidableBaseBehaviorFactory) {
+        base(name, layerInfo, viewPosition);
+        this.initFieldsCollidableCompositeLayer();
         if (collidableBaseBehaviorFactory != CollidableNeverCollideBehaviorFactory.getInstance()) {
             this.setCollidableInferface(collidableBaseBehaviorFactory.createBehavior());
         }
     }
+    
 
-    public virtual ArtificialIntelligenceInterface getArtificialIntelligenceInterface()
-    {
+    public virtual ArtificialIntelligenceInterface getArtificialIntelligenceInterface() {
         ForcedLogUtil.log(this.commonStrings.NOT_IMPLEMENTED, this);
         return ArtificialIntelligence.getInstance();
     }
+    
 
-    public virtual CollidableBaseBehavior getCollidableInferface()
-    {
+    public virtual CollidableBaseBehavior getCollidableInferface() {
         return this.collidableInferface;
     }
+    
 
-    public virtual void setCollidableInferface(CollidableBaseBehavior collidableInferface)
-    {
+    public virtual void setCollidableInferface(CollidableBaseBehavior collidableInferface) {
         this.collidableInferface = collidableInferface;
     }
+    
 
-    public override bool implmentsCollidableInterface()
-    {
+    public override bool implmentsCollidableInterface() {
         return true;
     }
+    
 
-    public override void toStringAppend(StringMaker stringBuffer)
-    {
+    public override void toStringAppend(StringMaker stringBuffer) {
         CommonSeps commonSeps = CommonSeps.getInstance();
         base.toStringAppend(stringBuffer);
         stringBuffer.append(commonSeps.NEW_LINE);
-        stringBuffer.append(this.getCollidableInferface().ToString());
+        stringBuffer.append(this.getCollidableInferface().toString());
     }
+    
 
-    public override string ToString()
-    {
+    public override string toString() {
         StringMaker stringBuffer = new StringMaker();
         this.toStringAppend(stringBuffer);
-        return stringBuffer.ToString();
+        return stringBuffer.toString();
     }
-
 }
 

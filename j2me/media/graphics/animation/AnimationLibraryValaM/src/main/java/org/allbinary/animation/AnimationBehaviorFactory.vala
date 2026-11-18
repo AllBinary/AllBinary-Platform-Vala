@@ -13,24 +13,31 @@
  *   
  */
 // Generated Code Do Not Modify
+// package org.allbinary.animation
 
-using System;
-using System.Linq;
-
-namespace org.allbinary.animation;
-
-public class AnimationBehaviorFactory
-{
-    private static readonly AnimationBehaviorFactory instance = new AnimationBehaviorFactory();
-    public static AnimationBehaviorFactory getInstance()
-    {
+public class AnimationBehaviorFactory : JObject {
+    private static AnimationBehaviorFactory? instance;
+    private static bool staticSet_instance = false;
+    private static AnimationBehaviorFactory staticGet_instance() {
+        if (!AnimationBehaviorFactory.staticSet_instance) {
+            AnimationBehaviorFactory.staticSet_instance = true;
+            AnimationBehaviorFactory.instance = new AnimationBehaviorFactory();
+        }
         return AnimationBehaviorFactory.instance;
     }
 
-    public virtual AnimationBehavior getOrCreateInstance()
-    {
+    public AnimationBehaviorFactory() {
+        base();
+    }
+    
+
+    public static AnimationBehaviorFactory getInstance() {
+        return AnimationBehaviorFactory.staticGet_instance();
+    }
+    
+
+    public virtual AnimationBehavior getOrCreateInstance() {
         return AnimationBehavior.getInstance();
     }
-
 }
 

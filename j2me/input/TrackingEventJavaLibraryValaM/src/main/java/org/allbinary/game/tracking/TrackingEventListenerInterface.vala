@@ -13,17 +13,12 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.game.tracking
+// import org.allbinary.logic.util.event.EventListenerInterface
 
-using System;
-using System.Linq;
-using EventListenerInterface = org.allbinary.logic.util.@event.EventListenerInterface;
+public interface TrackingEventListenerInterface : JObject, EventListenerInterface {
+    
 
-namespace org.allbinary.game.tracking;
-
-public interface TrackingEventListenerInterface : EventListenerInterface
-{
-    // throws Exception
-    void onMovement(TrackingEvent trackingEvent);
-
+    public abstract void onMovement(TrackingEvent trackingEvent);
 }
 

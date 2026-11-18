@@ -13,39 +13,64 @@
  *   
  */
 // Generated Code Do Not Modify
+// package org.allbinary.logic.system.security.licensing
 
-using System;
-using System.Linq;
-
-namespace org.allbinary.logic.system.security.licensing;
-
-public class AbeClientInformationData
-{
-    private static readonly AbeClientInformationData instance = new AbeClientInformationData();
-    public static AbeClientInformationData getInstance()
-    {
+public class AbeClientInformationData : JObject {
+    private static AbeClientInformationData? instance;
+    private static bool staticSet_instance = false;
+    private static AbeClientInformationData staticGet_instance() {
+        if (!AbeClientInformationData.staticSet_instance) {
+            AbeClientInformationData.staticSet_instance = true;
+            AbeClientInformationData.instance = new AbeClientInformationData();
+        }
         return AbeClientInformationData.instance;
     }
+    public string KEY;
+    public string NAME;
+    public string VERSION;
+    public string SPECIALNAME;
+    public string LICENSEID;
+    public string LICENSE_TYPE;
+    public string PREVIOUSLICENSEID;
+    public string OSNAME;
+    public string OSARCH;
+    public string OSVERSION;
+    public string OS;
+    public string HARDWARE;
+    public string LICENSESERVERS;
+    public string NEWLICENSE;
+    public string ISNEW;
+    public string SPECIAL;
 
-    private AbeClientInformationData()
-    {
+    // Java field initializers run after the base constructor
+    private void initFieldsAbeClientInformationData() {
+    this.KEY = "KEY";
+    this.NAME = "NAME";
+    this.VERSION = "VERSION";
+    this.SPECIALNAME = "SPECIALNAME";
+    this.LICENSEID = "LICENSEID";
+    this.LICENSE_TYPE = "LICENSETYPE";
+    this.PREVIOUSLICENSEID = "PREVIOUSLICENSEID";
+    this.OSNAME = "OSNAME";
+    this.OSARCH = "OSARCH";
+    this.OSVERSION = "OSVERSION";
+    this.OS = "OS";
+    this.HARDWARE = "HARDWARE";
+    this.LICENSESERVERS = "LICENSESERVERS";
+    this.NEWLICENSE = "NEWLICENSE";
+    this.ISNEW = "ISNEW";
+    this.SPECIAL = "SPECIAL";
     }
+    
 
-    public readonly string KEY = "KEY";
-    public readonly string NAME = "NAME";
-    public readonly string VERSION = "VERSION";
-    public readonly string SPECIALNAME = "SPECIALNAME";
-    public readonly string LICENSEID = "LICENSEID";
-    public readonly string LICENSE_TYPE = "LICENSETYPE";
-    public readonly string PREVIOUSLICENSEID = "PREVIOUSLICENSEID";
-    public readonly string OSNAME = "OSNAME";
-    public readonly string OSARCH = "OSARCH";
-    public readonly string OSVERSION = "OSVERSION";
-    public readonly string OS = "OS";
-    public readonly string HARDWARE = "HARDWARE";
-    public readonly string LICENSESERVERS = "LICENSESERVERS";
-    public readonly string NEWLICENSE = "NEWLICENSE";
-    public readonly string ISNEW = "ISNEW";
-    public readonly string SPECIAL = "SPECIAL";
+    public static AbeClientInformationData getInstance() {
+        return AbeClientInformationData.staticGet_instance();
+    }
+    
+
+    public AbeClientInformationData() {
+        base();
+        this.initFieldsAbeClientInformationData();
+    }
 }
 

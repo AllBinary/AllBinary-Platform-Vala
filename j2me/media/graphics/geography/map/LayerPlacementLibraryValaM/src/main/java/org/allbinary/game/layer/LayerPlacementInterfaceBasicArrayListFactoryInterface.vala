@@ -13,18 +13,15 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.game.layer
+// import org.allbinary.util.BasicArrayList
 
-using System;
-using System.Linq;
-using BasicArrayList = org.allbinary.util.BasicArrayList;
+public interface LayerPlacementInterfaceBasicArrayListFactoryInterface : JObject {
+    
 
-namespace org.allbinary.game.layer;
+    public abstract BasicArrayList getInstance();
+    
 
-public interface LayerPlacementInterfaceBasicArrayListFactoryInterface
-{
-    BasicArrayList getInstance();
-
-    int[] getOnDemandResources();
-
+    public abstract int32[] getOnDemandResources();
 }
 

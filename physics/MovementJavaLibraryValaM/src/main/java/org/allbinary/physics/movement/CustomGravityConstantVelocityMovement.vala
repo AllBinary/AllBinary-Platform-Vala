@@ -13,34 +13,35 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.physics.movement
+// import org.allbinary.game.layer.AllBinaryGameLayer
+// import org.allbinary.game.physics.acceleration.GravityUtil
+// import org.allbinary.game.physics.velocity.VelocityProperties
+// import org.allbinary.logic.math.BasicDecimal
 
-using System;
-using System.Linq;
-using AllBinaryGameLayer = org.allbinary.game.layer.AllBinaryGameLayer;
-using GravityUtil = org.allbinary.game.physics.acceleration.GravityUtil;
-using VelocityProperties = org.allbinary.game.physics.velocity.VelocityProperties;
-using BasicDecimal = org.allbinary.logic.math.BasicDecimal;
+public class CustomGravityConstantVelocityMovement : BasicConstantVelocityMovement {
+    private int32 customGravity;
+    private GravityUtil gravityUtil;
 
-namespace org.allbinary.physics.movement;
+    // Java field initializers run after the base constructor
+    private void initFieldsCustomGravityConstantVelocityMovement() {
+    
+    this.gravityUtil = GravityUtil.getInstance();
+    }
+    
 
-public class CustomGravityConstantVelocityMovement : BasicConstantVelocityMovement
-{
-    private int customGravity;
-    public CustomGravityConstantVelocityMovement(BasicDecimal speedBasicDecimal, int customGravity) : base(speedBasicDecimal, new VelocityProperties(((int) speedBasicDecimal.getUnscaled()), ((int) speedBasicDecimal.getUnscaled())))
-    {
-        // base(speedBasicDecimal, new VelocityProperties(((int) speedBasicDecimal.getUnscaled()), ((int) speedBasicDecimal.getUnscaled()))) is called from the constructor declaration
+    public CustomGravityConstantVelocityMovement(BasicDecimal speedBasicDecimal, int32 customGravity) {
+        base(speedBasicDecimal, new VelocityProperties(((int32) (speedBasicDecimal.getUnscaled())), ((int32) (speedBasicDecimal.getUnscaled()))));
+        this.initFieldsCustomGravityConstantVelocityMovement();
         this.customGravity = customGravity;
     }
+    
 
-    private readonly GravityUtil gravityUtil = GravityUtil.getInstance();
-    // throws Exception
-    public override void process(AllBinaryGameLayer layer)
-    {
+    public override void process(AllBinaryGameLayer layer) {
         base.process(layer);
         this.gravityUtil.process(this.getVelocityProperties(), this.customGravity);
         VelocityProperties velocityProperties = ((VelocityProperties) this.getVelocityProperties());
         velocityProperties.limitMaxYForwardVelocity();
     }
-
 }
 

@@ -13,15 +13,11 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.game.init
 
-using System;
-using System.Linq;
+public interface GameInitializationInterfaceFactoryInterface : JObject {
+    
 
-namespace org.allbinary.game.init;
-
-public interface GameInitializationInterfaceFactoryInterface
-{
-    GameInitializationInterface getInstance();
-
+    public abstract GameInitializationInterface getInstance();
 }
 

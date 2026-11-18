@@ -13,27 +13,31 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.input.gyro
+// import org.allbinary.canvas.Processor
 
-using System;
-using System.Linq;
-using Processor = org.allbinary.canvas.Processor;
+public class SingleSensorGameUpdateProcessor : SensorGameUpdateProcessor {
+    private Processor accelerometerSensorUpdateProcessor;
+    private Processor gyroSensorUpdateProcessor;
 
-namespace org.allbinary.input.gyro;
+    // Java field initializers run after the base constructor
+    private void initFieldsSingleSensorGameUpdateProcessor() {
+    this.accelerometerSensorUpdateProcessor = new AccelerometerSensorUpdateProcessor();
+    this.gyroSensorUpdateProcessor = new GyroSensorUpdateProcessor();
+    }
 
-public class SingleSensorGameUpdateProcessor : SensorGameUpdateProcessor
-{
-    private readonly Processor accelerometerSensorUpdateProcessor = new AccelerometerSensorUpdateProcessor();
-    private readonly Processor gyroSensorUpdateProcessor = new GyroSensorUpdateProcessor();
-    // throws Exception
-    public override void process(object anyType)
-    {
+    public SingleSensorGameUpdateProcessor() {
+        base();
+        this.initFieldsSingleSensorGameUpdateProcessor();
+    }
+    
+
+    public override void process(JObject anyType) {
         this.setNoSensors();
     }
+    
 
-    // throws Exception
-    public override void sendNotifications(object anyType)
-    {
+    public override void sendNotifications(JObject anyType) {
     }
-
 }
 

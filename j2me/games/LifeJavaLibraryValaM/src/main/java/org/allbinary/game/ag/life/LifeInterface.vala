@@ -13,27 +13,29 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.game.ag.life
 
-using System;
-using System.Linq;
+public interface LifeInterface : JObject {
+    
 
-namespace org.allbinary.game.ag.life;
+    public abstract int16 @get();
+    
 
-public interface LifeInterface
-{
-    short get();
+    public abstract void @set(int16 lives);
+    
 
-    void set(short lives);
+    public abstract void reset();
+    
 
-    void reset();
+    public abstract void add(int16 lives);
+    
 
-    void add(short lives);
+    public abstract void deaths(int16 lives);
+    
 
-    void deaths(short lives);
+    public abstract int16 getMaxlives();
+    
 
-    short getMaxlives();
-
-    bool isAlive();
-
+    public abstract bool isAlive();
 }
 

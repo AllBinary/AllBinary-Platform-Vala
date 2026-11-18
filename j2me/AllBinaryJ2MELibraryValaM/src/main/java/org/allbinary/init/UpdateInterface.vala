@@ -13,16 +13,11 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.init
 
-using System;
-using System.Linq;
+public interface UpdateInterface : JObject {
+    
 
-namespace org.allbinary.init;
-
-public interface UpdateInterface
-{
-    // throws Exception
-    void update();
-
+    public abstract void update();
 }
 

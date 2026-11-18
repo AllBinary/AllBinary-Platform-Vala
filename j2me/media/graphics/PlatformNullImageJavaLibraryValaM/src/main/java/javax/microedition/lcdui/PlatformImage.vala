@@ -13,66 +13,65 @@
  *   
  */
 // Generated Code Do Not Modify
-
-using System;
-using System.Linq;
-using NullUtil = org.allbinary.logic.NullUtil;
-
-namespace javax.microedition.lcdui;
+// package javax.microedition.lcdui
+// import org.allbinary.logic.NullUtil
 
 //PlatformNullImageJavaLibrary
-public class PlatformImage
-{
-    public virtual object getImage(object graphicsSurface2)
-    {
+public class PlatformImage : JObject {
+
+    public PlatformImage() {
+        base();
+    }
+    
+
+    public virtual JObject getImage(JObject graphicsSurface2) {
         return NullImage.NULL_IMAGE;
     }
+    
 
-    public virtual int getSurfaceWidth(object graphicsSurface2, int width)
-    {
+    public virtual int32 getSurfaceWidth(JObject graphicsSurface2, int32 width) {
         return width;
     }
+    
 
-    public virtual int getSurfaceHeight(object graphicsSurface2, int height)
-    {
+    public virtual int32 getSurfaceHeight(JObject graphicsSurface2, int32 height) {
         return height;
     }
+    
 
-    public virtual int getWidth(Image image, int width)
-    {
+    public virtual int32 getWidth(Image image, int32 width) {
         return width;
     }
+    
 
-    public virtual int getHeight(Image image, int height)
-    {
+    public virtual int32 getHeight(Image image, int32 height) {
         return height;
     }
+    
 
-    public virtual Graphics getGraphics(object graphicsSurface, int width, int height, Image image)
-    {
-        throw new SystemException();
+    public virtual Graphics getGraphics(JObject graphicsSurface, int32 width, int32 height, Image image) {
+        JSystem.fatal(new JException("RuntimeException", ""));
     }
+    
 
-    public virtual void drawImage(Image image, int x, int y, int anchor, Graphics g2, object g)
-    {
+    public virtual void drawImage(Image image, int32 x, int32 y, int32 anchor, Graphics g2, JObject g) {
     }
+    
 
-    public virtual void drawRegion(Image image, int x_src, int y_src, int width, int height, int transform, int x_dst, int y_dst, int anchor, Graphics g)
-    {
+    public virtual void drawRegion(Image image, int32 x_src, int32 y_src, int32 width, int32 height, int32 transform, int32 x_dst, int32 y_dst, int32 anchor, Graphics g) {
     }
+    
 
-    public virtual void getRGB(int[] argb, int offset, int scanlength, int x, int y, int width, int height, Image image)
-    {
+    public virtual void getRGB(int32[] argb, int32 offset, int32 scanlength, int32 x, int32 y, int32 width, int32 height, Image image) {
     }
+    
 
-    public virtual void setRGB(int[] argb, int offset, int scanlength, int x, int y, int width, int height, Image image)
-    {
+    public virtual void setRGB(int32[] argb, int32 offset, int32 scanlength, int32 x, int32 y, int32 width, int32 height, Image image) {
     }
+    
 
-    public virtual int[] getData(Image image)
-    {
+    public virtual int32[] getData(Image image) {
         return NullUtil.getInstance().NULL_INT_ARRAY;
     }
-
 }
 

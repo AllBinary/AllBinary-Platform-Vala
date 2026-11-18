@@ -13,26 +13,21 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.graphics.paint
 
-using System;
-using System.Linq;
+public class InitUpdatePaintable : Paintable, InitUpdatePaintableInterface, InitInterface, UpdateInterface, PaintableInterface {
+    
 
-namespace org.allbinary.graphics.paint;
-
-public class InitUpdatePaintable : Paintable, InitUpdatePaintableInterface
-{
-    public InitUpdatePaintable()
-    {
+    public InitUpdatePaintable() {
+        base();
     }
+    
 
-    // throws Exception
-    public virtual void init()
-    {
+    public virtual void init() {
     }
+    
 
-    public virtual void update()
-    {
+    public virtual void update() {
     }
-
 }
 

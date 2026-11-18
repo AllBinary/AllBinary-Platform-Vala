@@ -13,21 +13,17 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.game.displayable.canvas
 
-using System;
-using System.Linq;
+public interface PopupMenuInterface : JObject {
+    
 
-namespace org.allbinary.game.displayable.canvas;
+    public abstract void popupMenu();
+    
 
-public interface PopupMenuInterface
-{
-    // throws Exception
-    void popupMenu();
+    public abstract void closeMenu();
+    
 
-    void closeMenu();
-
-    // throws Exception
-    void toggleMenu();
-
+    public abstract void toggleMenu();
 }
 

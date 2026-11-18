@@ -13,21 +13,17 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.input.motion.button
 
-using System;
-using System.Linq;
+public class BasicTouchButtonCellPositionFactory : JObject {
+    
 
-namespace org.allbinary.input.motion.button;
-
-public class BasicTouchButtonCellPositionFactory
-{
-    private BasicTouchButtonCellPositionFactory()
-    {
+    public BasicTouchButtonCellPositionFactory() {
+        base();
     }
+    
 
-    public static void init()
-    {
+    public static void init() {
     }
-
 }
 

@@ -13,20 +13,15 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.game.ai
+// import org.allbinary.ai.ArtificialIntelligenceInterface
+// import org.allbinary.game.input.GameInput
+// import org.allbinary.layer.AllBinaryLayer
+// import org.allbinary.util.ABHashtable
 
-using System;
-using System.Linq;
-using ArtificialIntelligenceInterface = org.allbinary.ai.ArtificialIntelligenceInterface;
-using GameInput = org.allbinary.game.input.GameInput;
-using AllBinaryLayer = org.allbinary.layer.AllBinaryLayer;
-using org.allbinary.util;
+public interface ArtificialIntelligenceInterfaceFactoryInterface : JObject {
+    
 
-namespace org.allbinary.game.ai;
-
-public interface ArtificialIntelligenceInterfaceFactoryInterface
-{
-    // throws Exception
-    ArtificialIntelligenceInterface getInstance(ABHashtable<object, object> hashtable, AllBinaryLayer ownerLayerInterface, GameInput gameInput);
-
+    public abstract ArtificialIntelligenceInterface getInstance3(ABHashtable hashtable, AllBinaryLayer ownerLayerInterface, GameInput gameInput);
 }
 

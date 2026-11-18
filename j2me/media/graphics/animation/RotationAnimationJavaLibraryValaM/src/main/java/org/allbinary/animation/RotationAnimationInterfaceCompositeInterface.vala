@@ -13,17 +13,14 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.animation
 
-using System;
-using System.Linq;
+public interface RotationAnimationInterfaceCompositeInterface : JObject, IndexedAnimationInterfaceCompositeInterface {
+    
 
-namespace org.allbinary.animation;
+    public abstract RotationAnimation getRotationAnimationInterface();
+    
 
-public interface RotationAnimationInterfaceCompositeInterface : IndexedAnimationInterfaceCompositeInterface
-{
-    RotationAnimation getRotationAnimationInterface();
-
-    void setFrame(int index);
-
+    public abstract void setFrame(int32 index);
 }
 

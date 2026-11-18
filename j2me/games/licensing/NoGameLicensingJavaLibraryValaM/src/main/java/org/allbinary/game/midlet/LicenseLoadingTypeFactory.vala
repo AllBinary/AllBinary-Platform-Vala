@@ -13,23 +13,39 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.game.midlet
 
-using System;
-using System.Linq;
-
-namespace org.allbinary.game.midlet;
-
-public class LicenseLoadingTypeFactory
-{
-    private static readonly LicenseLoadingTypeFactory instance = new LicenseLoadingTypeFactory();
-    public static LicenseLoadingTypeFactory getIntance()
-    {
+public class LicenseLoadingTypeFactory : JObject {
+    private static LicenseLoadingTypeFactory? instance;
+    private static bool staticSet_instance = false;
+    private static LicenseLoadingTypeFactory staticGet_instance() {
+        if (!LicenseLoadingTypeFactory.staticSet_instance) {
+            LicenseLoadingTypeFactory.staticSet_instance = true;
+            LicenseLoadingTypeFactory.instance = new LicenseLoadingTypeFactory();
+        }
         return LicenseLoadingTypeFactory.instance;
     }
+    public LicenseLoadingType INITIAL_LOADING;
+    public LicenseLoadingType GAME_START;
+    public LicenseLoadingType LOGIN;
+    public LicenseLoadingType OTHER;
 
-    public readonly LicenseLoadingType INITIAL_LOADING = new LicenseLoadingType("Initial Loading");
-    public readonly LicenseLoadingType GAME_START = new LicenseLoadingType("Game Start");
-    public readonly LicenseLoadingType LOGIN = new LicenseLoadingType("Login");
-    public readonly LicenseLoadingType OTHER = new LicenseLoadingType("Other/Usually The First Non Demo Level");
+    // Java field initializers run after the base constructor
+    private void initFieldsLicenseLoadingTypeFactory() {
+    this.INITIAL_LOADING = new LicenseLoadingType("Initial Loading");
+    this.GAME_START = new LicenseLoadingType("Game Start");
+    this.LOGIN = new LicenseLoadingType("Login");
+    this.OTHER = new LicenseLoadingType("Other/Usually The First Non Demo Level");
+    }
+
+    public LicenseLoadingTypeFactory() {
+        base();
+        this.initFieldsLicenseLoadingTypeFactory();
+    }
+    
+
+    public static LicenseLoadingTypeFactory getIntance() {
+        return LicenseLoadingTypeFactory.staticGet_instance();
+    }
 }
 

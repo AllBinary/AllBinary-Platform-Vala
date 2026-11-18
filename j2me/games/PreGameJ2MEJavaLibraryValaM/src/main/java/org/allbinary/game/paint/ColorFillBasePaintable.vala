@@ -13,50 +13,53 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.game.paint
+// import javax.microedition.lcdui.Graphics
+// import org.allbinary.graphics.color.BasicColor
+// import org.allbinary.graphics.color.BasicColorFactory
+// import org.allbinary.graphics.color.ColorCompositeInterface
+// import org.allbinary.graphics.paint.Paintable
 
-using System;
-using System.Linq;
-using Graphics = javax.microedition.lcdui.Graphics;
-using BasicColor = org.allbinary.graphics.color.BasicColor;
-using BasicColorFactory = org.allbinary.graphics.color.BasicColorFactory;
-using ColorCompositeInterface = org.allbinary.graphics.color.ColorCompositeInterface;
-using Paintable = org.allbinary.graphics.paint.Paintable;
+public class ColorFillBasePaintable : Paintable, ColorCompositeInterface, BasicColorCompositeSetterInterface {
+    public BasicColor basicColor;
+    public int32 colorP;
 
-namespace org.allbinary.game.paint;
+    // Java field initializers run after the base constructor
+    private void initFieldsColorFillBasePaintable() {
+    this.basicColor = BasicColorFactory.getInstance().WHITE;
+    this.colorP = 0;
+    }
+    
 
-public class ColorFillBasePaintable : Paintable, ColorCompositeInterface
-{
-    public BasicColor basicColor = BasicColorFactory.getInstance().WHITE;
-    public int colorP = 0;
-    public ColorFillBasePaintable(BasicColor basicColor)
-    {
+    public ColorFillBasePaintable(BasicColor basicColor) {
+        base();
+        this.initFieldsColorFillBasePaintable();
         this.setBasicColorP(basicColor);
     }
+    
 
-    public override void setBasicColorP(BasicColor basicColor)
-    {
+    public override void setBasicColorP(BasicColor basicColor) {
         this.basicColor = basicColor;
         this.setColor(this.getBasicColorP().intValue());
     }
+    
 
-    public virtual BasicColor getBasicColorP()
-    {
+    public virtual BasicColor getBasicColorP() {
         return this.basicColor;
     }
+    
 
-    public virtual int getColor()
-    {
+    public virtual int32 getColor() {
         return this.colorP;
     }
+    
 
-    public virtual void setColor(int color)
-    {
+    public virtual void setColor(int32 color) {
         this.colorP = color;
     }
+    
 
-    public override void paint(Graphics graphics)
-    {
+    public override void paint(Graphics graphics) {
     }
-
 }
 

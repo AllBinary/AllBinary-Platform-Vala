@@ -1,9 +1,6 @@
 // Generated Code Do Not Modify
+// package java.lang
 
-using System;
-using System.Linq;
+// Java annotation Override: annotations have no Vala form
 
-namespace java.lang;
-
-/* Otherwise - classOrInterfaceDeclaration - type - AnnotationDeclaration */
 

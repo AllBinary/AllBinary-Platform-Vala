@@ -13,51 +13,60 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.logic.system.security.licensing.registration
+// import org.allbinary.logic.string.StringMaker
 
-using System;
-using System.Linq;
-using StringMaker = org.allbinary.logic.@string.StringMaker;
-
-namespace org.allbinary.logic.system.security.licensing.registration;
-
-public class RegistrationConfiguration
-{
-    private static readonly RegistrationConfiguration SINGLETON = new RegistrationConfiguration();
-    private string registrationCode = "No Registration Code";
-    public readonly string NAME = "registrationid";
-    private RegistrationConfiguration()
-    {
-    }
-
-    public static RegistrationConfiguration getInstance()
-    {
+public class RegistrationConfiguration : JObject {
+    private static RegistrationConfiguration? SINGLETON;
+    private static bool staticSet_SINGLETON = false;
+    private static RegistrationConfiguration staticGet_SINGLETON() {
+        if (!RegistrationConfiguration.staticSet_SINGLETON) {
+            RegistrationConfiguration.staticSet_SINGLETON = true;
+            RegistrationConfiguration.SINGLETON = new RegistrationConfiguration();
+        }
         return RegistrationConfiguration.SINGLETON;
     }
+    private string registrationCode;
+    public string NAME;
 
-    // throws Exception
-    private void read()
-    {
+    // Java field initializers run after the base constructor
+    private void initFieldsRegistrationConfiguration() {
+    this.registrationCode = "No Registration Code";
+    this.NAME = "registrationid";
     }
+    
 
-    // throws Exception
-    public virtual void write()
-    {
+    public RegistrationConfiguration() {
+        base();
+        this.initFieldsRegistrationConfiguration();
     }
+    
 
-    public override string ToString()
-    {
-        return new StringMaker().append("Registration Code: ").append(this.getRegistrationCode()).ToString();
+    public static RegistrationConfiguration getInstance() {
+        return RegistrationConfiguration.staticGet_SINGLETON();
     }
+    
 
-    public virtual void setRegistrationCode(string registrationCode)
-    {
+    private void read() {
+    }
+    
+
+    public virtual void write() {
+    }
+    
+
+    public override string toString() {
+        return new StringMaker().append("Registration Code: ").append(this.getRegistrationCode()).toString();
+    }
+    
+
+    public virtual void setRegistrationCode(string registrationCode) {
         this.registrationCode = registrationCode;
     }
+    
 
-    public virtual string getRegistrationCode()
-    {
+    public virtual string getRegistrationCode() {
         return this.registrationCode;
     }
-
 }
 

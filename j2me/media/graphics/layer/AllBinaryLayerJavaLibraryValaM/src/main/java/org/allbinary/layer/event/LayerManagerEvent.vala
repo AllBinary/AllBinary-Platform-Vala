@@ -13,46 +13,48 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.layer.event
+// import org.allbinary.layer.AllBinaryLayer
+// import org.allbinary.layer.LayerManager
+// import org.allbinary.logic.string.StringMaker
+// import org.allbinary.logic.util.event.AllBinaryEventObject
 
-using System;
-using System.Linq;
-using AllBinaryLayer = org.allbinary.layer.AllBinaryLayer;
-using LayerManager = org.allbinary.layer.LayerManager;
-using StringMaker = org.allbinary.logic.@string.StringMaker;
-using AllBinaryEventObject = org.allbinary.logic.util.@event.AllBinaryEventObject;
+public class LayerManagerEvent : AllBinaryEventObject {
+    private AllBinaryLayer layerInterface;
+    private string crud;
 
-namespace org.allbinary.layer.@event;
+    // Java field initializers run after the base constructor
+    private void initFieldsLayerManagerEvent() {
+    this.layerInterface = AllBinaryLayer.NULL_ALLBINARY_LAYER;
+    
+    }
+    
 
-public class LayerManagerEvent : AllBinaryEventObject
-{
-    private AllBinaryLayer layerInterface = AllBinaryLayer.NULL_ALLBINARY_LAYER;
-    private readonly string crud;
-    public LayerManagerEvent(LayerManager layerManager, string crud) : base(layerManager)
-    {
-        // base(layerManager) is called from the constructor declaration
+    public LayerManagerEvent(LayerManager layerManager, string crud) {
+        base(layerManager);
+        this.initFieldsLayerManagerEvent();
         this.crud = crud;
     }
+    
 
-    public virtual AllBinaryLayer getLayerInterface()
-    {
+    public virtual AllBinaryLayer getLayerInterface() {
         return this.layerInterface;
     }
+    
 
-    public virtual void setLayerInterface(AllBinaryLayer layerInterface)
-    {
+    public virtual void setLayerInterface(AllBinaryLayer layerInterface) {
         this.layerInterface = layerInterface;
     }
+    
 
-    public override string ToString()
-    {
+    public override string toString() {
         StringMaker stringBuffer = new StringMaker();
         stringBuffer.append("LayerManagerEvent: \n");
         stringBuffer.append("LayerInterface: ");
-        stringBuffer.append(this.getLayerInterface().ToString());
+        stringBuffer.append(this.getLayerInterface().toString());
         stringBuffer.append("\nCRUD: ");
         stringBuffer.append(this.crud);
-        return stringBuffer.ToString();
+        return stringBuffer.toString();
     }
-
 }
 

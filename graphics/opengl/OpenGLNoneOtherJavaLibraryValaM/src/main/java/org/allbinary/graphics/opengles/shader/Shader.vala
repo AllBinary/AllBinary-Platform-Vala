@@ -13,20 +13,28 @@
  *   
  */
 // Generated Code Do Not Modify
+// package org.allbinary.graphics.opengles.shader
+// import org.allbinary.logic.string.StringUtil
+// import org.allbinary.util.BasicArrayList
+// import org.allbinary.util.BasicArrayListUtil
 
-using System;
-using System.Linq;
-using StringUtil = org.allbinary.logic.@string.StringUtil;
-using BasicArrayList = org.allbinary.util.BasicArrayList;
-using BasicArrayListUtil = org.allbinary.util.BasicArrayListUtil;
+public class Shader : JObject {
+    public string shaderName;
+    public BasicArrayList shaderStringList;
+    public string shaderAsString;
+    public int32 shaderHandle;
 
-namespace org.allbinary.graphics.opengles.shader;
+    // Java field initializers run after the base constructor
+    private void initFieldsShader() {
+    this.shaderName = StringUtil.getInstance().EMPTY_STRING;
+    this.shaderStringList = BasicArrayListUtil.getInstance().getImmutableInstance();
+    this.shaderAsString = StringUtil.getInstance().EMPTY_STRING;
+    this.shaderHandle = 0;
+    }
 
-public class Shader
-{
-    public string shaderName = StringUtil.getInstance().EMPTY_STRING;
-    public BasicArrayList shaderStringList = BasicArrayListUtil.getInstance().getImmutableInstance();
-    public string shaderAsString = StringUtil.getInstance().EMPTY_STRING;
-    public int shaderHandle = 0;
+    public Shader() {
+        base();
+        this.initFieldsShader();
+    }
 }
 

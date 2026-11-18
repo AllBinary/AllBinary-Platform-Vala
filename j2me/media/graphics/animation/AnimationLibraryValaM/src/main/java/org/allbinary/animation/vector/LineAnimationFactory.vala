@@ -13,33 +13,34 @@
  *   
  */
 // Generated Code Do Not Modify
+// package org.allbinary.animation.vector
+// import org.allbinary.animation.Animation
+// import org.allbinary.animation.AnimationInterfaceFactoryInterface
+// import org.allbinary.graphics.color.BasicColor
+// import org.allbinary.media.ScaleProperties
 
-using System;
-using System.Linq;
-using Animation = org.allbinary.animation.Animation;
-using AnimationInterfaceFactoryInterface = org.allbinary.animation.AnimationInterfaceFactoryInterface;
-using BasicColor = org.allbinary.graphics.color.BasicColor;
-using ScaleProperties = org.allbinary.media.ScaleProperties;
-
-namespace org.allbinary.animation.vector;
-
-public class LineAnimationFactory : AnimationInterfaceFactoryInterface
-{
+public class LineAnimationFactory : JObject, AnimationInterfaceFactoryInterface, BasicAnimationInterfaceFactoryInterface {
     private BasicColor basicColor;
-    public LineAnimationFactory(BasicColor basicColor)
-    {
+
+    // Java field initializers run after the base constructor
+    private void initFieldsLineAnimationFactory() {
+    
+    }
+    
+
+    public LineAnimationFactory(BasicColor basicColor) {
+        base();
+        this.initFieldsLineAnimationFactory();
         this.basicColor = basicColor;
     }
+    
 
-    // throws Exception
-    public virtual Animation getInstance(int instanceId)
-    {
+    public virtual Animation getInstance1(int32 instanceId) {
         return new LineAnimation(this.basicColor);
     }
+    
 
-    public virtual void setInitialScale(ScaleProperties scaleProperties)
-    {
+    public virtual void setInitialScale(ScaleProperties scaleProperties) {
     }
-
 }
 

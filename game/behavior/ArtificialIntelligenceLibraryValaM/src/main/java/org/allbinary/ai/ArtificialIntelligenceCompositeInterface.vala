@@ -13,16 +13,11 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.ai
 
-using System;
-using System.Linq;
+public interface ArtificialIntelligenceCompositeInterface : JObject {
+    
 
-namespace org.allbinary.ai;
-
-public interface ArtificialIntelligenceCompositeInterface
-{
-    // throws Exception
-    ArtificialIntelligenceInterface getArtificialIntelligenceInterface();
-
+    public abstract ArtificialIntelligenceInterface getArtificialIntelligenceInterface();
 }
 

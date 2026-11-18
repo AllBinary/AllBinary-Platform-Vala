@@ -13,19 +13,26 @@
  *   
  */
 // Generated Code Do Not Modify
+// package org.allbinary.graphics.opengles.shader
 
-using System;
-using System.Linq;
-
-namespace org.allbinary.graphics.opengles.shader;
-
-public class SimpleShaderInitializer : ShaderInitializer
-{
-    private static readonly SimpleShaderInitializer instanceC = new SimpleShaderInitializer();
-    public static SimpleShaderInitializer getInstance()
-    {
+public class SimpleShaderInitializer : ShaderInitializer {
+    private static SimpleShaderInitializer? instanceC;
+    private static bool staticSet_instanceC = false;
+    private static SimpleShaderInitializer staticGet_instanceC() {
+        if (!SimpleShaderInitializer.staticSet_instanceC) {
+            SimpleShaderInitializer.staticSet_instanceC = true;
+            SimpleShaderInitializer.instanceC = new SimpleShaderInitializer();
+        }
         return SimpleShaderInitializer.instanceC;
     }
 
+    public SimpleShaderInitializer() {
+        base();
+    }
+    
+
+    public static SimpleShaderInitializer getInstance() {
+        return SimpleShaderInitializer.staticGet_instanceC();
+    }
 }
 

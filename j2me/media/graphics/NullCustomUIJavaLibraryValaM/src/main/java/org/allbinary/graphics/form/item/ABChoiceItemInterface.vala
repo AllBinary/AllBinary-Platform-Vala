@@ -1,11 +1,6 @@
 // Generated Code Do Not Modify
+// package org.allbinary.graphics.form.item
 
-using System;
-using System.Linq;
-
-namespace org.allbinary.graphics.form.item;
-
-public interface ABChoiceItemInterface
-{
+public interface ABChoiceItemInterface : JObject {
 }
 

@@ -13,54 +13,54 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.game.input
+// import org.allbinary.input.motion.gesture.MotionGestureInput
+// import org.allbinary.input.motion.gesture.TouchMotionGestureFactory
+// import org.allbinary.logic.communication.log.LogUtil
+// import org.allbinary.logic.string.StringUtil
+// import org.allbinary.logic.util.event.AllBinaryEventObject
+// import org.allbinary.string.CommonStrings
 
-using System;
-using System.Linq;
-using MotionGestureInput = org.allbinary.input.motion.gesture.MotionGestureInput;
-using TouchMotionGestureFactory = org.allbinary.input.motion.gesture.TouchMotionGestureFactory;
-using LogUtil = org.allbinary.logic.communication.log.LogUtil;
-using StringUtil = org.allbinary.logic.@string.StringUtil;
-using AllBinaryEventObject = org.allbinary.logic.util.@event.AllBinaryEventObject;
-using CommonStrings = org.allbinary.@string.CommonStrings;
+public class CompleteMotionGestureInputEvent : AllBinaryEventObject, CompleteMotionGestureInputInterface, NamedInterface {
+    public LogUtil logUtil;
+    private string name;
+    private MotionGestureInput motionGestureInput;
 
-namespace org.allbinary.game.input;
-
-public class CompleteMotionGestureInputEvent : AllBinaryEventObject, CompleteMotionGestureInputInterface
-{
-    public readonly LogUtil logUtil = LogUtil.getInstance();
-    private string name = StringUtil.getInstance().EMPTY_STRING;
-    private MotionGestureInput motionGestureInput = TouchMotionGestureFactory.getInstance().NO_MOTION;
-    public CompleteMotionGestureInputEvent(string name, MotionGestureInput motionGestureInput) : base(motionGestureInput)
-    {
-        // base(motionGestureInput) is called from the constructor declaration
-        this.setName(name);
-        try {
-            this.setMotionGestureInput(motionGestureInput);
-        } catch (Exception e) {
-            CommonStrings commonStrings = CommonStrings.getInstance();
-            this.logUtil.put(commonStrings.EXCEPTION, this, "InputToGameKeyEventAction", e);
-        }
+    // Java field initializers run after the base constructor
+    private void initFieldsCompleteMotionGestureInputEvent() {
+    this.logUtil = LogUtil.getInstance();
+    this.name = StringUtil.getInstance().EMPTY_STRING;
+    this.motionGestureInput = TouchMotionGestureFactory.getInstance().NO_MOTION;
     }
+    
 
-    public virtual void setName(string name)
-    {
+    public CompleteMotionGestureInputEvent(string name, MotionGestureInput motionGestureInput) {
+        base(motionGestureInput);
+        this.initFieldsCompleteMotionGestureInputEvent();
+        this.setName(name);
+        {
+            this.setMotionGestureInput(motionGestureInput);
+        } /* catch (Exception e): a thrown Java exception stops the program */
+    }
+    
+
+    public virtual void setName(string name) {
         this.name = name;
     }
+    
 
-    public virtual string getName()
-    {
+    public virtual string getName() {
         return this.name;
     }
+    
 
-    public virtual void setMotionGestureInput(MotionGestureInput motionGestureInput)
-    {
+    public virtual void setMotionGestureInput(MotionGestureInput motionGestureInput) {
         this.motionGestureInput = motionGestureInput;
     }
+    
 
-    public virtual MotionGestureInput getMotionGestureInput()
-    {
+    public virtual MotionGestureInput getMotionGestureInput() {
         return this.motionGestureInput;
     }
-
 }
 

@@ -13,20 +13,19 @@
  *   
  */
 // Generated Code Do Not Modify
+// package org.allbinary.platform.graphics
+// import javax.microedition.lcdui.Image
+// import javax.microedition.lcdui.NullImage
 
-using System;
-using System.Linq;
-using Image = javax.microedition.lcdui.Image;
-using NullImage = javax.microedition.lcdui.NullImage;
+public class PlatformBitmapBase : JObject {
 
-namespace org.allbinary.platform.graphics;
+    public PlatformBitmapBase() {
+        base();
+    }
+    
 
-public class PlatformBitmapBase
-{
-    public virtual Image getImage()
-    {
+    public virtual Image getImage() {
         return NullImage.NULL_IMAGE;
     }
-
 }
 

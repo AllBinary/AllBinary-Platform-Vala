@@ -13,20 +13,27 @@
  *   
  */
 // Generated Code Do Not Modify
+// package org.allbinary.game.configuration.persistance
+// import javax.microedition.rms.RecordComparator
 
-using System;
-using System.Linq;
-using RecordComparator = javax.microedition.rms.RecordComparator;
-
-namespace org.allbinary.game.configuration.persistance;
-
-public class NullRecordComparator : RecordComparator
-{
-    public static readonly NullRecordComparator NULL_RECORD_COMPARATOR = new NullRecordComparator();
-    public virtual int compare(sbyte[] rec1, sbyte[] rec2)
-    {
-        return 0;
+public class NullRecordComparator : JObject, RecordComparator {
+    public static NullRecordComparator? NULL_RECORD_COMPARATOR;
+    private static bool staticSet_NULL_RECORD_COMPARATOR = false;
+    public static NullRecordComparator staticGet_NULL_RECORD_COMPARATOR() {
+        if (!NullRecordComparator.staticSet_NULL_RECORD_COMPARATOR) {
+            NullRecordComparator.staticSet_NULL_RECORD_COMPARATOR = true;
+            NullRecordComparator.NULL_RECORD_COMPARATOR = new NullRecordComparator();
+        }
+        return NullRecordComparator.NULL_RECORD_COMPARATOR;
     }
 
+    public NullRecordComparator() {
+        base();
+    }
+    
+
+    public virtual int32 compare(int8[] rec1, int8[] rec2) {
+        return 0;
+    }
 }
 

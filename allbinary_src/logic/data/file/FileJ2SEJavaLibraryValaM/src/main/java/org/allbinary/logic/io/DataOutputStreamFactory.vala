@@ -13,37 +13,42 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.logic.io
+// import org.allbinary.logic.io.file.AbFile
 
-using System;
-using System.Linq;
-using AbFile = org.allbinary.logic.io.file.AbFile;
-
-namespace org.allbinary.logic.io;
-
-public class DataOutputStreamFactory
-{
-    private static readonly DataOutputStreamFactory instance = new DataOutputStreamFactory();
-    public static DataOutputStreamFactory getInstance()
-    {
+public class DataOutputStreamFactory : JObject {
+    private static DataOutputStreamFactory? instance;
+    private static bool staticSet_instance = false;
+    private static DataOutputStreamFactory staticGet_instance() {
+        if (!DataOutputStreamFactory.staticSet_instance) {
+            DataOutputStreamFactory.staticSet_instance = true;
+            DataOutputStreamFactory.instance = new DataOutputStreamFactory();
+        }
         return DataOutputStreamFactory.instance;
     }
 
-    // throws Exception
-    public virtual AbDataOutputStream getInstanceForAbFile(AbFile file)
-    {
+    public DataOutputStreamFactory() {
+        base();
+    }
+    
+
+    public static DataOutputStreamFactory getInstance() {
+        return DataOutputStreamFactory.staticGet_instance();
+    }
+    
+
+    public virtual AbDataOutputStream getInstanceForAbFile(AbFile file) {
         AbFileOutputStream idFileOutputStream = AbFileOutputStream.createFromAbFile(file);
         AbDataOutputStream idOutData = new AbDataOutputStream(idFileOutputStream);
         return idOutData;
     }
+    
 
-    // throws Exception
-    public virtual AbDataOutputStream getInstance(string filePath, string fileName)
-    {
+    public virtual AbDataOutputStream getInstance2(string filePath, string fileName) {
         FileStreamFactory fileStreamFactory = FileStreamFactory.getInstance();
         AbFileOutputStream fileOutputStream = fileStreamFactory.getFileOutputStreamInstance(filePath, fileName);
         AbDataOutputStream idOutData = new AbDataOutputStream(fileOutputStream);
         return idOutData;
     }
-
 }
 

@@ -13,42 +13,52 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.input.motion.gesture
+// import org.allbinary.graphics.GPoint
+// import org.allbinary.graphics.PointFactory
+// import org.allbinary.input.motion.gesture.observer.MotionEventCircularPool
+// import org.allbinary.input.motion.gesture.observer.MotionGestureEvent
 
-using System;
-using System.Linq;
-using GPoint = org.allbinary.graphics.GPoint;
-using PointFactory = org.allbinary.graphics.PointFactory;
-using MotionEventCircularPool = org.allbinary.input.motion.gesture.observer.MotionEventCircularPool;
-using MotionGestureEvent = org.allbinary.input.motion.gesture.observer.MotionGestureEvent;
-
-namespace org.allbinary.input.motion.gesture;
-
-public class MirrorMotionGestureEventUtil
-{
-    private static readonly MirrorMotionGestureEventUtil instance = new MirrorMotionGestureEventUtil();
-    private readonly MotionEventCircularPool motionEventCircularPool;
-    private MirrorMotionGestureEventUtil()
-    {
-        this.motionEventCircularPool = MotionEventCircularPool.createPool(int.MaxValue);
+public class MirrorMotionGestureEventUtil : JObject {
+    private static MirrorMotionGestureEventUtil? instance;
+    private static bool staticSet_instance = false;
+    private static MirrorMotionGestureEventUtil staticGet_instance() {
+        if (!MirrorMotionGestureEventUtil.staticSet_instance) {
+            MirrorMotionGestureEventUtil.staticSet_instance = true;
+            MirrorMotionGestureEventUtil.instance = new MirrorMotionGestureEventUtil();
+        }
+        return MirrorMotionGestureEventUtil.instance;
     }
+    private MotionEventCircularPool motionEventCircularPool;
 
-    // throws Exception
-    public virtual MotionGestureEvent mirrorVerticle(MotionGestureEvent motionGestureEvent, int halfWidth)
-    {
-        MotionGestureEvent @event = this.motionEventCircularPool.getInstance(motionGestureEvent.getMotionGesture());
-        int previousNewX = this.getNewX(motionGestureEvent.getPreviousPoint().getX(), halfWidth);
-        int currentNewX = this.getNewX(motionGestureEvent.getCurrentPoint().getX(), halfWidth);
+    // Java field initializers run after the base constructor
+    private void initFieldsMirrorMotionGestureEventUtil() {
+    
+    }
+    
+
+    public MirrorMotionGestureEventUtil() {
+        base();
+        this.initFieldsMirrorMotionGestureEventUtil();
+        this.motionEventCircularPool = MotionEventCircularPool.createPool(Integer.MAX_VALUE);
+    }
+    
+
+    public virtual MotionGestureEvent mirrorVerticle(MotionGestureEvent motionGestureEvent, int32 halfWidth) {
+        MotionGestureEvent event = this.motionEventCircularPool.getInstance1(motionGestureEvent.getMotionGesture());
+        int32 previousNewX = this.getNewX(motionGestureEvent.getPreviousPoint().getX(), halfWidth);
+        int32 currentNewX = this.getNewX(motionGestureEvent.getCurrentPoint().getX(), halfWidth);
         PointFactory pointFactory = PointFactory.getInstance();
         GPoint mirroredPreviousPoint = pointFactory.createXY(previousNewX, motionGestureEvent.getPreviousPoint().getY());
         GPoint mirroredCurrentPoint = pointFactory.createXY(currentNewX, motionGestureEvent.getCurrentPoint().getY());
-        @event.setPreviousPoint(mirroredPreviousPoint);
-        @event.setCurrentPoint(mirroredCurrentPoint);
-        return @event;
+        event.setPreviousPoint(mirroredPreviousPoint);
+        event.setCurrentPoint(mirroredCurrentPoint);
+        return event;
     }
+    
 
-    public virtual int getNewX(int x, int halfWidth)
-    {
-        int newX = 0;
+    public virtual int32 getNewX(int32 x, int32 halfWidth) {
+        int32 newX = 0;
         if (x > halfWidth) {
             newX = halfWidth - (x - halfWidth);
         } else {
@@ -56,11 +66,10 @@ public class MirrorMotionGestureEventUtil
         }
         return newX;
     }
+    
 
-    public static MirrorMotionGestureEventUtil getInstance()
-    {
-        return MirrorMotionGestureEventUtil.instance;
+    public static MirrorMotionGestureEventUtil getInstance() {
+        return MirrorMotionGestureEventUtil.staticGet_instance();
     }
-
 }
 

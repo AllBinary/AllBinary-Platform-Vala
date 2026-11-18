@@ -13,98 +13,98 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.animation.compound
+// import javax.microedition.lcdui.Graphics
+// import org.allbinary.animation.Animation
+// import org.allbinary.animation.AnimationBehavior
+// import org.allbinary.animation.IndexedAnimation
+// import org.allbinary.logic.math.PrimitiveIntUtil
 
-using System;
-using System.Linq;
-using Graphics = javax.microedition.lcdui.Graphics;
-using Animation = org.allbinary.animation.Animation;
-using AnimationBehavior = org.allbinary.animation.AnimationBehavior;
-using IndexedAnimation = org.allbinary.animation.IndexedAnimation;
-using PrimitiveIntUtil = org.allbinary.logic.math.PrimitiveIntUtil;
-
-namespace org.allbinary.animation.compound;
-
-public class SimultaneousCompoundIndexedAnimation : IndexedAnimation
-{
+public class SimultaneousCompoundIndexedAnimation : IndexedAnimation {
     private Animation[] animationInterfaceArray;
-    public SimultaneousCompoundIndexedAnimation(Animation[] animationInterfaceArray, AnimationBehavior animationBehavior) : base(animationBehavior)
-    {
-        // base(animationBehavior) is called from the constructor declaration
+
+    // Java field initializers run after the base constructor
+    private void initFieldsSimultaneousCompoundIndexedAnimation() {
+    
+    }
+    
+
+    public SimultaneousCompoundIndexedAnimation(Animation[] animationInterfaceArray, AnimationBehavior animationBehavior) {
+        base(animationBehavior);
+        this.initFieldsSimultaneousCompoundIndexedAnimation();
         this.animationInterfaceArray = animationInterfaceArray;
     }
+    
 
-    public override void setFrame(int frameIndex)
-    {
+    public override void setFrame(int32 frameIndex) {
         IndexedAnimation indexedAnimation = null;
-        for (int index = this.animationInterfaceArray.Length; --index >= 0; ) {
+        for (int32 index = this.animationInterfaceArray.length; --index >= 0; ) {
             indexedAnimation = ((IndexedAnimation) this.animationInterfaceArray[index]);
             indexedAnimation.setFrame(frameIndex);
         }
     }
+    
 
-    public override int getFrame()
-    {
+    public override int32 getFrame() {
         IndexedAnimation indexedAnimation = ((IndexedAnimation) this.animationInterfaceArray[0]);
         return indexedAnimation.getFrame();
     }
+    
 
-    public override int getSize()
-    {
+    public override int32 getSize() {
         IndexedAnimation indexedAnimation = ((IndexedAnimation) this.animationInterfaceArray[0]);
         return indexedAnimation.getSize();
     }
+    
 
-    public override void previousFrame()
-    {
+    public override void previousFrame() {
         IndexedAnimation indexedAnimation = null;
-        for (int index = this.animationInterfaceArray.Length; --index >= 0; ) {
+        for (int32 index = this.animationInterfaceArray.length; --index >= 0; ) {
             indexedAnimation = ((IndexedAnimation) this.animationInterfaceArray[index]);
             indexedAnimation.previousFrame();
         }
     }
+    
 
-    public override void setSequence(int[] sequence)
-    {
+    public override void setSequence(int32[] sequence) {
     }
+    
 
-    public override int[] getSequence()
-    {
+    public override int32[] getSequence() {
         return PrimitiveIntUtil.getArrayInstance();
     }
+    
 
-    // throws Exception
-    public override void nextFrame()
-    {
-        for (int index = this.animationInterfaceArray.Length; --index >= 0; ) {
+    public override void nextFrame() {
+        for (int32 index = this.animationInterfaceArray.length; --index >= 0; ) {
             this.animationInterfaceArray[index].nextFrame();
         }
     }
+    
 
-    public override void paintXY(Graphics graphics, int x, int y)
-    {
-        int size = this.animationInterfaceArray.Length;
-        for (int index = 0; index < size; index++) {
+    public override void paintXY(Graphics graphics, int32 x, int32 y) {
+        int32 size = this.animationInterfaceArray.length;
+        for (int32 index = 0; index < size; index++) {
             this.animationInterfaceArray[index].paintXY(graphics, x, y);
         }
     }
+    
 
-    public override void paintThreedXYZ(Graphics graphics, int x, int y, int z)
-    {
-        int size = this.animationInterfaceArray.Length;
-        for (int index = 0; index < size; index++) {
+    public override void paintThreedXYZ(Graphics graphics, int32 x, int32 y, int32 z) {
+        int32 size = this.animationInterfaceArray.length;
+        for (int32 index = 0; index < size; index++) {
             this.animationInterfaceArray[index].paintThreedXYZ(graphics, x, y, z);
         }
     }
+    
 
-    public virtual Animation[] getAnimationInterfaceArray()
-    {
+    public virtual Animation[] getAnimationInterfaceArray() {
         return this.animationInterfaceArray;
     }
+    
 
-    public virtual void setAnimationInterfaceArray(Animation[] animationInterfaceArray)
-    {
+    public virtual void setAnimationInterfaceArray(Animation[] animationInterfaceArray) {
         this.animationInterfaceArray = animationInterfaceArray;
     }
-
 }
 

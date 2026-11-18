@@ -13,23 +13,28 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.game.input
+// import javax.microedition.lcdui.Canvas
 
-using System;
-using System.Linq;
-using Canvas = javax.microedition.lcdui.Canvas;
+public class InputProcessor : JObject {
+    public GameInputStrings gameInputStrings;
 
-namespace org.allbinary.game.input;
-
-public class InputProcessor
-{
-    public readonly GameInputStrings gameInputStrings = GameInputStrings.getInstance();
-    public virtual void keyPressedByDevice(int keyCode, int deviceId)
-    {
+    // Java field initializers run after the base constructor
+    private void initFieldsInputProcessor() {
+    this.gameInputStrings = GameInputStrings.getInstance();
     }
 
-    public virtual void keyReleasedByDevice(Canvas canvas, int keyCode, int deviceId)
-    {
+    public InputProcessor() {
+        base();
+        this.initFieldsInputProcessor();
     }
+    
 
+    public virtual void keyPressedByDevice(int32 keyCode, int32 deviceId) {
+    }
+    
+
+    public virtual void keyReleasedByDevice(Canvas canvas, int32 keyCode, int32 deviceId) {
+    }
 }
 

@@ -13,19 +13,17 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.game.score
 
-using System;
-using System.Linq;
+public interface ScoreableInterface : JObject {
+    
 
-namespace org.allbinary.game.score;
+    public abstract int32 getPoints();
+    
 
-public interface ScoreableInterface
-{
-    int getPoints();
+    public abstract void addPoints(int32 points);
+    
 
-    void addPoints(int points);
-
-    void removePoints(int points);
-
+    public abstract void removePoints(int32 points);
 }
 

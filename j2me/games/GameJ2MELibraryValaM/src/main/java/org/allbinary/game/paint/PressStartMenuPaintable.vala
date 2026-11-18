@@ -13,37 +13,52 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.game.paint
+// import javax.microedition.lcdui.Font
+// import javax.microedition.lcdui.Graphics
+// import org.allbinary.AppletUtil
+// import org.allbinary.graphics.Anchor
+// import org.allbinary.graphics.displayable.DisplayInfoSingleton
+// import org.allbinary.graphics.font.MyFontProcessor
+// import org.allbinary.graphics.font.UpdateMyFontInterface
+// import org.allbinary.graphics.font.UpdateMyFontProcessor
+// import org.allbinary.graphics.paint.Paintable
+// import org.allbinary.input.motion.button.TouchScreenFactory
+// import org.allbinary.logic.string.StringUtil
+// import org.allbinary.time.TimeDelayHelper
 
-using System;
-using System.Linq;
-using Font = javax.microedition.lcdui.Font;
-using Graphics = javax.microedition.lcdui.Graphics;
-using AppletUtil = org.allbinary.AppletUtil;
-using Anchor = org.allbinary.graphics.Anchor;
-using DisplayInfoSingleton = org.allbinary.graphics.displayable.DisplayInfoSingleton;
-using MyFontProcessor = org.allbinary.graphics.font.MyFontProcessor;
-using UpdateMyFontInterface = org.allbinary.graphics.font.UpdateMyFontInterface;
-using UpdateMyFontProcessor = org.allbinary.graphics.font.UpdateMyFontProcessor;
-using Paintable = org.allbinary.graphics.paint.Paintable;
-using TouchScreenFactory = org.allbinary.input.motion.button.TouchScreenFactory;
-using StringUtil = org.allbinary.logic.@string.StringUtil;
-using TimeDelayHelper = org.allbinary.time.TimeDelayHelper;
-
-namespace org.allbinary.game.paint;
-
-public class PressStartMenuPaintable : Paintable, UpdateMyFontInterface
-{
-    private readonly DisplayInfoSingleton displayInfo = DisplayInfoSingleton.getInstance();
-    private readonly string PRESS_START = "Press Screen To Start";
-    private readonly string KEY_START = "Press or Click F2 To Begin";
-    private readonly string MENU_START = "Press Start From The Menu To Begin";
+public class PressStartMenuPaintable : Paintable, UpdateMyFontInterface {
+    private DisplayInfoSingleton displayInfo;
+    private string PRESS_START;
+    private string KEY_START;
+    private string MENU_START;
     private MyFontProcessor myFontProcessor;
-    private string startString = StringUtil.getInstance().EMPTY_STRING;
-    private TimeDelayHelper timeDelayHelper = new TimeDelayHelper(1100);
-    private bool flash = false;
-    public PressStartMenuPaintable()
-    {
-        this.myFontProcessor = new UpdateMyFontProcessor(this);
+    private string startString;
+    private TimeDelayHelper timeDelayHelper;
+    private bool flash;
+    private int32 anchor;
+    private int32 beginWidth;
+    private int32 line;
+
+    // Java field initializers run after the base constructor
+    private void initFieldsPressStartMenuPaintable() {
+    this.displayInfo = DisplayInfoSingleton.getInstance();
+    this.PRESS_START = "Press Screen To Start";
+    this.KEY_START = "Press or Click F2 To Begin";
+    this.MENU_START = "Press Start From The Menu To Begin";
+    this.myFontProcessor = new UpdateMyFontProcessor(this);
+    this.startString = StringUtil.getInstance().EMPTY_STRING;
+    this.timeDelayHelper = new TimeDelayHelper(1100);
+    this.flash = false;
+    this.anchor = Anchor.TOP_LEFT;
+    this.beginWidth = 0;
+    this.line = 0;
+    }
+    
+
+    public PressStartMenuPaintable() {
+        base();
+        this.initFieldsPressStartMenuPaintable();
         if (TouchScreenFactory.getInstance().isTouch()) {
             this.startString = this.PRESS_START;
         } else if (AppletUtil.isAppletLoader(this)) {
@@ -52,20 +67,17 @@ public class PressStartMenuPaintable : Paintable, UpdateMyFontInterface
             this.startString = this.MENU_START;
         }
     }
+    
 
-    private int anchor = Anchor.TOP_LEFT;
-    private int beginWidth = 0;
-    private int line = 0;
-    public virtual void updateMeasurement(Graphics graphics)
-    {
+    public virtual void updateMeasurement(Graphics graphics) {
         Font font = graphics.getFont();
         this.beginWidth = (graphics.getFont().stringWidth(this.startString) >> 1);
         this.line = (4 * MyFontProcessor.defaultCharWidth(font)) + (font.getHeight() >> 1);
         this.myFontProcessor = MyFontProcessor.getInstance();
     }
+    
 
-    public override void paint(Graphics graphics)
-    {
+    public override void paint(Graphics graphics) {
         if (this.timeDelayHelper.isTimeTNT()) {
             if (this.isFlash()) {
                 this.setFlash(false);
@@ -75,19 +87,18 @@ public class PressStartMenuPaintable : Paintable, UpdateMyFontInterface
         }
         if (this.isFlash()) {
             this.myFontProcessor.process(graphics);
-            graphics.drawString(this.startString, displayInfo.getLastHalfWidth() - beginWidth, displayInfo.getLastHeight() - line, this.anchor);
+            graphics.drawString(this.startString, this.displayInfo.getLastHalfWidth() - this.beginWidth, this.displayInfo.getLastHeight() - this.line, this.anchor);
         }
     }
+    
 
-    private void setFlash(bool flash)
-    {
+    private void setFlash(bool flash) {
         this.flash = flash;
     }
+    
 
-    private bool isFlash()
-    {
+    private bool isFlash() {
         return this.flash;
     }
-
 }
 

@@ -13,28 +13,26 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.game.input.mapping
+// import org.allbinary.game.input.mapping.event.InputMappingEvent
+// import org.allbinary.game.input.mapping.event.InputMappingEventListenerInterface
+// import org.allbinary.logic.communication.log.ForcedLogUtil
+// import org.allbinary.logic.util.event.AllBinaryEventObject
+// import org.allbinary.logic.util.event.EventStrings
 
-using System;
-using System.Linq;
-using InputMappingEvent = org.allbinary.game.input.mapping.@event.InputMappingEvent;
-using InputMappingEventListenerInterface = org.allbinary.game.input.mapping.@event.InputMappingEventListenerInterface;
-using ForcedLogUtil = org.allbinary.logic.communication.log.ForcedLogUtil;
-using AllBinaryEventObject = org.allbinary.logic.util.@event.AllBinaryEventObject;
-using EventStrings = org.allbinary.logic.util.@event.EventStrings;
+public class MotionInputMappingEventListener : JObject, InputMappingEventListenerInterface, EventListenerInterface {
 
-namespace org.allbinary.game.input.mapping;
+    public MotionInputMappingEventListener() {
+        base();
+    }
+    
 
-public class MotionInputMappingEventListener : InputMappingEventListenerInterface
-{
-    public virtual void onEvent(AllBinaryEventObject eventObject)
-    {
+    public virtual void onEvent(AllBinaryEventObject eventObject) {
         ForcedLogUtil.log(EventStrings.getInstance().PERFORMANCE_MESSAGE, this);
     }
+    
 
-    // throws Exception
-    public virtual void onInputMappingEvent(InputMappingEvent inputMappingEvent)
-    {
+    public virtual void onInputMappingEvent(InputMappingEvent inputMappingEvent) {
     }
-
 }
 

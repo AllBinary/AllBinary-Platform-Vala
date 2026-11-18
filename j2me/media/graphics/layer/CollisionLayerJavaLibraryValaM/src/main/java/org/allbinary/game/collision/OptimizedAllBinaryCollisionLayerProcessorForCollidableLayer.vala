@@ -13,35 +13,30 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.game.collision
+// import org.allbinary.game.layer.CollidableCompositeLayer
+// import org.allbinary.layer.AllBinaryLayer
+// import org.allbinary.layer.AllBinaryLayerManager
+// import org.allbinary.layer.LayerManager
+// import org.allbinary.layer.LayerProcessor
 
-using System;
-using System.Linq;
-using CollidableCompositeLayer = org.allbinary.game.layer.CollidableCompositeLayer;
-using AllBinaryLayer = org.allbinary.layer.AllBinaryLayer;
-using AllBinaryLayerManager = org.allbinary.layer.AllBinaryLayerManager;
-using LayerManager = org.allbinary.layer.LayerManager;
-using LayerProcessor = org.allbinary.layer.LayerProcessor;
+public class OptimizedAllBinaryCollisionLayerProcessorForCollidableLayer : LayerProcessor {
+    
 
-namespace org.allbinary.game.collision;
-
-public class OptimizedAllBinaryCollisionLayerProcessorForCollidableLayer : LayerProcessor
-{
-    public OptimizedAllBinaryCollisionLayerProcessorForCollidableLayer() : base(new OptimizedAllBinaryCollisionLayerManager())
-    {
-        // base(new OptimizedAllBinaryCollisionLayerManager()) is called from the constructor declaration
+    public OptimizedAllBinaryCollisionLayerProcessorForCollidableLayer() {
+        base(new OptimizedAllBinaryCollisionLayerManager());
     }
+    
 
-    // throws Exception
-    public override void processAt(AllBinaryLayerManager allBinaryLayerManager, AllBinaryLayer layerInterface, int startIndex)
-    {
+    public override void processAt(AllBinaryLayerManager allBinaryLayerManager, AllBinaryLayer layerInterface, int32 startIndex) {
         CollidableCompositeLayer collidableInterfaceCompositeInterface = ((CollidableCompositeLayer) layerInterface);
         CollidableBaseBehavior collidableBase = collidableInterfaceCompositeInterface.getCollidableInferface();
         if (collidableBase.isCollidable(collidableInterfaceCompositeInterface)) {
             LayerManager layerManager = this.getLayerManager();
-            int size = layerManager.getSize();
+            int32 size = layerManager.getSize();
             CollidableCompositeLayer collidableInterfaceCompositeInterface2 = null;
             CollidableBaseBehavior collidableBase2 = null;
-            for (int index = startIndex + 1; index < size; index++) {
+            for (int32 index = startIndex + 1; index < size; index++) {
                 collidableInterfaceCompositeInterface2 = ((CollidableCompositeLayer) layerManager.getLayerAt(index));
                 collidableBase2 = collidableInterfaceCompositeInterface2.getCollidableInferface();
                 if (collidableBase2.isCollidable(collidableInterfaceCompositeInterface) && collidableBase.isCollision(collidableInterfaceCompositeInterface, collidableInterfaceCompositeInterface2)) {
@@ -51,15 +46,14 @@ public class OptimizedAllBinaryCollisionLayerProcessorForCollidableLayer : Layer
             }
         }
     }
+    
 
-    public override bool isProcessorLayer(AllBinaryLayer layerInterface)
-    {
+    public override bool isProcessorLayer(AllBinaryLayer layerInterface) {
         if (layerInterface.implmentsCollidableInterface()) {
             return true;
         } else {
             return false;
         }
     }
-
 }
 

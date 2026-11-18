@@ -13,37 +13,37 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.game.input
+// import org.allbinary.game.input.event.GameKeyEvent
+// import org.allbinary.util.BasicArrayListD
 
-using System;
-using System.Linq;
-using System.Runtime.CompilerServices;
-using GameKeyEvent = org.allbinary.game.input.@event.GameKeyEvent;
-using BasicArrayListD = org.allbinary.util.BasicArrayListD;
-
-namespace org.allbinary.game.input;
-
-public class NoPlayerGameInput : PlayerGameInput
-{
-    private static readonly NoPlayerGameInput SINGLETON = new NoPlayerGameInput();
-    public static NoPlayerGameInput getInstance()
-    {
+public class NoPlayerGameInput : PlayerGameInput {
+    private static NoPlayerGameInput? SINGLETON;
+    private static bool staticSet_SINGLETON = false;
+    private static NoPlayerGameInput staticGet_SINGLETON() {
+        if (!NoPlayerGameInput.staticSet_SINGLETON) {
+            NoPlayerGameInput.staticSet_SINGLETON = true;
+            NoPlayerGameInput.SINGLETON = new NoPlayerGameInput();
+        }
         return NoPlayerGameInput.SINGLETON;
     }
+    
 
-    private NoPlayerGameInput() : base(new BasicArrayListD(), new BasicArrayListD(), -1)
-    {
-        // base(new BasicArrayListD(), new BasicArrayListD(), -1) is called from the constructor declaration
+    public static NoPlayerGameInput getInstance() {
+        return NoPlayerGameInput.staticGet_SINGLETON();
     }
+    
 
-    [MethodImpl(MethodImplOptions.Synchronized)]
-    public override void onDownGameKeyEvent(GameKeyEvent gameKeyEvent)
-    {
+    public NoPlayerGameInput() {
+        base(new BasicArrayListD(), new BasicArrayListD(), -1);
     }
+    
 
-    [MethodImpl(MethodImplOptions.Synchronized)]
-    public override void onUpGameKeyEvent(GameKeyEvent gameKeyEvent)
-    {
+    public override void onDownGameKeyEvent(GameKeyEvent gameKeyEvent) {
     }
+    
 
+    public override void onUpGameKeyEvent(GameKeyEvent gameKeyEvent) {
+    }
 }
 

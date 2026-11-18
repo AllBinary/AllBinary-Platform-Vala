@@ -13,13 +13,12 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.view
 
-using System;
-using System.Linq;
+public class CenterViewPositionFactory : CenterStaticViewPositionFactory {
 
-namespace org.allbinary.view;
-
-public class CenterViewPositionFactory : CenterStaticViewPositionFactory
-{
+    public CenterViewPositionFactory() {
+        base();
+    }
 }
 

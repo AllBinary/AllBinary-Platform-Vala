@@ -13,20 +13,24 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.init
+// import org.allbinary.string.CommonStrings
 
-using System;
-using System.Linq;
-using CommonStrings = org.allbinary.@string.CommonStrings;
+public class Init : JObject, InitInterface {
+    public CommonStrings commonStrings;
 
-namespace org.allbinary.init;
-
-public class Init : InitInterface
-{
-    public readonly CommonStrings commonStrings = CommonStrings.getInstance();
-    // throws Exception
-    public virtual void init()
-    {
+    // Java field initializers run after the base constructor
+    private void initFieldsInit() {
+    this.commonStrings = CommonStrings.getInstance();
     }
 
+    public Init() {
+        base();
+        this.initFieldsInit();
+    }
+    
+
+    public virtual void init() {
+    }
 }
 

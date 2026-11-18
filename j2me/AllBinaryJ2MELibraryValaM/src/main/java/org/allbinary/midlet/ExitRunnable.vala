@@ -13,48 +13,47 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.midlet
+// import javax.microedition.lcdui.NullCanvas
+// import org.allbinary.canvas.Processor
+// import org.allbinary.logic.communication.log.LogUtil
+// import org.allbinary.string.CommonStrings
 
-using System;
-using System.Linq;
-using NullCanvas = javax.microedition.lcdui.NullCanvas;
-using Processor = org.allbinary.canvas.Processor;
-using LogUtil = org.allbinary.logic.communication.log.LogUtil;
-using CommonStrings = org.allbinary.@string.CommonStrings;
+public class ExitRunnable : JObject, Runnable {
+    public LogUtil logUtil;
+    private CommonStrings commonStrings;
+    private AllBinaryMidlet midlet;
+    private Processor processor;
+    private bool isProgress;
 
-namespace org.allbinary.midlet;
+    // Java field initializers run after the base constructor
+    private void initFieldsExitRunnable() {
+    this.logUtil = LogUtil.getInstance();
+    this.commonStrings = CommonStrings.getInstance();
+    
+    
+    
+    }
+    
 
-public class ExitRunnable : global::java.lang.Runnable
-{
-    public readonly LogUtil logUtil = LogUtil.getInstance();
-    private readonly CommonStrings commonStrings = CommonStrings.getInstance();
-    private readonly AllBinaryMidlet midlet;
-    private readonly Processor processor;
-    private readonly bool isProgress;
-    public ExitRunnable(AllBinaryMidlet midlet, Processor processor, bool isProgress)
-    {
+    public ExitRunnable(AllBinaryMidlet midlet, Processor processor, bool isProgress) {
+        base();
+        this.initFieldsExitRunnable();
         this.midlet = midlet;
         this.isProgress = isProgress;
         this.processor = processor;
     }
+    
 
-    public virtual void run()
-    {
-        try {
+    public virtual void run() {
+        {
             this.logUtil.putF(this.commonStrings.START_RUNNABLE, this, this.commonStrings.RUN);
             this.midlet.destroyAppInRunnable(false, this.isProgress);
             this.midlet.setDisplay(NullCanvas.NULL_CANVAS);
             this.midlet.notifyDestroyed();
             this.logUtil.putF(this.commonStrings.END_RUNNABLE, this, this.commonStrings.RUN);
             this.processor.process();
-        } catch (Exception e) {
-            this.logUtil.put(this.commonStrings.EXCEPTION, this, this.commonStrings.RUN, e);
-            try {
-                this.processor.process();
-            } catch (Exception e2) {
-                this.logUtil.put(this.commonStrings.EXCEPTION, this, this.commonStrings.RUN, e);
-            }
-        }
+        } /* catch (Exception e): a thrown Java exception stops the program */
     }
-
 }
 

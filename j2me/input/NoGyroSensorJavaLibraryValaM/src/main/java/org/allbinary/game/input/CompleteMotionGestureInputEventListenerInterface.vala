@@ -13,16 +13,12 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.game.input
+// import org.allbinary.logic.util.event.EventListenerInterface
 
-using System;
-using System.Linq;
-using EventListenerInterface = org.allbinary.logic.util.@event.EventListenerInterface;
+public interface CompleteMotionGestureInputEventListenerInterface : JObject, EventListenerInterface {
+    
 
-namespace org.allbinary.game.input;
-
-public interface CompleteMotionGestureInputEventListenerInterface : EventListenerInterface
-{
-    void onCompleteMotionGestureInputEvent(CompleteMotionGestureInputEvent completeMotionGestureInputEvent);
-
+    public abstract void onCompleteMotionGestureInputEvent(CompleteMotionGestureInputEvent completeMotionGestureInputEvent);
 }
 

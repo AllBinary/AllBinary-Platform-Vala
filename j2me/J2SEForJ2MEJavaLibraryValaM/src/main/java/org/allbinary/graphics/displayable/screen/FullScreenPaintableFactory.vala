@@ -13,22 +13,35 @@
  *   
  */
 // Generated Code Do Not Modify
+// package org.allbinary.graphics.displayable.screen
+// import org.allbinary.graphics.paint.NullPaintable
+// import org.allbinary.graphics.paint.Paintable
 
-using System;
-using System.Linq;
-using NullPaintable = org.allbinary.graphics.paint.NullPaintable;
-using Paintable = org.allbinary.graphics.paint.Paintable;
-
-namespace org.allbinary.graphics.displayable.screen;
-
-public class FullScreenPaintableFactory
-{
-    private static readonly FullScreenPaintableFactory instance = new FullScreenPaintableFactory();
-    public static FullScreenPaintableFactory getInstance()
-    {
+public class FullScreenPaintableFactory : JObject {
+    private static FullScreenPaintableFactory? instance;
+    private static bool staticSet_instance = false;
+    private static FullScreenPaintableFactory staticGet_instance() {
+        if (!FullScreenPaintableFactory.staticSet_instance) {
+            FullScreenPaintableFactory.staticSet_instance = true;
+            FullScreenPaintableFactory.instance = new FullScreenPaintableFactory();
+        }
         return FullScreenPaintableFactory.instance;
     }
+    public Paintable paintable;
 
-    public Paintable paintable = NullPaintable.getInstance();
+    // Java field initializers run after the base constructor
+    private void initFieldsFullScreenPaintableFactory() {
+    this.paintable = NullPaintable.getInstance();
+    }
+
+    public FullScreenPaintableFactory() {
+        base();
+        this.initFieldsFullScreenPaintableFactory();
+    }
+    
+
+    public static FullScreenPaintableFactory getInstance() {
+        return FullScreenPaintableFactory.staticGet_instance();
+    }
 }
 

@@ -13,43 +13,47 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.graphics.pipeline
+// import org.allbinary.graphics.GPoint
+// import org.allbinary.graphics.PointFactory
+// import org.allbinary.math.Angle
+// import org.allbinary.math.NoDecimalTrigTable
+// import org.allbinary.util.BasicArrayList
+// import org.allbinary.util.BasicArrayListD
 
-using System;
-using System.Linq;
-using GPoint = org.allbinary.graphics.GPoint;
-using PointFactory = org.allbinary.graphics.PointFactory;
-using Angle = org.allbinary.math.Angle;
-using NoDecimalTrigTable = org.allbinary.math.NoDecimalTrigTable;
-using BasicArrayList = org.allbinary.util.BasicArrayList;
-using BasicArrayListD = org.allbinary.util.BasicArrayListD;
-
-namespace org.allbinary.graphics.pipeline;
-
-public class BasicGraphicsPipeline
-{
+public class BasicGraphicsPipeline : JObject {
     public BasicArrayList pointBasicArrayList;
-    public BasicGraphicsPipeline(BasicArrayList points)
-    {
+    private NoDecimalTrigTable noDecimalTrigTable;
+
+    // Java field initializers run after the base constructor
+    private void initFieldsBasicGraphicsPipeline() {
+    
+    this.noDecimalTrigTable = NoDecimalTrigTable.getInstance();
+    }
+    
+
+    public BasicGraphicsPipeline(BasicArrayList points) {
+        base();
+        this.initFieldsBasicGraphicsPipeline();
         this.pointBasicArrayList = points;
     }
+    
 
-    public virtual void setInitMatrix(BasicArrayList points)
-    {
+    public virtual void setInitMatrix(BasicArrayList points) {
         this.pointBasicArrayList = points;
     }
+    
 
-    public virtual void createMatrix()
-    {
+    public virtual void createMatrix() {
     }
+    
 
-    // throws Exception
-    public virtual void translate(int x, int y)
-    {
+    public virtual void translate(int32 x, int32 y) {
         BasicArrayList newBasicArrayList = new BasicArrayListD();
-        int size = this.pointBasicArrayList.size();
+        int32 size = this.pointBasicArrayList.size();
         PointFactory pointFactory = PointFactory.getInstance();
         GPoint secondPoint = null;
-        for (int index = 0; index < size; index++) {
+        for (int32 index = 0; index < size; index++) {
             secondPoint = ((GPoint) this.pointBasicArrayList.objectArray[index]);
             if (secondPoint.getX() != 1000) {
                 newBasicArrayList.add(pointFactory.createXY(secondPoint.getX() + x, secondPoint.getY() + y));
@@ -59,36 +63,33 @@ public class BasicGraphicsPipeline
         }
         this.pointBasicArrayList = newBasicArrayList;
     }
+    
 
-    // throws Exception
-    public virtual void rotateToAngle(Angle angle)
-    {
-        this.rotate(((int) angle.getValue()));
+    public virtual void rotateToAngle(Angle angle) {
+        this.rotate(((int32) (angle.getValue())));
     }
+    
 
-    private readonly NoDecimalTrigTable noDecimalTrigTable = NoDecimalTrigTable.getInstance();
-    // throws Exception
-    private void rotate(int angle)
-    {
+    private void rotate(int32 angle) {
         BasicArrayList newBasicArrayList = new BasicArrayListD();
         GPoint secondPoint = null;
-        long y = 0L;
-        long secondX = 0L;
-        long secondY = 0L;
+        int64 y = 0;
+        int64 secondX = 0;
+        int64 secondY = 0;
         GPoint point = null;
         PointFactory pointFactory = PointFactory.getInstance();
-        int size = this.pointBasicArrayList.size();
-        long sin = 0L;
-        long cos = 0L;
-        for (int index = 0; index < size; index++) {
+        int32 size = this.pointBasicArrayList.size();
+        int64 sin = 0;
+        int64 cos = 0;
+        for (int32 index = 0; index < size; index++) {
             secondPoint = ((GPoint) this.pointBasicArrayList.objectArray[index]);
             if (secondPoint.getX() != 1000) {
                 sin = this.noDecimalTrigTable.sin(angle);
                 cos = this.noDecimalTrigTable.cos(angle);
-                y = secondPoint.getY() * sin;
-                secondX = (secondPoint.getX() * cos) - y;
-                secondY = (secondPoint.getX() * sin) + (secondPoint.getY() * cos);
-                point = pointFactory.createXY(((int) secondX) / 10000, ((int) secondY) / 10000);
+                y = ((int64) (secondPoint.getY())) * sin;
+                secondX = (((int64) (secondPoint.getX())) * cos) - y;
+                secondY = (((int64) (secondPoint.getX())) * sin) + (((int64) (secondPoint.getY())) * cos);
+                point = pointFactory.createXY(((int32) (secondX)) / 10000, ((int32) (secondY)) / 10000);
                 newBasicArrayList.add(point);
             } else {
                 newBasicArrayList.add(secondPoint);
@@ -96,18 +97,17 @@ public class BasicGraphicsPipeline
         }
         this.pointBasicArrayList = newBasicArrayList;
     }
+    
 
-    // throws Exception
-    public virtual void mirror(int width)
-    {
+    public virtual void mirror(int32 width) {
         PointFactory pointFactory = PointFactory.getInstance();
-        int halfWidth = (width >> 1);
+        int32 halfWidth = (width >> 1);
         BasicArrayList newBasicArrayList = new BasicArrayListD();
         GPoint secondPoint = null;
-        int newX = 0;
+        int32 newX = 0;
         GPoint point = null;
-        int size = this.pointBasicArrayList.size();
-        for (int index = 0; index < size; index++) {
+        int32 size = this.pointBasicArrayList.size();
+        for (int32 index = 0; index < size; index++) {
             secondPoint = ((GPoint) this.pointBasicArrayList.objectArray[index]);
             if (secondPoint.getX() != 1000) {
                 newX = 0;
@@ -124,11 +124,10 @@ public class BasicGraphicsPipeline
         }
         this.pointBasicArrayList = newBasicArrayList;
     }
+    
 
-    public virtual BasicArrayList getMatrix()
-    {
+    public virtual BasicArrayList getMatrix() {
         return this.pointBasicArrayList;
     }
-
 }
 

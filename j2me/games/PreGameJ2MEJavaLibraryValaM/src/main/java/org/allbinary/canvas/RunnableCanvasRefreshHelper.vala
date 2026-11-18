@@ -13,25 +13,27 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.canvas
+// import org.allbinary.graphics.displayable.MyCanvas
 
-using System;
-using System.Linq;
-using MyCanvas = org.allbinary.graphics.displayable.MyCanvas;
+public class RunnableCanvasRefreshHelper : Processor {
+    private MyCanvas runnableCanvas;
 
-namespace org.allbinary.canvas;
+    // Java field initializers run after the base constructor
+    private void initFieldsRunnableCanvasRefreshHelper() {
+    
+    }
+    
 
-public class RunnableCanvasRefreshHelper : Processor
-{
-    private readonly MyCanvas runnableCanvas;
-    public RunnableCanvasRefreshHelper(MyCanvas runnableCanvas)
-    {
+    public RunnableCanvasRefreshHelper(MyCanvas runnableCanvas) {
+        base();
+        this.initFieldsRunnableCanvasRefreshHelper();
         this.runnableCanvas = runnableCanvas;
     }
+    
 
-    public override void process()
-    {
+    public override void process() {
         this.runnableCanvas.repaint();
     }
-
 }
 

@@ -13,17 +13,14 @@
  *   
  */
 // Generated Code Do Not Modify
+// package org.allbinary.logic.system.security.licensing
 
-using System;
-using System.Linq;
+public interface LockedUtilInterface : JObject {
+    
 
-namespace org.allbinary.logic.system.security.licensing;
+    public abstract bool isLocked();
+    
 
-public interface LockedUtilInterface
-{
-    bool isLocked();
-
-    bool isLockedFeature(LockableFeature lockableFeatrue);
-
+    public abstract bool isLockedFeature(LockableFeature lockableFeatrue);
 }
 

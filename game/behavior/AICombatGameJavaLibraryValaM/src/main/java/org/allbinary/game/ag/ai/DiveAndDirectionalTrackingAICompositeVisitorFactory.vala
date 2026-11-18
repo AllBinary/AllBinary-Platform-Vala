@@ -13,19 +13,18 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.game.ag.ai
+// import org.allbinary.logic.util.visitor.Visitor
 
-using System;
-using System.Linq;
-using Visitor = org.allbinary.logic.util.visitor.Visitor;
+public class DiveAndDirectionalTrackingAICompositeVisitorFactory : JObject {
 
-namespace org.allbinary.game.ag.ai;
+    public DiveAndDirectionalTrackingAICompositeVisitorFactory() {
+        base();
+    }
+    
 
-public class DiveAndDirectionalTrackingAICompositeVisitorFactory
-{
-    public virtual Visitor getInstance(DiveAndDirectionalTrackingAI diveBombAI)
-    {
+    public virtual Visitor getInstance1(DiveAndDirectionalTrackingAI diveBombAI) {
         return Visitor.getInstance();
     }
-
 }
 

@@ -13,17 +13,16 @@
  *   
  */
 // Generated Code Do Not Modify
+// package org.allbinary.graphics.threed
 
-using System;
-using System.Linq;
+public class RatioProcessor : JObject {
 
-namespace org.allbinary.graphics.threed;
-
-public class RatioProcessor
-{
-    public virtual void setCustom(int width, int height, float ratio)
-    {
+    public RatioProcessor() {
+        base();
     }
+    
 
+    public virtual void setCustom(int32 width, int32 height, float ratio) {
+    }
 }
 

@@ -13,50 +13,65 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.animation
+// import javax.microedition.lcdui.Graphics
+// import org.allbinary.media.ScaleProperties
 
-using System;
-using System.Linq;
-using Graphics = javax.microedition.lcdui.Graphics;
-using ScaleProperties = org.allbinary.media.ScaleProperties;
-
-namespace org.allbinary.animation;
-
-public class NullAnimationFactory : AnimationInterfaceFactoryInterface, ProceduralAnimationInterfaceFactoryInterface
-{
-    public static NullAnimationFactory NULL_NOT_FOR_USE_ANIMATION_FACTORY = new NullAnimationFactory();
-    private static NullAnimationFactory NULL_ANIMATION_FACTORY = new NullAnimationFactory();
-    private readonly Animation NULL_ANIMATION = new Animation()
-#if JAVA_ANONYMOUS_CLASS_BODY
-        public virtual void paintXY(Graphics graphics, int x, int y)
-        {
+public class NullAnimationFactory : JObject, AnimationInterfaceFactoryInterface, ProceduralAnimationInterfaceFactoryInterface, BasicAnimationInterfaceFactoryInterface {
+    public static NullAnimationFactory? NULL_NOT_FOR_USE_ANIMATION_FACTORY;
+    private static bool staticSet_NULL_NOT_FOR_USE_ANIMATION_FACTORY = false;
+    public static NullAnimationFactory staticGet_NULL_NOT_FOR_USE_ANIMATION_FACTORY() {
+        if (!NullAnimationFactory.staticSet_NULL_NOT_FOR_USE_ANIMATION_FACTORY) {
+            NullAnimationFactory.staticSet_NULL_NOT_FOR_USE_ANIMATION_FACTORY = true;
+            NullAnimationFactory.NULL_NOT_FOR_USE_ANIMATION_FACTORY = new NullAnimationFactory();
         }
-
-#endif
-;
-    public readonly Animation[] EMPTY_ARRAY = new Animation[0];
-    private NullAnimationFactory()
-    {
+        return NullAnimationFactory.NULL_NOT_FOR_USE_ANIMATION_FACTORY;
     }
-
-    public static NullAnimationFactory getFactoryInstance()
-    {
+    private static NullAnimationFactory? NULL_ANIMATION_FACTORY;
+    private static bool staticSet_NULL_ANIMATION_FACTORY = false;
+    private static NullAnimationFactory staticGet_NULL_ANIMATION_FACTORY() {
+        if (!NullAnimationFactory.staticSet_NULL_ANIMATION_FACTORY) {
+            NullAnimationFactory.staticSet_NULL_ANIMATION_FACTORY = true;
+            NullAnimationFactory.NULL_ANIMATION_FACTORY = new NullAnimationFactory();
+        }
         return NullAnimationFactory.NULL_ANIMATION_FACTORY;
     }
+    private Animation NULL_ANIMATION;
+    public Animation[] EMPTY_ARRAY;
 
-    public virtual Animation getInstance(int instanceId)
-    {
+    // Java field initializers run after the base constructor
+    private void initFieldsNullAnimationFactory() {
+    this.NULL_ANIMATION = new Animation() /* Java anonymous class body: implement it as a named subclass
+        
+
+        public virtual void paintXY(Graphics graphics, int32 x, int32 y) {
+        } */;
+    this.EMPTY_ARRAY = new Animation[0];
+    }
+    
+
+    public NullAnimationFactory() {
+        base();
+        this.initFieldsNullAnimationFactory();
+    }
+    
+
+    public static NullAnimationFactory getFactoryInstance() {
+        return NullAnimationFactory.staticGet_NULL_ANIMATION_FACTORY();
+    }
+    
+
+    public virtual Animation getInstance1(int32 instanceId) {
         return this.NULL_ANIMATION;
     }
+    
 
-    // throws Exception
-    public virtual Animation getInstanceAnimation(Animation animationInterface)
-    {
+    public virtual Animation getInstanceAnimation(Animation animationInterface) {
         return this.NULL_ANIMATION;
     }
+    
 
-    public virtual void setInitialScale(ScaleProperties scaleProperties)
-    {
+    public virtual void setInitialScale(ScaleProperties scaleProperties) {
     }
-
 }
 

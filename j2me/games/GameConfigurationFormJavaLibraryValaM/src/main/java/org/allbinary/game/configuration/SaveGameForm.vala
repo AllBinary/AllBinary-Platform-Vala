@@ -13,52 +13,60 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.game.configuration
+// import javax.microedition.lcdui.CommandListener
+// import javax.microedition.lcdui.TextField
+// import org.allbinary.MIDPUtil
+// import org.allbinary.game.commands.GameCommandsFactory
+// import org.allbinary.graphics.color.BasicColor
+// import org.allbinary.graphics.displayable.screen.CommandForm
+// import org.allbinary.logic.ABSystemWrapper
 
-using System;
-using System.Linq;
-using CommandListener = javax.microedition.lcdui.CommandListener;
-using TextField = javax.microedition.lcdui.TextField;
-using MIDPUtil = org.allbinary.MIDPUtil;
-using GameCommandsFactory = org.allbinary.game.commands.GameCommandsFactory;
-using BasicColor = org.allbinary.graphics.color.BasicColor;
-using CommandForm = org.allbinary.graphics.displayable.screen.CommandForm;
-using ABSystemWrapper = org.allbinary.logic.ABSystemWrapper;
+public class SaveGameForm : CommandForm {
+    private static CommandForm? FORM;
+    private static bool staticSet_FORM = false;
+    private static CommandForm staticGet_FORM() {
+        if (!SaveGameForm.staticSet_FORM) {
+            SaveGameForm.staticSet_FORM = true;
+            SaveGameForm.FORM = CommandForm.getNullCommandForm();
+        }
+        return SaveGameForm.FORM;
+    }
+    private MIDPUtil meUtil;
 
-namespace org.allbinary.game.configuration;
+    // Java field initializers run after the base constructor
+    private void initFieldsSaveGameForm() {
+    this.meUtil = MIDPUtil.getInstance();
+    }
+    
 
-public class SaveGameForm : CommandForm
-{
-    private static CommandForm FORM = CommandForm.getNullCommandForm();
-    // throws Exception
-    public static CommandForm createForm(CommandListener commandListener, string title, BasicColor backgrounBasicColor, BasicColor foregroundBasicColor)
-    {
+    public static CommandForm createForm(CommandListener commandListener, string title, BasicColor backgrounBasicColor, BasicColor foregroundBasicColor) {
         SaveGameForm.FORM = new SaveGameForm(commandListener, title, backgrounBasicColor, foregroundBasicColor);
-        return SaveGameForm.FORM;
+        return SaveGameForm.staticGet_FORM();
     }
+    
 
-    public static CommandForm getInstance()
-    {
-        return SaveGameForm.FORM;
+    public static CommandForm getInstance() {
+        return SaveGameForm.staticGet_FORM();
     }
+    
 
-    private readonly MIDPUtil meUtil = MIDPUtil.getInstance();
-    private SaveGameForm(CommandListener commandListener, string title, BasicColor backgrounBasicColor, BasicColor foregroundBasicColor) : base(commandListener, title, backgrounBasicColor, foregroundBasicColor)
-    {
-        // base(commandListener, title, backgrounBasicColor, foregroundBasicColor) is called from the constructor declaration
+    public SaveGameForm(CommandListener commandListener, string title, BasicColor backgrounBasicColor, BasicColor foregroundBasicColor) {
+        base(commandListener, title, backgrounBasicColor, foregroundBasicColor);
+        this.initFieldsSaveGameForm();
         this.logUtil.putF(this.commonStrings.START, this, this.commonStrings.CONSTRUCTOR);
-        string timeString = (ABSystemWrapper.getInstance().currentTimeMillis()).ToString();
+        string timeString = (ABSystemWrapper.getInstance().currentTimeMillis()).to_string();
         this.meUtil.appendItem(this, new TextField("Name: ", timeString, 30, TextField.ANY));
         this.initCommands(commandListener);
     }
+    
 
-    public override void initCommands(CommandListener cmdListener)
-    {
+    public override void initCommands(CommandListener cmdListener) {
         GameCommandsFactory gameCommandsFactory = GameCommandsFactory.getInstance();
         this.removeAllCommands();
         this.addCommand(gameCommandsFactory.SAVE);
         this.addCommand(gameCommandsFactory.CLOSE_AND_SHOW_GAME_CANVAS);
         this.setCommandListener(cmdListener);
     }
-
 }
 

@@ -13,54 +13,55 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.game.displayable.canvas
+// import javax.microedition.lcdui.Canvas
+// import javax.microedition.lcdui.NullCanvas
+// import org.allbinary.game.input.PlayerGameInput
+// import org.allbinary.graphics.displayable.MyCanvas
+// import org.allbinary.input.motion.gesture.observer.BaseMotionGestureEventListener
+// import org.allbinary.input.motion.gesture.observer.MotionGestureEvent
+// import org.allbinary.util.BasicArrayList
+// import org.allbinary.util.BasicArrayListD
 
-using System;
-using System.Linq;
-using Canvas = javax.microedition.lcdui.Canvas;
-using NullCanvas = javax.microedition.lcdui.NullCanvas;
-using PlayerGameInput = org.allbinary.game.input.PlayerGameInput;
-using MyCanvas = org.allbinary.graphics.displayable.MyCanvas;
-using BaseMotionGestureEventListener = org.allbinary.input.motion.gesture.observer.BaseMotionGestureEventListener;
-using MotionGestureEvent = org.allbinary.input.motion.gesture.observer.MotionGestureEvent;
-using BasicArrayList = org.allbinary.util.BasicArrayList;
-using BasicArrayListD = org.allbinary.util.BasicArrayListD;
+public class BasicMenuInputProcessor : PlayerGameInput, BaseMotionGestureEventListener, EventListenerInterface {
+    public BasicArrayList motionGestureEventList;
+    private Canvas canvas;
 
-namespace org.allbinary.game.displayable.canvas;
+    // Java field initializers run after the base constructor
+    private void initFieldsBasicMenuInputProcessor() {
+    this.motionGestureEventList = new BasicArrayListD();
+    this.canvas = NullCanvas.NULL_CANVAS;
+    }
+    
 
-public class BasicMenuInputProcessor : PlayerGameInput, BaseMotionGestureEventListener
-{
-    public readonly BasicArrayList motionGestureEventList = new BasicArrayListD();
-    private Canvas canvas = NullCanvas.NULL_CANVAS;
-    public BasicMenuInputProcessor(BasicArrayList gameKeyEventList, int playerInputId, Canvas gameCanvas) : base(gameKeyEventList, new BasicArrayListD(), playerInputId)
-    {
-        // base(gameKeyEventList, new BasicArrayListD(), playerInputId) is called from the constructor declaration
+    public BasicMenuInputProcessor(BasicArrayList gameKeyEventList, int32 playerInputId, Canvas gameCanvas) {
+        base(gameKeyEventList, new BasicArrayListD(), playerInputId);
+        this.initFieldsBasicMenuInputProcessor();
         this.canvas = gameCanvas;
     }
+    
 
-    public virtual void onMotionGestureEvent(MotionGestureEvent motionGestureEvent)
-    {
+    public virtual void onMotionGestureEvent(MotionGestureEvent motionGestureEvent) {
         this.motionGestureEventList.add(motionGestureEvent);
     }
+    
 
-    public virtual void onScrolledMotionGestureEvent(MotionGestureEvent motionGestureEvent)
-    {
+    public virtual void onScrolledMotionGestureEvent(MotionGestureEvent motionGestureEvent) {
     }
+    
 
-    private void setCanvas(MyCanvas canvas)
-    {
+    private void setCanvas(MyCanvas canvas) {
         this.canvas = canvas;
     }
+    
 
-    public virtual MyCanvas getCanvas()
-    {
+    public virtual MyCanvas getCanvas() {
         return ((MyCanvas) this.canvas);
     }
+    
 
-    // throws Exception
-    public virtual int processInputList()
-    {
+    public virtual int32 processInputList() {
         return -1;
     }
-
 }
 

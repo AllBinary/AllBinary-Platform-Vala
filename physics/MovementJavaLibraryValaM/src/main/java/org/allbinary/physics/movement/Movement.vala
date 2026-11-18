@@ -13,32 +13,27 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.physics.movement
+// import org.allbinary.game.layer.AllBinaryGameLayer
+// import org.allbinary.logic.math.BasicDecimal
 
-using System;
-using System.Linq;
-using AllBinaryGameLayer = org.allbinary.game.layer.AllBinaryGameLayer;
-using BasicDecimal = org.allbinary.logic.math.BasicDecimal;
+public class Movement : JObject, MovementInterface {
+    
 
-namespace org.allbinary.physics.movement;
-
-public class Movement : MovementInterface
-{
-    public Movement()
-    {
+    public Movement() {
+        base();
     }
+    
 
-    public virtual void init(BasicDecimal speedBasicDecimal, int angle, int otherAngle)
-    {
+    public virtual void init(BasicDecimal speedBasicDecimal, int32 angle, int32 otherAngle) {
     }
+    
 
-    // throws Exception
-    public virtual void process(AllBinaryGameLayer layer)
-    {
+    public virtual void process(AllBinaryGameLayer layer) {
     }
+    
 
-    public virtual void stop()
-    {
+    public virtual void stop() {
     }
-
 }
 

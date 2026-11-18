@@ -13,20 +13,15 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.logic.io
+// import java.io.DataOutputStream
+// import java.io.OutputStream
 
-using System;
-using System.Linq;
-using DataOutputStream = java.io.DataOutputStream;
-using OutputStream = java.io.OutputStream;
+public class AbDataOutputStream : DataOutputStream {
+    
 
-namespace org.allbinary.logic.io;
-
-public class AbDataOutputStream : DataOutputStream
-{
-    public AbDataOutputStream(OutputStream @out) : base(@out)
-    {
-        // base(@out) is called from the constructor declaration
+    public AbDataOutputStream(OutputStream @out) {
+        base(@out);
     }
-
 }
 

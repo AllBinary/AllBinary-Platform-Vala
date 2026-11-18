@@ -13,39 +13,32 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.ai
+// import org.allbinary.game.layer.CollidableCompositeLayer
+// import org.allbinary.layer.AllBinaryLayer
+// import org.allbinary.layer.AllBinaryLayerManager
+// import org.allbinary.layer.LayerProcessor
 
-using System;
-using System.Linq;
-using CollidableCompositeLayer = org.allbinary.game.layer.CollidableCompositeLayer;
-using AllBinaryLayer = org.allbinary.layer.AllBinaryLayer;
-using AllBinaryLayerManager = org.allbinary.layer.AllBinaryLayerManager;
-using LayerProcessor = org.allbinary.layer.LayerProcessor;
+public class OptimizedArtificialIntelligenceLayerProcessorForCollidableLayer : LayerProcessor {
+    
 
-namespace org.allbinary.ai;
-
-public class OptimizedArtificialIntelligenceLayerProcessorForCollidableLayer : LayerProcessor
-{
-    public OptimizedArtificialIntelligenceLayerProcessorForCollidableLayer() : base(new OptimizedArtificialIntelligenceLayerManager())
-    {
-        // base(new OptimizedArtificialIntelligenceLayerManager()) is called from the constructor declaration
+    public OptimizedArtificialIntelligenceLayerProcessorForCollidableLayer() {
+        base(new OptimizedArtificialIntelligenceLayerManager());
     }
+    
 
-    // throws Exception
-    public override void processAt(AllBinaryLayerManager allBinaryLayerManager, AllBinaryLayer layerInterface, int index)
-    {
+    public override void processAt(AllBinaryLayerManager allBinaryLayerManager, AllBinaryLayer layerInterface, int32 index) {
         CollidableCompositeLayer artificialIntelligenceCompositeInterface = ((CollidableCompositeLayer) layerInterface);
         artificialIntelligenceCompositeInterface.getArtificialIntelligenceInterface().processAI(allBinaryLayerManager);
     }
+    
 
-    // throws Exception
-    public override bool isProcessorLayer(AllBinaryLayer layerInterface)
-    {
+    public override bool isProcessorLayer(AllBinaryLayer layerInterface) {
         if (layerInterface.implmentsArtificialIntelligenceCompositeInterface()) {
             return true;
         } else {
             return false;
         }
     }
-
 }
 

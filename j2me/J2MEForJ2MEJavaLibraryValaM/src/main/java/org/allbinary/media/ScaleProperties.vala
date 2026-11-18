@@ -13,26 +13,43 @@
  *   
  */
 // Generated Code Do Not Modify
+// package org.allbinary.media
+// import org.allbinary.logic.string.StringMaker
+// import org.allbinary.string.CommonLabels
 
-using System;
-using System.Linq;
-using StringMaker = org.allbinary.logic.@string.StringMaker;
-using CommonLabels = org.allbinary.@string.CommonLabels;
+public class ScaleProperties : JObject {
+    public static ScaleProperties? instance;
+    private static bool staticSet_instance = false;
+    public static ScaleProperties staticGet_instance() {
+        if (!ScaleProperties.staticSet_instance) {
+            ScaleProperties.staticSet_instance = true;
+            ScaleProperties.instance = new ScaleProperties();
+        }
+        return ScaleProperties.instance;
+    }
+    public float scaleX;
+    public float scaleY;
+    public int32 scaleWidth;
+    public int32 scaleHeight;
+    public bool shouldScale;
 
-namespace org.allbinary.media;
-
-public class ScaleProperties
-{
-    public static readonly ScaleProperties instance = new ScaleProperties();
-    public float scaleX = 1.0f;
-    public float scaleY = 1.0f;
-    public int scaleWidth = 0;
-    public int scaleHeight = 0;
-    public bool shouldScale = false;
-    public override string ToString()
-    {
-        return new StringMaker().append(CommonLabels.getInstance().COLON_SEP).appendboolean(this.shouldScale).append("scaleX: ").appendfloat(this.scaleX).append("scaleY: ").appendfloat(this.scaleY).append("scaleWidth: ").appendint(this.scaleWidth).append("scaleHeight: ").appendint(this.scaleHeight).ToString();
+    // Java field initializers run after the base constructor
+    private void initFieldsScaleProperties() {
+    this.scaleX = 1.0f;
+    this.scaleY = 1.0f;
+    this.scaleWidth = 0;
+    this.scaleHeight = 0;
+    this.shouldScale = false;
     }
 
+    public ScaleProperties() {
+        base();
+        this.initFieldsScaleProperties();
+    }
+    
+
+    public override string toString() {
+        return new StringMaker().append(CommonLabels.getInstance().COLON_SEP).appendboolean(this.shouldScale).append("scaleX: ").appendfloat(this.scaleX).append("scaleY: ").appendfloat(this.scaleY).append("scaleWidth: ").appendint(this.scaleWidth).append("scaleHeight: ").appendint(this.scaleHeight).toString();
+    }
 }
 

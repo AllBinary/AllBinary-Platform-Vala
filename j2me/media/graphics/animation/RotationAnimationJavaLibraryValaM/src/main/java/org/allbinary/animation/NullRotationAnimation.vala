@@ -1,35 +1,29 @@
 // Generated Code Do Not Modify
+// package org.allbinary.animation
+// import org.allbinary.math.AngleFactory
+// import org.allbinary.math.AngleInfo
+// import org.allbinary.util.CircularIndexUtil
 
-using System;
-using System.Linq;
-using AngleFactory = org.allbinary.math.AngleFactory;
-using AngleInfo = org.allbinary.math.AngleInfo;
-using CircularIndexUtil = org.allbinary.util.CircularIndexUtil;
+public class NullRotationAnimation : RotationAnimation {
+    
 
-namespace org.allbinary.animation;
-
-public class NullRotationAnimation : RotationAnimation
-{
-    public static NullRotationAnimation createTotalAngle(AngleInfo angleInfo, short totalAngle, AnimationBehavior animationBehavior)
-    {
+    public static NullRotationAnimation createTotalAngle(AngleInfo angleInfo, int16 totalAngle, AnimationBehavior animationBehavior) {
         return new NullRotationAnimation(angleInfo, CircularIndexUtil.createInstance(totalAngle / angleInfo.getAngleIncrementInfo().getAngleIncrement()), animationBehavior);
     }
+    
 
-    public static NullRotationAnimation createQuarter(AnimationBehavior animationBehavior)
-    {
-        return new NullRotationAnimation(AngleInfo.getInstance(AngleFactory.getInstance().QUARTER_TOTAL_ANGLE), CircularIndexUtil.createInstance(4), animationBehavior);
+    public static NullRotationAnimation createQuarter(AnimationBehavior animationBehavior) {
+        return new NullRotationAnimation(AngleInfo.getInstance1(AngleFactory.getInstance().QUARTER_TOTAL_ANGLE), CircularIndexUtil.createInstance(4), animationBehavior);
     }
+    
 
-    public NullRotationAnimation(AngleInfo angleInfo, CircularIndexUtil circularIndexUtil, AnimationBehavior animationBehavior) : base(angleInfo, circularIndexUtil, animationBehavior)
-    {
-        // base(angleInfo, circularIndexUtil, animationBehavior) is called from the constructor declaration
+    public NullRotationAnimation(AngleInfo angleInfo, CircularIndexUtil circularIndexUtil, AnimationBehavior animationBehavior) {
+        base(angleInfo, circularIndexUtil, animationBehavior);
     }
+    
 
-    // throws Exception
-    public override int getAnimationSize()
-    {
+    public override int32 getAnimationSize() {
         return 0;
     }
-
 }
 

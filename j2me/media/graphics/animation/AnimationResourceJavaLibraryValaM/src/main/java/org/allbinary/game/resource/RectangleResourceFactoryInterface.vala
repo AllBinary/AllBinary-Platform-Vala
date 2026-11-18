@@ -13,20 +13,15 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.game.resource
+// import org.allbinary.graphics.Rectangle
 
-using System;
-using System.Linq;
-using Rectangle = org.allbinary.graphics.Rectangle;
+public interface RectangleResourceFactoryInterface : JObject {
+    
 
-namespace org.allbinary.game.resource;
+    public abstract Rectangle getRectangle(string resource);
+    
 
-public interface RectangleResourceFactoryInterface
-{
-    // throws Exception
-    Rectangle getRectangle(string resource);
-
-    // throws Exception
-    Rectangle[][] getRectangleArrayOfArrays(string resource);
-
+    public abstract Rectangle[,] getRectangleArrayOfArrays(string resource);
 }
 

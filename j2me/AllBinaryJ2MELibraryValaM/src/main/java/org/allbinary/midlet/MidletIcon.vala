@@ -13,14 +13,13 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.midlet
 
-using System;
-using System.Linq;
+public class MidletIcon : JObject {
+    public static string? RESOURCE = "icon";
 
-namespace org.allbinary.midlet;
-
-public class MidletIcon
-{
-    public static string RESOURCE = "icon";
+    public MidletIcon() {
+        base();
+    }
 }
 

@@ -13,15 +13,11 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.game.multiplayer.client
 
-using System;
-using System.Linq;
+public interface PingInfoCompositeInterface : JObject {
+    
 
-namespace org.allbinary.game.multiplayer.client;
-
-public interface PingInfoCompositeInterface
-{
-    void setPingInfo(bool show);
-
+    public abstract void setPingInfo(bool show);
 }
 

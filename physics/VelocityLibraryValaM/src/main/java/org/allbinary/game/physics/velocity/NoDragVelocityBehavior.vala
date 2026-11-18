@@ -13,14 +13,21 @@
  *   
  */
 // Generated Code Do Not Modify
+// package org.allbinary.game.physics.velocity
 
-using System;
-using System.Linq;
+public class NoDragVelocityBehavior : VelocityBehaviorBase {
+    public static NoDragVelocityBehavior? instance;
+    private static bool staticSet_instance = false;
+    public static NoDragVelocityBehavior staticGet_instance() {
+        if (!NoDragVelocityBehavior.staticSet_instance) {
+            NoDragVelocityBehavior.staticSet_instance = true;
+            NoDragVelocityBehavior.instance = new NoDragVelocityBehavior();
+        }
+        return NoDragVelocityBehavior.instance;
+    }
 
-namespace org.allbinary.game.physics.velocity;
-
-public class NoDragVelocityBehavior : VelocityBehaviorBase
-{
-    public static readonly NoDragVelocityBehavior instance = new NoDragVelocityBehavior();
+    public NoDragVelocityBehavior() {
+        base();
+    }
 }
 

@@ -13,48 +13,48 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.layer
+// import org.allbinary.string.CommonStrings
 
-using System;
-using System.Linq;
-using CommonStrings = org.allbinary.@string.CommonStrings;
+public class LayerProcessor : JObject, LayerProcessorInterface, BasicLayerProcessorInterface {
+    public CommonStrings commonStrings;
+    private LayerManager layerManager;
 
-namespace org.allbinary.layer;
+    // Java field initializers run after the base constructor
+    private void initFieldsLayerProcessor() {
+    this.commonStrings = CommonStrings.getInstance();
+    
+    }
+    
 
-public class LayerProcessor : LayerProcessorInterface
-{
-    public readonly CommonStrings commonStrings = CommonStrings.getInstance();
-    private readonly LayerManager layerManager;
-    public LayerProcessor(LayerManager layerManager)
-    {
+    public LayerProcessor(LayerManager layerManager) {
+        base();
+        this.initFieldsLayerProcessor();
         this.layerManager = layerManager;
     }
+    
 
-    // throws Exception
-    public virtual void processAt(AllBinaryLayerManager allBinaryLayerManager, AllBinaryLayer layerInterface, int index)
-    {
-        throw new Exception(this.commonStrings.NOT_IMPLEMENTED);
+    public virtual void processAt(AllBinaryLayerManager allBinaryLayerManager, AllBinaryLayer layerInterface, int32 index) {
+        JSystem.fatal(new JException("Exception", this.commonStrings.NOT_IMPLEMENTED));
     }
+    
 
-    // throws Exception
-    public virtual bool isProcessorLayer(AllBinaryLayer layerInterface)
-    {
-        throw new Exception(this.commonStrings.NOT_IMPLEMENTED);
+    public virtual bool isProcessorLayer(AllBinaryLayer layerInterface) {
+        JSystem.fatal(new JException("Exception", this.commonStrings.NOT_IMPLEMENTED));
     }
+    
 
-    public virtual LayerManager getLayerManager()
-    {
+    public virtual LayerManager getLayerManager() {
         return this.layerManager;
     }
+    
 
-    // throws Exception
-    public virtual void process(AllBinaryLayerManager allBinaryLayerManager)
-    {
+    public virtual void process(AllBinaryLayerManager allBinaryLayerManager) {
         LayerManager layerManager = this.getLayerManager();
-        int size = layerManager.getSize();
-        for (int index = 0; index < size; index++) {
+        int32 size = layerManager.getSize();
+        for (int32 index = 0; index < size; index++) {
             this.processAt(allBinaryLayerManager, ((AllBinaryLayer) layerManager.getLayerAt(index)), index);
         }
     }
-
 }
 

@@ -13,15 +13,11 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.game.ag.life
 
-using System;
-using System.Linq;
+public interface LifeInterfaceCompositeInterface : JObject {
+    
 
-namespace org.allbinary.game.ag.life;
-
-public interface LifeInterfaceCompositeInterface
-{
-    Life getLifeInterface();
-
+    public abstract Life getLifeInterface();
 }
 

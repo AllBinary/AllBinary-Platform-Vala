@@ -13,50 +13,64 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.game.input
+// import org.allbinary.game.input.analog.AnalogLocationInputFactory
+// import org.allbinary.logic.communication.log.LogUtil
+// import org.allbinary.logic.string.StringMaker
 
-using System;
-using System.Linq;
-using AnalogLocationInputFactory = org.allbinary.game.input.analog.AnalogLocationInputFactory;
-using LogUtil = org.allbinary.logic.communication.log.LogUtil;
-using StringMaker = org.allbinary.logic.@string.StringMaker;
+public class LocalPlayerInputIdFactory : JObject {
+    private static LocalPlayerInputIdFactory? instance;
+    private static bool staticSet_instance = false;
+    private static LocalPlayerInputIdFactory staticGet_instance() {
+        if (!LocalPlayerInputIdFactory.staticSet_instance) {
+            LocalPlayerInputIdFactory.staticSet_instance = true;
+            LocalPlayerInputIdFactory.instance = new LocalPlayerInputIdFactory();
+        }
+        return LocalPlayerInputIdFactory.instance;
+    }
+    public LogUtil logUtil;
+    public int32 MAX_NUMBER_OF_PLAYERS;
+    private int32 MAX_FAST_DEVICEID;
+    private int32[] deviceIdToplayerId;
+    private int32[] playerIdToDeviceId;
+    private bool[] playersInPlay;
+    private int32 totalDevicesMapped;
 
-namespace org.allbinary.game.input;
+    // Java field initializers run after the base constructor
+    private void initFieldsLocalPlayerInputIdFactory() {
+    this.logUtil = LogUtil.getInstance();
+    this.MAX_NUMBER_OF_PLAYERS = 6;
+    this.MAX_FAST_DEVICEID = 65;
+    this.deviceIdToplayerId = new int32[this.MAX_FAST_DEVICEID];
+    this.playerIdToDeviceId = new int32[this.MAX_NUMBER_OF_PLAYERS];
+    this.playersInPlay = new bool[this.MAX_NUMBER_OF_PLAYERS];
+    this.totalDevicesMapped = 0;
+    }
+    
 
-public class LocalPlayerInputIdFactory
-{
-    public readonly LogUtil logUtil = LogUtil.getInstance();
-    private static readonly LocalPlayerInputIdFactory instance = new LocalPlayerInputIdFactory();
-    public readonly int MAX_NUMBER_OF_PLAYERS = 6;
-    private readonly int MAX_FAST_DEVICEID = 65;
-    private readonly int[] deviceIdToplayerId;
-    private readonly int[] playerIdToDeviceId;
-    private readonly bool[] playersInPlay;
-    private int totalDevicesMapped = 0;
-    private LocalPlayerInputIdFactory()
-    {
-        this.deviceIdToplayerId = new int[this.MAX_FAST_DEVICEID];
-        this.playerIdToDeviceId = new int[this.MAX_NUMBER_OF_PLAYERS];
-        this.playersInPlay = new bool[this.MAX_NUMBER_OF_PLAYERS];
-        for (int index = this.deviceIdToplayerId.Length - 1; index >= 0; index--) {
+    public LocalPlayerInputIdFactory() {
+        base();
+        this.initFieldsLocalPlayerInputIdFactory();
+        for (int32 index = this.deviceIdToplayerId.length - 1; index >= 0; index--) {
             this.deviceIdToplayerId[index] = -1;
         }
     }
+    
 
-    public static LocalPlayerInputIdFactory getInstance()
-    {
-        return LocalPlayerInputIdFactory.instance;
+    public static LocalPlayerInputIdFactory getInstance() {
+        return LocalPlayerInputIdFactory.staticGet_instance();
     }
+    
 
-    public virtual int getDeviceId(int playerInputId)
-    {
+    public virtual int32 getDeviceId(int32 playerInputId) {
         return this.playerIdToDeviceId[playerInputId];
     }
+    
 
-    public virtual int getPlayerForDevice(int deviceId)
-    {
-        int index = 0;
+    public virtual int32 getPlayerForDevice(int32 deviceId) {
+        int32 index = 0;
         if (deviceId < this.MAX_FAST_DEVICEID) {
-            int playerInputId = this.deviceIdToplayerId[deviceId];
+            int32 playerInputId = this.deviceIdToplayerId[deviceId];
             if (playerInputId != -1) {
                 return playerInputId;
             }
@@ -71,47 +85,46 @@ public class LocalPlayerInputIdFactory
         if (deviceId < this.MAX_FAST_DEVICEID) {
             this.deviceIdToplayerId[deviceId] = index;
         } else {
-            this.logUtil.putF(new StringMaker().append("Added DeviceId: ").appendint(deviceId).append(" beyond fast Id list").ToString(), this, "getPlayerForDevice");
+            this.logUtil.putF(new StringMaker().append("Added DeviceId: ").appendint(deviceId).append(" beyond fast Id list").toString(), this, "getPlayerForDevice");
         }
         this.playerIdToDeviceId[index] = deviceId;
         AnalogLocationInputFactory.getInstance().addPlayer(this.totalDevicesMapped);
         this.totalDevicesMapped++;
-        this.logUtil.putF(new StringMaker().append("Added DeviceId: ").appendint(deviceId).append(" at: ").appendint(index).append(" Total: ").appendint(this.totalDevicesMapped).ToString(), this, "getPlayerForDevice");
+        this.logUtil.putF(new StringMaker().append("Added DeviceId: ").appendint(deviceId).append(" at: ").appendint(index).append(" Total: ").appendint(this.totalDevicesMapped).toString(), this, "getPlayerForDevice");
         return index;
     }
+    
 
-    public virtual int getTotalDevicesInPlay()
-    {
-        int total = 0;
-        for (int index = this.totalDevicesMapped - 1; index >= 0; index--) {
+    public virtual int32 getTotalDevicesInPlay() {
+        int32 total = 0;
+        for (int32 index = this.totalDevicesMapped - 1; index >= 0; index--) {
             if (this.playersInPlay[index] == true) {
                 total++;
             }
         }
         return total;
     }
+    
 
-    public virtual bool isPlayerInPlay(int playerInputId)
-    {
+    public virtual bool isPlayerInPlay(int32 playerInputId) {
         return this.playersInPlay[playerInputId];
     }
+    
 
-    public virtual void setPlayerInPlay(int playerInputId)
-    {
-        this.logUtil.putF(new StringMaker().append("Setting PlayerInPlay with playerInputId: ").appendint(playerInputId).ToString(), this, "setPlayerInPlay");
+    public virtual void setPlayerInPlay(int32 playerInputId) {
+        this.logUtil.putF(new StringMaker().append("Setting PlayerInPlay with playerInputId: ").appendint(playerInputId).toString(), this, "setPlayerInPlay");
         this.playersInPlay[playerInputId] = true;
     }
+    
 
-    public virtual void setPlayerOutOfPlay(int playerInputId)
-    {
-        this.logUtil.putF(new StringMaker().append("Setting PlayerOutOfPlay with playerInputId: ").appendint(playerInputId).ToString(), this, "setPlayerOutOfPlay");
+    public virtual void setPlayerOutOfPlay(int32 playerInputId) {
+        this.logUtil.putF(new StringMaker().append("Setting PlayerOutOfPlay with playerInputId: ").appendint(playerInputId).toString(), this, "setPlayerOutOfPlay");
         this.playersInPlay[playerInputId] = false;
     }
+    
 
-    public virtual bool[] getPlayersInPlay()
-    {
+    public virtual bool[] getPlayersInPlay() {
         return this.playersInPlay;
     }
-
 }
 

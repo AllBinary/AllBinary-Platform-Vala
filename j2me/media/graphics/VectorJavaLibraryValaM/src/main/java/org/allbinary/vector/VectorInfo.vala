@@ -13,65 +13,70 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.vector
 
-using System;
-using System.Linq;
+public class VectorInfo : JObject {
+    private int32 width;
+    private int32 height;
+    private int32[,] points;
+    private int32 totalFrames;
 
-namespace org.allbinary.vector;
+    // Java field initializers run after the base constructor
+    private void initFieldsVectorInfo() {
+    
+    
+    
+    
+    }
+    
 
-public class VectorInfo
-{
-    private int width;
-    private int height;
-    private int[][] points;
-    private int totalFrames;
-    public VectorInfo(int width, int height, int[][] points, int totalFrames)
-    {
+    public VectorInfo(int32 width, int32 height, int32[,] points, int32 totalFrames) {
+        base();
+        this.initFieldsVectorInfo();
         this.width = width;
         this.height = height;
         this.points = points;
         this.totalFrames = totalFrames;
     }
+    
 
-    public virtual int getWidth()
-    {
+    public virtual int32 getWidth() {
         return this.width;
     }
+    
 
-    private void setWidth(int width)
-    {
+    private void setWidth(int32 width) {
         this.width = width;
     }
+    
 
-    public virtual int getHeight()
-    {
+    public virtual int32 getHeight() {
         return this.height;
     }
+    
 
-    private void setHeight(int height)
-    {
+    private void setHeight(int32 height) {
         this.height = height;
     }
+    
 
-    public virtual int[][] getPoints()
-    {
+    public virtual int32[,] getPoints() {
         return this.points;
     }
+    
 
-    private void setPoints(int[][] points)
-    {
+    private void setPoints(int32[,] points) {
         this.points = points;
     }
+    
 
-    public virtual int getTotalFrames()
-    {
+    public virtual int32 getTotalFrames() {
         return this.totalFrames;
     }
+    
 
-    private void setTotalFrames(int totalFrames)
-    {
+    private void setTotalFrames(int32 totalFrames) {
         this.totalFrames = totalFrames;
     }
-
 }
 

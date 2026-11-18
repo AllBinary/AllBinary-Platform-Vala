@@ -13,38 +13,40 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.game.displayable.canvas
+// import javax.microedition.lcdui.CommandListener
+// import javax.microedition.lcdui.Graphics
+// import org.allbinary.game.layer.AllBinaryGameLayerManager
+// import org.allbinary.game.paint.ColorFillBasePaintable
+// import org.allbinary.game.paint.ColorFillPaintableFactory
+// import org.allbinary.graphics.paint.Paintable
 
-using System;
-using System.Linq;
-using CommandListener = javax.microedition.lcdui.CommandListener;
-using Graphics = javax.microedition.lcdui.Graphics;
-using AllBinaryGameLayerManager = org.allbinary.game.layer.AllBinaryGameLayerManager;
-using ColorFillBasePaintable = org.allbinary.game.paint.ColorFillBasePaintable;
-using ColorFillPaintableFactory = org.allbinary.game.paint.ColorFillPaintableFactory;
-using Paintable = org.allbinary.graphics.paint.Paintable;
+public class BasicPaintablesCanvas : GameCommandCanvas {
+    private Paintable[] paintableArray;
+    private ColorFillBasePaintable colorFillPaintable;
 
-namespace org.allbinary.game.displayable.canvas;
-
-public class BasicPaintablesCanvas : GameCommandCanvas
-{
-    private readonly Paintable[] paintableArray;
-    private readonly ColorFillBasePaintable colorFillPaintable;
-    public BasicPaintablesCanvas(CommandListener cmdListener, string name, AllBinaryGameLayerManager allBinaryGameLayerManager, Paintable[] paintableArray) : base(cmdListener, name, allBinaryGameLayerManager.getBackgroundBasicColor(), allBinaryGameLayerManager.getForegroundBasicColor())
-    {
-        // base(cmdListener, name, allBinaryGameLayerManager.getBackgroundBasicColor(), allBinaryGameLayerManager.getForegroundBasicColor()) is called from the constructor declaration
-        this.paintableArray = paintableArray;
-        this.colorFillPaintable = ColorFillPaintableFactory.getInstance().getInstance(allBinaryGameLayerManager.getBackgroundBasicColor(), false);
+    // Java field initializers run after the base constructor
+    private void initFieldsBasicPaintablesCanvas() {
+    
+    
     }
+    
 
-    public override void paint(Graphics graphics)
-    {
+    public BasicPaintablesCanvas(CommandListener cmdListener, string name, AllBinaryGameLayerManager allBinaryGameLayerManager, Paintable[] paintableArray) {
+        base(cmdListener, name, allBinaryGameLayerManager.getBackgroundBasicColor(), allBinaryGameLayerManager.getForegroundBasicColor());
+        this.initFieldsBasicPaintablesCanvas();
+        this.paintableArray = paintableArray;
+        this.colorFillPaintable = ColorFillPaintableFactory.getInstance().getInstance2(allBinaryGameLayerManager.getBackgroundBasicColor(), false);
+    }
+    
+
+    public override void paint(Graphics graphics) {
         this.colorFillPaintable.paint(graphics);
         graphics.setColor(this.foregroundColor);
-        for (int index = this.paintableArray.Length - 1; index >= 0; index--) {
+        for (int32 index = this.paintableArray.length - 1; index >= 0; index--) {
             this.paintableArray[index].paint(graphics);
         }
         base.paint(graphics);
     }
-
 }
 

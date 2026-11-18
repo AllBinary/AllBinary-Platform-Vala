@@ -13,16 +13,12 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.game.configuration.event
+// import org.allbinary.logic.util.event.EventListenerInterface
 
-using System;
-using System.Linq;
-using EventListenerInterface = org.allbinary.logic.util.@event.EventListenerInterface;
+public interface GameFeatureListenerInterface : JObject, EventListenerInterface {
+    
 
-namespace org.allbinary.game.configuration.@event;
-
-public interface GameFeatureListenerInterface : EventListenerInterface
-{
-    void onGameFeatureChange(GameFeatureEvent gameFeatureEvent);
-
+    public abstract void onGameFeatureChange(GameFeatureEvent gameFeatureEvent);
 }
 

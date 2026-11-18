@@ -13,51 +13,55 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.business.advertisement
+// import org.allbinary.direction.Direction
+// import org.allbinary.game.state.GameState
 
-using System;
-using System.Linq;
-using Direction = org.allbinary.direction.Direction;
-using GameState = org.allbinary.game.state.GameState;
+public class AdConfiguration : JObject {
+    public string INNERACTIVE;
+    public string LEADBOLT;
+    public string ADMOB;
 
-namespace org.allbinary.business.advertisement;
-
-public class AdConfiguration
-{
-    public readonly string INNERACTIVE;
-    public readonly string LEADBOLT;
-    public readonly string ADMOB;
-    public AdConfiguration(object[] advertIdArray)
-    {
-        this.INNERACTIVE = ((string) advertIdArray[0]);
-        this.ADMOB = ((string) advertIdArray[1]);
-        this.LEADBOLT = ((string) advertIdArray[2]);
+    // Java field initializers run after the base constructor
+    private void initFieldsAdConfiguration() {
+    
+    
+    
     }
+    
 
-    public virtual Direction[] getValidAdSpots()
-    {
+    public AdConfiguration(JObject[] advertIdArray) {
+        base();
+        this.initFieldsAdConfiguration();
+        this.INNERACTIVE = JString.unbox(advertIdArray[0]);
+        this.ADMOB = JString.unbox(advertIdArray[1]);
+        this.LEADBOLT = JString.unbox(advertIdArray[2]);
+    }
+    
+
+    public virtual Direction[] getValidAdSpots() {
         return new Direction[0];
     }
+    
 
-    public virtual void process(GameState gameState)
-    {
+    public virtual void process(GameState gameState) {
     }
+    
 
-    public virtual void processDemo(int state)
-    {
+    public virtual void processDemo(int32 state) {
     }
+    
 
-    public virtual void setShowAds()
-    {
+    public virtual void setShowAds() {
     }
+    
 
-    public virtual void setToggleAds(bool showAds)
-    {
+    public virtual void setToggleAds(bool showAds) {
     }
+    
 
-    public virtual bool isShowAds()
-    {
+    public virtual bool isShowAds() {
         return true;
     }
-
 }
 

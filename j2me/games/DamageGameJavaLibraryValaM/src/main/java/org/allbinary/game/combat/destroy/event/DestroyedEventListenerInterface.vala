@@ -13,17 +13,12 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.game.combat.destroy.event
+// import org.allbinary.logic.util.event.EventListenerInterface
 
-using System;
-using System.Linq;
-using EventListenerInterface = org.allbinary.logic.util.@event.EventListenerInterface;
+public interface DestroyedEventListenerInterface : JObject, EventListenerInterface {
+    
 
-namespace org.allbinary.game.combat.destroy.@event;
-
-public interface DestroyedEventListenerInterface : EventListenerInterface
-{
-    // throws Exception
-    void onDestroyed(DestroyedEvent destroyedEvent);
-
+    public abstract void onDestroyed(DestroyedEvent destroyedEvent);
 }
 

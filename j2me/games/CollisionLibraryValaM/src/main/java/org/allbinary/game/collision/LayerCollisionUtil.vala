@@ -13,27 +13,38 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.game.collision
+// import org.allbinary.game.configuration.feature.Features
+// import org.allbinary.game.configuration.feature.GameFeatureFactory
+// import org.allbinary.graphics.opengles.OpenGLFeatureUtil
+// import org.allbinary.layer.AllBinaryLayer
 
-using System;
-using System.Linq;
-using Features = org.allbinary.game.configuration.feature.Features;
-using GameFeatureFactory = org.allbinary.game.configuration.feature.GameFeatureFactory;
-using OpenGLFeatureUtil = org.allbinary.graphics.opengles.OpenGLFeatureUtil;
-using AllBinaryLayer = org.allbinary.layer.AllBinaryLayer;
-
-namespace org.allbinary.game.collision;
-
-public class LayerCollisionUtil
-{
-    private static readonly LayerCollisionUtil instance = new LayerCollisionUtil();
-    public static LayerCollisionUtil getInstance()
-    {
+public class LayerCollisionUtil : JObject {
+    private static LayerCollisionUtil? instance;
+    private static bool staticSet_instance = false;
+    private static LayerCollisionUtil staticGet_instance() {
+        if (!LayerCollisionUtil.staticSet_instance) {
+            LayerCollisionUtil.staticSet_instance = true;
+            LayerCollisionUtil.instance = new LayerCollisionUtil();
+        }
         return LayerCollisionUtil.instance;
     }
+    private CollisionProcessor collisionProcessor;
 
-    private readonly CollisionProcessor collisionProcessor = null;
-    private LayerCollisionUtil()
-    {
+    // Java field initializers run after the base constructor
+    private void initFieldsLayerCollisionUtil() {
+    this.collisionProcessor = null;
+    }
+    
+
+    public static LayerCollisionUtil getInstance() {
+        return LayerCollisionUtil.staticGet_instance();
+    }
+    
+
+    public LayerCollisionUtil() {
+        base();
+        this.initFieldsLayerCollisionUtil();
         Features features = Features.getInstance();
         GameFeatureFactory gameFeatureFactory = GameFeatureFactory.getInstance();
         if (OpenGLFeatureUtil.getInstance().isAnyThreed() && !features.isFeature(gameFeatureFactory.COLLISIONS_FORCED_TWO_DIMENSIONAL)) {
@@ -42,11 +53,10 @@ public class LayerCollisionUtil
             this.collisionProcessor = new Collision2DProcessor();
         }
     }
+    
 
-    public virtual bool isCollision(AllBinaryLayer myLayer, AllBinaryLayer myLayer2)
-    {
+    public virtual bool isCollision(AllBinaryLayer myLayer, AllBinaryLayer myLayer2) {
         return this.collisionProcessor.isCollision(myLayer, myLayer2);
     }
-
 }
 

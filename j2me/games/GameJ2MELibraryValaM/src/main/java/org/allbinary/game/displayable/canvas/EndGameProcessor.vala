@@ -13,31 +13,35 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.game.displayable.canvas
+// import org.allbinary.canvas.Processor
+// import org.allbinary.game.score.HighScores
+// import org.allbinary.game.score.HighScoresHelperBase
+// import org.allbinary.game.score.NullHighScoresSingletonFactory
+// import org.allbinary.game.state.GameStateFactory
+// import org.allbinary.graphics.paint.NullPaintable
 
-using System;
-using System.Linq;
-using Processor = org.allbinary.canvas.Processor;
-using HighScores = org.allbinary.game.score.HighScores;
-using HighScoresHelperBase = org.allbinary.game.score.HighScoresHelperBase;
-using NullHighScoresSingletonFactory = org.allbinary.game.score.NullHighScoresSingletonFactory;
-using GameStateFactory = org.allbinary.game.state.GameStateFactory;
-using NullPaintable = org.allbinary.graphics.paint.NullPaintable;
-
-namespace org.allbinary.game.displayable.canvas;
-
-public class EndGameProcessor : Processor
-{
-    public readonly GameStateFactory gameStateFactory = GameStateFactory.getInstance();
+public class EndGameProcessor : Processor {
+    public GameStateFactory gameStateFactory;
     private AllBinaryGameCanvas gameCanvas;
-    private readonly long WAIT = 5000L;
-    public EndGameProcessor(AllBinaryGameCanvas gameCanvas)
-    {
+    private int64 WAIT;
+
+    // Java field initializers run after the base constructor
+    private void initFieldsEndGameProcessor() {
+    this.gameStateFactory = GameStateFactory.getInstance();
+    
+    this.WAIT = 5000;
+    }
+    
+
+    public EndGameProcessor(AllBinaryGameCanvas gameCanvas) {
+        base();
+        this.initFieldsEndGameProcessor();
         this.gameCanvas = gameCanvas;
     }
+    
 
-    // throws Exception
-    public override void process()
-    {
+    public override void process() {
         if (this.gameCanvas.isHighScoreSubmitted()) {
             if (this.gameCanvas.getGameStateTimeHelper().isElapsedTNT(this.WAIT)) {
                 if (this.gameCanvas.getGameState() == this.gameStateFactory.SHOW_END_RESULT_GAME_STATE) {
@@ -56,6 +60,5 @@ public class EndGameProcessor : Processor
             }
         }
     }
-
 }
 

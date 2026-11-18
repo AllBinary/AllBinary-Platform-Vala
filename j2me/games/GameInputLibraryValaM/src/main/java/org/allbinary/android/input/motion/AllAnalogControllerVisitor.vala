@@ -13,27 +13,26 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.android.input.motion
+// import org.allbinary.game.input.analog.AnalogLocationInput
+// import org.allbinary.game.input.analog.AnalogLocationInputFactory
+// import org.allbinary.layer.AllBinaryLayerManager
+// import org.allbinary.util.BasicArrayList
 
-using System;
-using System.Linq;
-using AnalogLocationInput = org.allbinary.game.input.analog.AnalogLocationInput;
-using AnalogLocationInputFactory = org.allbinary.game.input.analog.AnalogLocationInputFactory;
-using AllBinaryLayerManager = org.allbinary.layer.AllBinaryLayerManager;
-using BasicArrayList = org.allbinary.util.BasicArrayList;
+public class AllAnalogControllerVisitor : AnalogControllerVisitor {
 
-namespace org.allbinary.android.input.motion;
+    public AllAnalogControllerVisitor() {
+        base();
+    }
+    
 
-public class AllAnalogControllerVisitor : AnalogControllerVisitor
-{
-    public override void process(AllBinaryLayerManager allbinaryLayerManager, AnalogLocationInputProcessor analogLocationInputProcessor)
-    {
+    public override void process(AllBinaryLayerManager allbinaryLayerManager, AnalogLocationInputProcessor analogLocationInputProcessor) {
         BasicArrayList analogLocationInputList = AnalogLocationInputFactory.getInstance().getList();
         AnalogLocationInput analogLocationInput = null;
-        for (int index = analogLocationInputList.size() - 1; index >= 0; index--) {
-            analogLocationInput = ((AnalogLocationInput) analogLocationInputList.get(index));
+        for (int32 index = analogLocationInputList.size() - 1; index >= 0; index--) {
+            analogLocationInput = ((AnalogLocationInput) analogLocationInputList.@get(index));
             analogLocationInputProcessor.process(allbinaryLayerManager, analogLocationInput);
         }
     }
-
 }
 

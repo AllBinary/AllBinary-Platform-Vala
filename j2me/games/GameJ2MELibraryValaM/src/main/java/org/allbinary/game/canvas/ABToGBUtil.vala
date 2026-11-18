@@ -13,24 +13,38 @@
  *   
  */
 // Generated Code Do Not Modify
+// package org.allbinary.game.canvas
+// import javax.microedition.lcdui.Canvas
+// import javax.microedition.lcdui.NullCanvas
+// import org.allbinary.game.layer.AllBinaryGameLayerManager
 
-using System;
-using System.Linq;
-using Canvas = javax.microedition.lcdui.Canvas;
-using NullCanvas = javax.microedition.lcdui.NullCanvas;
-using AllBinaryGameLayerManager = org.allbinary.game.layer.AllBinaryGameLayerManager;
-
-namespace org.allbinary.game.canvas;
-
-public class ABToGBUtil
-{
-    private static readonly ABToGBUtil instance = new ABToGBUtil();
-    public static ABToGBUtil getInstance()
-    {
+public class ABToGBUtil : JObject {
+    private static ABToGBUtil? instance;
+    private static bool staticSet_instance = false;
+    private static ABToGBUtil staticGet_instance() {
+        if (!ABToGBUtil.staticSet_instance) {
+            ABToGBUtil.staticSet_instance = true;
+            ABToGBUtil.instance = new ABToGBUtil();
+        }
         return ABToGBUtil.instance;
     }
+    public Canvas abCanvas;
+    public AllBinaryGameLayerManager allBinaryGameLayerManager;
 
-    public Canvas abCanvas = NullCanvas.NULL_CANVAS;
-    public AllBinaryGameLayerManager allBinaryGameLayerManager = AllBinaryGameLayerManager.getNullInstance();
+    // Java field initializers run after the base constructor
+    private void initFieldsABToGBUtil() {
+    this.abCanvas = NullCanvas.NULL_CANVAS;
+    this.allBinaryGameLayerManager = AllBinaryGameLayerManager.getNullInstance();
+    }
+
+    public ABToGBUtil() {
+        base();
+        this.initFieldsABToGBUtil();
+    }
+    
+
+    public static ABToGBUtil getInstance() {
+        return ABToGBUtil.staticGet_instance();
+    }
 }
 

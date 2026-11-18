@@ -13,37 +13,31 @@
  *   
  */
 // Generated Code Do Not Modify
+// package org.allbinary.game.ag.layer.hud.basic.score
+// import javax.microedition.lcdui.Font
+// import javax.microedition.lcdui.Graphics
+// import org.allbinary.game.ag.layer.hud.basic.NumberStringHud
+// import org.allbinary.graphics.color.BasicColor
+// import org.allbinary.graphics.color.BasicColorFactory
 
-using System;
-using System.Linq;
-using Font = javax.microedition.lcdui.Font;
-using Graphics = javax.microedition.lcdui.Graphics;
-using NumberStringHud = org.allbinary.game.ag.layer.hud.basic.NumberStringHud;
-using BasicColor = org.allbinary.graphics.color.BasicColor;
-using BasicColorFactory = org.allbinary.graphics.color.BasicColorFactory;
+public class ScoreHudWidget : NumberStringHud {
+    
 
-namespace org.allbinary.game.ag.layer.hud.basic.score;
-
-public class ScoreHudWidget : NumberStringHud
-{
-    // throws Exception
-    public static ScoreHudWidget getInstance(int maxscore, int location, int direction)
-    {
+    public static ScoreHudWidget getInstance3(int32 maxscore, int32 location, int32 direction) {
         return new ScoreHudWidget(maxscore, location, direction, 2, BasicColorFactory.getInstance().GREY);
     }
+    
 
-    public ScoreHudWidget(int maxscore, int location, int direction, int bufferZone, BasicColor basicColor) : base("Pts ", maxscore, location, direction, bufferZone, basicColor)
-    {
-        // base("Pts ", maxscore, location, direction, bufferZone, basicColor) is called from the constructor declaration
+    public ScoreHudWidget(int32 maxscore, int32 location, int32 direction, int32 bufferZone, BasicColor basicColor) {
+        base("Pts ", maxscore, location, direction, bufferZone, basicColor);
         this.updateMaxHeight = 14;
     }
+    
 
-    public override void updateMeasurement(Graphics graphics)
-    {
+    public override void updateMeasurement(Graphics graphics) {
         Font font = graphics.getFont();
         this.updateMaxWidth = font.getSize() * 5;
         base.updateMeasurement(graphics);
     }
-
 }
 

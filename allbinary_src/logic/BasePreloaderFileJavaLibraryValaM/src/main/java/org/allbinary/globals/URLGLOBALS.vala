@@ -13,40 +13,46 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.globals
 
-using System;
-using System.Linq;
+public class URLGLOBALS : JObject {
+    private static UrlGlobalsInterface? urlGlobalsInterface;
+    private static bool staticSet_urlGlobalsInterface = false;
+    private static UrlGlobalsInterface staticGet_urlGlobalsInterface() {
+        if (!URLGLOBALS.staticSet_urlGlobalsInterface) {
+            URLGLOBALS.staticSet_urlGlobalsInterface = true;
+            URLGLOBALS.urlGlobalsInterface = AppUrlGlobals.NULL_APP_URL_GLOBALS;
+        }
+        return URLGLOBALS.urlGlobalsInterface;
+    }
 
-namespace org.allbinary.globals;
+    public URLGLOBALS() {
+        base();
+    }
+    
 
-public class URLGLOBALS
-{
-    private static UrlGlobalsInterface urlGlobalsInterface = AppUrlGlobals.NULL_APP_URL_GLOBALS;
-    public static void init(UrlGlobalsInterface urlGlobalsInterface)
-    {
+    public static void init(UrlGlobalsInterface urlGlobalsInterface) {
         URLGLOBALS.urlGlobalsInterface = urlGlobalsInterface;
     }
+    
 
-    public static bool isTestingMode()
-    {
-        return URLGLOBALS.urlGlobalsInterface.isTestingMode();
+    public static bool isTestingMode() {
+        return URLGLOBALS.staticGet_urlGlobalsInterface().isTestingMode();
     }
+    
 
-    public static string getWebappPath()
-    {
-        return URLGLOBALS.urlGlobalsInterface.getWebappPath();
+    public static string getWebappPath() {
+        return URLGLOBALS.staticGet_urlGlobalsInterface().getWebappPath();
     }
+    
 
-    public static string getTestHtmlPath()
-    {
-        return URLGLOBALS.urlGlobalsInterface.getTestHtmlPath();
+    public static string getTestHtmlPath() {
+        return URLGLOBALS.staticGet_urlGlobalsInterface().getTestHtmlPath();
     }
+    
 
-    // throws Exception
-    public static string getMainPath()
-    {
-        return URLGLOBALS.urlGlobalsInterface.getMainPath();
+    public static string getMainPath() {
+        return URLGLOBALS.staticGet_urlGlobalsInterface().getMainPath();
     }
-
 }
 

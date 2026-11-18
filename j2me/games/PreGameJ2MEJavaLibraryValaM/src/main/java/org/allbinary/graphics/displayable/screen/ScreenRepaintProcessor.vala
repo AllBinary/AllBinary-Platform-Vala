@@ -13,27 +13,28 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.graphics.displayable.screen
+// import javax.microedition.lcdui.Displayable
+// import org.allbinary.canvas.Processor
 
-using System;
-using System.Linq;
-using Displayable = javax.microedition.lcdui.Displayable;
-using Processor = org.allbinary.canvas.Processor;
+public class ScreenRepaintProcessor : Processor {
+    private Displayable displayable;
 
-namespace org.allbinary.graphics.displayable.screen;
+    // Java field initializers run after the base constructor
+    private void initFieldsScreenRepaintProcessor() {
+    
+    }
+    
 
-public class ScreenRepaintProcessor : Processor
-{
-    private readonly Displayable displayable;
-    public ScreenRepaintProcessor(Displayable displayable)
-    {
+    public ScreenRepaintProcessor(Displayable displayable) {
+        base();
+        this.initFieldsScreenRepaintProcessor();
         this.displayable = displayable;
     }
+    
 
-    // throws Exception
-    public override void process()
-    {
+    public override void process() {
         ScreenRepaintUtil.repaint(this.displayable);
     }
-
 }
 

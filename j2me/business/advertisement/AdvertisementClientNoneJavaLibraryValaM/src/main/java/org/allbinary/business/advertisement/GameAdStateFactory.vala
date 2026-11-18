@@ -1,43 +1,51 @@
 // Generated Code Do Not Modify
+// package org.allbinary.business.advertisement
+// import org.allbinary.game.GameAdState
+// import org.allbinary.logic.system.SoftwareInformation
 
-using System;
-using System.Linq;
-using GameAdState = org.allbinary.game.GameAdState;
-using SoftwareInformation = org.allbinary.logic.system.SoftwareInformation;
-
-namespace org.allbinary.business.advertisement;
-
-public class GameAdStateFactory : GameAdStateFactoryInterface
-{
-    private static readonly GameAdStateFactory instance = new GameAdStateFactory();
-    public static GameAdStateFactory getInstance()
-    {
+public class GameAdStateFactory : JObject, GameAdStateFactoryInterface {
+    private static GameAdStateFactory? instance;
+    private static bool staticSet_instance = false;
+    private static GameAdStateFactory staticGet_instance() {
+        if (!GameAdStateFactory.staticSet_instance) {
+            GameAdStateFactory.staticSet_instance = true;
+            GameAdStateFactory.instance = new GameAdStateFactory();
+        }
         return GameAdStateFactory.instance;
     }
-
-    private readonly GameAdState[] gameAdStateArray = new GameAdState[] { new GameAdState(new AppNameLicensingAdConfiguration()) };
+    private GameAdState[] gameAdStateArray;
     private GameAdState gameAdState;
-    public virtual GameAdState getCurrentInstance()
-    {
-        return this.gameAdState;
+
+    // Java field initializers run after the base constructor
+    private void initFieldsGameAdStateFactory() {
+    this.gameAdStateArray = new GameAdState[] {new GameAdState(new AppNameLicensingAdConfiguration())};
+    this.gameAdState = this.gameAdStateArray[0];
     }
 
-    // throws Exception
-    public virtual GameAdStateBase getInstanceForApp(SoftwareInformation softwareInformation)
-    {
+    public GameAdStateFactory() {
+        base();
+        this.initFieldsGameAdStateFactory();
+    }
+    
+
+    public static GameAdStateFactory getInstance() {
+        return GameAdStateFactory.staticGet_instance();
+    }
+    
+
+    public virtual GameAdState getCurrentInstance() {
+        return this.gameAdState;
+    }
+    
+
+    public virtual GameAdStateBase getInstanceForApp(SoftwareInformation softwareInformation) {
         this.gameAdState = this.gameAdStateArray[0];
         return this.gameAdStateArray[0];
     }
+    
 
-    public virtual bool isEnabled()
-    {
+    public virtual bool isEnabled() {
         return false;
     }
-
-    public GameAdStateFactory()
-    {
-        this.gameAdState = this.gameAdStateArray[0];
-    }
-
 }
 

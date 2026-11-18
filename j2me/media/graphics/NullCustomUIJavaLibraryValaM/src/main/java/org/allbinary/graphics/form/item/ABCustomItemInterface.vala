@@ -1,22 +1,22 @@
 // Generated Code Do Not Modify
+// package org.allbinary.graphics.form.item
+// import javax.microedition.lcdui.Graphics
 
-using System;
-using System.Linq;
-using Graphics = javax.microedition.lcdui.Graphics;
+public interface ABCustomItemInterface : JObject {
+    
 
-namespace org.allbinary.graphics.form.item;
+    public abstract int32 getMinimumWidth();
+    
 
-public interface ABCustomItemInterface
-{
-    int getMinimumWidth();
+    public abstract int32 getMinimumHeight();
+    
 
-    int getMinimumHeight();
+    public abstract string getLabel();
+    
 
-    string getLabel();
+    public abstract void paintXY(Graphics graphics, int32 x, int32 y);
+    
 
-    void paintXY(Graphics graphics, int x, int y);
-
-    void paintUnselected(Graphics graphics, int x, int y);
-
+    public abstract void paintUnselected(Graphics graphics, int32 x, int32 y);
 }
 

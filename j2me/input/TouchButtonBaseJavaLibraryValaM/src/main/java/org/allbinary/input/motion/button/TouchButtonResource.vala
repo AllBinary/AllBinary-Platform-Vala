@@ -5,21 +5,24 @@
  * and open the template in the editor.  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.input.motion.button
 
-using System;
-using System.Linq;
+public class TouchButtonResource : JObject {
+    public string RESOURCE;
+    public string HINT;
 
-namespace org.allbinary.input.motion.button;
+    // Java field initializers run after the base constructor
+    private void initFieldsTouchButtonResource() {
+    
+    
+    }
+    
 
-public class TouchButtonResource
-{
-    public readonly string RESOURCE;
-    public readonly string HINT;
-    public TouchButtonResource(string resource, string hint)
-    {
+    public TouchButtonResource(string resource, string hint) {
+        base();
+        this.initFieldsTouchButtonResource();
         this.RESOURCE = resource;
         this.HINT = hint;
     }
-
 }
 

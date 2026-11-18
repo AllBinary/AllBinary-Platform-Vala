@@ -13,26 +13,20 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.physics.movement
+// import org.allbinary.game.layer.AllBinaryGameLayer
+// import org.allbinary.game.physics.velocity.BasicVelocityProperties
+// import org.allbinary.logic.math.BasicDecimal
 
-using System;
-using System.Linq;
-using AllBinaryGameLayer = org.allbinary.game.layer.AllBinaryGameLayer;
-using BasicVelocityProperties = org.allbinary.game.physics.velocity.BasicVelocityProperties;
-using BasicDecimal = org.allbinary.logic.math.BasicDecimal;
+public class NoBasicConstantVelocityMovement : BasicConstantVelocityMovement {
+    
 
-namespace org.allbinary.physics.movement;
-
-public class NoBasicConstantVelocityMovement : BasicConstantVelocityMovement
-{
-    public NoBasicConstantVelocityMovement() : base(BasicDecimal.ZERO_BIGDECIMAL, new BasicVelocityProperties())
-    {
-        // base(BasicDecimal.ZERO_BIGDECIMAL, new BasicVelocityProperties()) is called from the constructor declaration
+    public NoBasicConstantVelocityMovement() {
+        base(BasicDecimal.ZERO_BIGDECIMAL, new BasicVelocityProperties());
     }
+    
 
-    // throws Exception
-    public override void process(AllBinaryGameLayer layer)
-    {
+    public override void process(AllBinaryGameLayer layer) {
     }
-
 }
 

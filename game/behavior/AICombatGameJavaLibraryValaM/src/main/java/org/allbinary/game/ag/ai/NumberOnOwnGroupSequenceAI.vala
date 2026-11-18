@@ -13,40 +13,40 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.game.ag.ai
+// import org.allbinary.ai.ArtificialIntelligenceInterface
+// import org.allbinary.game.ag.ai.sequence.SequenceAI
+// import org.allbinary.game.input.GameInput
+// import org.allbinary.game.layer.identification.GroupLayerManagerListener
+// import org.allbinary.layer.AllBinaryLayer
+// import org.allbinary.layer.AllBinaryLayerManager
 
-using System;
-using System.Linq;
-using ArtificialIntelligenceInterface = org.allbinary.ai.ArtificialIntelligenceInterface;
-using SequenceAI = org.allbinary.game.ag.ai.sequence.SequenceAI;
-using GameInput = org.allbinary.game.input.GameInput;
-using GroupLayerManagerListener = org.allbinary.game.layer.identification.GroupLayerManagerListener;
-using AllBinaryLayer = org.allbinary.layer.AllBinaryLayer;
-using AllBinaryLayerManager = org.allbinary.layer.AllBinaryLayerManager;
+public class NumberOnOwnGroupSequenceAI : SequenceAI {
+    private int32?[] numberOnSameTeam;
 
-namespace org.allbinary.game.ag.ai;
+    // Java field initializers run after the base constructor
+    private void initFieldsNumberOnOwnGroupSequenceAI() {
+    
+    }
+    
 
-public class NumberOnOwnGroupSequenceAI : SequenceAI
-{
-    private int?[] numberOnSameTeam;
-    public NumberOnOwnGroupSequenceAI(int?[] numberOnSameTeam, ArtificialIntelligenceInterface[] artificialIntelligenceInterface, AllBinaryLayer ownerLayerInterface, GameInput gameInput) : base(artificialIntelligenceInterface, ownerLayerInterface, gameInput)
-    {
-        // base(artificialIntelligenceInterface, ownerLayerInterface, gameInput) is called from the constructor declaration
+    public NumberOnOwnGroupSequenceAI(int32?[] numberOnSameTeam, ArtificialIntelligenceInterface[] artificialIntelligenceInterface, AllBinaryLayer ownerLayerInterface, GameInput gameInput) {
+        base(artificialIntelligenceInterface, ownerLayerInterface, gameInput);
+        this.initFieldsNumberOnOwnGroupSequenceAI();
         this.numberOnSameTeam = numberOnSameTeam;
     }
+    
 
-    // throws Exception
-    public override void processAI(AllBinaryLayerManager allBinaryLayerManager)
-    {
+    public override void processAI(AllBinaryLayerManager allBinaryLayerManager) {
         AllBinaryLayer layerInterface = this.getOwnerLayerInterface();
-        int index = this.getIndex();
-        if (this.numberOnSameTeam.Length > index) {
-            int size = GroupLayerManagerListener.getInstance().getGroupSizeFromInterface(layerInterface);
-            if (global::java.lang.JavaNumber.intValue(this.numberOnSameTeam[index]) > size) {
+        int32 index = this.getIndex();
+        if (this.numberOnSameTeam.length > index) {
+            int32 size = GroupLayerManagerListener.getInstance().getGroupSizeFromInterface(layerInterface);
+            if (this.numberOnSameTeam[index].intValue() > size) {
                 this.next();
             }
         }
         base.processAI(allBinaryLayerManager);
     }
-
 }
 

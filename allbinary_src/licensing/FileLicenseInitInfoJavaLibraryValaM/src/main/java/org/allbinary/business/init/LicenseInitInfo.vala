@@ -13,71 +13,74 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.business.init
+// import org.allbinary.debug.DebugFactory
+// import org.allbinary.debug.NoDebug
+// import org.allbinary.logic.string.StringUtil
+// import org.allbinary.util.BasicArrayList
+// import org.allbinary.util.BasicArrayListD
 
-using System;
-using System.Linq;
-using DebugFactory = org.allbinary.debug.DebugFactory;
-using NoDebug = org.allbinary.debug.NoDebug;
-using StringUtil = org.allbinary.logic.@string.StringUtil;
-using BasicArrayList = org.allbinary.util.BasicArrayList;
-using BasicArrayListD = org.allbinary.util.BasicArrayListD;
+public class LicenseInitInfo : JObject {
+    private string id;
+    private BasicArrayList serverVector;
 
-namespace org.allbinary.business.init;
-
-public class LicenseInitInfo
-{
-    private string id = StringUtil.getInstance().EMPTY_STRING;
-    private BasicArrayList serverVector = new BasicArrayListD();
-    public LicenseInitInfo()
-    {
+    // Java field initializers run after the base constructor
+    private void initFieldsLicenseInitInfo() {
+    this.id = StringUtil.getInstance().EMPTY_STRING;
+    this.serverVector = new BasicArrayListD();
     }
+    
 
-    public virtual string getLicenseId()
-    {
+    public LicenseInitInfo() {
+        base();
+        this.initFieldsLicenseInitInfo();
+    }
+    
+
+    public virtual string getLicenseId() {
         return this.id;
     }
+    
 
-    public virtual string getServer(int index)
-    {
-        return ((string) this.serverVector.objectArray[index]);
+    public virtual string getServer(int32 index) {
+        return JString.unbox(this.serverVector.objectArray[index]);
     }
+    
 
-    public virtual int getNumberOfServers()
-    {
+    public virtual int32 getNumberOfServers() {
         return this.serverVector.size();
     }
+    
 
-    public virtual void setLicenseId(string value)
-    {
+    public virtual void setLicenseId(string value) {
         this.id = value;
     }
+    
 
-    public virtual void clearServers()
-    {
+    public virtual void clearServers() {
         this.serverVector = new BasicArrayListD();
     }
+    
 
-    public virtual void setServer(string value, int index)
-    {
-        this.serverVector.addAt(index, value);
+    public virtual void setServer(string value, int32 index) {
+        this.serverVector.addAt(index, JString.box(value));
     }
+    
 
-    public virtual void addServer(string value)
-    {
-        this.serverVector.add(value);
+    public virtual void addServer(string value) {
+        this.serverVector.add(JString.box(value));
     }
+    
 
-    public virtual BasicArrayList getServerList()
-    {
+    public virtual BasicArrayList getServerList() {
         return this.serverVector;
     }
+    
 
-    public virtual void setServerList(BasicArrayList servers)
-    {
+    public virtual void setServerList(BasicArrayList servers) {
         if (DebugFactory.getInstance() == NoDebug.getInstance()) {
             this.serverVector = servers;
         }
     }
-
 }
 

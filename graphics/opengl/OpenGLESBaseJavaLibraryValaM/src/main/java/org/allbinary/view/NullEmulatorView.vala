@@ -13,28 +13,35 @@
  *   
  */
 // Generated Code Do Not Modify
+// package org.allbinary.view
+// import javax.microedition.lcdui.Displayable
+// import javax.microedition.midlet.MIDlet
 
-using System;
-using System.Linq;
-using Displayable = javax.microedition.lcdui.Displayable;
-using MIDlet = javax.microedition.midlet.MIDlet;
-
-namespace org.allbinary.view;
-
-public class NullEmulatorView : EmulatorViewInterface
-{
-    public static readonly NullEmulatorView NULL_EMULATOR_VIEW = new NullEmulatorView();
-    public virtual void setMidlet(MIDlet midlet)
-    {
+public class NullEmulatorView : JObject, EmulatorViewInterface {
+    public static NullEmulatorView? NULL_EMULATOR_VIEW;
+    private static bool staticSet_NULL_EMULATOR_VIEW = false;
+    public static NullEmulatorView staticGet_NULL_EMULATOR_VIEW() {
+        if (!NullEmulatorView.staticSet_NULL_EMULATOR_VIEW) {
+            NullEmulatorView.staticSet_NULL_EMULATOR_VIEW = true;
+            NullEmulatorView.NULL_EMULATOR_VIEW = new NullEmulatorView();
+        }
+        return NullEmulatorView.NULL_EMULATOR_VIEW;
     }
 
-    public virtual void onEmulatorInitComplete(object midletActivity)
-    {
+    public NullEmulatorView() {
+        base();
     }
+    
 
-    public virtual void onSetDisplayable(Displayable displayable)
-    {
+    public virtual void setMidlet(MIDlet midlet) {
     }
+    
 
+    public virtual void onEmulatorInitComplete(JObject midletActivity) {
+    }
+    
+
+    public virtual void onSetDisplayable(Displayable displayable) {
+    }
 }
 

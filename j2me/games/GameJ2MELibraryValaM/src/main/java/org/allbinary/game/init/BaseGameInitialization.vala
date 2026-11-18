@@ -13,67 +13,85 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.game.init
+// import javax.microedition.lcdui.CommandListener
+// import org.allbinary.animation.FeaturedAnimationInterfaceFactoryInterfaceFactory
+// import org.allbinary.game.configuration.GameConfigurationCentral
+// import org.allbinary.game.configuration.event.ChangedGameFeatureListener
+// import org.allbinary.game.configuration.feature.InputFeatureFactory
+// import org.allbinary.game.configuration.feature.MainFeatureFactory
+// import org.allbinary.game.input.PlatformInputMappingFactory
+// import org.allbinary.game.input.event.GameKeyEventFactory
+// import org.allbinary.game.resource.FeaturedResourceRelativeRelationshipFactory
+// import org.allbinary.game.resource.ResourceInitialization
+// import org.allbinary.game.resource.ResourceLoadingLevelFactory
+// import org.allbinary.graphics.canvas.transition.progress.ProgressCanvas
+// import org.allbinary.graphics.canvas.transition.progress.ProgressCanvasFactory
+// import org.allbinary.image.GameFeatureImageCacheFactory
+// import org.allbinary.input.motion.CompleteMotionGestureInputToGameMotionGestureInput
+// import org.allbinary.input.motion.button.BasicTouchInputFactory
+// import org.allbinary.input.motion.button.CancelTouchButtonInputFactory
+// import org.allbinary.logic.system.security.licensing.AbeClientInformationInterface
 
-using System;
-using System.Linq;
-using CommandListener = javax.microedition.lcdui.CommandListener;
-using FeaturedAnimationInterfaceFactoryInterfaceFactory = org.allbinary.animation.FeaturedAnimationInterfaceFactoryInterfaceFactory;
-using GameConfigurationCentral = org.allbinary.game.configuration.GameConfigurationCentral;
-using ChangedGameFeatureListener = org.allbinary.game.configuration.@event.ChangedGameFeatureListener;
-using InputFeatureFactory = org.allbinary.game.configuration.feature.InputFeatureFactory;
-using MainFeatureFactory = org.allbinary.game.configuration.feature.MainFeatureFactory;
-using PlatformInputMappingFactory = org.allbinary.game.input.PlatformInputMappingFactory;
-using GameKeyEventFactory = org.allbinary.game.input.@event.GameKeyEventFactory;
-using FeaturedResourceRelativeRelationshipFactory = org.allbinary.game.resource.FeaturedResourceRelativeRelationshipFactory;
-using ResourceInitialization = org.allbinary.game.resource.ResourceInitialization;
-using ResourceLoadingLevelFactory = org.allbinary.game.resource.ResourceLoadingLevelFactory;
-using ProgressCanvas = org.allbinary.graphics.canvas.transition.progress.ProgressCanvas;
-using ProgressCanvasFactory = org.allbinary.graphics.canvas.transition.progress.ProgressCanvasFactory;
-using GameFeatureImageCacheFactory = org.allbinary.image.GameFeatureImageCacheFactory;
-using CompleteMotionGestureInputToGameMotionGestureInput = org.allbinary.input.motion.CompleteMotionGestureInputToGameMotionGestureInput;
-using BasicTouchInputFactory = org.allbinary.input.motion.button.BasicTouchInputFactory;
-using CancelTouchButtonInputFactory = org.allbinary.input.motion.button.CancelTouchButtonInputFactory;
-using AbeClientInformationInterface = org.allbinary.logic.system.security.licensing.AbeClientInformationInterface;
+public class BaseGameInitialization : JObject, GameInitializationInterface {
+    public static BaseGameInitialization? NULL_BASE_GAME_INITIALIZATION;
+    private static bool staticSet_NULL_BASE_GAME_INITIALIZATION = false;
+    public static BaseGameInitialization staticGet_NULL_BASE_GAME_INITIALIZATION() {
+        if (!BaseGameInitialization.staticSet_NULL_BASE_GAME_INITIALIZATION) {
+            BaseGameInitialization.staticSet_NULL_BASE_GAME_INITIALIZATION = true;
+            BaseGameInitialization.NULL_BASE_GAME_INITIALIZATION = new BaseGameInitialization(new ResourceInitialization[0], 0);
+        }
+        return BaseGameInitialization.NULL_BASE_GAME_INITIALIZATION;
+    }
+    public ResourceInitialization[] resourceInitializationArray;
+    private int32 portion;
+    private bool initialized;
+    public int32 EARLY_RESOURCES;
+    public int32 GAME_RESOURCES;
+    public int32 EARLY_CHANGABLE_RESOURCES;
+    public int32 GAME_CHANGABLE_RESOURCES;
+    private bool gameInitialized;
+    private bool allLoaded;
 
-namespace org.allbinary.game.init;
+    // Java field initializers run after the base constructor
+    private void initFieldsBaseGameInitialization() {
+    
+    
+    this.initialized = false;
+    this.EARLY_RESOURCES = 0;
+    this.GAME_RESOURCES = 1;
+    this.EARLY_CHANGABLE_RESOURCES = 2;
+    this.GAME_CHANGABLE_RESOURCES = 3;
+    this.gameInitialized = false;
+    this.allLoaded = false;
+    }
+    
 
-public class BaseGameInitialization : GameInitializationInterface
-{
-    public static readonly BaseGameInitialization NULL_BASE_GAME_INITIALIZATION = new BaseGameInitialization(new ResourceInitialization[0], 0);
-    public readonly ResourceInitialization[] resourceInitializationArray;
-    private readonly int portion;
-    private bool initialized = false;
-    public readonly int EARLY_RESOURCES = 0;
-    public readonly int GAME_RESOURCES = 1;
-    public readonly int EARLY_CHANGABLE_RESOURCES = 2;
-    public readonly int GAME_CHANGABLE_RESOURCES = 3;
-    public BaseGameInitialization(ResourceInitialization[] resourceInitializationArray, int portion)
-    {
+    public BaseGameInitialization(ResourceInitialization[] resourceInitializationArray, int32 portion) {
+        base();
+        this.initFieldsBaseGameInitialization();
         this.resourceInitializationArray = resourceInitializationArray;
         this.portion = portion;
     }
+    
 
-    // throws Exception
-    public virtual void initKey(int portion)
-    {
+    public virtual void initKey(int32 portion) {
     }
+    
 
-    // throws Exception
-    public virtual void initKeyMapping(AbeClientInformationInterface abeClientInformation, int portion)
-    {
+    public virtual void initKeyMapping(AbeClientInformationInterface abeClientInformation, int32 portion) {
         if (ChangedGameFeatureListener.getInstance().isChangedFeature(InputFeatureFactory.getInstance().INPUT_MAPPING)) {
             PlatformInputMappingFactory.getInstance().getPersistentInputMappingInstance().init(abeClientInformation);
             ProgressCanvasFactory.getInstance().addNormalPortion(50, "Game Keys");
             ChangedGameFeatureListener.getInstance().remove(InputFeatureFactory.getInstance().INPUT_MAPPING);
         }
     }
+    
 
-    // throws Exception
-    public virtual void init(AbeClientInformationInterface abeClientInformation, CommandListener commandListener, int level)
-    {
+    public virtual void init(AbeClientInformationInterface abeClientInformation, CommandListener commandListener, int32 level) {
         ResourceLoadingLevelFactory resourceLoadingLevelFactory = ResourceLoadingLevelFactory.getInstance();
         if (!this.isInitialized() && (level == resourceLoadingLevelFactory.LOAD_ALL.getLevel() || level == resourceLoadingLevelFactory.LOAD_EARLY.getLevel())) {
-            int localPortion = 40;
+            int32 localPortion = 40;
             if (level == resourceLoadingLevelFactory.LOAD_EARLY.getLevel()) {
                 localPortion = 8;
             }
@@ -93,12 +111,9 @@ public class BaseGameInitialization : GameInitializationInterface
             this.resourceInitializationArray[this.EARLY_RESOURCES].init();
         }
     }
+    
 
-    private bool gameInitialized = false;
-    private bool allLoaded = false;
-    // throws Exception
-    public virtual void resourceInitialization(int level)
-    {
+    public virtual void resourceInitialization(int32 level) {
         ResourceLoadingLevelFactory resourceLoadingLevelFactory = ResourceLoadingLevelFactory.getInstance();
         if (this.resourceAnimationChange() && level == resourceLoadingLevelFactory.LOAD_EARLY.getLevel()) {
             this.clearResources();
@@ -115,9 +130,9 @@ public class BaseGameInitialization : GameInitializationInterface
             this.allLoaded = true;
         }
     }
+    
 
-    public virtual bool resourceAnimationChange()
-    {
+    public virtual bool resourceAnimationChange() {
         ChangedGameFeatureListener changedGameFeatureListener = ChangedGameFeatureListener.getInstance();
         GameConfigurationCentral gameConfigurationCentral = GameConfigurationCentral.getInstance();
         if (changedGameFeatureListener.isChangedGameConfiguration(gameConfigurationCentral.SCALE)) {
@@ -128,40 +143,39 @@ public class BaseGameInitialization : GameInitializationInterface
         }
         return false;
     }
+    
 
-    private void clearResources()
-    {
+    private void clearResources() {
         this.allLoaded = false;
         GameFeatureImageCacheFactory.releaseAll();
         FeaturedAnimationInterfaceFactoryInterfaceFactory featuredAnimationInterfaceFactoryInterfaceFactory = FeaturedAnimationInterfaceFactoryInterfaceFactory.getInstance();
         featuredAnimationInterfaceFactoryInterfaceFactory.clear();
         FeaturedResourceRelativeRelationshipFactory.getInstance().clear();
     }
+    
 
-    public virtual void setGameInitialized(bool gameInitialized)
-    {
+    public virtual void setGameInitialized(bool gameInitialized) {
         this.gameInitialized = gameInitialized;
     }
+    
 
-    public virtual bool isGameInitialized()
-    {
+    public virtual bool isGameInitialized() {
         return this.gameInitialized;
     }
+    
 
-    public virtual int getPortion()
-    {
+    public virtual int32 getPortion() {
         return this.portion;
     }
+    
 
-    public virtual void setInitialized(bool initialized)
-    {
+    public virtual void setInitialized(bool initialized) {
         this.initialized = initialized;
     }
+    
 
-    public virtual bool isInitialized()
-    {
+    public virtual bool isInitialized() {
         return this.initialized;
     }
-
 }
 

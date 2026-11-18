@@ -13,31 +13,33 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.graphics.paint
+// import javax.microedition.lcdui.Graphics
+// import org.allbinary.animation.Animation
 
-using System;
-using System.Linq;
-using Graphics = javax.microedition.lcdui.Graphics;
-using Animation = org.allbinary.animation.Animation;
+public class AnimationCompositePaintable : InitUpdatePaintable {
+    private Animation animationInterface;
 
-namespace org.allbinary.graphics.paint;
+    // Java field initializers run after the base constructor
+    private void initFieldsAnimationCompositePaintable() {
+    
+    }
+    
 
-public class AnimationCompositePaintable : InitUpdatePaintable
-{
-    private readonly Animation animationInterface;
-    public AnimationCompositePaintable(Animation animationInterface)
-    {
+    public AnimationCompositePaintable(Animation animationInterface) {
+        base();
+        this.initFieldsAnimationCompositePaintable();
         this.animationInterface = animationInterface;
     }
+    
 
-    public override void paint(Graphics graphics)
-    {
+    public override void paint(Graphics graphics) {
         this.animationInterface.paintXY(graphics, 0, 0);
     }
+    
 
-    public override void paintThreed(Graphics graphics)
-    {
+    public override void paintThreed(Graphics graphics) {
         this.animationInterface.paintThreedXYZ(graphics, 0, 0, 0);
     }
-
 }
 

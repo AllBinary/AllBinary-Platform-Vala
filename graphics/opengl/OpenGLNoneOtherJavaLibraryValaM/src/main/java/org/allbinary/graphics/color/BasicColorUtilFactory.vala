@@ -13,18 +13,17 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.graphics.color
 
-using System;
-using System.Linq;
+public class BasicColorUtilFactory : JObject {
 
-namespace org.allbinary.graphics.color;
+    public BasicColorUtilFactory() {
+        base();
+    }
+    
 
-public class BasicColorUtilFactory
-{
-    public static BasicColorUtil getInstance()
-    {
+    public static BasicColorUtil getInstance() {
         return BasicColorUtil.getInstance();
     }
-
 }
 

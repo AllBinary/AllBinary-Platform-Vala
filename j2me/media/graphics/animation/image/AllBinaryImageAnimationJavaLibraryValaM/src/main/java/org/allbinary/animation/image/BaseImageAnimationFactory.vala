@@ -13,39 +13,46 @@
  *   
  */
 // Generated Code Do Not Modify
+// package org.allbinary.animation.image
+// import javax.microedition.lcdui.Image
+// import org.allbinary.animation.Animation
+// import org.allbinary.animation.AnimationBehaviorFactory
+// import org.allbinary.animation.AnimationInterfaceFactoryInterface
+// import org.allbinary.animation.NullAnimationFactory
+// import org.allbinary.image.AnimationFactoryImageScaleUtil
+// import org.allbinary.logic.communication.log.ForcedLogUtil
+// import org.allbinary.logic.string.StringMaker
+// import org.allbinary.media.ScaleProperties
+// import org.allbinary.string.CommonLabels
+// import org.allbinary.string.CommonSeps
 
-using System;
-using System.Linq;
-using Image = javax.microedition.lcdui.Image;
-using Animation = org.allbinary.animation.Animation;
-using AnimationBehaviorFactory = org.allbinary.animation.AnimationBehaviorFactory;
-using AnimationInterfaceFactoryInterface = org.allbinary.animation.AnimationInterfaceFactoryInterface;
-using NullAnimationFactory = org.allbinary.animation.NullAnimationFactory;
-using AnimationFactoryImageScaleUtil = org.allbinary.image.AnimationFactoryImageScaleUtil;
-using ForcedLogUtil = org.allbinary.logic.communication.log.ForcedLogUtil;
-using StringMaker = org.allbinary.logic.@string.StringMaker;
-using ScaleProperties = org.allbinary.media.ScaleProperties;
-using CommonLabels = org.allbinary.@string.CommonLabels;
-using CommonSeps = org.allbinary.@string.CommonSeps;
+public class BaseImageAnimationFactory : JObject, AnimationInterfaceFactoryInterface, BasicAnimationInterfaceFactoryInterface {
+    public AnimationFactoryImageScaleUtil animationFactoryImageScaleUtil;
+    private Image image;
+    public AnimationBehaviorFactory animationBehaviorFactory;
+    private int32[] sequenceArray;
+    public AnimationFactoryInitializationVisitor animationFactoryInitializationVisitor;
+    public ScaleProperties scaleProperties;
 
-namespace org.allbinary.animation.image;
+    // Java field initializers run after the base constructor
+    private void initFieldsBaseImageAnimationFactory() {
+    this.animationFactoryImageScaleUtil = AnimationFactoryImageScaleUtil.getInstance();
+    
+    
+    
+    
+    this.scaleProperties = ScaleProperties.instance;
+    }
+    
 
-public class BaseImageAnimationFactory : AnimationInterfaceFactoryInterface
-{
-    // throws Exception
-    public static BaseImageAnimationFactory createFactoryBase(Image image, int[] sequenceArray, int width, int height, AnimationBehaviorFactory animationBehaviorFactory)
-    {
+    public static BaseImageAnimationFactory createFactoryBase(Image image, int32[] sequenceArray, int32 width, int32 height, AnimationBehaviorFactory animationBehaviorFactory) {
         return new BaseImageAnimationFactory(image, sequenceArray, width, height, 0, 0, animationBehaviorFactory);
     }
+    
 
-    public readonly AnimationFactoryImageScaleUtil animationFactoryImageScaleUtil = AnimationFactoryImageScaleUtil.getInstance();
-    private readonly Image image;
-    public readonly AnimationBehaviorFactory animationBehaviorFactory;
-    private readonly int[] sequenceArray;
-    public readonly AnimationFactoryInitializationVisitor animationFactoryInitializationVisitor;
-    public ScaleProperties scaleProperties = ScaleProperties.instance;
-    public BaseImageAnimationFactory(Image image, int[] sequenceArray, int width, int height, int dx, int dy, AnimationBehaviorFactory animationBehaviorFactory)
-    {
+    public BaseImageAnimationFactory(Image image, int32[] sequenceArray, int32 width, int32 height, int32 dx, int32 dy, AnimationBehaviorFactory animationBehaviorFactory) {
+        base();
+        this.initFieldsBaseImageAnimationFactory();
         this.animationFactoryInitializationVisitor = new AnimationFactoryInitializationVisitor();
         this.image = image;
         this.animationFactoryInitializationVisitor.width = width;
@@ -55,55 +62,53 @@ public class BaseImageAnimationFactory : AnimationInterfaceFactoryInterface
         this.animationFactoryInitializationVisitor.dx = dx;
         this.animationFactoryInitializationVisitor.dy = dy;
     }
+    
 
-    // throws Exception
-    public virtual Animation getInstance(int instanceId)
-    {
-        return NullAnimationFactory.getFactoryInstance().getInstance(instanceId);
+    public virtual Animation getInstance1(int32 instanceId) {
+        return NullAnimationFactory.getFactoryInstance().getInstance1(instanceId);
     }
+    
 
-    public virtual Image getImage()
-    {
+    public virtual Image getImage() {
         return this.image;
     }
+    
 
-    public virtual int[] getSequenceArray()
-    {
+    public virtual int32[] getSequenceArray() {
         return this.sequenceArray;
     }
+    
 
-    public virtual void setInitialScale(ScaleProperties scaleProperties)
-    {
+    public virtual void setInitialScale(ScaleProperties scaleProperties) {
         this.scaleProperties = scaleProperties;
         if (this.scaleProperties.shouldScale) {
-            this.scaleProperties.scaleWidth = ((int) (this.animationFactoryInitializationVisitor.width * this.scaleProperties.scaleX));
-            this.scaleProperties.scaleHeight = ((int) (this.animationFactoryInitializationVisitor.height * this.scaleProperties.scaleY));
+            this.scaleProperties.scaleWidth = ((int32) JMath.toInt32((((float) (this.animationFactoryInitializationVisitor.width)) * this.scaleProperties.scaleX)));
+            this.scaleProperties.scaleHeight = ((int32) JMath.toInt32((((float) (this.animationFactoryInitializationVisitor.height)) * this.scaleProperties.scaleY)));
         } else {
         }
     }
+    
 
-    public virtual AnimationFactoryInitializationVisitor getAnimationFactoryInitializationVisitorP()
-    {
+    public virtual AnimationFactoryInitializationVisitor getAnimationFactoryInitializationVisitorP() {
         return this.animationFactoryInitializationVisitor;
     }
+    
 
-    public virtual ScaleProperties getScalePropertiesP()
-    {
+    public virtual ScaleProperties getScalePropertiesP() {
         return this.scaleProperties;
     }
+    
 
-    public override string ToString()
-    {
+    public override string toString() {
         CommonSeps commonSeps = CommonSeps.getInstance();
         CommonLabels commonLabels = CommonLabels.getInstance();
         StringMaker stringBuffer = new StringMaker();
-        stringBuffer.append(base.ToString());
+        stringBuffer.append(base.toString());
         stringBuffer.append(commonLabels.HEIGHT_LABEL);
-        stringBuffer.appendint(((int) this.image.getHeight()));
+        stringBuffer.appendint(((int32) (this.image.getHeight())));
         stringBuffer.append(commonSeps.SPACE);
-        stringBuffer.append(this.animationFactoryInitializationVisitor.ToString());
-        return stringBuffer.ToString();
+        stringBuffer.append(this.animationFactoryInitializationVisitor.toString());
+        return stringBuffer.toString();
     }
-
 }
 

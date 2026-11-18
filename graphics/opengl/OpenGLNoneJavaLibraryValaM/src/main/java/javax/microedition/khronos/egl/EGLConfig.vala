@@ -1,16 +1,12 @@
 // Generated Code Do Not Modify
+// package javax.microedition.khronos.egl
 
-using System;
-using System.Linq;
+public class EGLConfig : JObject {
+    
 
-namespace javax.microedition.khronos.egl;
-
-public class EGLConfig
-{
-    public EGLConfig()
-    {
-        throw new SystemException();
+    public EGLConfig() {
+        base();
+        JSystem.fatal(new JException("RuntimeException", ""));
     }
-
 }
 

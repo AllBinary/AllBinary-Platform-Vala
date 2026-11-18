@@ -13,25 +13,20 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.animation
+// import javax.microedition.lcdui.Graphics
+// import org.allbinary.graphics.color.BasicColorFactory
 
-using System;
-using System.Linq;
-using Graphics = javax.microedition.lcdui.Graphics;
-using BasicColorFactory = org.allbinary.graphics.color.BasicColorFactory;
+public class ColorLessVectorAnimation : VectorAnimation {
+    
 
-namespace org.allbinary.animation;
-
-public class ColorLessVectorAnimation : VectorAnimation
-{
-    public ColorLessVectorAnimation(int[][][] currentPoints, AnimationBehavior animationBehavior) : base(currentPoints, BasicColorFactory.getInstance().WHITE, animationBehavior)
-    {
-        // base(currentPoints, BasicColorFactory.getInstance().WHITE, animationBehavior) is called from the constructor declaration
+    public ColorLessVectorAnimation(int32[,,] currentPoints, AnimationBehavior animationBehavior) {
+        base(currentPoints, BasicColorFactory.getInstance().WHITE, animationBehavior);
     }
+    
 
-    public override void paintXY(Graphics graphics, int x, int y)
-    {
+    public override void paintXY(Graphics graphics, int32 x, int32 y) {
         this.paintVectors(graphics, x, y);
     }
-
 }
 

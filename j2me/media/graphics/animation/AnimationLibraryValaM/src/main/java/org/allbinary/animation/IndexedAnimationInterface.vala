@@ -13,19 +13,17 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.animation
 
-using System;
-using System.Linq;
+public interface IndexedAnimationInterface : JObject, SequentialAnimationInterface {
+    
 
-namespace org.allbinary.animation;
+    public abstract void reset();
+    
 
-public interface IndexedAnimationInterface : SequentialAnimationInterface
-{
-    void reset();
+    public abstract void setFrame(int32 index);
+    
 
-    void setFrame(int index);
-
-    int getFrame();
-
+    public abstract int32 getFrame();
 }
 

@@ -13,15 +13,22 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.graphics
+// import javax.microedition.lcdui.Graphics
 
-using System;
-using System.Linq;
-using Graphics = javax.microedition.lcdui.Graphics;
+public class Anchor : JObject {
+    public static int32 TOP_LEFT;
+    private static bool staticSet_TOP_LEFT = false;
+    public static int32 staticGet_TOP_LEFT() {
+        if (!Anchor.staticSet_TOP_LEFT) {
+            Anchor.staticSet_TOP_LEFT = true;
+            Anchor.TOP_LEFT = Graphics.TOP & Graphics.LEFT;
+        }
+        return Anchor.TOP_LEFT;
+    }
 
-namespace org.allbinary.graphics;
-
-public class Anchor
-{
-    public static int TOP_LEFT = Graphics.TOP & Graphics.LEFT;
+    public Anchor() {
+        base();
+    }
 }
 

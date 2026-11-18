@@ -13,74 +13,72 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.game.ag.ai
+// import org.allbinary.game.input.GameInput
+// import org.allbinary.layer.AllBinaryLayer
+// import org.allbinary.layer.AllBinaryLayerManager
+// import org.allbinary.util.HashtableUtil
+// import org.allbinary.game.ai.BasicAI
+// import org.allbinary.util.ABHashtable
 
-using System;
-using System.Linq;
-using GameInput = org.allbinary.game.input.GameInput;
-using AllBinaryLayer = org.allbinary.layer.AllBinaryLayer;
-using AllBinaryLayerManager = org.allbinary.layer.AllBinaryLayerManager;
-using HashtableUtil = org.allbinary.util.HashtableUtil;
-using BasicAI = org.allbinary.game.ai.BasicAI;
-using org.allbinary.util;
+public class KeyPressesAI : BasicAI {
+    private bool on;
+    public int32?[] keys;
 
-namespace org.allbinary.game.ag.ai;
+    // Java field initializers run after the base constructor
+    private void initFieldsKeyPressesAI() {
+    this.on = true;
+    
+    }
+    
 
-public class KeyPressesAI : BasicAI
-{
-    private bool on = true;
-    public int?[] keys;
-    public KeyPressesAI(ABHashtable<object, object> hashtable, AllBinaryLayer ownerLayerInterface, GameInput gameInput) : base(ownerLayerInterface, gameInput)
-    {
-        // base(ownerLayerInterface, gameInput) is called from the constructor declaration
-        this.keys = new int?[hashtable.size()];
-        object[] objectArray = HashtableUtil.getInstance().getKeysAsArray(hashtable);
-        int size = objectArray.Length;
-        for (int index = 0; index < size; index++) {
-            this.keys[index] = ((int?) hashtable.get(((object) objectArray[index])));
+    public KeyPressesAI(ABHashtable hashtable, AllBinaryLayer ownerLayerInterface, GameInput gameInput) {
+        base(ownerLayerInterface, gameInput);
+        this.initFieldsKeyPressesAI();
+        this.keys = new int32?[hashtable.size()];
+        JObject[] objectArray = HashtableUtil.getInstance().getKeysAsArray(hashtable);
+        int32 size = objectArray.length;
+        for (int32 index = 0; index < size; index++) {
+            this.keys[index] = JNumber.unboxInt(hashtable.@get(((JObject) objectArray[index])));
         }
     }
+    
 
-    // throws Exception
-    public override void processAI(AllBinaryLayerManager allBinaryLayerManager)
-    {
+    public override void processAI(AllBinaryLayerManager allBinaryLayerManager) {
         if (this.on) {
-            for (int index = 0; index < this.keys.Length; index++) {
-                base.processKeyAI(global::java.lang.JavaNumber.intValue(this.keys[index]));
+            for (int32 index = 0; index < this.keys.length; index++) {
+                base.processKeyAI(this.keys[index].intValue());
             }
         }
     }
+    
 
-    // throws Exception
-    public virtual void toggle()
-    {
+    public virtual void toggle() {
         if (this.isOn()) {
             this.setOn(false);
         } else {
             this.setOn(true);
         }
     }
+    
 
-    // throws Exception
-    public virtual void disable()
-    {
+    public virtual void disable() {
         this.setOn(false);
     }
+    
 
-    // throws Exception
-    public virtual void enable()
-    {
+    public virtual void enable() {
         this.setOn(true);
     }
+    
 
-    private void setOn(bool on)
-    {
+    private void setOn(bool on) {
         this.on = on;
     }
+    
 
-    public virtual bool isOn()
-    {
+    public virtual bool isOn() {
         return this.on;
     }
-
 }
 

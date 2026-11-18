@@ -13,19 +13,14 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.graphics.opengles
+// import org.allbinary.game.configuration.feature.Feature
 
-using System;
-using System.Linq;
-using Feature = org.allbinary.game.configuration.feature.Feature;
+public class OpenGLFeature : Feature {
+    
 
-namespace org.allbinary.graphics.opengles;
-
-public class OpenGLFeature : Feature
-{
-    public OpenGLFeature(string name) : base(name)
-    {
-        // base(name) is called from the constructor declaration
+    public OpenGLFeature(string name) {
+        base(name);
     }
-
 }
 

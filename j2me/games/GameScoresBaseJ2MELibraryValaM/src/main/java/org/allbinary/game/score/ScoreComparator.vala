@@ -13,65 +13,60 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.game.score
+// import java.io.ByteArrayInputStream
+// import java.io.DataInputStream
+// import java.io.EOFException
+// import java.io.IOException
+// import javax.microedition.rms.RecordComparator
+// import org.allbinary.logic.communication.log.LogUtil
+// import org.allbinary.string.CommonStrings
 
-using System;
-using System.Linq;
-using ByteArrayInputStream = java.io.ByteArrayInputStream;
-using DataInputStream = java.io.DataInputStream;
-//using EOFException = java.io.EOFException;
-//using IOException = java.io.IOException;
-using RecordComparator = javax.microedition.rms.RecordComparator;
-using LogUtil = org.allbinary.logic.communication.log.LogUtil;
-using CommonStrings = org.allbinary.@string.CommonStrings;
+public class ScoreComparator : JObject, RecordComparator {
+    public LogUtil logUtil;
+    private bool isHighestBest;
 
-namespace org.allbinary.game.score;
+    // Java field initializers run after the base constructor
+    private void initFieldsScoreComparator() {
+    this.logUtil = LogUtil.getInstance();
+    
+    }
+    
 
-public class ScoreComparator : RecordComparator
-{
-    public readonly LogUtil logUtil = LogUtil.getInstance();
-    private readonly bool isHighestBest;
-    public ScoreComparator(bool isHighestBest)
-    {
+    public ScoreComparator(bool isHighestBest) {
+        base();
+        this.initFieldsScoreComparator();
         this.isHighestBest = isHighestBest;
     }
+    
 
-    public virtual long getBestScore()
-    {
-        return (this.isHighestBest ? long.MaxValue : 0);
+    public virtual int64 getBestScore() {
+        return (this.isHighestBest ? Long.MAX_VALUE : 0);
     }
+    
 
-    public virtual int compare(sbyte[] recordOne, sbyte[] recordTwo)
-    {
+    public virtual int32 compare(int8[] recordOne, int8[] recordTwo) {
         ByteArrayInputStream byteArrayInputStreamOne = new ByteArrayInputStream(recordOne);
         DataInputStream inputStreamOne = new DataInputStream(byteArrayInputStreamOne);
         ByteArrayInputStream byteArrayInputStreamTwo = new ByteArrayInputStream(recordTwo);
         DataInputStream inputStreamTwo = new DataInputStream(byteArrayInputStreamTwo);
-        long scoreOne = 0L;
-        long scoreTwo = 0L;
-        try {
+        int64 scoreOne = 0;
+        int64 scoreTwo = 0;
+        {
             inputStreamOne.readUTF();
             inputStreamTwo.readUTF();
             scoreOne = inputStreamOne.readLong();
             scoreTwo = inputStreamTwo.readLong();
-        } catch (System.IO.EndOfStreamException e) {
-            CommonStrings commonStrings = CommonStrings.getInstance();
-            this.logUtil.put(commonStrings.EXCEPTION, this, "compare", e);
-        } catch (System.IO.IOException e) {
-            CommonStrings commonStrings = CommonStrings.getInstance();
-            this.logUtil.put(commonStrings.EXCEPTION, this, "compare", e);
-        } catch (Exception e) {
-            CommonStrings commonStrings = CommonStrings.getInstance();
-            this.logUtil.put(commonStrings.EXCEPTION, this, "compare", e);
-        }
+        } /* catch (EOFException e): a thrown Java exception stops the program */ /* catch (IOException e): a thrown Java exception stops the program */ /* catch (Exception e): a thrown Java exception stops the program */
         if (this.isHighestBest) {
             return this.getHighTooLow(scoreOne, scoreTwo);
         } else {
             return this.getLowTooHigh(scoreOne, scoreTwo);
         }
     }
+    
 
-    public virtual int getHighTooLow(long scoreOne, long scoreTwo)
-    {
+    public virtual int32 getHighTooLow(int64 scoreOne, int64 scoreTwo) {
         if (scoreOne > scoreTwo) {
             return RecordComparator.PRECEDES;
         } else if (scoreOne < scoreTwo) {
@@ -80,9 +75,9 @@ public class ScoreComparator : RecordComparator
             return RecordComparator.EQUIVALENT;
         }
     }
+    
 
-    public virtual int getLowTooHigh(long scoreOne, long scoreTwo)
-    {
+    public virtual int32 getLowTooHigh(int64 scoreOne, int64 scoreTwo) {
         if (scoreOne < scoreTwo) {
             return RecordComparator.PRECEDES;
         } else if (scoreOne > scoreTwo) {
@@ -91,6 +86,5 @@ public class ScoreComparator : RecordComparator
             return RecordComparator.EQUIVALENT;
         }
     }
-
 }
 

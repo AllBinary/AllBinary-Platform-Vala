@@ -13,50 +13,47 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.input.motion
 
-using System;
-using System.Linq;
+public class AllMotionRecognizer : JObject {
+    private static int32 index = 0;
+    private int32 id;
 
-namespace org.allbinary.input.motion;
+    // Java field initializers run after the base constructor
+    private void initFieldsAllMotionRecognizer() {
+    
+    }
+    
 
-public class AllMotionRecognizer
-{
-    private readonly int id;
-    private static int index = 0;
-    public AllMotionRecognizer()
-    {
+    public AllMotionRecognizer() {
+        base();
+        this.initFieldsAllMotionRecognizer();
         this.id = AllMotionRecognizer.index++;
     }
+    
 
-    // throws Exception
-    public virtual void processStartMotionEvent(int x, int y, int deviceId, int modifiers)
-    {
+    public virtual void processStartMotionEvent(int32 x, int32 y, int32 deviceId, int32 modifiers) {
     }
+    
 
-    // throws Exception
-    public virtual void processEndMotionEvent(int x, int y, int deviceId, int modifiers)
-    {
+    public virtual void processEndMotionEvent(int32 x, int32 y, int32 deviceId, int32 modifiers) {
     }
+    
 
-    // throws Exception
-    public virtual void processDraggedMotionEvent(int x, int y, int deviceId, int modifiers)
-    {
+    public virtual void processDraggedMotionEvent(int32 x, int32 y, int32 deviceId, int32 modifiers) {
     }
+    
 
-    // throws Exception
-    public virtual void processMovedMotionEvent(int x, int y, int deviceId, int modifiers)
-    {
+    public virtual void processMovedMotionEvent(int32 x, int32 y, int32 deviceId, int32 modifiers) {
     }
+    
 
-    // throws Exception
-    public virtual void processScrolledMotionEvent(int x, int y, int deviceId, int modifiers)
-    {
+    public virtual void processScrolledMotionEvent(int32 x, int32 y, int32 deviceId, int32 modifiers) {
     }
+    
 
-    public virtual int getId()
-    {
+    public virtual int32 getId() {
         return this.id;
     }
-
 }
 

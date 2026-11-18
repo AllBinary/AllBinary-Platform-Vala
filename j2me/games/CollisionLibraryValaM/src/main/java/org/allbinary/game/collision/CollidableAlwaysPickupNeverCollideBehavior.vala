@@ -13,24 +13,19 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.game.collision
+// import org.allbinary.layer.AllBinaryLayer
 
-using System;
-using System.Linq;
-using AllBinaryLayer = org.allbinary.layer.AllBinaryLayer;
+public class CollidableAlwaysPickupNeverCollideBehavior : CollidableNeverCollideBehavior {
+    
 
-namespace org.allbinary.game.collision;
-
-public class CollidableAlwaysPickupNeverCollideBehavior : CollidableNeverCollideBehavior
-{
-    public CollidableAlwaysPickupNeverCollideBehavior() : base(true)
-    {
-        // base(true) is called from the constructor declaration
+    public CollidableAlwaysPickupNeverCollideBehavior() {
+        base(true);
     }
+    
 
-    public override CollisionType getCollisionTypeWith(AllBinaryLayer layerInterface)
-    {
+    public override CollisionType getCollisionTypeWith(AllBinaryLayer layerInterface) {
         return CollisionTypeFactory.getInstance().PICKUP;
     }
-
 }
 

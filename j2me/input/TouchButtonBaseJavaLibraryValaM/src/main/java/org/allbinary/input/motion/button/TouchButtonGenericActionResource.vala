@@ -13,24 +13,27 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.input.motion.button
 
-using System;
-using System.Linq;
-
-namespace org.allbinary.input.motion.button;
-
-public class TouchButtonGenericActionResource : TouchButtonResource
-{
-    private static readonly TouchButtonResource instance = new TouchButtonGenericActionResource();
-    public static TouchButtonResource getInstance()
-    {
+public class TouchButtonGenericActionResource : TouchButtonResource {
+    private static TouchButtonResource? instance;
+    private static bool staticSet_instance = false;
+    private static TouchButtonResource staticGet_instance() {
+        if (!TouchButtonGenericActionResource.staticSet_instance) {
+            TouchButtonGenericActionResource.staticSet_instance = true;
+            TouchButtonGenericActionResource.instance = new TouchButtonGenericActionResource();
+        }
         return TouchButtonGenericActionResource.instance;
     }
+    
 
-    private TouchButtonGenericActionResource() : base("/touch_button_generic_action_64_by_64.png", "/touch_button_generic_action_hint_64_by_64.png")
-    {
-        // base("/touch_button_generic_action_64_by_64.png", "/touch_button_generic_action_hint_64_by_64.png") is called from the constructor declaration
+    public static TouchButtonResource getInstance() {
+        return TouchButtonGenericActionResource.staticGet_instance();
     }
+    
 
+    public TouchButtonGenericActionResource() {
+        base("/touch_button_generic_action_64_by_64.png", "/touch_button_generic_action_hint_64_by_64.png");
+    }
 }
 

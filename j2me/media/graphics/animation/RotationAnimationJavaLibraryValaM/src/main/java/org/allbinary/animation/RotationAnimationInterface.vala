@@ -13,21 +13,19 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.animation
+// import org.allbinary.direction.DirectionalInterface
+// import org.allbinary.math.AngleInfo
 
-using System;
-using System.Linq;
-using DirectionalInterface = org.allbinary.direction.DirectionalInterface;
-using AngleInfo = org.allbinary.math.AngleInfo;
+public interface RotationAnimationInterface : JObject, IndexedAnimationInterface, DirectionalInterface {
+    
 
-namespace org.allbinary.animation;
+    public abstract AngleInfo getAngleInfoP();
+    
 
-public interface RotationAnimationInterface : IndexedAnimationInterface, DirectionalInterface
-{
-    AngleInfo getAngleInfoP();
+    public abstract void nextRotation();
+    
 
-    void nextRotation();
-
-    void previousRotation();
-
+    public abstract void previousRotation();
 }
 

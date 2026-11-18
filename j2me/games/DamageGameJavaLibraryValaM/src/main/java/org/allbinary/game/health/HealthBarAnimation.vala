@@ -13,30 +13,37 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.game.health
+// import org.allbinary.animation.Animation
+// import org.allbinary.game.graphics.hud.BasicHudFactory
+// import org.allbinary.graphics.color.BasicColorFactory
+// import org.allbinary.layer.AllBinaryLayer
 
-using System;
-using System.Linq;
-using Animation = org.allbinary.animation.Animation;
-using BasicHudFactory = org.allbinary.game.graphics.hud.BasicHudFactory;
-using BasicColorFactory = org.allbinary.graphics.color.BasicColorFactory;
-using AllBinaryLayer = org.allbinary.layer.AllBinaryLayer;
-
-namespace org.allbinary.game.health;
-
-public class HealthBarAnimation : Animation
-{
-    private readonly BasicColorFactory basicColorFactory = BasicColorFactory.getInstance();
-    public int x2 = 0;
-    public int thickness = 0;
-    private int location;
+public class HealthBarAnimation : Animation {
+    private BasicColorFactory basicColorFactory;
+    public int32 x2;
+    public int32 thickness;
+    private int32 location;
     public AllBinaryLayer allbinaryLayer;
-    public HealthBarAnimation(AllBinaryLayer layerInterface, int location)
-    {
+
+    // Java field initializers run after the base constructor
+    private void initFieldsHealthBarAnimation() {
+    this.basicColorFactory = BasicColorFactory.getInstance();
+    this.x2 = 0;
+    this.thickness = 0;
+    
+    
+    }
+    
+
+    public HealthBarAnimation(AllBinaryLayer layerInterface, int32 location) {
+        base();
+        this.initFieldsHealthBarAnimation();
         this.allbinaryLayer = layerInterface;
         this.location = location;
         BasicHudFactory basicHudFactory = BasicHudFactory.getInstance();
         if (this.location != basicHudFactory.TOPLEFT && this.location != basicHudFactory.BOTTOMLEFT) {
-            throw new Exception("Location Not Valid");
+            JSystem.fatal(new JException("Exception", "Location Not Valid"));
         }
         if (layerInterface.getWidth() > 40) {
             this.thickness = 3;
@@ -46,28 +53,28 @@ public class HealthBarAnimation : Animation
             this.thickness = 1;
         }
     }
+    
 
-    public virtual void onHealthChange(int newX2)
-    {
+    public virtual void onHealthChange(int32 newX2) {
         this.x2 = newX2;
-        int quarter = (this.allbinaryLayer.getWidth() >> 2);
+        int32 quarter = (this.allbinaryLayer.getWidth() >> 2);
         if (this.x2 > quarter * 3) {
             this.basicColor = this.basicColorFactory.GREEN;
-            this.colorP = global::java.lang.JavaNumber.intValue(this.basicColor);
+            this.colorP = this.basicColor.intValue();
         } else if (this.x2 > quarter * 2) {
             this.basicColor = this.basicColorFactory.YELLOW;
-            this.colorP = global::java.lang.JavaNumber.intValue(this.basicColor);
+            this.colorP = this.basicColor.intValue();
         } else if (this.x2 > quarter) {
             this.basicColor = this.basicColorFactory.ORANGE;
-            this.colorP = global::java.lang.JavaNumber.intValue(this.basicColor);
+            this.colorP = this.basicColor.intValue();
         } else {
             this.basicColor = this.basicColorFactory.RED;
-            this.colorP = global::java.lang.JavaNumber.intValue(this.basicColor);
+            this.colorP = this.basicColor.intValue();
         }
     }
+    
 
-    public virtual int getY()
-    {
+    public virtual int32 getY() {
         BasicHudFactory basicHudFactory = BasicHudFactory.getInstance();
         if (this.location == basicHudFactory.TOPLEFT) {
             return this.allbinaryLayer.getViewPosition().getY() - 4;
@@ -76,6 +83,5 @@ public class HealthBarAnimation : Animation
         }
         return -1;
     }
-
 }
 

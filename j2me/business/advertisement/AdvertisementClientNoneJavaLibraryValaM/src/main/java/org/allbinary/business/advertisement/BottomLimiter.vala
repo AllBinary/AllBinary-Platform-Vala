@@ -13,38 +13,52 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.business.advertisement
+// import org.allbinary.game.GameAdState
+// import org.allbinary.graphics.displayable.DisplayInfoSingleton
 
-using System;
-using System.Linq;
-using GameAdState = org.allbinary.game.GameAdState;
-using DisplayInfoSingleton = org.allbinary.graphics.displayable.DisplayInfoSingleton;
-
-namespace org.allbinary.business.advertisement;
-
-public class BottomLimiter
-{
-    private static readonly BottomLimiter instance = new BottomLimiter();
-    public static BottomLimiter getInstance()
-    {
+public class BottomLimiter : JObject {
+    private static BottomLimiter? instance;
+    private static bool staticSet_instance = false;
+    private static BottomLimiter staticGet_instance() {
+        if (!BottomLimiter.staticSet_instance) {
+            BottomLimiter.staticSet_instance = true;
+            BottomLimiter.instance = new BottomLimiter();
+        }
         return BottomLimiter.instance;
     }
+    private int32 bottom;
+    private int32 deltaY;
+    private int32 lower;
+    private int32 higher;
 
-    private int bottom = 0;
-    private int deltaY = 0;
-    private int lower = 0;
-    private int higher = 0;
-    private BottomLimiter()
-    {
+    // Java field initializers run after the base constructor
+    private void initFieldsBottomLimiter() {
+    this.bottom = 0;
+    this.deltaY = 0;
+    this.lower = 0;
+    this.higher = 0;
     }
+    
 
-    public virtual void init(int lower, int higher)
-    {
+    public static BottomLimiter getInstance() {
+        return BottomLimiter.staticGet_instance();
+    }
+    
+
+    public BottomLimiter() {
+        base();
+        this.initFieldsBottomLimiter();
+    }
+    
+
+    public virtual void init(int32 lower, int32 higher) {
         this.lower = lower;
         this.higher = higher;
     }
+    
 
-    public virtual void update()
-    {
+    public virtual void update() {
         DisplayInfoSingleton displayInfo = DisplayInfoSingleton.getInstance();
         GameAdState gameAdState = GameAdStateFactory.getInstance().getCurrentInstance();
         if (gameAdState.isShowingAt()) {
@@ -54,16 +68,15 @@ public class BottomLimiter
         }
         this.bottom = displayInfo.getLastHeight() - this.deltaY;
     }
+    
 
-    public virtual int getDeltaY()
-    {
+    public virtual int32 getDeltaY() {
         return this.deltaY;
     }
+    
 
-    public virtual int getBottom()
-    {
+    public virtual int32 getBottom() {
         return this.bottom;
     }
-
 }
 

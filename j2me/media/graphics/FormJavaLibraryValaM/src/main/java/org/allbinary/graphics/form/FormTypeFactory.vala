@@ -13,29 +13,47 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.graphics.form
+// import org.allbinary.graphics.displayable.DisplayInfoSingleton
+// import org.allbinary.logic.string.StringUtil
 
-using System;
-using System.Linq;
-using DisplayInfoSingleton = org.allbinary.graphics.displayable.DisplayInfoSingleton;
-using StringUtil = org.allbinary.logic.@string.StringUtil;
-
-namespace org.allbinary.graphics.form;
-
-public class FormTypeFactory
-{
-    private static readonly FormTypeFactory instance = new FormTypeFactory();
-    public static FormTypeFactory getInstance()
-    {
+public class FormTypeFactory : JObject {
+    private static FormTypeFactory? instance;
+    private static bool staticSet_instance = false;
+    private static FormTypeFactory staticGet_instance() {
+        if (!FormTypeFactory.staticSet_instance) {
+            FormTypeFactory.staticSet_instance = true;
+            FormTypeFactory.instance = new FormTypeFactory();
+        }
         return FormTypeFactory.instance;
     }
+    public string UNK;
+    public FormType NULL_FORM_TYPE;
+    public FormType TEMP_HORIZONTAL_FORM;
+    public FormType HORIZONTAL_FORM;
+    public FormType VERTICAL_CENTER_FORM;
 
-    public readonly string UNK = "Unknown FormType";
-    public readonly FormType NULL_FORM_TYPE = new FormType(StringUtil.getInstance().NULL_STRING);
-    public readonly FormType TEMP_HORIZONTAL_FORM = new FormType("TempHorizontal");
-    public readonly FormType HORIZONTAL_FORM = new FormType("Horizontal");
-    public readonly FormType VERTICAL_CENTER_FORM = new FormType("Vertical");
-    public virtual FormType getFormType()
-    {
+    // Java field initializers run after the base constructor
+    private void initFieldsFormTypeFactory() {
+    this.UNK = "Unknown FormType";
+    this.NULL_FORM_TYPE = new FormType(StringUtil.getInstance().NULL_STRING);
+    this.TEMP_HORIZONTAL_FORM = new FormType("TempHorizontal");
+    this.HORIZONTAL_FORM = new FormType("Horizontal");
+    this.VERTICAL_CENTER_FORM = new FormType("Vertical");
+    }
+
+    public FormTypeFactory() {
+        base();
+        this.initFieldsFormTypeFactory();
+    }
+    
+
+    public static FormTypeFactory getInstance() {
+        return FormTypeFactory.staticGet_instance();
+    }
+    
+
+    public virtual FormType getFormType() {
         DisplayInfoSingleton displayInfo = DisplayInfoSingleton.getInstance();
         FormType formType = null;
         if (displayInfo.isPortrait()) {
@@ -45,6 +63,5 @@ public class FormTypeFactory
         }
         return formType;
     }
-
 }
 

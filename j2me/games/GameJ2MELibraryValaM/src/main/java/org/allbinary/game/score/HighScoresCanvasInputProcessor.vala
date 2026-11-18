@@ -13,65 +13,62 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.game.score
+// import javax.microedition.lcdui.Graphics
+// import org.allbinary.game.input.PlayerGameInput
+// import org.allbinary.game.input.event.GameKeyEvent
+// import org.allbinary.game.score.displayable.HighScoresCanvas
+// import org.allbinary.util.BasicArrayList
+// import org.allbinary.util.BasicArrayListD
 
-using System;
-using System.Linq;
-using System.Runtime.CompilerServices;
-using Graphics = javax.microedition.lcdui.Graphics;
-using PlayerGameInput = org.allbinary.game.input.PlayerGameInput;
-using GameKeyEvent = org.allbinary.game.input.@event.GameKeyEvent;
-using HighScoresCanvas = org.allbinary.game.score.displayable.HighScoresCanvas;
-using BasicArrayList = org.allbinary.util.BasicArrayList;
-using BasicArrayListD = org.allbinary.util.BasicArrayListD;
+public class HighScoresCanvasInputProcessor : PlayerGameInput {
+    private HighScoresCanvas highScoresCanvas;
 
-namespace org.allbinary.game.score;
+    // Java field initializers run after the base constructor
+    private void initFieldsHighScoresCanvasInputProcessor() {
+    
+    }
+    
 
-public class HighScoresCanvasInputProcessor : PlayerGameInput
-{
-    private readonly HighScoresCanvas highScoresCanvas;
-    public HighScoresCanvasInputProcessor(HighScoresCanvas highScoresCanvas) : base(new BasicArrayListD(), new BasicArrayListD(), -1)
-    {
-        // base(new BasicArrayListD(), new BasicArrayListD(), -1) is called from the constructor declaration
+    public HighScoresCanvasInputProcessor(HighScoresCanvas highScoresCanvas) {
+        base(new BasicArrayListD(), new BasicArrayListD(), -1);
+        this.initFieldsHighScoresCanvasInputProcessor();
         this.highScoresCanvas = highScoresCanvas;
     }
+    
 
-    public virtual void open()
-    {
+    public virtual void open() {
     }
+    
 
-    public virtual void close()
-    {
+    public virtual void close() {
     }
+    
 
-    [MethodImpl(MethodImplOptions.Synchronized)]
-    public override void onPressGameKeyEvent(GameKeyEvent gameKeyEvent)
-    {
+    public override void onPressGameKeyEvent(GameKeyEvent gameKeyEvent) {
         base.onPressGameKeyEvent(gameKeyEvent);
         this.update();
     }
+    
 
-    [MethodImpl(MethodImplOptions.Synchronized)]
-    public override void onDownGameKeyEvent(GameKeyEvent gameKeyEvent)
-    {
+    public override void onDownGameKeyEvent(GameKeyEvent gameKeyEvent) {
         base.onDownGameKeyEvent(gameKeyEvent);
         this.update();
     }
+    
 
-    [MethodImpl(MethodImplOptions.Synchronized)]
-    public override void onUpGameKeyEvent(GameKeyEvent gameKeyEvent)
-    {
+    public override void onUpGameKeyEvent(GameKeyEvent gameKeyEvent) {
         base.onUpGameKeyEvent(gameKeyEvent);
         this.update();
     }
+    
 
-    public virtual void paint(Graphics graphics)
-    {
+    public virtual void paint(Graphics graphics) {
     }
+    
 
-    public virtual HighScoresCanvas getHighScoresCanvas()
-    {
+    public virtual HighScoresCanvas getHighScoresCanvas() {
         return this.highScoresCanvas;
     }
-
 }
 

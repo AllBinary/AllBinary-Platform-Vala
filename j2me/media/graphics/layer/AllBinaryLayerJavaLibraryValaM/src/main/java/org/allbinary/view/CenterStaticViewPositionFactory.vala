@@ -13,24 +13,20 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.view
+// import org.allbinary.graphics.displayable.DisplayInfoSingleton
 
-using System;
-using System.Linq;
-using DisplayInfoSingleton = org.allbinary.graphics.displayable.DisplayInfoSingleton;
+public class CenterStaticViewPositionFactory : JObject {
+    
 
-namespace org.allbinary.view;
-
-public class CenterStaticViewPositionFactory
-{
-    public CenterStaticViewPositionFactory()
-    {
+    public CenterStaticViewPositionFactory() {
+        base();
     }
+    
 
-    public virtual ViewPositionBase getInstance(int z)
-    {
+    public virtual ViewPositionBase getInstance1(int32 z) {
         DisplayInfoSingleton displayInfoSingleton = DisplayInfoSingleton.getInstance();
         return new StaticViewPosition((displayInfoSingleton.getLastWidth() >> 1), (displayInfoSingleton.getLastHeight() >> 1), z);
     }
-
 }
 

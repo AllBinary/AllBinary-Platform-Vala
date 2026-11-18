@@ -13,24 +13,32 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.animation.caption
+// import javax.microedition.lcdui.Graphics
+// import org.allbinary.animation.Animation
 
-using System;
-using System.Linq;
-using Graphics = javax.microedition.lcdui.Graphics;
-using Animation = org.allbinary.animation.Animation;
+public class CaptionAnimation : Animation {
+    private Animation animationInterface;
+    private Animation overlayAnimationInterface;
+    private int32 captionDx;
+    private int32 captionDy;
+    private int32 dx;
+    private int32 dy;
 
-namespace org.allbinary.animation.caption;
+    // Java field initializers run after the base constructor
+    private void initFieldsCaptionAnimation() {
+    
+    
+    
+    
+    
+    
+    }
+    
 
-public class CaptionAnimation : Animation
-{
-    private readonly Animation animationInterface;
-    private readonly Animation overlayAnimationInterface;
-    private readonly int captionDx;
-    private readonly int captionDy;
-    private readonly int dx;
-    private readonly int dy;
-    public CaptionAnimation(Animation animationInterface, Animation overlayAnimationInterface, int captionDx, int captionDy, int dx, int dy)
-    {
+    public CaptionAnimation(Animation animationInterface, Animation overlayAnimationInterface, int32 captionDx, int32 captionDy, int32 dx, int32 dy) {
+        base();
+        this.initFieldsCaptionAnimation();
         this.animationInterface = animationInterface;
         this.overlayAnimationInterface = overlayAnimationInterface;
         this.captionDx = captionDx;
@@ -38,23 +46,21 @@ public class CaptionAnimation : Animation
         this.dx = dx;
         this.dy = dy;
     }
+    
 
-    // throws Exception
-    public override void nextFrame()
-    {
+    public override void nextFrame() {
     }
+    
 
-    public override void paintXY(Graphics graphics, int x, int y)
-    {
+    public override void paintXY(Graphics graphics, int32 x, int32 y) {
         this.animationInterface.paintXY(graphics, x + this.captionDx, y + this.captionDy);
         this.overlayAnimationInterface.paintXY(graphics, x + this.captionDx + this.dx, y + this.captionDy + this.dy);
     }
+    
 
-    public override void paintThreedXYZ(Graphics graphics, int x, int y, int z)
-    {
+    public override void paintThreedXYZ(Graphics graphics, int32 x, int32 y, int32 z) {
         this.animationInterface.paintThreedXYZ(graphics, x + this.captionDx, y + this.captionDy, z);
         this.overlayAnimationInterface.paintThreedXYZ(graphics, x + this.captionDx + this.dx, y + this.captionDy + this.dy, z);
     }
-
 }
 

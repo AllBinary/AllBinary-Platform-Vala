@@ -13,24 +13,41 @@
  *   
  */
 // Generated Code Do Not Modify
+// package org.allbinary.graphics.opengles.renderer
 
-using System;
-using System.Linq;
-
-namespace org.allbinary.graphics.opengles.renderer;
-
-public class RendererStrings
-{
-    private static readonly RendererStrings instance = new RendererStrings();
-    public static RendererStrings getInstance()
-    {
+public class RendererStrings : JObject {
+    private static RendererStrings? instance;
+    private static bool staticSet_instance = false;
+    private static RendererStrings staticGet_instance() {
+        if (!RendererStrings.staticSet_instance) {
+            RendererStrings.staticSet_instance = true;
+            RendererStrings.instance = new RendererStrings();
+        }
         return RendererStrings.instance;
     }
+    public string ON_SURFACE_CREATED;
+    public string ON_SURFACE_CHANGED;
+    public string ON_DRAW_FRAME;
+    public string ON_DRAW_FRAME_THREED;
+    public string ON_DRAW_FRAME_2D;
 
-    public readonly string ON_SURFACE_CREATED = "onSurfaceCreated";
-    public readonly string ON_SURFACE_CHANGED = "onSurfaceChanged";
-    public readonly string ON_DRAW_FRAME = "onDrawFrame";
-    public readonly string ON_DRAW_FRAME_THREED = "onDrawFrameThreed";
-    public readonly string ON_DRAW_FRAME_2D = "onDrawFrame2d";
+    // Java field initializers run after the base constructor
+    private void initFieldsRendererStrings() {
+    this.ON_SURFACE_CREATED = "onSurfaceCreated";
+    this.ON_SURFACE_CHANGED = "onSurfaceChanged";
+    this.ON_DRAW_FRAME = "onDrawFrame";
+    this.ON_DRAW_FRAME_THREED = "onDrawFrameThreed";
+    this.ON_DRAW_FRAME_2D = "onDrawFrame2d";
+    }
+
+    public RendererStrings() {
+        base();
+        this.initFieldsRendererStrings();
+    }
+    
+
+    public static RendererStrings getInstance() {
+        return RendererStrings.staticGet_instance();
+    }
 }
 

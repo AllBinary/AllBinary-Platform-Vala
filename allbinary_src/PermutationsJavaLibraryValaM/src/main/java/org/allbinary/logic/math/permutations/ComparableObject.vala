@@ -13,24 +13,23 @@
  *   
  */
 // Generated Code Do Not Modify
+// package org.allbinary.logic.math.permutations
+// import org.allbinary.TsUtil
 
-using System;
-using System.Linq;
-using TsUtil = org.allbinary.TsUtil;
+public class ComparableObject : JObject, Comparable {
 
-namespace org.allbinary.logic.math.permutations;
+    public ComparableObject() {
+        base();
+    }
+    
 
-public class ComparableObject : global::java.lang.Comparable<object>
-{
-    public virtual int compareTo(object anyType)
-    {
-        if (TsUtil.getInstance().hashCode(this) < TsUtil.getInstance().hashCode(anyType)) {
+    public virtual int32 compareTo(JObject anyType) {
+        if (TsUtil.getInstance().hashCode1(this) < TsUtil.getInstance().hashCode1(anyType)) {
             return -1;
-        } else if (TsUtil.getInstance().hashCode(this) > TsUtil.getInstance().hashCode(anyType)) {
+        } else if (TsUtil.getInstance().hashCode1(this) > TsUtil.getInstance().hashCode1(anyType)) {
             return 1;
         }
         return 0;
     }
-
 }
 

@@ -13,23 +13,18 @@
  *   
  */
 // Generated Code Do Not Modify
+// package org.allbinary.animation.text
+// import javax.microedition.lcdui.CommandListener
+// import javax.microedition.lcdui.Font
+// import org.allbinary.graphics.color.BasicColor
+// import org.allbinary.graphics.form.item.CustomTextBox
 
-using System;
-using System.Linq;
-using CommandListener = javax.microedition.lcdui.CommandListener;
-using Font = javax.microedition.lcdui.Font;
-using BasicColor = org.allbinary.graphics.color.BasicColor;
-using CustomTextBox = org.allbinary.graphics.form.item.CustomTextBox;
+public class CustomTextBox2 : CustomTextBox {
+    
 
-namespace org.allbinary.animation.text;
-
-public class CustomTextBox2 : CustomTextBox
-{
-    public CustomTextBox2(CommandListener cmdListener, string label, string text, int maxSize, int constraints, Font font, BasicColor backgroundBasicColor, BasicColor foregroundBasicColor) : base(cmdListener, label, text, maxSize, constraints, font, backgroundBasicColor, foregroundBasicColor)
-    {
-        // base(cmdListener, label, text, maxSize, constraints, font, backgroundBasicColor, foregroundBasicColor) is called from the constructor declaration
+    public CustomTextBox2(CommandListener cmdListener, string label, string text, int32 maxSize, int32 constraints, Font font, BasicColor backgroundBasicColor, BasicColor foregroundBasicColor) {
+        base(cmdListener, label, text, maxSize, constraints, font, backgroundBasicColor, foregroundBasicColor);
         this.getTextFieldItem().setFocus(true);
     }
-
 }
 

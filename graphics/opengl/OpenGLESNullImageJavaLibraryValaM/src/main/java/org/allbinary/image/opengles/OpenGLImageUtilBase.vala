@@ -13,39 +13,36 @@
  *   
  */
 // Generated Code Do Not Modify
+// package org.allbinary.image.opengles
+// import java.io.IOException
+// import java.io.InputStream
+// import org.allbinary.graphics.OpenGLBitmap
+// import org.allbinary.graphics.color.BasicColor
 
-using System;
-using System.Linq;
-//using IOException = java.io.IOException;
-using InputStream = java.io.InputStream;
-using OpenGLBitmap = org.allbinary.graphics.OpenGLBitmap;
-using BasicColor = org.allbinary.graphics.color.BasicColor;
+public class OpenGLImageUtilBase : JObject {
 
-namespace org.allbinary.image.opengles;
-
-public class OpenGLImageUtilBase
-{
-    public virtual OpenGLBitmap paint(OpenGLBitmap alphaBitmap, OpenGLBitmap originalBitmap, int index)
-    {
-        throw new SystemException();
+    public OpenGLImageUtilBase() {
+        base();
     }
+    
 
-    public virtual OpenGLBitmap paint(OpenGLBitmap colorBitmap, OpenGLBitmap originalBitmap, int alpha, BasicColor basicColor)
-    {
-        throw new SystemException();
+    public virtual OpenGLBitmap paint_3(OpenGLBitmap alphaBitmap, OpenGLBitmap originalBitmap, int32 index) {
+        JSystem.fatal(new JException("RuntimeException", ""));
     }
+    
 
-    // throws IOException
-    public virtual OpenGLBitmap createImage(string name)
-    {
-        throw new SystemException();
+    public virtual OpenGLBitmap paint_4(OpenGLBitmap colorBitmap, OpenGLBitmap originalBitmap, int32 alpha, BasicColor basicColor) {
+        JSystem.fatal(new JException("RuntimeException", ""));
     }
+    
 
-    // throws IOException
-    public virtual OpenGLBitmap createImageFromInputStream(InputStream inputStream)
-    {
-        throw new SystemException();
+    public virtual OpenGLBitmap createImage(string name) {
+        JSystem.fatal(new JException("RuntimeException", ""));
     }
+    
 
+    public virtual OpenGLBitmap createImageFromInputStream(InputStream inputStream) {
+        JSystem.fatal(new JException("RuntimeException", ""));
+    }
 }
 

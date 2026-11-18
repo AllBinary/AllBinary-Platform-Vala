@@ -13,38 +13,40 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.input.motion.gesture.observer
+// import org.allbinary.game.input.CompleteMotionGestureInputEventHandler
+// import org.allbinary.game.input.motion.action.GameKeyCompleteMotionGestureInputEvent
+// import org.allbinary.game.input.motion.action.GameKeyFromMotionGestureEventListener
+// import org.allbinary.input.motion.gesture.MotionGestureToMotionGestureActionAssociation
+// import org.allbinary.input.motion.gesture.configuration.MotionGestureConfiguration
+// import org.allbinary.input.motion.gesture.configuration.MotionGestureConfigurationFactory
+// import org.allbinary.logic.communication.log.LogUtil
+// import org.allbinary.string.CommonStrings
+// import org.allbinary.util.BasicArrayList
 
-using System;
-using System.Linq;
-using CompleteMotionGestureInputEventHandler = org.allbinary.game.input.CompleteMotionGestureInputEventHandler;
-using GameKeyCompleteMotionGestureInputEvent = org.allbinary.game.input.motion.action.GameKeyCompleteMotionGestureInputEvent;
-using GameKeyFromMotionGestureEventListener = org.allbinary.game.input.motion.action.GameKeyFromMotionGestureEventListener;
-using MotionGestureToMotionGestureActionAssociation = org.allbinary.input.motion.gesture.MotionGestureToMotionGestureActionAssociation;
-using MotionGestureConfiguration = org.allbinary.input.motion.gesture.configuration.MotionGestureConfiguration;
-using MotionGestureConfigurationFactory = org.allbinary.input.motion.gesture.configuration.MotionGestureConfigurationFactory;
-using LogUtil = org.allbinary.logic.communication.log.LogUtil;
-using CommonStrings = org.allbinary.@string.CommonStrings;
-using BasicArrayList = org.allbinary.util.BasicArrayList;
+public class ResolveCompleteMotionGestureListener : JObject, CompleteMotionGestureListenerInterface {
+    public LogUtil logUtil;
 
-namespace org.allbinary.input.motion.gesture.observer;
+    // Java field initializers run after the base constructor
+    private void initFieldsResolveCompleteMotionGestureListener() {
+    this.logUtil = LogUtil.getInstance();
+    }
+    
 
-public class ResolveCompleteMotionGestureListener : CompleteMotionGestureListenerInterface
-{
-    public readonly LogUtil logUtil = LogUtil.getInstance();
-    public ResolveCompleteMotionGestureListener()
-    {
+    public ResolveCompleteMotionGestureListener() {
+        base();
+        this.initFieldsResolveCompleteMotionGestureListener();
         CommonStrings commonStrings = CommonStrings.getInstance();
         this.logUtil.putF("MotionGesture to CompleteMotionGesture Reciever", this, commonStrings.CONSTRUCTOR);
         CompleteMotionGestureInputEventHandler.getInstance().addListener(new GameKeyFromMotionGestureEventListener());
     }
+    
 
-    // throws Exception
-    public virtual void onMotionGestureCompleted(BasicArrayList list)
-    {
+    public virtual void onMotionGestureCompleted(BasicArrayList list) {
         MotionGestureConfiguration configuration = MotionGestureConfigurationFactory.getInstance();
         BasicArrayList commandActionsList = configuration.getAssociateCommandActionsList();
-        int size = commandActionsList.size();
-        for (int index = size - 1; index >= 0; index--) {
+        int32 size = commandActionsList.size();
+        for (int32 index = size - 1; index >= 0; index--) {
             MotionGestureToMotionGestureActionAssociation association = ((MotionGestureToMotionGestureActionAssociation) commandActionsList.objectArray[index]);
             if (association.isMotionGestureArrayEquals(list) == true) {
                 GameKeyCompleteMotionGestureInputEvent completeMotionGestureInputEvent = ((GameKeyCompleteMotionGestureInputEvent) association.getCommandAction());
@@ -53,6 +55,5 @@ public class ResolveCompleteMotionGestureListener : CompleteMotionGestureListene
             }
         }
     }
-
 }
 

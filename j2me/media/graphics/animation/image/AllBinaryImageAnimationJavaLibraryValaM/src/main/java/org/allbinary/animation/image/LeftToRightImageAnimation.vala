@@ -13,31 +13,35 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.animation.image
+// import javax.microedition.lcdui.Graphics
+// import javax.microedition.lcdui.Image
+// import javax.microedition.lcdui.game.Sprite
+// import org.allbinary.animation.AnimationBehavior
+// import org.allbinary.graphics.Anchor
 
-using System;
-using System.Linq;
-using Graphics = javax.microedition.lcdui.Graphics;
-using Image = javax.microedition.lcdui.Image;
-using Sprite = javax.microedition.lcdui.game.Sprite;
-using AnimationBehavior = org.allbinary.animation.AnimationBehavior;
-using Anchor = org.allbinary.graphics.Anchor;
+public class LeftToRightImageAnimation : ImageSegmentAnimation {
+    private int32 currentWidth;
+    private int32 anchor;
 
-namespace org.allbinary.animation.image;
+    // Java field initializers run after the base constructor
+    private void initFieldsLeftToRightImageAnimation() {
+    
+    this.anchor = Anchor.TOP_LEFT;
+    }
+    
 
-public class LeftToRightImageAnimation : ImageSegmentAnimation
-{
-    private int currentWidth;
-    public LeftToRightImageAnimation(Image image, int[] sequenceArray, AnimationBehavior animationBehavior) : base(image, sequenceArray, animationBehavior)
-    {
-        // base(image, sequenceArray, animationBehavior) is called from the constructor declaration
+    public LeftToRightImageAnimation(Image image, int32[] sequenceArray, AnimationBehavior animationBehavior) {
+        base(image, sequenceArray, animationBehavior);
+        this.initFieldsLeftToRightImageAnimation();
         this.currentWidth = 0;
         if (this.getSequence()[0] == -1) {
             this.setFrame(this.getSize() - 1);
         }
     }
+    
 
-    public override void nextFrame()
-    {
+    public override void nextFrame() {
         if (this.getSequence()[0] == -1) {
             base.previousFrame();
         } else {
@@ -45,9 +49,9 @@ public class LeftToRightImageAnimation : ImageSegmentAnimation
         }
         this.update();
     }
+    
 
-    public override void previousFrame()
-    {
+    public override void previousFrame() {
         if (this.getSequence()[0] == -1) {
             base.nextFrame();
         } else {
@@ -55,23 +59,21 @@ public class LeftToRightImageAnimation : ImageSegmentAnimation
         }
         this.update();
     }
+    
 
-    public override void setFrame(int index)
-    {
+    public override void setFrame(int32 index) {
         base.setFrame(index);
         this.update();
     }
+    
 
-    private void update()
-    {
+    private void update() {
         this.currentWidth = this.getDrawWidth() * this.getFrame() / this.getSize();
     }
+    
 
-    private int anchor = Anchor.TOP_LEFT;
-    public override void paintXY(Graphics graphics, int x, int y)
-    {
+    public override void paintXY(Graphics graphics, int32 x, int32 y) {
         graphics.drawRegion(this.getImage(), this.getStartX(), this.getStartY(), this.currentWidth, this.getDrawHeight(), Sprite.TRANS_NONE, x, y, this.anchor);
     }
-
 }
 

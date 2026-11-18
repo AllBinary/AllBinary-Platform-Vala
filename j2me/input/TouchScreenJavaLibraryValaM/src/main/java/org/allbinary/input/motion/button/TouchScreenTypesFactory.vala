@@ -13,23 +13,39 @@
  *   
  */
 // Generated Code Do Not Modify
+// package org.allbinary.input.motion.button
 
-using System;
-using System.Linq;
-
-namespace org.allbinary.input.motion.button;
-
-public class TouchScreenTypesFactory
-{
-    private static readonly TouchScreenTypesFactory instance = new TouchScreenTypesFactory();
-    public static TouchScreenTypesFactory getInstance()
-    {
+public class TouchScreenTypesFactory : JObject {
+    private static TouchScreenTypesFactory? instance;
+    private static bool staticSet_instance = false;
+    private static TouchScreenTypesFactory staticGet_instance() {
+        if (!TouchScreenTypesFactory.staticSet_instance) {
+            TouchScreenTypesFactory.staticSet_instance = true;
+            TouchScreenTypesFactory.instance = new TouchScreenTypesFactory();
+        }
         return TouchScreenTypesFactory.instance;
     }
+    public TouchScreenType FINGER;
+    public TouchScreenType NOTOUCH;
+    public TouchScreenType STYLUS;
+    public TouchScreenType UNDEFINED;
 
-    public readonly TouchScreenType FINGER = new TouchScreenType("Finger");
-    public readonly TouchScreenType NOTOUCH = new TouchScreenType("No Touch");
-    public readonly TouchScreenType STYLUS = new TouchScreenType("Stylus");
-    public readonly TouchScreenType UNDEFINED = new TouchScreenType("Undefined");
+    // Java field initializers run after the base constructor
+    private void initFieldsTouchScreenTypesFactory() {
+    this.FINGER = new TouchScreenType("Finger");
+    this.NOTOUCH = new TouchScreenType("No Touch");
+    this.STYLUS = new TouchScreenType("Stylus");
+    this.UNDEFINED = new TouchScreenType("Undefined");
+    }
+
+    public TouchScreenTypesFactory() {
+        base();
+        this.initFieldsTouchScreenTypesFactory();
+    }
+    
+
+    public static TouchScreenTypesFactory getInstance() {
+        return TouchScreenTypesFactory.staticGet_instance();
+    }
 }
 

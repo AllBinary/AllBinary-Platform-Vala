@@ -13,68 +13,71 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.game.combat.damage
+// import javax.microedition.lcdui.Graphics
+// import org.allbinary.animation.IndexedAnimation
+// import org.allbinary.graphics.displayable.CanvasStrings
+// import org.allbinary.layer.AllBinaryLayer
+// import org.allbinary.logic.communication.log.LogUtil
+// import org.allbinary.string.CommonStrings
+// import org.allbinary.util.CircularIndexUtil
+// import org.allbinary.view.ViewPosition
+// import org.allbinary.view.ViewPositionBase
 
-using System;
-using System.Linq;
-using Graphics = javax.microedition.lcdui.Graphics;
-using IndexedAnimation = org.allbinary.animation.IndexedAnimation;
-using CanvasStrings = org.allbinary.graphics.displayable.CanvasStrings;
-using AllBinaryLayer = org.allbinary.layer.AllBinaryLayer;
-using LogUtil = org.allbinary.logic.communication.log.LogUtil;
-using CommonStrings = org.allbinary.@string.CommonStrings;
-using CircularIndexUtil = org.allbinary.util.CircularIndexUtil;
-using ViewPosition = org.allbinary.view.ViewPosition;
-using ViewPositionBase = org.allbinary.view.ViewPositionBase;
-
-namespace org.allbinary.game.combat.damage;
-
-public class AnimationDamageFloaters : DamageFloaters
-{
-    public readonly LogUtil logUtil = LogUtil.getInstance();
+public class AnimationDamageFloaters : DamageFloaters {
+    public LogUtil logUtil;
     private AllBinaryLayer layerInterface;
     private IndexedAnimation[] animationInterfaceArray;
-    private readonly CircularIndexUtil circularIndexUtil;
-    private int dx;
-    private int dy;
-    public AnimationDamageFloaters(AllBinaryLayer layerInterface, IndexedAnimation[] animationInterfaceArray, int dx, int dy)
-    {
+    private CircularIndexUtil circularIndexUtil;
+    private int32 dx;
+    private int32 dy;
+
+    // Java field initializers run after the base constructor
+    private void initFieldsAnimationDamageFloaters() {
+    this.logUtil = LogUtil.getInstance();
+    
+    
+    
+    
+    
+    }
+    
+
+    public AnimationDamageFloaters(AllBinaryLayer layerInterface, IndexedAnimation[] animationInterfaceArray, int32 dx, int32 dy) {
+        base();
+        this.initFieldsAnimationDamageFloaters();
         this.animationInterfaceArray = animationInterfaceArray;
-        for (int index = this.animationInterfaceArray.Length - 1; index >= 0; index--) {
+        for (int32 index = this.animationInterfaceArray.length - 1; index >= 0; index--) {
             this.animationInterfaceArray[index].setFrame(this.animationInterfaceArray[index].getSize() - 1);
         }
         this.layerInterface = layerInterface;
-        this.circularIndexUtil = CircularIndexUtil.createInstance(this.animationInterfaceArray.Length);
+        this.circularIndexUtil = CircularIndexUtil.createInstance(this.animationInterfaceArray.length);
         this.dx = dx;
         this.dy = dy;
     }
+    
 
-    public override void add(int damage)
-    {
-        int i = this.circularIndexUtil.getIndex();
+    public override void add(int32 damage) {
+        int32 i = this.circularIndexUtil.getIndex();
         this.animationInterfaceArray[i].setFrame(0);
         this.circularIndexUtil.next();
     }
+    
 
-    public override void paint(Graphics graphics)
-    {
-        try {
+    public override void paint(Graphics graphics) {
+        {
             ViewPositionBase viewPosition = this.layerInterface.getViewPosition();
-            int x = viewPosition.getX();
-            int y = viewPosition.getY();
-            for (int index = 0; index < this.animationInterfaceArray.Length; index++) {
+            int32 x = viewPosition.getX();
+            int32 y = viewPosition.getY();
+            for (int32 index = 0; index < this.animationInterfaceArray.length; index++) {
                 IndexedAnimation animationInterface = this.animationInterfaceArray[index];
                 if (animationInterface.getFrame() < animationInterface.getAnimationSize() - 1) {
-                    int delta = animationInterface.getFrame() * 20;
+                    int32 delta = animationInterface.getFrame() * 20;
                     animationInterface.paintXY(graphics, x + this.dx, y - delta + this.dy);
                     animationInterface.nextFrame();
                 }
             }
-        } catch (Exception e) {
-            CommonStrings commonStrings = CommonStrings.getInstance();
-            CanvasStrings canvasStrings = CanvasStrings.getInstance();
-            this.logUtil.put(commonStrings.EXCEPTION, this, canvasStrings.PAINT, e);
-        }
+        } /* catch (Exception e): a thrown Java exception stops the program */
     }
-
 }
 

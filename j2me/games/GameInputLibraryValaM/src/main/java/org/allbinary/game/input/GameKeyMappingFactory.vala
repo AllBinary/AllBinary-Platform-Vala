@@ -13,27 +13,38 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.game.input
+// import org.allbinary.logic.NullUtil
 
-using System;
-using System.Linq;
-using NullUtil = org.allbinary.logic.NullUtil;
+public class GameKeyMappingFactory : JObject {
+    private static JObject? instance;
+    private static bool staticSet_instance = false;
+    private static JObject staticGet_instance() {
+        if (!GameKeyMappingFactory.staticSet_instance) {
+            GameKeyMappingFactory.staticSet_instance = true;
+            GameKeyMappingFactory.instance = NullUtil.getInstance().NULL_OBJECT;
+        }
+        return GameKeyMappingFactory.instance;
+    }
+    private GameKey[] intKeyToGameKey;
 
-namespace org.allbinary.game.input;
+    // Java field initializers run after the base constructor
+    private void initFieldsGameKeyMappingFactory() {
+    this.intKeyToGameKey = new GameKey[InputFactory.getInstance().MAX_];
+    }
+    
 
-public class GameKeyMappingFactory
-{
-    private static object instance = NullUtil.getInstance().NULL_OBJECT;
-    public static GameKeyMappingFactory getInstance()
-    {
-        if (GameKeyMappingFactory.instance == NullUtil.getInstance().NULL_OBJECT) {
+    public static GameKeyMappingFactory getInstance() {
+        if (GameKeyMappingFactory.staticGet_instance() == NullUtil.getInstance().NULL_OBJECT) {
             GameKeyMappingFactory.instance = new GameKeyMappingFactory();
         }
-        return ((GameKeyMappingFactory) GameKeyMappingFactory.instance);
+        return ((GameKeyMappingFactory) GameKeyMappingFactory.staticGet_instance());
     }
+    
 
-    private GameKey[] intKeyToGameKey = new GameKey[InputFactory.getInstance().MAX];
-    private GameKeyMappingFactory()
-    {
+    public GameKeyMappingFactory() {
+        base();
+        this.initFieldsGameKeyMappingFactory();
         GameKeyFactory gameKeyFactory = GameKeyFactory.getInstance();
         this.setGameKey(gameKeyFactory.NONE);
         this.setGameKey(gameKeyFactory.UP);
@@ -60,16 +71,15 @@ public class GameKeyMappingFactory
         this.setGameKey(gameKeyFactory.LEVEL_DOWN);
         this.setGameKey(gameKeyFactory.LEVEL_UP);
     }
+    
 
-    public virtual GameKey getGameKey(int key)
-    {
+    public virtual GameKey getGameKey(int32 key) {
         return this.intKeyToGameKey[key];
     }
+    
 
-    private void setGameKey(GameKey gameKey)
-    {
+    private void setGameKey(GameKey gameKey) {
         this.intKeyToGameKey[gameKey.getId()] = gameKey;
     }
-
 }
 

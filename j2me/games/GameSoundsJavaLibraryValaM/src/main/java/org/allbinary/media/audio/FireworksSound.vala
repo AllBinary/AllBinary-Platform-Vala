@@ -13,25 +13,28 @@
  *  
  */
 // Generated Code Do Not Modify
-
-using System;
-using System.Linq;
-
-namespace org.allbinary.media.audio;
+// package org.allbinary.media.audio
 
 //Use 8hz16bitmono for most J2ME
-public class FireworksSound : CompositeSound
-{
-    private static Sound soundInterface = new FireworksSound();
-    private FireworksSound() : base("resource:/wav/fireworks.wav")
-    {
-        // base("resource:/wav/fireworks.wav") is called from the constructor declaration
-    }
-
-    public static Sound getInstance()
-    {
+public class FireworksSound : CompositeSound {
+    private static Sound? soundInterface;
+    private static bool staticSet_soundInterface = false;
+    private static Sound staticGet_soundInterface() {
+        if (!FireworksSound.staticSet_soundInterface) {
+            FireworksSound.staticSet_soundInterface = true;
+            FireworksSound.soundInterface = new FireworksSound();
+        }
         return FireworksSound.soundInterface;
     }
+    
 
+    public FireworksSound() {
+        base("resource:/wav/fireworks.wav");
+    }
+    
+
+    public static Sound getInstance() {
+        return FireworksSound.staticGet_soundInterface();
+    }
 }
 

@@ -13,16 +13,23 @@
  *   
  */
 // Generated Code Do Not Modify
+// package org.allbinary.media.graphics.geography.pathfinding
 
-using System;
-using System.Linq;
+public class MultipassState : JObject {
+    public int32 step;
+    public int32 iteration;
+    public int32 iteration2;
 
-namespace org.allbinary.media.graphics.geography.pathfinding;
+    // Java field initializers run after the base constructor
+    private void initFieldsMultipassState() {
+    this.step = 0;
+    this.iteration = 0;
+    this.iteration2 = 0;
+    }
 
-public class MultipassState
-{
-    public int step = 0;
-    public int iteration = 0;
-    public int iteration2 = 0;
+    public MultipassState() {
+        base();
+        this.initFieldsMultipassState();
+    }
 }
 

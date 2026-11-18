@@ -13,16 +13,11 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.layer
 
-using System;
-using System.Linq;
+public interface LayerInterfaceVisitor : JObject {
+    
 
-namespace org.allbinary.layer;
-
-public interface LayerInterfaceVisitor
-{
-    // throws Exception
-    void visit(AllBinaryLayer layerInterface);
-
+    public abstract void visit(AllBinaryLayer layerInterface);
 }
 

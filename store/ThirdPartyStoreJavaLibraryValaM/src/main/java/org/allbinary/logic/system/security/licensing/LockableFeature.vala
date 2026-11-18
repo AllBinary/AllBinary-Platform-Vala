@@ -13,24 +13,26 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.logic.system.security.licensing
 
-using System;
-using System.Linq;
+public class LockableFeature : JObject {
+    private string name;
 
-namespace org.allbinary.logic.system.security.licensing;
+    // Java field initializers run after the base constructor
+    private void initFieldsLockableFeature() {
+    
+    }
+    
 
-public class LockableFeature
-{
-    private readonly string name;
-    public LockableFeature(string name)
-    {
+    public LockableFeature(string name) {
+        base();
+        this.initFieldsLockableFeature();
         this.name = name;
     }
+    
 
-    public virtual string getName()
-    {
+    public virtual string getName() {
         return this.name;
     }
-
 }
 

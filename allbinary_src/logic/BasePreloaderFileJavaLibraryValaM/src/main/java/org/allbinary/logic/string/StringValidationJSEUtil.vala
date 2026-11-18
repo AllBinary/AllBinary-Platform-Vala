@@ -13,29 +13,25 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.logic.string
 
-using System;
-using System.Linq;
+public class StringValidationJSEUtil : JObject {
+    
 
-namespace org.allbinary.logic.@string;
-
-public class StringValidationJSEUtil
-{
-    private StringValidationJSEUtil()
-    {
+    public StringValidationJSEUtil() {
+        base();
     }
+    
 
-    public static bool isBlank(string @string)
-    {
-        int len = @string.Length;
-        for (int i = 0; i < len; i++) {
-            char c = @string[i];
-            if (char.IsWhiteSpace(c) == false) {
+    public static bool isBlank(string string) {
+        int32 len = JString.length(string);
+        for (int32 i = 0; i < len; i++) {
+            uint16 c = JString.charAt(string, i);
+            if (Character.isWhitespace(c) == false) {
                 return false;
             }
         }
         return true;
     }
-
 }
 

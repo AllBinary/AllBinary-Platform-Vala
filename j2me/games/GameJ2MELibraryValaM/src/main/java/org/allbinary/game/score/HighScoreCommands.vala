@@ -13,24 +13,39 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.game.score
+// import javax.microedition.lcdui.Command
+// import org.allbinary.logic.string.StringUtil
 
-using System;
-using System.Linq;
-using Command = javax.microedition.lcdui.Command;
-using StringUtil = org.allbinary.logic.@string.StringUtil;
-
-namespace org.allbinary.game.score;
-
-public class HighScoreCommands
-{
-    private static readonly HighScoreCommands instance = new HighScoreCommands();
-    public static HighScoreCommands getInstance()
-    {
+public class HighScoreCommands : JObject {
+    private static HighScoreCommands? instance;
+    private static bool staticSet_instance = false;
+    private static HighScoreCommands staticGet_instance() {
+        if (!HighScoreCommands.staticSet_instance) {
+            HighScoreCommands.staticSet_instance = true;
+            HighScoreCommands.instance = new HighScoreCommands();
+        }
         return HighScoreCommands.instance;
     }
+    public Command DISPLAY;
+    public Command PERSONAL;
+    public Command WORLD;
 
-    public readonly Command DISPLAY = new Command("Scores", StringUtil.getInstance().EMPTY_STRING, Command.SCREEN, 1);
-    public readonly Command PERSONAL = new Command("Personal", StringUtil.getInstance().EMPTY_STRING, Command.SCREEN, 1);
-    public readonly Command WORLD = new Command("World", StringUtil.getInstance().EMPTY_STRING, Command.SCREEN, 1);
+    // Java field initializers run after the base constructor
+    private void initFieldsHighScoreCommands() {
+    this.DISPLAY = new Command("Scores", StringUtil.getInstance().EMPTY_STRING, Command.SCREEN, 1);
+    this.PERSONAL = new Command("Personal", StringUtil.getInstance().EMPTY_STRING, Command.SCREEN, 1);
+    this.WORLD = new Command("World", StringUtil.getInstance().EMPTY_STRING, Command.SCREEN, 1);
+    }
+
+    public HighScoreCommands() {
+        base();
+        this.initFieldsHighScoreCommands();
+    }
+    
+
+    public static HighScoreCommands getInstance() {
+        return HighScoreCommands.staticGet_instance();
+    }
 }
 

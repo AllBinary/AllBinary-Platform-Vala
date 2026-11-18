@@ -13,27 +13,28 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.graphics.form
+// import org.allbinary.canvas.Processor
+// import org.allbinary.game.input.PlayerGameInputCompositeInterface
 
-using System;
-using System.Linq;
-using Processor = org.allbinary.canvas.Processor;
-using PlayerGameInputCompositeInterface = org.allbinary.game.input.PlayerGameInputCompositeInterface;
+public class FormPlayerGameInputProcessor : Processor {
+    private PlayerGameInputCompositeInterface playerGameInputCompositeInterface;
 
-namespace org.allbinary.graphics.form;
+    // Java field initializers run after the base constructor
+    private void initFieldsFormPlayerGameInputProcessor() {
+    
+    }
+    
 
-public class FormPlayerGameInputProcessor : Processor
-{
-    private readonly PlayerGameInputCompositeInterface playerGameInputCompositeInterface;
-    public FormPlayerGameInputProcessor(PlayerGameInputCompositeInterface playerGameInputCompositeInterface)
-    {
+    public FormPlayerGameInputProcessor(PlayerGameInputCompositeInterface playerGameInputCompositeInterface) {
+        base();
+        this.initFieldsFormPlayerGameInputProcessor();
         this.playerGameInputCompositeInterface = playerGameInputCompositeInterface;
     }
+    
 
-    // throws Exception
-    public override void process()
-    {
+    public override void process() {
         this.playerGameInputCompositeInterface.getPlayerGameInput().update();
     }
-
 }
 

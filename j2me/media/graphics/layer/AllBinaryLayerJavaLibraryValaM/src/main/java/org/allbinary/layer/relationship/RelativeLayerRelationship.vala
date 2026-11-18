@@ -13,39 +13,40 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.layer.relationship
+// import org.allbinary.graphics.GPoint
+// import org.allbinary.graphics.RelativeRelationship
+// import org.allbinary.layer.AllBinaryLayer
+// import org.allbinary.util.BasicArrayList
 
-using System;
-using System.Linq;
-using GPoint = org.allbinary.graphics.GPoint;
-using RelativeRelationship = org.allbinary.graphics.RelativeRelationship;
-using AllBinaryLayer = org.allbinary.layer.AllBinaryLayer;
-using BasicArrayList = org.allbinary.util.BasicArrayList;
+public class RelativeLayerRelationship : RelativeRelationship {
+    private AllBinaryLayer layer;
 
-namespace org.allbinary.layer.relationship;
+    // Java field initializers run after the base constructor
+    private void initFieldsRelativeLayerRelationship() {
+    this.layer = AllBinaryLayer.NULL_ALLBINARY_LAYER;
+    }
+    
 
-public class RelativeLayerRelationship : RelativeRelationship
-{
-    private AllBinaryLayer layer = AllBinaryLayer.NULL_ALLBINARY_LAYER;
-    public RelativeLayerRelationship(AllBinaryLayer layer, GPoint point, BasicArrayList typesAllowedList) : base(point, typesAllowedList)
-    {
-        // base(point, typesAllowedList) is called from the constructor declaration
+    public RelativeLayerRelationship(AllBinaryLayer layer, GPoint point, BasicArrayList typesAllowedList) {
+        base(point, typesAllowedList);
+        this.initFieldsRelativeLayerRelationship();
         this.layer = layer;
     }
+    
 
-    public override int getX()
-    {
+    public override int32 getX() {
         return this.layer.getXP() + base.getX();
     }
+    
 
-    public override int getY()
-    {
+    public override int32 getY() {
         return this.layer.getYP() + base.getY();
     }
+    
 
-    public override int getZ()
-    {
+    public override int32 getZ() {
         return this.layer.getZP() + base.getZ();
     }
-
 }
 

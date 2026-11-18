@@ -13,25 +13,22 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.math
+// import org.allbinary.graphics.GPoint
+// import org.allbinary.util.BasicArrayList
 
-using System;
-using System.Linq;
-using GPoint = org.allbinary.graphics.GPoint;
-using BasicArrayList = org.allbinary.util.BasicArrayList;
+public class RectangleCollisionPointUtil : JObject {
+    
 
-namespace org.allbinary.math;
-
-public class RectangleCollisionPointUtil
-{
-    private RectangleCollisionPointUtil()
-    {
+    public RectangleCollisionPointUtil() {
+        base();
     }
+    
 
-    public static bool allPointsInside(int rectX1, int rectY1, int rectX2, int rectY2, BasicArrayList list)
-    {
+    public static bool allPointsInside(int32 rectX1, int32 rectY1, int32 rectX2, int32 rectY2, BasicArrayList list) {
         RectangleCollisionUtil rectangleCollisionUtil = RectangleCollisionUtil.getInstance();
         GPoint point = null;
-        for (int index = list.size(); --index >= 0; ) {
+        for (int32 index = list.size(); --index >= 0; ) {
             point = ((GPoint) list.objectArray[index]);
             if (!rectangleCollisionUtil.isInside(rectX1, rectY1, rectX2, rectY2, point.getX(), point.getY())) {
                 return false;
@@ -39,12 +36,12 @@ public class RectangleCollisionPointUtil
         }
         return true;
     }
+    
 
-    public static bool allPointsInsideCell(int rectX1, int rectY1, int rectX2, int rectY2, BasicArrayList list, int xCellSize, int yCellSize)
-    {
+    public static bool allPointsInsideCell(int32 rectX1, int32 rectY1, int32 rectX2, int32 rectY2, BasicArrayList list, int32 xCellSize, int32 yCellSize) {
         RectangleCollisionUtil rectangleCollisionUtil = RectangleCollisionUtil.getInstance();
         GPoint point = null;
-        for (int index = list.size(); --index >= 0; ) {
+        for (int32 index = list.size(); --index >= 0; ) {
             point = ((GPoint) list.objectArray[index]);
             if (!rectangleCollisionUtil.isInside(rectX1, rectY1, rectX2, rectY2, point.getX() * xCellSize, point.getY() * yCellSize)) {
                 return false;
@@ -52,6 +49,5 @@ public class RectangleCollisionPointUtil
         }
         return true;
     }
-
 }
 

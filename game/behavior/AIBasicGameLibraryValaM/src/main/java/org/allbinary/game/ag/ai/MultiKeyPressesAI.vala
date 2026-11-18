@@ -13,83 +13,80 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.game.ag.ai
+// import org.allbinary.game.input.GameInput
+// import org.allbinary.layer.AllBinaryLayer
+// import org.allbinary.layer.AllBinaryLayerManager
+// import org.allbinary.time.GameTickTimeDelayHelper
+// import org.allbinary.time.GameTickTimeDelayHelperFactory
+// import org.allbinary.time.TimeDelayHelper
+// import org.allbinary.util.ABHashtable
 
-using System;
-using System.Linq;
-using GameInput = org.allbinary.game.input.GameInput;
-using AllBinaryLayer = org.allbinary.layer.AllBinaryLayer;
-using AllBinaryLayerManager = org.allbinary.layer.AllBinaryLayerManager;
-using GameTickTimeDelayHelper = org.allbinary.time.GameTickTimeDelayHelper;
-using GameTickTimeDelayHelperFactory = org.allbinary.time.GameTickTimeDelayHelperFactory;
-using TimeDelayHelper = org.allbinary.time.TimeDelayHelper;
-using org.allbinary.util;
+public class MultiKeyPressesAI : KeyPressesAI {
+    private TimeDelayHelper toggleTimeHelper;
+    private GameTickTimeDelayHelper gameTickTimeDelayHelper;
 
-namespace org.allbinary.game.ag.ai;
+    // Java field initializers run after the base constructor
+    private void initFieldsMultiKeyPressesAI() {
+    this.toggleTimeHelper = new TimeDelayHelper(600);
+    this.gameTickTimeDelayHelper = GameTickTimeDelayHelperFactory.getInstance();
+    }
+    
 
-public class MultiKeyPressesAI : KeyPressesAI
-{
-    private readonly TimeDelayHelper toggleTimeHelper = new TimeDelayHelper(600);
-    private readonly GameTickTimeDelayHelper gameTickTimeDelayHelper = GameTickTimeDelayHelperFactory.getInstance();
-    public MultiKeyPressesAI(ABHashtable<object, object> hashtable, AllBinaryLayer ownerLayerInterface, GameInput gameInput) : base(hashtable, ownerLayerInterface, gameInput)
-    {
-        // base(hashtable, ownerLayerInterface, gameInput) is called from the constructor declaration
+    public MultiKeyPressesAI(ABHashtable hashtable, AllBinaryLayer ownerLayerInterface, GameInput gameInput) {
+        base(hashtable, ownerLayerInterface, gameInput);
+        this.initFieldsMultiKeyPressesAI();
         this.update();
     }
+    
 
-    // throws Exception
-    public override void processAI(AllBinaryLayerManager allBinaryLayerManager)
-    {
+    public override void processAI(AllBinaryLayerManager allBinaryLayerManager) {
     }
+    
 
-    // throws Exception
-    private void update()
-    {
+    private void update() {
         GameInput gameInput = this.getGameInput();
-        int?[] keys = this.keys;
-        int size = keys.Length;
+        int32?[] keys = this.keys;
+        int32 size = keys.length;
         if (this.isOn()) {
-            for (int index_1 = 0; index_1 < size; index_1++) {
-                int key = global::java.lang.JavaNumber.intValue(keys[index_1]);
+            for (int32 index = 0; index < size; index++) {
+                int32 key = keys[index].intValue();
                 if (key != -1) {
                     gameInput.add(this.gameKeyEventFactory.getInstanceForKey(this, key));
                 }
             }
         } else {
-            for (int index_0 = 0; index_0 < size; index_0++) {
-                int key = global::java.lang.JavaNumber.intValue(keys[index_0]);
+            for (int32 index = 0; index < size; index++) {
+                int32 key = keys[index].intValue();
                 if (key != -1) {
                     gameInput.addForRemoval(this.gameKeyEventFactory.getInstanceForKey(this, key));
                 }
             }
         }
     }
+    
 
-    // throws Exception
-    public override void toggle()
-    {
+    public override void toggle() {
         if (this.toggleTimeHelper.isTime(this.gameTickTimeDelayHelper.startTime)) {
             base.toggle();
             this.update();
         }
     }
+    
 
-    // throws Exception
-    public override void disable()
-    {
+    public override void disable() {
         if (this.toggleTimeHelper.isTime(this.gameTickTimeDelayHelper.startTime)) {
             base.disable();
             this.update();
         }
     }
+    
 
-    // throws Exception
-    public override void enable()
-    {
+    public override void enable() {
         if (this.toggleTimeHelper.isTime(this.gameTickTimeDelayHelper.startTime)) {
             base.enable();
             this.update();
         }
     }
-
 }
 

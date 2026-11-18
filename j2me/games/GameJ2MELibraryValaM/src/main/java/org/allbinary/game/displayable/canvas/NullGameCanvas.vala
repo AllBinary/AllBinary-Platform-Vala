@@ -13,119 +13,116 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.game.displayable.canvas
+// import javax.microedition.lcdui.CommandListener
+// import javax.microedition.lcdui.Graphics
+// import javax.microedition.lcdui.NullCommandListener
+// import org.allbinary.game.init.BasicBuildGameInitializerFactory
+// import org.allbinary.game.layer.AllBinaryGameLayerManager
+// import org.allbinary.game.score.NoHighScoresFactory
+// import org.allbinary.logic.NullUtil
+// import org.allbinary.logic.communication.log.LogUtil
+// import org.allbinary.string.CommonStrings
 
-using System;
-using System.Linq;
-using System.Runtime.CompilerServices;
-using CommandListener = javax.microedition.lcdui.CommandListener;
-using Graphics = javax.microedition.lcdui.Graphics;
-using NullCommandListener = javax.microedition.lcdui.NullCommandListener;
-using BasicBuildGameInitializerFactory = org.allbinary.game.init.BasicBuildGameInitializerFactory;
-using AllBinaryGameLayerManager = org.allbinary.game.layer.AllBinaryGameLayerManager;
-using NoHighScoresFactory = org.allbinary.game.score.NoHighScoresFactory;
-using NullUtil = org.allbinary.logic.NullUtil;
-using LogUtil = org.allbinary.logic.communication.log.LogUtil;
-using CommonStrings = org.allbinary.@string.CommonStrings;
-
-namespace org.allbinary.game.displayable.canvas;
-
-public class NullGameCanvas : AllBinaryGameCanvas
-{
-    private static NullGameCanvas createNull()
-    {
-        try {
-            return new NullGameCanvas(AllBinaryGameLayerManager.getNullInstance());
-        } catch (Exception e) {
-            LogUtil.getInstance().put(CommonStrings.getInstance().EXCEPTION, "NullGameCanvas", CommonStrings.getInstance().GET_INSTANCE, e);
-            throw new SystemException();
+public class NullGameCanvas : AllBinaryGameCanvas {
+    private static JObject? instance;
+    private static bool staticSet_instance = false;
+    private static JObject staticGet_instance() {
+        if (!NullGameCanvas.staticSet_instance) {
+            NullGameCanvas.staticSet_instance = true;
+            NullGameCanvas.instance = NullUtil.getInstance().NULL_OBJECT;
         }
+        return NullGameCanvas.instance;
     }
+    public const string NO_GAME = "No Background Game";
+    public new const int32 TYPE = 1;
+    private bool runningNull;
 
-    private static object instance = NullUtil.getInstance().NULL_OBJECT;
-    public static NullGameCanvas getInstance()
-    {
-        if (NullGameCanvas.instance == NullUtil.getInstance().NULL_OBJECT) {
+    // Java field initializers run after the base constructor
+    private void initFieldsNullGameCanvas() {
+    this.runningNull = true;
+    }
+    
+
+    private static NullGameCanvas createNull() {
+        {
+            return new NullGameCanvas(AllBinaryGameLayerManager.getNullInstance());
+        } /* catch (Exception e): a thrown Java exception stops the program */
+    }
+    
+
+    public static NullGameCanvas getInstance() {
+        if (NullGameCanvas.staticGet_instance() == NullUtil.getInstance().NULL_OBJECT) {
             NullGameCanvas.instance = NullGameCanvas.createNull();
         }
-        return ((NullGameCanvas) NullGameCanvas.instance);
+        return ((NullGameCanvas) NullGameCanvas.staticGet_instance());
     }
+    
 
-    // throws Exception
-    public static NullGameCanvas createCanvas(AllBinaryGameLayerManager gameLayerManager)
-    {
+    public static NullGameCanvas createCanvas(AllBinaryGameLayerManager gameLayerManager) {
         NullGameCanvas nullGameCanvas = new NullGameCanvas(gameLayerManager);
         nullGameCanvas.setInitialized(true);
         nullGameCanvas.setTitle(NullGameCanvas.NO_GAME);
         return nullGameCanvas;
     }
+    
 
-    public const string NO_GAME = "No Background Game";
-    public NullGameCanvas(AllBinaryGameLayerManager gameLayerManager) : base(NullCommandListener.NULL_COMMAND_LISTENER, gameLayerManager, NoHighScoresFactory.getInstance(), BasicBuildGameInitializerFactory.NULL_BASE_BUILD_GMAE_INITIALIZER_FACTORY, false)
-    {
-        // base(NullCommandListener.NULL_COMMAND_LISTENER, gameLayerManager, NoHighScoresFactory.getInstance(), BasicBuildGameInitializerFactory.NULL_BASE_BUILD_GMAE_INITIALIZER_FACTORY, false) is called from the constructor declaration
+    public NullGameCanvas(AllBinaryGameLayerManager gameLayerManager) {
+        base(NullCommandListener.NULL_COMMAND_LISTENER, gameLayerManager, NoHighScoresFactory.getInstance(), BasicBuildGameInitializerFactory.NULL_BASE_BUILD_GMAE_INITIALIZER_FACTORY, false);
+        this.initFieldsNullGameCanvas();
         base.setWait(1200);
     }
+    
 
-    [MethodImpl(MethodImplOptions.Synchronized)]
-    public override bool isGameOver()
-    {
+    public override bool isGameOver() {
         return false;
     }
+    
 
-    private bool runningNull = true;
-    public override void setRunning(bool running)
-    {
+    public override void setRunning(bool running) {
         this.runningNull = running;
     }
+    
 
-    [MethodImpl(MethodImplOptions.Synchronized)]
-    public override bool isRunning()
-    {
+    public override bool isRunning() {
         return this.runningNull;
     }
+    
 
-    [MethodImpl(MethodImplOptions.Synchronized)]
-    public override void pause()
-    {
+    public override void pause() {
         this.setPaused(true);
     }
+    
 
-    [MethodImpl(MethodImplOptions.Synchronized)]
-    public override void unPause()
-    {
+    public override void unPause() {
         this.setPaused(false);
     }
+    
 
-    public override void initCommands(CommandListener cmdListener)
-    {
+    public override void initCommands(CommandListener cmdListener) {
         this.removeAllCommands();
         this.setCommandListener(cmdListener);
     }
+    
 
-    // throws Exception
-    public override void buildGameInit(bool isProgress)
-    {
+    public override void buildGameInit(bool isProgress) {
     }
+    
 
-    public override void draw(Graphics graphics)
-    {
+    public override void draw(Graphics graphics) {
     }
+    
 
-    public override void run()
-    {
-        try {
+    public override void run() {
+        {
             this.logUtil.putF(this.commonStrings.START_RUNNABLE, this, this.commonStrings.RUN);
             this.logUtil.putF(this.commonStrings.END_RUNNABLE, this, this.commonStrings.RUN);
-        } catch (Exception e) {
-            this.logUtil.put(this.commonStrings.EXCEPTION, this, this.commonStrings.RUN, e);
-        }
+        } /* catch (Exception e): a thrown Java exception stops the program */
     }
+    
 
-    public const int TYPE = 1;
-    public override int getType()
-    {
+    public override int32 getType() {
         return NullGameCanvas.TYPE;
     }
-
 }
 

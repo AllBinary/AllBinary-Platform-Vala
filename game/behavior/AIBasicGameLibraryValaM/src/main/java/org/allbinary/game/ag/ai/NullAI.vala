@@ -13,24 +13,19 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.game.ag.ai
+// import org.allbinary.ai.ArtificialIntelligence
+// import org.allbinary.layer.AllBinaryLayerManager
 
-using System;
-using System.Linq;
-using ArtificialIntelligence = org.allbinary.ai.ArtificialIntelligence;
-using AllBinaryLayerManager = org.allbinary.layer.AllBinaryLayerManager;
+public class NullAI : ArtificialIntelligence {
+    
 
-namespace org.allbinary.game.ag.ai;
-
-public class NullAI : ArtificialIntelligence
-{
-    public NullAI()
-    {
+    public NullAI() {
+        base();
     }
+    
 
-    // throws Exception
-    public override void processAI(AllBinaryLayerManager allBinaryLayerManager)
-    {
+    public override void processAI(AllBinaryLayerManager allBinaryLayerManager) {
     }
-
 }
 

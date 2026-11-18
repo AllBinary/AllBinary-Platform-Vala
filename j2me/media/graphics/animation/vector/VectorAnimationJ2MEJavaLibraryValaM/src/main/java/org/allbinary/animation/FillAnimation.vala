@@ -1,29 +1,33 @@
 // Generated Code Do Not Modify
+// package org.allbinary.animation
+// import javax.microedition.lcdui.Graphics
+// import org.allbinary.graphics.color.BasicColor
 
-using System;
-using System.Linq;
-using Graphics = javax.microedition.lcdui.Graphics;
-using BasicColor = org.allbinary.graphics.color.BasicColor;
+public class FillAnimation : IndexedAnimation {
+    private int32[] pixelBuffer;
+    private int32 width;
+    private int32 height;
 
-namespace org.allbinary.animation;
+    // Java field initializers run after the base constructor
+    private void initFieldsFillAnimation() {
+    
+    
+    
+    }
+    
 
-public class FillAnimation : IndexedAnimation
-{
-    private readonly int[] pixelBuffer;
-    private readonly int width;
-    private readonly int height;
-    public FillAnimation(int[] pixelBuffer, int width, int height, AnimationBehavior animationBehavior) : base(animationBehavior)
-    {
-        // base(animationBehavior) is called from the constructor declaration
+    public FillAnimation(int32[] pixelBuffer, int32 width, int32 height, AnimationBehavior animationBehavior) {
+        base(animationBehavior);
+        this.initFieldsFillAnimation();
         this.width = 100;
         this.height = 100;
         this.pixelBuffer = pixelBuffer;
     }
+    
 
-    public override void setBasicColorP(BasicColor basicColor)
-    {
+    public override void setBasicColorP(BasicColor basicColor) {
         bool changed = false;
-        if (this.getBasicColorP() == null || global::java.lang.JavaNumber.intValue(this.getBasicColorP()) != basicColor.intValue()) {
+        if (this.getBasicColorP() == null || this.getBasicColorP().intValue() != basicColor.intValue()) {
             changed = true;
         }
         base.setBasicColorP(basicColor);
@@ -31,11 +35,11 @@ public class FillAnimation : IndexedAnimation
             this.updateModifiers();
         }
     }
+    
 
-    public override void changeBasicColor(BasicColor basicColor)
-    {
+    public override void changeBasicColor(BasicColor basicColor) {
         bool changed = false;
-        if (this.getChangeBasicColor() == null || global::java.lang.JavaNumber.intValue(this.getChangeBasicColor()) != basicColor.intValue()) {
+        if (this.getChangeBasicColor() == null || this.getChangeBasicColor().intValue() != basicColor.intValue()) {
             changed = true;
         }
         base.changeBasicColor(basicColor);
@@ -43,9 +47,9 @@ public class FillAnimation : IndexedAnimation
             this.updateModifiers();
         }
     }
+    
 
-    public override void setAlpha(int alpha)
-    {
+    public override void setAlpha(int32 alpha) {
         bool changed = false;
         if (this.alphaP != alpha) {
             changed = true;
@@ -55,23 +59,22 @@ public class FillAnimation : IndexedAnimation
             this.updateModifiers();
         }
     }
+    
 
-    public override void setScale(float scaleX, float scaleY)
-    {
+    public override void setScale(float scaleX, float scaleY) {
     }
+    
 
-    public override void setMaxScale(float maxScaleX, float maxScaleY)
-    {
+    public override void setMaxScale(float maxScaleX, float maxScaleY) {
     }
+    
 
-    private void updateModifiers()
-    {
+    private void updateModifiers() {
     }
+    
 
-    public virtual void paint(Graphics g)
-    {
-        g.drawRGB(pixelBuffer, 0, width, 0, 0, width, height, true);
+    public virtual void paint(Graphics g) {
+        g.drawRGB(this.pixelBuffer, 0, this.width, 0, 0, this.width, this.height, true);
     }
-
 }
 

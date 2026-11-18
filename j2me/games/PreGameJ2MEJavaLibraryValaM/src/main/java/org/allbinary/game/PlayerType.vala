@@ -13,37 +13,40 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.game
+// import org.allbinary.logic.string.StringUtil
 
-using System;
-using System.Linq;
-using StringUtil = org.allbinary.logic.@string.StringUtil;
+public class PlayerType : JObject {
+    private int32 id;
+    private string name;
 
-namespace org.allbinary.game;
+    // Java field initializers run after the base constructor
+    private void initFieldsPlayerType() {
+    
+    this.name = StringUtil.getInstance().EMPTY_STRING;
+    }
+    
 
-public class PlayerType
-{
-    private int id;
-    private string name = StringUtil.getInstance().EMPTY_STRING;
-    public PlayerType(string name, int value)
-    {
+    public PlayerType(string name, int32 value) {
+        base();
+        this.initFieldsPlayerType();
         this.name = name;
         this.id = value;
     }
+    
 
-    public virtual int getId()
-    {
+    public virtual int32 getId() {
         return this.id;
     }
+    
 
-    public virtual string getName()
-    {
+    public virtual string getName() {
         return this.name;
     }
+    
 
-    public override string ToString()
-    {
+    public override string toString() {
         return this.getName();
     }
-
 }
 

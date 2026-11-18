@@ -13,28 +13,32 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.graphics.opengles
 
-using System;
-using System.Linq;
-
-namespace org.allbinary.graphics.opengles;
-
-public class OpenGLFeatureUtil
-{
-    private static readonly OpenGLFeatureUtil instance = new OpenGLFeatureUtil();
-    public static OpenGLFeatureUtil getInstance()
-    {
+public class OpenGLFeatureUtil : JObject {
+    private static OpenGLFeatureUtil? instance;
+    private static bool staticSet_instance = false;
+    private static OpenGLFeatureUtil staticGet_instance() {
+        if (!OpenGLFeatureUtil.staticSet_instance) {
+            OpenGLFeatureUtil.staticSet_instance = true;
+            OpenGLFeatureUtil.instance = new OpenGLFeatureUtil();
+        }
         return OpenGLFeatureUtil.instance;
     }
+    
 
-    public OpenGLFeatureUtil()
-    {
+    public static OpenGLFeatureUtil getInstance() {
+        return OpenGLFeatureUtil.staticGet_instance();
     }
+    
 
-    public virtual bool isAnyThreed()
-    {
+    public OpenGLFeatureUtil() {
+        base();
+    }
+    
+
+    public virtual bool isAnyThreed() {
         return false;
     }
-
 }
 

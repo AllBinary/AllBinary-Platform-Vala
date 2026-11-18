@@ -13,56 +13,70 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.direction
+// import org.allbinary.logic.string.StringMaker
 
-using System;
-using System.Linq;
-using StringMaker = org.allbinary.logic.@string.StringMaker;
-
-namespace org.allbinary.direction;
-
-public class Direction
-{
-    private static Direction[] directionArray = new Direction[13];
+public class Direction : JObject {
+    private static Direction[]? directionArray;
+    private static bool staticSet_directionArray = false;
+    private static Direction[] staticGet_directionArray() {
+        if (!Direction.staticSet_directionArray) {
+            Direction.staticSet_directionArray = true;
+            Direction.directionArray = new Direction[13];
+        }
+        return Direction.directionArray;
+    }
     private string name;
     private string otherName;
-    private int value;
-    private int frameFactor;
-    public Direction(string name, string otherName, int value, int frameFactor)
-    {
+    private int32 value;
+    private int32 frameFactor;
+
+    // Java field initializers run after the base constructor
+    private void initFieldsDirection() {
+    
+    
+    
+    
+    }
+    
+
+    public Direction(string name, string otherName, int32 value, int32 frameFactor) {
+        base();
+        this.initFieldsDirection();
         this.name = name;
         this.otherName = otherName;
         this.value = value;
         this.frameFactor = frameFactor;
-        Direction.directionArray[value] = this;
+        Direction.staticGet_directionArray()[value] = this;
     }
+    
 
-    public static Direction getInstance(int direction)
-    {
-        return Direction.directionArray[direction];
+    public static Direction getInstance1(int32 direction) {
+        return Direction.staticGet_directionArray()[direction];
     }
+    
 
-    public virtual int getValue()
-    {
+    public virtual int32 getValue() {
         return this.value;
     }
+    
 
-    public virtual int getFrameFactor()
-    {
+    public virtual int32 getFrameFactor() {
         return this.frameFactor;
     }
+    
 
-    public virtual string getOtherName()
-    {
+    public virtual string getOtherName() {
         return this.otherName;
     }
+    
 
-    public virtual string getName()
-    {
+    public virtual string getName() {
         return this.name;
     }
+    
 
-    public override string ToString()
-    {
+    public override string toString() {
         StringMaker stringBuffer = new StringMaker();
         stringBuffer.append("Direction: ");
         stringBuffer.append(this.getName());
@@ -70,8 +84,7 @@ public class Direction
         stringBuffer.append(this.getOtherName());
         stringBuffer.append(" Value: ");
         stringBuffer.appendint(this.value);
-        return stringBuffer.ToString();
+        return stringBuffer.toString();
     }
-
 }
 

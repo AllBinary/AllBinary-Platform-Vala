@@ -13,19 +13,14 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.graphics.form.item.validation
+// import org.allbinary.graphics.form.item.ABTextFieldItem
 
-using System;
-using System.Linq;
-using ABTextFieldItem = org.allbinary.graphics.form.item.ABTextFieldItem;
+public class PasswordValidator : TextFieldItemValidator {
+    
 
-namespace org.allbinary.graphics.form.item.validation;
-
-public class PasswordValidator : TextFieldItemValidator
-{
-    public PasswordValidator(ABTextFieldItem textFieldItem, int min, int max, bool allowOnEmpty) : base(textFieldItem, min, max, allowOnEmpty)
-    {
-        // base(textFieldItem, min, max, allowOnEmpty) is called from the constructor declaration
+    public PasswordValidator(ABTextFieldItem textFieldItem, int32 min, int32 max, bool allowOnEmpty) {
+        base(textFieldItem, min, max, allowOnEmpty);
     }
-
 }
 

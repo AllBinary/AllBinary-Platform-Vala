@@ -13,18 +13,16 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.input.motion.button
 
-using System;
-using System.Linq;
+public class TouchButtonVisitor : JObject {
 
-namespace org.allbinary.input.motion.button;
-
-public class TouchButtonVisitor
-{
-    // throws Exception
-    public virtual void process(TouchButtonInput touchButtonInput, string @string)
-    {
+    public TouchButtonVisitor() {
+        base();
     }
+    
 
+    public virtual void process(TouchButtonInput touchButtonInput, string string) {
+    }
 }
 

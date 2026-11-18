@@ -13,38 +13,32 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.game.tick
+// import org.allbinary.game.layer.AllBinaryGameLayer
+// import org.allbinary.layer.AllBinaryLayer
+// import org.allbinary.layer.AllBinaryLayerManager
+// import org.allbinary.layer.LayerProcessor
 
-using System;
-using System.Linq;
-using AllBinaryGameLayer = org.allbinary.game.layer.AllBinaryGameLayer;
-using AllBinaryLayer = org.allbinary.layer.AllBinaryLayer;
-using AllBinaryLayerManager = org.allbinary.layer.AllBinaryLayerManager;
-using LayerProcessor = org.allbinary.layer.LayerProcessor;
+public class OptimizedTickableLayerProcessor : LayerProcessor {
+    
 
-namespace org.allbinary.game.tick;
-
-public class OptimizedTickableLayerProcessor : LayerProcessor
-{
-    public OptimizedTickableLayerProcessor() : base(new OptimizedTickableLayerManager())
-    {
-        // base(new OptimizedTickableLayerManager()) is called from the constructor declaration
+    public OptimizedTickableLayerProcessor() {
+        base(new OptimizedTickableLayerManager());
     }
+    
 
-    // throws Exception
-    public override void processAt(AllBinaryLayerManager allBinaryLayerManager, AllBinaryLayer layerInterface, int index)
-    {
+    public override void processAt(AllBinaryLayerManager allBinaryLayerManager, AllBinaryLayer layerInterface, int32 index) {
         AllBinaryGameLayer tickableInterface = ((AllBinaryGameLayer) layerInterface);
         tickableInterface.processTick(allBinaryLayerManager);
     }
+    
 
-    public override bool isProcessorLayer(AllBinaryLayer layerInterface)
-    {
+    public override bool isProcessorLayer(AllBinaryLayer layerInterface) {
         if (layerInterface.implmentsTickableInterface()) {
             return true;
         } else {
             return false;
         }
     }
-
 }
 

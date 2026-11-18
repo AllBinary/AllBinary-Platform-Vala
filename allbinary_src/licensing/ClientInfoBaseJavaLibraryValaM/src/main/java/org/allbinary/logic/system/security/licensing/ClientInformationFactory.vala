@@ -13,25 +13,24 @@
  *   
  */
 // Generated Code Do Not Modify
+// package org.allbinary.logic.system.security.licensing
+// import org.allbinary.logic.communication.log.LogUtil
+// import org.allbinary.logic.string.StringUtil
+// import org.allbinary.string.CommonStrings
 
-using System;
-using System.Linq;
-using LogUtil = org.allbinary.logic.communication.log.LogUtil;
-using StringUtil = org.allbinary.logic.@string.StringUtil;
-using CommonStrings = org.allbinary.@string.CommonStrings;
+public class ClientInformationFactory : JObject {
 
-namespace org.allbinary.logic.system.security.licensing;
+    public ClientInformationFactory() {
+        base();
+    }
+    
 
-public class ClientInformationFactory
-{
-    public virtual ClientInformation getInstance()
-    {
+    public virtual ClientInformation getInstance() {
         LogUtil logUtil = LogUtil.getInstance();
         CommonStrings commonStrings = CommonStrings.getInstance();
         logUtil.putF(commonStrings.NOT_IMPLEMENTED, this, commonStrings.GET_INSTANCE);
         StringUtil stringUtil = StringUtil.getInstance();
         return new ClientInformation(stringUtil.NULL_STRING, stringUtil.NULL_STRING, stringUtil.NULL_STRING, stringUtil.NULL_STRING);
     }
-
 }
 

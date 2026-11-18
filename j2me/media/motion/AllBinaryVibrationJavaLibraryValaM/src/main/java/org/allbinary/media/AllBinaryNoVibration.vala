@@ -13,18 +13,25 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.media
 
-using System;
-using System.Linq;
-
-namespace org.allbinary.media;
-
-public class AllBinaryNoVibration : AllBinaryVibrationME
-{
-    public static AllBinaryVibrationME NO_VIBRATION = new AllBinaryNoVibration();
-    public override void vibrate(int duration, int type, int volume)
-    {
+public class AllBinaryNoVibration : AllBinaryVibrationME {
+    public static AllBinaryVibrationME? NO_VIBRATION;
+    private static bool staticSet_NO_VIBRATION = false;
+    public static AllBinaryVibrationME staticGet_NO_VIBRATION() {
+        if (!AllBinaryNoVibration.staticSet_NO_VIBRATION) {
+            AllBinaryNoVibration.staticSet_NO_VIBRATION = true;
+            AllBinaryNoVibration.NO_VIBRATION = new AllBinaryNoVibration();
+        }
+        return AllBinaryNoVibration.NO_VIBRATION;
     }
 
+    public AllBinaryNoVibration() {
+        base();
+    }
+    
+
+    public override void vibrate(int32 duration, int32 type, int32 volume) {
+    }
 }
 

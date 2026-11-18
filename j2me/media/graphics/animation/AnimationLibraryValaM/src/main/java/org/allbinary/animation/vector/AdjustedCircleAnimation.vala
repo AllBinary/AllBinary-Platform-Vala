@@ -13,48 +13,51 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.animation.vector
+// import javax.microedition.lcdui.Graphics
+// import org.allbinary.AndroidUtil
+// import org.allbinary.graphics.color.BasicColor
 
-using System;
-using System.Linq;
-using Graphics = javax.microedition.lcdui.Graphics;
-using AndroidUtil = org.allbinary.AndroidUtil;
-using BasicColor = org.allbinary.graphics.color.BasicColor;
+public class AdjustedCircleAnimation : CircleAnimation {
+    private int32 xAdjustment;
+    private int32 yAdjustment;
 
-namespace org.allbinary.animation.vector;
+    // Java field initializers run after the base constructor
+    private void initFieldsAdjustedCircleAnimation() {
+    this.xAdjustment = 0;
+    this.yAdjustment = 0;
+    }
+    
 
-public class AdjustedCircleAnimation : CircleAnimation
-{
-    public static AdjustedCircleAnimation createAnimation(int width, int height, int xAdjustment, int yAdjustment, BasicColor basicColor)
-    {
+    public static AdjustedCircleAnimation createAnimation(int32 width, int32 height, int32 xAdjustment, int32 yAdjustment, BasicColor basicColor) {
         AdjustedCircleAnimation adjustedCircleAnimation = new AdjustedCircleAnimation(width, height, basicColor);
         adjustedCircleAnimation.initXY(xAdjustment, yAdjustment);
         return adjustedCircleAnimation;
     }
+    
 
-    public static AdjustedCircleAnimation createW(int width, int height, int innerWidth, BasicColor basicColor)
-    {
+    public static AdjustedCircleAnimation createW(int32 width, int32 height, int32 innerWidth, BasicColor basicColor) {
         AdjustedCircleAnimation adjustedCircleAnimation = new AdjustedCircleAnimation(width, height, basicColor);
         adjustedCircleAnimation.init(innerWidth);
         return adjustedCircleAnimation;
     }
+    
 
-    private int xAdjustment = 0;
-    private int yAdjustment = 0;
-    public AdjustedCircleAnimation(int width, int height, BasicColor basicColor) : base(width, height, basicColor)
-    {
-        // base(width, height, basicColor) is called from the constructor declaration
+    public AdjustedCircleAnimation(int32 width, int32 height, BasicColor basicColor) {
+        base(width, height, basicColor);
+        this.initFieldsAdjustedCircleAnimation();
     }
+    
 
-    private void initXY(int xAdjustment, int yAdjustment)
-    {
+    private void initXY(int32 xAdjustment, int32 yAdjustment) {
         this.xAdjustment = xAdjustment;
         this.yAdjustment = yAdjustment;
     }
+    
 
-    private void init(int innerWidth)
-    {
+    private void init(int32 innerWidth) {
         if (AndroidUtil.isAndroid()) {
-            int widthPortion = (((innerWidth / 3) * 10) / 7);
+            int32 widthPortion = (((innerWidth / 3) * 10) / 7);
             this.xAdjustment = -((this.width >> 1) - widthPortion);
             this.yAdjustment = this.xAdjustment;
         } else {
@@ -62,12 +65,11 @@ public class AdjustedCircleAnimation : CircleAnimation
             this.yAdjustment = this.xAdjustment;
         }
     }
+    
 
-    public override void paintXY(Graphics graphics, int x, int y)
-    {
+    public override void paintXY(Graphics graphics, int32 x, int32 y) {
         this.basicSetColorUtil.setBasicColorP3(graphics, this.getBasicColorP(), this.getColor());
         graphics.drawArc(x + this.xAdjustment, y + this.yAdjustment, this.width, this.height, 0, this.TOTAL_ANGLE);
     }
-
 }
 

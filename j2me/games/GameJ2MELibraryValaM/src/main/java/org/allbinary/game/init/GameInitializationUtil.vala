@@ -13,27 +13,40 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.game.init
+// import org.allbinary.game.configuration.event.ChangedGameFeatureListener
+// import org.allbinary.game.configuration.event.GameInitializedEvent
+// import org.allbinary.game.configuration.event.GameInitializedEventHandler
+// import org.allbinary.game.configuration.feature.Features
+// import org.allbinary.game.configuration.feature.MainFeatureFactory
+// import org.allbinary.game.resource.ResourceLoadingLevelFactory
+// import org.allbinary.graphics.displayable.MyCanvas
+// import org.allbinary.logic.system.security.licensing.AbeClientInformationInterface
 
-using System;
-using System.Linq;
-using ChangedGameFeatureListener = org.allbinary.game.configuration.@event.ChangedGameFeatureListener;
-using GameInitializedEvent = org.allbinary.game.configuration.@event.GameInitializedEvent;
-using GameInitializedEventHandler = org.allbinary.game.configuration.@event.GameInitializedEventHandler;
-using Features = org.allbinary.game.configuration.feature.Features;
-using MainFeatureFactory = org.allbinary.game.configuration.feature.MainFeatureFactory;
-using ResourceLoadingLevelFactory = org.allbinary.game.resource.ResourceLoadingLevelFactory;
-using MyCanvas = org.allbinary.graphics.displayable.MyCanvas;
-using AbeClientInformationInterface = org.allbinary.logic.system.security.licensing.AbeClientInformationInterface;
+public class GameInitializationUtil : JObject {
+    private static GameInitializationUtil? instance;
+    private static bool staticSet_instance = false;
+    private static GameInitializationUtil staticGet_instance() {
+        if (!GameInitializationUtil.staticSet_instance) {
+            GameInitializationUtil.staticSet_instance = true;
+            GameInitializationUtil.instance = new GameInitializationUtil();
+        }
+        return GameInitializationUtil.instance;
+    }
+    public GameInitializedEvent EVENT;
 
-namespace org.allbinary.game.init;
+    // Java field initializers run after the base constructor
+    private void initFieldsGameInitializationUtil() {
+    this.EVENT = new GameInitializedEvent(this);
+    }
 
-public class GameInitializationUtil
-{
-    private static readonly GameInitializationUtil instance = new GameInitializationUtil();
-    public readonly GameInitializedEvent EVENT;
-    // throws Exception
-    public void initDemo(AbeClientInformationInterface abeClientInformation, MyCanvas canvas, BasicBuildGameInitializerFactory gameInitializationInterfaceFactoryInterface)
-    {
+    public GameInitializationUtil() {
+        base();
+        this.initFieldsGameInitializationUtil();
+    }
+    
+
+    public virtual void initDemo(AbeClientInformationInterface abeClientInformation, MyCanvas canvas, BasicBuildGameInitializerFactory gameInitializationInterfaceFactoryInterface) {
         MainFeatureFactory mainFeatureFactory = MainFeatureFactory.getInstance();
         if (ChangedGameFeatureListener.getInstance().isChangedFeature(mainFeatureFactory.STATIC)) {
             GameInitializationInterface gameInitializationInterface = gameInitializationInterfaceFactoryInterface.getInstance();
@@ -45,15 +58,14 @@ public class GameInitializationUtil
                 gameInitializationInterface.init(abeClientInformation, canvas.getCustomCommandListener(), resourceLoadingLevelFactory.LOAD_EARLY.getLevel());
                 this.EVENT.setResourceLoadingLevel(resourceLoadingLevelFactory.LOAD_EARLY);
             } else {
-                throw new Exception("No Loading Feature Available");
+                JSystem.fatal(new JException("Exception", "No Loading Feature Available"));
             }
             GameInitializedEventHandler.getInstance().fireEvent(this.EVENT);
         }
     }
+    
 
-    // throws Exception
-    public void initGame(AbeClientInformationInterface abeClientInformation, MyCanvas canvas, BasicBuildGameInitializerFactory gameInitializationInterfaceFactoryInterface)
-    {
+    public virtual void initGame(AbeClientInformationInterface abeClientInformation, MyCanvas canvas, BasicBuildGameInitializerFactory gameInitializationInterfaceFactoryInterface) {
         if (ChangedGameFeatureListener.getInstance().isChangedFeature(MainFeatureFactory.getInstance().STATIC)) {
             GameInitializationInterface gameInitializationInterface = gameInitializationInterfaceFactoryInterface.getInstance();
             ResourceLoadingLevelFactory resourceLoadingLevelFactory = ResourceLoadingLevelFactory.getInstance();
@@ -63,16 +75,10 @@ public class GameInitializationUtil
             ChangedGameFeatureListener.getInstance().remove(MainFeatureFactory.getInstance().STATIC);
         }
     }
+    
 
-    public static GameInitializationUtil getInstance()
-    {
-        return GameInitializationUtil.instance;
+    public static GameInitializationUtil getInstance() {
+        return GameInitializationUtil.staticGet_instance();
     }
-
-    public GameInitializationUtil()
-    {
-        this.EVENT = new GameInitializedEvent(this);
-    }
-
 }
 

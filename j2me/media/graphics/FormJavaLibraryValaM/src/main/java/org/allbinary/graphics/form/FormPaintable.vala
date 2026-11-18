@@ -13,31 +13,33 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.graphics.form
+// import javax.microedition.lcdui.Graphics
+// import org.allbinary.graphics.paint.Paintable
 
-using System;
-using System.Linq;
-using Graphics = javax.microedition.lcdui.Graphics;
-using Paintable = org.allbinary.graphics.paint.Paintable;
+public class FormPaintable : Paintable {
+    private PaintableForm form;
 
-namespace org.allbinary.graphics.form;
+    // Java field initializers run after the base constructor
+    private void initFieldsFormPaintable() {
+    
+    }
+    
 
-public class FormPaintable : Paintable
-{
-    private readonly PaintableForm form;
-    public FormPaintable(PaintableForm form)
-    {
+    public FormPaintable(PaintableForm form) {
+        base();
+        this.initFieldsFormPaintable();
         this.form = form;
     }
+    
 
-    public override void paint(Graphics graphics)
-    {
+    public override void paint(Graphics graphics) {
         this.form.paint(graphics);
     }
+    
 
-    public virtual PaintableForm getForm()
-    {
+    public virtual PaintableForm getForm() {
         return this.form;
     }
-
 }
 

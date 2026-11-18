@@ -13,52 +13,56 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.game.displayable.canvas
+// import javax.microedition.lcdui.CommandListener
+// import javax.microedition.lcdui.ItemStateListener
+// import org.allbinary.game.state.GameStateCompositeInterface
+// import org.allbinary.graphics.paint.PaintableInterface
+// import org.allbinary.thread.RunnableInterface
+// import org.allbinary.util.ABHashtable
 
-using System;
-using System.Linq;
-using CommandListener = javax.microedition.lcdui.CommandListener;
-using ItemStateListener = javax.microedition.lcdui.ItemStateListener;
-using GameStateCompositeInterface = org.allbinary.game.state.GameStateCompositeInterface;
-using PaintableInterface = org.allbinary.graphics.paint.PaintableInterface;
-using RunnableInterface = org.allbinary.thread.RunnableInterface;
-using org.allbinary.util;
+public interface GameCanvasRunnableInterface : JObject, RunnableInterface, PaintableInterface, ItemStateListener, GameStateCompositeInterface {
+    
 
-namespace org.allbinary.game.displayable.canvas;
+    public abstract string getTitle();
+    
 
-public interface GameCanvasRunnableInterface : RunnableInterface, PaintableInterface, ItemStateListener, GameStateCompositeInterface
-{
-    string getTitle();
+    public abstract bool isInitialized();
+    
 
-    bool isInitialized();
+    public abstract bool isPaused();
+    
 
-    bool isPaused();
+    public abstract void unPause();
+    
 
-    void unPause();
+    public abstract void pause();
+    
 
-    void pause();
+    public abstract bool isHighScoreSubmitted();
+    
 
-    bool isHighScoreSubmitted();
+    public abstract void setHighScoreSubmitted(bool highScoreSubmitted);
+    
 
-    // throws Exception
-    void setHighScoreSubmitted(bool highScoreSubmitted);
+    public abstract void processGameOver();
+    
 
-    // throws Exception
-    void processGameOver();
+    public abstract bool isGameOver();
+    
 
-    bool isGameOver();
+    public abstract void initCommands(CommandListener cmdListener);
+    
 
-    void initCommands(CommandListener cmdListener);
+    public abstract ABHashtable getCurrentStateHashtable();
+    
 
-    // throws Exception
-    ABHashtable<object, object> getCurrentStateHashtable();
+    public abstract ABHashtable getLoadStateHashtable();
+    
 
-    // throws Exception
-    ABHashtable<object, object> getLoadStateHashtable();
+    public abstract void setLoadStateHashtable(ABHashtable hashtable);
+    
 
-    // throws Exception
-    void setLoadStateHashtable(ABHashtable<object, object> hashtable);
-
-    int getType();
-
+    public abstract int32 getType();
 }
 

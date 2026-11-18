@@ -13,33 +13,36 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.game.midlet
+// import org.allbinary.logic.util.event.AllBinaryEventObject
+// import org.allbinary.logic.util.event.EventListenerInterface
+// import org.allbinary.logic.util.event.handler.BasicEventHandler
 
-using System;
-using System.Linq;
-using AllBinaryEventObject = org.allbinary.logic.util.@event.AllBinaryEventObject;
-using EventListenerInterface = org.allbinary.logic.util.@event.EventListenerInterface;
-using BasicEventHandler = org.allbinary.logic.util.@event.handler.BasicEventHandler;
-
-namespace org.allbinary.game.midlet;
-
-public class DemoGameMidletEventHandler : BasicEventHandler
-{
-    private static readonly DemoGameMidletEventHandler gameKeyEventHandler = new DemoGameMidletEventHandler();
-    private DemoGameMidletEventHandler()
-    {
-    }
-
-    public static DemoGameMidletEventHandler getInstance()
-    {
+public class DemoGameMidletEventHandler : BasicEventHandler {
+    private static DemoGameMidletEventHandler? gameKeyEventHandler;
+    private static bool staticSet_gameKeyEventHandler = false;
+    private static DemoGameMidletEventHandler staticGet_gameKeyEventHandler() {
+        if (!DemoGameMidletEventHandler.staticSet_gameKeyEventHandler) {
+            DemoGameMidletEventHandler.staticSet_gameKeyEventHandler = true;
+            DemoGameMidletEventHandler.gameKeyEventHandler = new DemoGameMidletEventHandler();
+        }
         return DemoGameMidletEventHandler.gameKeyEventHandler;
     }
+    
 
-    // throws Exception
-    public override void process(AllBinaryEventObject eventObject, EventListenerInterface eventListenerInterface)
-    {
+    public DemoGameMidletEventHandler() {
+        base();
+    }
+    
+
+    public static DemoGameMidletEventHandler getInstance() {
+        return DemoGameMidletEventHandler.staticGet_gameKeyEventHandler();
+    }
+    
+
+    public override void process(AllBinaryEventObject eventObject, EventListenerInterface eventListenerInterface) {
         DemoGameMidletEventListener demoGameMidletEventListener = ((DemoGameMidletEventListener) eventListenerInterface);
         demoGameMidletEventListener.onDemoGameMidletEvent(((DemoGameMidletEvent) eventObject));
     }
-
 }
 

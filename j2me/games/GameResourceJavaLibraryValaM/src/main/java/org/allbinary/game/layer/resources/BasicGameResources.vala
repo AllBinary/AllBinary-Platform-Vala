@@ -13,65 +13,72 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.game.layer.resources
+// import org.allbinary.game.configuration.GameConfigurationCentral
+// import org.allbinary.logic.communication.log.LogUtil
+// import org.allbinary.logic.string.StringMaker
+// import org.allbinary.logic.string.StringUtil
+// import org.allbinary.string.CommonStrings
 
-using System;
-using System.Linq;
-using GameConfigurationCentral = org.allbinary.game.configuration.GameConfigurationCentral;
-using LogUtil = org.allbinary.logic.communication.log.LogUtil;
-using StringMaker = org.allbinary.logic.@string.StringMaker;
-using StringUtil = org.allbinary.logic.@string.StringUtil;
-using CommonStrings = org.allbinary.@string.CommonStrings;
-
-namespace org.allbinary.game.layer.resources;
-
-public class BasicGameResources
-{
-    public readonly LogUtil logUtil = LogUtil.getInstance();
-    public static readonly StringMaker stringBuffer = new StringMaker();
-    public string RESOURCE = StringUtil.getInstance().EMPTY_STRING;
-    public string RESOURCE_DESTROY = StringUtil.getInstance().EMPTY_STRING;
-    public BasicGameResources()
-    {
+public class BasicGameResources : JObject {
+    public static StringMaker? stringBuffer;
+    private static bool staticSet_stringBuffer = false;
+    public static StringMaker staticGet_stringBuffer() {
+        if (!BasicGameResources.staticSet_stringBuffer) {
+            BasicGameResources.staticSet_stringBuffer = true;
+            BasicGameResources.stringBuffer = new StringMaker();
+        }
+        return BasicGameResources.stringBuffer;
     }
+    public LogUtil logUtil;
+    public string RESOURCE;
+    public string RESOURCE_DESTROY;
 
-    public virtual void init(string ROOT, string[] SIZE)
-    {
-        try {
-            int scale = global::java.lang.JavaNumber.intValue(GameConfigurationCentral.getInstance().SCALE.getValue());
-            if (scale > 1 && scale - 1 < SIZE.Length) {
+    // Java field initializers run after the base constructor
+    private void initFieldsBasicGameResources() {
+    this.logUtil = LogUtil.getInstance();
+    this.RESOURCE = StringUtil.getInstance().EMPTY_STRING;
+    this.RESOURCE_DESTROY = StringUtil.getInstance().EMPTY_STRING;
+    }
+    
+
+    public BasicGameResources() {
+        base();
+        this.initFieldsBasicGameResources();
+    }
+    
+
+    public virtual void init(string ROOT, string[] SIZE) {
+        {
+            int32 scale = GameConfigurationCentral.getInstance().SCALE.getValue().intValue();
+            if (scale > 1 && scale - 1 < SIZE.length) {
                 this.append(ROOT, SIZE[scale - 1]);
             } else {
-                throw new Exception(new StringMaker().append("Invalid Value: ").appendint(scale).ToString());
+                JSystem.fatal(new JException("Exception", new StringMaker().append("Invalid Value: ").appendint(scale).toString()));
             }
-        } catch (Exception e) {
-            CommonStrings commonStrings = CommonStrings.getInstance();
-            this.logUtil.put(commonStrings.EXCEPTION, this, commonStrings.INIT, e);
-        }
+        } /* catch (Exception e): a thrown Java exception stops the program */
     }
+    
 
-    // throws Exception
-    public virtual void append(string ROOT, string sizeString)
-    {
+    public virtual void append(string ROOT, string sizeString) {
         string DESTROY = "_destroy";
-        string @string = this.getString();
-        BasicGameResources.stringBuffer.delete(0, BasicGameResources.stringBuffer.length());
-        BasicGameResources.stringBuffer.append(ROOT);
-        BasicGameResources.stringBuffer.append(@string);
-        BasicGameResources.stringBuffer.append(sizeString);
-        this.RESOURCE = BasicGameResources.stringBuffer.ToString();
-        BasicGameResources.stringBuffer.delete(0, BasicGameResources.stringBuffer.length());
-        BasicGameResources.stringBuffer.append(ROOT);
-        BasicGameResources.stringBuffer.append(DESTROY);
-        BasicGameResources.stringBuffer.append(@string);
-        BasicGameResources.stringBuffer.append(sizeString);
-        this.RESOURCE_DESTROY = BasicGameResources.stringBuffer.ToString();
+        string string = this.getString();
+        BasicGameResources.staticGet_stringBuffer().@delete(0, BasicGameResources.staticGet_stringBuffer().length());
+        BasicGameResources.staticGet_stringBuffer().append(ROOT);
+        BasicGameResources.staticGet_stringBuffer().append(string);
+        BasicGameResources.staticGet_stringBuffer().append(sizeString);
+        this.RESOURCE = BasicGameResources.staticGet_stringBuffer().toString();
+        BasicGameResources.staticGet_stringBuffer().@delete(0, BasicGameResources.staticGet_stringBuffer().length());
+        BasicGameResources.staticGet_stringBuffer().append(ROOT);
+        BasicGameResources.staticGet_stringBuffer().append(DESTROY);
+        BasicGameResources.staticGet_stringBuffer().append(string);
+        BasicGameResources.staticGet_stringBuffer().append(sizeString);
+        this.RESOURCE_DESTROY = BasicGameResources.staticGet_stringBuffer().toString();
     }
+    
 
-    // throws Exception
-    public virtual string getString()
-    {
+    public virtual string getString() {
         return GameGraphicsResourceUtil.getInstance().getName();
     }
-
 }
 

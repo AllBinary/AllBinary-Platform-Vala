@@ -13,53 +13,60 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.game.combat.weapon
 
-using System;
-using System.Linq;
+public class SimpleWeaponProperties : JObject {
+    private int32 damage;
+    private int16 dissipation;
+    private int32 range;
 
-namespace org.allbinary.game.combat.weapon;
+    // Java field initializers run after the base constructor
+    private void initFieldsSimpleWeaponProperties() {
+    this.damage = 0;
+    this.dissipation = 0;
+    this.range = 0;
+    }
 
-public class SimpleWeaponProperties
-{
-    private int damage = 0;
-    private short dissipation = 0;
-    private int range = 0;
-    public virtual void set(SimpleWeaponProperties simpleWeaponProperties)
-    {
+    public SimpleWeaponProperties() {
+        base();
+        this.initFieldsSimpleWeaponProperties();
+    }
+    
+
+    public virtual void @set(SimpleWeaponProperties simpleWeaponProperties) {
         this.setDamage(simpleWeaponProperties.getDamage());
         this.setDissipation(simpleWeaponProperties.getDissipation());
         this.setRange(simpleWeaponProperties.getRange());
     }
+    
 
-    public virtual void setDamage(int damage)
-    {
+    public virtual void setDamage(int32 damage) {
         this.damage = damage;
     }
+    
 
-    public virtual int getDamage()
-    {
+    public virtual int32 getDamage() {
         return this.damage;
     }
+    
 
-    public virtual void setDissipation(short dissipation)
-    {
+    public virtual void setDissipation(int16 dissipation) {
         this.dissipation = dissipation;
     }
+    
 
-    public virtual short getDissipation()
-    {
+    public virtual int16 getDissipation() {
         return this.dissipation;
     }
+    
 
-    public virtual int getRange()
-    {
+    public virtual int32 getRange() {
         return this.range;
     }
+    
 
-    public virtual void setRange(int range)
-    {
+    public virtual void setRange(int32 range) {
         this.range = range;
     }
-
 }
 

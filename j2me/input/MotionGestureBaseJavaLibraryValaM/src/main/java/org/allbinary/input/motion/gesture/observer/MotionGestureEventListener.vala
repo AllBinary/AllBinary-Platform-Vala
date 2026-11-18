@@ -13,34 +13,38 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.input.motion.gesture.observer
 
-using System;
-using System.Linq;
+public interface MotionGestureEventListener : JObject, BaseMotionGestureEventListener {
+    
 
-namespace org.allbinary.input.motion.gesture.observer;
+    public abstract void onPressedMotionGestureEvent(MotionGestureEvent ev);
+    
 
-public interface MotionGestureEventListener : BaseMotionGestureEventListener
-{
-    void onPressedMotionGestureEvent(MotionGestureEvent ev);
+    public abstract void onUpMotionGestureEvent(MotionGestureEvent ev);
+    
 
-    void onUpMotionGestureEvent(MotionGestureEvent ev);
+    public abstract void onDownMotionGestureEvent(MotionGestureEvent ev);
+    
 
-    void onDownMotionGestureEvent(MotionGestureEvent ev);
+    public abstract void onLeftMotionGestureEvent(MotionGestureEvent ev);
+    
 
-    void onLeftMotionGestureEvent(MotionGestureEvent ev);
+    public abstract void onRightMotionGestureEvent(MotionGestureEvent ev);
+    
 
-    void onRightMotionGestureEvent(MotionGestureEvent ev);
+    public abstract void onDiagonalDownRightMotionGestureEvent(MotionGestureEvent ev);
+    
 
-    void onDiagonalDownRightMotionGestureEvent(MotionGestureEvent ev);
+    public abstract void onDiagonalDownLeftMotionGestureEvent(MotionGestureEvent ev);
+    
 
-    void onDiagonalDownLeftMotionGestureEvent(MotionGestureEvent ev);
+    public abstract void onDiagonalUpRightMotionGestureEvent(MotionGestureEvent ev);
+    
 
-    void onDiagonalUpRightMotionGestureEvent(MotionGestureEvent ev);
+    public abstract void onDiagonalUpLeftMotionGestureEvent(MotionGestureEvent ev);
+    
 
-    void onDiagonalUpLeftMotionGestureEvent(MotionGestureEvent ev);
-
-    // throws Exception
-    void released(MotionGestureEvent ev);
-
+    public abstract void released(MotionGestureEvent ev);
 }
 

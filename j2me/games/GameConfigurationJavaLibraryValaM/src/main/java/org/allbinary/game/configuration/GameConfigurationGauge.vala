@@ -13,19 +13,14 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.game.configuration
+// import javax.microedition.lcdui.Gauge
 
-using System;
-using System.Linq;
-using Gauge = javax.microedition.lcdui.Gauge;
+public class GameConfigurationGauge : Gauge {
+    
 
-namespace org.allbinary.game.configuration;
-
-public class GameConfigurationGauge : Gauge
-{
-    public GameConfigurationGauge(GameConfiguration gameConfiguration) : base(gameConfiguration.getName(), ((bool) (gameConfiguration.isModifiable())), global::java.lang.JavaNumber.intValue(gameConfiguration.getMaxValue()) - global::java.lang.JavaNumber.intValue(gameConfiguration.getMinValue()), global::java.lang.JavaNumber.intValue(gameConfiguration.getValue()) - global::java.lang.JavaNumber.intValue(gameConfiguration.getMinValue()))
-    {
-        // base(gameConfiguration.getName(), ((bool) (gameConfiguration.isModifiable())), global::java.lang.JavaNumber.intValue(gameConfiguration.getMaxValue()) - global::java.lang.JavaNumber.intValue(gameConfiguration.getMinValue()), global::java.lang.JavaNumber.intValue(gameConfiguration.getValue()) - global::java.lang.JavaNumber.intValue(gameConfiguration.getMinValue())) is called from the constructor declaration
+    public GameConfigurationGauge(GameConfiguration gameConfiguration) {
+        base(gameConfiguration.getName(), gameConfiguration.isModifiable().booleanValue(), gameConfiguration.getMaxValue().intValue() - gameConfiguration.getMinValue().intValue(), gameConfiguration.getValue().intValue() - gameConfiguration.getMinValue().intValue());
     }
-
 }
 

@@ -13,33 +13,36 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.game.midlet
+// import org.allbinary.logic.util.event.AllBinaryEventObject
+// import org.allbinary.logic.util.event.EventListenerInterface
+// import org.allbinary.logic.util.event.handler.BasicEventHandler
 
-using System;
-using System.Linq;
-using AllBinaryEventObject = org.allbinary.logic.util.@event.AllBinaryEventObject;
-using EventListenerInterface = org.allbinary.logic.util.@event.EventListenerInterface;
-using BasicEventHandler = org.allbinary.logic.util.@event.handler.BasicEventHandler;
-
-namespace org.allbinary.game.midlet;
-
-public class GameMidletEventHandler : BasicEventHandler
-{
-    private static readonly GameMidletEventHandler gameKeyEventHandler = new GameMidletEventHandler();
-    private GameMidletEventHandler()
-    {
-    }
-
-    public static GameMidletEventHandler getInstance()
-    {
+public class GameMidletEventHandler : BasicEventHandler {
+    private static GameMidletEventHandler? gameKeyEventHandler;
+    private static bool staticSet_gameKeyEventHandler = false;
+    private static GameMidletEventHandler staticGet_gameKeyEventHandler() {
+        if (!GameMidletEventHandler.staticSet_gameKeyEventHandler) {
+            GameMidletEventHandler.staticSet_gameKeyEventHandler = true;
+            GameMidletEventHandler.gameKeyEventHandler = new GameMidletEventHandler();
+        }
         return GameMidletEventHandler.gameKeyEventHandler;
     }
+    
 
-    // throws Exception
-    public override void process(AllBinaryEventObject eventObject, EventListenerInterface eventListenerInterface)
-    {
+    public GameMidletEventHandler() {
+        base();
+    }
+    
+
+    public static GameMidletEventHandler getInstance() {
+        return GameMidletEventHandler.staticGet_gameKeyEventHandler();
+    }
+    
+
+    public override void process(AllBinaryEventObject eventObject, EventListenerInterface eventListenerInterface) {
         GameMidletEventListener gameMidletEventListener = ((GameMidletEventListener) eventListenerInterface);
         gameMidletEventListener.onGameEnd(eventObject);
     }
-
 }
 

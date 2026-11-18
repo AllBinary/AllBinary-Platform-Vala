@@ -1,17 +1,16 @@
 // Generated Code Do Not Modify
+// package org.allbinary.game.collision
+// import org.allbinary.layer.AllBinaryLayer
 
-using System;
-using System.Linq;
-using AllBinaryLayer = org.allbinary.layer.AllBinaryLayer;
+public class CollisionProcessor : JObject {
 
-namespace org.allbinary.game.collision;
+    public CollisionProcessor() {
+        base();
+    }
+    
 
-public class CollisionProcessor
-{
-    public virtual bool isCollision(AllBinaryLayer myLayer, AllBinaryLayer myLayer2)
-    {
+    public virtual bool isCollision(AllBinaryLayer myLayer, AllBinaryLayer myLayer2) {
         return false;
     }
-
 }
 

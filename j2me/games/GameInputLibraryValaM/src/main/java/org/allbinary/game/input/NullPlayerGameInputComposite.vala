@@ -13,35 +13,41 @@
  *   
  */
 // Generated Code Do Not Modify
+// package org.allbinary.game.input
+// import org.allbinary.layer.AllBinaryLayerManager
+// import org.allbinary.logic.string.StringUtil
 
-using System;
-using System.Linq;
-using AllBinaryLayerManager = org.allbinary.layer.AllBinaryLayerManager;
-using StringUtil = org.allbinary.logic.@string.StringUtil;
+public class NullPlayerGameInputComposite : JObject, PlayerGameInputCompositeInterface, GameInputInterface, NamedInterface {
+    public static NullPlayerGameInputComposite? NULL_PLAYER_GAME_INPUT_COMPOSITE;
+    private static bool staticSet_NULL_PLAYER_GAME_INPUT_COMPOSITE = false;
+    public static NullPlayerGameInputComposite staticGet_NULL_PLAYER_GAME_INPUT_COMPOSITE() {
+        if (!NullPlayerGameInputComposite.staticSet_NULL_PLAYER_GAME_INPUT_COMPOSITE) {
+            NullPlayerGameInputComposite.staticSet_NULL_PLAYER_GAME_INPUT_COMPOSITE = true;
+            NullPlayerGameInputComposite.NULL_PLAYER_GAME_INPUT_COMPOSITE = new NullPlayerGameInputComposite();
+        }
+        return NullPlayerGameInputComposite.NULL_PLAYER_GAME_INPUT_COMPOSITE;
+    }
 
-namespace org.allbinary.game.input;
+    public NullPlayerGameInputComposite() {
+        base();
+    }
+    
 
-public class NullPlayerGameInputComposite : PlayerGameInputCompositeInterface
-{
-    public static readonly NullPlayerGameInputComposite NULL_PLAYER_GAME_INPUT_COMPOSITE = new NullPlayerGameInputComposite();
-    public virtual string getName()
-    {
+    public virtual string getName() {
         return StringUtil.getInstance().EMPTY_STRING;
     }
+    
 
-    // throws Exception
-    public virtual void processInput(AllBinaryLayerManager layerManager)
-    {
+    public virtual void processInput(AllBinaryLayerManager layerManager) {
     }
+    
 
-    public virtual void initInputProcessors()
-    {
+    public virtual void initInputProcessors() {
     }
+    
 
-    public virtual PlayerGameInput getPlayerGameInput()
-    {
+    public virtual PlayerGameInput getPlayerGameInput() {
         return NoPlayerGameInput.getInstance();
     }
-
 }
 

@@ -13,22 +13,18 @@
  *   
  */
 // Generated Code Do Not Modify
+// package org.allbinary.graphics.opengles.shader
+// import javax.microedition.khronos.opengles.GL10
 
-using System;
-using System.Linq;
-using GL10 = javax.microedition.khronos.opengles.GL10;
+public class UniformCameraPositionOpenGLProcessor : OpenGLObject3dProcessor {
+    
 
-namespace org.allbinary.graphics.opengles.shader;
-
-public class UniformCameraPositionOpenGLProcessor : OpenGLObject3dProcessor
-{
-    public UniformCameraPositionOpenGLProcessor(ShaderComposite shaderComposite, int handleIndex)
-    {
+    public UniformCameraPositionOpenGLProcessor(ShaderComposite shaderComposite, int32 handleIndex) {
+        base();
     }
+    
 
-    public override void process(GL10 gl, object anyType)
-    {
+    public override void process(GL10 gl, JObject anyType) {
     }
-
 }
 

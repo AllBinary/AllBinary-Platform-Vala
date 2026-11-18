@@ -13,37 +13,39 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.game.ag.ai.tactical
+// import javax.microedition.lcdui.Canvas
+// import org.allbinary.game.ai.BasicAI
+// import org.allbinary.game.input.GameInput
+// import org.allbinary.graphics.displayable.DisplayInfoSingleton
+// import org.allbinary.layer.AllBinaryLayer
+// import org.allbinary.layer.AllBinaryLayerManager
 
-using System;
-using System.Linq;
-using Canvas = javax.microedition.lcdui.Canvas;
-using BasicAI = org.allbinary.game.ai.BasicAI;
-using GameInput = org.allbinary.game.input.GameInput;
-using DisplayInfoSingleton = org.allbinary.graphics.displayable.DisplayInfoSingleton;
-using AllBinaryLayer = org.allbinary.layer.AllBinaryLayer;
-using AllBinaryLayerManager = org.allbinary.layer.AllBinaryLayerManager;
+public class LurchAI : BasicAI {
+    public int32 currentRelativeAngle;
+    private int32 currentSpeed;
 
-namespace org.allbinary.game.ag.ai.tactical;
-
-public class LurchAI : BasicAI
-{
-    public int currentRelativeAngle = 0;
-    private int currentSpeed = 0;
-    public LurchAI(AllBinaryLayer ownerLayerInterface, GameInput gameInput) : base(ownerLayerInterface, gameInput)
-    {
-        // base(ownerLayerInterface, gameInput) is called from the constructor declaration
+    // Java field initializers run after the base constructor
+    private void initFieldsLurchAI() {
+    this.currentRelativeAngle = 0;
+    this.currentSpeed = 0;
     }
+    
 
-    // throws Exception
-    public override void processAI(AllBinaryLayerManager allBinaryLayerManager)
-    {
+    public LurchAI(AllBinaryLayer ownerLayerInterface, GameInput gameInput) {
+        base(ownerLayerInterface, gameInput);
+        this.initFieldsLurchAI();
+    }
+    
+
+    public override void processAI(AllBinaryLayerManager allBinaryLayerManager) {
         if (this.currentSpeed == -1) {
             this.currentSpeed = 5;
         } else {
             this.currentSpeed = -1;
         }
         AllBinaryLayer ownerLayerInterface = this.getOwnerLayerInterface();
-        int x = ownerLayerInterface.getXP();
+        int32 x = ownerLayerInterface.getXP();
         if (ownerLayerInterface.getXP() - this.currentSpeed <= 0) {
             this.reverse();
             this.drop();
@@ -65,27 +67,27 @@ public class LurchAI : BasicAI
             base.processKeyAI(Canvas.KEY_POUND);
         }
     }
+    
 
-    public virtual void reverse()
-    {
+    public virtual void reverse() {
         if (this.currentRelativeAngle == 180) {
             this.currentRelativeAngle = 0;
         } else if (this.currentRelativeAngle == 0) {
             this.currentRelativeAngle = 180;
         }
     }
+    
 
-    private void accelerate()
-    {
+    private void accelerate() {
         if (this.currentSpeed < 20) {
             this.currentSpeed++;
         }
     }
+    
 
-    private void drop()
-    {
+    private void drop() {
         AllBinaryLayer ownerLayerInterface = this.getOwnerLayerInterface();
-        int y = ownerLayerInterface.getYP();
+        int32 y = ownerLayerInterface.getYP();
         if (ownerLayerInterface.getY2() + ownerLayerInterface.getHeight() > DisplayInfoSingleton.getInstance().getLastHeight()) {
             y = 0;
         } else {
@@ -93,6 +95,5 @@ public class LurchAI : BasicAI
         }
         ownerLayerInterface.setPosition(ownerLayerInterface.getXP(), y, ownerLayerInterface.getZP());
     }
-
 }
 

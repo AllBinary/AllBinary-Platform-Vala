@@ -13,36 +13,36 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.physics.movement
+// import org.allbinary.game.layer.AllBinaryGameLayer
+// import org.allbinary.game.physics.velocity.BasicVelocityProperties
+// import org.allbinary.logic.math.BasicDecimal
+// import org.allbinary.time.GameTickTimeDelayHelperFactory
+// import org.allbinary.time.TimeDelayHelper
 
-using System;
-using System.Linq;
-using AllBinaryGameLayer = org.allbinary.game.layer.AllBinaryGameLayer;
-using BasicVelocityProperties = org.allbinary.game.physics.velocity.BasicVelocityProperties;
-using BasicDecimal = org.allbinary.logic.math.BasicDecimal;
-using GameTickTimeDelayHelperFactory = org.allbinary.time.GameTickTimeDelayHelperFactory;
-using TimeDelayHelper = org.allbinary.time.TimeDelayHelper;
+public class DelayedConstantVelocityMovement : BasicConstantVelocityMovement {
+    private TimeDelayHelper timeDelayHelper;
 
-namespace org.allbinary.physics.movement;
-
-public class DelayedConstantVelocityMovement : BasicConstantVelocityMovement
-{
-    private readonly TimeDelayHelper timeDelayHelper = new TimeDelayHelper(60);
-    public DelayedConstantVelocityMovement(BasicDecimal basicDecimal, BasicVelocityProperties velocityProperties) : base(basicDecimal, velocityProperties)
-    {
-        // base(basicDecimal, velocityProperties) is called from the constructor declaration
+    // Java field initializers run after the base constructor
+    private void initFieldsDelayedConstantVelocityMovement() {
+    this.timeDelayHelper = new TimeDelayHelper(60);
     }
+    
 
-    public override void init(BasicDecimal speedBasicDecimal, int angle, int otherAngle)
-    {
+    public DelayedConstantVelocityMovement(BasicDecimal basicDecimal, BasicVelocityProperties velocityProperties) {
+        base(basicDecimal, velocityProperties);
+        this.initFieldsDelayedConstantVelocityMovement();
     }
+    
 
-    // throws Exception
-    public override void process(AllBinaryGameLayer layer)
-    {
+    public override void init(BasicDecimal speedBasicDecimal, int32 angle, int32 otherAngle) {
+    }
+    
+
+    public override void process(AllBinaryGameLayer layer) {
         if (this.timeDelayHelper.isTime(GameTickTimeDelayHelperFactory.getInstance().startTime)) {
             base.process(layer);
         }
     }
-
 }
 

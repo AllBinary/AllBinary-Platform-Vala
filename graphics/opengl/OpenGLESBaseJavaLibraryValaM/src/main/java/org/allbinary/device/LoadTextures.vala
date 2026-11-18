@@ -13,19 +13,17 @@
  *   
  */
 // Generated Code Do Not Modify
+// package org.allbinary.device
+// import javax.microedition.khronos.opengles.GL10
 
-using System;
-using System.Linq;
-using GL10 = javax.microedition.khronos.opengles.GL10;
+public class LoadTextures : JObject {
 
-namespace org.allbinary.device;
-
-public class LoadTextures
-{
-    // throws Exception
-    public virtual void load(GL10 gl)
-    {
+    public LoadTextures() {
+        base();
     }
+    
 
+    public virtual void load(GL10 gl) {
+    }
 }
 

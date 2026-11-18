@@ -13,34 +13,38 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.graphics.color
+// import javax.microedition.lcdui.Graphics
 
-using System;
-using System.Linq;
-using Graphics = javax.microedition.lcdui.Graphics;
-
-namespace org.allbinary.graphics.color;
-
-public class BasicColorSetUtil
-{
-    private static readonly BasicColorSetUtil instance = new BasicColorSetUtil();
-    public static BasicColorSetUtil getInstance()
-    {
+public class BasicColorSetUtil : JObject {
+    private static BasicColorSetUtil? instance;
+    private static bool staticSet_instance = false;
+    private static BasicColorSetUtil staticGet_instance() {
+        if (!BasicColorSetUtil.staticSet_instance) {
+            BasicColorSetUtil.staticSet_instance = true;
+            BasicColorSetUtil.instance = new BasicColorSetUtil();
+        }
         return BasicColorSetUtil.instance;
     }
+    
 
-    public BasicColorSetUtil()
-    {
+    public static BasicColorSetUtil getInstance() {
+        return BasicColorSetUtil.staticGet_instance();
     }
+    
 
-    public virtual void setBasicColorP(Graphics graphics, BasicColor basicColor)
-    {
+    public BasicColorSetUtil() {
+        base();
+    }
+    
+
+    public virtual void setBasicColorP(Graphics graphics, BasicColor basicColor) {
         graphics.setColor(basicColor.intValue());
     }
+    
 
-    public virtual void setBasicColorP3(Graphics graphics, BasicColor basicColor, int value)
-    {
+    public virtual void setBasicColorP3(Graphics graphics, BasicColor basicColor, int32 value) {
         graphics.setColor(value);
     }
-
 }
 

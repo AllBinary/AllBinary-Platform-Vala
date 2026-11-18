@@ -13,24 +13,34 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.game.displayable.canvas
+// import org.allbinary.game.GameInfo
+// import org.allbinary.graphics.displayable.MyCanvas
+// import org.allbinary.logic.string.StringUtil
 
-using System;
-using System.Linq;
-using GameInfo = org.allbinary.game.GameInfo;
-using MyCanvas = org.allbinary.graphics.displayable.MyCanvas;
-using StringUtil = org.allbinary.logic.@string.StringUtil;
-
-namespace org.allbinary.game.displayable.canvas;
-
-public class EndGameInfo
-{
-    public readonly string NORMAL_GAME_OVER_WIN = "You Won";
-    private readonly string TEASER_DEMO_GAME_END_LAST_LEVEL = "End of Demo.";
-    private readonly string TEASER_DEMO_GAME_END = "Demo Game Over.";
-    private string gameOverStr = StringUtil.getInstance().EMPTY_STRING;
+public class EndGameInfo : JObject {
+    public string NORMAL_GAME_OVER_WIN;
+    private string TEASER_DEMO_GAME_END_LAST_LEVEL;
+    private string TEASER_DEMO_GAME_END;
+    private string gameOverStr;
     private string winStr;
-    public void update(GameInfo gameInfo, MyCanvas myCanvas)
-    {
+
+    // Java field initializers run after the base constructor
+    private void initFieldsEndGameInfo() {
+    this.NORMAL_GAME_OVER_WIN = "You Won";
+    this.TEASER_DEMO_GAME_END_LAST_LEVEL = "End of Demo.";
+    this.TEASER_DEMO_GAME_END = "Demo Game Over.";
+    this.gameOverStr = StringUtil.getInstance().EMPTY_STRING;
+    this.winStr = this.gameOverStr;
+    }
+
+    public EndGameInfo() {
+        base();
+        this.initFieldsEndGameInfo();
+    }
+    
+
+    public virtual void update(GameInfo gameInfo, MyCanvas myCanvas) {
         if (gameInfo.isLastLevel()) {
             this.setWinStr(this.TEASER_DEMO_GAME_END_LAST_LEVEL);
             this.setGameOverStr(this.TEASER_DEMO_GAME_END_LAST_LEVEL);
@@ -39,31 +49,25 @@ public class EndGameInfo
             this.setGameOverStr(this.TEASER_DEMO_GAME_END);
         }
     }
+    
 
-    public virtual string getGameOverStr()
-    {
+    public virtual string getGameOverStr() {
         return this.gameOverStr;
     }
+    
 
-    public virtual void setGameOverStr(string gameOverStr)
-    {
+    public virtual void setGameOverStr(string gameOverStr) {
         this.gameOverStr = gameOverStr;
     }
+    
 
-    public virtual string getWinStr()
-    {
+    public virtual string getWinStr() {
         return this.winStr;
     }
+    
 
-    public virtual void setWinStr(string winStr)
-    {
+    public virtual void setWinStr(string winStr) {
         this.winStr = winStr;
     }
-
-    public EndGameInfo()
-    {
-        this.winStr = this.gameOverStr;
-    }
-
 }
 

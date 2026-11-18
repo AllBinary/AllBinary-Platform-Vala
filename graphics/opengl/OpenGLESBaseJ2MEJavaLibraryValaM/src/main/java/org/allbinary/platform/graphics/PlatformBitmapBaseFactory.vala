@@ -13,20 +13,27 @@
  *   
  */
 // Generated Code Do Not Modify
+// package org.allbinary.platform.graphics
+// import javax.microedition.lcdui.Image
 
-using System;
-using System.Linq;
-using Image = javax.microedition.lcdui.Image;
-
-namespace org.allbinary.platform.graphics;
-
-public class PlatformBitmapBaseFactory
-{
-    public static readonly PlatformBitmapBaseFactory NULL_PLATFORM_BITMAP_BASE_FACTORY = new PlatformBitmapBaseFactory();
-    public virtual PlatformBitmapBase createBitmap(Image image)
-    {
-        throw new SystemException();
+public class PlatformBitmapBaseFactory : JObject {
+    public static PlatformBitmapBaseFactory? NULL_PLATFORM_BITMAP_BASE_FACTORY;
+    private static bool staticSet_NULL_PLATFORM_BITMAP_BASE_FACTORY = false;
+    public static PlatformBitmapBaseFactory staticGet_NULL_PLATFORM_BITMAP_BASE_FACTORY() {
+        if (!PlatformBitmapBaseFactory.staticSet_NULL_PLATFORM_BITMAP_BASE_FACTORY) {
+            PlatformBitmapBaseFactory.staticSet_NULL_PLATFORM_BITMAP_BASE_FACTORY = true;
+            PlatformBitmapBaseFactory.NULL_PLATFORM_BITMAP_BASE_FACTORY = new PlatformBitmapBaseFactory();
+        }
+        return PlatformBitmapBaseFactory.NULL_PLATFORM_BITMAP_BASE_FACTORY;
     }
 
+    public PlatformBitmapBaseFactory() {
+        base();
+    }
+    
+
+    public virtual PlatformBitmapBase createBitmap(Image image) {
+        JSystem.fatal(new JException("RuntimeException", ""));
+    }
 }
 

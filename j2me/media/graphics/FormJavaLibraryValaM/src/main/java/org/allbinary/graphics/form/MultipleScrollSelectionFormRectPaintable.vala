@@ -13,26 +13,28 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.graphics.form
+// import javax.microedition.lcdui.Graphics
+// import org.allbinary.graphics.paint.Paintable
 
-using System;
-using System.Linq;
-using Graphics = javax.microedition.lcdui.Graphics;
-using Paintable = org.allbinary.graphics.paint.Paintable;
+public class MultipleScrollSelectionFormRectPaintable : Paintable {
+    private MultipleScrollSelectionHorizontalForm multipleScrollSelectionForm;
 
-namespace org.allbinary.graphics.form;
+    // Java field initializers run after the base constructor
+    private void initFieldsMultipleScrollSelectionFormRectPaintable() {
+    
+    }
+    
 
-public class MultipleScrollSelectionFormRectPaintable : Paintable
-{
-    private readonly MultipleScrollSelectionHorizontalForm multipleScrollSelectionForm;
-    public MultipleScrollSelectionFormRectPaintable(MultipleScrollSelectionHorizontalForm multipleScrollSelectionForm)
-    {
+    public MultipleScrollSelectionFormRectPaintable(MultipleScrollSelectionHorizontalForm multipleScrollSelectionForm) {
+        base();
+        this.initFieldsMultipleScrollSelectionFormRectPaintable();
         this.multipleScrollSelectionForm = multipleScrollSelectionForm;
     }
+    
 
-    public override void paint(Graphics graphics)
-    {
+    public override void paint(Graphics graphics) {
         this.multipleScrollSelectionForm.fillRect(graphics);
     }
-
 }
 

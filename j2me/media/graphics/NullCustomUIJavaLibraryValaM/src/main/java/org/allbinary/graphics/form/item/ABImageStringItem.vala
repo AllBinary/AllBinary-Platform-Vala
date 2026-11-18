@@ -1,11 +1,10 @@
 // Generated Code Do Not Modify
+// package org.allbinary.graphics.form.item
 
-using System;
-using System.Linq;
+public class ABImageStringItem : JObject {
 
-namespace org.allbinary.graphics.form.item;
-
-public class ABImageStringItem
-{
+    public ABImageStringItem() {
+        base();
+    }
 }
 

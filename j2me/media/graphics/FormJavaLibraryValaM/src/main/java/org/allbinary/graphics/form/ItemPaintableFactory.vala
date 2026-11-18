@@ -13,25 +13,31 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.graphics.form
 
-using System;
-using System.Linq;
-
-namespace org.allbinary.graphics.form;
-
-public class ItemPaintableFactory : ItemPaintable
-{
-    private static readonly ItemPaintableFactory instance = new ItemPaintableFactory();
-    public static ItemPaintableFactory getInstance()
-    {
+public class ItemPaintableFactory : ItemPaintable {
+    private static ItemPaintableFactory? instance;
+    private static bool staticSet_instance = false;
+    private static ItemPaintableFactory staticGet_instance() {
+        if (!ItemPaintableFactory.staticSet_instance) {
+            ItemPaintableFactory.staticSet_instance = true;
+            ItemPaintableFactory.instance = new ItemPaintableFactory();
+        }
         return ItemPaintableFactory.instance;
     }
 
-    // throws Exception
-    public virtual ItemPaintable getInstanceItemPaintable(PaintableForm paintableForm)
-    {
-        return ItemPaintableFactory.instance;
+    public ItemPaintableFactory() {
+        base();
     }
+    
 
+    public static ItemPaintableFactory getInstance() {
+        return ItemPaintableFactory.staticGet_instance();
+    }
+    
+
+    public virtual ItemPaintable getInstanceItemPaintable(PaintableForm paintableForm) {
+        return ItemPaintableFactory.staticGet_instance();
+    }
 }
 

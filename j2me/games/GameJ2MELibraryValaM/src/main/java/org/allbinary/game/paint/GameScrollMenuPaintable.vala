@@ -13,41 +13,37 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.game.paint
+// import org.allbinary.graphics.color.BasicColor
+// import org.allbinary.graphics.color.ColorChangeEventHandler
+// import org.allbinary.graphics.color.ColorChangeListener
+// import org.allbinary.graphics.form.FormPaintable
+// import org.allbinary.graphics.form.ScrollSelectionForm
+// import org.allbinary.graphics.form.item.ABStringComponent
+// import org.allbinary.graphics.form.item.ABTextItem
+// import org.allbinary.graphics.paint.Paintable
+// import org.allbinary.logic.util.event.AllBinaryEventObject
 
-using System;
-using System.Linq;
-using BasicColor = org.allbinary.graphics.color.BasicColor;
-using ColorChangeEventHandler = org.allbinary.graphics.color.ColorChangeEventHandler;
-using ColorChangeListener = org.allbinary.graphics.color.ColorChangeListener;
-using FormPaintable = org.allbinary.graphics.form.FormPaintable;
-using ScrollSelectionForm = org.allbinary.graphics.form.ScrollSelectionForm;
-using ABStringComponent = org.allbinary.graphics.form.item.ABStringComponent;
-using ABTextItem = org.allbinary.graphics.form.item.ABTextItem;
-using Paintable = org.allbinary.graphics.paint.Paintable;
-using AllBinaryEventObject = org.allbinary.logic.util.@event.AllBinaryEventObject;
+public class GameScrollMenuPaintable : BasicGameDemoPaintable, ColorChangeListener, EventListenerInterface {
+    
 
-namespace org.allbinary.game.paint;
-
-public class GameScrollMenuPaintable : BasicGameDemoPaintable, ColorChangeListener
-{
-    public GameScrollMenuPaintable(Paintable mainDemoStatePaintable, Paintable ownershipPaintable, Paintable helpPaintableInterface, BasicColor basicColor) : base(mainDemoStatePaintable, ownershipPaintable, helpPaintableInterface)
-    {
-        // base(mainDemoStatePaintable, ownershipPaintable, helpPaintableInterface) is called from the constructor declaration
+    public GameScrollMenuPaintable(Paintable mainDemoStatePaintable, Paintable ownershipPaintable, Paintable helpPaintableInterface, BasicColor basicColor) {
+        base(mainDemoStatePaintable, ownershipPaintable, helpPaintableInterface);
         this.setColor(basicColor);
         ColorChangeEventHandler.getInstance().addListenerInterface(this);
     }
+    
 
-    public override void setState(int state)
-    {
+    public override void setState(int32 state) {
         this.setCurrentStatePaintable(this.getMainDemoStatePaintable());
     }
+    
 
-    public virtual void onEvent(AllBinaryEventObject eventObject)
-    {
+    public virtual void onEvent(AllBinaryEventObject eventObject) {
     }
+    
 
-    public virtual void setColor(BasicColor basicColor)
-    {
+    public virtual void setColor(BasicColor basicColor) {
         MainGameDemoStatePaintable mainGameDemoStatePaintable = ((MainGameDemoStatePaintable) this.getMainDemoStatePaintable());
         FormPaintable formPaintable = ((FormPaintable) mainGameDemoStatePaintable.getMenuPaintableInterface());
         ScrollSelectionForm scrollSelectionForm = ((ScrollSelectionForm) formPaintable.getForm());
@@ -55,14 +51,13 @@ public class GameScrollMenuPaintable : BasicGameDemoPaintable, ColorChangeListen
         scrollSelectionForm.setButtonBasicColor(basicColor);
         ABTextItem item = null;
         ABStringComponent stringComponent = null;
-        for (int index = scrollSelectionForm.size() - 1; index >= 0; index--) {
-            item = ((ABTextItem) scrollSelectionForm.get(index));
+        for (int32 index = scrollSelectionForm.size() - 1; index >= 0; index--) {
+            item = ((ABTextItem) scrollSelectionForm.@get(index));
             stringComponent = item.getLabelStringComponent();
             if (stringComponent != null) {
                 stringComponent.setForegroundBasicColor(basicColor);
             }
         }
     }
-
 }
 

@@ -13,22 +13,20 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.animation.image
+// import org.allbinary.animation.AnimationBehavior
+// import org.allbinary.logic.util.cache.CacheableInterface
+// import org.allbinary.logic.util.cache.CacheableInterfaceFactoryInterface
 
-using System;
-using System.Linq;
-using AnimationBehavior = org.allbinary.animation.AnimationBehavior;
-using CacheableInterface = org.allbinary.logic.util.cache.CacheableInterface;
-using CacheableInterfaceFactoryInterface = org.allbinary.logic.util.cache.CacheableInterfaceFactoryInterface;
+public class ImageArrayRotationAnimationCacheableInterfaceFactory : JObject, CacheableInterfaceFactoryInterface {
 
-namespace org.allbinary.animation.image;
+    public ImageArrayRotationAnimationCacheableInterfaceFactory() {
+        base();
+    }
+    
 
-public class ImageArrayRotationAnimationCacheableInterfaceFactory : CacheableInterfaceFactoryInterface
-{
-    // throws Exception
-    public virtual CacheableInterface getInstance(object key)
-    {
+    public virtual CacheableInterface getInstance1(JObject key) {
         return new ImageArrayRotationAnimationCacheable(key, AnimationBehavior.getInstance());
     }
-
 }
 

@@ -13,36 +13,37 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.game.ag.layer.pickup.points
+// import javax.microedition.lcdui.Graphics
+// import org.allbinary.game.score.ScoreableInterface
+// import org.allbinary.graphics.PointFactory
+// import org.allbinary.graphics.Rectangle
+// import org.allbinary.layer.AllBinaryLayer
+// import org.allbinary.logic.string.StringUtil
+// import org.allbinary.view.ViewPosition
 
-using System;
-using System.Linq;
-using Graphics = javax.microedition.lcdui.Graphics;
-using ScoreableInterface = org.allbinary.game.score.ScoreableInterface;
-using PointFactory = org.allbinary.graphics.PointFactory;
-using Rectangle = org.allbinary.graphics.Rectangle;
-using AllBinaryLayer = org.allbinary.layer.AllBinaryLayer;
-using StringUtil = org.allbinary.logic.@string.StringUtil;
-using ViewPosition = org.allbinary.view.ViewPosition;
+public class PointsLayer : AllBinaryLayer {
+    private int32 points;
 
-namespace org.allbinary.game.ag.layer.pickup.points;
+    // Java field initializers run after the base constructor
+    private void initFieldsPointsLayer() {
+    
+    }
+    
 
-public class PointsLayer : AllBinaryLayer
-{
-    private readonly int points;
-    public PointsLayer(int points) : base(StringUtil.getInstance().EMPTY_STRING, new Rectangle(PointFactory.getInstance().ZERO_ZERO, 0, 0), ViewPosition.getInstanceD())
-    {
-        // base(StringUtil.getInstance().EMPTY_STRING, new Rectangle(PointFactory.getInstance().ZERO_ZERO, 0, 0), ViewPosition.getInstanceD()) is called from the constructor declaration
+    public PointsLayer(int32 points) {
+        base(StringUtil.getInstance().EMPTY_STRING, new Rectangle(PointFactory.getInstance().ZERO_ZERO, 0, 0), ViewPosition.getInstanceD());
+        this.initFieldsPointsLayer();
         this.points = points;
     }
+    
 
-    public override void paint(Graphics graphics)
-    {
+    public override void paint(Graphics graphics) {
     }
+    
 
-    public virtual void visit(ScoreableInterface scoreableInterface)
-    {
+    public virtual void visit(ScoreableInterface scoreableInterface) {
         scoreableInterface.addPoints(this.points);
     }
-
 }
 

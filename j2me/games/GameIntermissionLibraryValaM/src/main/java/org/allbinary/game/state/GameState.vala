@@ -13,24 +13,26 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.game.state
 
-using System;
-using System.Linq;
-
-namespace org.allbinary.game.state;
-
-public class GameState
-{
+public class GameState : JObject {
     private string name;
-    public GameState(string name, int state)
-    {
+
+    // Java field initializers run after the base constructor
+    private void initFieldsGameState() {
+    
+    }
+    
+
+    public GameState(string name, int32 state) {
+        base();
+        this.initFieldsGameState();
         this.name = name;
     }
+    
 
-    public override string ToString()
-    {
+    public override string toString() {
         return this.name;
     }
-
 }
 

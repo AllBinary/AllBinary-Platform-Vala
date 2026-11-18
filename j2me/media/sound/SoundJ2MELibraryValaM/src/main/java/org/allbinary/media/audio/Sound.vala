@@ -13,58 +13,57 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.media.audio
+// import javax.microedition.media.Player
+// import org.allbinary.logic.communication.log.PreLogUtil
+// import org.allbinary.string.CommonStrings
 
-using System;
-using System.Linq;
-using Player = javax.microedition.media.Player;
-using PreLogUtil = org.allbinary.logic.communication.log.PreLogUtil;
-using CommonStrings = org.allbinary.@string.CommonStrings;
-
-namespace org.allbinary.media.audio;
-
-public class Sound : SoundInterface, global::java.lang.Runnable
-{
+public class Sound : JObject, SoundInterface, Runnable {
     private string resource;
-    public Player player = NoPlayer.NO_PLAYER;
-    public Sound(string resource)
-    {
+    public Player player;
+
+    // Java field initializers run after the base constructor
+    private void initFieldsSound() {
+    
+    this.player = NoPlayer.NO_PLAYER;
+    }
+    
+
+    public Sound(string resource) {
+        base();
+        this.initFieldsSound();
         this.resource = resource;
     }
+    
 
-    public virtual string getResource()
-    {
+    public virtual string getResource() {
         return this.resource;
     }
+    
 
-    public virtual Player getPlayerP()
-    {
+    public virtual Player getPlayerP() {
         return this.player;
     }
+    
 
-    public virtual void setPlayerP(Player player)
-    {
+    public virtual void setPlayerP(Player player) {
         this.player = player;
     }
+    
 
-    // throws Exception
-    public virtual void init()
-    {
+    public virtual void init() {
     }
+    
 
-    public virtual int getDuration()
-    {
+    public virtual int32 getDuration() {
         return -1;
     }
+    
 
-    public virtual void run()
-    {
-        try {
+    public virtual void run() {
+        {
             this.player.start();
-        } catch (Exception e) {
-            CommonStrings commonStrings = CommonStrings.getInstance();
-            PreLogUtil.put(commonStrings.EXCEPTION, this, commonStrings.RUN);
-        }
+        } /* catch (Exception e): a thrown Java exception stops the program */
     }
-
 }
 

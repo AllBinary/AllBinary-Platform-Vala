@@ -13,26 +13,27 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.game.input
+// import org.allbinary.graphics.paint.PaintableInterface
 
-using System;
-using System.Linq;
-using PaintableInterface = org.allbinary.graphics.paint.PaintableInterface;
+public interface TestInputInterface : JObject, PaintableInterface {
+    
 
-namespace org.allbinary.game.input;
+    public abstract void up();
+    
 
-public interface TestInputInterface : PaintableInterface
-{
-    void up();
+    public abstract void down();
+    
 
-    void down();
+    public abstract void left();
+    
 
-    void left();
+    public abstract void right();
+    
 
-    void right();
+    public abstract void strafeLeft();
+    
 
-    void strafeLeft();
-
-    void strafeRight();
-
+    public abstract void strafeRight();
 }
 

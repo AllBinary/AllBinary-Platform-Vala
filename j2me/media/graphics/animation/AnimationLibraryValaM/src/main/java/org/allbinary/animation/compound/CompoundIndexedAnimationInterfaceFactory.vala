@@ -13,32 +13,27 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.animation.compound
+// import org.allbinary.animation.Animation
+// import org.allbinary.animation.AnimationBehaviorFactory
+// import org.allbinary.animation.AnimationInterfaceFactoryInterface
+// import org.allbinary.logic.communication.log.ForcedLogUtil
 
-using System;
-using System.Linq;
-using Animation = org.allbinary.animation.Animation;
-using AnimationBehaviorFactory = org.allbinary.animation.AnimationBehaviorFactory;
-using AnimationInterfaceFactoryInterface = org.allbinary.animation.AnimationInterfaceFactoryInterface;
-using ForcedLogUtil = org.allbinary.logic.communication.log.ForcedLogUtil;
+public class CompoundIndexedAnimationInterfaceFactory : CompoundAnimationInterfaceFactory {
+    
 
-namespace org.allbinary.animation.compound;
-
-public class CompoundIndexedAnimationInterfaceFactory : CompoundAnimationInterfaceFactory
-{
-    public CompoundIndexedAnimationInterfaceFactory(AnimationInterfaceFactoryInterface[] basicAnimationInterfaceFactoryInterfaceArray, AnimationBehaviorFactory animationBehaviorFactory) : base(basicAnimationInterfaceFactoryInterfaceArray, animationBehaviorFactory)
-    {
-        // base(basicAnimationInterfaceFactoryInterfaceArray, animationBehaviorFactory) is called from the constructor declaration
+    public CompoundIndexedAnimationInterfaceFactory(AnimationInterfaceFactoryInterface[] basicAnimationInterfaceFactoryInterfaceArray, AnimationBehaviorFactory animationBehaviorFactory) {
+        base(basicAnimationInterfaceFactoryInterfaceArray, animationBehaviorFactory);
     }
+    
 
-    public override Animation[] createArray(int size)
-    {
+    public override Animation[] createArray(int32 size) {
         return new Animation[size];
     }
+    
 
-    public override Animation createAnimation(Animation[] animationArray)
-    {
+    public override Animation createAnimation(Animation[] animationArray) {
         return new CompoundIndexedAnimation(animationArray, this.animationBehaviorFactory.getOrCreateInstance());
     }
-
 }
 

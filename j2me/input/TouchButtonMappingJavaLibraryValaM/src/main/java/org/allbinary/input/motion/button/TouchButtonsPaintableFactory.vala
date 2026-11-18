@@ -13,20 +13,19 @@
  *  
  */
 // Generated Code Do Not Modify
+// package org.allbinary.input.motion.button
+// import org.allbinary.graphics.color.BasicColor
+// import org.allbinary.graphics.paint.Paintable
 
-using System;
-using System.Linq;
-using BasicColor = org.allbinary.graphics.color.BasicColor;
-using Paintable = org.allbinary.graphics.paint.Paintable;
+public class TouchButtonsPaintableFactory : JObject {
 
-namespace org.allbinary.input.motion.button;
+    public TouchButtonsPaintableFactory() {
+        base();
+    }
+    
 
-public class TouchButtonsPaintableFactory
-{
-    public static Paintable getInstance(BasicColor basicColor)
-    {
+    public static Paintable getInstance1(BasicColor basicColor) {
         return new TouchButtonsPaintable(basicColor);
     }
-
 }
 
